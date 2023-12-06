@@ -1,0 +1,114 @@
+{
+  "key": "mqtt",
+  "documentationUrl": "https://prismatic.io/docs/components/mqtt/",
+  "public": true,
+  "display": {
+    "label": "MQTT",
+    "category": "Application Connectors",
+    "description": "Interact with an MQTT Queue",
+    "iconPath": "icon.png",
+    "iconBase64": "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"
+  },
+  "actions": {
+    "publish": {
+      "display": {
+        "label": "Publish Message",
+        "description": "Publish a message to a MQTT topic."
+      },
+      "inputs": [
+        {
+          "label": "Host",
+          "example": "192.168.0.1",
+          "placeholder": "Host",
+          "type": "string",
+          "required": true,
+          "comments": "An MQTT broker is a server that receives all messages from the clients and then routes the messages to the appropriate destination clients.",
+          "key": "host"
+        },
+        {
+          "label": "Port",
+          "example": "1883",
+          "type": "string",
+          "default": "1883",
+          "required": true,
+          "comments": "Provide a string value for the port your broker server is exposing.",
+          "key": "port"
+        },
+        {
+          "label": "Topic Name",
+          "example": "myTopic",
+          "type": "string",
+          "required": true,
+          "comments": "Provide a string value for the name of the MQTT topic.",
+          "key": "topicName"
+        },
+        {
+          "label": "Message",
+          "example": "Message to Queue",
+          "placeholder": "Message",
+          "type": "string",
+          "required": true,
+          "comments": "Provide a string value to be sent to the MQTT topic.",
+          "key": "message"
+        },
+        {
+          "label": "Connection",
+          "type": "connection",
+          "required": true,
+          "key": "mqttConnection"
+        }
+      ],
+      "key": "publish"
+    }
+  },
+  "connections": [
+    {
+      "key": "mqtt",
+      "label": "MQTT Connection",
+      "comments": "Authenticate requests to an MQTT server.",
+      "inputs": [
+        {
+          "label": "Host",
+          "placeholder": "Host",
+          "type": "string",
+          "required": true,
+          "shown": false,
+          "comments": "Provide the string value for the host of the MQTT server.",
+          "default": "192.168.0.1",
+          "key": "host"
+        },
+        {
+          "label": "Port",
+          "placeholder": "Port",
+          "type": "string",
+          "required": true,
+          "shown": true,
+          "comments": "The port of the MQTT server.",
+          "default": "1883",
+          "key": "port"
+        },
+        {
+          "label": "Username",
+          "placeholder": "Username",
+          "type": "string",
+          "required": false,
+          "shown": true,
+          "key": "username"
+        },
+        {
+          "label": "Password",
+          "placeholder": "Password",
+          "type": "string",
+          "required": false,
+          "shown": true,
+          "key": "password"
+        }
+      ]
+    }
+  ],
+  "triggers": {},
+  "documentation": {
+    "description": "[Message Queuing Telemetry Transport](https://mqtt.org/) (MQTT) is a light-weight, efficient _publish-subscribe_ network protocol for sending messages between devices.\nThis component allows you to publish messages to an MQTT queue topic.\n"
+  },
+  "$version": 1
+}

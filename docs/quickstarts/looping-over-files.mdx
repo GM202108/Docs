@@ -1,0 +1,166 @@
+---
+id: looping-over-files
+title: Looping Over Files in GCS Bucket
+description: This tutorial shows you  how to build an integration that works with files stored in Google Cloud Storage. Learn how to loop over these files with Prismatic.
+---
+
+import Screenshot from "@site/src/components/screenshot";
+
+In this tutorial we will build an integration that downloads and processes files stored in [Google Cloud Storage](components/google-cloud-storage.mdx).
+
+For this integration, assume that some third-party service writes a file to a Google Cloud Platform (GCP) storage bucket whenever an order is processed.
+
+We'll configure our integration to run every five minutes, and our integration will do the following:
+
+- Look for files in the `unprocessed/` directory of our GCP Storage bucket
+- Loop over each file that we found:
+  - Download the file
+  - Deserialize the JSON contained in the file
+  - Do some data mapping
+  - Post the transformed data to an HTTP endpoint
+  - Move the file from the `unprocessed/` directory to a `processed/` directory
+
+Our integration will take advantage of the [loop](components/loop.mdx) component to process files one by one.
+
+:::note
+If you do not have a Google Cloud Platform (GCP) account, you can use [Dropbox](components/dropbox.mdx), [Box](components/box.mdx), [Amazon S3](components/aws-s3.mdx), [Azure Blob Storage](components/azure-blob.mdx), etc., instead.
+They all have similar **list files**, **download file** and **move file** actions.
+:::
+
+If you would like to view the YAML definition of this example integration, it's available on [GitHub](https://github.com/-io/examples/blob/main/integrations/example-with-loop.yaml).
+You can import it by creating a new integration, and then clicking **Settings** -> **Save / Load** in the integration designer.
+
+## List files
+
+We'll start by adding a Google Cloud Storage **List Files** action to our integration.
+This will automatically create a Google Cloud Storage [connection](connections.mdx) to our config wizard.
+Under the **Bucket Name** input, we'll click **Config Variable** tab and create a new config variable to represent bucket name:
+
+<Screenshot
+  filename="quickstarts/looping-over-files/list-files-inputs.png"
+  alt="Google Cloud Storage - List Files inputs"
+  maxWidth="800px"
+/>
+
+Under **Prefix**, enter `unprocessed/`, so it only displays files in the `unprocessed/` directory of the bucket.
+
+Next, we'll open the **Test Runner** drawer and select **Save & Reconfigure Test Instance** to set some test credentials.
+
+<Screenshot
+  filename="quickstarts/looping-over-files/test-config-variables.png"
+  alt="Google Cloud Storage - Test config variables"
+  maxWidth="600px"
+/>
+
+Finally, we'll click **Save & Run Test**.
+If you see any errors about permissions, ensure that the Google IAM account you created as the proper permissions to the bucket you created.
+You should see the files in your `unprocessed/` directory:
+
+<Screenshot
+  filename="quickstarts/looping-over-files/list-files-results.png"
+  alt="Google Cloud Storage - List Files result"
+  maxWidth="800px"
+/>
+
+## Create our loop
+
+Next, we'll loop over the files that our **List Files** step found.
+We'll add a **Loop Over Items** step.
+
+Under the **Items** input we will reference the list of files our previous step returned:
+
+<Screenshot
+  filename="quickstarts/looping-over-files/loop-step.png"
+  alt="Loop Over Items in  integration designer"
+  maxWidth="800px"
+/>
+
+## Add tasks to the loop
+
+Our loop is now configured to run once for each file that was found in the `unprocessed/` directory in our GCP bucket.
+Our loop will contain a few steps to process and send the data to an external system:
+
+### Download the file we're currently looping over
+
+First, we'll download the file we're currently looping over.
+The item that we're currently processing from our is accessible using the `currentItem` key of the loop.
+
+We'll add a **Download File** action from the GCP component.
+
+- For **File Name** we'll reference the loop's `currentItem`.
+- For **Bucket Name** we'll reference the bucket name config variable we created.
+- Our **Connection** is already set up for us.
+  For example, if there's a file named `unprocessed/20210322_163522.json` in our bucket, `loopOverEachFile.currentItem` would be equal to `"unprocessed/20210322_163522.json"`:
+
+<Screenshot
+  filename="quickstarts/looping-over-files/download-file-inputs.png"
+  alt="Download current file inputs"
+  maxWidth="800px"
+/>
+
+Because we're downloading a JSON file, the JSON is automatically parsed for us.
+If we'd downloaded an XML file, CSV, file, etc, we could have leveraged a [Change Data Format](components/change-data-format.mdx) step to deserialize the file.
+
+<Screenshot
+  filename="quickstarts/looping-over-files/download-file-results.png"
+  alt="Download current file results"
+  maxWidth="400px"
+/>
+
+### Map the data
+
+Next, suppose the API we're sending the data to expects a different format ("quantity" instead of "qty", etc).
+We can use the [Collection Tools](components/collection-tools.mdx) **Create Object** action to create a new object for us, referencing the results of the **Download File** step:
+
+<Screenshot
+  filename="quickstarts/looping-over-files/create-object-inputs.png"
+  alt="Create object inputs"
+  maxWidth="700px"
+/>
+
+### Send the data
+
+Next, we'll use the [HTTP](components/http.mdx) component's **POST Request** action to send the data we generated.
+As a placeholder for an external API, we'll post the data to [Postman's](https://www.postman.com/) [https://postman-echo.com/post](https://postman-echo.com/post) endpoint.
+For our **Data** input, we'll reference the **Create Object**'s results:
+
+<Screenshot
+  filename="quickstarts/looping-over-files/http-post-inputs.png"
+  alt="HTTP POST inputs"
+  maxWidth="700px"
+/>
+
+If we run **Save & Run Test** again, we can see the results of the POSTed data:
+
+<Screenshot
+  filename="quickstarts/looping-over-files/http-post-results.png"
+  alt="HTTP POST results"
+  maxWidth="500px"
+/>
+
+### Move the file to a processed directory
+
+Finally, we'll move the file that we downloaded out of the way by moving the file from `unprocessed/` to `processed/`.
+
+First, we need to replace the word `unprocessed` with `processed`.
+We'll use the [Text Manipulation](components/text-manipulation.mdx) component's **Find & Replace** action for that, once again referencing the loop's `currentItem`:
+
+<Screenshot
+  filename="quickstarts/looping-over-files/find-and-replace-inputs.png"
+  alt="Find-and-replace inputs"
+  maxWidth="500px"
+/>
+
+We'll add a Google Cloud Storage **Move File** action to move our folder from one folder to another:
+
+<Screenshot
+  filename="quickstarts/looping-over-files/move-file-inputs.png"
+  alt="Move File inputs"
+  maxWidth="800px"
+/>
+
+## Conclusion
+
+That's it!
+At this point we have an integration that loops over files in a directory, processes them, and sends the data to an HTTP endpoint.
+This integration can be [published](integrations.mdx#publishing-an-integration), and [instances](instances.mdx) of this integration can be configured and deployed to customers.

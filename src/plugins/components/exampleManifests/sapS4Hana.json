@@ -1,0 +1,3140 @@
+{
+  "key": "sapS4Hana",
+  "public": true,
+  "documentationUrl": "https://prismatic.io/docs/components/sapS4Hana/",
+  "display": {
+    "category": "Application Connectors",
+    "label": "SAP S/4HANA Cloud",
+    "description": "SAP S/4HANA is a multi-faceted cloud based ERP solution. Use the S/4HANA component to manage records within the SAP database.",
+    "iconPath": "icon.png",
+    "iconBase64": "iVBORw0KGgoAAAANSUhEUgAAAZwAAADMCAYAAABHuBV6AAAABmJLR0QA/wD/AP+gvaeTAAAhMElEQVR42u2dCXgW1bnHJQEsIB+ooF69bbUqal1bvVqveq0rtRVbb6u2autWsVbrrihYQWQJ+76EfSdENoPIEsISyAZZyb7v+w4hgSTw3vd8XhQhX/ItM3POzPz/z/N7HlsgOXPmzPzmnDnnzHnnfVVdBwAAAOjK5pqx5523uYoAAAAA/ahccN4o8oNwAAAAGCAbkU38fwAAAABa8wPZOIVTSQAAAICmnCMbkY38BwAAAIB2dCAbp3AqCAAAANAIF7IR2cB/AQAAAPCV9Z3JximccgIAAAB8okvZiKwXfxEAAADwFndkI/Il/2UAAADAK9yVjVM4ZQQAAAB4wUL3ZSMSzP8IAAAA8IR1nsrGKZxSAgAAANxmXakXshFZ5/zHAAAAgDt4KRsIBwAAgCGyEQkqIQAAAKBzfJUNhAMAAMAQ2YisLSYAAACgQ4KKNZINhAMAAMAQ2Yis4R8KAAAA/BCNZeMUThEBAAAA31Oog2xEVvMPBwAAAJzoJRuncAoJAAAA0Fc2Iqv4lwAAALA3ustGZGUBAQAAsDUGyAbCAQAAyMYQ2Yis4F8IAADAfiw3UjZO4eQTAAAAm2G4bESWi18MAADAPsiQjVM4eQQAAMA2SJKNyDIuAAAAADsgUTYQDgAAQDaGZWkuAQAAsDDLchSQDYQDAACQjWFZkkMAAAAsiUKyMbFwLl2bT3dtKaFn9lTQh4dqKOBwPU1PbaDAjEZak3uU1uc3UWhps5OQoiYKzj9Ky7KPOP98ako9fRpXSy/tr6Tf7iyj2zYX02X88/yWooECACAb/bI4m1TGsSKXHtpWQiNia2hzYROl1p+g5vZTpEfaTp6irMZWCuHfM4kF9ncW0n1fl9DA1Xmkej0BAMB3LMpWUDYKCqffylz6C/daFmc2UkrdCTqpj1s8TnFTG20saKJPuDclBCjKadXG+nZ0tbMnqAIvhVcqUy8/WpajTL10hnhYCkiqczKcH9SGHfqW1yOq6Nm9FTR4eynd8VUR/XRdPvVdkYubM2RjYBY5CyiVS7gH8Sr3JrYVH6MTqhimi4hSZjScoMD0Rno6rJwGrMojFerSV/rxDUivHqQ3qWhup+5ieECBunEszyUrRlxz+UdbKYyHnxewsD5mOT3Fbfr2zUV0AR+zFdq1jVBYNiILs0gG/ouy6H9Dy7iRH6P2U+a/aIUnE2qO89NlHQ3mHtD5S7JJVt36wlAWv2r5HT+Rq1A3Du7h2C3i2hQjDUt5xOEN7iHdyRIya9u2PqrLRoJwLuIn6I9iqqmAn6isnMbWk7Qm5wj9cVcZ9V5qngs0oqJFuboMyj0C4SiU42yh0JJj9G5UFV0XXIAbPWTjQRZkkhEMXJFDs1PrqbntlO0uUHHMG3mW3F/CyqjXkiwyqs495Toe01cxLXyD67csW3r9OLgMyLnJ4Yk2M3nm5682Fyrbti3NwkyTyMYA4fTkobO3I6uo4cRJXJkcUQ+B6Q10b0iRcg13XEKtsvX2angFhGOCpPMs0mE8gjGAHzAhA8jm3ARyoXXizzyclH+kFVehi8RXH6c3D1RSXzEmruN5cAd/brxiJp6qCS9vll5HjqUQjie90mX83ufaoHzp583CmEw2TuFkkNb0X5pFQfz+AnEvR/h9z4zkOrpiVQ7pcT7cYfDWYuVnBV69Nlda/Qgc3K4RzyfTBPM7uJ9JPncWxISy0UE4D31dRCUKPymr/lQ4P62erlmbZ3gDXpPdqHz9jIythnBMPNFAPFSJOoQs7Cobkfl8ABrQnYdkJvA7gJOncHH5miSeXt1No/PiDv14IoMZJnOIl9NG1svZOJZAOL6mkGenPrylSNo5ND3zzCwbp3DSyVfOX5hB63MxhKZVBm8tIi3Oi7u8Fl5umrq5Z3OBoXVzJo4lmWicGg2PBnJPvu/iTGnn0pSYXjYi88SBeE9/fuoLLzuGq0ijhBQcJV/PiadEVjSbpn4CeWq90fVzGsdiCEfLiBltV4n3lpLOp7mwgmx8FM5ly7MpoboFV45GEVuMDFqTa2hDFr/PTKOgYlp5r4UZEI5FUtPSTvdsKoBQbCEbkblp5A0X8/CCeEJBtMvkxFry9nx4y7i4GtPV01M7SgyvJ4FjUQYaqQ5p4lmaQ74pknJOTYCFZOOlcH4UmE77MYymaSqb26gf39CMbMx+89KoyIRbDIXwrg0QjrUi9mx74ptiCMbSsvFCON2Y4JxGXCEaZ+jeMsMb9KNbCk1ZV6089HiJmF4L4VgqYj3aL4LzIBrLykZkTip5wpsmmtFkliTyezD/uZ6dBy1Yk9Vg2jp7e3+54fXlWJiOxqpzyo610ZUrsgw/t0oxN8WisvFQODcH5TgXJyLa5tdiqq/Bjbof3zzNvJFqXFULhGPRiIlIPXm4F7KxYmbzQbpBd+7mJWJGmubZkNtI7p4DLRm6p8z0dXfTmhxD68yxAMIxKp8frJJyXUhlTuoia8vGKZwUcod/hZfhKtA4J7i3eM3KLHL3HGhJZLn5J30ExFUbWmeOBWlotAaljd/T3RGcK+XakIItZCMyiw+2Cwbyy9K64+24CjTOeLE3mBv1rzXXrbLGrsclTa3kL54MDao3RyCEY2SSalqox5xUKdeIsdhFNm4KZ3J8DVq/xqngl6PiBiajgY9j0Vklj4j3XxCOZfNKWClkYy3hJFNn9OOLrOEEejda58VdJdRV3euB3+xkU669cZWVGfWG1Z0jMBUN1+DkNp6g7nNSpFwrBmAz2YjM5APvhE8iK9DqNU5sZTP5zeq83vVi8OZ8S9WlWKXed36qIXXnmA/hyMgLocVSrhVdmWFH2XQhnG5MXiO2r9EyYiLyvetzpTX0NZkNlqvTF0NLIBwLJ4u30JL1gAbZaJ0Zh8kV9wTnmOpGXs7vRUTvISSvkYJ5UeOZbOTdEfaVNFEKv4gUf69V0od7gviG31md60l/vmE2t5203A0prPioIfXnmJeCu7+kPLAhV9p1oy1JNpZNF8KZe1jdyQLiC4Jf5x+hYQfK6b9ZjD1nJ3t1Axm0PNM5zPTGnlKanlBN4aVNdLRVn5uyuNn/ZEm6tMb+WliJJW9G4tnBiHpVRTjiUUnMGu2KExZapL0guRaysUSmc0W4oOiIei+XC7lMH7NkBooZXp2U3Rf8ZyTTjbw+RkhoE/eMGjSaEj46plK3MrtDpIU3XB0eUaF7/TnmqiGcI/yJBnfL3I25cF4qXc67JNyyKov+tLXQWVcr0uspiRdym+ULvbX8GYOeYlhN4vXjG5DN/wsniTri6qVqrapuP3WKJsdVUW/Rk3FRZr3oPvMw3fdlDs3gHlBpk3cSLuaZYX3mGF/201y33NobT6bXHde9DtUSjjbHNIBn3j2/vYi28DB0m+L2eSIkX9r14yOQTVfCeZlnhqgSsX/boxvzlGg8fjOSnPKZm1TjUc9HXNQyyz3uYKXlx/nvDMqGcHzgp4vTncPKqg7FLRTDapCNyTONK6UD5ivy/kY0/SFf5ZOrcsqkN3fxX9pZRNFdbBMTxUNZ3SSW05+79MUWWnvjKrMTa3StR8cchYSj43FeuzTDOcFGtaTWtih5H3DJVMimA+EkUkfs5Zk/KuRLnmHmqowqceuqTFqcUnvO06H4X3etzZJatsEbc20xk6mmpY16zkzSrR4dPCSqjnD0bTP+/HQ+4ZBavWJxLV00L9kU94PzpiZCNh1mqrNyzqG8qU2JRvYrcbN2UUYVuXxBKgXw8NXp4baVaXXSy7SWV+PbJX8QvWGd6tExWyHhGNR2RkSo9f2rxzfnmeE+ANl4Ipw+sw4rM1GgF7+wN5NwTtN39mF6b18pXcECklmO/vxUbsW1N66yMbsBwtGYZam1ypzfcWKmJ2Rj4kxJoLO5IlCNseoWvlF266B8wH1eCy0iO0UMaV4sZgPqUJcORR7EnMIxsA314WFKVZZIbBIPFMpeb5CNV8L5+TJ1pkTfvDwd4vCByLImslv+uasYwtGYZ7cWKHHsCVXNkI3VhHP3mixlbh6LxVRIiMMrrltiz+30o3lWIISjLd35RbgKvZx6fjcK2Zg5k+PpbO5ananMzUOsRfvN+hzqqJygc8bH2Hen7+uWpGpenw4eWlJDOO1S2lOAIu2p/6wkda6zKfGQja/CuXW5WrsMiBlfv16XBYl4gD8/eZXYYO2Nq4yJLodwNOb+IDVGPm5bkQ7ZmDaTuOLO4vrF6g3FiJfBz/M4ckflBecieoV2TgF/VsNvsrZ16pihkHAktKne0xOV2HvtoXXZKlxjkI13womjs7lyQbKSNxHR1mfEVVKf6QnUUbnB96xNr5N6rmbFV9GxVrnTsR8QvWIN69QxI1Eh4chpV/kN8r+PNWRjjuTrKxay8ToTuQLPop8iF5ariEb/SHA2dVR2EEf9+fy1SF57c9uyNNqcLfdjb0t4eyYt69UxXSHhSGpbUaXyZz0+E5In7/qaANloLhxBdXOb0tIRvZ1NWfV0E8/EgmR+yGs7CqWemzx+IBDleGlbgfQbc+9pCRCOhuzMb5R+/C9zu4JsTCucWOoIFZ5k3J3FtjqtlgYtTCFXx2I3ZJ+7qYcqnOUYODvRuVuEzDz3dZ5m9ergoVx1hCOnbW3Pky+cN3cVGX/skI1GmeCszHNYmVJLZooQTwgP4TwYlEmujskOXL9I/i4R963O+K48+4rkbgIrbpBa1a1jmkLCkdS+Ikrkb+r7blix0ccN2egtnE/2mfdzxEm8Gnno9gLqJyYX2Ew446PkbrZYwR+o8/92+MHJe7vlfldJ9LAun5ME4WhEBn8iQHbEkDFkY9YEHKKOuGuF+VepixfnwTxba8j6bPIXjcfFsVoFvwmHqKhR7iyiwISqH5Tp6vnyV+d/uKdYk/p1TItXRzgS2lcPHlpqVWBe9HNi0oAxxwzZGCUccYOu9+CLlqqnkG/Ek3ml9J3L0ywrnMHr5O8Q8Vhw1jnlSuYep8yI3w/h+M7Ni9XY1PcPG7IhG9NmPFeuCzZk1JEVk1d/nAJ46Om/eOput06O32ysTZP73q2RH1DOFy9YzyrXmIgy6ef8F2KrGx/r1zFVIeFIaF/vhamx8/gjazP1PVbIRk/hHCRXvMAzfKyeAp7CO/VgBd2zMo38AlzXher0nxYnfe2NEF5HZbtjaar08zyNz7GvdeyYGqeQcIxvY/sV+Qrw7UtT9TtOyEbnjONKdkEvflqtUXw9jpYp5b3HZsVW0t1i2K2TelGR17blS6+/pzfldFi2bkzxEbnvlsRkhu5iqMSHOnZMUUg4BrevWxalKHOdXsg9TX2OE7IxQDgx1BmTosvIjhHvfAKiyuiaeUnUVR2pQJTk6arHea+7vpNjXZZvDm9JJDu/C870qY4dU2IVEo6x7SskS43PlIsHYJ2OEbJRQThXz1Njwz5ZEYe+v/gIDf0mn/pPjVVSNtcHyt9Uckt2fadlfHRthvQyrhNDfhCOxzy5Xp3vY8XwombIxswZyxXeBYsSqwghauLNKBfytN9f8mwdd+rNKMZHyu+FvixW9HdSxp78fqxB8qxH8Y6rP0vD23p2TFZIOAa1rUHcw69vUWe26pqUGm2PcQxkY7BwoqkrLpkeJ/1moVoiuNfz5PpM8hvXdf3piT8/oZVIfj8iFlcO5EkLXZVV3Cxk59WteV7XtWPyIYWEo3/bupZHN2Sv6zo7H+wq1O4Yx0RBNoZnjKj4rnk3tACW6SAZNS30yte51EN0zd2sSy35jQJDVXsLG90q6zMbs6WXdX/REa/r2jFJIeHo3K4Gr0mn6mPqTRi6c0mKRscI2SgtHHFDjS45CsO4SE5dCz2/OYf8xhornLWp8nsNb+8scPuGLT6kJ/ud3NVzEiEcF1zKPdVFPGys4ntbcdzdNXmwg2zk5Ysocpcfz4hT8qlHpaTwqvaHVqWRJ/XqLf35Bih77Y24L/10ZrzbZd6eI3+208h9xV7Vt2PiQXWEo3Fb+jkPn806WO58T6lqRNvR4FghG7MIR/DI6jTpW86bIcFpNU5B6ymcf3wjf2FubFmTR2V+XYEyi95oN5sLZ8CUQ/QwPxiNO1BCSZXHTHFNfcDD+pCNzYQjeGcH3ue4k6N8Yxi6NVc34UQpMMQ5Yk+RR2W+giegqPC4cu+yFNMKR/RqRbtyB3GT/mxvMQVElNJSnm0qJruYcTG3GOL7T98e4CAbJTI6krzh/Z2QjidDAZdPiyVv67ojBs2JV+LGfcPcBI/LHlMqX5SBcRUel9sxIQaNWVLC8hu8v16+iIRszC4cSMeziHdf9y9P0Uw4ARHyv1eUxd9G8absw3cXSi+7mObfS0xph3BMkZdDciAbS+RzPik+8Bbv4dV2Eu903Mnx9pP0irhwfKxz/9FR0tfeiATw+L835b9xbqIS5+PpLzM9KrcjAMKRNTTdj+vei7YG2agnnAjylUdWplJtM2avuZsx4cU+1fdvVqcqcRx3LTrs9TFkKfDlyC2ZdR6V2REQjcYr7cHGwzY2KmIxZKNiRjlPjs9czS/0kk0y20WFTI4s9bqug1KqpZdf9LC6+dBeJvFLbNkRPfPLJh90u8yO8RCO0WlqbadLJh30tH1BNlYXjqDP2Ciae6icMGvavYibrqd13J+HFmSvvRGZzWs2fGkr9y5JVuIcvLM9D8Kx1jUC2agtnAOkNQ+vSOE9mI7janEjQ7fkeFS3//g6R4lyi3PsSxvx52GPSv5GjezElze5XWbH+Cg0WANT19LGvZsYD9oVZKN+RvKJ0oF+fHFOiyrFhIIu0spbvTywLNnteo3idRSyI97X9Rgd4XMbWRxfocQ5uImnmLtTXsc4CMfIvLw524P2BNnYWjinuZEv5rC8Blw9naSKn/QHTozpsi6vn6XGFyeXJ1Zq0jaGrElT4ngmipfSEI5S2ZVbT90gGwjHl5tLIg9fIB1nbXJ1l3UYsL9YibL+YW26Jm2i15hIajoh/7MXpTwBQgzxQThqRLSJn02PhWwsmc/2k1H4jdxPTwenU1oVZrN1eCNnKbuqO38eoy5R4Nskx3hzx95fRGjWJjam1ShR948uT+6yrI6xkWikOkdMOHqG7xFutZ+R+yEbCMc98QzhtSQH+DsqyPfJ4bUp3cXLzw7q7LGVKUqUcX1qtaZt4YWNmUoc10oxTAjhSM/ovUWQDYSjH/cuSqJgXlci+zsp6rwozeqwnoKSq5Uo3183ZGp6/i8OiFJiYonoufVloUA48iJ6u+JhFLKxcv7NJ1ABBvIq7g94TUR6dbOtL7pc3jq/h+jlnFE3/Xl9kwprb8SMugv5PYbW536PIpNKXtyY1Wk5HWMgHL0SxpME+nwR6U57gWwgHG25fV4CBfICUhVeKMvI7/mbQ2fWx+tb1Fh7syO7Xpfz/c43ucrc9CAc47Mtq456iWn2kI0dhBNOqtKfhzCGfpVFoby9f7uN1vOIIcYz6yFagbU3Iq9vydblPF81VY3vzIgm9pPJMS7L6RgTATtonE08jNZz1H432sk+yMYS+ZRPpgkYwEM5Q/n9xs6cOssvJm3m9wkOMROMj/uGGbHK3IwvnxCt2/lNUmTK/PDQfJdlFOcE0SZiNtpEnubfXbyT6ap9jIBsIBzJ8nmV5bMju875XsGK+YuYGsrHGhCuxtqbyKJGXc/p5wp8I0ckg98hQjj6po53qnhiVap7bQOygXBU4iIednuRZ05tyail4wq8WNcqs6NLyZ+f/koV+O6NyEc78nQ9j7+cG69M3d81PwHC0SlRRUfoqikHIRvbZsQ+sgq9eSx4CK9XWZFQ4fxok5kTy59hfmx5sjLlGTTtoO7nL7+uRYljFbLvqHyO0QdgDC9Tzxtxvs0bz/r/O9zd9gDZQDjmoc/nB+hZHpbaxRMOzPjKRwwVhqSrsQpf7Or844nRup4vv0/3UdDhKiWOt+ZYK/X8LBzC0ehdzeLYcho4LtKT9gDZQDjm5SqeeTRmT6HzRoJ4f+OI4dlyw3ho7a558dTjs3Cfz8t/8KLPP65Jdd6QVPhUwZl5knfCgHC8j5jYs4p3b7hpZqyn7QKygXCswQXc63l/Wy6VKfJexMwRC1H3FzTQvJgy+ogX7P6JxSFEdDPfYH42JYYu5ndrl7NQxH/fPieOHlqSRH/flEnjeOuS4OQqKqxX+3tJYrouhONdu5gbU+p8yPPiGoVsLJ/hfKJtRi/ePmNUWAG200FcRrSNAbzQ88x24/gcwnH5zrHkqPMdzdl15gGQjT2Es5fsym2zYulwBT6ZgHScN0KyftBeHJ/vR6WcMWR2gHu4I3bm0ZWTon29FiEbCMce9OWbiNjSBEHOTrRYewThOCMmsSSWHaVpEcX0+Ipk53Wj0TUI2dgqn/BJtzkX8BBbMno6SAe5nrfdOd1OHKOsL5wjx9sprfIY7eD9zSaFF9HfeKbnbfxerifPItT82vsYsoFwbMods+OcM7EQ5MyM5dmNqglHvF8K4MkXnvIZb9szbHsu/Sskm4byBI7n16XTUzzZ4/4FiU6x9hGfBjDqmoNsIBy7s0+RbfIRdSJm0/kNV0s4ohdi6msNsrFxPt5D4Fs+35WPOyxyTh5YkOBsH46RCgnHtNeZkM0oyAbCAW/wpxAQ5Ows5YWpEA5kgygknN8uPUz+YujBxMIZhR4O4uIG34d3VoBwIBvE1wzjxuAjd/NKcpHD/E2TRxclkRY/UwbBiuzlhaiX54LSyPGZQsIx1bUF2SDfCWc3+crOrNofXBCh/J2aW6YfJC1+tlGcP2IvNR5vw50V6TDbM2tZOOEKCcc01xZkg2gnnHvmxnV4UYiVyGLs+9pJUaa4MF5Zn467KuIy4hPnN0yJhnAgG0SmcERvpqsLdTV/n+bnvImjqhdGv5HhVNRwHHdVpNN8EZYP4UA2iE/5iBuHl9w3z/2vNJ7kVZXr+R3JA4EJ1G2Y979Ta0RZNqdW426KdJkCRT4Q5xTOR7vVBbJB9BBOWE6dVxdMetUxendLNl3EC+lkXhg9eRHayvgK3EkRU0Vp4UA2SOfCCSNv+J95cT5fOOLbGaJ38cK6NLp4VDh5WxZv+AVPakjgzzgjiDmFE6Yew3ZBNkgX+ZAbihfs8bJ34ypikkEYvw/6lPd6ejAwni7gWWPels0V/jx89ujCBNrIHwDDvmmIqYWj8bXhO5ANopNwfj0/XveLSkw2ED2Q1TzkNZo3HfxbUCrdMyeWBk2Mokt5a/TzP9njsnxCVj8eG0G3To2hx/lLkx9tzaENLJnqJnxiGoFwIBvEVMLZq8j3Y5pbT1Jdc9sPONF+EnckBMKBbBAl8wE3Gg940IDeDYIgXQjHw+tWF96HbBCPhbOLPGEfvo6JIAoIZ5dcIBtEb+E8HIjeDYLYXjiQDWKEcMLz0LtBEFsLB7JBfMr7zkbUJY+id4Mg6gjHzetWYyAbxFfhhJI7ROTj88tWjTi3Yh2U6mlowW7e3wsn1GggG8QY4QxegN6NVZNcftR5jvt8spuGLE6kwKgSKm1UYyNTsf9ebHEjBezOp4fnx1GPj3ZRXm0zhGO8cCAbRKO8xw2qC6IK0LuxakbtyD3nfPvx8Mkt/FmJl3mx7dyIYjpY1EjH2/Rf31TCO3aHpFTRSN5tQsjv4n/vPadsU/cVQjhCOG5ctxoB2SDGCecx9G4snZt45wZ3bjw9PtxFt06OpidYBG9tyqDJewooOLGCogsbKLemmcqPnOCFt60dbhkk9swTf1bIuy2nVTTRjowaWhRd6hTLi2tT6SHel+/SkfvcKse9sw5BOMYJB7JBjBVOTGEj7soWTXplky43qu48m+lC3l7IMXyP5j9b9L6E3CAcyAYxY97dSa743UL0bqyc0WI4rZPzryrzI4ttLpw2fesYskFkCCemEO9urJxbxee/TSicwYFxEA5kg1hJOI/zNv6IdZPFH8Ezo2wEPT4Idb4TgnAgG8RseYcb2ll048YXW4R3N1rlKI+5q7aL9fhd+dTRuTcLKw6V2Vs4mtcpZINIEs5F/LJ3n8YfWLNrxFTfF9ekKFeu26dEm1o4T/JsOQgHskFMJ5wd5IqH58aip+NDQjNr6DJeSzJtb4FS5crjaczd3nV93s1Arw9DqelEu42Fo1ldQjaIGsIRiBvTEJ6tdrjsKAziZsQ2MaO255AfD012f28nVSg2jXdCWL6pZXOa9bwOCMKBbBAz5W1ueG7QnW+ef16eRIfQ4+k0SaVH6I7JUd/V2+8XqTf54k4xnObmeVeZ51Yctq9wfK2/tyAbRGHhnMm9M2IoOKGC2k2w4aNROcbDO6O25VBPsWjujLramFSpVDmL6luo2zs7LCGcfsPCbPlJcZ+FA9kg8oSznbxl0Jj9NJP3tqo9Zt8pqmIrl6D4crris73n1M+A4buVuyFO5S1pfDnnqrEtrdqmwvGyzt7aDtkgEvOWsxH6RE8ebhuyII57PeXU2n7KNqLZwhtN3j4p0mW9vL0hXbly3z01mrQ456rw6toUewrHu/qCbBDzC+dMLvt0D73PmzvG8A7TJ09ZTz6ix7I6toxuHHegy7qIL1brfVdJQwv5OYdUrCOcS0bstt3QrpfCgWwQ6wnnTAbwN1b+tvKws+cjFj+aORm80eWwkEznDc6dY79p/AHljmE6T8+2kmxOsze7FsKBbBC7C+dMevN2JE/wpw6m8TuEg4Xm+MJkJktGvPO4Z7rnw1Di36mW+3iyhxWFo+LQpULCgWwQ+wnnbC7ghXsPzznknNm1k7+PosJalaqjJ2hrapXzBnbN6HCfju8V3l1A9IhU4cOvMi03nHbmMK5Kda03725Mh2wQCMdXLv4kjO6feZBeD+YvTe4vot1Ztc5exjGNV5Q3t7ZTKn9aWchl4q48empJIl05ap8lb8bAtkA2iIL5FzdOE+DgL07ewNOwH5x1kP7KC/6G8uykd7gnMoyf3EdzLykgNI/mhBfSPBaV+O+x/K0X8Wev8WeSn+UFq0N4S/s7eUHmpTxV2SzHDICXQDaIqsLZRgAAqwDZIBAOAACyQSAcXKgAmJ63vlkC2SAQDgAAskEQCAcAyAZBIBwAAGSDQDgAAMgGQTzPm9x4AQAmArJBIBwAAGSDIBAOAJANgkgXzjcEAFAeyAaBcAAAkA2CQDgAQDYIAuEAACAbBMIBAEA2CALhAADZIIhZ8wY3cACAKkA2CIQDAIBsEATCAQCyQRAIBwAA2SAIhAMAZIMgRgpnKwEApADZIBAOAACyQRAIBwDIBkFMmn/yBQAAMAbIBoFwAACQDYJAOABANggC4QAAIBsEgXAAgGwQBMIBALJBEAgHAADZIAiEAwBkgyAmFs7XBADQCMgGQTrJ63yRAAA0ALJBEAgHAMgGQSAcACAbBLGPcOoAAF6zCLJBEPfyfzn0Rcqiko7hAAAAAElFTkSuQmCC"
+  },
+  "connections": [
+    {
+      "key": "apiKey",
+      "label": "API Key",
+      "inputs": [
+        {
+          "placeholder": "API Key",
+          "required": true,
+          "shown": true,
+          "comments": "Follow the next steps to get an API key https://help.sap.com/docs/intelligent-robotic-process-automation/factory-user-guide/add-api-keys-to-environment",
+          "key": "apiKey",
+          "type": "string",
+          "default": "",
+          "label": "SAP API Key"
+        },
+        {
+          "placeholder": "URL",
+          "required": true,
+          "shown": true,
+          "comments": "Provide the Base URL for the organization. Example https://{company-url}.api.sap.com/s4hanacloud",
+          "key": "baseUrl",
+          "type": "string",
+          "default": "",
+          "label": "Base URL"
+        }
+      ],
+      "documentation": {
+        "description": "You can create an API key within a single environment and use the API key to execute different public endpoints bound to this specific environment.\n\nWhile creating an API key, you will be able to see the complete API key and copy/paste into your Prismatic connection. As a best practice, you must store the API key in a safe place so that you can retrieve it in the future. You won’t be able to copy/paste the key once it is added to your environment. Refer to [SAP Help Portal](https://help.sap.com/docs/intelligent-robotic-process-automation/factory-user-guide/add-api-keys-to-environment) for additional Information.\n\nPerform the following steps to create API keys within a single environment.\n\n- Go to the **Environments** tab and click an environment to\nopen it.\n- Go to the **API Keys** section and click Add **API\nKey**.\n- In the **General** section of **Generate New API Key** window, enter API key name on the Name field and description (optional) on the **Description** field. Click Next.\n    \n- In the **Scope** section of **Generate New API Key** window, click the toggle button(s) to choose single or multiple scopes of your API key. Click **Next**.\n    \n- In the **Review** section of **Generate New API Key** window, you can review your API key. Click **Add**. The **Generated Key** dialog box is displayed.\n    \n- Click **Copy**. The API key will be copied to the clipboard and you can paste it into the Prismatic connection. You can also select the API key manually and copy it.\n\n[Detailed Info Here](https://help.sap.com/docs/intelligent-robotic-process-automation/factory-user-guide/add-api-keys-to-environment)\n    "
+      }
+    }
+  ],
+  "actions": {
+    "addAttachment": {
+      "display": {
+        "label": "Add Attachment",
+        "description": "Uploads an attachment to a business object using the file name, mime type of the attachment, business object type, and business object instance key."
+      },
+      "key": "addAttachment",
+      "inputs": [
+        {
+          "comments": "Request Body",
+          "required": true,
+          "key": "requestBody",
+          "type": "string",
+          "default": "",
+          "label": "Request Body"
+        },
+        {
+          "required": true,
+          "key": "connectionInput",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getAttachment": {
+      "display": {
+        "label": "Get Attachment",
+        "description": "Reads the attachments associated with a document info record."
+      },
+      "key": "getAttachment",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connectionInput",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Document Info Record Document Type",
+          "required": true,
+          "key": "documentInfoRecordDocumentType",
+          "type": "string",
+          "default": "",
+          "label": "Document Info Record Document Type"
+        },
+        {
+          "comments": "Document Info Record Document Number",
+          "required": true,
+          "key": "documentInfoRecordDocumentNumber",
+          "type": "string",
+          "default": "",
+          "label": "Document Info Record Document Number"
+        },
+        {
+          "comments": "Document Info Record Document Version",
+          "required": true,
+          "key": "documentInfoRecordDocumentVersion",
+          "type": "string",
+          "default": "",
+          "label": "Document Info Record Document Version"
+        },
+        {
+          "comments": "Document Info Record Document Part",
+          "required": true,
+          "key": "documentInfoRecordDocumentPart",
+          "type": "string",
+          "default": "",
+          "label": "Document Info Record Document Part"
+        },
+        {
+          "comments": "Filter items by property values",
+          "required": false,
+          "key": "filter",
+          "type": "string",
+          "default": "",
+          "label": "Filter"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "allpages",
+              "value": "allpages"
+            },
+            {
+              "label": "none",
+              "value": "none"
+            }
+          ],
+          "key": "inlinecount",
+          "type": "string",
+          "default": "",
+          "label": "Inline Count"
+        },
+        {
+          "placeholder": "Order By",
+          "required": false,
+          "comments": "Order items by property value",
+          "model": [
+            {
+              "label": "FileSize",
+              "value": "FileSize"
+            },
+            {
+              "label": "FileSize desc",
+              "value": "FileSize desc"
+            },
+            {
+              "label": "FileName",
+              "value": "FileName"
+            },
+            {
+              "label": "FileName desc",
+              "value": "FileName desc"
+            },
+            {
+              "label": "MimeType",
+              "value": "MimeType"
+            },
+            {
+              "label": "MimeType desc",
+              "value": "MimeType desc"
+            },
+            {
+              "label": "CreatedByUser",
+              "value": "CreatedByUser"
+            },
+            {
+              "label": "CreatedByUser desc",
+              "value": "CreatedByUser desc"
+            },
+            {
+              "label": "CreationDateTime",
+              "value": "CreationDateTime"
+            },
+            {
+              "label": "CreationDateTime desc",
+              "value": "CreationDateTime desc"
+            },
+            {
+              "label": "LastChangedByUser",
+              "value": "LastChangedByUser"
+            },
+            {
+              "label": "LastChangedByUser desc",
+              "value": "LastChangedByUser desc"
+            },
+            {
+              "label": "ChangedDateTime",
+              "value": "ChangedDateTime"
+            },
+            {
+              "label": "ChangedDateTime desc",
+              "value": "ChangedDateTime desc"
+            }
+          ],
+          "key": "attachOrderBy",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Order By"
+        },
+        {
+          "placeholder": "Select",
+          "required": false,
+          "comments": "Select property to be returned",
+          "model": [
+            {
+              "label": "DocumentInfoRecordDocType",
+              "value": "DocumentInfoRecordDocType"
+            },
+            {
+              "label": "DocumentInfoRecordDocNumber",
+              "value": "DocumentInfoRecordDocNumber"
+            },
+            {
+              "label": "DocumentInfoRecordDocVersion",
+              "value": "DocumentInfoRecordDocVersion"
+            },
+            {
+              "label": "DocumentInfoRecordDocPart",
+              "value": "DocumentInfoRecordDocPart"
+            },
+            {
+              "label": "LogicalDocument",
+              "value": "LogicalDocument"
+            },
+            {
+              "label": "ArchiveDocumentID",
+              "value": "ArchiveDocumentID"
+            },
+            {
+              "label": "LinkedSAPObjectKey",
+              "value": "LinkedSAPObjectKey"
+            },
+            {
+              "label": "BusinessObjectTypeName",
+              "value": "BusinessObjectTypeName"
+            },
+            {
+              "label": "SemanticObject",
+              "value": "SemanticObject"
+            },
+            {
+              "label": "WorkstationApplication",
+              "value": "WorkstationApplication"
+            },
+            {
+              "label": "FileSize",
+              "value": "FileSize"
+            },
+            {
+              "label": "FileName",
+              "value": "FileName"
+            },
+            {
+              "label": "DocumentURL",
+              "value": "DocumentURL"
+            },
+            {
+              "label": "MimeType",
+              "value": "MimeType"
+            },
+            {
+              "label": "Content",
+              "value": "Content"
+            },
+            {
+              "label": "CreatedByUser",
+              "value": "CreatedByUser"
+            },
+            {
+              "label": "CreatedByUserFullName",
+              "value": "CreatedByUserFullName"
+            },
+            {
+              "label": "CreationDateTime",
+              "value": "CreationDateTime"
+            },
+            {
+              "label": "BusinessObjectType",
+              "value": "BusinessObjectType"
+            },
+            {
+              "label": "LastChangedByUser",
+              "value": "LastChangedByUser"
+            },
+            {
+              "label": "LastChangedByUserFullName",
+              "value": "LastChangedByUserFullName"
+            },
+            {
+              "label": "ChangedDateTime",
+              "value": "ChangedDateTime"
+            },
+            {
+              "label": "StorageCategory",
+              "value": "StorageCategory"
+            },
+            {
+              "label": "ArchiveLinkRepository",
+              "value": "ArchiveLinkRepository"
+            },
+            {
+              "label": "SAPObjectType",
+              "value": "SAPObjectType"
+            },
+            {
+              "label": "SAPObjectNodeType",
+              "value": "SAPObjectNodeType"
+            },
+            {
+              "label": "HarmonizedDocumentType",
+              "value": "HarmonizedDocumentType"
+            },
+            {
+              "label": "AttachmentDeletionIsAllowed",
+              "value": "AttachmentDeletionIsAllowed"
+            },
+            {
+              "label": "AttachmentRenameIsAllowed",
+              "value": "AttachmentRenameIsAllowed"
+            },
+            {
+              "label": "Source",
+              "value": "Source"
+            },
+            {
+              "label": "AttachmentContentHash",
+              "value": "AttachmentContentHash"
+            }
+          ],
+          "key": "attachSelect",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Select"
+        }
+      ]
+    },
+    "deleteAttachment": {
+      "display": {
+        "label": "Delete Attachment",
+        "description": "Deletes the attachment associated with the business object using the document type, document number, document version, document part, logical document ID, archive document ID, business object type, and business object instance key."
+      },
+      "key": "deleteAttachment",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connectionInput",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Document Info Record Document Type",
+          "required": true,
+          "key": "documentInfoRecordDocumentType",
+          "type": "string",
+          "default": "",
+          "label": "Document Info Record Document Type"
+        },
+        {
+          "comments": "Document Info Record Document Number",
+          "required": true,
+          "key": "documentInfoRecordDocumentNumber",
+          "type": "string",
+          "default": "",
+          "label": "Document Info Record Document Number"
+        },
+        {
+          "comments": "Document Info Record Document Version",
+          "required": true,
+          "key": "documentInfoRecordDocumentVersion",
+          "type": "string",
+          "default": "",
+          "label": "Document Info Record Document Version"
+        },
+        {
+          "comments": "Document Info Record Document Part",
+          "required": true,
+          "key": "documentInfoRecordDocumentPart",
+          "type": "string",
+          "default": "",
+          "label": "Document Info Record Document Part"
+        },
+        {
+          "comments": "Logical Document",
+          "required": true,
+          "key": "logicalDocument",
+          "type": "string",
+          "default": "",
+          "label": "Logical Document"
+        },
+        {
+          "comments": "Archive Document ID",
+          "required": true,
+          "key": "archiveDocumentId",
+          "type": "string",
+          "default": "",
+          "label": "Archive Document ID"
+        },
+        {
+          "comments": "Linked SAP Object Key",
+          "required": true,
+          "key": "linkedSapObjectKey",
+          "type": "string",
+          "default": "",
+          "label": "Linked SAP Object Key"
+        },
+        {
+          "comments": "Business Object Type Name",
+          "required": true,
+          "key": "businessObjectTypeName",
+          "type": "string",
+          "default": "",
+          "label": "Business Object Type Name"
+        }
+      ]
+    },
+    "listSubscriptions": {
+      "display": {
+        "label": "List Subscriptions",
+        "description": "Reads subscription information for business events."
+      },
+      "key": "listSubscriptions",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connectionInput",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Show only the first n items",
+          "required": false,
+          "key": "top",
+          "type": "string",
+          "default": "",
+          "label": "Top"
+        },
+        {
+          "comments": "Skip the first n items",
+          "required": false,
+          "key": "skip",
+          "type": "string",
+          "default": "",
+          "label": "Skip"
+        },
+        {
+          "comments": "Search items by search phrases",
+          "required": false,
+          "key": "search",
+          "type": "string",
+          "default": "",
+          "label": "Search"
+        },
+        {
+          "comments": "Filter items by property values",
+          "required": false,
+          "key": "filter",
+          "type": "string",
+          "default": "",
+          "label": "Filter"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "allpages",
+              "value": "allpages"
+            },
+            {
+              "label": "none",
+              "value": "none"
+            }
+          ],
+          "key": "inlinecount",
+          "type": "string",
+          "default": "",
+          "label": "Inline Count"
+        },
+        {
+          "placeholder": "Order By",
+          "required": false,
+          "comments": "Order by property",
+          "model": [
+            {
+              "label": "BusEventSubscriberCode",
+              "value": "BusEventSubscriberCode"
+            },
+            {
+              "label": "BusEventSubscriberCode desc",
+              "value": "BusEventSubscriberCode desc"
+            },
+            {
+              "label": "SAPObjectType",
+              "value": "SAPObjectType"
+            },
+            {
+              "label": "SAPObjectType desc",
+              "value": "SAPObjectType desc"
+            },
+            {
+              "label": "SAPObjectTaskCode",
+              "value": "SAPObjectTaskCode"
+            },
+            {
+              "label": "SAPObjectTaskCode desc",
+              "value": "SAPObjectTaskCode desc"
+            },
+            {
+              "label": "BusEventSubscriptionStateCode",
+              "value": "BusEventSubscriptionStateCode"
+            },
+            {
+              "label": "BusEventSubscriptionStateCode desc",
+              "value": "BusEventSubscriptionStateCode desc"
+            },
+            {
+              "label": "BusEventPriority",
+              "value": "BusEventPriority"
+            },
+            {
+              "label": "BusEventPriority desc",
+              "value": "BusEventPriority desc"
+            }
+          ],
+          "key": "orderBy",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Order By"
+        },
+        {
+          "placeholder": "Select",
+          "required": false,
+          "comments": "Select property to be returned",
+          "model": [
+            {
+              "label": "BusEventSubscriberCode",
+              "value": "BusEventSubscriberCode"
+            },
+            {
+              "label": "SAPObjectType",
+              "value": "SAPObjectType"
+            },
+            {
+              "label": "SAPObjectTaskCode",
+              "value": "SAPObjectTaskCode"
+            },
+            {
+              "label": "BusEventSubscriptionStateCode",
+              "value": "BusEventSubscriptionStateCode"
+            },
+            {
+              "label": "BusEventPriority",
+              "value": "BusEventPriority"
+            }
+          ],
+          "key": "select",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Select"
+        }
+      ]
+    },
+    "createSubscription": {
+      "display": {
+        "label": "Create Subscription",
+        "description": "Creates business event subscriptions."
+      },
+      "key": "createSubscription",
+      "inputs": [
+        {
+          "language": "json",
+          "required": false,
+          "comments": "Request Body",
+          "key": "requestBodyCode",
+          "type": "code",
+          "default": "{\n    \"BusEventSubscriberCode\": \"string\",\n    \"SAPObjectType\": \"string\",\n    \"SAPObjectTaskCode\": \"string\",\n    \"BusEventSubscriptionStateCode\": \"string\",\n    \"BusEventPriority\": 0\n }",
+          "label": "Body"
+        },
+        {
+          "required": true,
+          "key": "connectionInput",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "updateSubscription": {
+      "display": {
+        "label": "Update Subscription",
+        "description": "Updates business events subscription status using the business event subscriber code, SAP object type, SAP object task code, and business event subscription state code."
+      },
+      "key": "updateSubscription",
+      "inputs": [
+        {
+          "comments": "Subscriber ID",
+          "required": true,
+          "key": "busEventSubscriberCode",
+          "type": "string",
+          "default": "",
+          "label": "Bus Event Subscriber Code"
+        },
+        {
+          "comments": "SAP Object Type",
+          "required": true,
+          "key": "sapObjectType",
+          "type": "string",
+          "default": "",
+          "label": "SAP Object Type"
+        },
+        {
+          "comments": "SAP Object Task Code",
+          "required": true,
+          "key": "sapObjectTaskCode",
+          "type": "string",
+          "default": "",
+          "label": "SAP Object Task Code"
+        },
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Request Body",
+          "key": "requestBodyCode",
+          "type": "code",
+          "default": "{\n      \"d\": {\n        \"BusEventSubscriptionStateCode\": \"s\",\n        \"BusEventPriority\": 0\n      }\n    }",
+          "label": "Body"
+        },
+        {
+          "required": true,
+          "key": "connectionInput",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listProjects": {
+      "display": {
+        "label": "List Projects",
+        "description": "Returns details about all customer and internal projects in the system."
+      },
+      "key": "listProjects",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connectionInput",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Filter items by property values",
+          "required": false,
+          "key": "filter",
+          "type": "string",
+          "default": "",
+          "label": "Filter"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "allpages",
+              "value": "allpages"
+            },
+            {
+              "label": "none",
+              "value": "none"
+            }
+          ],
+          "key": "inlinecount",
+          "type": "string",
+          "default": "",
+          "label": "Inline Count"
+        },
+        {
+          "placeholder": "Order By",
+          "required": false,
+          "comments": "Order by property",
+          "model": [
+            {
+              "label": "ProjectID",
+              "value": "ProjectID"
+            },
+            {
+              "label": "ProjectID desc",
+              "value": "ProjectID desc"
+            },
+            {
+              "label": "ProjectName",
+              "value": "ProjectName"
+            },
+            {
+              "label": "ProjectName desc",
+              "value": "ProjectName desc"
+            },
+            {
+              "label": "ProjectStage",
+              "value": "ProjectStage"
+            },
+            {
+              "label": "ProjectStage desc",
+              "value": "ProjectStage desc"
+            },
+            {
+              "label": "OrgID",
+              "value": "OrgID"
+            },
+            {
+              "label": "OrgID desc",
+              "value": "OrgID desc"
+            },
+            {
+              "label": "ProjectCategory",
+              "value": "ProjectCategory"
+            },
+            {
+              "label": "ProjectCategory desc",
+              "value": "ProjectCategory desc"
+            },
+            {
+              "label": "Currency",
+              "value": "Currency"
+            },
+            {
+              "label": "Currency desc",
+              "value": "Currency desc"
+            },
+            {
+              "label": "StartDate",
+              "value": "StartDate"
+            },
+            {
+              "label": "StartDate desc",
+              "value": "StartDate desc"
+            },
+            {
+              "label": "EndDate",
+              "value": "EndDate"
+            },
+            {
+              "label": "EndDate desc",
+              "value": "EndDate desc"
+            },
+            {
+              "label": "ProjManagerExtId",
+              "value": "ProjManagerExtId"
+            },
+            {
+              "label": "ProjManagerExtId desc",
+              "value": "ProjManagerExtId desc"
+            },
+            {
+              "label": "ProjManagerCompCode",
+              "value": "ProjManagerCompCode"
+            },
+            {
+              "label": "ProjManagerCompCode desc",
+              "value": "ProjManagerCompCode desc"
+            },
+            {
+              "label": "Customer",
+              "value": "Customer"
+            },
+            {
+              "label": "Customer desc",
+              "value": "Customer desc"
+            },
+            {
+              "label": "CostCenter",
+              "value": "CostCenter"
+            },
+            {
+              "label": "CostCenter desc",
+              "value": "CostCenter desc"
+            },
+            {
+              "label": "ProfitCenter",
+              "value": "ProfitCenter"
+            },
+            {
+              "label": "ProfitCenter desc",
+              "value": "ProfitCenter desc"
+            },
+            {
+              "label": "ProjAccountantExtId",
+              "value": "ProjAccountantExtId"
+            },
+            {
+              "label": "ProjAccountantExtId desc",
+              "value": "ProjAccountantExtId desc"
+            },
+            {
+              "label": "ProjAccountantCompCode",
+              "value": "ProjAccountantCompCode"
+            },
+            {
+              "label": "ProjAccountantCompCode desc",
+              "value": "ProjAccountantCompCode desc"
+            },
+            {
+              "label": "ProjControllerExtId",
+              "value": "ProjControllerExtId"
+            },
+            {
+              "label": "ProjControllerExtId desc",
+              "value": "ProjControllerExtId desc"
+            },
+            {
+              "label": "ProjControllerCompCode",
+              "value": "ProjControllerCompCode"
+            },
+            {
+              "label": "ProjControllerCompCode desc",
+              "value": "ProjControllerCompCode desc"
+            },
+            {
+              "label": "ProjPartnerExtId",
+              "value": "ProjPartnerExtId"
+            },
+            {
+              "label": "ProjPartnerExtId desc",
+              "value": "ProjPartnerExtId desc"
+            },
+            {
+              "label": "ProjPartnerCompCode",
+              "value": "ProjPartnerCompCode"
+            },
+            {
+              "label": "ProjPartnerCompCode desc",
+              "value": "ProjPartnerCompCode desc"
+            },
+            {
+              "label": "Confidential",
+              "value": "Confidential"
+            },
+            {
+              "label": "Confidential desc",
+              "value": "Confidential desc"
+            },
+            {
+              "label": "CreatedOn",
+              "value": "CreatedOn"
+            },
+            {
+              "label": "CreatedOn desc",
+              "value": "CreatedOn desc"
+            },
+            {
+              "label": "ChangedOn",
+              "value": "ChangedOn"
+            },
+            {
+              "label": "ChangedOn desc",
+              "value": "ChangedOn desc"
+            }
+          ],
+          "key": "orderBy",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Order By"
+        },
+        {
+          "placeholder": "Select",
+          "required": false,
+          "comments": "Select property to be returned",
+          "model": [
+            {
+              "label": "ProjectID",
+              "value": "ProjectID"
+            },
+            {
+              "label": "ProjectName",
+              "value": "ProjectName"
+            },
+            {
+              "label": "ProjectStage",
+              "value": "ProjectStage"
+            },
+            {
+              "label": "OrgID",
+              "value": "OrgID"
+            },
+            {
+              "label": "ProjectCategory",
+              "value": "ProjectCategory"
+            },
+            {
+              "label": "Currency",
+              "value": "Currency"
+            },
+            {
+              "label": "StartDate",
+              "value": "StartDate"
+            },
+            {
+              "label": "EndDate",
+              "value": "EndDate"
+            },
+            {
+              "label": "ProjManagerExtId",
+              "value": "ProjManagerExtId"
+            },
+            {
+              "label": "ProjManagerCompCode",
+              "value": "ProjManagerCompCode"
+            },
+            {
+              "label": "Customer",
+              "value": "Customer"
+            },
+            {
+              "label": "CostCenter",
+              "value": "CostCenter"
+            },
+            {
+              "label": "ProfitCenter",
+              "value": "ProfitCenter"
+            },
+            {
+              "label": "ProjAccountantExtId",
+              "value": "ProjAccountantExtId"
+            },
+            {
+              "label": "ProjAccountantCompCode",
+              "value": "ProjAccountantCompCode"
+            },
+            {
+              "label": "ProjControllerExtId",
+              "value": "ProjControllerExtId"
+            },
+            {
+              "label": "ProjControllerCompCode",
+              "value": "ProjControllerCompCode"
+            },
+            {
+              "label": "ProjPartnerExtId",
+              "value": "ProjPartnerExtId"
+            },
+            {
+              "label": "ProjPartnerCompCode",
+              "value": "ProjPartnerCompCode"
+            },
+            {
+              "label": "ProjectDesc",
+              "value": "ProjectDesc"
+            },
+            {
+              "label": "Confidential",
+              "value": "Confidential"
+            },
+            {
+              "label": "UseProjectBilling",
+              "value": "UseProjectBilling"
+            },
+            {
+              "label": "RestrictTimePosting",
+              "value": "RestrictTimePosting"
+            },
+            {
+              "label": "CreatedOn",
+              "value": "CreatedOn"
+            },
+            {
+              "label": "ChangedOn",
+              "value": "ChangedOn"
+            },
+            {
+              "label": "ProjectRoleSet",
+              "value": "ProjectRoleSet"
+            },
+            {
+              "label": "WorkPackageSet",
+              "value": "WorkPackageSet"
+            }
+          ],
+          "key": "select",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Select"
+        },
+        {
+          "placeholder": "Expand",
+          "required": false,
+          "comments": "Expand property to be returned",
+          "model": [
+            {
+              "label": "ProjectRoleSet",
+              "value": "ProjectRoleSet"
+            },
+            {
+              "label": "WorkPackageSet",
+              "value": "WorkPackageSet"
+            }
+          ],
+          "key": "expand",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Expand"
+        }
+      ]
+    },
+    "getProject": {
+      "display": {
+        "label": "Get Project",
+        "description": "Returns details about a customer or internal project."
+      },
+      "key": "getProject",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connectionInput",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Project ID",
+          "required": true,
+          "key": "projectId",
+          "type": "string",
+          "default": "",
+          "label": "Project ID"
+        },
+        {
+          "placeholder": "Select",
+          "required": false,
+          "comments": "Select property to be returned",
+          "model": [
+            {
+              "label": "ProjectID",
+              "value": "ProjectID"
+            },
+            {
+              "label": "ProjectName",
+              "value": "ProjectName"
+            },
+            {
+              "label": "ProjectStage",
+              "value": "ProjectStage"
+            },
+            {
+              "label": "OrgID",
+              "value": "OrgID"
+            },
+            {
+              "label": "ProjectCategory",
+              "value": "ProjectCategory"
+            },
+            {
+              "label": "Currency",
+              "value": "Currency"
+            },
+            {
+              "label": "StartDate",
+              "value": "StartDate"
+            },
+            {
+              "label": "EndDate",
+              "value": "EndDate"
+            },
+            {
+              "label": "ProjManagerExtId",
+              "value": "ProjManagerExtId"
+            },
+            {
+              "label": "ProjManagerCompCode",
+              "value": "ProjManagerCompCode"
+            },
+            {
+              "label": "Customer",
+              "value": "Customer"
+            },
+            {
+              "label": "CostCenter",
+              "value": "CostCenter"
+            },
+            {
+              "label": "ProfitCenter",
+              "value": "ProfitCenter"
+            },
+            {
+              "label": "ProjAccountantExtId",
+              "value": "ProjAccountantExtId"
+            },
+            {
+              "label": "ProjAccountantCompCode",
+              "value": "ProjAccountantCompCode"
+            },
+            {
+              "label": "ProjControllerExtId",
+              "value": "ProjControllerExtId"
+            },
+            {
+              "label": "ProjControllerCompCode",
+              "value": "ProjControllerCompCode"
+            },
+            {
+              "label": "ProjPartnerExtId",
+              "value": "ProjPartnerExtId"
+            },
+            {
+              "label": "ProjPartnerCompCode",
+              "value": "ProjPartnerCompCode"
+            },
+            {
+              "label": "ProjectDesc",
+              "value": "ProjectDesc"
+            },
+            {
+              "label": "Confidential",
+              "value": "Confidential"
+            },
+            {
+              "label": "UseProjectBilling",
+              "value": "UseProjectBilling"
+            },
+            {
+              "label": "RestrictTimePosting",
+              "value": "RestrictTimePosting"
+            },
+            {
+              "label": "CreatedOn",
+              "value": "CreatedOn"
+            },
+            {
+              "label": "ChangedOn",
+              "value": "ChangedOn"
+            },
+            {
+              "label": "ProjectRoleSet",
+              "value": "ProjectRoleSet"
+            },
+            {
+              "label": "WorkPackageSet",
+              "value": "WorkPackageSet"
+            }
+          ],
+          "key": "projectSelect",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Select"
+        },
+        {
+          "placeholder": "Expand",
+          "required": false,
+          "comments": "Expand to include related entities",
+          "model": [
+            {
+              "label": "ProjectRoleSet",
+              "value": "ProjectRoleSet"
+            },
+            {
+              "label": "WorkPackageSet",
+              "value": "WorkPackageSet"
+            }
+          ],
+          "key": "projectExpand",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Expand"
+        }
+      ]
+    },
+    "createProject": {
+      "display": {
+        "label": "Create Project",
+        "description": "Creates a customer or internal project based on the level of information you provide."
+      },
+      "key": "createProject",
+      "inputs": [
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Request Body",
+          "key": "requestBodyCode",
+          "type": "code",
+          "default": "{\n      \"ProjectID\": \"string\",\n      \"ProjectName\": \"string\",\n      \"ProjectStage\": \"string\",\n      \"OrgID\": \"string\",\n      \"ProjectCategory\": \"string\",\n      \"Currency\": \"string\",\n      \"StartDate\": \"/Date(1492098664000)/\",\n      \"EndDate\": \"/Date(1492098664000)/\",\n      \"ProjManagerExtId\": \"string\",\n      \"ProjManagerCompCode\": \"string\",\n      \"Customer\": \"string\",\n      \"CostCenter\": \"string\",\n      \"ProfitCenter\": \"string\",\n      \"ProjAccountantExtId\": \"string\",\n      \"ProjAccountantCompCode\": \"string\",\n      \"ProjControllerExtId\": \"string\",\n      \"ProjControllerCompCode\": \"string\",\n      \"ProjPartnerExtId\": \"string\",\n      \"ProjPartnerCompCode\": \"string\",\n      \"ProjectDesc\": \"string\",\n      \"Confidential\": \"string\",\n      \"UseProjectBilling\": \"string\",\n      \"RestrictTimePosting\": \"string\",\n      \"ProjectRoleSet\": {\n         \"results\": [\n            {\n               \"ProjectID\": \"string\",\n               \"ProjectRoleID\": \"string\",\n               \"BusinessPartnerID\": \"string\"\n            }\n         ]\n      },\n      \"WorkPackageSet\": {\n         \"results\": [\n            {\n               \"ProjectID\": \"string\",\n               \"WorkPackageID\": \"string\",\n               \"WorkPackageName\": \"string\",\n               \"Description\": \"string\",\n               \"WPStartDate\": \"/Date(1492098664000)/\",\n               \"WPEndDate\": \"/Date(1492098664000)/\",\n               \"WorkPackageType\": \"string\",\n               \"UnitQuantity\": \"0\",\n               \"UnitId\": \"string\",\n               \"to_ResourceDemand\": {\n                  \"results\": [\n                     {\n                        \"WorkPackage\": \"string\",\n                        \"ResourceDemand\": \"string\",\n                        \"Version\": \"string\",\n                        \"EngagementProject\": \"string\",\n                        \"WorkItem\": \"string\",\n                        \"BillingControlCategory\": \"string\",\n                        \"DeliveryOrganization\": \"string\",\n                        \"EngagementProjectResourceType\": \"string\",\n                        \"EngagementProjectResource\": \"string\",\n                        \"WorkforcePersonUserID\": \"string\",\n                        \"Country2DigitISOCode\": \"string\",\n                        \"KeyDate\": \"/Date(1492041600000)/\",\n                        \"PersonWorkAgreement\": \"string\",\n                        \"ResourceDemandStatus\": \"string\",\n                        \"UnitOfMeasure\": \"string\",\n                        \"Quantity\": \"0\",\n                        \"to_ResourceDemandDistribution\": {\n                           \"results\": [\n                              {\n                                 \"WorkPackage\": \"string\",\n                                 \"ResourceDemand\": \"string\",\n                                 \"Version\": \"string\",\n                                 \"CalendarMonth\": \"string\",\n                                 \"CalendarYear\": \"string\",\n                                 \"UnitOfMeasure\": \"string\",\n                                 \"Quantity\": \"0\",\n                                 \"to_ResourceDemand\": null\n                              }\n                           ]\n                        },\n                        \"to_ResourceDemandSkills\": \"\",\n                        \"to_ResourceSupply\": {\n                           \"results\": [\n                              {\n                                 \"WorkPackage\": \"string\",\n                                 \"ResourceDemand\": \"string\",\n                                 \"ResourceSupply\": \"string\",\n                                 \"Version\": \"string\",\n                                 \"EngagementProject\": \"string\",\n                                 \"DeliveryOrganization\": \"string\",\n                                 \"WorkforcePersonUserID\": \"string\",\n                                 \"Country2DigitISOCode\": \"string\",\n                                 \"KeyDate\": \"/Date(1492041600000)/\",\n                                 \"PersonWorkAgreement\": \"string\",\n                                 \"UnitOfMeasure\": \"string\",\n                                 \"Quantity\": \"0\",\n                                 \"to_ResourceDemand\": null,\n                                 \"to_ResourceSupplyDistribution\": {\n                                    \"results\": [\n                                       {\n                                          \"WorkPackage\": \"string\",\n                                          \"ResourceDemand\": \"string\",\n                                          \"ResourceSupply\": \"string\",\n                                          \"Version\": \"string\",\n                                          \"CalendarMonth\": \"string\",\n                                          \"CalendarYear\": \"string\",\n                                          \"UnitOfMeasure\": \"string\",\n                                          \"Quantity\": \"0\",\n                                          \"to_ResourceSupply\": \"\"\n                                       }\n                                    ]\n                                 }\n                              }\n                           ]\n                        }\n                     }\n                  ]\n               },\n               \"to_Project\": null,\n               \"WorkItemSet\": {\n                  \"results\": [\n                     {\n                        \"ProjectID\": \"string\",\n                        \"WorkPackageID\": \"string\",\n                        \"WorkPackageName\": \"string\",\n                        \"Workitem\": \"string\",\n                        \"Workitemname\": \"string\"\n                     }\n                  ]\n               },\n               \"DemandSet\": {\n                  \"results\": [\n                     {\n                        \"BillingControlCategory\": \"string\",\n                        \"ProjectID\": \"string\",\n                        \"Skills\": \"string\",\n                        \"WorkPackageID\": \"string\",\n                        \"ExpenseCost\": \"0\",\n                        \"WorkPackageName\": \"string\",\n                        \"ExpenseRevenue\": \"0\",\n                        \"ResType\": \"string\",\n                        \"ResourceId\": \"string\",\n                        \"Workitem\": \"string\",\n                        \"Effort\": \"0\",\n                        \"DelvryServOrg\": \"string\"\n                     }\n                  ]\n               },\n               \"WorkPackageFunctionSet\": {\n                  \"results\": [\n                     {\n                        \"ProjectID\": \"string\",\n                        \"WorkPackageID\": \"string\",\n                        \"WorkPackageName\": \"string\",\n                        \"WorkPackageFunctionId\": \"string\",\n                        \"WorkPackageFunctionIsBlocked\": \"string\"\n                     }\n                  ]\n               }\n            }\n         ]\n      }\n   }",
+          "label": "Body"
+        },
+        {
+          "required": true,
+          "key": "connectionInput",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "updateProject": {
+      "display": {
+        "label": "Update Project",
+        "description": "Updates the basic information for a customer or internal project."
+      },
+      "key": "updateProject",
+      "inputs": [
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Request Body",
+          "key": "requestBodyCode",
+          "type": "code",
+          "default": "{\n         \"d\": {\n            \"ProjectName\": \"string\",\n            \"ProjectStage\": \"string\",\n            \"Currency\": \"string\",\n            \"StartDate\": \"/Date(1492098664000)/\",\n            \"EndDate\": \"/Date(1492098664000)/\",\n            \"ProjManagerExtId\": \"string\",\n            \"ProjManagerCompCode\": \"string\",\n            \"ProfitCenter\": \"string\",\n            \"ProjAccountantExtId\": \"string\",\n            \"ProjAccountantCompCode\": \"string\",\n            \"ProjControllerExtId\": \"string\",\n            \"ProjControllerCompCode\": \"string\",\n            \"ProjPartnerExtId\": \"string\",\n            \"ProjPartnerCompCode\": \"string\",\n            \"ProjectDesc\": \"string\",\n            \"Confidential\": \"string\",\n            \"UseProjectBilling\": \"string\",\n            \"RestrictTimePosting\": \"string\"\n         }\n      }",
+          "label": "Body"
+        },
+        {
+          "required": true,
+          "key": "connectionInput",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Project ID",
+          "required": true,
+          "key": "projectId",
+          "type": "string",
+          "default": "",
+          "label": "Project ID"
+        }
+      ]
+    },
+    "listTimesheetEntryCollection": {
+      "display": {
+        "label": "List Timesheet Entry Collection",
+        "description": "Reads data for all workforce’s timesheet entries. It retrieves information about the time recording made by each workforce’s on a particular task and on a particular day."
+      },
+      "key": "listTimesheetEntryCollection",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connectionInput",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Show only the first n items",
+          "required": false,
+          "key": "top",
+          "type": "string",
+          "default": "",
+          "label": "Top"
+        },
+        {
+          "comments": "Skip the first n items",
+          "required": false,
+          "key": "skip",
+          "type": "string",
+          "default": "",
+          "label": "Skip"
+        },
+        {
+          "comments": "Filter items by property values",
+          "required": false,
+          "key": "filter",
+          "type": "string",
+          "default": "",
+          "label": "Filter"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "allpages",
+              "value": "allpages"
+            },
+            {
+              "label": "none",
+              "value": "none"
+            }
+          ],
+          "key": "inlinecount",
+          "type": "string",
+          "default": "",
+          "label": "Inline Count"
+        },
+        {
+          "placeholder": "Order By",
+          "required": false,
+          "comments": "Order by property",
+          "model": [
+            {
+              "label": "TimeSheetDataFields",
+              "value": "TimeSheetDataFields"
+            },
+            {
+              "label": "TimeSheetDataFields desc",
+              "value": "TimeSheetDataFields desc"
+            }
+          ],
+          "key": "orderBy",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Order By"
+        },
+        {
+          "placeholder": "Select",
+          "required": false,
+          "comments": "Select property to be returned",
+          "model": [
+            {
+              "label": "TimeSheetDataFields",
+              "value": "TimeSheetDataFields"
+            },
+            {
+              "label": "PersonWorkAgreementExternalID",
+              "value": "PersonWorkAgreementExternalID"
+            },
+            {
+              "label": "CompanyCode",
+              "value": "CompanyCode"
+            },
+            {
+              "label": "TimeSheetRecord",
+              "value": "TimeSheetRecord"
+            },
+            {
+              "label": "PersonWorkAgreement",
+              "value": "PersonWorkAgreement"
+            },
+            {
+              "label": "TimeSheetDate",
+              "value": "TimeSheetDate"
+            },
+            {
+              "label": "TimeSheetIsReleasedOnSave",
+              "value": "TimeSheetIsReleasedOnSave"
+            },
+            {
+              "label": "TimeSheetPredecessorRecord",
+              "value": "TimeSheetPredecessorRecord"
+            },
+            {
+              "label": "TimeSheetStatus",
+              "value": "TimeSheetStatus"
+            },
+            {
+              "label": "TimeSheetIsExecutedInTestRun",
+              "value": "TimeSheetIsExecutedInTestRun"
+            },
+            {
+              "label": "TimeSheetOperation",
+              "value": "TimeSheetOperation"
+            }
+          ],
+          "key": "select",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Select"
+        }
+      ]
+    },
+    "updateTimesheetEntryCollection": {
+      "display": {
+        "label": "Update Timesheet Entry Collection",
+        "description": "Creates, updates, or deletes workforce timesheet entry based on the data provided in payload."
+      },
+      "key": "updateTimesheetEntryCollection",
+      "inputs": [
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Request Body",
+          "key": "requestBodyCode",
+          "type": "code",
+          "default": "{\n        \"TimeSheetDataFields\": {\n        \"ControllingArea\": \"string\",\n        \"SenderCostCenter\": \"string\",\n        \"ReceiverCostCenter\": \"string\",\n        \"InternalOrder\": \"string\",\n        \"ActivityType\": \"string\",\n        \"WBSElement\": \"string\",\n        \"WorkItem\": \"string\",\n        \"BillingControlCategory\": \"string\",\n        \"PurchaseOrder\": \"string\",\n        \"PurchaseOrderItem\": \"string\",\n        \"TimeSheetTaskType\": \"string\",\n        \"TimeSheetTaskLevel\": \"string\",\n        \"TimeSheetTaskComponent\": \"string\",\n        \"TimeSheetNote\": \"string\",\n        \"RecordedHours\": \"0\",\n        \"RecordedQuantity\": \"0\",\n        \"HoursUnitOfMeasure\": \"string\",\n        \"RejectionReason\": \"string\",\n        \"TimeSheetWrkLocCode\": \"string\",\n        \"TimeSheetOvertimeCategory\": \"string\",\n        \"SenderPubSecFund\": \"string\",\n        \"SendingPubSecFunctionalArea\": \"string\",\n        \"SenderPubSecGrant\": \"string\",\n        \"SenderPubSecBudgetPeriod\": \"string\",\n        \"ReceiverPubSecFund\": \"string\",\n        \"ReceiverPubSecFuncnlArea\": \"string\",\n        \"ReceiverPubSecGrant\": \"string\",\n        \"ReceiverPubSecBudgetPeriod\": \"string\"\n        },\n        \"PersonWorkAgreementExternalID\": \"string\",\n        \"CompanyCode\": \"string\",\n        \"TimeSheetRecord\": \"string\",\n        \"PersonWorkAgreement\": \"string\",\n        \"TimeSheetDate\": \"/Date(1492098664000)/\",\n        \"TimeSheetIsReleasedOnSave\": true,\n        \"TimeSheetPredecessorRecord\": \"string\",\n        \"TimeSheetStatus\": \"string\",\n        \"TimeSheetIsExecutedInTestRun\": true,\n        \"TimeSheetOperation\": \"string\"\n        }",
+          "label": "Body"
+        },
+        {
+          "required": true,
+          "key": "connectionInput",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listFiles": {
+      "display": {
+        "label": "List Files",
+        "description": "Retrieves list of prepared files, based on specific filter conditions."
+      },
+      "key": "listFiles",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connectionInput",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Filter items by property values",
+          "required": true,
+          "key": "filter",
+          "type": "string",
+          "default": "",
+          "label": "Filter"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "allpages",
+              "value": "allpages"
+            },
+            {
+              "label": "none",
+              "value": "none"
+            }
+          ],
+          "key": "inlinecount",
+          "type": "string",
+          "default": "",
+          "label": "Inline Count"
+        },
+        {
+          "comments": "Select property to be returned",
+          "example": "Available values (use one): PackageName, FileName, ObjectName, Scenario, FileSize",
+          "required": false,
+          "model": [
+            {
+              "label": "PackageName",
+              "value": "PackageName"
+            },
+            {
+              "label": "FileName",
+              "value": "FileName"
+            },
+            {
+              "label": "ObjectName",
+              "value": "ObjectName"
+            },
+            {
+              "label": "Scenario",
+              "value": "Scenario"
+            },
+            {
+              "label": "FileSize",
+              "value": "FileSize"
+            }
+          ],
+          "key": "select",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Select"
+        }
+      ]
+    },
+    "listChangeRecords": {
+      "display": {
+        "label": "List Change Records",
+        "description": "Retrieves the list of change records in the system."
+      },
+      "key": "listChangeRecords",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connectionInput",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Show only the first n items",
+          "required": false,
+          "key": "top",
+          "type": "string",
+          "default": "",
+          "label": "Top"
+        },
+        {
+          "comments": "Skip the first n items",
+          "required": false,
+          "key": "skip",
+          "type": "string",
+          "default": "",
+          "label": "Skip"
+        },
+        {
+          "comments": "Filter items by property values",
+          "required": false,
+          "key": "filter",
+          "type": "string",
+          "default": "",
+          "label": "Filter"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "allpages",
+              "value": "allpages"
+            },
+            {
+              "label": "none",
+              "value": "none"
+            }
+          ],
+          "key": "inlinecount",
+          "type": "string",
+          "default": "",
+          "label": "Inline Count"
+        },
+        {
+          "placeholder": "Order By",
+          "required": false,
+          "comments": "Order items by property value",
+          "model": [
+            {
+              "label": "ChangeRecordUUID",
+              "value": "ChangeRecordUUID"
+            },
+            {
+              "label": "ChangeRecordUUID desc",
+              "value": "ChangeRecordUUID desc"
+            },
+            {
+              "label": "ChangeRecord",
+              "value": "ChangeRecord"
+            },
+            {
+              "label": "ChangeRecord desc",
+              "value": "ChangeRecord desc"
+            },
+            {
+              "label": "ChangeRecordType",
+              "value": "ChangeRecordType"
+            },
+            {
+              "label": "ChangeRecordType desc",
+              "value": "ChangeRecordType desc"
+            },
+            {
+              "label": "ChangeRecordStatus",
+              "value": "ChangeRecordStatus"
+            },
+            {
+              "label": "ChangeRecordStatus desc",
+              "value": "ChangeRecordStatus desc"
+            },
+            {
+              "label": "ChangeNumber",
+              "value": "ChangeNumber"
+            },
+            {
+              "label": "ChangeNumber desc",
+              "value": "ChangeNumber desc"
+            },
+            {
+              "label": "CreatedByUser",
+              "value": "CreatedByUser"
+            },
+            {
+              "label": "CreatedByUser desc",
+              "value": "CreatedByUser desc"
+            },
+            {
+              "label": "CreationDateTime",
+              "value": "CreationDateTime"
+            },
+            {
+              "label": "CreationDateTime desc",
+              "value": "CreationDateTime desc"
+            },
+            {
+              "label": "LastChangedByUser",
+              "value": "LastChangedByUser"
+            },
+            {
+              "label": "LastChangedByUser desc",
+              "value": "LastChangedByUser desc"
+            },
+            {
+              "label": "LastChangeDateTime",
+              "value": "LastChangeDateTime"
+            },
+            {
+              "label": "LastChangeDateTime desc",
+              "value": "LastChangeDateTime desc"
+            },
+            {
+              "label": "ChangeRecordLifecycleStatus",
+              "value": "ChangeRecordLifecycleStatus"
+            },
+            {
+              "label": "ChangeRecordLifecycleStatus desc",
+              "value": "ChangeRecordLifecycleStatus desc"
+            },
+            {
+              "label": "Partner",
+              "value": "Partner"
+            },
+            {
+              "label": "Partner desc",
+              "value": "Partner desc"
+            },
+            {
+              "label": "ChgRecordDescriptionText",
+              "value": "ChgRecordDescriptionText"
+            },
+            {
+              "label": "ChgRecordDescriptionText desc",
+              "value": "ChgRecordDescriptionText desc"
+            },
+            {
+              "label": "ChgRecdExpectedCompletionDate",
+              "value": "ChgRecdExpectedCompletionDate"
+            },
+            {
+              "label": "ChgRecdExpectedCompletionDate desc",
+              "value": "ChgRecdExpectedCompletionDate desc"
+            }
+          ],
+          "key": "changeRecordOrderBy",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Order By"
+        },
+        {
+          "placeholder": "Select",
+          "required": false,
+          "comments": "Select property to be returned",
+          "model": [
+            {
+              "label": "Update_mc",
+              "value": "Update_mc"
+            },
+            {
+              "label": "to_ChangeRecordFuncLocTskList_oc",
+              "value": "to_ChangeRecordFuncLocTskList_oc"
+            },
+            {
+              "label": "to_ChangeRecordRateRtgTskList_oc",
+              "value": "to_ChangeRecordRateRtgTskList_oc"
+            },
+            {
+              "label": "to_ChangeRecordRefCharc_oc",
+              "value": "to_ChangeRecordRefCharc_oc"
+            },
+            {
+              "label": "to_ChangeRecordRefClass_oc",
+              "value": "to_ChangeRecordRefClass_oc"
+            },
+            {
+              "label": "to_ChangeRecordRefEquipTskList_oc",
+              "value": "to_ChangeRecordRefEquipTskList_oc"
+            },
+            {
+              "label": "to_ChangeRecordRefInspPlan_oc",
+              "value": "to_ChangeRecordRefInspPlan_oc"
+            },
+            {
+              "label": "to_ChangeRecordRefLabelSet_oc",
+              "value": "to_ChangeRecordRefLabelSet_oc"
+            },
+            {
+              "label": "to_ChangeRecordRefMasterRecipe_oc",
+              "value": "to_ChangeRecordRefMasterRecipe_oc"
+            },
+            {
+              "label": "to_ChangeRecordRefOpSetTskList_oc",
+              "value": "to_ChangeRecordRefOpSetTskList_oc"
+            },
+            {
+              "label": "to_ChangeRecordRefProdnRouting_oc",
+              "value": "to_ChangeRecordRefProdnRouting_oc"
+            },
+            {
+              "label": "to_ChangeRecordRefRecipe_oc",
+              "value": "to_ChangeRecordRefRecipe_oc"
+            },
+            {
+              "label": "to_ChangeRecordRefSpecification_oc",
+              "value": "to_ChangeRecordRefSpecification_oc"
+            },
+            {
+              "label": "to_ChangeRecordRefStdBOM_oc",
+              "value": "to_ChangeRecordRefStdBOM_oc"
+            },
+            {
+              "label": "to_ChangeRecordRefTmplRouting_oc",
+              "value": "to_ChangeRecordRefTmplRouting_oc"
+            },
+            {
+              "label": "to_ChangeRecordRefVarBOM_oc",
+              "value": "to_ChangeRecordRefVarBOM_oc"
+            },
+            {
+              "label": "to_ChgRecdCollaboration_oc",
+              "value": "to_ChgRecdCollaboration_oc"
+            },
+            {
+              "label": "to_ChgRecdEquipBOM_oc",
+              "value": "to_ChgRecdEquipBOM_oc"
+            },
+            {
+              "label": "to_ChgRecdFuncLocBOM_oc",
+              "value": "to_ChgRecdFuncLocBOM_oc"
+            },
+            {
+              "label": "to_ChgRecdRefCutPlngPrflTskList_oc",
+              "value": "to_ChgRecdRefCutPlngPrflTskList_oc"
+            },
+            {
+              "label": "to_ChgRecdRefEngBOM_oc",
+              "value": "to_ChgRecdRefEngBOM_oc"
+            },
+            {
+              "label": "to_ChgRecdRefMaintTskList_oc",
+              "value": "to_ChgRecdRefMaintTskList_oc"
+            },
+            {
+              "label": "to_ChgRecdRefMfgBOM_oc",
+              "value": "to_ChgRecdRefMfgBOM_oc"
+            },
+            {
+              "label": "to_ChgRecdRefPlngScp_oc",
+              "value": "to_ChgRecdRefPlngScp_oc"
+            },
+            {
+              "label": "to_ChgRecdRefRateRtgTskList_oc",
+              "value": "to_ChgRecdRefRateRtgTskList_oc"
+            },
+            {
+              "label": "to_ChgRecdWBSElmntBOM_oc",
+              "value": "to_ChgRecdWBSElmntBOM_oc"
+            },
+            {
+              "label": "to_RefBit_oc",
+              "value": "to_RefBit_oc"
+            },
+            {
+              "label": "to_RefBOM_oc",
+              "value": "to_RefBOM_oc"
+            },
+            {
+              "label": "to_RefDoc_oc",
+              "value": "to_RefDoc_oc"
+            },
+            {
+              "label": "to_RefMat_oc",
+              "value": "to_RefMat_oc"
+            },
+            {
+              "label": "to_RefPSV_oc",
+              "value": "to_RefPSV_oc"
+            },
+            {
+              "label": "ChangeRecordUUID",
+              "value": "ChangeRecordUUID"
+            },
+            {
+              "label": "ChangeRecord",
+              "value": "ChangeRecord"
+            },
+            {
+              "label": "ChangeRecordType",
+              "value": "ChangeRecordType"
+            },
+            {
+              "label": "ChangeRecordStatus",
+              "value": "ChangeRecordStatus"
+            },
+            {
+              "label": "ChangeNumber",
+              "value": "ChangeNumber"
+            },
+            {
+              "label": "CreatedByUser",
+              "value": "CreatedByUser"
+            },
+            {
+              "label": "CreationDateTime",
+              "value": "CreationDateTime"
+            },
+            {
+              "label": "LastChangedByUser",
+              "value": "LastChangedByUser"
+            },
+            {
+              "label": "LastChangeDateTime",
+              "value": "LastChangeDateTime"
+            },
+            {
+              "label": "ChangeRecordLifecycleStatus",
+              "value": "ChangeRecordLifecycleStatus"
+            },
+            {
+              "label": "Partner",
+              "value": "Partner"
+            },
+            {
+              "label": "ChgRecordDescriptionText",
+              "value": "ChgRecordDescriptionText"
+            },
+            {
+              "label": "ChangeRecordDetailDescription",
+              "value": "ChangeRecordDetailDescription"
+            },
+            {
+              "label": "ChgRecdExpectedCompletionDate",
+              "value": "ChgRecdExpectedCompletionDate"
+            },
+            {
+              "label": "to_ChangeRecordFuncLocTskList",
+              "value": "to_ChangeRecordFuncLocTskList"
+            },
+            {
+              "label": "to_ChangeRecordRefCharc",
+              "value": "to_ChangeRecordRefCharc"
+            },
+            {
+              "label": "to_ChangeRecordRefClass",
+              "value": "to_ChangeRecordRefClass"
+            },
+            {
+              "label": "to_ChangeRecordRefEquipTskList",
+              "value": "to_ChangeRecordRefEquipTskList"
+            },
+            {
+              "label": "to_ChangeRecordRefMasterRecipe",
+              "value": "to_ChangeRecordRefMasterRecipe"
+            },
+            {
+              "label": "to_ChangeRecordRefProdnRouting",
+              "value": "to_ChangeRecordRefProdnRouting"
+            },
+            {
+              "label": "to_ChangeRecordRefStdBOM",
+              "value": "to_ChangeRecordRefStdBOM"
+            },
+            {
+              "label": "to_ChangeRecordRefVarBOM",
+              "value": "to_ChangeRecordRefVarBOM"
+            },
+            {
+              "label": "to_ChgRecdCollaboration",
+              "value": "to_ChgRecdCollaboration"
+            },
+            {
+              "label": "to_ChgRecdEquipBOM",
+              "value": "to_ChgRecdEquipBOM"
+            },
+            {
+              "label": "to_ChgRecdFuncLocBOM",
+              "value": "to_ChgRecdFuncLocBOM"
+            },
+            {
+              "label": "to_ChgRecdRefEngBOM",
+              "value": "to_ChgRecdRefEngBOM"
+            },
+            {
+              "label": "to_ChgRecdRefMaintTskList",
+              "value": "to_ChgRecdRefMaintTskList"
+            },
+            {
+              "label": "to_ChgRecdRefMfgBOM",
+              "value": "to_ChgRecdRefMfgBOM"
+            },
+            {
+              "label": "to_RefBit",
+              "value": "to_RefBit"
+            },
+            {
+              "label": "to_RefBOM",
+              "value": "to_RefBOM"
+            },
+            {
+              "label": "to_RefDoc",
+              "value": "to_RefDoc"
+            },
+            {
+              "label": "to_RefMat",
+              "value": "to_RefMat"
+            },
+            {
+              "label": "to_RefPSV",
+              "value": "to_RefPSV"
+            }
+          ],
+          "key": "changeRecordSelect",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Select"
+        },
+        {
+          "placeholder": "Expand",
+          "required": false,
+          "comments": "Expand property to be returned",
+          "model": [
+            {
+              "label": "to_ChangeRecordFuncLocTskList",
+              "value": "to_ChangeRecordFuncLocTskList"
+            },
+            {
+              "label": "to_ChangeRecordRefCharc",
+              "value": "to_ChangeRecordRefCharc"
+            },
+            {
+              "label": "to_ChangeRecordRefClass",
+              "value": "to_ChangeRecordRefClass"
+            },
+            {
+              "label": "to_ChangeRecordRefEquipTskList",
+              "value": "to_ChangeRecordRefEquipTskList"
+            },
+            {
+              "label": "to_ChangeRecordRefMasterRecipe",
+              "value": "to_ChangeRecordRefMasterRecipe"
+            },
+            {
+              "label": "to_ChangeRecordRefProdnRouting",
+              "value": "to_ChangeRecordRefProdnRouting"
+            },
+            {
+              "label": "to_ChangeRecordRefStdBOM",
+              "value": "to_ChangeRecordRefStdBOM"
+            },
+            {
+              "label": "to_ChangeRecordRefVarBOM",
+              "value": "to_ChangeRecordRefVarBOM"
+            },
+            {
+              "label": "to_ChgRecdCollaboration",
+              "value": "to_ChgRecdCollaboration"
+            },
+            {
+              "label": "to_ChgRecdEquipBOM",
+              "value": "to_ChgRecdEquipBOM"
+            },
+            {
+              "label": "to_ChgRecdFuncLocBOM",
+              "value": "to_ChgRecdFuncLocBOM"
+            },
+            {
+              "label": "to_ChgRecdRefEngBOM",
+              "value": "to_ChgRecdRefEngBOM"
+            },
+            {
+              "label": "to_ChgRecdRefMaintTskList",
+              "value": "to_ChgRecdRefMaintTskList"
+            },
+            {
+              "label": "to_ChgRecdRefMfgBOM",
+              "value": "to_ChgRecdRefMfgBOM"
+            },
+            {
+              "label": "to_RefBit",
+              "value": "to_RefBit"
+            },
+            {
+              "label": "to_RefBOM",
+              "value": "to_RefBOM"
+            },
+            {
+              "label": "to_RefDoc",
+              "value": "to_RefDoc"
+            },
+            {
+              "label": "to_RefMat",
+              "value": "to_RefMat"
+            },
+            {
+              "label": "to_RefPSV",
+              "value": "to_RefPSV"
+            }
+          ],
+          "key": "changeRecordExpand",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Expand"
+        }
+      ]
+    },
+    "getChangerecord": {
+      "display": {
+        "label": "Get Change Records",
+        "description": "Reads data of a specific change record based on its universally unique identifier (UUID)."
+      },
+      "key": "getChangerecord",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connectionInput",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "NodeID",
+          "required": true,
+          "key": "changeRecordUuid",
+          "type": "string",
+          "default": "",
+          "label": "Change Record UUID"
+        },
+        {
+          "placeholder": "Select",
+          "required": false,
+          "comments": "Select property to be returned",
+          "model": [
+            {
+              "label": "Update_mc",
+              "value": "Update_mc"
+            },
+            {
+              "label": "to_ChangeRecordFuncLocTskList_oc",
+              "value": "to_ChangeRecordFuncLocTskList_oc"
+            },
+            {
+              "label": "to_ChangeRecordRateRtgTskList_oc",
+              "value": "to_ChangeRecordRateRtgTskList_oc"
+            },
+            {
+              "label": "to_ChangeRecordRefCharc_oc",
+              "value": "to_ChangeRecordRefCharc_oc"
+            },
+            {
+              "label": "to_ChangeRecordRefClass_oc",
+              "value": "to_ChangeRecordRefClass_oc"
+            },
+            {
+              "label": "to_ChangeRecordRefEquipTskList_oc",
+              "value": "to_ChangeRecordRefEquipTskList_oc"
+            },
+            {
+              "label": "to_ChangeRecordRefInspPlan_oc",
+              "value": "to_ChangeRecordRefInspPlan_oc"
+            },
+            {
+              "label": "to_ChangeRecordRefLabelSet_oc",
+              "value": "to_ChangeRecordRefLabelSet_oc"
+            },
+            {
+              "label": "to_ChangeRecordRefMasterRecipe_oc",
+              "value": "to_ChangeRecordRefMasterRecipe_oc"
+            },
+            {
+              "label": "to_ChangeRecordRefOpSetTskList_oc",
+              "value": "to_ChangeRecordRefOpSetTskList_oc"
+            },
+            {
+              "label": "to_ChangeRecordRefProdnRouting_oc",
+              "value": "to_ChangeRecordRefProdnRouting_oc"
+            },
+            {
+              "label": "to_ChangeRecordRefRecipe_oc",
+              "value": "to_ChangeRecordRefRecipe_oc"
+            },
+            {
+              "label": "to_ChangeRecordRefSpecification_oc",
+              "value": "to_ChangeRecordRefSpecification_oc"
+            },
+            {
+              "label": "to_ChangeRecordRefStdBOM_oc",
+              "value": "to_ChangeRecordRefStdBOM_oc"
+            },
+            {
+              "label": "to_ChangeRecordRefTmplRouting_oc",
+              "value": "to_ChangeRecordRefTmplRouting_oc"
+            },
+            {
+              "label": "to_ChangeRecordRefVarBOM_oc",
+              "value": "to_ChangeRecordRefVarBOM_oc"
+            },
+            {
+              "label": "to_ChgRecdCollaboration_oc",
+              "value": "to_ChgRecdCollaboration_oc"
+            },
+            {
+              "label": "to_ChgRecdEquipBOM_oc",
+              "value": "to_ChgRecdEquipBOM_oc"
+            },
+            {
+              "label": "to_ChgRecdFuncLocBOM_oc",
+              "value": "to_ChgRecdFuncLocBOM_oc"
+            },
+            {
+              "label": "to_ChgRecdRefCutPlngPrflTskList_oc",
+              "value": "to_ChgRecdRefCutPlngPrflTskList_oc"
+            },
+            {
+              "label": "to_ChgRecdRefEngBOM_oc",
+              "value": "to_ChgRecdRefEngBOM_oc"
+            },
+            {
+              "label": "to_ChgRecdRefMaintTskList_oc",
+              "value": "to_ChgRecdRefMaintTskList_oc"
+            },
+            {
+              "label": "to_ChgRecdRefMfgBOM_oc",
+              "value": "to_ChgRecdRefMfgBOM_oc"
+            },
+            {
+              "label": "to_ChgRecdRefPlngScp_oc",
+              "value": "to_ChgRecdRefPlngScp_oc"
+            },
+            {
+              "label": "to_ChgRecdRefRateRtgTskList_oc",
+              "value": "to_ChgRecdRefRateRtgTskList_oc"
+            },
+            {
+              "label": "to_ChgRecdWBSElmntBOM_oc",
+              "value": "to_ChgRecdWBSElmntBOM_oc"
+            },
+            {
+              "label": "to_RefBit_oc",
+              "value": "to_RefBit_oc"
+            },
+            {
+              "label": "to_RefBOM_oc",
+              "value": "to_RefBOM_oc"
+            },
+            {
+              "label": "to_RefDoc_oc",
+              "value": "to_RefDoc_oc"
+            },
+            {
+              "label": "to_RefMat_oc",
+              "value": "to_RefMat_oc"
+            },
+            {
+              "label": "to_RefPSV_oc",
+              "value": "to_RefPSV_oc"
+            },
+            {
+              "label": "ChangeRecordUUID",
+              "value": "ChangeRecordUUID"
+            },
+            {
+              "label": "ChangeRecord",
+              "value": "ChangeRecord"
+            },
+            {
+              "label": "ChangeRecordType",
+              "value": "ChangeRecordType"
+            },
+            {
+              "label": "ChangeRecordStatus",
+              "value": "ChangeRecordStatus"
+            },
+            {
+              "label": "ChangeNumber",
+              "value": "ChangeNumber"
+            },
+            {
+              "label": "CreatedByUser",
+              "value": "CreatedByUser"
+            },
+            {
+              "label": "CreationDateTime",
+              "value": "CreationDateTime"
+            },
+            {
+              "label": "LastChangedByUser",
+              "value": "LastChangedByUser"
+            },
+            {
+              "label": "LastChangeDateTime",
+              "value": "LastChangeDateTime"
+            },
+            {
+              "label": "ChangeRecordLifecycleStatus",
+              "value": "ChangeRecordLifecycleStatus"
+            },
+            {
+              "label": "Partner",
+              "value": "Partner"
+            },
+            {
+              "label": "ChgRecordDescriptionText",
+              "value": "ChgRecordDescriptionText"
+            },
+            {
+              "label": "ChangeRecordDetailDescription",
+              "value": "ChangeRecordDetailDescription"
+            },
+            {
+              "label": "ChgRecdExpectedCompletionDate",
+              "value": "ChgRecdExpectedCompletionDate"
+            },
+            {
+              "label": "to_ChangeRecordFuncLocTskList",
+              "value": "to_ChangeRecordFuncLocTskList"
+            },
+            {
+              "label": "to_ChangeRecordRefCharc",
+              "value": "to_ChangeRecordRefCharc"
+            },
+            {
+              "label": "to_ChangeRecordRefClass",
+              "value": "to_ChangeRecordRefClass"
+            },
+            {
+              "label": "to_ChangeRecordRefEquipTskList",
+              "value": "to_ChangeRecordRefEquipTskList"
+            },
+            {
+              "label": "to_ChangeRecordRefMasterRecipe",
+              "value": "to_ChangeRecordRefMasterRecipe"
+            },
+            {
+              "label": "to_ChangeRecordRefProdnRouting",
+              "value": "to_ChangeRecordRefProdnRouting"
+            },
+            {
+              "label": "to_ChangeRecordRefStdBOM",
+              "value": "to_ChangeRecordRefStdBOM"
+            },
+            {
+              "label": "to_ChangeRecordRefVarBOM",
+              "value": "to_ChangeRecordRefVarBOM"
+            },
+            {
+              "label": "to_ChgRecdCollaboration",
+              "value": "to_ChgRecdCollaboration"
+            },
+            {
+              "label": "to_ChgRecdEquipBOM",
+              "value": "to_ChgRecdEquipBOM"
+            },
+            {
+              "label": "to_ChgRecdFuncLocBOM",
+              "value": "to_ChgRecdFuncLocBOM"
+            },
+            {
+              "label": "to_ChgRecdRefEngBOM",
+              "value": "to_ChgRecdRefEngBOM"
+            },
+            {
+              "label": "to_ChgRecdRefMaintTskList",
+              "value": "to_ChgRecdRefMaintTskList"
+            },
+            {
+              "label": "to_ChgRecdRefMfgBOM",
+              "value": "to_ChgRecdRefMfgBOM"
+            },
+            {
+              "label": "to_RefBit",
+              "value": "to_RefBit"
+            },
+            {
+              "label": "to_RefBOM",
+              "value": "to_RefBOM"
+            },
+            {
+              "label": "to_RefDoc",
+              "value": "to_RefDoc"
+            },
+            {
+              "label": "to_RefMat",
+              "value": "to_RefMat"
+            },
+            {
+              "label": "to_RefPSV",
+              "value": "to_RefPSV"
+            }
+          ],
+          "key": "changerecordSelect",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Select"
+        },
+        {
+          "placeholder": "Expand",
+          "required": false,
+          "comments": "Expand property to be returned",
+          "model": [
+            {
+              "label": "to_ChangeRecordFuncLocTskList",
+              "value": "to_ChangeRecordFuncLocTskList"
+            },
+            {
+              "label": "to_ChangeRecordRefCharc",
+              "value": "to_ChangeRecordRefCharc"
+            },
+            {
+              "label": "to_ChangeRecordRefClass",
+              "value": "to_ChangeRecordRefClass"
+            },
+            {
+              "label": "to_ChangeRecordRefEquipTskList",
+              "value": "to_ChangeRecordRefEquipTskList"
+            },
+            {
+              "label": "to_ChangeRecordRefMasterRecipe",
+              "value": "to_ChangeRecordRefMasterRecipe"
+            },
+            {
+              "label": "to_ChangeRecordRefProdnRouting",
+              "value": "to_ChangeRecordRefProdnRouting"
+            },
+            {
+              "label": "to_ChangeRecordRefStdBOM",
+              "value": "to_ChangeRecordRefStdBOM"
+            },
+            {
+              "label": "to_ChangeRecordRefVarBOM",
+              "value": "to_ChangeRecordRefVarBOM"
+            },
+            {
+              "label": "to_ChgRecdCollaboration",
+              "value": "to_ChgRecdCollaboration"
+            },
+            {
+              "label": "to_ChgRecdEquipBOM",
+              "value": "to_ChgRecdEquipBOM"
+            },
+            {
+              "label": "to_ChgRecdFuncLocBOM",
+              "value": "to_ChgRecdFuncLocBOM"
+            },
+            {
+              "label": "to_ChgRecdRefEngBOM",
+              "value": "to_ChgRecdRefEngBOM"
+            },
+            {
+              "label": "to_ChgRecdRefMaintTskList",
+              "value": "to_ChgRecdRefMaintTskList"
+            },
+            {
+              "label": "to_ChgRecdRefMfgBOM",
+              "value": "to_ChgRecdRefMfgBOM"
+            },
+            {
+              "label": "to_RefBit",
+              "value": "to_RefBit"
+            },
+            {
+              "label": "to_RefBOM",
+              "value": "to_RefBOM"
+            },
+            {
+              "label": "to_RefDoc",
+              "value": "to_RefDoc"
+            },
+            {
+              "label": "to_RefMat",
+              "value": "to_RefMat"
+            },
+            {
+              "label": "to_RefPSV",
+              "value": "to_RefPSV"
+            }
+          ],
+          "key": "changerecordExpand",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Expand"
+        }
+      ]
+    },
+    "createChangeRecord": {
+      "display": {
+        "label": "Create Change Record",
+        "description": "Creates a change record."
+      },
+      "key": "createChangeRecord",
+      "inputs": [
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Request Body",
+          "key": "requestBodyCode",
+          "type": "code",
+          "default": "{\n        \"ChangeRecordUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n        \"ChangeRecord\": \"string\",\n        \"ChangeRecordType\": \"string\",\n        \"ChangeRecordStatus\": \"string\",\n        \"ChangeNumber\": \"string\",\n        \"ChangeRecordLifecycleStatus\": \"string\",\n        \"Partner\": \"string\",\n        \"ChgRecordDescriptionText\": \"string\",\n        \"ChangeRecordDetailDescription\": \"string\",\n        \"ChgRecdExpectedCompletionDate\": \"/Date(1492041600000)/\",\n        \"to_ChangeRecordFuncLocTskList\": {\n           \"results\": [\n              {\n                 \"ChangeRecordReferenceUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecord\": \"string\",\n                 \"ChangeRecordUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecordReferenceType\": \"string\",\n                 \"FuncLocTskListGroup\": \"string\",\n                 \"FuncLocTskList\": \"string\",\n                 \"ChangeRecordItemRelevance\": \"string\",\n                 \"ChangeRecordItemProcgStatus\": \"string\"\n              }\n           ]\n        },\n        \"to_ChangeRecordRefCharc\": {\n           \"results\": [\n              {\n                 \"ChangeRecordReferenceUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecord\": \"string\",\n                 \"Characteristic\": \"string\",\n                 \"ChangeNumber\": \"string\",\n                 \"CharcDataType\": \"string\",\n                 \"CharcStatus\": \"string\",\n                 \"ValidityStartDate\": \"/Date(1492041600000)/\",\n                 \"CharcInternalID\": \"string\",\n                 \"CharcDecimals\": 0,\n                 \"CharcLength\": 0,\n                 \"CharcValueUnit\": \"string\",\n                 \"ChangeRecordUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecordReferenceType\": \"string\",\n                 \"ChangeRecordReferenceSubtype\": \"string\",\n                 \"ChangeRecordReference\": \"string\",\n                 \"ParentChangeRecordRefUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"IsMainReference\": \"string\",\n                 \"CreationDate\": \"/Date(1492041600000)/\",\n                 \"LastChangeDate\": \"/Date(1492041600000)/\",\n                 \"ChangeRecordItemRelevance\": \"string\",\n                 \"ChangeRecordVirtualRefInd\": \"string\",\n                 \"ChangeRecordRefObjectUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecordItemProcgStatus\": \"string\"\n              }\n           ]\n        },\n        \"to_ChangeRecordRefClass\": {\n           \"results\": [\n              {\n                 \"ChangeRecordReferenceUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecord\": \"string\",\n                 \"Class\": \"string\",\n                 \"ClassType\": \"string\",\n                 \"ChangeNumber\": \"string\",\n                 \"ClassName\": \"string\",\n                 \"ClassTypeName\": \"string\",\n                 \"ValidityStartDate\": \"/Date(1492041600000)/\",\n                 \"ClassStatus\": \"string\",\n                 \"ClassStatusName\": \"string\",\n                 \"ClassInternalID\": \"string\",\n                 \"ChangeRecordItemProcgStatus\": \"string\",\n                 \"ChangeRecordUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecordReferenceType\": \"string\",\n                 \"ChangeRecordReferenceSubtype\": \"string\",\n                 \"ParentChangeRecordRefUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecordItemRelevance\": \"string\",\n                 \"ChangeRecordReference\": \"string\",\n                 \"ChangeRecordStatus\": \"string\",\n                 \"CreationDate\": \"/Date(1492041600000)/\",\n                 \"LastChangeDate\": \"/Date(1492041600000)/\",\n                 \"ChangeRecordVirtualRefInd\": \"string\"\n              }\n           ]\n        },\n        \"to_ChangeRecordRefEquipTskList\": {\n           \"results\": [\n              {\n                 \"ChangeRecordReferenceUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecord\": \"string\",\n                 \"ChangeRecordUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecordReferenceType\": \"string\",\n                 \"EquipmentTskListGroup\": \"string\",\n                 \"EquipmentTskList\": \"string\",\n                 \"ChangeRecordItemRelevance\": \"string\",\n                 \"ChangeRecordItemProcgStatus\": \"string\"\n              }\n           ]\n        },\n        \"to_ChangeRecordRefMasterRecipe\": {\n           \"results\": [\n              {\n                 \"ChangeRecordReferenceUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecord\": \"string\",\n                 \"ChangeRecordUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecordReferenceType\": \"string\",\n                 \"MasterRecipeGroup\": \"string\",\n                 \"MasterRecipe\": \"string\",\n                 \"ChangeRecordItemProcgStatus\": \"string\",\n                 \"ChangeRecordItemRelevance\": \"string\"\n              }\n           ]\n        },\n        \"to_ChangeRecordRefProdnRouting\": {\n           \"results\": [\n              {\n                 \"ChangeRecordReferenceUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecord\": \"string\",\n                 \"ChangeRecordUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecordReferenceType\": \"string\",\n                 \"BillOfOperationsGroup\": \"string\",\n                 \"BillOfOperationsVariant\": \"string\",\n                 \"ChangeRecordItemRelevance\": \"string\",\n                 \"ChangeRecordItemProcgStatus\": \"string\"\n              }\n           ]\n        },\n        \"to_ChangeRecordRefStdBOM\": {\n           \"results\": [\n              {\n                 \"ChangeRecordReferenceUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"StandardObject\": \"string\",\n                 \"Plant\": \"string\",\n                 \"BillOfMaterialVariantUsage\": \"string\",\n                 \"BillOfMaterialVariant\": \"string\",\n                 \"ChangeRecord\": \"string\",\n                 \"ChangeRecordUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeNumber\": \"string\",\n                 \"ChangeRecordItemRelevance\": \"string\",\n                 \"ChangeRecordItemProcgStatus\": \"string\"\n              }\n           ]\n        },\n        \"to_ChangeRecordRefVarBOM\": {\n           \"results\": [\n              {\n                 \"ChangeRecordReferenceUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecord\": \"string\",\n                 \"ChangeRecordUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecordReferenceType\": \"string\",\n                 \"ChangeRecordReferenceSubtype\": \"string\",\n                 \"ChangeRecordReference\": \"string\",\n                 \"ParentChangeRecordRefUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"IsMainReference\": \"string\",\n                 \"BillOfMaterialCategory\": \"string\",\n                 \"ChangeNumber\": \"string\",\n                 \"ChangeRecordVirtualRefInd\": \"string\",\n                 \"BillOfMaterial\": \"string\",\n                 \"Material\": \"string\",\n                 \"Plant\": \"string\",\n                 \"BillOfMaterialVariantUsage\": \"string\",\n                 \"BillOfMaterialVariant\": \"string\",\n                 \"ChangeRecordItemRelevance\": \"string\",\n                 \"ChangeRecordItemProcgStatus\": \"string\"\n              }\n           ]\n        },\n        \"to_ChgRecdCollaboration\": {\n           \"results\": [\n              {\n                 \"ChgRecdPLMEPDCollabnUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecordUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChgRecdPLMEPDCollabnType\": \"string\",\n                 \"CreatedByUser\": \"string\",\n                 \"CreationDateTime\": \"/Date(1492098664000)/\",\n                 \"ChgRecdPLMEPDCollabnSourceID\": \"string\",\n                 \"ChgRecdPLMEPDCollabnID\": \"string\"\n              }\n           ]\n        },\n        \"to_ChgRecdEquipBOM\": {\n           \"results\": [\n              {\n                 \"ChangeRecordReferenceUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecord\": \"string\",\n                 \"Equipment\": \"string\",\n                 \"Plant\": \"string\",\n                 \"BillOfMaterialVariantUsage\": \"string\",\n                 \"BillOfMaterialVariant\": \"string\",\n                 \"ChangeRecordUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecordReferenceType\": \"string\",\n                 \"ChangeRecordReferenceSubtype\": \"string\",\n                 \"ChangeRecordReference\": \"string\",\n                 \"ParentChangeRecordRefUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"IsMainReference\": \"string\",\n                 \"BillOfMaterialCategory\": \"string\",\n                 \"ChangeNumber\": \"string\",\n                 \"ChangeRecordItemRelevance\": \"string\",\n                 \"ChangeRecordVirtualRefInd\": \"string\",\n                 \"BillOfMaterial\": \"string\",\n                 \"ChangeRecordRefObjectUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecordItemProcgStatus\": \"string\"\n              }\n           ]\n        },\n        \"to_ChgRecdFuncLocBOM\": {\n           \"results\": [\n              {\n                 \"ChangeRecordReferenceUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecord\": \"string\",\n                 \"FunctionalLocation\": \"string\",\n                 \"Plant\": \"string\",\n                 \"BillOfMaterialVariantUsage\": \"string\",\n                 \"BillOfMaterialVariant\": \"string\",\n                 \"ChangeRecordUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecordReferenceType\": \"string\",\n                 \"ChangeRecordReferenceSubtype\": \"string\",\n                 \"ChangeRecordReference\": \"string\",\n                 \"ParentChangeRecordRefUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"IsMainReference\": \"string\",\n                 \"BillOfMaterialCategory\": \"string\",\n                 \"ChangeNumber\": \"string\",\n                 \"ChangeRecordItemRelevance\": \"string\",\n                 \"ChangeRecordVirtualRefInd\": \"string\",\n                 \"BillOfMaterial\": \"string\",\n                 \"ChangeRecordRefObjectUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecordItemProcgStatus\": \"string\"\n              }\n           ]\n        },\n        \"to_ChgRecdRefEngBOM\": {\n           \"results\": [\n              {\n                 \"ChangeRecordReferenceUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"Material\": \"string\",\n                 \"Plant\": \"string\",\n                 \"BillOfMaterialVariantUsage\": \"string\",\n                 \"BillOfMaterialVariant\": \"string\",\n                 \"BillOfMaterial\": \"string\",\n                 \"BillOfMaterialCategory\": \"string\",\n                 \"BillOfMaterialVersion\": \"string\",\n                 \"ChangeRecord\": \"string\",\n                 \"ChangeRecordUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecordReferenceType\": \"string\",\n                 \"ChangeRecordReferenceSubtype\": \"string\",\n                 \"ChangeRecordRefObjectUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ParentChangeRecordRefUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"IsMainReference\": \"string\",\n                 \"ChangeRecordVirtualRefInd\": \"string\",\n                 \"ChangeRecordItemRelevance\": \"string\",\n                 \"ChangeRecordItemProcgStatus\": \"string\"\n              }\n           ]\n        },\n        \"to_ChgRecdRefMaintTskList\": {\n           \"results\": [\n              {\n                 \"ChangeRecordReferenceUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecord\": \"string\",\n                 \"ChangeRecordUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"RefMaintTskListGroup\": \"string\",\n                 \"RefMaintTskList\": \"string\",\n                 \"ChangeRecordItemRelevance\": \"string\",\n                 \"ChangeRecordItemProcgStatus\": \"string\"\n              }\n           ]\n        },\n        \"to_ChgRecdRefMfgBOM\": {\n           \"results\": [\n              {\n                 \"ChangeRecordReferenceUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"Material\": \"string\",\n                 \"Plant\": \"string\",\n                 \"BillOfMaterialVariantUsage\": \"string\",\n                 \"BillOfMaterialVariant\": \"string\",\n                 \"BillOfMaterial\": \"string\",\n                 \"BillOfMaterialCategory\": \"string\",\n                 \"BillOfMaterialVersion\": \"string\",\n                 \"ChangeRecord\": \"string\",\n                 \"ChangeRecordUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecordReferenceType\": \"string\",\n                 \"ChangeRecordReferenceSubtype\": \"string\",\n                 \"ChangeRecordRefObjectUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ParentChangeRecordRefUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"IsMainReference\": \"string\",\n                 \"ChangeRecordVirtualRefInd\": \"string\",\n                 \"ChangeRecordItemRelevance\": \"string\",\n                 \"ChangeRecordItemProcgStatus\": \"string\"\n              }\n           ]\n        },\n        \"to_RefBit\": {\n           \"results\": [\n              {\n                 \"ChangeRecordReferenceUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecord\": \"string\",\n                 \"ChangeRecordUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecordReferenceType\": \"string\",\n                 \"BillOfMaterialItemNumber\": \"string\",\n                 \"BillOfMaterialComponent\": \"string\",\n                 \"Material\": \"string\",\n                 \"Plant\": \"string\",\n                 \"BillOfMaterialVariantUsage\": \"string\",\n                 \"BillOfMaterialVariant\": \"string\",\n                 \"ChangeRecordItemRelevance\": \"string\"\n              }\n           ]\n        },\n        \"to_RefBOM\": {\n           \"results\": [\n              {\n                 \"ChangeRecordReferenceUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecord\": \"string\",\n                 \"ChangeRecordUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecordReferenceType\": \"string\",\n                 \"Material\": \"string\",\n                 \"Plant\": \"string\",\n                 \"BillOfMaterialVariantUsage\": \"string\",\n                 \"BillOfMaterialVariant\": \"string\",\n                 \"ChangeRecordItemRelevance\": \"string\",\n                 \"ChangeRecordItemProcgStatus\": \"string\"\n              }\n           ]\n        },\n        \"to_RefDoc\": {\n           \"results\": [\n              {\n                 \"ChangeRecordReferenceUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecord\": \"string\",\n                 \"ChangeRecordUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecordReferenceType\": \"string\",\n                 \"DocumentInfoRecord\": \"string\",\n                 \"DocumentType\": \"string\",\n                 \"DocumentPart\": \"string\",\n                 \"DocumentVersion\": \"string\",\n                 \"ChangeRecordItemRelevance\": \"string\",\n                 \"ExternalDocumentStatus\": \"string\"\n              }\n           ]\n        },\n        \"to_RefMat\": {\n           \"results\": [\n              {\n                 \"ChangeRecordReferenceUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecord\": \"string\",\n                 \"ChangeRecordUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecordReferenceType\": \"string\",\n                 \"Material\": \"string\",\n                 \"MaterialType\": \"string\",\n                 \"BaseUnit\": \"string\",\n                 \"MaterialStatus\": \"string\",\n                 \"ChangeRecordItemRelevance\": \"string\",\n                 \"ChangeRecordItemProcgStatus\": \"string\"\n              }\n           ]\n        },\n        \"to_RefPSV\": {\n           \"results\": [\n              {\n                 \"ChangeRecordReferenceUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecordUUID\": \"01234567-89ab-cdef-0123-456789abcdef\",\n                 \"ChangeRecord\": \"string\",\n                 \"ChangeRecordReferenceType\": \"string\",\n                 \"Material\": \"string\",\n                 \"Class\": \"string\",\n                 \"ProductStructureNodeName\": \"string\",\n                 \"ProdStrucNodeDescription\": \"string\",\n                 \"ProductStructureVariantName\": \"string\",\n                 \"ProdStrucVariantDescription\": \"string\",\n                 \"ProdStrucVariantChangeNumber\": \"string\",\n                 \"ChangeRecordItemRelevance\": \"string\",\n                 \"ChangeRecordRefObjectUUID\": \"01234567-89ab-cdef-0123-456789abcdef\"\n              }\n           ]\n        }\n     }",
+          "label": "Body"
+        },
+        {
+          "required": true,
+          "key": "connectionInput",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Project ID",
+          "required": true,
+          "key": "projectId",
+          "type": "string",
+          "default": "",
+          "label": "Project ID"
+        }
+      ]
+    },
+    "updateChangeRecord": {
+      "display": {
+        "label": "Update Change Record",
+        "description": "Updates header attributes of the change record specified in the request."
+      },
+      "key": "updateChangeRecord",
+      "inputs": [
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Request Body",
+          "key": "requestBodyCode",
+          "type": "code",
+          "default": "{\n         \"d\": {\n         \"ChangeRecord\": \"string\",\n         \"ChangeRecordType\": \"string\",\n         \"ChangeRecordStatus\": \"string\",\n         \"ChangeNumber\": \"string\",\n         \"ChangeRecordLifecycleStatus\": \"string\",\n         \"Partner\": \"string\",\n         \"ChgRecordDescriptionText\": \"string\",\n         \"ChangeRecordDetailDescription\": \"string\",\n         \"ChgRecdExpectedCompletionDate\": \"/Date(1492041600000)/\"\n         }\n         }",
+          "label": "Body"
+        },
+        {
+          "required": true,
+          "key": "connectionInput",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "NodeID",
+          "required": true,
+          "key": "changeRecordUuid",
+          "type": "string",
+          "default": "",
+          "label": "Change Record UUID"
+        }
+      ]
+    },
+    "rawRequest": {
+      "display": {
+        "label": "Raw Request",
+        "description": "Send a raw HTTP request to SAP S/4HANA Cloud API"
+      },
+      "key": "rawRequest",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "Input the path only (/sap/opu/odata/sap/API_CHANGE_RECORD/A_ChangeRecord(guid'01234567-89ab-cdef-0123-456789abcdef')/to_ChangeRecordRefClass?%24inlinecount=allpages&%24top=50), The base URL is already included (https://{company-url}.api.sap.com/s4hanacloud). For example, to connect to https://{company-url}.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_CHANGE_RECORD/A_ChangeRecord(guid'01234567-89ab-cdef-0123-456789abcdef')/to_ChangeRecordRefClass?%24inlinecount=allpages&%24top=50, only /sap/opu/odata/sap/API_CHANGE_RECORD/A_ChangeRecord(guid'01234567-89ab-cdef-0123-456789abcdef')/to_ChangeRecordRefClass?%24inlinecount=allpages&%24top=50 is entered in this field.",
+          "example": "/sap/opu/odata/sap/API_CHANGE_RECORD/A_ChangeRecord(guid'01234567-89ab-cdef-0123-456789abcdef')/to_ChangeRecordRefClass?%24inlinecount=allpages&%24top=50",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "The file name to apply to a file",
+          "required": false,
+          "comments": "File names to apply to the file data inputs. Keys must match the file data keys above.",
+          "key": "fileDataFileNames",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data File Names"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        }
+      ]
+    },
+    "rawRequestOdata": {
+      "display": {
+        "label": "Raw Request - ODATA",
+        "description": "Sends an ODATA Raw HTTP request To SAP S/4HANA Cloud API"
+      },
+      "key": "rawRequestOdata",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "Input the path only (/sap/opu/odata/sap/API_CHANGE_RECORD/A_ChangeRecord(guid'01234567-89ab-cdef-0123-456789abcdef')/to_ChangeRecordRefClass?%24inlinecount=allpages&%24top=50), The base URL is already included (https://{company-url}.api.sap.com/s4hanacloud). For example, to connect to https://{company-url}.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_CHANGE_RECORD/A_ChangeRecord(guid'01234567-89ab-cdef-0123-456789abcdef')/to_ChangeRecordRefClass?%24inlinecount=allpages&%24top=50, only /sap/opu/odata/sap/API_CHANGE_RECORD/A_ChangeRecord(guid'01234567-89ab-cdef-0123-456789abcdef')/to_ChangeRecordRefClass?%24inlinecount=allpages&%24top=50 is entered in this field.",
+          "example": "/sap/opu/odata/sap/API_CHANGE_RECORD/A_ChangeRecord(guid'01234567-89ab-cdef-0123-456789abcdef')/to_ChangeRecordRefClass?%24inlinecount=allpages&%24top=50",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "The file name to apply to a file",
+          "required": false,
+          "comments": "File names to apply to the file data inputs. Keys must match the file data keys above.",
+          "key": "fileDataFileNames",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data File Names"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        },
+        {
+          "comments": "Show only the first n items",
+          "required": false,
+          "key": "top",
+          "type": "string",
+          "default": "",
+          "label": "Top"
+        },
+        {
+          "comments": "Skip the first n items",
+          "required": false,
+          "key": "skip",
+          "type": "string",
+          "default": "",
+          "label": "Skip"
+        },
+        {
+          "comments": "Search items by search phrases",
+          "required": false,
+          "key": "search",
+          "type": "string",
+          "default": "",
+          "label": "Search"
+        },
+        {
+          "comments": "Filter items by property values",
+          "required": false,
+          "key": "filter",
+          "type": "string",
+          "default": "",
+          "label": "Filter"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "allpages",
+              "value": "allpages"
+            },
+            {
+              "label": "none",
+              "value": "none"
+            }
+          ],
+          "key": "inlinecount",
+          "type": "string",
+          "default": "",
+          "label": "Inline Count"
+        },
+        {
+          "placeholder": "Order By",
+          "required": false,
+          "comments": "Order by property",
+          "model": [
+            {
+              "label": "FileSize",
+              "value": "FileSize"
+            },
+            {
+              "label": "FileSize desc",
+              "value": "FileSize desc"
+            },
+            {
+              "label": "FileName",
+              "value": "FileName"
+            },
+            {
+              "label": "FileName desc",
+              "value": "FileName desc"
+            },
+            {
+              "label": "MimeType",
+              "value": "MimeType"
+            },
+            {
+              "label": "MimeType desc",
+              "value": "MimeType desc"
+            },
+            {
+              "label": "CreatedByUser",
+              "value": "CreatedByUser"
+            },
+            {
+              "label": "CreatedByUser desc",
+              "value": "CreatedByUser desc"
+            },
+            {
+              "label": "CreationDateTime",
+              "value": "CreationDateTime"
+            },
+            {
+              "label": "CreationDateTime desc",
+              "value": "CreationDateTime desc"
+            },
+            {
+              "label": "LastChangedByUser",
+              "value": "LastChangedByUser"
+            },
+            {
+              "label": "LastChangedByUser desc",
+              "value": "LastChangedByUser desc"
+            },
+            {
+              "label": "ChangedDateTime",
+              "value": "ChangedDateTime"
+            },
+            {
+              "label": "ChangedDateTime desc",
+              "value": "ChangedDateTime desc"
+            }
+          ],
+          "key": "orderBy",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Order By"
+        },
+        {
+          "placeholder": "Select",
+          "required": false,
+          "comments": "Select property to be returned",
+          "model": [
+            {
+              "label": "DocumentInfoRecordDocType",
+              "value": "DocumentInfoRecordDocType"
+            },
+            {
+              "label": "DocumentInfoRecordDocNumber",
+              "value": "DocumentInfoRecordDocNumber"
+            },
+            {
+              "label": "DocumentInfoRecordDocVersion",
+              "value": "DocumentInfoRecordDocVersion"
+            },
+            {
+              "label": "DocumentInfoRecordDocPart",
+              "value": "DocumentInfoRecordDocPart"
+            },
+            {
+              "label": "LogicalDocument",
+              "value": "LogicalDocument"
+            },
+            {
+              "label": "ArchiveDocumentID",
+              "value": "ArchiveDocumentID"
+            },
+            {
+              "label": "LinkedSAPObjectKey",
+              "value": "LinkedSAPObjectKey"
+            },
+            {
+              "label": "BusinessObjectTypeName",
+              "value": "BusinessObjectTypeName"
+            },
+            {
+              "label": "SemanticObject",
+              "value": "SemanticObject"
+            },
+            {
+              "label": "WorkstationApplication",
+              "value": "WorkstationApplication"
+            },
+            {
+              "label": "FileSize",
+              "value": "FileSize"
+            },
+            {
+              "label": "FileName",
+              "value": "FileName"
+            },
+            {
+              "label": "DocumentURL",
+              "value": "DocumentURL"
+            },
+            {
+              "label": "MimeType",
+              "value": "MimeType"
+            },
+            {
+              "label": "Content",
+              "value": "Content"
+            },
+            {
+              "label": "CreatedByUser",
+              "value": "CreatedByUser"
+            },
+            {
+              "label": "CreatedByUserFullName",
+              "value": "CreatedByUserFullName"
+            },
+            {
+              "label": "CreationDateTime",
+              "value": "CreationDateTime"
+            },
+            {
+              "label": "BusinessObjectType",
+              "value": "BusinessObjectType"
+            },
+            {
+              "label": "LastChangedByUser",
+              "value": "LastChangedByUser"
+            },
+            {
+              "label": "LastChangedByUserFullName",
+              "value": "LastChangedByUserFullName"
+            },
+            {
+              "label": "ChangedDateTime",
+              "value": "ChangedDateTime"
+            },
+            {
+              "label": "StorageCategory",
+              "value": "StorageCategory"
+            },
+            {
+              "label": "ArchiveLinkRepository",
+              "value": "ArchiveLinkRepository"
+            },
+            {
+              "label": "SAPObjectType",
+              "value": "SAPObjectType"
+            },
+            {
+              "label": "SAPObjectNodeType",
+              "value": "SAPObjectNodeType"
+            },
+            {
+              "label": "HarmonizedDocumentType",
+              "value": "HarmonizedDocumentType"
+            },
+            {
+              "label": "AttachmentDeletionIsAllowed",
+              "value": "AttachmentDeletionIsAllowed"
+            },
+            {
+              "label": "AttachmentRenameIsAllowed",
+              "value": "AttachmentRenameIsAllowed"
+            },
+            {
+              "label": "Source",
+              "value": "Source"
+            },
+            {
+              "label": "AttachmentContentHash",
+              "value": "AttachmentContentHash"
+            }
+          ],
+          "key": "select",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Select"
+        },
+        {
+          "placeholder": "Expand",
+          "required": false,
+          "comments": "Expand property to be returned",
+          "model": [
+            {
+              "label": "ProjectRoleSet",
+              "value": "ProjectRoleSet"
+            },
+            {
+              "label": "WorkPackageSet",
+              "value": "WorkPackageSet"
+            }
+          ],
+          "key": "expand",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Expand"
+        }
+      ]
+    }
+  },
+  "triggers": {},
+  "dataSources": {},
+  "documentation": {
+    "description": "[SAP S/4HANA](https://www.sap.com/products/erp/s4hana.html) is a multi-faceted cloud based ERP solution. \n\nUse the S/4HANA component to manage records within the SAP database."
+  },
+  "$version": 1
+}

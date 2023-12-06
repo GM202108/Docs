@@ -1,0 +1,153 @@
+definitionVersion: 5
+
+name: Incomplete TODO Items
+
+description: Pull down TODO items, filter for incomplete items for a specific user, and write to S3
+
+category: Prismatic Tutorial
+
+requiredConfigVars:
+  - dataType: string
+    defaultValue: us-east-1
+    hasDivider: false
+    header: AWS Configuration
+    key: AWS Region
+    orgOnly: false
+  - dataType: string
+    defaultValue: my-s3-bucket-name
+    hasDivider: false
+    key: S3 Bucket Name
+    orgOnly: false
+  - credentialTypes:
+      - apiKeySecret
+    dataType: credential
+    defaultValue: ""
+    hasDivider: false
+    key: AWS Credentials
+    orgOnly: false
+
+componentVersions:
+  aws-s3: 23
+  code: 40
+  http: 45
+  text-manipulation: 18
+
+flows:
+  - name: Flow 1
+    description: ""
+    isSynchronous: false
+    steps:
+      - name: TODOs Trigger
+        description: Kicks off the integration
+        action:
+          componentKey: webhook-triggers
+          key: webhook
+        inputs: {}
+        isTrigger: true
+
+      - name: Get all TODO items
+        description: Get a list of all TODO items
+        action:
+          key: httpGet
+          componentKey: http
+        inputs:
+          url:
+            type: value
+            value: https://jsonplaceholder.typicode.com/todos
+          responseType:
+            type: value
+            value: json
+
+      - name: Generate User URL
+        action:
+          key: join
+          componentKey: text-manipulation
+        inputs:
+          strings:
+            type: complex
+            value:
+              - type: value
+                value: https://jsonplaceholder.typicode.com/users/
+              - type: reference
+                value: todosTrigger.results.body.data.userId
+
+      - name: Get User Info
+        description: Get the name and username of the user
+        action:
+          key: httpGet
+          componentKey: http
+        inputs:
+          responseType:
+            type: value
+            value: json
+          url:
+            type: reference
+            value: generateUserUrl.results
+
+      - name: List items for user
+        description: >-
+          Filter items down to only incomplete ones for a specific user, and format
+          tasks as strings
+        action:
+          key: runCode
+          componentKey: code
+        inputs:
+          code:
+            type: value
+            value: |
+              module.exports = async (
+                context,
+                {
+                    todosTrigger,
+                    getAllTodoItems: { results: items },
+                    getUserInfo: {
+                      results: { name },
+                    },
+                }
+              ) => {
+                const userId = todosTrigger.results.body.data.userId;
+                const incompleteTasks = items
+                  .filter((item) => item.userId == userId)
+                  .filter((item) => !item.completed)
+                  .map(({ title }) => `${name} needs to ${title}.`)
+                  .join("\r\n");
+                return { data: incompleteTasks };
+              };
+
+      - name: Generate S3 object name
+        action:
+          key: join
+          componentKey: text-manipulation
+        inputs:
+          separator:
+            type: value
+            value: ""
+          strings:
+            type: complex
+            value:
+              - type: value
+                value: todoitems/
+              - type: reference
+                value: getUserInfo.results.username
+              - type: value
+                value: .txt
+
+      - name: Save TODO list to S3
+        description: Save the user's incomplete tasks a file in S3
+        action:
+          key: putObject
+          componentKey: aws-s3
+        credential: AWS Credentials
+        inputs:
+          awsRegion:
+            type: configVar
+            value: AWS Region
+          bucket:
+            type: configVar
+            value: S3 Bucket Name
+          fileContents:
+            type: reference
+            value: listItemsForUser.results
+          objectKey:
+            type: reference
+            value: generateS3ObjectName.results # Save to {BUCKET}/todoitems/{USERNAME}.txt

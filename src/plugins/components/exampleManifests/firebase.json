@@ -1,0 +1,387 @@
+{
+  "key": "firebase",
+  "public": true,
+  "documentationUrl": "https://prismatic.io/docs/components/firebase/",
+  "display": {
+    "category": "Data Platforms",
+    "label": "Firebase",
+    "description": "Create, read, update, and delete documents in a Firebase Cloud Firestore database collection.",
+    "iconPath": "icon.png",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "key": "firebaseConnection",
+      "label": "Firebase Private Key Connection",
+      "comments": "Authenticate requests to firebase using values obtained from the Google Cloud Platform.",
+      "inputs": [
+        {
+          "placeholder": "Project Id",
+          "required": true,
+          "shown": true,
+          "comments": "Provide the unique identifier of the project from the Google Cloud Platform.",
+          "key": "projectId",
+          "type": "string",
+          "default": "",
+          "label": "Project Id"
+        },
+        {
+          "placeholder": "Private Key",
+          "required": true,
+          "shown": true,
+          "comments": "Provide the private key from the Google Cloud Platform.",
+          "example": "example-\nMIIEvdegIBADANBgkqhkiG9w0BAVtkOIcMjQXRzx+2VLoPkAs\nl1vRkI4wWtbNn6taw01eserX1/vkyxHcByEtkAlaDFrqSlSclRmgRd/ddGWD6xGss9fGIjjJcez4jh\n8z6EUeZBAgMBAAECggEAE8vqqRrYdZFNSTOzZN+R/eDzW2nZMiBTqHTl/KvPmp0m\nfiXX94pJxcRKMEm44n7MFUSdMG3MJoMUeAIs+thYibqkFpXWBCzzq8EzfTuTjR8+ycF+GXWN",
+          "key": "privateKey",
+          "type": "text",
+          "default": "",
+          "label": "Private Key"
+        },
+        {
+          "placeholder": "Email",
+          "required": true,
+          "shown": true,
+          "comments": "Provide the client email for the GCP account.",
+          "example": "someone@example.com",
+          "key": "clientEmail",
+          "type": "string",
+          "default": "",
+          "label": "Email"
+        }
+      ],
+      "documentation": {
+        "description": "The Firebase Admin SDK is a set of server libraries that lets you interact with Firebase from privileged environments.\nTo authenticate through the Firebase Admin SDK, follow the instructions to generate a private key located on the Firebase [docs](https://firebase.google.com/docs/admin/setup#set-up-project-and-service-account)\nThis will involve you creating a service account in the Google Cloud Platform and generating credentials for that user.\nYou will receive a JSON file containing many fields including a private key, and client email which you will use to make a new connection.\nIn the new connection, enter the value of the client email, private key, and your GCP project Id.\n"
+      }
+    }
+  ],
+  "actions": {
+    "createDocument": {
+      "display": {
+        "label": "Create Document",
+        "description": "Create a document in a Cloud Firestore collection"
+      },
+      "examplePayload": {
+        "data": {
+          "id": "",
+          "path": ""
+        }
+      },
+      "key": "createDocument",
+      "inputs": [
+        {
+          "placeholder": "Collection Name",
+          "required": true,
+          "comments": "Provide a string value for the collection name.",
+          "example": "Customers",
+          "key": "collection",
+          "type": "string",
+          "default": "",
+          "label": "Collection"
+        },
+        {
+          "placeholder": "Data",
+          "required": true,
+          "comments": "Provide a key value pair that represents your data.",
+          "key": "data",
+          "type": "data",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Data"
+        },
+        {
+          "required": true,
+          "key": "firebaseConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "bulkCreateDocuments": {
+      "display": {
+        "label": "Bulk Create Documents",
+        "description": "Create multiple documents in a Cloud Firestore collection in a single operation"
+      },
+      "examplePayload": {
+        "data": "Documents created successfully."
+      },
+      "key": "bulkCreateDocuments",
+      "inputs": [
+        {
+          "required": true,
+          "key": "firebaseConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Collection Name",
+          "required": true,
+          "comments": "Provide a string value for the collection name.",
+          "example": "Customers",
+          "key": "collection",
+          "type": "string",
+          "default": "",
+          "label": "Collection"
+        },
+        {
+          "language": "json",
+          "comments": "An array of documents to be created in the collection.",
+          "required": true,
+          "key": "documents",
+          "type": "code",
+          "default": "[\n  {\n    \"field1\": \"value1\",\n    \"field2\": \"value2\"\n  },\n  {\n    \"field1\": \"value3\",\n    \"field2\": \"value4\"\n  }\n]",
+          "label": "Documents"
+        }
+      ]
+    },
+    "listCollections": {
+      "display": {
+        "label": "List Collections",
+        "description": "List all collections in a Cloud Firestore database"
+      },
+      "examplePayload": {},
+      "key": "listCollections",
+      "inputs": [
+        {
+          "required": true,
+          "key": "firebaseConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listDocuments": {
+      "display": {
+        "label": "List Documents",
+        "description": "List all documents in a Cloud Firestore collection"
+      },
+      "examplePayload": {
+        "data": [
+          {
+            "id": "",
+            "path": "",
+            "data": {}
+          }
+        ]
+      },
+      "key": "listDocuments",
+      "inputs": [
+        {
+          "placeholder": "Collection Name",
+          "required": true,
+          "comments": "Provide a string value for the collection name.",
+          "example": "Customers",
+          "key": "collection",
+          "type": "string",
+          "default": "",
+          "label": "Collection"
+        },
+        {
+          "required": true,
+          "key": "firebaseConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Field",
+          "required": false,
+          "comments": "Provide a string value for the field to order by.",
+          "example": "Name",
+          "key": "orderBy",
+          "type": "string",
+          "default": "",
+          "label": "Order By"
+        },
+        {
+          "language": "json",
+          "example": "[{\"field\":\"myFieldName\",\"operator\":\"!=\",\"value\":\"myFieldValue\"},{\"field\":\"myOtherFieldName\",\"operator\":\"not-in\",\"value\":[\"myOtherFieldValue1\",\"myOtherFieldValue2\"]}]",
+          "key": "queryOperatorCode",
+          "type": "code",
+          "default": "",
+          "label": "Query Operators"
+        }
+      ]
+    },
+    "getDocument": {
+      "display": {
+        "label": "Get Document",
+        "description": "Get the contents of a document in a Cloud Firestore collection"
+      },
+      "examplePayload": {
+        "data": {
+          "data": {},
+          "id": "",
+          "createTime": "2021-08-25T00:00:00.000Z",
+          "updateTime": "2021-08-25T00:00:00.000Z",
+          "exists": true,
+          "readTime": "2021-08-25T00:00:00.000Z"
+        }
+      },
+      "key": "getDocument",
+      "inputs": [
+        {
+          "placeholder": "Collection Name",
+          "required": true,
+          "comments": "Provide a string value for the collection name.",
+          "example": "Customers",
+          "key": "collection",
+          "type": "string",
+          "default": "",
+          "label": "Collection"
+        },
+        {
+          "placeholder": "Document",
+          "required": true,
+          "comments": "Provide a string value for the unique identifier of the document.",
+          "example": "/path/to/destination/file.txt",
+          "key": "document",
+          "type": "string",
+          "default": "",
+          "label": "Document"
+        },
+        {
+          "required": true,
+          "key": "firebaseConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteDocument": {
+      "display": {
+        "label": "Delete Document",
+        "description": "Remove a document from a Cloud Firestore collection"
+      },
+      "key": "deleteDocument",
+      "inputs": [
+        {
+          "placeholder": "Collection Name",
+          "required": true,
+          "comments": "Provide a string value for the collection name.",
+          "example": "Customers",
+          "key": "collection",
+          "type": "string",
+          "default": "",
+          "label": "Collection"
+        },
+        {
+          "placeholder": "Document",
+          "required": true,
+          "comments": "Provide a string value for the unique identifier of the document.",
+          "example": "/path/to/destination/file.txt",
+          "key": "document",
+          "type": "string",
+          "default": "",
+          "label": "Document"
+        },
+        {
+          "required": true,
+          "key": "firebaseConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "updateDocument": {
+      "display": {
+        "label": "Update Document",
+        "description": "Updates a document in a Cloud Firestore collection"
+      },
+      "examplePayload": {},
+      "key": "updateDocument",
+      "inputs": [
+        {
+          "placeholder": "Collection Name",
+          "required": true,
+          "comments": "Provide a string value for the collection name.",
+          "example": "Customers",
+          "key": "collection",
+          "type": "string",
+          "default": "",
+          "label": "Collection"
+        },
+        {
+          "placeholder": "Document",
+          "required": true,
+          "comments": "Provide a string value for the unique identifier of the document.",
+          "example": "/path/to/destination/file.txt",
+          "key": "document",
+          "type": "string",
+          "default": "",
+          "label": "Document"
+        },
+        {
+          "placeholder": "Data",
+          "required": true,
+          "comments": "Provide a key value pair that represents your data.",
+          "key": "data",
+          "type": "data",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Data"
+        },
+        {
+          "required": true,
+          "key": "firebaseConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ],
+      "documentation": {
+        "description": "When updating a document, you can specify any number of optional fields to be changed.\nHowever, if you would like to unset a value but keep the field, you must pass an unbound input (null, undefined) by using something like the code component or a previous step result.\nThis will result in the field's value becoming null or unset in the document.\nIf you wanted to completely remove this field from the document, you must use the removeField action.\n"
+      }
+    },
+    "removeField": {
+      "display": {
+        "label": "Remove Field",
+        "description": "Completely removes a field from a given document (may not work on a field with a null value)"
+      },
+      "examplePayload": {
+        "data": {}
+      },
+      "key": "removeField",
+      "inputs": [
+        {
+          "placeholder": "Collection Name",
+          "required": true,
+          "comments": "Provide a string value for the collection name.",
+          "example": "Customers",
+          "key": "collection",
+          "type": "string",
+          "default": "",
+          "label": "Collection"
+        },
+        {
+          "placeholder": "Document",
+          "required": true,
+          "comments": "Provide a string value for the unique identifier of the document.",
+          "example": "/path/to/destination/file.txt",
+          "key": "document",
+          "type": "string",
+          "default": "",
+          "label": "Document"
+        },
+        {
+          "placeholder": "firstName",
+          "example": "firstName",
+          "required": true,
+          "comments": "Provide a string value for the name of the field you would like to remove from the document.",
+          "key": "fieldToRemove",
+          "type": "string",
+          "default": "",
+          "label": "Field To Remove"
+        },
+        {
+          "required": true,
+          "key": "firebaseConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    }
+  },
+  "triggers": {},
+  "dataSources": {},
+  "documentation": {
+    "description": "[Firebase](https://firebase.google.com) is a platform developed by Google for creating mobile and web applications.\nFirebase Cloud Firestore is a document-based, flexible, scalable, and NoSQL cloud database, used to store and sync data for client and server-side applications.\nThis component uses the Firebase Admin SDK to create, read, update, delete, and list documents within a Firebase Cloud Firestore collection.\nSee more information in the Cloud Firestore section of the Firebase Admin SDK in the [Firebase Docs](https://firebase.google.com/docs/reference/admin).\n"
+  },
+  "$version": 1
+}

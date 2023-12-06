@@ -1,0 +1,848 @@
+{
+  "key": "collection-tools",
+  "documentationUrl": "https://prismatic.io/docs/components/collection-tools/",
+  "public": true,
+  "display": {
+    "label": "Collection Tools",
+    "description": "Common collection operations",
+    "iconPath": "icon.png",
+    "category": "Helpers",
+    "iconBase64": "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"
+  },
+  "connections": [],
+  "actions": {
+    "combineCollections": {
+      "display": {
+        "label": "Combine Collection",
+        "description": "[Deprecated - use 'Create Object']"
+      },
+      "examplePayload": {
+        "data": {
+          "CustomerQueryResult": {
+            "Customer": {
+              "Name": "Acme Contracting"
+            }
+          },
+          "AccountQueryResult": {
+            "Account": {
+              "AccountId": "123123123"
+            }
+          }
+        }
+      },
+      "key": "combineCollections",
+      "inputs": [
+        {
+          "placeholder": "{'Customer': {'Name': 'Acme Contracting}}",
+          "required": true,
+          "comments": "Returns an object with the specified key and corresponding collection as the value",
+          "example": "[\n        {\"key\": \"CustomerQueryResult\", \"value\": { Customer: { Name: \"Acme Contracting\" } }},\n        {\"key\": \"AccountQueryResult\", \"value\": { Account: { AccountId: \"123123123\" } }},\n      ]",
+          "key": "collections",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Collections"
+        }
+      ]
+    },
+    "fieldValueMapping": {
+      "display": {
+        "label": "Field Value Mapping",
+        "description": "Maps the values from two different collections and returns a key/value list where the 'key' is the value of the Key Mappings input and the 'value' is the value of the Value Mappings input"
+      },
+      "examplePayload": {
+        "data": [
+          {
+            "key": "Deploy_Time_Specified_Account_Name__c",
+            "value": "bar"
+          },
+          {
+            "key": "Deploy_Time_Specified_Account_Value__c",
+            "value": "baz"
+          }
+        ]
+      },
+      "key": "fieldValueMapping",
+      "inputs": [
+        {
+          "example": "[{\"key\":\"AccountName\",\"value\":\"Deploy_Time_Specified_Account_Name__c\"},{\"key\":\"AccountValue\",\"value\":\"Deploy_Time_Specified_Account_Value__c\"}]",
+          "key": "mappings",
+          "type": "data",
+          "default": "",
+          "label": "Key Mappings"
+        },
+        {
+          "example": "[{\"key\":\"AccountName\",\"value\":\"bar\"},{\"key\":\"AccountValue\",\"value\":\"baz\"}]",
+          "key": "values",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Value Mappings"
+        }
+      ]
+    },
+    "processInOrder": {
+      "display": {
+        "label": "Process In Order",
+        "description": "Ensures that payloads are processed in order across executions according to an ordering specified by a payload attribute. Returns the largest possible set of ordered payloads on the Process branch, and otherwise follows the Skip branch and returns the current item."
+      },
+      "allowsBranching": true,
+      "staticBranchNames": [
+        "Process",
+        "Skip"
+      ],
+      "examplePayload": {
+        "data": [
+          {
+            "Index": 0,
+            "Name": "Acme Contracting"
+          },
+          {
+            "Index": 1,
+            "Name": "FooBar Consulting"
+          }
+        ],
+        "instanceState": {
+          "7d577253-3ef0-4a0a-bb7f-8335c2596e70": {
+            "da41e39f-ea4d-435a-b922-c6aae3915ebe": {
+              "lastIndex": 1,
+              "items": []
+            }
+          }
+        },
+        "branch": "Process"
+      },
+      "key": "processInOrder",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "A value that uniquely identifies the collection that is being processed out of order.",
+          "example": "da41e39f-ea4d-435a-b922-c6aae3915ebe",
+          "key": "collectionId",
+          "type": "string",
+          "default": "",
+          "label": "Collection ID"
+        },
+        {
+          "required": true,
+          "comments": "The number of items in the collection. When processing is finished the interim data for the collection is removed.",
+          "example": "100",
+          "key": "collectionLength",
+          "type": "data",
+          "default": "",
+          "label": "Collection Length"
+        },
+        {
+          "required": true,
+          "comments": "The current item to consider for processing.",
+          "example": "{ Index: 0, Name: \"Acme Contracting\" }",
+          "key": "item",
+          "type": "data",
+          "default": "",
+          "label": "Item"
+        },
+        {
+          "required": true,
+          "comments": "The integer value to consider as the index for the current item that specifies intended processing order. 0 is the first index value.",
+          "example": "10",
+          "key": "itemIndex",
+          "type": "data",
+          "default": "",
+          "label": "Item Index"
+        }
+      ],
+      "documentation": {
+        "description": "The **Process In Order** action allows you to send several requests to an instance out of order, and helps to ensure that data runs through your integration in order.\nRequests with data payloads are collected, and when an ordered set of requests have been received this action processes the requests in the order you specify.\n\nIn order to use this action, you will need to know how many total items you are sending ahead of time.\n\n**Example**: suppose we are updating an inventory system with three updates, and order is important.\nWe want to process _widgets_ first, then _gadgets_, and finally _whatsits_.\nWe know that we have three items to import, and due to limitations of our third-party system we can't send them all at once.\nWe're not confident that they'll arrive to Prismatic in any particular order, so we'll use this action to help.\n\n<Screenshot\n  filename=\"components/collection-tools/processInOrder-integration.png\"\n  alt=\"Collection Tools - Process in Order flow in Prismatic integration designer\"\n/>\n\nWe'll come up with a unique \"Collection ID\", and begin sending our data in any order:\n\n```bash \"Data gets sent in any order\"\n$ curl 'https://hooks.prismatic.io/trigger/EXAMPLE==' \\\n    --header \"Content-Type: application/json\" \\\n    --data '{\"item\": \"whatsits\", \"index\": 2}' \\\n    --header 'collectionid: abc-123' \\\n    --header 'collectionlength: 3'\n\n$ curl 'https://hooks.prismatic.io/trigger/EXAMPLE==' \\\n    --header \"Content-Type: application/json\" \\\n    --data '{\"item\": \"widgets\", \"index\": 0}' \\\n    --header 'collectionid: abc-123' \\\n    --header 'collectionlength: 3'\n\n$ curl 'https://hooks.prismatic.io/trigger/EXAMPLE==' \\\n    --header \"Content-Type: application/json\" \\\n    --data '{\"item\": \"gadgets\", \"index\": 1}' \\\n    --header 'collectionid: abc-123' \\\n    --header 'collectionlength: 3'\n```\n\nThe first time that our integration is invoked, the `{\"item\": \"whatsits\", \"index\": 2}` payload will be stored for future processing, since items with index `0` and `1` have not yet been processed.\n\nThe second time that our integration is invoked, the `{\"item\": \"widgets\", \"index\": 0}` payload will be processed immediately, since it has index `0`, but then our loop will stop since an item with index `1` has not yet been received.\n\nThe third time our integration is invoked, the `{\"item\": \"gadgets\", \"index\": 1}` will be processed right away, since it has index `1` and an item with index `0` has already been processed.\nThe `{\"item\": \"whatsits\", \"index\": 2}` payload will also be pulled from storage and processed since it is next in line to be processed.\n\nAt this point all items will have been processed.\n\n_Note_: Items must be zero-indexed.\n"
+      }
+    },
+    "takeFirst": {
+      "display": {
+        "label": "Take First",
+        "description": "Take first number of elements from a list"
+      },
+      "examplePayload": {
+        "data": [
+          1,
+          2,
+          3
+        ]
+      },
+      "key": "takeFirst",
+      "inputs": [
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Reference to a list of data to operate on",
+          "key": "listInput",
+          "type": "code",
+          "default": "",
+          "label": "List"
+        },
+        {
+          "required": true,
+          "example": "3",
+          "comments": "Number of elements to take",
+          "key": "numberInput",
+          "type": "string",
+          "default": "1",
+          "label": "Number of Elements"
+        }
+      ]
+    },
+    "takeLast": {
+      "display": {
+        "label": "Take Last",
+        "description": "Take last number of elements from a list"
+      },
+      "examplePayload": {
+        "data": [
+          7,
+          8,
+          9
+        ]
+      },
+      "key": "takeLast",
+      "inputs": [
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Reference to a list of data to operate on",
+          "key": "listInput",
+          "type": "code",
+          "default": "",
+          "label": "List"
+        },
+        {
+          "required": true,
+          "example": "3",
+          "comments": "Number of elements to take",
+          "key": "numberInput",
+          "type": "string",
+          "default": "1",
+          "label": "Number of Elements"
+        }
+      ]
+    },
+    "first": {
+      "display": {
+        "label": "First",
+        "description": "Get first element from a list"
+      },
+      "key": "first",
+      "inputs": [
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Reference to a list of data to operate on",
+          "key": "listInput",
+          "type": "code",
+          "default": "",
+          "label": "List"
+        }
+      ]
+    },
+    "last": {
+      "display": {
+        "label": "Last",
+        "description": "Get last element from a list"
+      },
+      "key": "last",
+      "inputs": [
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Reference to a list of data to operate on",
+          "key": "listInput",
+          "type": "code",
+          "default": "",
+          "label": "List"
+        }
+      ]
+    },
+    "count": {
+      "display": {
+        "label": "Count",
+        "description": "Count the number of occurrences of element in list"
+      },
+      "examplePayload": {
+        "data": 3
+      },
+      "key": "count",
+      "inputs": [
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Reference to a list of data to operate on",
+          "key": "listInput",
+          "type": "code",
+          "default": "",
+          "label": "List"
+        },
+        {
+          "required": true,
+          "comments": "Reference to an element to look for",
+          "key": "elementInput",
+          "type": "data",
+          "default": "",
+          "label": "Element"
+        }
+      ]
+    },
+    "chunks": {
+      "display": {
+        "label": "Chunks",
+        "description": "Chunk the list into lists of the specified number of elements"
+      },
+      "examplePayload": {
+        "data": [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6
+          ],
+          [
+            7,
+            8
+          ]
+        ]
+      },
+      "key": "chunks",
+      "inputs": [
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Reference to a list of data to operate on",
+          "key": "listInput",
+          "type": "code",
+          "default": "",
+          "label": "List"
+        },
+        {
+          "required": true,
+          "example": "3",
+          "comments": "Number of elements to take",
+          "key": "numberInput",
+          "type": "string",
+          "default": "1",
+          "label": "Number of Elements"
+        }
+      ]
+    },
+    "length": {
+      "display": {
+        "label": "Length",
+        "description": "Count the number of elements in list"
+      },
+      "examplePayload": {
+        "data": 7
+      },
+      "key": "length",
+      "inputs": [
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Reference to a list of data to operate on",
+          "key": "listInput",
+          "type": "code",
+          "default": "",
+          "label": "List"
+        }
+      ]
+    },
+    "deduplicate": {
+      "display": {
+        "label": "De-duplicate",
+        "description": "De-duplicate the elements of the list"
+      },
+      "examplePayload": {
+        "data": [
+          1,
+          2,
+          3
+        ]
+      },
+      "key": "deduplicate",
+      "inputs": [
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Reference to a list of data to operate on",
+          "key": "listInput",
+          "type": "code",
+          "default": "",
+          "label": "List"
+        }
+      ]
+    },
+    "append": {
+      "display": {
+        "label": "Append",
+        "description": "Append element to the end of the list"
+      },
+      "examplePayload": {
+        "data": {
+          "list": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      },
+      "key": "append",
+      "inputs": [
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Reference to a list of data to operate on",
+          "key": "listInput",
+          "type": "code",
+          "default": "",
+          "label": "List"
+        },
+        {
+          "required": true,
+          "comments": "The item to append to the end of the list",
+          "key": "elementInput",
+          "type": "data",
+          "default": "",
+          "label": "Element"
+        }
+      ]
+    },
+    "remove": {
+      "display": {
+        "label": "Remove",
+        "description": "Remove all occurrences of an element from a list"
+      },
+      "examplePayload": {
+        "data": [
+          1,
+          3
+        ]
+      },
+      "key": "remove",
+      "inputs": [
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Reference to a list of data to operate on",
+          "key": "listInput",
+          "type": "code",
+          "default": "",
+          "label": "List"
+        },
+        {
+          "required": true,
+          "comments": "Reference to an element to look for",
+          "key": "elementInput",
+          "type": "data",
+          "default": "",
+          "label": "Element"
+        }
+      ]
+    },
+    "concatenate": {
+      "display": {
+        "label": "Concatenate",
+        "description": "Concatenate two lists together into a single list"
+      },
+      "examplePayload": {
+        "data": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "key": "concatenate",
+      "inputs": [
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Reference to a list of data to operate on",
+          "example": "[1,2,3]",
+          "key": "listInput",
+          "type": "code",
+          "default": "",
+          "label": "List"
+        },
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Reference to a list of data to operate on",
+          "example": "[4,5,6]",
+          "key": "anotherListInput",
+          "type": "code",
+          "default": "",
+          "label": "List"
+        }
+      ]
+    },
+    "fromObject": {
+      "display": {
+        "label": "Object to Key Value Pair List",
+        "description": "Convert an Object to a Key Value List"
+      },
+      "key": "fromObject",
+      "inputs": [
+        {
+          "required": true,
+          "example": "{ FirstName: \"Foo\", LastName: \"Bar\" }",
+          "key": "object",
+          "type": "data",
+          "default": "",
+          "label": "Object"
+        }
+      ]
+    },
+    "create": {
+      "display": {
+        "label": "Create List",
+        "description": "Create a new list with the given inputs"
+      },
+      "examplePayload": {
+        "data": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "key": "create",
+      "inputs": [
+        {
+          "required": false,
+          "key": "items",
+          "type": "data",
+          "default": "",
+          "collection": "valuelist",
+          "label": "List Items"
+        }
+      ]
+    },
+    "flatten": {
+      "display": {
+        "label": "Flatten",
+        "description": "Flatten an array of arrays into a single array"
+      },
+      "examplePayload": {
+        "data": [
+          1,
+          2,
+          [
+            3,
+            [
+              4
+            ]
+          ],
+          5
+        ]
+      },
+      "key": "flatten",
+      "inputs": [
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Reference to a list of data to operate on",
+          "example": "[\n  1,\n  [\n    2,\n    [\n      3,\n      [\n        4\n      ]\n    ],\n    5\n  ]\n]",
+          "key": "listInput",
+          "type": "code",
+          "default": "",
+          "label": "List"
+        }
+      ]
+    },
+    "createObject": {
+      "display": {
+        "label": "Create Object",
+        "description": "Creates a new object from provided key/value pairs"
+      },
+      "examplePayload": {
+        "data": {
+          "first": "value",
+          "second": 17
+        }
+      },
+      "key": "createObject",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Key and value pairs",
+          "key": "keyValueInput",
+          "type": "data",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Key & Value Pairs"
+        }
+      ]
+    },
+    "toObject": {
+      "display": {
+        "label": "Key Value Pair List to Object",
+        "description": "Convert a Key Value list to an Object"
+      },
+      "examplePayload": {
+        "data": {
+          "FirstName": "Foo",
+          "LastName": "Bar"
+        }
+      },
+      "key": "toObject",
+      "inputs": [
+        {
+          "required": true,
+          "language": "json",
+          "example": "[\n  {\n    \"key\": \"FirstName\",\n    \"value\": \"Foo\"\n  },\n  {\n    \"key\": \"LastName\",\n    \"value\": \"Bar\"\n  }\n]",
+          "key": "kvList",
+          "type": "code",
+          "default": "",
+          "label": "Key/Value List"
+        }
+      ]
+    },
+    "addKey": {
+      "display": {
+        "label": "Add Key/Value to Object",
+        "description": "Add a value to an object with the given key"
+      },
+      "examplePayload": {
+        "data": {
+          "FirstName": "Foo",
+          "LastName": "Bar"
+        }
+      },
+      "key": "addKey",
+      "inputs": [
+        {
+          "required": true,
+          "language": "json",
+          "example": "{\n  \"employee\": {\n    \"id\": \"123\",\n    \"hired\": \"2022-03-05T00:08:00\",\n    \"contact\": {\n      \"phone\": \"6024441234\"\n    }\n  }\n}",
+          "key": "object",
+          "type": "code",
+          "default": "",
+          "label": "Object"
+        },
+        {
+          "required": true,
+          "comments": "My Comments",
+          "example": "FirstName",
+          "key": "key",
+          "type": "string",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "required": true,
+          "example": "Jake",
+          "key": "value",
+          "type": "string",
+          "default": "",
+          "label": "Value"
+        },
+        {
+          "required": false,
+          "comments": "Optionally define a path using dot notation of where to add the key/value",
+          "example": "employee.contact",
+          "key": "objectPath",
+          "type": "string",
+          "default": "",
+          "label": "Insert Path"
+        }
+      ],
+      "documentation": {
+        "description": "If you would like to insert a key/value pair into a nested portion of the object, use the **Insert Path** input to specify where it should be added.\nFor example, if your object reads:\n\n```json\n{\n  \"employee\": {\n    \"id\": \"123\",\n    \"hired\": \"2022-03-05T00:08:00\",\n    \"contact\": {\n      \"phone\": \"6024441234\"\n    }\n  }\n}\n```\n\nYou can add an email address to `contact` by specifying `\"email\"` for **Key**, `\"example@company.com\"` for **Value**, and `employee.contact` for **Insert Path**.\nThe result will be:\n\n```json\n{\n  \"employee\": {\n    \"id\": \"123\",\n    \"hired\": \"2022-03-05T00:08:00\",\n    \"contact\": {\n      \"phone\": \"6024441234\",\n      \"email\": \"example@company.com\"\n    }\n  }\n}\n```\n"
+      }
+    },
+    "aggregate": {
+      "display": {
+        "label": "Aggregate",
+        "description": "Apply aggregate function to list"
+      },
+      "examplePayload": {
+        "data": 117
+      },
+      "key": "aggregate",
+      "inputs": [
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Reference to a list of data to operate on",
+          "key": "listInput",
+          "type": "code",
+          "default": "",
+          "label": "List"
+        },
+        {
+          "model": [
+            {
+              "label": "AVERAGE",
+              "value": "AVERAGE"
+            },
+            {
+              "label": "COUNT",
+              "value": "COUNT"
+            },
+            {
+              "label": "MAX",
+              "value": "MAX"
+            },
+            {
+              "label": "MIN",
+              "value": "MIN"
+            },
+            {
+              "label": "SUM",
+              "value": "SUM"
+            },
+            {
+              "label": "PRODUCT",
+              "value": "PRODUCT"
+            },
+            {
+              "label": "MEDIAN",
+              "value": "MEDIAN"
+            }
+          ],
+          "example": "SUM",
+          "required": true,
+          "comments": "Aggregate function to apply (choose from AVERAGE, COUNT, MAX, MIN, SUM, PRODUCT, MEDIAN).",
+          "key": "aggregateFunctionInput",
+          "type": "string",
+          "default": "",
+          "label": "Aggregate Function"
+        },
+        {
+          "language": "javascript",
+          "example": "(item) => item.prop > 17",
+          "comments": "Filter out any elements that do not return true",
+          "key": "filterCodeInput",
+          "type": "code",
+          "default": "(item, index) => { return true; }",
+          "label": "Filter Function"
+        }
+      ],
+      "documentation": {
+        "description": "This action applys the filter function (if given) first, and then applies the aggregate function to the filtered list.\nSee the [Filter](#filter) action for examples of how to use the filter function.\n"
+      }
+    },
+    "map": {
+      "display": {
+        "label": "Map",
+        "description": "Transform a list and its elements"
+      },
+      "key": "map",
+      "inputs": [
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Reference to a list of data to operate on",
+          "key": "listInput",
+          "type": "code",
+          "default": "",
+          "label": "List"
+        },
+        {
+          "language": "javascript",
+          "example": "(item) => item.prop",
+          "comments": "Function to transform each element",
+          "key": "transformCodeInput",
+          "type": "code",
+          "default": "(item, index) => { return item; }",
+          "label": "Transform (map) Function"
+        },
+        {
+          "language": "javascript",
+          "example": "(item) => item.prop > 17",
+          "comments": "Filter out any elements that do not return true",
+          "key": "filterCodeInput",
+          "type": "code",
+          "default": "(item, index) => { return true; }",
+          "label": "Filter Function"
+        },
+        {
+          "required": false,
+          "comments": "Additional contextual data to supply to the Transform Function",
+          "key": "contextInput",
+          "type": "data",
+          "default": "",
+          "label": "Context Data"
+        }
+      ],
+      "documentation": {
+        "description": "This action applies a NodeJS [map function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) to an array of data.\n\nIt also has an optional [filter function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) - see the [Filter](#filter) action for examples.\nThe action applies the filter function (if present), and then the map function to your array.\n\n#### Simple Map Function\n\nIf you have an array of integers that represent pennies, like `[1234, 567, 890]`, and you would like to turn all values in dollar amounts, you could divide all values using a map function like this:\n\n```javascript\n(value) => value / 100;\n```\n\nThe result of the step would be an array that reads `[12.34, 5.67, 8.9]`\n\n#### Mapping on Objects\n\nIf you have an array of objects, you can reference the object's fields in your map function.\nSuppose you have an array of \"people\" objects, and you'd like to concatenate their names and order in the list.\n\nYour data might look like this:\n\n```json\n[\n  { \"first\": \"Bob\", \"last\": \"Smith\", \"middle\": \"Billy\" },\n  { \"first\": \"John\", \"last\": \"Doe\" },\n  { \"first\": \"Lisa\", \"last\": \"Nguyen\", \"middle\": \"Sue\" }\n]\n```\n\nYour map function could look like this:\n\n```javascript\n(person, index) => {\n  if (person.middle) {\n    return `${index} - ${person.last}, ${person.first} ${person.middle[0]}.`;\n  } else {\n    return `${index} - ${person.last}, ${person.first}`;\n  }\n};\n```\n\nThe result of the step would be an array of strings:\n\n```json\n[\"0 - Smith, Bob B.\", \"1 - Doe, John\", \"2 - Nguyen, Lisa S.\"]\n```\n"
+      }
+    },
+    "filter": {
+      "display": {
+        "label": "Filter",
+        "description": "Filter elements of a list"
+      },
+      "key": "filter",
+      "inputs": [
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Reference to a list of data to operate on",
+          "example": "[\n  {\n    \"name\": \"Widget\",\n    \"prop\": 25\n  },\n  {\n    \"name\": \"Thingy\",\n    \"prop\": 10\n  },\n  {\n    \"name\": \"Whatsit\",\n    \"prop\": 19\n  }\n]",
+          "key": "listInput",
+          "type": "code",
+          "default": "",
+          "label": "List"
+        },
+        {
+          "language": "javascript",
+          "example": "(item) => item.prop > 17",
+          "comments": "Filter out any elements that do not return true",
+          "key": "filterCodeInput",
+          "type": "code",
+          "default": "(item, index) => { return true; }",
+          "label": "Filter Function"
+        }
+      ],
+      "documentation": {
+        "description": "This action applies a NodeJS [filter function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) to an array of data.\nThe filter function should use arrow notation, and include an input (an element) and a function that evaluates to `true` or `false`.\nIts return value is an array of elements that evaluated to `true`.\n\n#### Simple Filter\n\nFor example, if you have an array, `[\"exuberant\", \"spray\", \"limit\", \"elite\", \"destruction\", \"present\"]`, and you would like words with a length greater than 6, your filter function could read:\n\n```typescript\n(word) => word.length > 6;\n```\n\nThe result would be `[\"exuberant\", \"destruction\", \"present\"]` - all words whose length is greater than 6.\n\n#### Filters on Objects\n\nIf your array is comprised of objects, you can apply a filter using each object's properties.\n\nFor example, suppose you have an array of objects like this:\n\n```json\n[\n  {\n    \"name\": \"Widget\",\n    \"cost\": 80,\n    \"available\": true\n  },\n  {\n    \"name\": \"Whatsits\",\n    \"cost\": 90,\n    \"available\": false\n  },\n  {\n    \"name\": \"Whoseits\",\n    \"cost\": 120,\n    \"available\": true\n  },\n  {\n    \"name\": \"Whysits\",\n    \"cost\": 75,\n    \"available\": true\n  }\n]\n```\n\nIf you want to find items whose cost is less than 100 that have `true` for availability, you can write a filter function like this:\n\n```javascript\n(item) => item.cost < 100 && item.available;\n```\n\nThe return value of this example would be an array of two objects that passed the filter:\n\n```javascript\n[\n  {\n    name: \"Widget\",\n    cost: 80,\n    available: true,\n  },\n  {\n    name: \"Whysits\",\n    cost: 75,\n    available: true,\n  },\n];\n```\n"
+      }
+    },
+    "sort": {
+      "display": {
+        "label": "Sort",
+        "description": "Sort elements using a JavaScript comparison function"
+      },
+      "key": "sort",
+      "inputs": [
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Reference to a list of data to operate on",
+          "key": "list",
+          "type": "code",
+          "default": "[\n  {\n    \"name\": \"Widget\",\n    \"prop\": 25\n  },\n  {\n    \"name\": \"Thingy\",\n    \"prop\": 10\n  },\n  {\n    \"name\": \"Whatsit\",\n    \"prop\": 19\n  }\n]",
+          "label": "List"
+        },
+        {
+          "language": "javascript",
+          "comments": "Sort elements by the given comparison function. See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort for compare function documentation.",
+          "key": "sortComparisonFunction",
+          "type": "code",
+          "default": "(a, b) => { return a.prop < b.prop ? -1 : 1; }",
+          "label": "Sort Comparison Function"
+        }
+      ]
+    }
+  },
+  "triggers": {},
+  "dataSources": {},
+  "documentation": {
+    "description": "The collection tools component contains actions that let you perform common tasks on collections of data (objects and arrays).\nYou can do things like concatenate objects, filter items of lists (arrays), map functions on items, and more.\n",
+    "dev": "We use the terms **list** and **array** interchangably on this page.\nBoth describe a set of objects.\nSimilarly, the terms **items** and **elements** of a list are used interchangably.\n\nThe functions that you provide these actions for filtering, mapping, etc., should be NodeJS functions.\nExamples are below.\n"
+  },
+  "$version": 1
+}

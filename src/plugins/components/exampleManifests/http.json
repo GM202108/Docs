@@ -1,0 +1,1138 @@
+{
+  "key": "http",
+  "documentationUrl": "https://prismatic.io/docs/components/http/",
+  "public": true,
+  "display": {
+    "label": "HTTP",
+    "description": "Make HTTP requests to URLs such as REST APIs, Webhooks, etc",
+    "iconPath": "icon.png",
+    "category": "Helpers",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "key": "apiKey",
+      "label": "API Key",
+      "comments": "API Key connection",
+      "inputs": [
+        {
+          "placeholder": "API Key",
+          "required": true,
+          "shown": true,
+          "comments": "API Key",
+          "key": "apiKey",
+          "type": "string",
+          "default": "",
+          "label": "API Key"
+        }
+      ],
+      "documentation": {
+        "description": "If an API Key Connection is supplied, an `Authorization: Basic ${APIKEY}` header is used in the HTTP request.\n"
+      }
+    },
+    {
+      "key": "authorizationCode",
+      "label": "OAuth 2.0 Authorization Code",
+      "comments": "OAuth 2.0 Authorization Code flow",
+      "oauth2Type": "authorization_code",
+      "inputs": [
+        {
+          "placeholder": "Authorize URL",
+          "required": true,
+          "shown": true,
+          "comments": "The OAuth 2.0 Authorization URL for the API",
+          "key": "authorizeUrl",
+          "type": "string",
+          "default": "",
+          "label": "Authorize URL"
+        },
+        {
+          "placeholder": "Token URL",
+          "required": true,
+          "shown": true,
+          "comments": "The OAuth 2.0 Token URL for the API",
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "",
+          "label": "Token URL"
+        },
+        {
+          "placeholder": "Scopes",
+          "required": false,
+          "shown": true,
+          "comments": "Space separated OAuth 2.0 permission scopes for the API",
+          "key": "scopes",
+          "type": "string",
+          "default": "",
+          "label": "Scopes"
+        },
+        {
+          "placeholder": "Client ID",
+          "required": true,
+          "shown": true,
+          "comments": "Client Identifier of your app for the API",
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "Client ID"
+        },
+        {
+          "placeholder": "Client Secret",
+          "required": true,
+          "shown": true,
+          "comments": "Client Secret of your app for the API",
+          "key": "clientSecret",
+          "type": "password",
+          "default": "",
+          "label": "Client Secret"
+        },
+        {
+          "required": false,
+          "shown": true,
+          "comments": "Additional header to supply to authorization requests",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Headers"
+        }
+      ],
+      "documentation": {
+        "description": "If an OAuth 2.0 Connection are supplied, an `Authorization: Bearer ${KEY}` header is used in the HTTP request, where `KEY` is the client key that is fetched from the OAuth provider.\n"
+      }
+    },
+    {
+      "key": "clientCredentials",
+      "label": "OAuth 2.0 Client Credentials",
+      "comments": "OAuth 2.0 Client Credentials flow",
+      "oauth2Type": "client_credentials",
+      "inputs": [
+        {
+          "placeholder": "Token URL",
+          "required": true,
+          "shown": true,
+          "comments": "The OAuth 2.0 Token URL for the API",
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "",
+          "label": "Token URL"
+        },
+        {
+          "placeholder": "Scopes",
+          "required": false,
+          "shown": true,
+          "comments": "Space separated OAuth 2.0 permission scopes for the API",
+          "key": "scopes",
+          "type": "string",
+          "default": "",
+          "label": "Scopes"
+        },
+        {
+          "placeholder": "Client ID",
+          "required": true,
+          "shown": true,
+          "comments": "Client Identifier of your app for the API",
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "Client ID"
+        },
+        {
+          "placeholder": "Client Secret",
+          "required": true,
+          "shown": true,
+          "comments": "Client Secret of your app for the API",
+          "key": "clientSecret",
+          "type": "string",
+          "default": "",
+          "label": "Client Secret"
+        },
+        {
+          "required": false,
+          "shown": true,
+          "comments": "Additional header to supply to token requests",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Headers"
+        }
+      ]
+    },
+    {
+      "key": "basic",
+      "label": "Basic Username/Password",
+      "comments": "Basic Username and Password connection",
+      "inputs": [
+        {
+          "placeholder": "Username",
+          "required": true,
+          "shown": true,
+          "comments": "Username",
+          "key": "username",
+          "type": "string",
+          "default": "",
+          "label": "Username"
+        },
+        {
+          "placeholder": "Password",
+          "required": true,
+          "shown": true,
+          "comments": "Password",
+          "key": "password",
+          "type": "password",
+          "default": "",
+          "label": "Password"
+        }
+      ],
+      "documentation": {
+        "description": "If a Basic Auth Connection is supplied, an `Authorization: Basic ${base64(USERNAME:PASSWORD)}` header is used in the HTTP request.\n"
+      }
+    }
+  ],
+  "actions": {
+    "httpGet": {
+      "display": {
+        "label": "GET Request",
+        "description": "Issue a HTTP GET request"
+      },
+      "examplePayload": {
+        "data": null,
+        "contentType": "application/json"
+      },
+      "key": "httpGet",
+      "inputs": [
+        {
+          "required": false,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "This is the URL to call.",
+          "example": "https://api.company.com/endpoint",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": false,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "JSON",
+              "value": "json"
+            },
+            {
+              "label": "Text",
+              "value": "text"
+            },
+            {
+              "label": "Binary",
+              "value": "binary"
+            }
+          ],
+          "example": "binary",
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "placeholder": "",
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries. If this is set to true, 'Retry Delay (ms)' is ignored.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        },
+        {
+          "placeholder": "",
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type. This is helpful when retrying after HTTP 429 or other 3xx or 4xx errors. Otherwise, only retries on HTTP 5xx and network errors.",
+          "key": "retryOnAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will include the full response instead of only the returned data.",
+          "key": "includeFullResponse",
+          "type": "boolean",
+          "default": "false",
+          "label": "Include Full Response"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "comments": "When this flag is enabled, SSL certificate errors will be ignored. Use this flag with caution - ignoring SSL errors presents security issues. This should only be used for testing purposes.",
+          "key": "ignoreSslErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Ignore SSL Errors (Not Recommended)"
+        }
+      ]
+    },
+    "httpPost": {
+      "display": {
+        "label": "POST Request",
+        "description": "Issue a HTTP POST request"
+      },
+      "examplePayload": {
+        "data": null,
+        "contentType": "application/json"
+      },
+      "key": "httpPost",
+      "inputs": [
+        {
+          "required": false,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "This is the URL to call.",
+          "example": "https://api.company.com/endpoint",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": true,
+          "comments": "The HTTP body payload to send to the URL. Must be a string or a reference to output from a previous step.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": false,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "JSON",
+              "value": "json"
+            },
+            {
+              "label": "Text",
+              "value": "text"
+            },
+            {
+              "label": "Binary",
+              "value": "binary"
+            }
+          ],
+          "example": "binary",
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "placeholder": "",
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries. If this is set to true, 'Retry Delay (ms)' is ignored.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        },
+        {
+          "placeholder": "",
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type. This is helpful when retrying after HTTP 429 or other 3xx or 4xx errors. Otherwise, only retries on HTTP 5xx and network errors.",
+          "key": "retryOnAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will include the full response instead of only the returned data.",
+          "key": "includeFullResponse",
+          "type": "boolean",
+          "default": "false",
+          "label": "Include Full Response"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "comments": "When this flag is enabled, SSL certificate errors will be ignored. Use this flag with caution - ignoring SSL errors presents security issues. This should only be used for testing purposes.",
+          "key": "ignoreSslErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Ignore SSL Errors (Not Recommended)"
+        }
+      ]
+    },
+    "httpPut": {
+      "display": {
+        "label": "PUT request",
+        "description": "Issue a HTTP PUT request"
+      },
+      "examplePayload": {
+        "data": null,
+        "contentType": "application/json"
+      },
+      "key": "httpPut",
+      "inputs": [
+        {
+          "required": false,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "This is the URL to call.",
+          "example": "https://api.company.com/endpoint",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": true,
+          "comments": "The HTTP body payload to send to the URL. Must be a string or a reference to output from a previous step.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": false,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "JSON",
+              "value": "json"
+            },
+            {
+              "label": "Text",
+              "value": "text"
+            },
+            {
+              "label": "Binary",
+              "value": "binary"
+            }
+          ],
+          "example": "binary",
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "placeholder": "",
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries. If this is set to true, 'Retry Delay (ms)' is ignored.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        },
+        {
+          "placeholder": "",
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type. This is helpful when retrying after HTTP 429 or other 3xx or 4xx errors. Otherwise, only retries on HTTP 5xx and network errors.",
+          "key": "retryOnAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will include the full response instead of only the returned data.",
+          "key": "includeFullResponse",
+          "type": "boolean",
+          "default": "false",
+          "label": "Include Full Response"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "comments": "When this flag is enabled, SSL certificate errors will be ignored. Use this flag with caution - ignoring SSL errors presents security issues. This should only be used for testing purposes.",
+          "key": "ignoreSslErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Ignore SSL Errors (Not Recommended)"
+        }
+      ]
+    },
+    "httpPatch": {
+      "display": {
+        "label": "PATCH request",
+        "description": "Issue a HTTP PATCH request"
+      },
+      "examplePayload": {
+        "data": null,
+        "contentType": "application/json"
+      },
+      "key": "httpPatch",
+      "inputs": [
+        {
+          "required": false,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "This is the URL to call.",
+          "example": "https://api.company.com/endpoint",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": true,
+          "comments": "The HTTP body payload to send to the URL. Must be a string or a reference to output from a previous step.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": false,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "JSON",
+              "value": "json"
+            },
+            {
+              "label": "Text",
+              "value": "text"
+            },
+            {
+              "label": "Binary",
+              "value": "binary"
+            }
+          ],
+          "example": "binary",
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "placeholder": "",
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries. If this is set to true, 'Retry Delay (ms)' is ignored.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        },
+        {
+          "placeholder": "",
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type. This is helpful when retrying after HTTP 429 or other 3xx or 4xx errors. Otherwise, only retries on HTTP 5xx and network errors.",
+          "key": "retryOnAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will include the full response instead of only the returned data.",
+          "key": "includeFullResponse",
+          "type": "boolean",
+          "default": "false",
+          "label": "Include Full Response"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "comments": "When this flag is enabled, SSL certificate errors will be ignored. Use this flag with caution - ignoring SSL errors presents security issues. This should only be used for testing purposes.",
+          "key": "ignoreSslErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Ignore SSL Errors (Not Recommended)"
+        }
+      ]
+    },
+    "httpDelete": {
+      "display": {
+        "label": "DELETE request",
+        "description": "Issue a HTTP DELETE request"
+      },
+      "examplePayload": {
+        "data": null,
+        "contentType": "application/json"
+      },
+      "key": "httpDelete",
+      "inputs": [
+        {
+          "required": false,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "This is the URL to call.",
+          "example": "https://api.company.com/endpoint",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": false,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "JSON",
+              "value": "json"
+            },
+            {
+              "label": "Text",
+              "value": "text"
+            },
+            {
+              "label": "Binary",
+              "value": "binary"
+            }
+          ],
+          "example": "binary",
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "placeholder": "",
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries. If this is set to true, 'Retry Delay (ms)' is ignored.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        },
+        {
+          "placeholder": "",
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type. This is helpful when retrying after HTTP 429 or other 3xx or 4xx errors. Otherwise, only retries on HTTP 5xx and network errors.",
+          "key": "retryOnAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will include the full response instead of only the returned data.",
+          "key": "includeFullResponse",
+          "type": "boolean",
+          "default": "false",
+          "label": "Include Full Response"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "comments": "When this flag is enabled, SSL certificate errors will be ignored. Use this flag with caution - ignoring SSL errors presents security issues. This should only be used for testing purposes.",
+          "key": "ignoreSslErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Ignore SSL Errors (Not Recommended)"
+        }
+      ]
+    },
+    "httpPostFormData": {
+      "display": {
+        "label": "POST/PUT Form Data Request",
+        "description": "POST/PUT data as multipart/form-data. Often useful for uploading binary data."
+      },
+      "key": "httpPostFormData",
+      "inputs": [
+        {
+          "required": false,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "This is the URL to call.",
+          "example": "https://api.company.com/endpoint",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "model": [
+            {
+              "label": "POST",
+              "value": "post"
+            },
+            {
+              "label": "PUT",
+              "value": "put"
+            }
+          ],
+          "required": true,
+          "key": "httpMethod",
+          "type": "string",
+          "default": "post",
+          "label": "HTTP Method"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": false,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "JSON",
+              "value": "json"
+            },
+            {
+              "label": "Text",
+              "value": "text"
+            },
+            {
+              "label": "Binary",
+              "value": "binary"
+            }
+          ],
+          "example": "binary",
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "placeholder": "",
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries. If this is set to true, 'Retry Delay (ms)' is ignored.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        },
+        {
+          "placeholder": "",
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type. This is helpful when retrying after HTTP 429 or other 3xx or 4xx errors. Otherwise, only retries on HTTP 5xx and network errors.",
+          "key": "retryOnAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "The file name to apply to a file",
+          "required": false,
+          "comments": "File names to apply to the file data inputs. Keys must match the file data keys above.",
+          "key": "fileDataFileNames",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data File Names"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will include the full response instead of only the returned data.",
+          "key": "includeFullResponse",
+          "type": "boolean",
+          "default": "false",
+          "label": "Include Full Response"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "comments": "When this flag is enabled, SSL certificate errors will be ignored. Use this flag with caution - ignoring SSL errors presents security issues. This should only be used for testing purposes.",
+          "key": "ignoreSslErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Ignore SSL Errors (Not Recommended)"
+        }
+      ],
+      "documentation": {
+        "description": "The Post Form Data Action takes two possible inputs for data to be uploaded to an endpoint.\n\n- Form Data are key/value pairs. For example, `\"username\"/\"Groucho\"` and `\"accountnum\"/12345`. Values are turned into strings if they are not already. For more information see https://developer.mozilla.org/en-US/docs/Web/API/FormData/Using_FormData_Objects\n- File Data is similar to form data but allows you to upload file contents. A `filename` property is automatically generated from the key. This should be used to upload files only. All other types of data should go through the Form Data Input.\n"
+      }
+    }
+  },
+  "triggers": {},
+  "dataSources": {},
+  "documentation": {
+    "description": "The **HTTP** component allows you to make requests to an HTTP-based API or endpoint.\n",
+    "dev": "Common HTTP verbs like GET, POST, PUT, PATCH, and DELETE are supported.\nFor all actions, you can specify:\n\n- A URL to send a request to\n- A response type (like `application/json`)\n- A list of request headers\n- A list of query parameters\n\nIn addition, the POST, PUT, and PATCH actions allow you to specify `data` to send as part of the request.\n`data` can be a reference to a binary file, a string literal, or any structured data that is expected in the body of the request.\n\nThis component can be configured to use optional Basic Auth (username/password), API Key, or OAuth 2.0 Connections to authenticate the request.\nFor other non-standard authentication schemes, you will either need to supply your own `Authorization` as a header as an input to the HTTP component, or you can create your own custom component to interact with an HTTP-based API.\n"
+  },
+  "$version": 1
+}

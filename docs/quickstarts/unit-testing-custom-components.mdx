@@ -1,0 +1,161 @@
+---
+id: unit-testing-custom-components
+title: Unit Testing Custom Components
+description: Learn to add unit testing to your custom components with the Jest JavaScript testing framework
+---
+
+import Screenshot from "@site/src/components/screenshot";
+import InternalLink from "@site/src/components/internal-link";
+
+Unit testing is an incredibly important part of software development.
+You want to catch errors and breaking changes before they wreak havoc on your customers' integrations.
+
+By creating a series of unit tests for your custom components, your development team can feel comfortable updating custom component code without the risk of introducing regressions.
+Plus, when you write unit tests you're creating sample use cases for your component, which yields documentation-as-code for your custom component.
+
+Today let's work through adding unit tests to a sample custom component.
+
+We'll first add the appropriate development dependencies to our component package, and then walk through simulating invocations of our component's actions with a couple of tests, so we can catch regressions if they occur in the future.
+
+## Our unit converter component
+
+We developed a "unit converter" component as part of a <InternalLink href="/blog/writing-custom-components/">blog post</InternalLink>.
+TL;DR: a rocket fuel type (like "Kerosene") and amount (like "100 pounds") are passed in as inputs to our component, and the component does some computations and returns the equivalent amount of fuel in gallons. In this example, we pass in 100 pounds of kerosene to our pounds-to-gallons component:
+
+<Screenshot
+  filename="quickstarts/unit-testing-custom-components/pounds-to-gallons-1.png"
+  alt="Convert Rocket Fuel from pounds to gallons in  integration designer"
+  maxWidth="800px"
+/>
+
+We find that 100 pounds of kerosene is equivalent to about about 14.97 gallons:
+
+<Screenshot
+  filename="quickstarts/unit-testing-custom-components/pounds-to-gallons-2.png"
+  alt="Convert Rocket Fuel step outputs in  integration designer"
+  maxWidth="500px"
+/>
+
+Full source code for the unit converter component is available in our [GitHub examples repo](https://github.com/-io/examples/tree/main/components/fuel-unit-converter).
+
+Now, we want to make sure that every time we enter "Kerosene" and "100 pounds" into our component, we get approximately "14.97 gallons" back out.
+If our developers decide to look up fuel densities from another data source or something, we want to ensure that their changes don't introduce regressions into our component.
+
+So, let's add some tests now to automatically prevent issues in the future.
+
+## Adding Jest to our project
+
+Let's start our work by adding [Jest](https://jestjs.io/) with TypeScript support to our project.
+There are lots of JavaScript testing frameworks, but Jest is well documented, robust, easy to use, and by far the most popular, so let's add it as a dev dependency:
+
+```bash
+npm install --save-dev jest ts-jest
+# or
+yarn add --dev jest ts-jest
+```
+
+Next, we'll need to create a `jest.config.js` config file to let Jest know that we're working with TypeScript:
+
+```jsx
+module.exports = {
+  preset: "ts-jest",
+  testEnvironment: "node",
+};
+```
+
+Finally, let's add some scripts to our `package.json` file so we can simply run `yarn test` to invoke unit testing:
+
+```json
+"scripts": {
+  "format": "prettier --loglevel error --write './src/**/*.{js,jsx,ts,tsx,json}' ./*.{js,json}",
+  "build": "webpack",
+  "test": "jest"
+}
+```
+
+## Adding the unit tests
+
+Now that we have the prerequisite configuration in place, let's write some Jest tests.
+All of our component source code is in `src/index.ts`.
+Let's create a corresponding test file, `src/index.test.ts`.
+I'll throw the entire test source code here, and then we'll parse through it line by line:
+
+```typescript
+import { gallonsToPoundsAction, poundsToGallonsAction } from ".";
+import { invoke } from "@-io/spectral/dist/testing";
+
+test("Convert pounds to gallons", async () => {
+  const { result } = await invoke(poundsToGallonsAction, {
+    fuelType: "Kerosene",
+    fuelAmount: 100,
+  });
+  expect(result.data).toBeCloseTo(14.97006, 6);
+});
+
+test("Convert gallons to pounds", async () => {
+  const { result } = await invoke(gallonsToPoundsAction, {
+    fuelType: "Hydrazine",
+    fuelAmount: 50,
+  });
+  expect(result.data).toBeCloseTo(419.0, 5);
+});
+```
+
+The first line imports our component's two actions from `src/index.ts`.
+The second line imports the `invoke` function from Spectral's testing suite, which is a utility that helps us simulate component action invocations.
+
+```typescript
+import { gallonsToPoundsAction, poundsToGallonsAction } from ".";
+import { invoke } from "@-io/spectral/dist/testing";
+```
+
+The next portion outlines a test that we'd like to run.
+A Jest `test()` function takes two arguments: the name of the test - "Convert pounds to gallons" - and the test function to execute:
+
+```typescript
+test("Convert pounds to gallons", async () => {
+```
+
+Next, we invoke our `poundsToGallonsAction` action's `perform` function.
+This is the function that is invoked when an integration is run.
+
+We pass in an object containing `fuelType` and `fuelAmount` as our function's `params`, and save the return value of our function to a variable named `result`:
+
+```typescript
+const { result } = await invoke(poundsToGallonsAction, {
+  fuelType: "Kerosene",
+  fuelAmount: 100,
+});
+```
+
+Finally, we can use Jest's `expect` and `toBeCloseTo` functions to verify that the output that our action provided was (with some acceptable rounding error) equal to about 14.97 gallons:
+
+```typescript
+expect(result.data).toBeCloseTo(14.97006, 5);
+```
+
+The next several lines of code outline a similar test for converting gallons to pounds.
+
+## Verifying our tests work
+
+After writing our tests, we can run `yarn test` to invoke Jest and verify that our actions' tests pass:
+
+<Screenshot
+  filename="quickstarts/unit-testing-custom-components/unit-test-pass.png"
+  maxWidth="600px"
+  alt="Yarn test pass for fuel-unit-converter"
+/>
+
+If someone later commits a change to our component that causes a regression, our build pipeline will run `yarn test` and reject the committed code with an explanation of why the tests failed:
+
+<Screenshot
+  filename="quickstarts/unit-testing-custom-components/unit-test-fail.png"
+  maxWidth="600px"
+  alt="Yarn test fail for fuel-unit-converter"
+/>
+
+That's it! Within minutes we have working unit testing that slots nicely into our existing build pipeline.
+We were already running `yarn build` to build our component. Our CI/CD script just needs a `yarn test` line added to it, and it'll begin to catch errors before they reach production.
+
+**For More Information**:
+[Writing Custom Components](custom-components/writing-custom-components.mdx), [Advanced Component Quickstart](quickstarts/building-the-s3-component.mdx), [Jest's "getting started guide"](https://jestjs.io/docs/en/getting-started).

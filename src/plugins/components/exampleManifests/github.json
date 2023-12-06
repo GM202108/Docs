@@ -1,0 +1,1288 @@
+{
+  "key": "github",
+  "public": true,
+  "documentationUrl": "https://prismatic.io/docs/components/github/",
+  "display": {
+    "label": "GitHub",
+    "description": "Manage users, repositories, licenses, and more on GitHub",
+    "category": "Application Connectors",
+    "iconPath": "icon.png",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "key": "oauth2",
+      "label": "OAuth 2.0",
+      "oauth2Type": "authorization_code",
+      "inputs": [
+        {
+          "shown": false,
+          "required": true,
+          "comments": "Authorization URL",
+          "key": "authorizeUrl",
+          "type": "string",
+          "default": "https://github.com/login/oauth/authorize",
+          "label": "Authorize URL"
+        },
+        {
+          "shown": false,
+          "required": true,
+          "comments": "Token URL",
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "https://github.com/login/oauth/access_token",
+          "label": "Token URL"
+        },
+        {
+          "shown": true,
+          "required": false,
+          "comments": "Space-delimited scopes; refer to [GitHub's documentation for details](https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps)",
+          "key": "scopes",
+          "type": "string",
+          "default": "",
+          "label": "Scopes"
+        },
+        {
+          "shown": true,
+          "required": true,
+          "comments": "Client identifier",
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "Client ID"
+        },
+        {
+          "shown": true,
+          "required": true,
+          "comments": "Client secret",
+          "key": "clientSecret",
+          "type": "password",
+          "default": "",
+          "label": "Client Secret"
+        }
+      ],
+      "documentation": {
+        "description": "To connect to GitHub you will need to [create a new OAuth 2.0 application](https://github.com/settings/applications/new).\nFill in the required fields and supply Prismatic's callback URL as the **Authorization callback URL**: https<!---->://oauth2.prismatic.io/callback\n\nNext click \"Generate a new client secret\" and copy the values of both the **Client ID** and **Client Secret**.\n\nYou are now ready to create the OAuth 2.0 connection to GitHub within Prismatic:\n\n-   Enter the **Client ID** and **Client Secret** values into the same named fields.\n-   Determine [what scopes your use case requires](https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps) and add those to **Scopes** separating each with a space.\n\nSave your integration and you should now be able to connect and authenticate to GitHub.\n"
+      }
+    }
+  ],
+  "actions": {
+    "reposListForOrg": {
+      "display": {
+        "label": "Repos List For Org",
+        "description": "List organization repositories"
+      },
+      "key": "reposListForOrg",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "The organization name",
+          "key": "org",
+          "type": "string",
+          "default": "",
+          "label": "Org"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "All",
+              "value": "all"
+            },
+            {
+              "label": "Public",
+              "value": "public"
+            },
+            {
+              "label": "Private",
+              "value": "private"
+            },
+            {
+              "label": "Forks",
+              "value": "forks"
+            },
+            {
+              "label": "Sources",
+              "value": "sources"
+            },
+            {
+              "label": "Member",
+              "value": "member"
+            },
+            {
+              "label": "Internal",
+              "value": "internal"
+            }
+          ],
+          "comments": "Specifies the types of repositories you want returned",
+          "key": "type",
+          "type": "string",
+          "default": "",
+          "label": "Type"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "Created",
+              "value": "created"
+            },
+            {
+              "label": "Updated",
+              "value": "updated"
+            },
+            {
+              "label": "Pushed",
+              "value": "pushed"
+            },
+            {
+              "label": "Full Name",
+              "value": "full_name"
+            }
+          ],
+          "comments": "The property to sort the results by",
+          "key": "sort",
+          "type": "string",
+          "default": "created",
+          "label": "Sort"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "Asc",
+              "value": "asc"
+            },
+            {
+              "label": "Desc",
+              "value": "desc"
+            }
+          ],
+          "comments": "The order to sort by",
+          "key": "direction",
+          "type": "string",
+          "default": "",
+          "label": "Direction"
+        },
+        {
+          "comments": "The number of results per page (max 100)",
+          "key": "perPage",
+          "type": "string",
+          "default": "30",
+          "label": "Per Page"
+        },
+        {
+          "comments": "Page number of the results to fetch",
+          "key": "page",
+          "type": "string",
+          "default": "1",
+          "label": "Page"
+        }
+      ]
+    },
+    "actionsCreateWorkflowDispatch": {
+      "display": {
+        "label": "Actions Create Workflow Dispatch",
+        "description": "Create a workflow dispatch event"
+      },
+      "key": "actionsCreateWorkflowDispatch",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "The account OWNER of the repository (https://github.com/OWNER/REPO)",
+          "key": "owner",
+          "type": "string",
+          "default": "",
+          "label": "Owner"
+        },
+        {
+          "required": true,
+          "comments": "The name of the REPO (https://github.com/OWNER/REPO)",
+          "key": "repo",
+          "type": "string",
+          "default": "",
+          "label": "Repository Name"
+        },
+        {
+          "required": true,
+          "comments": "The ID of the workflow",
+          "key": "workflowId",
+          "type": "string",
+          "default": "",
+          "label": "Workflow Id"
+        },
+        {
+          "required": true,
+          "comments": "The git reference for the workflow",
+          "key": "ref",
+          "type": "string",
+          "default": "",
+          "label": "Ref"
+        },
+        {
+          "required": false,
+          "comments": "Input keys and values configured in the workflow file. This can be a JSON input mapping, or a reference to a previous step that returned an object.",
+          "key": "inputs",
+          "type": "string",
+          "default": "{\"input1\":\"My Value\",\"input2\":\"My Other Value\"}",
+          "label": "Inputs"
+        }
+      ]
+    },
+    "gitCreateBlob": {
+      "display": {
+        "label": "Git Create Blob",
+        "description": "Create a blob"
+      },
+      "key": "gitCreateBlob",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "The account OWNER of the repository (https://github.com/OWNER/REPO)",
+          "key": "owner",
+          "type": "string",
+          "default": "",
+          "label": "Owner"
+        },
+        {
+          "required": true,
+          "comments": "The name of the REPO (https://github.com/OWNER/REPO)",
+          "key": "repo",
+          "type": "string",
+          "default": "",
+          "label": "Repository Name"
+        },
+        {
+          "required": true,
+          "comments": "The new blob\"s content",
+          "key": "content",
+          "type": "string",
+          "default": "",
+          "label": "Content"
+        },
+        {
+          "required": false,
+          "comments": "The encoding used for \"content\"",
+          "key": "encoding",
+          "type": "string",
+          "default": "utf-8",
+          "label": "Encoding"
+        }
+      ]
+    },
+    "gitGetRef": {
+      "display": {
+        "label": "Git Get Ref",
+        "description": "Get a reference"
+      },
+      "key": "gitGetRef",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "The account OWNER of the repository (https://github.com/OWNER/REPO)",
+          "key": "owner",
+          "type": "string",
+          "default": "",
+          "label": "Owner"
+        },
+        {
+          "required": true,
+          "comments": "The name of the REPO (https://github.com/OWNER/REPO)",
+          "key": "repo",
+          "type": "string",
+          "default": "",
+          "label": "Repository Name"
+        },
+        {
+          "required": true,
+          "comments": "ref parameter",
+          "key": "ref",
+          "type": "string",
+          "default": "",
+          "label": "Ref"
+        }
+      ]
+    },
+    "gitCreateRef": {
+      "display": {
+        "label": "Git Create Ref",
+        "description": "Create a reference"
+      },
+      "key": "gitCreateRef",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "The account OWNER of the repository (https://github.com/OWNER/REPO)",
+          "key": "owner",
+          "type": "string",
+          "default": "",
+          "label": "Owner"
+        },
+        {
+          "required": true,
+          "comments": "The name of the REPO (https://github.com/OWNER/REPO)",
+          "key": "repo",
+          "type": "string",
+          "default": "",
+          "label": "Repository Name"
+        },
+        {
+          "required": true,
+          "comments": "The name of the fully qualified reference (ie: \"refs/heads/master\")",
+          "key": "ref",
+          "type": "string",
+          "default": "",
+          "label": "Ref"
+        },
+        {
+          "required": true,
+          "comments": "The SHA1 value for this reference",
+          "key": "sha",
+          "type": "string",
+          "default": "",
+          "label": "Sha"
+        },
+        {
+          "required": false,
+          "example": "\"refs/heads/newbranch\"",
+          "key": "key",
+          "type": "string",
+          "default": "",
+          "label": "Key"
+        }
+      ]
+    },
+    "gitCreateTree": {
+      "display": {
+        "label": "Git Create Tree",
+        "description": "Create a tree"
+      },
+      "key": "gitCreateTree",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "The account OWNER of the repository (https://github.com/OWNER/REPO)",
+          "key": "owner",
+          "type": "string",
+          "default": "",
+          "label": "Owner"
+        },
+        {
+          "required": true,
+          "comments": "The name of the REPO (https://github.com/OWNER/REPO)",
+          "key": "repo",
+          "type": "string",
+          "default": "",
+          "label": "Repository Name"
+        },
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Objects (of \"path\", \"mode\", \"type\", and \"content\" or \"sha\") specifying a tree structure. See https://docs.github.com/en/rest/git/trees#create-a-tree",
+          "key": "tree",
+          "type": "code",
+          "default": "[\n  {\n    \"path\": \"test.txt\",\n    \"mode\": \"100644\",\n    \"content\": \"This is a test\"\n  }\n]",
+          "label": "Tree"
+        },
+        {
+          "required": false,
+          "example": "9fb037999f264ba9a7fc6274d15fa3ae2ab98312",
+          "comments": "The SHA1 of an existing Git tree object which will be used as the base for the new tree",
+          "key": "baseTree",
+          "type": "string",
+          "default": "",
+          "label": "Base Tree"
+        }
+      ]
+    },
+    "issuesListComments": {
+      "display": {
+        "label": "Issues List Comments",
+        "description": "List issue comments"
+      },
+      "key": "issuesListComments",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "The account OWNER of the repository (https://github.com/OWNER/REPO)",
+          "key": "owner",
+          "type": "string",
+          "default": "",
+          "label": "Owner"
+        },
+        {
+          "required": true,
+          "comments": "The name of the REPO (https://github.com/OWNER/REPO)",
+          "key": "repo",
+          "type": "string",
+          "default": "",
+          "label": "Repository Name"
+        },
+        {
+          "required": true,
+          "comments": "The number that identifies the issue",
+          "key": "issueNumber",
+          "type": "string",
+          "default": "",
+          "label": "Issue Number"
+        },
+        {
+          "required": false,
+          "comments": "Only show notifications updated after the given time",
+          "key": "since",
+          "type": "string",
+          "default": "",
+          "label": "Since"
+        },
+        {
+          "comments": "The number of results per page (max 100)",
+          "key": "perPage",
+          "type": "string",
+          "default": "30",
+          "label": "Per Page"
+        },
+        {
+          "comments": "Page number of the results to fetch",
+          "key": "page",
+          "type": "string",
+          "default": "1",
+          "label": "Page"
+        }
+      ]
+    },
+    "issuesCreateComment": {
+      "display": {
+        "label": "Issues Create Comment",
+        "description": "Create an issue comment"
+      },
+      "key": "issuesCreateComment",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "The account OWNER of the repository (https://github.com/OWNER/REPO)",
+          "key": "owner",
+          "type": "string",
+          "default": "",
+          "label": "Owner"
+        },
+        {
+          "required": true,
+          "comments": "The name of the REPO (https://github.com/OWNER/REPO)",
+          "key": "repo",
+          "type": "string",
+          "default": "",
+          "label": "Repository Name"
+        },
+        {
+          "required": true,
+          "comments": "The number that identifies the issue",
+          "key": "issueNumber",
+          "type": "string",
+          "default": "",
+          "label": "Issue Number"
+        },
+        {
+          "required": true,
+          "comments": "The contents of the comment",
+          "key": "body",
+          "type": "string",
+          "default": "",
+          "label": "Body"
+        }
+      ]
+    },
+    "pullsCreate": {
+      "display": {
+        "label": "Pulls Create",
+        "description": "Create a pull request"
+      },
+      "key": "pullsCreate",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "The account OWNER of the repository (https://github.com/OWNER/REPO)",
+          "key": "owner",
+          "type": "string",
+          "default": "",
+          "label": "Owner"
+        },
+        {
+          "required": true,
+          "comments": "The name of the REPO (https://github.com/OWNER/REPO)",
+          "key": "repo",
+          "type": "string",
+          "default": "",
+          "label": "Repository Name"
+        },
+        {
+          "required": false,
+          "comments": "The title of the new pull request",
+          "key": "title",
+          "type": "string",
+          "default": "",
+          "label": "Title"
+        },
+        {
+          "required": true,
+          "comments": "The name of the branch where your changes are implemented",
+          "key": "head",
+          "type": "string",
+          "default": "",
+          "label": "Head"
+        },
+        {
+          "required": true,
+          "comments": "The name of the branch you want the changes pulled into",
+          "key": "base",
+          "type": "string",
+          "default": "",
+          "label": "Base"
+        },
+        {
+          "required": false,
+          "comments": "The contents of the pull request",
+          "key": "body",
+          "type": "string",
+          "default": "",
+          "label": "Body"
+        },
+        {
+          "required": false,
+          "comments": "Indicates whether [maintainers can modify](https://docs",
+          "key": "maintainerCanModify",
+          "type": "boolean",
+          "default": "false",
+          "label": "Maintainer Can Modify"
+        },
+        {
+          "required": false,
+          "comments": "Indicates whether the pull request is a draft",
+          "key": "draft",
+          "type": "boolean",
+          "default": "false",
+          "label": "Draft"
+        },
+        {
+          "required": false,
+          "example": "1",
+          "key": "issue",
+          "type": "string",
+          "default": "",
+          "label": "Issue"
+        }
+      ]
+    },
+    "reposCreateWebhook": {
+      "display": {
+        "label": "Repos Create Webhook",
+        "description": "Create a repository webhook"
+      },
+      "key": "reposCreateWebhook",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "The account OWNER of the repository (https://github.com/OWNER/REPO)",
+          "key": "owner",
+          "type": "string",
+          "default": "",
+          "label": "Owner"
+        },
+        {
+          "required": true,
+          "comments": "The name of the REPO (https://github.com/OWNER/REPO)",
+          "key": "repo",
+          "type": "string",
+          "default": "",
+          "label": "Repository Name"
+        },
+        {
+          "required": true,
+          "comments": "The URL to send data to",
+          "key": "callbackUrl",
+          "type": "string",
+          "default": "",
+          "label": "Callback URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "commit_comment",
+              "value": "commit_comment"
+            },
+            {
+              "label": "create",
+              "value": "create"
+            },
+            {
+              "label": "delete",
+              "value": "delete"
+            },
+            {
+              "label": "deploy_key",
+              "value": "deploy_key"
+            },
+            {
+              "label": "deployment",
+              "value": "deployment"
+            },
+            {
+              "label": "deployment_status",
+              "value": "deployment_status"
+            },
+            {
+              "label": "discussion",
+              "value": "discussion"
+            },
+            {
+              "label": "discussion_comment",
+              "value": "discussion_comment"
+            },
+            {
+              "label": "fork",
+              "value": "fork"
+            },
+            {
+              "label": "github_app_authorization",
+              "value": "github_app_authorization"
+            },
+            {
+              "label": "gollum",
+              "value": "gollum"
+            },
+            {
+              "label": "installation",
+              "value": "installation"
+            },
+            {
+              "label": "installation_repositories",
+              "value": "installation_repositories"
+            },
+            {
+              "label": "issue_comment",
+              "value": "issue_comment"
+            },
+            {
+              "label": "issues",
+              "value": "issues"
+            },
+            {
+              "label": "label",
+              "value": "label"
+            },
+            {
+              "label": "marketplace_purchase",
+              "value": "marketplace_purchase"
+            },
+            {
+              "label": "member",
+              "value": "member"
+            },
+            {
+              "label": "membership",
+              "value": "membership"
+            },
+            {
+              "label": "meta",
+              "value": "meta"
+            },
+            {
+              "label": "milestone",
+              "value": "milestone"
+            },
+            {
+              "label": "organization",
+              "value": "organization"
+            },
+            {
+              "label": "org_block",
+              "value": "org_block"
+            },
+            {
+              "label": "package",
+              "value": "package"
+            },
+            {
+              "label": "page_build",
+              "value": "page_build"
+            },
+            {
+              "label": "ping",
+              "value": "ping"
+            },
+            {
+              "label": "project",
+              "value": "project"
+            },
+            {
+              "label": "project_card",
+              "value": "project_card"
+            },
+            {
+              "label": "project_column",
+              "value": "project_column"
+            },
+            {
+              "label": "projects_v2_item",
+              "value": "projects_v2_item"
+            },
+            {
+              "label": "public",
+              "value": "public"
+            },
+            {
+              "label": "pull_request",
+              "value": "pull_request"
+            },
+            {
+              "label": "pull_request_review",
+              "value": "pull_request_review"
+            },
+            {
+              "label": "pull_request_review_comment",
+              "value": "pull_request_review_comment"
+            },
+            {
+              "label": "pull_request_review_thread",
+              "value": "pull_request_review_thread"
+            },
+            {
+              "label": "push",
+              "value": "push"
+            },
+            {
+              "label": "release",
+              "value": "release"
+            },
+            {
+              "label": "repository_dispatch",
+              "value": "repository_dispatch"
+            },
+            {
+              "label": "repository",
+              "value": "repository"
+            },
+            {
+              "label": "repository_import",
+              "value": "repository_import"
+            },
+            {
+              "label": "repository_vulnerability_alert",
+              "value": "repository_vulnerability_alert"
+            },
+            {
+              "label": "security_advisory",
+              "value": "security_advisory"
+            },
+            {
+              "label": "sponsorship",
+              "value": "sponsorship"
+            },
+            {
+              "label": "star",
+              "value": "star"
+            },
+            {
+              "label": "status",
+              "value": "status"
+            },
+            {
+              "label": "team",
+              "value": "team"
+            },
+            {
+              "label": "team_add",
+              "value": "team_add"
+            },
+            {
+              "label": "watch",
+              "value": "watch"
+            },
+            {
+              "label": "workflow_dispatch",
+              "value": "workflow_dispatch"
+            },
+            {
+              "label": "workflow_job",
+              "value": "workflow_job"
+            },
+            {
+              "label": "workflow_run",
+              "value": "workflow_run"
+            }
+          ],
+          "comments": "Determines what events trigger a webhook to fire",
+          "key": "events",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Events"
+        },
+        {
+          "required": false,
+          "comments": "An optional secret to use to verify webhook authenticity. See https://docs.github.com/en/developers/webhooks-and-events/webhooks/securing-your-webhooks",
+          "key": "webhookSecret",
+          "type": "string",
+          "default": "",
+          "label": "Webhook Secret"
+        }
+      ]
+    },
+    "reposDeleteInstanceWebhooks": {
+      "display": {
+        "label": "Repos Delete Instance Webhooks",
+        "description": "Delete all webhooks pointed at this Prismatic instance"
+      },
+      "key": "reposDeleteInstanceWebhooks",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "The account OWNER of the repository (https://github.com/OWNER/REPO)",
+          "key": "owner",
+          "type": "string",
+          "default": "",
+          "label": "Owner"
+        },
+        {
+          "required": true,
+          "comments": "The name of the REPO (https://github.com/OWNER/REPO)",
+          "key": "repo",
+          "type": "string",
+          "default": "",
+          "label": "Repository Name"
+        }
+      ]
+    },
+    "reposDeleteWebhook": {
+      "display": {
+        "label": "Repos Delete Webhook",
+        "description": "Delete a repository webhook by ID"
+      },
+      "key": "reposDeleteWebhook",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "The account OWNER of the repository (https://github.com/OWNER/REPO)",
+          "key": "owner",
+          "type": "string",
+          "default": "",
+          "label": "Owner"
+        },
+        {
+          "required": true,
+          "comments": "The name of the REPO (https://github.com/OWNER/REPO)",
+          "key": "repo",
+          "type": "string",
+          "default": "",
+          "label": "Repository Name"
+        },
+        {
+          "required": true,
+          "comments": "The unique identifier of the hook",
+          "key": "hookId",
+          "type": "string",
+          "default": "",
+          "label": "Hook ID"
+        }
+      ]
+    },
+    "reposListWebhooks": {
+      "display": {
+        "label": "Repos List Webhooks",
+        "description": "List webhooks of a repository"
+      },
+      "key": "reposListWebhooks",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "The account OWNER of the repository (https://github.com/OWNER/REPO)",
+          "key": "owner",
+          "type": "string",
+          "default": "",
+          "label": "Owner"
+        },
+        {
+          "required": true,
+          "comments": "The name of the REPO (https://github.com/OWNER/REPO)",
+          "key": "repo",
+          "type": "string",
+          "default": "",
+          "label": "Repository Name"
+        },
+        {
+          "comments": "Show only webhooks that point to this instance",
+          "key": "showOnlyInstanceWebhooks",
+          "type": "boolean",
+          "default": "true",
+          "label": "Show only instance webhooks"
+        }
+      ]
+    },
+    "usersGetByUsername": {
+      "display": {
+        "label": "Users Get By Username",
+        "description": "Get a user"
+      },
+      "key": "usersGetByUsername",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "The handle for the GitHub user account",
+          "key": "username",
+          "type": "string",
+          "default": "",
+          "label": "Username"
+        }
+      ]
+    },
+    "rawRequest": {
+      "display": {
+        "label": "Raw Request",
+        "description": "Send a raw HTTP request to Github API"
+      },
+      "key": "rawRequest",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "Input the path only (/octocat), The base URL is already included (https://api.github.com). For example, to connect to https://api.github.com/octocat, only /octocat is entered in this field.",
+          "example": "/octocat",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        }
+      ],
+      "documentation": {
+        "description": "The **Raw Request** action allows you to interact with any [GitHub REST API](https://docs.github.com/en/rest/) endpoint.\n\nSuppose, for example, that you want to make use of GitHub's [Render a Markdown document](https://docs.github.com/en/rest/markdown#render-a-markdown-document) API endpoint.\nYou can enter `/markdown` as the **URL**, select `POST` as the **Method**.\nThe HTTP request's body for that endpoint needs an object with `text` and `mode`, which can be a reference of a previous step.\nA previous code step, for example could look like this:\n\n```javascript\nmodule.exports = async ({ logger, configVars }, stepResults) => {\n  const text = `> #### The quarterly results look great!\n>\n> - Revenue was off the chart.\n> - Profits were higher than ever.\n>\n>  *Everything* is going according to **plan**.`;\n  const mode = \"markdown\";\n  return { data: { text, mode } };\n};\n```\n"
+      }
+    }
+  },
+  "triggers": {
+    "webhook": {
+      "display": {
+        "label": "GitHub Webhook",
+        "description": "Handle and optionally validate webhook requests from GitHub"
+      },
+      "synchronousResponseSupport": "invalid",
+      "scheduleSupport": "invalid",
+      "key": "webhook",
+      "inputs": [
+        {
+          "required": false,
+          "comments": "An optional secret to use to verify webhook authenticity. See https://docs.github.com/en/developers/webhooks-and-events/webhooks/securing-your-webhooks",
+          "key": "webhookSecret",
+          "type": "string",
+          "default": "",
+          "label": "Webhook Secret"
+        }
+      ]
+    }
+  },
+  "dataSources": {
+    "listReposForAuthenticatedUser": {
+      "display": {
+        "label": "List Repos",
+        "description": "List all of the authenticated user's repositories"
+      },
+      "dataSourceType": "picklist",
+      "examplePayload": {
+        "result": [
+          {
+            "key": "exampleuser/examplerepo",
+            "label": "exampleuser/examplerepo"
+          },
+          {
+            "key": "exampleorg/special-project",
+            "label": "exampleorg/special-project"
+          }
+        ]
+      },
+      "key": "listReposForAuthenticatedUser",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    }
+  },
+  "documentation": {
+    "description": "[GitHub](https://github.com) is one of the largest and most advanced development platform in the world providing code repository hosting and more.\n",
+    "dev": "The [GitHub REST API](https://docs.github.com/en/rest) is extensive, with almost a thousand unique endpoints.\nThis component has actions that wrap some of those endpoints that are commonly used in integrations.\nPlease [contact us](https://prismatic.io/contact/) if there are other GitHub endpoints that you would find helpful wrapped in an action.\nAlternatively, you can reach for the [Raw Request](#raw-request) action to interact with any GitHub endpoint.\n"
+  },
+  "$version": 1
+}

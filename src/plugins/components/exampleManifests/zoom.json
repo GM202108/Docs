@@ -1,0 +1,2338 @@
+{
+  "key": "zoom",
+  "public": true,
+  "documentationUrl": "https://prismatic.io/docs/components/zoom/",
+  "display": {
+    "label": "Zoom",
+    "category": "Application Connectors",
+    "description": "Easily manage users, meetings, and webinars in your Zoom account",
+    "iconPath": "icon.png",
+    "iconBase64": "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gCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgCIEi4AgCjhAgDI6bru/wE+U/zTROa4XgAAAABJRU5ErkJggg=="
+  },
+  "connections": [
+    {
+      "key": "oauth",
+      "label": "OAuth 2.0",
+      "comments": "OAuth 2.0 flow",
+      "oauth2Type": "authorization_code",
+      "inputs": [
+        {
+          "placeholder": "Authorize URL",
+          "required": true,
+          "shown": false,
+          "comments": "The OAuth 2.0 Authorization URL for Zoom",
+          "key": "authorizeUrl",
+          "type": "string",
+          "default": "https://zoom.us/oauth/authorize",
+          "label": "Authorize URL"
+        },
+        {
+          "placeholder": "Token URL",
+          "required": true,
+          "shown": false,
+          "comments": "The OAuth 2.0 Token URL for Zoom",
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "https://zoom.us/oauth/token",
+          "label": "Token URL"
+        },
+        {
+          "placeholder": "Scopes",
+          "required": false,
+          "shown": false,
+          "comments": "Scopes are configured when a Zoom OAuth 2.0 app is created",
+          "key": "scopes",
+          "type": "string",
+          "default": "",
+          "label": "Scopes"
+        },
+        {
+          "placeholder": "Client ID",
+          "required": true,
+          "shown": true,
+          "comments": "Client Identifier of your app for Zoom",
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "Client ID"
+        },
+        {
+          "placeholder": "Client Secret",
+          "required": true,
+          "shown": true,
+          "comments": "Client Secret of your app for Zoom",
+          "key": "clientSecret",
+          "type": "password",
+          "default": "",
+          "label": "Client Secret"
+        }
+      ],
+      "documentation": {
+        "description": "This component uses OAuth 2.0 to connect to Zoom's API.\nTo create a Zoom OAuth 2.0 app, first visit the [Zoom Marketplace](https://marketplace.zoom.us/).\nLog in and click **Develop** -> **Build an App**.\nSelect **OAuth** as your **app type** and give your app a name.\nSelect that you want an **Account-level app**.\n_Do not_ elect to publish your app to Marketplace.\n\nOn the next page give your app an icon (probably your core product's logo).\nAdd Prismatic's OAuth callback URL, `https://oauth2.prismatic.io/callback` to two places: the **Redirect URL for OAuth** and to **Add allow lists**.\n\nTake note of the **Client ID** and **Client secret** that were generated - these will be entered into Prismatic when you create an integration that uses the Zoom component.\nClick **Continue**.\n\nGive your app a short description, and fill in the remaining basic information about your app.\nThis is the information your customers will see when they grant your integration permission to interact with Zoom on their behalf.\nClick **Continue**.\n\nYou can safely ignore the **Verification Token** that is generated for you on the next screen - that's used for incoming webhooks from Zoom.\nClick **Continue**.\n\n#### Zoom OAuth 2.0 Scopes\n\n**Scopes** determine what an integration is allowed to do on your customer's behalf.\nFor Zoom apps, scopes are configured on the next page.\nFor the correct permissions, add the following scopes to your app:\n\n- If you plan to view and manage **meetings**, add `meeting:master`, `meeting:read:admin` and `meeting:write:admin`\n- If you plan to view and manage **webinars**, add `webinar:master`, `webinar:read:admin` and `webinar:write:admin`\n- If you plan to view and manage **recordings**, add `recording:master`, `recording:read:admin` and `recording:write:admin`\n- If you plan to view and manage **users**, add `user:master`, `user:read:admin` and `user:write:admin`\n\nYou can omit the other scopes, as this component does not implement actions for accounts, billing, etc.\nClick **Continue** to complete the creation of your OAuth app.\n\nYou can now authenticate your integration with Zoom.\nAdditional information on Zoom OAuth 2.0 apps is available in [Zoom's documentation](https://developers.zoom.us/docs/integrations/oauth/).\n"
+      }
+    }
+  ],
+  "actions": {
+    "listMeetings": {
+      "display": {
+        "label": "List Meetings",
+        "description": "List all meetings by user Id"
+      },
+      "examplePayload": {
+        "data": {
+          "page_count": 1,
+          "page_number": 1,
+          "page_size": 30,
+          "total_records": 1,
+          "next_page_token": null,
+          "meetings": [
+            {
+              "uuid": "example/PiXZTLiwZLisi+dL+g==",
+              "id": 87272670533,
+              "host_id": "example_6cTCWFHEE20SifVg",
+              "topic": "Daily Meeting",
+              "type": 2,
+              "start_time": "2021-12-15T12:02:00Z",
+              "duration": 60,
+              "timezone": "America/Chicago",
+              "created_at": "2021-12-01T20:30:47Z",
+              "join_url": "https://example.zoom.us/j/87272670532?pwd=UE8xd2NBT0Q3TVpKMGU0WUtuSnI2Zz09"
+            }
+          ]
+        }
+      },
+      "key": "listMeetings",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a user.",
+          "example": "89347503",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "User Id"
+        }
+      ]
+    },
+    "listUsers": {
+      "display": {
+        "label": "List Users",
+        "description": "List all users connected to your Zoom account"
+      },
+      "examplePayload": {
+        "data": {
+          "page_count": 1,
+          "page_number": 1,
+          "page_size": 30,
+          "total_records": 1,
+          "next_page_token": null,
+          "users": [
+            {
+              "id": "exampleUserId",
+              "first_name": "John",
+              "last_name": "Doe",
+              "email": "someone@example.com",
+              "type": 1,
+              "pmi": 12345,
+              "timezone": "America/Chicago",
+              "verified": 1,
+              "created_at": "2021-11-18-T20:49:06Z",
+              "status": "active",
+              "role_id": 0
+            }
+          ]
+        }
+      },
+      "key": "listUsers",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createUser": {
+      "display": {
+        "label": "Create User",
+        "description": "Create a new user"
+      },
+      "examplePayload": {
+        "data": {
+          "page_count": 1,
+          "page_number": 1,
+          "page_size": 30,
+          "total_records": 1,
+          "next_page_token": null,
+          "users": [
+            {
+              "id": "exampleUserId",
+              "first_name": "John",
+              "last_name": "Doe",
+              "email": "someone@example.com",
+              "type": 1,
+              "pmi": 12345,
+              "timezone": "America/Chicago",
+              "verified": 1,
+              "created_at": "2021-11-18-T20:49:06Z",
+              "status": "active",
+              "role_id": 0
+            }
+          ]
+        }
+      },
+      "key": "createUser",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "Create",
+              "value": "create"
+            },
+            {
+              "label": "Auto Create",
+              "value": "autoCreate"
+            },
+            {
+              "label": "Cust Create",
+              "value": "custCreate"
+            },
+            {
+              "label": "SSO Create",
+              "value": "ssoCreate"
+            }
+          ],
+          "comments": "This value represents the method used to create the user.",
+          "key": "userAction",
+          "type": "string",
+          "default": "create",
+          "label": "User Action"
+        },
+        {
+          "required": true,
+          "comments": "Provide a valid email address.",
+          "example": "someone@example.com",
+          "key": "email",
+          "type": "string",
+          "default": "",
+          "label": "Email"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the first name.",
+          "example": "John",
+          "key": "firstName",
+          "type": "string",
+          "default": "",
+          "label": "First Name"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the last name",
+          "example": "Doe",
+          "key": "lastName",
+          "type": "string",
+          "default": "",
+          "label": "Last Name"
+        },
+        {
+          "required": true,
+          "comments": "The value provided will determine the type of user that will be created.",
+          "model": [
+            {
+              "label": "Basic",
+              "value": "1"
+            },
+            {
+              "label": "Licensed",
+              "value": "2"
+            },
+            {
+              "label": "On-prem",
+              "value": "3"
+            },
+            {
+              "label": "SSO Create (none)",
+              "value": "99"
+            }
+          ],
+          "key": "userType",
+          "type": "string",
+          "default": "",
+          "label": "User Type"
+        }
+      ]
+    },
+    "updateUser": {
+      "display": {
+        "label": "Update User",
+        "description": "Update the information or metadata of a user by Id"
+      },
+      "key": "updateUser",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "Create",
+              "value": "create"
+            },
+            {
+              "label": "Auto Create",
+              "value": "autoCreate"
+            },
+            {
+              "label": "Cust Create",
+              "value": "custCreate"
+            },
+            {
+              "label": "SSO Create",
+              "value": "ssoCreate"
+            }
+          ],
+          "comments": "This value represents the method used to create the user.",
+          "key": "userAction",
+          "type": "string",
+          "default": "create",
+          "label": "User Action"
+        },
+        {
+          "required": true,
+          "comments": "Provide a valid email address.",
+          "example": "someone@example.com",
+          "key": "email",
+          "type": "string",
+          "default": "",
+          "label": "Email"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the first name.",
+          "example": "John",
+          "key": "firstName",
+          "type": "string",
+          "default": "",
+          "label": "First Name"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the last name",
+          "example": "Doe",
+          "key": "lastName",
+          "type": "string",
+          "default": "",
+          "label": "Last Name"
+        },
+        {
+          "required": true,
+          "comments": "The value provided will determine the type of user that will be created.",
+          "model": [
+            {
+              "label": "Basic",
+              "value": "1"
+            },
+            {
+              "label": "Licensed",
+              "value": "2"
+            },
+            {
+              "label": "On-prem",
+              "value": "3"
+            },
+            {
+              "label": "SSO Create (none)",
+              "value": "99"
+            }
+          ],
+          "key": "userType",
+          "type": "string",
+          "default": "",
+          "label": "User Type"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the user Id in the CMS.",
+          "example": "1234567890",
+          "key": "cmsUserId",
+          "type": "string",
+          "default": "",
+          "label": "CMS User Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the company.",
+          "example": "Acme Inc.",
+          "key": "company",
+          "type": "string",
+          "default": "",
+          "label": "Company"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the department of the user.",
+          "example": "Example Department",
+          "key": "department",
+          "type": "string",
+          "default": "",
+          "label": "Timezone"
+        },
+        {
+          "required": false,
+          "comments": "Provide a 6-10 digit value for the host key of the user.",
+          "example": "1234567890",
+          "key": "hostKey",
+          "type": "string",
+          "default": "",
+          "label": "Host Key"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the job title.",
+          "example": "Graphic Designer",
+          "key": "jobTitle",
+          "type": "string",
+          "default": "",
+          "label": "Job Title"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the location.",
+          "example": "United States",
+          "key": "location",
+          "type": "string",
+          "default": "",
+          "label": "Location"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the personal meeting Id of a user.",
+          "example": "1234567890",
+          "key": "personalMeetingId",
+          "type": "string",
+          "default": "",
+          "label": "Personal Meeting Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the phone number.",
+          "example": "16055551234",
+          "key": "phoneNumber",
+          "type": "string",
+          "default": "",
+          "label": "Phone Number"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for a valid timezone. Refer to the Id value in the timezone list: https://marketplace.zoom.us/docs/api-reference/other-references/abbreviation-lists#timezones",
+          "example": "America/New_York",
+          "key": "timezone",
+          "type": "string",
+          "default": "",
+          "label": "Timezone"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a user.",
+          "example": "89347503",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "User Id"
+        },
+        {
+          "required": false,
+          "comments": "This value will determine the name of your personal meeting room.",
+          "example": "Example Name",
+          "key": "vanityName",
+          "type": "string",
+          "default": "",
+          "label": "Vanity Name"
+        }
+      ]
+    },
+    "getUser": {
+      "display": {
+        "label": "Get User",
+        "description": "Get the information and metadata of a user by Id"
+      },
+      "examplePayload": {
+        "data": {
+          "page_count": 1,
+          "page_number": 1,
+          "page_size": 30,
+          "total_records": 1,
+          "next_page_token": null,
+          "users": [
+            {
+              "id": "exampleUserId",
+              "first_name": "John",
+              "last_name": "Doe",
+              "email": "someone@example.com",
+              "type": 1,
+              "pmi": 12345,
+              "timezone": "America/Chicago",
+              "verified": 1,
+              "created_at": "2021-11-18-T20:49:06Z",
+              "status": "active",
+              "role_id": 0
+            }
+          ]
+        }
+      },
+      "key": "getUser",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a user.",
+          "example": "89347503",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "User Id"
+        }
+      ]
+    },
+    "deleteUser": {
+      "display": {
+        "label": "Delete User",
+        "description": "Delete the information and metadata of a user by Id"
+      },
+      "key": "deleteUser",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a user.",
+          "example": "89347503",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "User Id"
+        }
+      ]
+    },
+    "getMeeting": {
+      "display": {
+        "label": "Get Meeting",
+        "description": "Get the information and metadata of a meeting by Id"
+      },
+      "examplePayload": {
+        "data": {
+          "page_count": 1,
+          "page_number": 1,
+          "page_size": 30,
+          "total_records": 1,
+          "next_page_token": null,
+          "meetings": [
+            {
+              "uuid": "example/PiXZTLiwZLisi+dL+g==",
+              "id": 87272670533,
+              "host_id": "example_6cTCWFHEE20SifVg",
+              "topic": "Daily Meeting",
+              "type": 2,
+              "start_time": "2021-12-15T12:02:00Z",
+              "duration": 60,
+              "timezone": "America/Chicago",
+              "created_at": "2021-12-01T20:30:47Z",
+              "join_url": "https://example.zoom.us/j/87272670532?pwd=UE8xd2NBT0Q3TVpKMGU0WUtuSnI2Zz09"
+            }
+          ]
+        }
+      },
+      "key": "getMeeting",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a meeting.",
+          "example": "89347503",
+          "key": "meetingId",
+          "type": "string",
+          "default": "",
+          "label": "Meeting Id"
+        }
+      ]
+    },
+    "listUsersChatMessages": {
+      "display": {
+        "label": "List User's Chat Messages",
+        "description": "List all chat messages of a given user"
+      },
+      "key": "listUsersChatMessages",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a user.",
+          "example": "89347503",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "User Id"
+        }
+      ]
+    },
+    "listUsersChannels": {
+      "display": {
+        "label": "List User's Channels",
+        "description": "List all channels of a given user"
+      },
+      "key": "listUsersChannels",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a user.",
+          "example": "89347503",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "User Id"
+        }
+      ]
+    },
+    "listUsersRecordings": {
+      "display": {
+        "label": "List User's Recordings",
+        "description": "List all recordings taken by a given user"
+      },
+      "key": "listUsersRecordings",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a user.",
+          "example": "89347503",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "User Id"
+        }
+      ]
+    },
+    "createMeeting": {
+      "display": {
+        "label": "Create Meeting",
+        "description": "Create a new meeting with an existing user as the host"
+      },
+      "examplePayload": {
+        "data": {
+          "page_count": 1,
+          "page_number": 1,
+          "page_size": 30,
+          "total_records": 1,
+          "next_page_token": null,
+          "meetings": [
+            {
+              "uuid": "example/PiXZTLiwZLisi+dL+g==",
+              "id": 87272670533,
+              "host_id": "example_6cTCWFHEE20SifVg",
+              "topic": "Daily Meeting",
+              "type": 2,
+              "start_time": "2021-12-15T12:02:00Z",
+              "duration": 60,
+              "timezone": "America/Chicago",
+              "created_at": "2021-12-01T20:30:47Z",
+              "join_url": "https://example.zoom.us/j/87272670532?pwd=UE8xd2NBT0Q3TVpKMGU0WUtuSnI2Zz09"
+            }
+          ]
+        }
+      },
+      "key": "createMeeting",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a user.",
+          "example": "89347503",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "User Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the topic.",
+          "example": "Daily Meeting",
+          "key": "topic",
+          "type": "string",
+          "default": "",
+          "label": "Topic"
+        },
+        {
+          "required": false,
+          "comments": "Provide a value from the provided list.",
+          "model": [
+            {
+              "label": "Instant",
+              "value": "1"
+            },
+            {
+              "label": "Scheduled",
+              "value": "2"
+            },
+            {
+              "label": "Recurring",
+              "value": "3"
+            },
+            {
+              "label": "Recurring w/ Fixed Time",
+              "value": "8"
+            }
+          ],
+          "key": "meetingType",
+          "type": "string",
+          "default": "",
+          "label": "Meeting Type"
+        },
+        {
+          "required": false,
+          "comments": "Provide a value for the start time of the meeting. Provide your value in the following format: yyyy-MM-ddTHH:mm:ssZ",
+          "example": "2021-12-15T12:02:00Z",
+          "key": "startTime",
+          "type": "string",
+          "default": "",
+          "label": "Start Time"
+        },
+        {
+          "required": false,
+          "comments": "Provide a value for the duration in minutes. This field is only used for scheduled meetings.",
+          "example": "60",
+          "key": "duration",
+          "type": "string",
+          "default": "",
+          "label": "Duration"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for a valid timezone. Refer to the Id value in the timezone list: https://marketplace.zoom.us/docs/api-reference/other-references/abbreviation-lists#timezones",
+          "example": "America/New_York",
+          "key": "timezone",
+          "type": "string",
+          "default": "",
+          "label": "Timezone"
+        },
+        {
+          "required": false,
+          "comments": "Provide a value up to 10 characters for the password.",
+          "example": "examplePass",
+          "key": "password",
+          "type": "string",
+          "default": "",
+          "label": "Password"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the agenda. This property has a maximum length of 2,000 characters.",
+          "example": "In this meeting we will discuss...",
+          "key": "agenda",
+          "type": "string",
+          "default": "",
+          "label": "Agenda"
+        },
+        {
+          "required": false,
+          "comments": "Pick a value from the provided list.",
+          "model": [
+            {
+              "label": "Daily",
+              "value": "1"
+            },
+            {
+              "label": "Weekly",
+              "value": "2"
+            },
+            {
+              "label": "Monthly",
+              "value": "3"
+            }
+          ],
+          "key": "recurrence",
+          "type": "string",
+          "default": "",
+          "label": "Recurrence"
+        },
+        {
+          "required": false,
+          "comments": "This value relates to the cadence at which your meetings will occur. This value directly related to recurrence. For more information on this value and how it affects your meetings, refer to the Zoom documentation: https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetingcreate",
+          "example": "1",
+          "key": "repeatInterval",
+          "type": "string",
+          "default": "",
+          "label": "Repeat Interval"
+        },
+        {
+          "required": false,
+          "comments": "Provide a value from 1-7 to determine which days of the week your meeting will occur on. You can also provide a string of comma separated integers. For instance if you want your meeting to occur every Tuesday and Sunday, provide '1, 3'. This field is required if you selected type 2 for recurrence. ",
+          "example": "1",
+          "key": "weeklyDay",
+          "type": "string",
+          "default": "",
+          "label": "Weekly Day"
+        },
+        {
+          "required": false,
+          "comments": "Provide a value from 1-31 to determine which days of the month your meeting will occur on. For instance if you want your meeting to occur every 5th of each month, provide a 5. This field is required if you selected type 3 for recurrence. ",
+          "example": "15",
+          "key": "monthlyDay",
+          "type": "string",
+          "default": "",
+          "label": "Monthly Day"
+        },
+        {
+          "required": false,
+          "comments": "Provide a value for the week of the month you would like your meeting to occur on. This field is required if you selected type 3 for recurrence. ",
+          "model": [
+            {
+              "label": "Last Week",
+              "value": "-1"
+            },
+            {
+              "label": "First Week",
+              "value": "1"
+            },
+            {
+              "label": "Second Week",
+              "value": "2"
+            },
+            {
+              "label": "Third Week",
+              "value": "3"
+            },
+            {
+              "label": "Fourth Week",
+              "value": "4"
+            }
+          ],
+          "key": "monthlyWeek",
+          "type": "string",
+          "default": "",
+          "label": "Monthly Week"
+        },
+        {
+          "required": false,
+          "comments": "Provide a value from 1-7 to determine which days of the day of the week your monthly meeting will occur on. You must also provide a value for monthly week.  For instance if you want your meeting to occur every Tuesday and Sunday, provide '1, 3'. This field is required if you selected type 2 for recurrence. ",
+          "example": "1",
+          "key": "monthlyWeekDay",
+          "type": "string",
+          "default": "",
+          "label": "Monthly Week Day"
+        },
+        {
+          "required": false,
+          "comments": "Provide a valid date time value for when the last meeting will occur.",
+          "example": "2017-11-25T12:00:00Z",
+          "key": "endDateTime",
+          "type": "string",
+          "default": "",
+          "label": "End Date Time"
+        },
+        {
+          "required": false,
+          "comments": "This flag will determine if the host's video is turned on by default.",
+          "key": "hostVideo",
+          "type": "boolean",
+          "default": "false",
+          "label": "Host Video On Start"
+        },
+        {
+          "required": false,
+          "comments": "This flag will determine if participants video is turned on by default.",
+          "key": "participantVideo",
+          "type": "boolean",
+          "default": "false",
+          "label": "Participant Video"
+        },
+        {
+          "required": false,
+          "comments": "This flag will determine if participants are allowed to join before the host.",
+          "key": "joinBeforeHost",
+          "type": "boolean",
+          "default": "false",
+          "label": "Join Before Host"
+        },
+        {
+          "required": false,
+          "comments": "If joinBeforeHost is true, supply one of the given values.",
+          "model": [
+            {
+              "label": "Anytime",
+              "value": "0"
+            },
+            {
+              "label": "5 Minutes",
+              "value": "5"
+            },
+            {
+              "label": "10 Minutes",
+              "value": "10"
+            }
+          ],
+          "key": "jbhTime",
+          "type": "string",
+          "default": "",
+          "label": "Time To Join Before Host"
+        },
+        {
+          "required": false,
+          "comments": "This flag will determine if participants are muted by default when they join.",
+          "key": "muteUponEntry",
+          "type": "boolean",
+          "default": "false",
+          "label": "Mute Upon Entry"
+        },
+        {
+          "required": false,
+          "comments": "This flag will determine if a watermark will be displayed on screen share.",
+          "key": "watermark",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Watermark"
+        },
+        {
+          "required": false,
+          "comments": "This flag will determine whether or not to use a personal meeting Id, over a generated meeting Id.",
+          "key": "usePMI",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Personal Meeting ID"
+        },
+        {
+          "required": false,
+          "comments": "This flag will determine the approval type of the meeting.",
+          "model": [
+            {
+              "label": "Automatically Approve",
+              "value": "0 "
+            },
+            {
+              "label": "Manually Approve",
+              "value": "1"
+            },
+            {
+              "label": "None Required",
+              "value": "2"
+            }
+          ],
+          "key": "approvalType",
+          "type": "string",
+          "default": "2",
+          "label": "Approval Type"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "Register Once",
+              "value": "1"
+            },
+            {
+              "label": "Register Per Meeting",
+              "value": "2"
+            },
+            {
+              "label": "Register Once (Select Access)",
+              "value": "3"
+            }
+          ],
+          "comments": "Provide a value from the provided list.",
+          "key": "registrationType",
+          "type": "string",
+          "default": "",
+          "label": "Registration Type"
+        },
+        {
+          "required": false,
+          "comments": "This flag will determine whether or not to send an email notification upon registration.",
+          "key": "registrationEmailNotifications",
+          "type": "boolean",
+          "default": "false",
+          "label": "Registration Email Notifications"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "Telephony",
+              "value": "telephony"
+            },
+            {
+              "label": "VoIP",
+              "value": "voip"
+            },
+            {
+              "label": "Both",
+              "value": "both"
+            }
+          ],
+          "comments": "This flag will determine if participants audio used telephony or VoIP",
+          "key": "audio",
+          "type": "string",
+          "default": "",
+          "label": "Audio Method"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "Cloud",
+              "value": "cloud"
+            },
+            {
+              "label": "Local",
+              "value": "local"
+            },
+            {
+              "label": "None",
+              "value": "none"
+            }
+          ],
+          "comments": "This value will determine your automatic recording settings.",
+          "key": "autoRecording",
+          "type": "string",
+          "default": "none",
+          "label": "Auto Recording"
+        },
+        {
+          "required": false,
+          "comments": "For each item specify the code of a country that is available for global dial in.",
+          "key": "availableDialInCountries",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Global Dial In Countries"
+        }
+      ]
+    },
+    "updateMeeting": {
+      "display": {
+        "label": "Update Meeting",
+        "description": "Update the information and metadata of an existing meeting by Id"
+      },
+      "examplePayload": {
+        "data": {}
+      },
+      "key": "updateMeeting",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a meeting.",
+          "example": "89347503",
+          "key": "meetingId",
+          "type": "string",
+          "default": "",
+          "label": "Meeting Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the topic.",
+          "example": "Daily Meeting",
+          "key": "topic",
+          "type": "string",
+          "default": "",
+          "label": "Topic"
+        },
+        {
+          "required": false,
+          "comments": "Provide a value from the provided list.",
+          "model": [
+            {
+              "label": "Instant",
+              "value": "1"
+            },
+            {
+              "label": "Scheduled",
+              "value": "2"
+            },
+            {
+              "label": "Recurring",
+              "value": "3"
+            },
+            {
+              "label": "Recurring w/ Fixed Time",
+              "value": "8"
+            }
+          ],
+          "key": "meetingType",
+          "type": "string",
+          "default": "",
+          "label": "Meeting Type"
+        },
+        {
+          "required": false,
+          "comments": "Provide a value for the start time of the meeting. Provide your value in the following format: yyyy-MM-ddTHH:mm:ssZ",
+          "example": "2021-12-15T12:02:00Z",
+          "key": "startTime",
+          "type": "string",
+          "default": "",
+          "label": "Start Time"
+        },
+        {
+          "required": false,
+          "comments": "Provide a value for the duration in minutes. This field is only used for scheduled meetings.",
+          "example": "60",
+          "key": "duration",
+          "type": "string",
+          "default": "",
+          "label": "Duration"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for a valid timezone. Refer to the Id value in the timezone list: https://marketplace.zoom.us/docs/api-reference/other-references/abbreviation-lists#timezones",
+          "example": "America/New_York",
+          "key": "timezone",
+          "type": "string",
+          "default": "",
+          "label": "Timezone"
+        },
+        {
+          "required": false,
+          "comments": "Provide a value up to 10 characters for the password.",
+          "example": "examplePass",
+          "key": "password",
+          "type": "string",
+          "default": "",
+          "label": "Password"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the agenda. This property has a maximum length of 2,000 characters.",
+          "example": "In this meeting we will discuss...",
+          "key": "agenda",
+          "type": "string",
+          "default": "",
+          "label": "Agenda"
+        },
+        {
+          "required": true,
+          "comments": "Pick a value from the provided list.",
+          "model": [
+            {
+              "label": "Daily",
+              "value": "1"
+            },
+            {
+              "label": "Weekly",
+              "value": "2"
+            },
+            {
+              "label": "Monthly",
+              "value": "3"
+            }
+          ],
+          "key": "recurrence",
+          "type": "string",
+          "default": "",
+          "label": "Recurrence"
+        },
+        {
+          "required": false,
+          "comments": "This value relates to the cadence at which your meetings will occur. This value directly related to recurrence. For more information on this value and how it affects your meetings, refer to the Zoom documentation: https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetingcreate",
+          "example": "1",
+          "key": "repeatInterval",
+          "type": "string",
+          "default": "",
+          "label": "Repeat Interval"
+        },
+        {
+          "required": false,
+          "comments": "Provide a value from 1-7 to determine which days of the week your meeting will occur on. You can also provide a string of comma separated integers. For instance if you want your meeting to occur every Tuesday and Sunday, provide '1, 3'. This field is required if you selected type 2 for recurrence. ",
+          "example": "1",
+          "key": "weeklyDay",
+          "type": "string",
+          "default": "",
+          "label": "Weekly Day"
+        },
+        {
+          "required": false,
+          "comments": "Provide a value from 1-31 to determine which days of the month your meeting will occur on. For instance if you want your meeting to occur every 5th of each month, provide a 5. This field is required if you selected type 3 for recurrence. ",
+          "example": "15",
+          "key": "monthlyDay",
+          "type": "string",
+          "default": "",
+          "label": "Monthly Day"
+        },
+        {
+          "required": false,
+          "comments": "Provide a value for the week of the month you would like your meeting to occur on. This field is required if you selected type 3 for recurrence. ",
+          "model": [
+            {
+              "label": "Last Week",
+              "value": "-1"
+            },
+            {
+              "label": "First Week",
+              "value": "1"
+            },
+            {
+              "label": "Second Week",
+              "value": "2"
+            },
+            {
+              "label": "Third Week",
+              "value": "3"
+            },
+            {
+              "label": "Fourth Week",
+              "value": "4"
+            }
+          ],
+          "key": "monthlyWeek",
+          "type": "string",
+          "default": "",
+          "label": "Monthly Week"
+        },
+        {
+          "required": false,
+          "comments": "Provide a value from 1-7 to determine which days of the day of the week your monthly meeting will occur on. You must also provide a value for monthly week.  For instance if you want your meeting to occur every Tuesday and Sunday, provide '1, 3'. This field is required if you selected type 2 for recurrence. ",
+          "example": "1",
+          "key": "monthlyWeekDay",
+          "type": "string",
+          "default": "",
+          "label": "Monthly Week Day"
+        },
+        {
+          "required": false,
+          "comments": "Provide a valid date time value for when the last meeting will occur.",
+          "example": "2017-11-25T12:00:00Z",
+          "key": "endDateTime",
+          "type": "string",
+          "default": "",
+          "label": "End Date Time"
+        },
+        {
+          "required": false,
+          "comments": "This flag will determine if the host's video is turned on by default.",
+          "key": "hostVideo",
+          "type": "boolean",
+          "default": "false",
+          "label": "Host Video On Start"
+        },
+        {
+          "required": false,
+          "comments": "This flag will determine if participants video is turned on by default.",
+          "key": "participantVideo",
+          "type": "boolean",
+          "default": "false",
+          "label": "Participant Video"
+        },
+        {
+          "required": false,
+          "comments": "This flag will determine if participants are allowed to join before the host.",
+          "key": "joinBeforeHost",
+          "type": "boolean",
+          "default": "false",
+          "label": "Join Before Host"
+        },
+        {
+          "required": false,
+          "comments": "If joinBeforeHost is true, supply one of the given values.",
+          "model": [
+            {
+              "label": "Anytime",
+              "value": "0"
+            },
+            {
+              "label": "5 Minutes",
+              "value": "5"
+            },
+            {
+              "label": "10 Minutes",
+              "value": "10"
+            }
+          ],
+          "key": "jbhTime",
+          "type": "string",
+          "default": "",
+          "label": "Time To Join Before Host"
+        },
+        {
+          "required": false,
+          "comments": "This flag will determine if participants are muted by default when they join.",
+          "key": "muteUponEntry",
+          "type": "boolean",
+          "default": "false",
+          "label": "Mute Upon Entry"
+        },
+        {
+          "required": false,
+          "comments": "This flag will determine if a watermark will be displayed on screen share.",
+          "key": "watermark",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Watermark"
+        },
+        {
+          "required": false,
+          "comments": "This flag will determine whether or not to use a personal meeting Id, over a generated meeting Id.",
+          "key": "usePMI",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Personal Meeting ID"
+        },
+        {
+          "required": false,
+          "comments": "This flag will determine the approval type of the meeting.",
+          "model": [
+            {
+              "label": "Automatically Approve",
+              "value": "0 "
+            },
+            {
+              "label": "Manually Approve",
+              "value": "1"
+            },
+            {
+              "label": "None Required",
+              "value": "2"
+            }
+          ],
+          "key": "approvalType",
+          "type": "string",
+          "default": "2",
+          "label": "Approval Type"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "Register Once",
+              "value": "1"
+            },
+            {
+              "label": "Register Per Meeting",
+              "value": "2"
+            },
+            {
+              "label": "Register Once (Select Access)",
+              "value": "3"
+            }
+          ],
+          "comments": "Provide a value from the provided list.",
+          "key": "registrationType",
+          "type": "string",
+          "default": "",
+          "label": "Registration Type"
+        },
+        {
+          "required": false,
+          "comments": "This flag will determine whether or not to send an email notification upon registration.",
+          "key": "registrationEmailNotifications",
+          "type": "boolean",
+          "default": "false",
+          "label": "Registration Email Notifications"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "Telephony",
+              "value": "telephony"
+            },
+            {
+              "label": "VoIP",
+              "value": "voip"
+            },
+            {
+              "label": "Both",
+              "value": "both"
+            }
+          ],
+          "comments": "This flag will determine if participants audio used telephony or VoIP",
+          "key": "audio",
+          "type": "string",
+          "default": "",
+          "label": "Audio Method"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "Cloud",
+              "value": "cloud"
+            },
+            {
+              "label": "Local",
+              "value": "local"
+            },
+            {
+              "label": "None",
+              "value": "none"
+            }
+          ],
+          "comments": "This value will determine your automatic recording settings.",
+          "key": "autoRecording",
+          "type": "string",
+          "default": "none",
+          "label": "Auto Recording"
+        },
+        {
+          "required": false,
+          "comments": "For each item specify the code of a country that is available for global dial in.",
+          "key": "availableDialInCountries",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Global Dial In Countries"
+        }
+      ]
+    },
+    "addMeetingRegistrant": {
+      "display": {
+        "label": "Add Meeting Registrant",
+        "description": "Add a new registrant to an existing meeting"
+      },
+      "key": "addMeetingRegistrant",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a meeting.",
+          "example": "89347503",
+          "key": "meetingId",
+          "type": "string",
+          "default": "",
+          "label": "Meeting Id"
+        },
+        {
+          "required": true,
+          "comments": "Provide a valid email address.",
+          "example": "someone@example.com",
+          "key": "email",
+          "type": "string",
+          "default": "",
+          "label": "Email"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the first name.",
+          "example": "John",
+          "key": "firstName",
+          "type": "string",
+          "default": "",
+          "label": "First Name"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the last name",
+          "example": "Doe",
+          "key": "lastName",
+          "type": "string",
+          "default": "",
+          "label": "Last Name"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the address.",
+          "example": "122 S Privet dr",
+          "key": "address",
+          "type": "string",
+          "default": "",
+          "label": "Address"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the city",
+          "example": "San Jose",
+          "key": "city",
+          "type": "string",
+          "default": "",
+          "label": "City"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the country. Use the format provided by the Zoom API documentation: https://marketplace.zoom.us/docs/api-reference/other-references/abbreviation-lists#countries",
+          "example": "US",
+          "key": "country",
+          "type": "string",
+          "default": "",
+          "label": "Country"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the zipcode",
+          "example": "90210",
+          "key": "zip",
+          "type": "string",
+          "default": "",
+          "label": "Zip Code"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the state or province.",
+          "example": "California",
+          "key": "state",
+          "type": "string",
+          "default": "",
+          "label": "State"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the phone number.",
+          "example": "15558904949",
+          "key": "phone",
+          "type": "string",
+          "default": "",
+          "label": "Phone"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for their industry",
+          "example": "Computer Software",
+          "key": "industry",
+          "type": "string",
+          "default": "",
+          "label": "Industry"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the organization.",
+          "example": "Acme Inc.",
+          "key": "org",
+          "type": "string",
+          "default": "",
+          "label": "Organization"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the job title.",
+          "example": "Graphic Designer",
+          "key": "jobTitle",
+          "type": "string",
+          "default": "",
+          "label": "Job Title"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for time frame they will purchase. For more information about this value refer to the Zoom API docs: https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetingregistrantcreate",
+          "example": "Within a month",
+          "key": "purchasingTimeFrame",
+          "type": "string",
+          "default": "",
+          "label": "Purchasing Time Frame"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the registrants role in the purchase process.",
+          "model": [
+            {
+              "label": "Decision Maker",
+              "value": "Decision Maker"
+            },
+            {
+              "label": "Evaluator/Recommender",
+              "value": "Evaluator/Recommender"
+            },
+            {
+              "label": "Influencer",
+              "value": "Influencer"
+            },
+            {
+              "label": "Not Involved",
+              "value": "Not Involved"
+            }
+          ],
+          "key": "roleInPurchaseProcess",
+          "type": "string",
+          "default": "",
+          "label": "Role In Purchase Process"
+        },
+        {
+          "required": false,
+          "comments": "Provide a value form the supplied list.",
+          "model": [
+            {
+              "label": "1-20",
+              "value": "1-20"
+            },
+            {
+              "label": "21-50",
+              "value": "21-50"
+            },
+            {
+              "label": "51-100",
+              "value": "51-100"
+            },
+            {
+              "label": "101-500",
+              "value": "101-500"
+            },
+            {
+              "label": "500-1,000",
+              "value": "500-1,000"
+            },
+            {
+              "label": "5,001-10,000",
+              "value": "5,001-10,000"
+            },
+            {
+              "label": "More than 10,000",
+              "value": "More than 10,000"
+            }
+          ],
+          "key": "numberOfEmployees",
+          "type": "string",
+          "default": "",
+          "label": "Number Of Employees"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for comments.",
+          "example": "These are some example comments.",
+          "key": "comments",
+          "type": "string",
+          "default": "",
+          "label": "Comments"
+        }
+      ]
+    },
+    "getMeetingInvitation": {
+      "display": {
+        "label": "Get Meeting Invitation",
+        "description": "Get an invitation for a meeting"
+      },
+      "examplePayload": {
+        "data": {
+          "invitation": "\n      John Doe is inviting you to a scheduled Zoom meeting.\n\n      Topic: This is an example topic!\n      Time: This is a recurring meeting Meet anytime\n\n      Join Zoom Meeting\n      https://us05web.zoom.us/j/87634730132?pwd=bGIycHczQWc0djdnaXZSTkJnOWJWZz09\n\n      Meeting ID: 876 3473 0132\n      Passcode: examplePassword\n      "
+        }
+      },
+      "key": "getMeetingInvitation",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a meeting.",
+          "example": "89347503",
+          "key": "meetingId",
+          "type": "string",
+          "default": "",
+          "label": "Meeting Id"
+        }
+      ]
+    },
+    "getMeetingRecordings": {
+      "display": {
+        "label": "Get Meeting Recordings",
+        "description": "Get a list of all recordings of a meeting"
+      },
+      "key": "getMeetingRecordings",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a meeting.",
+          "example": "89347503",
+          "key": "meetingId",
+          "type": "string",
+          "default": "",
+          "label": "Meeting Id"
+        }
+      ]
+    },
+    "listMeetingRegistrants": {
+      "display": {
+        "label": "List Meeting Registrants",
+        "description": "Get the information and metadata of all registrants to a meeting by Id"
+      },
+      "key": "listMeetingRegistrants",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a meeting.",
+          "example": "89347503",
+          "key": "meetingId",
+          "type": "string",
+          "default": "",
+          "label": "Meeting Id"
+        }
+      ]
+    },
+    "getUsersPhoneRecordings": {
+      "display": {
+        "label": "Get Users Phone Recordings",
+        "description": "List all phone recordings by a given user"
+      },
+      "key": "getUsersPhoneRecordings",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a user.",
+          "example": "89347503",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "User Id"
+        }
+      ]
+    },
+    "getPhoneRecordings": {
+      "display": {
+        "label": "Get Phone Recordings",
+        "description": "List all of the given users call recordings"
+      },
+      "key": "getPhoneRecordings",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a user.",
+          "example": "89347503",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "User Id"
+        }
+      ]
+    },
+    "getAccountsPhoneRecordings": {
+      "display": {
+        "label": "Get Accounts Phone Recordings",
+        "description": "Get the information and metadata of all recordings by Account"
+      },
+      "key": "getAccountsPhoneRecordings",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a user.",
+          "example": "89347503",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "User Id"
+        }
+      ]
+    },
+    "listWebinarParticipants": {
+      "display": {
+        "label": "List Webinar Participants",
+        "description": "List all participants of a given webinar"
+      },
+      "key": "listWebinarParticipants",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a webinar.",
+          "example": "89347503",
+          "key": "webinarId",
+          "type": "string",
+          "default": "",
+          "label": "Webinar Id"
+        }
+      ]
+    },
+    "listWebinars": {
+      "display": {
+        "label": "List Webinars",
+        "description": "List all webinars for the given user"
+      },
+      "key": "listWebinars",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a user.",
+          "example": "89347503",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "User Id"
+        }
+      ]
+    },
+    "getWebinar": {
+      "display": {
+        "label": "Get Webinar",
+        "description": "Get the information and metadata of a webinar by Id"
+      },
+      "key": "getWebinar",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a webinar.",
+          "example": "89347503",
+          "key": "webinarId",
+          "type": "string",
+          "default": "",
+          "label": "Webinar Id"
+        }
+      ]
+    },
+    "addWebinarRegistrant": {
+      "display": {
+        "label": "Add Webinar Registrant",
+        "description": "Add a new registrant of an existing webinar"
+      },
+      "key": "addWebinarRegistrant",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a webinar.",
+          "example": "89347503",
+          "key": "webinarId",
+          "type": "string",
+          "default": "",
+          "label": "Webinar Id"
+        },
+        {
+          "required": true,
+          "comments": "Provide a valid email address.",
+          "example": "someone@example.com",
+          "key": "email",
+          "type": "string",
+          "default": "",
+          "label": "Email"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the first name.",
+          "example": "John",
+          "key": "firstName",
+          "type": "string",
+          "default": "",
+          "label": "First Name"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the last name",
+          "example": "Doe",
+          "key": "lastName",
+          "type": "string",
+          "default": "",
+          "label": "Last Name"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the address.",
+          "example": "122 S Privet dr",
+          "key": "address",
+          "type": "string",
+          "default": "",
+          "label": "Address"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the city",
+          "example": "San Jose",
+          "key": "city",
+          "type": "string",
+          "default": "",
+          "label": "City"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the country. Use the format provided by the Zoom API documentation: https://marketplace.zoom.us/docs/api-reference/other-references/abbreviation-lists#countries",
+          "example": "US",
+          "key": "country",
+          "type": "string",
+          "default": "",
+          "label": "Country"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the zipcode",
+          "example": "90210",
+          "key": "zip",
+          "type": "string",
+          "default": "",
+          "label": "Zip Code"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the state or province.",
+          "example": "California",
+          "key": "state",
+          "type": "string",
+          "default": "",
+          "label": "State"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the phone number.",
+          "example": "15558904949",
+          "key": "phone",
+          "type": "string",
+          "default": "",
+          "label": "Phone"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for their industry",
+          "example": "Computer Software",
+          "key": "industry",
+          "type": "string",
+          "default": "",
+          "label": "Industry"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the organization.",
+          "example": "Acme Inc.",
+          "key": "org",
+          "type": "string",
+          "default": "",
+          "label": "Organization"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the job title.",
+          "example": "Graphic Designer",
+          "key": "jobTitle",
+          "type": "string",
+          "default": "",
+          "label": "Job Title"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for time frame they will purchase. For more information about this value refer to the Zoom API docs: https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetingregistrantcreate",
+          "example": "Within a month",
+          "key": "purchasingTimeFrame",
+          "type": "string",
+          "default": "",
+          "label": "Purchasing Time Frame"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the registrants role in the purchase process.",
+          "model": [
+            {
+              "label": "Decision Maker",
+              "value": "Decision Maker"
+            },
+            {
+              "label": "Evaluator/Recommender",
+              "value": "Evaluator/Recommender"
+            },
+            {
+              "label": "Influencer",
+              "value": "Influencer"
+            },
+            {
+              "label": "Not Involved",
+              "value": "Not Involved"
+            }
+          ],
+          "key": "roleInPurchaseProcess",
+          "type": "string",
+          "default": "",
+          "label": "Role In Purchase Process"
+        },
+        {
+          "required": false,
+          "comments": "Provide a value form the supplied list.",
+          "model": [
+            {
+              "label": "1-20",
+              "value": "1-20"
+            },
+            {
+              "label": "21-50",
+              "value": "21-50"
+            },
+            {
+              "label": "51-100",
+              "value": "51-100"
+            },
+            {
+              "label": "101-500",
+              "value": "101-500"
+            },
+            {
+              "label": "500-1,000",
+              "value": "500-1,000"
+            },
+            {
+              "label": "5,001-10,000",
+              "value": "5,001-10,000"
+            },
+            {
+              "label": "More than 10,000",
+              "value": "More than 10,000"
+            }
+          ],
+          "key": "numberOfEmployees",
+          "type": "string",
+          "default": "",
+          "label": "Number Of Employees"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for comments.",
+          "example": "These are some example comments.",
+          "key": "comments",
+          "type": "string",
+          "default": "",
+          "label": "Comments"
+        }
+      ]
+    },
+    "listWebinarRegistrants": {
+      "display": {
+        "label": "List Webinar Registrants",
+        "description": "List all registrants of a given webinar."
+      },
+      "key": "listWebinarRegistrants",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a webinar.",
+          "example": "89347503",
+          "key": "webinarId",
+          "type": "string",
+          "default": "",
+          "label": "Webinar Id"
+        }
+      ]
+    },
+    "rawRequest": {
+      "display": {
+        "label": "Raw Request",
+        "description": "Issue a raw HTTP request with the configured connection"
+      },
+      "key": "rawRequest",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "This is the URL to call.",
+          "example": "/workspaces",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "The file name to apply to a file",
+          "required": false,
+          "comments": "File names to apply to the file data inputs. Keys must match the file data keys above.",
+          "key": "fileDataFileNames",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data File Names"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        }
+      ]
+    }
+  },
+  "triggers": {},
+  "dataSources": {},
+  "documentation": {
+    "description": "[Zoom](https://zoom.us/) is a video teleconferencing software program developed by Zoom Video Communications.\nThe Zoom component allows you to manage meetings, recordings, users and webinars.\n"
+  },
+  "$version": 1
+}

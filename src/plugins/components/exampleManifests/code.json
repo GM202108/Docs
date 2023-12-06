@@ -1,0 +1,292 @@
+{
+  "key": "code",
+  "documentationUrl": "https://prismatic.io/docs/components/code/",
+  "public": true,
+  "display": {
+    "label": "Code",
+    "description": "Author and run your own code",
+    "iconPath": "icon.png",
+    "category": "Helpers",
+    "iconBase64": "iVBORw0KGgoAAAANSUhEUgAAAhcAAAIWCAYAAADkha/tAAAACXBIWXMAABcRAAAXEQHKJvM/AAAgAElEQVR4nO3dy49c133g8aPsJWrWKkOs2olekFmJDjAjeiHKsBdiYMVIVqI4SjI7Uo69G8dUnF0ShdxNMolFbsaBLSHUIoFFL8xGBmNqFXIA07suEi6tRyT/AA5u6xRT3exHPe7jPD4fgJBgy9TtqnL3l79z7rnPPXnyJADlGo0nx0MIxxe+wBdDCKcO+IJPxf9+VV+EEO4c8L+5E//7uS9m0+2D/lmgAOICMjQaT87Eq14MhzMLX8lrGX1VWwt/fyv+9WmszKbbt/b/nwGpEheQoIV4OLNn0pBTNLTt7kJ0PP2r+ID0iAsYyMJyxWJANL+OeU9W9jDGxv34qwmO+7Pp9v3Mvg4ogriAjo3Gk8VwOBWDouYJRN+2YnDcmf+aTbe/SOsSoSziAlq0EBJnFmLiZa9xch4sxMYtwQHtEhewgdF4sjckTno9s/VgHhrNX93RAusTF7CCuNFy/svSRvm2YnDcsnEUlicu4BBigj3uxti4ITbgYOICFiwsc5wTEyxhayE2LKNAJC6oWtyAeW5hOmHzJetqboe9sRAbNohSLXFBdeL5EudMJ+hYs4RyzeZQaiQuqEJc7jgfg8J0gr49iFMNezWogrigWIKCRD1cCI0b3iRKJC4oiqAgM0KDIokLsicoKMR86eSaPRrkTlyQpYVNmeedikmBmtC4EicaHr5GdsQFWRmNJ/MJxZveOSqxFe86cXsr2RAXJC9OKS7FKYXHkVOr+f6MK5ZNSJ24IFlxSnHeWRTwjLsLyyamGSRHXJAUUwpYyXyacdneDFIiLkjCaDyZb860lwLWsxXvNLnm9WNo4oLBLDzX47JbSKE18ztNrlkyYSjigt7FpY/zcfnD0gd0w5IJgxEX9CZGRTOleNurDr26HicZnmtCL8QFnRuNJ2diVLjrA4a1FScZIoNOiQs6IyogWTZ/0ilxQetEBWTjQZxkiAxaJS5ojaiAbIkMWiUu2JiogGKIDFohLlibqIBi2fjJRsQFKxuNJ6fiIT2iAsomMliLuGBpzqmAan3SHHrnMC6WJS44UjymuzlN84deLaja9RgZjhXnUOKCQ43Gk0txWuGYbiDEY8WvzKbbl70aHERcsK+4WfOaB4oBB3gQpxg3vEDsJS7YJe6ruGazJrCkrRgZd7xgzIkLdthXAWzoaryzxH4MxAU7YXEu3lpqCQTYxMM4xXAIV+XERcUsgQAdsVRSOXFRqdF4ctkSCNCx9+OdJZZKKiMuKhPvAmmWQE7W/loAvWjuKjnvlM+6iItKxA2bzbTiYu2vBTCIT2JkmGJUQFxUwJkVQCIexsBwNkbhxEXB4rSiiYo3a38tgKSYYhTud2p/AUoVby+9LyyABDXfl+7H71MUyOSiMPZWAJkxxSiQuCiIvRVApuzFKIy4KMRoPLliWgFkzhHihRAXmRuNJ6fitMK5FUAJmnMxzjndM282dGZsNJ40Dxq7JSyAgjTLuv8eTxEmUyYXGXKLKVCJrTjFsEySGXGRmbgMcsOmTaASD2NgOD48I5ZFMhKXQf5dWAAVORZC+GXctE4mTC4yYBkEYIdlkkyIi8RZBgHYxTJJBiyLJGw0npy3DAKwy3yZxN0kCTO5SFBcBmnWF9+u/bUAOISjwxMlLhIzGk+Ox2UQZ1cAHO1uDAyHbiVEXCQk7q+4Fcd+ACzHs0kSY89FIhb2VwgLgNU03zf/2T6MdJhcJGA0nlyzvwKgFddDCJfswxiWuBhQ3LjZjPFeq/ZFAGhfsw/jjMAYjmWRgSzsrxAWAO1qNsTfj99nGYC4GMBCWLgjBKAbzT6MW6Px5JzXt3/iomc2bgL0Zr7R87yXvF/iokfxwWMfVvMFA6ThQw8+65cNnT1xRwjA4K7PptumGD0QFx1zlDdAUtxJ0gNx0aEYFjZuAqRFYHTMnouOCAuAZJ2Md5K4VbUj4qIDbjUFSJ7A6JBlkZZ5+BhAVh7GJRJPVW2RyUWLhAVAdo6ZYLRPXLREWABkax4YblNtiWWRFggLgGK8M5tuX/N2bsbkYkPCAqAoH5pgbE5cbCB+AIUFQFkExoYsi6wpfvA8JwSgXJZI1iQu1jAaT86EEH6Z3YUDsCqBsQbLIiuKeyxuZHXRAKzLEskaxMUKbN4EqJLAWJFlkSUJC4Dq/f5sum1yvQRxsQRhAYCjwpdnWeQIwgKAyFHhSzK5OER8bPp9YQHAAhOMI5hcHCCGhYkFAHvNJxjHvTL7Exf7WAiLk8ldHAApaALjRvx5wR7iYn83hAUARzgZJxgCYw9xscdoPGlOYnstqYsCIFVNYDjBcw9xsWA0nlwJIbydzAUBkIM34x9MicRFFE9fu5jExQCQm7dH48ll79qX3Ir6ZVicCyH8cwKXAkDeqn/QWRAXDskCoHW/W/sZGFXHhUOyAOhA9YdsVbvnwiFZAHSk+blyreZbVGve0HnFWRYAdORkPDOpSlXGRdzR65ZTALr0Wq23qFa35yLecvphApcCQB2qu4OkqrhwZwgAA6nqDpJq4iJurGne2JcTuBwA6tLcQXJqNt2+X8NXXdOeixvCAoCBHKtpg2cVcRE3cHoYGQBDOlnLBs/il0Uc7Q1AYorf4Fl0XIzGk+Nxn4UNnACkovgTPEtfFrkhLABIzM7+i5JP8Cw2LuK6lhM4AUhRc4NBsUsjRcZFPCjLCZwApOzN0XhyqcR3qLg9F/ZZAJCZ4g7YKnFyYZ8FADkpbv9FUXExGk886RSA3Lwcn9RdjGKWRUbjyZkQwi8TuBQAWEcx518UERdxnHTfcggAGSvm+SOlLItcExYAZK6Y549kHxfxNp43E7gUANjUyfg8rKxlvSzitlMACpX17am5Ty4shwBQoms5356abVx4jDoABWuOVch2eSTLZZHReHIqhPDvCVwKAHTp67Pp9q3cXuFcJxdFPwcfAKIsl0eyi4u4HOIUTgBq8HKOyyNZLYvEu0OmCVwKAPQpq+WR3CYXlkMAqFFWzx7JJi7iYVnuDgGgRlkdrpXFsojDsgBgRxaHa+UyubgiLAAgj+WR5ONiNJ6c8+wQANjxWtwmkLSkl0Xivb134q04AMCXj2Y/Pptuf5Hqa5H65OKSsACAXY6lvjyS7OTCmRYAcKhkz75IeXLhTAsAOFiy04sk4yJu4nSmBQAc7GSqmzuTWxaxiRMAlpbk5s4UJxc2cQLAcpLc3JnU5MJJnACwlqRO7kxtcnFZWADAypKaXiQzuRiNJ2dCCL9M4FIAIEe/P5tu30jhulOaXGTztDcASFAy04sk4sKtpwCwsZdTuTU1iWWR0Xhy3x0iALCxJG5NHXxyMRpPzgsLAGjFsXikw6AGnVzEA7Puu0MEAFoz+PRi6MnFJWEBAK0a/GCtwSYXphYA0KnxbLp9f4iXeMjJhakFAHRnsCMeBplcmFoAQC8GmV4MNbkwtQCA7g0yveh9chEfTjbt9V8KAPXqfXoxxOTCMd8A0J/ef+72Ormw1wIABtHr9KLvyYW9FgDQv16nF71NLkwtAGBQvU0v+pxcmFoAwHB6m170MrkwtQCAJPQyvehrcnFeWADA4M73cQF9TS7ue6w6AAyulyemdj65GI0n54UFACThWNwD2ak+lkUcmgUA6eh8aaTTuBiNJ2dMLQAgKS/HVYXOdD25MLUAgPR0ujTS2YZODygDgKR9fTbdvtXFBXY5uTC1AIB0dbY00snkwqFZAJCFTg7V6mpy4dAsAEhfJ9OLriYXDs0iWV8ZjcJXT5wIJ068svP3za/Gw0ePwq/v3Quz2ec7f21+wWGaz87XTp8Oo9FLuz5Lv53Ndn41n6Vf3b698/eQqIez6faLbV9a63ERbz/9Zau/KWzohRdeCN95663wnbe+HU688spSv9ns88/Dpzdvhn/48Yd+OPBUExDvXngnvHH2bBi99NJSL0zzWfrpRx+Fn330sc8SKXpnNt2+1uZ1dREXN0IIb7b6m8KamqhofhD88YUL4fnnn1/79/nZxx+HD65c9YOhYk1UfPfSxfAH3/72Ri9C81n64V/8KDx69Kj2l5R0bM2m22favJpW48Ltp6TkG2fPhr/967/aKCr2+uDq1Z3IoC7vXrgQ/uzSxdY+S48fPw7vfe/74ec3b/okkYpWN3a2vaGzl6etwVHe//MfhH/4u//Ralg0vnvxYvjon36yMxGhfM373ATq5R/891Y/S83v1Xw+m98bEtHqoVptTy5s5GRwzTfsTUfXR7n3m9+Et/7wj4y2C9aERROSy+7RWVezTNJMMWBgrW7sbG1yMRpPzgkLhtZHWDSaHzgmGGXrIywazefVBIMEHGvzeSNtLouca/H3gpX1FRZzzQ8ePxTK1LyvfYTFnMAgEWnFRTyR8+02fi9YR99hMffG66/vbPajHM1G4CE+SwKDBLwWb8zYWFuTC1MLBjNUWMw1dxFYHinDfAPnUAQGCWhletFWXHT66FY4yNBhEeLO/+buFPLXnInS9h1GqxIYDKyVuNj4bhFnWzCUFMJi0YmTp9w9krnf/N+7g8fFnLtIGNDGj2JvY3JhakHvUguLRnO8OPlq3r9UwiKYYDCsjacXbcSF/Rb0KsWwCDsbAV9P4CpY1xsJvn8Cg4Fs/HN9o7gYjSennG1Bn1INi8bpV19N4CpY1++dPp3kaycwGMCxeHbV2jadXDjum96kHBZzX0v0BxSHax5KltKSyF4CgwGIC8qXQ1iE+EOK/IwyeN8EBj17O55htZa14yKOTI55t+laLmERdn5IvZTAVbCqY5mcUyIw6Nna04tNJhc2ctK5nMKCfJ040d9R35sSGPRIXFAeYUFfZrPPs3qtBQY9eXPdpZG14sKSCF3LNSwePXqcwFWwqt/OZtm9ZgKDnqw1SFh3cnHGu0pXcp5Y/PrevQSuglXlerKqwKAHvcaFJRE6kftSiLjIU87vm8CgY2sNE1aOCwdn0ZXcw2L2+eeeLZKx2599lu3FCww6tNaBWutMLpxtQetK2Lz56c2bCVwF6/r5zV9k/doJDDrUS1zYb0GrSrkr5KcffZzAVbCuEuJQYNCRbuMiPl79pHePtpQSFs1I3X6LvDV3jDSPOc+dwKADx+KWiKWtOrmwkZPWlHSOxd9cuZrAVbCpDwp5HwUGHVjp5/+qcWFJhFaUFBbNn3Z/dft2AlfCpprpxQdXBQbsY6W4eO7JkydL/8Oj8WT5fxgOUFJYNHeInP3mt9wlUpib//ov4cQr+RwJfpgmft/73vfTvUByMp5Nt+8vc71LTy42fbY7hMLC4vHjx+G//smfCosCNe9r8/6WwASDFi29erHKsoglETZSWli89Yd/ZBNnoZrlkeb9FRiwSydxYXLB2oQFuWneX4EBuyzdAUvFRbwF1amcrEVYkCuBAbssfUvqspMLSyKsRViQO4EBuyzVA+KCzggLSiEw4KmllkbEBZ0QFpRGYMCO15Z5GY6MC09BZVXCglIJDNjpgiMHDstMLkwtWJqwoHQCA47ugmXiYqWHlVAvYUEtBAaVM7mgH8KC2ggMKnbkvotD48L5FixDWFArgUGtjtp3cdTkwtSCQwkLaicwqNShWybEBWsTFvAlgUGFNppc2MzJvoQF7CYwqMyhcfHckydP9v0vRuPJiyGE/+fTwl7CAg721RMnwkf/9JPw/PPPF/Eq/ezjj8N73/t+AldCgsaz6fb9/S7rsMmFqQXPEBZwOBMMKnLg9OKwuLDfgl2EBSxHYFCJA4cQJhcsRVjAagQGFRAXrE9YwHoEBoU78DCtfeMibuZ0eBbCAjYkMChZfLjpMw6aXJhaICygJQKDgq0UFzZzVk5YQLsEBoUyuWA5wgK6ITAokLjgaMICuiUwKMy+mzoPigubOSskLKAfAoOSxCeo7/JMXBz1GFXKJCygXwKDghwdF/v9Q5RNWMAwBAaFeGYoIS4qJyxgWAKDAjyzT3O/uLAsUglhAWkQGGTOsghfEhaQFoFBxk7uvfT94sKdIoUTFpAmgUGu9t4xsisu3ClSPmEBaRMYZOrguAghvOhdLZewgDwIDDK0azixNy6czFkoYQF5ERhkZtdwYm9c2MxZIGEBeRIYZGTXcEJcFE5YQN4EBpk4dM+FZZGCCAsog8AgA7vuNN0bF8e8g2UQFlAWgUHqFm9HfRoXo/HE1KIQwgLKJDBI3LNx4TbUMggLKJvAIGH7xoXJReaEBdRBYJAok4vSCAuoi8AgQSYXJREWUCeBQWJMLkohLKBuAoOEPO0IcZExYQEEgUE6nj56fTEunnkeO+kSFsAigUFK9h6iRQaEBbAfgcHQ5mdm7cSFA7TyISyAwwgMBrazxWI+ubDfIgPCAliGwGBolkUyISyAVQgMBvIfyyLOuEibsADWITAYgGWRHAgLYBMCgyFYFkmYsADaIDDo0a5lkeNe+bQIC6BNAoOe7FoWERcJERZAFwQGfbEskhhhAXRJYNAHcZEQYQH0QWDQoV17LtwtMjBhAfRJYNCRY2EhLjy0bEDCAhiCwKArlkUGJiyAIQkMuiAuBvTuhQvCAhhciYHx/p//IIErqddzT548aZ6K+qT2F6JvXzt9OvzsJ/+riK9FWEAZvnriRPjon34Snn/++SK+nnf/9L+Fn9+8mcCVVOd3xcVAbv/vfwujl17K/usQFlCWkgJj9vnn4ew3vxUePXqUwNVU5eu/MxpP3CnSs++89ZawAJJU0hJJ83323QvvJHAl9fkdT0Tt33cvXcz+axAWUK6SAuOPL1wIL7zwQgJXUhcbOnv2jbNns59aCAsoXymB0SzvNN936Ze46NkbZ1/P+vqFBdSjlMDI/ftujsRFz3IuaGEB9SkhMN54XVz0TVz06CujUbY7sIUF1KuEwGhu/6c/4qJHo9Eoy+sWFkDugfGVTL//5kpc9CjHD7ewAOZyDozRKP/b/3MiLnqU24dbWAB7lXZUON0QFwBAq8RFj2azz7O63mbzaXMMcHMcMEAo8PkjdENc9Oi3s1l21ywwgLmcwyK3P9zlTlz0aJZhXASBARQwscjxD3c5Exc9aj7czVP6ciQwoF4lLIX86vbtBK6iHuKiZzl/wAUG1KeEsPj0F79I4CrqIi569unNvD/kAgPqUcrmzdy/7+ZIXPTs5zdvZrs0MicwoHylhEVzHsdPP/oogSupSxMXd2p/Efr2wZWr2X8NAgPKVdLtpv/zxz9O4Crq89yTJ0/CaDx5UvsL0beb//ov4cQrr2T/dTjFE8pSUlg0U+Kz3/xWePToUQJXU5WvWxYZyHvf+34RX4cJBpSjtAOymu+zwmIY4mIgzZ/0L//oL4v4WgQG5K+0sPjHDz90++lAZtPtW+JiQP/w4x+Hn338cRFfi8CAfJUWFs331R/+xY8SuJJ6iYuBNWM7gQEMpcSwKGXZOWfzuHhQ+wsxJIEBDEFY0JV5XNz3Cg9LYAB9EhZ0ybJIQgQG0AdhQYe2grhIj8AAuiQs6INlkQQJDKALwoK+iItECQygTcKCnnwRLIukTWAAbRAW9GjneWXiInECA9iEsGAI87i45dVPl8AA1iEsGIrJRSYEBrAKYcFAdoYV87j4wruQPoEBLENYMLSduJhNt+94J/IgMIDDCAsG5m6RXAkMYD/CgqHNhxWLceHhZRkRGMAiYUFKFuPCQVqZERhAEBak4+78ShbjwqbODAkMqJuwICFPO2IxLmzqzJTAgDoJCxLzdAXEhs5CCAyoi7AgQfvGhVM6MycwoA7CgkTtuyxCAQQGlE1YkLCn2yuexsVsum1yUQiBAWUSFiTO5KJ0AgPKIixI3eJp33vjYsu7Vw6BAWUQFmRg10Gce+PCWReFERiQN2FBJnYdxLk3Lpx1USCBAXkqLSzu/eY3wqJcu/phb1w4ArxQAgPyUmJYvPWHf5TAldCRXSsf4qIiAgPyUGpYPHr0KIGroSO77ji1LFIZgQFpExZkatfk4rknT57s+jJG40nzDxzz7pbtb//6r8IffPvbRXyNjx8/3vnm9et79xK4GlifsCBXs+n2c4uXvt85F6YXFTDBgLQICzJ2d++li4uKCQxIg7Agc8/s19wvLmzqrIjAgGEJCwrwzFDC5AKBAQMRFhRCXLA/gQH9EhYU5JkVj2fuFglf3jHS/IMve+fr4y4S6J6woCR77xQJhzwV1b6LSplgQLeEBYXZ94GnB8XFrQP+cyogMKAbwoIC7buV4qC4sO+icgID2iUsKNS+Kx3iggMJDGiHsKBg+/bCvhs6g2PAWWCTJ6xPWFCy/TZzhkMmF8H0gjkTDFiPsKBwzxz7PXdYXNjUyVMCA1YjLKjAgZ0gLliawIDlCAsqceAKh2URViIw4HDCgooc2AkHbugMTurkEDZ5wrOEBRV5OJtuv3jQl3vY5CJYGuEgJhiwm7CgMoeubogL1iYw4EvCggod2gdHxYV9FxxKYFA7YUGlDo2LQ/dcBIdpsSR7MKiRsKBWBx2eNXfU5CJYGmEZJhjURlhQsX2fhLpIXNAagUEthAWVO7ILxAWtEhiUTljA0fsxj9xzEey7YA32YFAiYQFH77cIS04ugukFqzLBoDTCAnYcud8iiAu6JDAohbCAp5bqgWXj4obXlXUIDHInLGCXpeJiqT0XwXNG2JA9GORIWMAuhz5PZNGyk4tgaYRNmGCQm6+MRsICdlu6A1aJC0sjbKTEwGh+AFGeF154Ifzj3/+dsIDdOokLkws2VlpgND+AKM+P//7vwolXXini6xIWtGjpIcPScTGbbn+x7C0ocJiSAqP5AfTdSxcTuBLa8u6FC+H0q68W8XoKC1r0YDbdvr/sb7fK5CJYGqEtJQXGdy9etDxSiOZ9/LNCYlFY0LKVfv6vGheWRmhNUYFhelGE5n0sYZ+FsKADK8XF0reizrkllbaVcpvq1/7zfwm/nc0SuBLW0Wzi/Ox//1v2cSEs6MDSt6DOrTq5CJZGaFspE4w3zp5N4CpY1zfOnhUWsL+Vf+6LC5LQBMbtzz7L+s34zltlHBJWqzfOvp71Vy4s6NDKWyJWXhYJnpJKR5qxdHN2RM63AJ44eco390zNptvZXruwoGP/Kd4xurR1JhfB9IIuNN8Ym2+QzTfKXDm1M085v2/Cgo59smpYBHFBanIPDLek5qmZmuVIWNCDtX7erxUXs+l28y976F2lCzkHxmj0UgJXwaqOZRgXwoKe9BcXkekFnSlhiYR8nDiR1z4fYUFP1loSCeKClAkM+nLvXj6fMWFBj9b+Ob92XFgaoQ+5BcZs9nkCV8GqHmbyg1pY0LP+4yIyvaBzOQWGEzrzlMMPa2FBz9ZeEgniglzkEhi/vncvgatgVam/b8KCAWz0832juLA0Qp9SD4zmunzzz9env/hFktcuLBjIcHERXfPO05eUA+OnH5XxhNdafXozvbgQFgzk+iZLIkFckKNUA+PTmzcTuArW9fObN8Pjx4+Tef2EBQPaeMvDxnExm27fCSE88CmgT6kFRvNUV5s589Z8pn6eSCAKCwb0MG552Egbk4vGFZ8E+pZSYHxw5erg18DmfvgXPxp8eiEsGFgrqxFtxYW7RhhECoHxwdWrphaFaD5PfzNgKAoLEtBKXKz1yPX9jMaTJjDe9MlgCEM9rr35YXD2m9/ynhem+SydfvXVXr8oYUEC7s6m26fauIy2JhfB9IIhDTHBaMbnzb+T8lz4kz/t9bMkLEhEa1scWouL2XT7mjMvGFKfgTEPCz8MytTnZ0lYkJDWhgRtTi6C21IZ2vyHQnP3RlfmPwycxlm2PgLj9mefCQtSsfHZFovajgt3jTC45hv1e9/7frj8o79sfed/Ey3Coh7NZ6nZU/OPH37Y+tfcbAQWFiSk1eFAaxs650bjya0Qwmut/qawpq+MRuHyn/8gvPH66xu9hLPPP98Jll/dvu2tqNTXTp8Of3bp4sYbPZtpRXPLq0AlIQ9m0+3jbV5OF3FxPoTQfubDBprI+O6li+EbZ8+G559/funfqHnexM8++jiZw5UYXhMZ7154Z6VgbSZozWeoOSJeoJKgd+K+yda0Hhfhy8C4H0J42SeIFDU/HL52+tXw1RMnwrEXXnjmCv/P7dvh3r3f7PzVyJqDNLc//97p0+HEiVf2/Sw9fPRoZzrxq9ufCQpS1tyIcbzN/Rahw7i43Bx21/pvDAC0qdnIeb7tV7TtDZ1z7hoBgPRd7uIKO4mL2XS7WRa53sXvDQC0Yiv+vG5dV5OLYHoBAEnr7PiITvZczLktFQCS1Prtp4u6nFwE0wsASFIney3mOo2LeN/sgy7/HQDASh52/bDRricXwZHgAJCUK22fa7FXH3HhaakAkI7Otyx0HhexjkwvAGB417u6/XRRH5OLEOPC9AIAhtXpRs65XuIiTi863TwCAByql6lF6HFyEfqqJQBgX71tUegtLhwJDgCDaY76vtPXv7zPyUUwvQCAQfT687fXuDC9AIDeNVOLW33+S/ueXATTCwDoVe8/d3uPC9MLAOhN71OLMNDkIpheAEAvBvl5O0hcmF4AQOcGmVqEAScXwfQCADp1fqiXd7C4iNOLq0P9+wGgYL2dxrmfIScXIU4vPHMEANo16OrAoHHhiakA0LpBpxYhgclF8MRUAGhN8/P00tAv5+BxEacXg78QAFCAK/Hn6qCee/LkSRIv5Wg8aUY4LydwKQCQo2ZqcTyFuEhhWWRusFtmAKAAl1IIi5DS5CJ8Ob1oDvt4LYFLAYCc3J1Nt0+lcr0pTS6CvRcAsJakfn4mFRez6fYdB2sBwEo+GeqY74OkNrkIDtYCgJUkN/VPLi7iZhTPHQGAo70/9IFZ+0lqQ+ei0XjSLJGcTOeKACApD0IIp1K5Q2RRissiczZ3AsDBkrn1dK9k4yJuTrmewKUAQGq2ZtPtG6m+KylPLkKcXtjcCQD/4WHqB08mHRc2dwLAM66kuIlzUbIbOhc5uRMAdjyYTbePp/5SpL4sMmdzJwBk8hyuLOIintz5fgKXAgBDuUZ0JY0AAAhqSURBVJraSZwHyWJZZM5j2QGoVDKPU19GLssicx7LDkCNzucSFiG3uIjjIA82A6Amn6R8psV+cptchHhr6oMErgMAupb8mRb7yS4u4ljI8ggANchqOWQux8mF5REAapDdcshclnERWR4BoFRZLofMZRsXcUx0LoFLAYC2nctxOWQu58mFw7UAKFE2h2UdJKtDtA4yGk+ayDiZ5tUBwNKa5f5TOU8tQu6TiwXnPJodgAJkvRwyV0RcxEfPergZADl7Py73Z6+IZZG50XjS3LLzZhpXAwBL25pNt8+U8nKVsiwyd97tqQBk5mFpdz8WFRduTwUgQ1mewnmY0iYX89tT30vgUgDgKFdzPYXzMEXtuVhk/wUAibs7m26fKvFNKm5yscD+CwBSVdw+i0XFxoX9FwAk7Fw8RqFIJU8u5vsv3kngUgBg7v3cj/c+SrF7LhaNxpNrIYS307kiACrVPEa9+Kl60ZOLBc3pnXeTuRoAavQg58eor6KKuFjYf+H5IwAM4WEpzw1ZRi2Ti/nzR2zwBGAIl0p5bsgyqomL8GVg3HLAFgA9aw7KulbTi17Fhs69bPAEoCdVbODcq6rJxdxsun3eBk8AOna3lg2ce1UZF9EZJ3gC0JGqNnDuVW1cuIMEgA6dKfkEzqPUPLmYn+DpDhIA2vROTXeG7KfquAj/cQeJI8IBaENztHdVd4bsp8q7RfYzGk+uhBAupndlAGTierxhoHriYoFbVAFY09Zsun3Gi/el6pdFFrlFFYA13LV/bzdx8awzAgOAJd2Nd4ZUecvpQSyL7GM0nrwYQmh2+r6c3MUBkIqHMSyqvjNkPyYX+3AGBgBHEBaHEBcHiB+YMwIDgD2ExRHExSEEBgD7qOrx6esQF0eIHyD3LQMQ4umb1R+SdRRxsYTZdPuGUzwBqicsliQulhQ/UAIDoE7CYgXiYgUCA6BKwmJF4mJFAgOgKsJiDeJiDQIDoArCYk3iYk0CA6BowmID4mIDAgOgSMJiQ+JiQwIDoCjCogXiogUCA6AIwqIl4qIlAgMga8KiRR653rLReHIqhHArhHCsqC8MoFzComUmFy3zsDOAbDTfp39fWLTP5KIjJhgASfPY9A6ZXHQkfmCbwLhb5BcIkC9h0TFx0aHZdPt+XCIRGABpaL4fnxIW3RIXHZtNt7+IgfFJ0V8oQPruxonFfe9Vt+y56NFoPGk2Db1dzRcMkI7rIYRL8Q98dExc9Gw0nlwKIfxtVV80wLCuz6bb570H/REXAxiNJ82H/MPqvnCA/jnDYgDiYiBuVQXoVHNHyPnZdPuGl7l/NnQOxK2qAJ15EDduCouBiIsBLdyq6k4SgHa41TQBlkUSMRpProQQLtb+OgBswMbNRJhcJGI23b4Un6rqmSQAq3tPWKTD5CIxcaNns074cu2vBcASmj+QnZtNt295sdJhcpGYhY2eW7W/FgBHmO+vEBaJMblImH0YAAdy4mbCxEXiRuPJuRDCNedhAOx4GKPCwVgJExcZiPswmv8jnaz9tQCq9iDur3CbaeLsuchA/D/SmTgGBKjRJ86vyIfJRWbic0muWCYBKtLcZnrFG54PcZGh0XhyPN6uapkEKNnd+HwQ04rMiIuMuZsEKJi7QTImLjI3Gk/OxCmGZRKgBJ5mWgAbOjMXD4857uFnQAG24qZNYZE5k4uCjMaT5vkkl00xgAzZtFkQcVGYuNmzORPjtdpfCyALNm0WSFwUyhQDyMD7s+n2ZW9UecRFwUwxgESZVhROXFTAFANIiGlFBcRFJUwxgIFtxXMrTCsqIC4q4/hwoGfNuRWX3QlSF3FRodF48mIMjLdrfy2ATn0SpxX3vcx1ERcVi6d7NkslL9f+WgCtehCjwmFYlRIXNJHRbK66ZKkEaMH7zWTUM0HqJi7YETd8Nkslb3pFgDVsxdtLLYEgLtjNUgmwIksgPENcsC9nYwBHeBiXP5xZwTPEBQeKd5U03zguepWABdfjtMK+CvYlLjiS/RhA5CAsliIuWFrcj3HZKZ9QnQdxs+Ytbz3LEBesbDSenIuTDJs+oWwP4uma17zPrEJcsLZ4lPhlkQHFcWQ3GxEXbExkQDEexqmkQ7DYiLigFfHOkktO+oQsiQpaJS5oVYyM8zEyTDIgbaKCTogLOmO5BJIlKuiUuKBzIgOS4e4PeiEu6E28hfWSczKgd3fjlEJU0AtxQe/iYVzNNONtrz50aitOKhx+Ra/EBYOJx4pfiqHhDhNoz/UYFR5/ziDEBYNzhwm0otlPcc0mTVIgLkhKXDK55CFpsLStGBQ3vGSkQlyQpLhkcj7+Ms2A3R4uTCksfZAccUHy4l0m500zYGdKcc1dH6ROXJCNOM04Z28GlZnvpbhmSkEuxAVZGo0np2JknHOnCQVqlj1uxKBwGynZERdkz7IJBfkkRsUNd3yQM3FBMeItrefiL6FBLrbisoegoBjigiIJDRK3tTChsI+C4ogLiic0SIQlD6ohLqhO3KPR/DrjrhM6NN+U2fy6JSioibigavGuk3lsnKz99WBjdxemE3e8nNRKXEAUl0/OmGqwguYMilvxl+UOiMQFHCAe2nVm4ZfY4OFCTNwynYD9iQtYktioUjOZuCMmYDXiAtYUY+NUDI3mr695LbO3FWPiTowJt4nCGsQFtChuEJ3HximbRJN2dyEk7jhmG9ojLqBjo/GkiY3jC8FxyvNQevVwISLuCwnonriAAcQ7U+ahcVx0tGIxIr6I+yTuW9qA/okLSEycdMzjY/Gvlli+3GB5f+HXTkiYREBaxAVkZGHiEeLejhAnH8fj3+c6/ZhPHcJCOIQ4fQhxKcMZEpAJcQGFinezHF/46uYTkEVnOvzq95smLP5nX7i1EwoUQvj/8ZSnF+6bXvIAAAAASUVORK5CYII="
+  },
+  "connections": [
+    {
+      "key": "apiKey",
+      "label": "API Key",
+      "comments": "API Key connection",
+      "inputs": [
+        {
+          "placeholder": "API Key",
+          "required": true,
+          "shown": true,
+          "comments": "API Key",
+          "key": "apiKey",
+          "type": "string",
+          "default": "",
+          "label": "API Key"
+        }
+      ]
+    },
+    {
+      "key": "apiKeySecret",
+      "label": "API Key Secret",
+      "comments": "API Key Secret connection",
+      "inputs": [
+        {
+          "placeholder": "API Key",
+          "required": true,
+          "shown": true,
+          "comments": "API Key",
+          "key": "apiKey",
+          "type": "string",
+          "default": "",
+          "label": "API Key"
+        },
+        {
+          "placeholder": "API Secret",
+          "required": true,
+          "shown": true,
+          "comments": "API Secret",
+          "key": "apiSecret",
+          "type": "password",
+          "default": "",
+          "label": "API Secret"
+        }
+      ]
+    },
+    {
+      "key": "privateKey",
+      "label": "Private Key",
+      "comments": "Private key connection",
+      "inputs": [
+        {
+          "placeholder": "Username",
+          "required": true,
+          "shown": true,
+          "comments": "Username",
+          "key": "username",
+          "type": "string",
+          "default": "",
+          "label": "Username"
+        },
+        {
+          "placeholder": "Private Key",
+          "required": true,
+          "shown": true,
+          "comments": "Private Key",
+          "key": "privateKey",
+          "type": "text",
+          "default": "",
+          "label": "Private Key"
+        }
+      ]
+    },
+    {
+      "key": "authorizationCode",
+      "label": "OAuth 2.0 Authorization Code",
+      "comments": "OAuth 2.0 Authorization Code flow",
+      "oauth2Type": "authorization_code",
+      "inputs": [
+        {
+          "placeholder": "Authorize URL",
+          "required": true,
+          "shown": true,
+          "comments": "The OAuth 2.0 Authorization URL for the API",
+          "key": "authorizeUrl",
+          "type": "string",
+          "default": "",
+          "label": "Authorize URL"
+        },
+        {
+          "placeholder": "Token URL",
+          "required": true,
+          "shown": true,
+          "comments": "The OAuth 2.0 Token URL for the API",
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "",
+          "label": "Token URL"
+        },
+        {
+          "placeholder": "Scopes",
+          "required": false,
+          "shown": true,
+          "comments": "Space separated OAuth 2.0 permission scopes for the API",
+          "key": "scopes",
+          "type": "string",
+          "default": "",
+          "label": "Scopes"
+        },
+        {
+          "placeholder": "Client ID",
+          "required": true,
+          "shown": true,
+          "comments": "Client Identifier of your app for the API",
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "Client ID"
+        },
+        {
+          "placeholder": "Client Secret",
+          "required": true,
+          "shown": true,
+          "comments": "Client Secret of your app for the API",
+          "key": "clientSecret",
+          "type": "password",
+          "default": "",
+          "label": "Client Secret"
+        },
+        {
+          "required": false,
+          "shown": true,
+          "comments": "Additional header to supply to authorization requests",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Headers"
+        }
+      ]
+    },
+    {
+      "key": "clientCredentials",
+      "label": "OAuth 2.0 Client Credentials",
+      "comments": "OAuth 2.0 Client Credentials flow",
+      "oauth2Type": "client_credentials",
+      "inputs": [
+        {
+          "placeholder": "Token URL",
+          "required": true,
+          "shown": true,
+          "comments": "The OAuth 2.0 Token URL for the API",
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "",
+          "label": "Token URL"
+        },
+        {
+          "placeholder": "Scopes",
+          "required": false,
+          "shown": true,
+          "comments": "Space separated OAuth 2.0 permission scopes for the API",
+          "key": "scopes",
+          "type": "string",
+          "default": "",
+          "label": "Scopes"
+        },
+        {
+          "placeholder": "Client ID",
+          "required": true,
+          "shown": true,
+          "comments": "Client Identifier of your app for the API",
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "Client ID"
+        },
+        {
+          "placeholder": "Client Secret",
+          "required": true,
+          "shown": true,
+          "comments": "Client Secret of your app for the API",
+          "key": "clientSecret",
+          "type": "string",
+          "default": "",
+          "label": "Client Secret"
+        },
+        {
+          "required": false,
+          "shown": true,
+          "comments": "Additional header to supply to token requests",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Headers"
+        }
+      ]
+    },
+    {
+      "key": "basic",
+      "label": "Basic Username/Password",
+      "comments": "Basic Username and Password connection",
+      "inputs": [
+        {
+          "placeholder": "Username",
+          "required": true,
+          "shown": true,
+          "comments": "Username",
+          "key": "username",
+          "type": "string",
+          "default": "",
+          "label": "Username"
+        },
+        {
+          "placeholder": "Password",
+          "required": true,
+          "shown": true,
+          "comments": "Password",
+          "key": "password",
+          "type": "password",
+          "default": "",
+          "label": "Password"
+        }
+      ]
+    }
+  ],
+  "actions": {
+    "runCode": {
+      "display": {
+        "label": "Code Block",
+        "description": "Author and run your own code"
+      },
+      "examplePayload": {
+        "data": null
+      },
+      "key": "runCode",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The code to be executed",
+          "language": "javascript",
+          "key": "code",
+          "type": "code",
+          "default": "/*\n  Access config variables by name through the configVars object. e.g.\n    const apiEndpoint = `${configVars[\"App Base URL\"]}/api`;\n\n  Access previous steps' results through the stepResults object. Trigger\n  and step names are camelCased. If the step \"Get Data from API\" returned\n  {\"foo\": \"bar\", \"baz\": 123}, you could destructure that data with:\n    const { foo, baz } = stepResults.getDataFromApi.results;\n\n  You can return string, number or complex object data. e.g.\n    return { data: { foo: \"Hello\", bar: 123.45, baz: true } };\n\n  Full documentation for the code component can be found at:\n    https://prismatic.io/docs/code-component-usage/\n\n  If your code becomes complex, or requires external dependencies,\n  please consider building a reusable custom component instead:\n    https://prismatic.io/docs/custom-components/writing-custom-components/\n*/\n\nmodule.exports = async ({ logger, configVars }, stepResults) => {\n  return { data: null };\n};\n",
+          "label": "Code"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "runCodeTrigger": {
+      "display": {
+        "label": "Code Block Trigger",
+        "description": "Author and run your own code as a trigger"
+      },
+      "synchronousResponseSupport": "invalid",
+      "scheduleSupport": "invalid",
+      "examplePayload": {
+        "payload": null
+      },
+      "key": "runCodeTrigger",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The code to be executed",
+          "language": "javascript",
+          "key": "code",
+          "type": "code",
+          "default": "/*\n  Access config variables by name through the configVars object. e.g.\n    const apiEndpoint = `${configVars[\"App Base URL\"]}/api`;\n\n  Access the trigger payload using the payload argument. This includes\n  headers, the body of the request, and more information about the request.\n\n  You can return string, number or complex object data. e.g.\n    return { payload: { foo: \"Hello\", bar: 123.45, baz: true } };\n\n  You are also able to return an optional response to the webhook caller.\n  For example, you can respond with a CSV response like the following:\n    return {\n      payload: { foo: \"Hello\", bar: 123.45, baz: true },\n      response: { statusCode: 200, contentType: \"text/csv\", body: \"hello,world\" },\n    }\n\n  Full documentation for the code component can be found at:\n    https://prismatic.io/docs/code-component-usage/\n\n  If your code becomes complex, or requires external dependencies,\n  please consider building a reusable custom component instead:\n    https://prismatic.io/docs/custom-components/writing-custom-components/\n*/\n\nmodule.exports = async ({ logger, configVars }, payload) => {\n  const response = {\n    statusCode: 200,\n    contentType: \"text/plain\",\n    body: \"hello\",\n  };\n  return { payload, response };\n};",
+          "label": "Code"
+        }
+      ]
+    }
+  },
+  "dataSources": {},
+  "documentation": {
+    "description": "The **code** component allows you to write your own short snippets of JavaScript code, and is handy for writing quick functions or data transformations that are specific to your product or industry.\nPlease see the [full article](/docs/code-component-usage/) on the code component for information on when a code component is appropriate, and common use cases for a code component.\n",
+    "dev": "Code component steps should be succinct and integration-specific.\nIf the code you write could be reused in other integrations, if it needs to handle credentials, or if the code is complex enough that it would benefit from unit tests, etc., you should write a [custom component](custom-components/writing-custom-components.mdx) instead.\n\nFor some examples of code component usage, check out these quickstart guides:\n\n- [Using a Code Component to Transform Data](quickstarts/code-component-to-transform-data.mdx)\n- [Generating a PDF with a Code Component](quickstarts/generating-a-pdf-with-a-code-component.mdx)\n"
+  },
+  "$version": 1
+}

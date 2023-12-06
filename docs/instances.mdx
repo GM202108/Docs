@@ -1,0 +1,344 @@
+---
+id: instances
+title: Instances
+description: Manage instances of Prismatic integrations
+---
+
+import ExampleTabs from "@site/src/components/example-tabs";
+import TabItem from "@theme/TabItem";
+import Icon from "@mui/material/Icon";
+import Screenshot from "@site/src/components/screenshot";
+import Vimeo from "@site/src/components/vimeo";
+
+An **instance** of an [integration](integrations.mdx) is a copy of an integration that has been configured for a specific customer.
+When the instance is configured for a customer, config variables and connections to third-party apps and services specific to that customer are set.
+The combination of the instance and assigned config variables and connections is referred to as a **deployed instance**.
+
+<!-- <Vimeo title="How to Configure and Deploy an Instance" video="499407995" /> -->
+
+You can deploy instances of the integrations you create for your customers, or your customers can enable instances themselves through the [integration marketplace](integration-marketplace.mdx).
+
+## Creating instances
+
+When you are satisfied with an integration and have [published](integrations.mdx#publishing-an-integration) a version of it, you can create an instance of that integration for a customer.
+
+<ExampleTabs>
+<TabItem value='webapp'>
+
+Start by clicking the **Customers** link on the left-hand sidebar, and then select a customer.
+From the customer's page open the **Instances** tab.
+There, you will see any instances currently deployed to your customer, with information about when the instances were last run, what versions are deployed, etc.
+
+To create a new instance, click the **+ Add Instance** button on the top-right corner.
+Select the integration you wish to create an instance for, and give the instance an appropriate name and description.
+Labels from the integration are automatically recommended for an instance, but you can remove or add additional labels - labels help to keep your instances organized.
+
+<Screenshot
+  filename="shared/add-instance.png"
+  maxWidth="450px"
+  alt="Create instance in  app"
+/>
+
+Once the instance is created, you will be prompted to configure any config variables required by the integration.
+
+</TabItem>
+<TabItem value='cli'>
+
+To create an instance for a customer, use the `prism instances:create` subcommand.
+
+```bash
+# Get the Customer ID
+CUSTOMER_ID=$(
+    prism customers:list \
+        --columns id \
+        --filter 'Name=^FTL Rockets$' \
+        --no-header)
+
+# Get the Integration ID
+INTEGRATION_ID=$(
+    prism integrations:list \
+        --columns id \
+        --filter 'name=Fabricate 3D Model' \
+        --no-header)
+
+# Create the instance
+prism instances:create \
+    --customer ${CUSTOMER_ID} \
+    --integration ${INTEGRATION_ID} \
+    --name 'Fabricate 3D Model for FTL Rockets' \
+    --description 'Queue the 3D printing job for a model rocket'
+```
+
+</TabItem>
+<TabItem value='api'>
+
+Use the [createInstance](api/schema/mutation/createInstance.mdx) mutation to deploy an instance to a customer:
+
+```graphql
+mutation {
+  createInstance(
+    input: {
+      name: "My Instance"
+      description: "Deployment of my integration"
+      integration: "SW50ZWdyYXRpb246ZDgwZjkyYmEtNTEyZS00N2IxLWEzMzgtZTAxOGE1OGNkMDRi"
+      customer: "Q3VzdG9tZXI6MmM4YmUxZDgtOTU5Ny00MTI3LWI5MTUtYjBmMjc3Y2YyNWYw"
+    }
+  ) {
+    instance {
+      id
+    }
+  }
+}
+```
+
+</TabItem>
+</ExampleTabs>
+
+## Creating an unconfigured instance
+
+The embedded marketplace shows only integrations that have been explicitly [added to marketplace](integration-marketplace.mdx/#preparing-an-integration-for-the-integration-marketplace).
+But, there are situations where you may want to provide a particular integration that is not part of marketplace to a customer.
+To do that, you will need to create an unconfigured instance for a customer and elect to [show all instances](embedding-marketplace.mdx/#showing-all-instances-in-marketplace) to your customer.
+Your customer will be able to log in to marketplace and configure that instance for themselves.
+
+To create an unconfigured instance, select the **Skip configuration** button when creating your instance.
+
+<Screenshot
+  filename="instances/skip-configuration.png"
+  maxWidth="500px"
+  alt="Skip instance configuration"
+/>
+
+An unconfigured instance will not be deployed until your customer enters their configuration information, and will not count towards your monthly instance count.
+
+## Configuring instances
+
+After creating a new instance or clicking into an existing instance, you will find yourself in the instance's **Summary** tab.
+Here, you will find information its deployed and enabled state. Clicking the **Reconfigure** button at the top right will take you to the **Configuration Wizard**.
+
+This is where you can set values for configuration variables for your deployed instance.
+If your integration developers set default values for the config variables, those will be set initially, but you can override them if you choose.
+Depending on config variable type, you'll have the option to toggle boolean values, enter string values, enter JSON or XML for a code config variable, or select options from a dropdown.
+
+<Screenshot
+  filename="instances/integration-configuration.png"
+  maxWidth="800px"
+  alt="Configure instance in  app"
+/>
+
+Be sure to click **Save and deploy** on the last page of the **Configuration Wizard** to save any changes you make.
+
+**For More Information**:
+[Configuration-Driven Integration Quickstart](quickstarts/configuration-driven-integration.mdx)
+
+### Configuring connections
+
+A connection is a special config variable that contains information on how to connect to a third party API.
+It might include an API key, username, password, or endpoint URL.
+
+You can enter connection configuration information in the configuration screen like you would any other config variable.
+If the connection is an OAuth 2.0 connection, either a specially selected button or a button that says **Connect** will bring you to an external OAuth provider, so the integration in  can interact with the external API on behalf of your customer.
+
+<Screenshot
+  filename="instances/configure-oauth.png"
+  maxWidth="300px"
+  alt="Dropbox OAuth 2.0 connection"
+/>
+
+### Setting integration version for an instance
+
+When an integration is published, a new version of the integration is created.
+Instances of the integration can then be updated to use the new integration version.
+In the instance's configuration page, you'll see **New Version Available** if your instance can be updated.
+
+To update your instance, click the **Reconfigure** button at the top right of the page, and then select the latest version from the **Integration Version** field.
+
+<Screenshot
+  filename="instances/set-integration-version.png"
+  maxWidth="800px"
+  alt="Set instance version in  app"
+/>
+
+:::tip You can pin instances to different integration versions
+Not all instances need to run the same version of the integration.
+For example, one customer might be running a legacy version of a third-party app.
+They can continue to run "version X" of an integration until they upgrade their third-party app, at which point their instance can be upgraded to "version Y".
+:::
+
+If an instance upgrade causes problems - suppose a new definition of an integration has a bug that an older one didn't have - you can always reconfigure the instance to run an older version of the integration by similarly clicking **Reconfigure** and choosing an older known working integration version.
+
+## Deploying instances
+
+A **deployment** of an instance is a combination of the instance and the config variables associated with the instance.
+After configuring your instance, click the **Save and deploy** button on the last page of the **Configuration Wizard**.
+
+Once an instance is deployed, any triggers that are marked as [deploy triggers](integration-triggers.mdx#instance-deploy-trigger) are executed.
+Note: the instance will still deploy even if a deploy trigger fails to run to completion.
+We recommend adding an [alert monitor](monitoring-and-alerting.mdx#alert-monitors) to instances you deploy, so you can be alerted if an execution (a deploy flow included) fails to run to completion.
+
+**Why aren't instances deployed automatically when they are created?**
+
+Before instance can run, they need to be configured with instance-specific config variables.
+Once they are configured, they can be deployed.
+
+## Enabling and disabling instances
+
+If you would like to stop a deployed instance from executing, click the **Pause Instance** link at the right side of the green bar on the **Summary** tab to disable the instance.
+When disabled, your instance will not execute on a cron schedule (if configured to use [scheduled triggers](integration-triggers.mdx#scheduled-triggers)), nor respond to webhook invocations.
+
+<Screenshot
+  filename="instances/pause-instance.png"
+  maxWidth="750px"
+  alt="Pause instance in  app"
+/>
+
+To re-enable a disabled instance, click **Unpause Instance**.
+
+## Testing instances
+
+You can invoke an instance outside of its cron schedule to ensure it functions properly.
+To run a test of an instance, open the **Test** tab.
+You can fill in a test payload body and custom HTTP headers to simulate a webhook trigger payload.
+Click the **Save & Run Test** button to invoke the test.
+
+Alternatively, look up the ID of a flow in an instance with `prism instances:flow-configs:list ${INSTANCE_ID}` and then run `prism instances:flow-configs:test ${FLOW_ID}` from the command line.
+
+<Screenshot
+  filename="instances/test-instance.png"
+  maxWidth="700px"
+  alt="Test instance in  app"
+/>
+
+Logs from the test can be found by clicking the **Logs** tab.
+
+## Invoking instances
+
+Integrations' flows can be configured one of two ways: you can either set up your integration to run [on a schedule](integration-triggers.mdx#scheduled-triggers), or you can invoke them [through a webhook](integration-triggers.mdx#webhook-triggers).
+
+### Invoking instances with webhook triggers
+
+If you choose to invoke your instance's flows with a webhook trigger, webhook URLs will be generated for each flow you when you deploy the instance:
+
+<Screenshot
+  filename="instances/instance-webhooks.png"
+  maxWidth="600px"
+  alt="Invoke instance with webhook triggers in  app"
+/>
+
+To invoke an instance's flow programmatically, you can send a POST request to the webhook URL with an optional payload.
+Here's an example using `curl`, though you can use any language you like:
+
+```bash
+curl 'https://hooks..io/trigger/EXAMPLE==' \
+  --location \
+  --header "Content-Type: application/json" \
+  --data '{"examplePayloadKey": "examplePayloadValue"}'
+```
+
+## Viewing instance execution results
+
+It's useful for debugging purposes to be able to see execution results of instance invocations.
+Click the **Executions** tab from an instances page to see the logs and step outputs of each execution of the instance.
+
+<Screenshot
+  filename="instances/execution-results.png"
+  maxWidth="600px"
+  alt="Instance execution results in  app"
+/>
+
+If an instance failed to run to completion for whatever reason, you can review the data that was passed in to the instance when it was invoked, and that can help you to debug instances.
+
+Results for all instances and all customers can be found by clicking the **Explore > Executions** link on the left-hand sidebar, and results for a specific customer can be found by clicking into a **Customer**, and then selecting their **Executions** tab.
+
+## Instance execution retry and replay
+
+Executions sometimes fail.
+Errors can be thrown for a variety of reasons.
+A third-party app your integration relies on may be down, or your integration may encounter an edge-case that it doesn't handle correctly.
+
+With **retry** and **replay** you can re-run a failed executions so you don't miss important data.
+
+- **Retry** allows you to automatically re-run an execution if it fails to run to completion.
+  This is useful if you want to handle temporary outages of third-party apps or services.
+  Following a failure, your instance will re-attempt the execution a configurable number of times, with a configurable delay between each attempt.
+- **Replay** allows you to manually re-run an execution.
+  This is useful if you want to fix a bug in your integration and then re-run an execution with the same payload that caused it to run initially.
+
+### Execution retry
+
+Integrations can be configured to automatically [retry](building-integrations.mdx#integration-retry-configuration) in the event that an instance fails to run to completion.
+Information about instance retries can be found on the [execution results pages](#viewing-instance-execution-results).
+There, you will see when the instance last ran, and when it will attempt to run again.
+
+<Screenshot
+  filename="instances/execution-retry.png"
+  alt="Instance execution details in  app"
+/>
+
+An <Icon>sync_problem</Icon> icon beside an execution indicates that the execution was an automatic retry of an instance execution that failed.
+
+### Execution replay
+
+To manually retry (i.e. "Replay") an invocation of an instance, click the <Icon>replay</Icon> icon beside any execution run.
+The instance will be run again with the same webhook payload that caused it to run initially.
+
+To programmatically retry many failed executions, the [executionResults](api/schema/query/executionResults.mdx) query can be used to find executions that failed to run to completion.
+You can then use the [replayExecution](api/schema/mutation/replayExecution.mdx) mutation to replay the execution.
+
+For an example of how to bulk-replay failed executions, see our [examples repo](https://github.com/-io/examples/tree/main/api/replay-failed-executions) in GitHub or review the [Replaying Failed Executions tutorial](quickstarts/replaying-failed-executions.mdx).
+
+Replays are linked with the original execution, so you can query for only original executions that have not had a successful subsequent replay.
+
+## Adding alert monitors to instances
+
+Instance alert monitors allow you to notify your team when a variety of things occur, including failed instance executions, slow executions, instances in unexpected disabled states, etc.
+They can be found by clicking the **Monitors** tab from the instance's page.
+
+**For more information**:
+[Creating Alert Monitors](monitoring-and-alerting.mdx#creating-an-alert-monitor).
+
+## Viewing instance logs
+
+Logs for an instance can be viewed by clicking the **Logs** tab from the instance's page.
+
+You can search log message text through the **Search Logs** search bar on the top of the page, and you can filter logs by Log Severity or date range by clicking the **Filter** link to the right of the search bar.
+
+<Screenshot
+  filename="instances/instance-logs.png"
+  alt="Filter instance logs in  app"
+/>
+
+**For More Information**:
+[Logging](logging.mdx),
+[Log Retention](logging.mdx#log-retention)
+
+## Deleting instances
+
+Deleting an instance removes the instance and any associated data.
+Before choosing to delete an instance, consider if you want to [disable](#enabling-and-disabling-instances) the instance from running instead.
+
+If you choose to delete the instance, scroll to the bottom of the instance's **Details** tab.
+Click the **Delete instance** button, and type the name of the instance in the input field to confirm that you want to delete the instance.
+Click **Remove instance**.
+
+<Screenshot
+  filename="instances/delete-instance.png"
+  maxWidth="450px"
+  alt="Delete instance in  app"
+/>
+
+## Searching instances across customers
+
+Click the **Explore > Instances** link on the left-hand sidebar to view all instances for all customers.
+You can search instance names through the **Search Instances** search bar on the top of the page.
+You can further filter instances by description, integration or labels by clicking the **Filter** link to the right of the search bar.
+
+<Screenshot
+  filename="instances/search-instances.png"
+  alt="Search instances across customers in  app"
+/>
+
+**How do I filter instances by customer?**
+
+To view instances for a specific customer, click the **Customers** link on the left-hand sidebar and select a customer.
+Select the **Instances** tab to view instances for that customer.

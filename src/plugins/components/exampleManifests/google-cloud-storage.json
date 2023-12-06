@@ -1,0 +1,560 @@
+{
+  "key": "google-cloud-storage",
+  "documentationUrl": "https://prismatic.io/docs/components/google-cloud-storage/",
+  "public": true,
+  "display": {
+    "label": "Google Cloud Storage",
+    "description": "Manage files in a Google Cloud Platform (GCP) Cloud Storage bucket",
+    "iconPath": "icon.png",
+    "category": "Data Platforms",
+    "iconBase64": "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"
+  },
+  "actions": {
+    "saveFile": {
+      "display": {
+        "label": "Save File",
+        "description": "Save a file to Google Cloud Storage"
+      },
+      "inputs": [
+        {
+          "label": "File Contents",
+          "placeholder": "Output data from previous step, or a string, to write",
+          "type": "data",
+          "required": true,
+          "comments": "The contents to write to a file. This can be a string of text, it can be binary data (like an image or PDF) that was generated in a previous step.",
+          "example": "My File Contents",
+          "key": "fileContents"
+        },
+        {
+          "label": "File Name",
+          "placeholder": "Full file name",
+          "type": "string",
+          "required": true,
+          "comments": "A file is saved in a 'bucket'. This represents the file's path without a leading /",
+          "example": "path/to/file.txt",
+          "key": "fileName"
+        },
+        {
+          "label": "Bucket Name",
+          "placeholder": "Bucket Name",
+          "type": "string",
+          "required": true,
+          "comments": "Buckets in Google Cloud Storage contain files, and can be configured in the GCP console. Bucket names contain only letters, numbers, and dashes.",
+          "example": "my-gcs-bucket",
+          "key": "bucketName"
+        },
+        {
+          "label": "Connection",
+          "type": "connection",
+          "required": true,
+          "key": "connection"
+        }
+      ],
+      "key": "saveFile",
+      "documentation": {
+        "description": ":::note\n**File Contents** can be a reference to a binary file (JavaScript `Buffer`) from a previous step.\nFor example, if you have an [HTTP Get](components/http.mdx#httpget) action that pulls down a .png image, you can reference its step name to write the .png to Google Cloud Storage.\nOr, **File Contents** can be simple text, like `'Hello World'`.\n:::\n"
+      }
+    },
+    "downloadFile": {
+      "display": {
+        "label": "Download File",
+        "description": "Download a file from Google Cloud Storage"
+      },
+      "inputs": [
+        {
+          "label": "File Name",
+          "placeholder": "Full file name",
+          "type": "string",
+          "required": true,
+          "comments": "A file is saved in a 'bucket'. This represents the file's path without a leading /",
+          "example": "path/to/file.txt",
+          "key": "fileName"
+        },
+        {
+          "label": "Bucket Name",
+          "placeholder": "Bucket Name",
+          "type": "string",
+          "required": true,
+          "comments": "Buckets in Google Cloud Storage contain files, and can be configured in the GCP console. Bucket names contain only letters, numbers, and dashes.",
+          "example": "my-gcs-bucket",
+          "key": "bucketName"
+        },
+        {
+          "label": "Connection",
+          "type": "connection",
+          "required": true,
+          "key": "connection"
+        }
+      ],
+      "examplePayload": {
+        "data": {
+          "type": "Buffer",
+          "data": [
+            70,
+            105,
+            108,
+            101,
+            32,
+            67,
+            111,
+            110,
+            116,
+            101,
+            110,
+            116,
+            115
+          ]
+        },
+        "contentType": "text/plain"
+      },
+      "key": "downloadFile"
+    },
+    "copyFile": {
+      "display": {
+        "label": "Copy Files",
+        "description": "Copy a file from one Google Cloud Storage bucket to another"
+      },
+      "inputs": [
+        {
+          "label": "Source Bucket",
+          "placeholder": "Source Bucket Name",
+          "type": "string",
+          "required": true,
+          "comments": "A Google Cloud Storage 'bucket' is a container where files are stored. The source bucket indicates the bucket containing the file you want to copy. If you are copying files within a single bucket, list the same bucket as the source and destination bucket.",
+          "example": "my-source-bucket",
+          "key": "sourceBucketName"
+        },
+        {
+          "label": "Destination Bucket",
+          "placeholder": "Destination Bucket Name",
+          "type": "string",
+          "required": true,
+          "comments": "A Google Cloud Storage 'bucket' is a container where files are stored. The destination bucket indicates the bucket containing the file you want to copy. If you are copying files within a single bucket, list the same bucket as the source and destination bucket.",
+          "example": "my-destination-bucket",
+          "key": "destinationBucketName"
+        },
+        {
+          "label": "Source File Name",
+          "placeholder": "Full source file name",
+          "type": "string",
+          "required": true,
+          "comments": "This represents the source file's path. Do not include a leading /.",
+          "example": "path/to/source/file.txt",
+          "key": "sourceFileName"
+        },
+        {
+          "label": "Destination File Name",
+          "placeholder": "Full destination file name",
+          "type": "string",
+          "required": true,
+          "comments": "This represents the destination file's path. Do not include a leading /.",
+          "example": "path/to/destination/file.txt",
+          "key": "destinationFileName"
+        },
+        {
+          "label": "Connection",
+          "type": "connection",
+          "required": true,
+          "key": "connection"
+        }
+      ],
+      "key": "copyFile"
+    },
+    "moveFile": {
+      "display": {
+        "label": "Move File",
+        "description": "Move a file from one Google Cloud Storage bucket to another"
+      },
+      "inputs": [
+        {
+          "label": "Source Bucket",
+          "placeholder": "Source Bucket Name",
+          "type": "string",
+          "required": true,
+          "comments": "A Google Cloud Storage 'bucket' is a container where files are stored. The source bucket indicates the bucket containing the file you want to copy. If you are copying files within a single bucket, list the same bucket as the source and destination bucket.",
+          "example": "my-source-bucket",
+          "key": "sourceBucketName"
+        },
+        {
+          "label": "Destination Bucket",
+          "placeholder": "Destination Bucket Name",
+          "type": "string",
+          "required": true,
+          "comments": "A Google Cloud Storage 'bucket' is a container where files are stored. The destination bucket indicates the bucket containing the file you want to copy. If you are copying files within a single bucket, list the same bucket as the source and destination bucket.",
+          "example": "my-destination-bucket",
+          "key": "destinationBucketName"
+        },
+        {
+          "label": "Source File Name",
+          "placeholder": "Full source file name",
+          "type": "string",
+          "required": true,
+          "comments": "This represents the source file's path. Do not include a leading /.",
+          "example": "path/to/source/file.txt",
+          "key": "sourceFileName"
+        },
+        {
+          "label": "Destination File Name",
+          "placeholder": "Full destination file name",
+          "type": "string",
+          "required": true,
+          "comments": "This represents the destination file's path. Do not include a leading /.",
+          "example": "path/to/destination/file.txt",
+          "key": "destinationFileName"
+        },
+        {
+          "label": "Connection",
+          "type": "connection",
+          "required": true,
+          "key": "connection"
+        }
+      ],
+      "key": "moveFile"
+    },
+    "deleteFile": {
+      "display": {
+        "label": "Delete File",
+        "description": "Delete a file from a Google Cloud Storage bucket"
+      },
+      "inputs": [
+        {
+          "label": "File Name",
+          "placeholder": "Full file name",
+          "type": "string",
+          "required": true,
+          "comments": "A file is saved in a 'bucket'. This represents the file's path without a leading /",
+          "example": "path/to/file.txt",
+          "key": "fileName"
+        },
+        {
+          "label": "Bucket Name",
+          "placeholder": "Bucket Name",
+          "type": "string",
+          "required": true,
+          "comments": "Buckets in Google Cloud Storage contain files, and can be configured in the GCP console. Bucket names contain only letters, numbers, and dashes.",
+          "example": "my-gcs-bucket",
+          "key": "bucketName"
+        },
+        {
+          "label": "Connection",
+          "type": "connection",
+          "required": true,
+          "key": "connection"
+        }
+      ],
+      "key": "deleteFile"
+    },
+    "listFiles": {
+      "display": {
+        "label": "List Files",
+        "description": "List files in a Google Cloud Storage bucket"
+      },
+      "inputs": [
+        {
+          "label": "Connection",
+          "type": "connection",
+          "required": true,
+          "key": "connection"
+        },
+        {
+          "label": "Bucket Name",
+          "placeholder": "Bucket Name",
+          "type": "string",
+          "required": true,
+          "comments": "Buckets in Google Cloud Storage contain files, and can be configured in the GCP console. Bucket names contain only letters, numbers, and dashes.",
+          "example": "my-gcs-bucket",
+          "key": "bucketName"
+        },
+        {
+          "label": "Prefix",
+          "placeholder": "Prefix",
+          "type": "string",
+          "required": false,
+          "default": "",
+          "comments": "List only files prefixed with this string. For example, if you only want files in a directory called 'unprocessed', you can enter 'unprocessed/'. If this is left blank, all files in the selected bucket will be listed.",
+          "example": "path/to/directory/",
+          "key": "prefix"
+        },
+        {
+          "label": "Page Token",
+          "type": "string",
+          "required": false,
+          "comments": "Specify the pagination token that's returned by a previous request to retrieve the next page of results",
+          "example": "lslTXFcbLQKkb0vP9Kgh5hy0Y0OnC7Z9ZPHPwPmMnxSk3eiDRMkct7D8E",
+          "key": "pageToken"
+        },
+        {
+          "label": "Max Results",
+          "type": "string",
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 50.",
+          "example": "20",
+          "key": "maxResults"
+        }
+      ],
+      "examplePayload": {
+        "data": [
+          "foo.yaml",
+          "bar.xml",
+          "dist/to/myfile.json"
+        ]
+      },
+      "key": "listFiles"
+    },
+    "getFile": {
+      "display": {
+        "label": "Get File",
+        "description": "Get the information and metadata of a file from Google Cloud Storage"
+      },
+      "inputs": [
+        {
+          "label": "File Name",
+          "placeholder": "Full file name",
+          "type": "string",
+          "required": true,
+          "comments": "A file is saved in a 'bucket'. This represents the file's path without a leading /",
+          "example": "path/to/file.txt",
+          "key": "fileName"
+        },
+        {
+          "label": "Bucket Name",
+          "placeholder": "Bucket Name",
+          "type": "string",
+          "required": true,
+          "comments": "Buckets in Google Cloud Storage contain files, and can be configured in the GCP console. Bucket names contain only letters, numbers, and dashes.",
+          "example": "my-gcs-bucket",
+          "key": "bucketName"
+        },
+        {
+          "label": "Connection",
+          "type": "connection",
+          "required": true,
+          "key": "connection"
+        }
+      ],
+      "examplePayload": {
+        "data": {
+          "type": "Buffer",
+          "data": [
+            70,
+            105,
+            108,
+            101,
+            32,
+            67,
+            111,
+            110,
+            116,
+            101,
+            110,
+            116,
+            115
+          ]
+        },
+        "contentType": "text/plain"
+      },
+      "key": "getFile"
+    },
+    "listBuckets": {
+      "display": {
+        "label": "List Buckets",
+        "description": "List buckets in a Google Cloud Storage bucket"
+      },
+      "inputs": [
+        {
+          "label": "Connection",
+          "type": "connection",
+          "required": true,
+          "key": "connection"
+        },
+        {
+          "label": "Page Token",
+          "type": "string",
+          "required": false,
+          "comments": "Specify the pagination token that's returned by a previous request to retrieve the next page of results",
+          "example": "lslTXFcbLQKkb0vP9Kgh5hy0Y0OnC7Z9ZPHPwPmMnxSk3eiDRMkct7D8E",
+          "key": "pageToken"
+        },
+        {
+          "label": "Max Results",
+          "type": "string",
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 50.",
+          "example": "20",
+          "key": "maxResults"
+        }
+      ],
+      "key": "listBuckets"
+    },
+    "createBucket": {
+      "display": {
+        "label": "Create Bucket",
+        "description": "Create a new Bucket inside Google Cloud Storage"
+      },
+      "inputs": [
+        {
+          "label": "Connection",
+          "type": "connection",
+          "required": true,
+          "key": "connection"
+        },
+        {
+          "label": "Bucket Name",
+          "placeholder": "Bucket Name",
+          "type": "string",
+          "required": true,
+          "comments": "Buckets in Google Cloud Storage contain files, and can be configured in the GCP console. Bucket names contain only letters, numbers, and dashes.",
+          "example": "my-gcs-bucket",
+          "key": "bucketName"
+        },
+        {
+          "label": "Multi-Regional",
+          "type": "boolean",
+          "required": false,
+          "comments": "This flag will determine if your bucket will be available from  multiple regions.",
+          "key": "multiRegional"
+        },
+        {
+          "label": "User Project",
+          "type": "string",
+          "required": false,
+          "comments": "Specify the project that the user creating the bucket belongs to.",
+          "example": "my-example-project",
+          "key": "userProject"
+        },
+        {
+          "label": "Location",
+          "type": "string",
+          "required": false,
+          "comments": "The location of the bucket. Object data for objects in the bucket resides in physical storage within this region. Defaults to 'US'. See Cloud Storage bucket locations for the authoritative list: https://cloud.google.com/storage/docs/locations",
+          "example": "US-EAST1",
+          "key": "location"
+        },
+        {
+          "label": "StorageClass Type",
+          "type": "string",
+          "required": true,
+          "model": [
+            {
+              "label": "Standard",
+              "value": "standard"
+            },
+            {
+              "label": "Archived",
+              "value": "archived"
+            },
+            {
+              "label": "Coldline",
+              "value": "coldline"
+            },
+            {
+              "label": "Nearline",
+              "value": "nearline"
+            },
+            {
+              "label": "Regional",
+              "value": "regional"
+            }
+          ],
+          "comments": "This flag will determine the StorageClass your bucket will use.",
+          "key": "storageClass"
+        }
+      ],
+      "key": "createBucket"
+    },
+    "getBucket": {
+      "display": {
+        "label": "Get Bucket",
+        "description": "Get the information and metadata of an existing Bucket from the Google Cloud Storage"
+      },
+      "inputs": [
+        {
+          "label": "Bucket Name",
+          "placeholder": "Bucket Name",
+          "type": "string",
+          "required": true,
+          "comments": "Buckets in Google Cloud Storage contain files, and can be configured in the GCP console. Bucket names contain only letters, numbers, and dashes.",
+          "example": "my-gcs-bucket",
+          "key": "bucketName"
+        },
+        {
+          "label": "Connection",
+          "type": "connection",
+          "required": true,
+          "key": "connection"
+        }
+      ],
+      "key": "getBucket"
+    },
+    "deleteBucket": {
+      "display": {
+        "label": "Delete Bucket",
+        "description": "Delete an existing Bucket from the Google Cloud Storage"
+      },
+      "inputs": [
+        {
+          "label": "Bucket Name",
+          "placeholder": "Bucket Name",
+          "type": "string",
+          "required": true,
+          "comments": "Buckets in Google Cloud Storage contain files, and can be configured in the GCP console. Bucket names contain only letters, numbers, and dashes.",
+          "example": "my-gcs-bucket",
+          "key": "bucketName"
+        },
+        {
+          "label": "Connection",
+          "type": "connection",
+          "required": true,
+          "key": "connection"
+        }
+      ],
+      "key": "deleteBucket"
+    }
+  },
+  "connections": [
+    {
+      "key": "privateKey",
+      "label": "Google Cloud Storage Private Key",
+      "comments": "Authenticate requests to Google Cloud Storage using values obtained from the Google Cloud Platform.",
+      "inputs": [
+        {
+          "label": "Client Email",
+          "placeholder": "Client Email",
+          "type": "string",
+          "required": true,
+          "example": "someone@example.com",
+          "shown": true,
+          "comments": "The email address of the client you would like to connect.",
+          "key": "clientEmail"
+        },
+        {
+          "label": "Private Key",
+          "placeholder": "Private Key",
+          "type": "text",
+          "required": true,
+          "shown": true,
+          "comments": "The private key of the client you would like to connect.",
+          "key": "privateKey"
+        },
+        {
+          "label": "Project Id",
+          "placeholder": "Project Id",
+          "type": "string",
+          "required": true,
+          "shown": true,
+          "comments": "The ID of the project that hosts the storage bucket",
+          "key": "projectId"
+        }
+      ],
+      "documentation": {
+        "description": "The Google Cloud Storage component requires a username / private key pair for authentication.\nTo create a GCP service account, follow directions on https://cloud.google.com/docs/authentication/getting-started.\n\nBe sure to assign the user you just created with the correct permissions.\nTo access Google Cloud Storage resources, you will need to assign either a resource specific permission, or the Cloud Storage Admin role.\nAfter creating a service account, you will have an option to create a key for the account.\nIf you are not greeted with this option, click on the service account you just created, and navigate to the 'keys' section.\nHere you can click 'Add Key'\nThis will generate a .json file with **type**, **project_id**, and a dozen other fields.\nUse these fields along with your GCP Project Id to create a new connection.\n"
+      }
+    }
+  ],
+  "triggers": {},
+  "documentation": {
+    "description": "[Google Cloud Storage](https://cloud.google.com/storage) is Google's cloud file/blob storage system.\nThis component allows you to create, download, modify, list, and delete files stored in a Google Cloud Storage bucket.\n",
+    "dev": "Documentation for the Node.js client used in this component can be found at https://googleapis.dev/nodejs/storage/latest.\n\nA common integration pattern involves listing files in a file store, and performing a series of actions on the array of files that are returned.\nSee our [looping over files](quickstarts/looping-over-files.mdx) quickstart for information about how to create a loop over an array of files.\n"
+  },
+  "$version": 1
+}

@@ -1,0 +1,503 @@
+{
+  "key": "customer-io",
+  "documentationUrl": "https://prismatic.io/docs/components/customer-io/",
+  "public": true,
+  "display": {
+    "label": "Customer.io",
+    "category": "Application Connectors",
+    "description": "Manage customers on the Customer.io platform",
+    "iconPath": "icon.png",
+    "iconBase64": "iVBORw0KGgoAAAANSUhEUgAAAhYAAAIWCAYAAAALR8TTAAAACXBIWXMAABcRAAAXEQHKJvM/AAAgAElEQVR4nO3dfZCdV30f8HNtvVv2SqzfMDiSgwMJhEpe0pbmTQvR8BKa8dJMhtLJjOQk+qPTdiwnoQk0wXYyhSZAkCf9IzNLamkm04RJM15PEgLMAhJJGtoQRRqXUBKopRhsbLxI6xdJtiRu59n7XGu93l3ty7n3nnOez2dmR8aD5Oc+j/bu9/7O7/xOq91uBwCAGK5wFwGAWAQLACAawQIAiEawAACiESwAgGgECwAgGsECAIhGsAAAohEsAIBoBAsAIBrBAgCIRrAAAKIRLACAaAQLACAawQIAiEawAACiESwAgGgECwAgGsECAIhGsAAAohEsAIBoBAsAIBrBAgCIRrAAAKIRLACAaAQLACAawQIAiEawAACiESwAgGgECwAgGsECAIhGsAAAohEsAIBoBAsAIBrBAgCIRrAAAKIRLACAaAQLACAawQIAiEawAACiESwAgGgECwAgGsECAIhGsAAAohEsAIBoBAsAIBrBAgCIRrAAAKIRLACAaAQLACAawQIAiEawAACiESwAgGgECwAgGsECAIhGsAAAohEsAIBoBAsAIBrBAgCIRrAAAKIRLACAaAQLACAawQIAiEawAACiESwAgGgECwAgGsECAIhGsAAAohEsAIBoBAsAIBrBAgCIRrAAAKIRLACAaAQLACAawQIAiEawAACiESwAgGgECwAgGsECAIhGsAAAohEsAIBoBAsAIBrBAgCIRrAAAKIRLACAaAQLACAawQIAiEawAACiWeNWAi842toZQtiyzBtyLIy0T7uJQKXVbrcTuAyg5462RuvQsHPWr6H+dSjSf/5kCOFECOH0TOC49OuJMNI+4SFD+QQLKM3R1vY6LMz+2pbIqzxSB49jdaXjcALXBEQkWEDuOssXo3WIGE0oRCzV8RDC4Re+LKtA1gQLyM3RVrWMMVaHiByDxOV0g8bBMNI+lvalAnMJFpCDzvLGWP21q0HPbDqEMDHzNdKeSOB6gMsQLCBVlyoT+0MIOzwnIQNyIFhAao62upWJPZ7Ngk7OLJV0lkvsNoGECBaQgk51Ym9dnSitZ6LXHqwDhioGJECwgEHq9E7cU1coYs2SaKqT9b2csLMEBkewgEHoDKvaa7mjJ6pejAMzXwIG9J1gAf3UCRT3NGxnx6AIGDAAggX0Q2fJo/ohd7v73XcCBvSRYAG91GnKPGDJIwmdHoyR9sGm3wjoJcECeuVo6556l4emzLQcn3kuzimBnhAsILZOH8VB20aTd6gOGJZHICLBAmKx7JGj6TpcWB6BSAQLiKEzLfOgZY9sHZnZ/muKJ6yaYAGr0alSHLTbowiqFxCBYAErpZeiVA/W1Qu9F7ACV7hpsAKdHR+fEyqKVFWfjtXBEVgmFQtYjs7Sx4TJmY1xbxhp39P0mwDLIVjAUh1t7QwhHNag2TiWRmAZLIXAUhxtVQeG/a1Q0Ui3zwTKTrAELkOwgMs52qpmU9zvPjXajjpc6LuAy7AUAguxlZT53WFLKixMxQLm0wkVh4UK5nF/vSsImIeKBcx1KVTscG9YxKEw0t7rBsGLqVjAbJ0GvRNCBUuwJxxtWRKBOQQL6LKdlOUTLmAOwQKCUMGqCBcwi2ABQgWrJ1xATbCg2YQK4hEuaLwgWNBol+ZUCBXEIlzQeIIFzWRLKb2zx5wLmkywoKkmhAp66O76fBloHAOyaJ5OqXqPJ08f3BZG2sfcaJpExYJmOdraL1TQR9XBZdvdcJpExYLm6JxM+TlPnD47HkIYDSPt0248TaBiQTN0PjVOeNoMwI569xE0gmBBU0zYVsoA3V4vw0HxBAvKd7R1wA4QEvDReiAbFE2PBWU72hoLITzgKZOIkyGEnfotKJmKBeW6NFkTUrHN30lKJ1hQMn0VpOj2upIGRRIsKFOnUW6Xp0uiDppvQakEC8rTecN2VgMpqyppBzwhSiRYUCInlpIDSyIUya4QymIXCHmZDiFst0uEkqhYUA67QMjPkGU7SiNYUJJ7LIGQoTsNzqIklkIoQ6dh82FPk0wdCSPtUQ+PEqhYUApLIORsVzja2usJUgIVC/LnOHTKcDKMtM22IHsqFpTAPABKsM0JqJRAxYK8dcrH93uKFML2U7KnYkHubNWjJNWuJlULsiZYkK9OtWKbJ0hh9tczWSBLggU5U62gRKoWZE2wIE+dnSCqFZTK1lOyJViQK9UKSrbNXAtyZVcI+emMP/5bT47CmWtBllQsyJH1Z5pgW73kB1kRLMhLp1t+j6dGQ1gOITuCBbnxRkuT7LH1lNwIFuTGMghNI0yTFcGCfHSaNm0xpWmEabIiWJATb7A00bY6VEMWBAtyMuZp0VCWQ8iGYEEejrbG6lHH0ERCNdkQLMiFN1aazHII2RAsyIVgQdNZDiELggXp60wftAxC0wnXZEGwIAfeUMFyCJkQLMiB8xKgw/cCyRMsSNvRVnW64w5PCWao3pE8wYLU+YQGl+xyL0idYEHqBAuYzVHqJE6wIHXeROHFfE+QNMGCdHX6Kxw6Bi8mWJA0wYKU2VoHL+X7gqQJFqTMGyi81JB5FqRMsCBlSr4wP8GCZAkWpMybJ8xvu/tCqgQL0tRp3HQ+CMxPNY9kCRakyicyWJhqHskSLEiVN05YmGoeyRIsSJWKBSzGBE4SJViQKhULWNwW94cUCRakypsmLE74JkmCBalyVDosTvgmSYIFQJ5ULEiSYEF6NKUBZEuwAMiTnVMkSbAAyNM2z40UCRakyFIIQKYECwAgGsECIFdHW3aGkBzBAiBfZlmQHMECAIhGsAAAohEsAIBo1qzkD2pNTVbbAT/nMcyYDiEcq//5cAjhRPW/28O7j13m9wEwQBP7ZoaM7Zz1taUePGZGSMe9Y+PhnuX+phUFC15kKISwq/4X3V+r8DVdB42J6qs9vPu02wYwWBP7wlgIM1+jAkRvCBa9UwWO2+uv+1tTkw+GEA62h3dPlPqCAVI0sW+mGrG/DhRDHlJvCRb9MxMyWlOTJ6uAEUI4oIoB0DsT+8LeEGa+drnN/aN5s/+q0tvdVS9Ga2py2WtXACxuYl8Yndg30+92v1DRfyoWg1OV4+5uTU1WaXq/JRJg2Ubah920S+pmzIPCxGCpWAxeVcF4oDU1OdGamjRFD2AFJvbN7F54WKgYvBUFi/bwbik5vtvr5ZGx0l7YCtiqCyxJ1Zg5sW/mPeNudywNKhZpGaqrFwcafh80tcLlTTf9HtXNmdUH3R0JXE6JVvQhT7BI052tqcljlkaARTS6sjexLxyomzNtH+2dFX3IEyzSVSXww62pySYei2wpBFjQxL6ZBs073aE02RWStm64GG3UiPCR9ulwtJXAhUDSTjTt8Uzsmxm5bekjcSoW6RtqaOXiZALXAClrVLAQKvKxmmDhjb9/mhguGvdpDJapad8jQkUmVhMsvPH3VxUumjTrwt8vWFxjvkfqngqhov/sCmmAbXXlognhQrCAxTWi76re/bEngUtpnLFxu0KaokrtTZhzYQgbLGx6psm5cPWcCrs/MrOaYGGI0eDsaU1N7i/8NapYwMKKr1bUR503fVhgllYTLMwaGKyPFt3MOdIWLGBhRb//1jtADhp+NVDHV/oftxSSt4OF91scSeAaIEWlB+97NGsO3IpXJQSLvO2ovwFLpSoG8yv2e2NiXxjVV5G31QQLzXVpuLPgJRHBAuYz0i7y/XfWEgiDt+KqmIpFGUr9RhRe4aVKXiLcX2+rZ/AEi4bb0Zqa3FvcLeg0cDb+aGiYo8hK3sS+sD2EcHcCl8IqrThYtId3+zSZlnsKbeT09wxerNTviZL7xXK04gCrYlGObXUZsTSCBbxYcd8TdbXCdM20DGxXiIPI0rK/wKqFYAGXHC904qZqRXoGFiwMMUpLNUymrF6LkfYxARZeMFHarVCtSNPY+OCWQoz1To/lEChXid8LqhWFWW2wMGcgPdsK3CFS3Kc0WIHp0uZX1HMrVCvSs6otzZo3y1TacohgAWUG7PK2ybPqYKFEnaZdranJ7YW9pgcTuAYYpBKDRemnNOdqVasRKhblGivslala0GTTpVXu6mPRTdlM06r6J1cVLAzJSpo+CyiHZRD6aeAVCyOX07SjqOWQzt79QwlcCQxCicGitKpqSQZXsajZGZIuyyGQP8sg9NXY+Or6J2MEC0Oy0lVWsOi8uRqWRdOUeHrxaALXwPxWvQohWJRtV4GvTtWCpjlQ4OsVLNK16lUISyGFa01NlvYNXOKbLCzkSBhpl/jhTbBI16r/vsUIFsZ6p62sb+DOm6yZFjRFccsgE/tm3pOGErgU5jf4YGHLafJK7LxWtaAJToaRtv4K+i2JpZCgoS5pO4o7Sr1zXoK/c5SuxFARbDNNXhJLIUEDZ/JK/EZ2IiIlmy6xMlcfOrYjgUthAas5Lr0rVrCwHJK28kqPnRKxqgWlOlAPhSuNakXajse4OhWLZij1m7nUUjFYBmEQouzyjBUsbDlN21BrarLUJk4j5SnNoUK3mAaNm8mL8vcuSrBoD+8WLNJX4nLIaTtEKFCR/UMT+2aqFbaZpi1KW0PMY9OjrM3QM2WWIEfa9+i1oCD3FlytsAySvqSWQoLlkORta01N7iz0tdkhQgmK3Akyi2CRtumx8TgDLwWLZtlf5Kvt7BBRMSN3pe4EsQySh2g/wwWLZin5E0OZoYmmOFkv65VKtSJ90cZGRAsWRntnodTdId1pnM4QIVfFBuN6KJZgkb4kKxZBOToLpVctbD8lN9UJphMFPzXLIHlINlhYDknfnuLODunqdNPbfkpOqiC8t/AnVvrrK8HJsfF4gy5jBwvLIXkot2rRWadWOSMXBwreXlotg2wPIexK4FJYXNSigIpFM5Xe6KiRkxwcL7xhM6hWZCNqUSBqsKgncFrjTt+OgmdadBs570vgSmAxTfihK1jkIemKRbAcko3SP9VbEiFl1YTNoiu89eyKbQlcCpcxNp5wxaJmOSQPY8U2cYYXzhHxaYkUNWEJJFiSzMaR2BeqYtFcQ8X/4O18IrwrgSuBrukmzHTQtJmV6D+zowcLg7KyUv4nipH2gV4kclih/SXvApnF+T35iL7K0IuKRfBGno1txU7ifLExTcUk4FB9rk3RTNrMTvoVi5qqRT6aULWo+i1GE7gSmut4g3oO9pu0mY3jsU40nU2wYFdrarL8H7qdfos7ErgSmqfTV1HoyaXz0DSdj578rO5JsNBnkZ1mvBF0ytCHErgSmmWsIX0V1TLIXltMs9KTM2p6VbEITprMSnV+yPZGvNKR9l7zLeijO+qBbU2haTMjsedXdPUyWKha5KVJbwijwgV9cF8TmjW7VCuy07NNFoIFXU2qWpy2U4Qeq3aANG1AlGpFXnp2VH/PgkV9bsjJXv359ERz3hg6a96jwgU9cLxecmsM1Yos9ezDfy8rFkHVIjvNqVqEF3aKCBfEdLyhW5tVK/IyPTbeu+M3eh0selZqoWea9QbRCRe2xxFDJ1Q0Z1vpDNWKLPX0Z7OKBXPtKfpI9fmMtCfMuGCVGhkqaqoV+ck3WLSHd5823jtLBxr3ijvd+8IFK9HYUDGxb2bKpmpFfnr6ob/XFYtgOSRLzZjGOVcnXLxTzwXL0ORQsUW1IktHejHGezbBgoU0r2oRXlgW0dDJUjR5+SM4EyRbPf+Z3PNg0R7efcK20yztaE1NNrOp0W4RLu9Qk0PFxL5Q7R67O4FLYfnyDxY1VYs8HWhNTW5p5CvvhIudJnQyj0MzcyqaW6kIja1o5q86zbTn59b0K1g0ZqxtYYYavYZ6aYiWBmS67mja8Ku5JvbNfE/cntZVsUR9+ZDfl2BhCmfW7mzc9tPZqk+lI+1Rp6I23vRMY2+Dzv5YhHuQr3KCRc1ySL6UPTufUm1HbaZuk2bj38Mm9s1UMG0vzdPJXk7bnK2fwULKzVe1/bRpByq9VOfT6m2qb43yYB0q+vKGnLK6YdP7QL76Foz7Fiwsh2TvnsY2cs52qanzwXQuih65K4y0xxrepDnbQdtLs9a3D/f9rFgEyyFZG1J1qnX6LsZmfvBQouMzlamRtiXAWn0eyK4kLoaV6NsySBhAsPCDKW+3t6Ymx5p+E17Q+cFzmy2pRbnP0seL1RM2hay89fX59TVYWA4pwkFLIrNUP4BG2tXSyL3JXBMrUb0vvSmMtPdb+ngJSyD56+tqQb8rFkHVInuWROYz0r5H9SJb9830zYy0ncY8R70EYmZF3voyFGs2wYKVsCQyn0vVi7uMA8/CcVWKhdW7QCyB5K/vP3P7Hizqs0N8qstftSSyvek3YV6d3oudhmola7re8aFKsThLIGUoP1jUpOD8WRJZTDUOvDNU601GgielCnvb7fhYXD0Iyy6Q/D3Y6yPS5zOoYGHbaRmqwVnNPUtkKapPxJ2R4HdoXB6oau7ILQ4Pu7yJfTPVNieXlmEgH/5a7XZ7IHevNTVZveA9A/mPE9ub2sO7lZSX4mhrb32wm7HI/XFk5n5b8liSemvpMX8/izA9Nh4GsoNvUBWLoIxelAlbUJeoGgs+0t6ugtFzR+rGzFGhYlkOChXFGNjP2IEFi/oTrjfWMgxZ3lqmFwcMzczxHKqXPASKZZrYN3MOiK2l5RhYH9EgKxZB1aIo+i1WohMwdtZNnnaRrMzJekBZt4eir3v2SzCxL1R9QB9t+n0oyJF+z66YbWA9FqHTZ1F9Ynt4YBdAL7yzPbxb9WKljraqJaW99SmSStKLe3CmUtY5dZYVqvsqTthaWpQ7xsYH98F9oMEidMLFhPJbUaoZAaP1+HZW42hrtA4ZY970X3C8rnROqEzEMbFvpllzRwmvhRkDa9rsWpPAczggWBRlqB6eVYUL2/pWo9Mj0OkTONoaqwNGE0PG8fo+HHQ4WFwT+2ZCmlBRloFX8AZesQidqsUJZd/iHGkP7x5t+k3oiU4lY2zmFM5yfyg8WIcJlYkeqZs19VWU55ZB9leEhIKFv+BlOtQe3r236Tehp462ttcBo/uVa0A/UgeJw3Zz9F59uNj9pb/OBqqaNgf+gS6VYKF5qFx3tYd3G5/cL53mz9H6rJLRmfHV6YWN4/UQps6XINFX9WTNw95vi/TOsfHBb/1PIlgEkzhLd0d7eLfO/UHphI2ddcjYXv9z99/16ofLyfrDQvfr2MyveiQGSqgo2smx8ZDEwZApBQtbT8t2m50iiboUPLq6wWMpusGhQ/UhWfW20sOaNYt119h4Ggd8JhMsQidcHHaiXrFsQ4UBESqKV72/bh/ESabzGfTkzblMbixXVXo93Jqa3NnUGwADJFSU7WAqoSKkFizq80Ocm1CuIQeWQX+ZVdEISTXIp1axCKndIKLbVlcuhAvosTpUaIov26FBz62YK7lgUe8ecOpp2XYIF9BbQkVjJPdhPMWKRVC1aIQd//z3bvnSD334YRNXIbLfenv43xcuChUNUA3ESq4hPtVgcbDucqVQb/3Q68IPHnrVTa/+8xu+LFxAPL8+Gr769cfDPz3+lRAuXHRjC5fkhockg0V9eJWqRaGqUPHaT7985sVtfWTTRuEC4qhCxamnwquqP+zZsyEIF0WrqhVJzo1JtWIR6mChalGY2aGiqwoXr/vUTX+/6wP/+K6m3x9Yqdmhoku4KFqy4xmSGpA1V2tqsrpxd6d1VazUfKFituc3XWg/9OOPvvvI+77r424yLM2Bd4Rt3zoVvnz2XNi40G+4amMIO14Twpor3dRCHB8bD8nOBEq5YhFULcpxuVBRWXdmTev1n7jp91UuYGmWEiqCykWJkm4VSDpY6LUow1JCRVc3XLz1fY9+rOn3DRbzW28P71pKqOgSLopRHTaW9KGOqVcsgqpF3pYTKrqqcPG6T970s8IFzK8KFY89GX5/qaGiS7goQvJHXyTdY9Gl1yJPKwkVc518w9TX/mh8+Nam30vo+s23hI9961T4mYsXQ2ulN0XPRbaqnSCjqV98DhWLoGqRnxihorLtb4Zf9a49px+zHRVC+C+7wwPffDL87GpCRVC5yFkWB3VmUbEIqhZZiRUqZjt185mzX/3BJ97y57+0/S+ach+hq2rSfPrZ8Jm520lXS+UiK1lUK0JGFYugapGHXoSKUM+62PHHr/z8m3/tkf1l3jmYX3fnR+xQEVQucpNFtSLkFCzqHSJ+qCSsV6Giq2rq3Dlx80ff/p7HHijjjsHiPvK2sP8bT4SHl9ukuRzCRRaSnbI5n2yWQrpaU5Mn6qO3SUivQ8Vc33j96W9+/fWn3viXv3iLk3ApUtVP8cS3w1i/XptlkaTdluJhYwvJMVjsDSHcn8ClUOt3qOh65trnLnxl9PGfNqmTklRLH9NPhy9MPxNu7PfLEi6SdGhsPOzN6YJz6rGY0R7eXQ0GOZLApTDAUFHZ/OT6NW/4H9/1B5ZGKEU1n+LxJ8NXBxEqgmWRFE3n1FvRlV3FInSqFlVn7OcSuJRGG2SomMvSCLn74I+Fw986FXal8DJULpJx79i4YNE3ranJiRDC7VlefAFSChVd1SFmf/eWx37+s++/2Rh4svHRHw8/fOqp8MfPnAlbUrpm4WLgqmrF9rHxcDq3C885WGwPITycwKU0ToqhYrav/YtvHXvylmfGVC9IXdWgOTUdbl/twKteES4G6o7UzwRZSLbBIhiaNRCph4quqrHzqz/8xHtUL0hRqlWK+QgXA5H0seiXk3uwqL4pq+2nQwlcTvFyCRWzqV6QmtSrFPMRLvruTTnNrZgr62ARbD/tmxxDRVdVvfh/b/zWhyd/7ZXvTeOKaKKcqhTzES765sGx8f7NL+mF7INF6ISLKtkl0U1dopxDxWzVzpFHX3v6p5w3Qr+ltONjNYSLnqsaNneOjc9U4rNVSrCo1qL+NoFLKU4poaKr2jly4gemPv8nB27I4jAf8laN5H7yVPjQc+fDmlIepXDRU1luL52riGAROuGiatK7M4FLKUZpoWI2zZ30Uu7LHpcjXPTEybHxsL2EF1JSsNDIGVHJoWK2J77n6dMnR6Z+wvIIMVTjuJ89GyamTufb0b9UwkV0WTdszlZMsAidcFE1vBjvvEpNCRWznXzD1NeeuPXpvQIGK1X1UXz7qfCjOe32WC3hIprszgNZTFHBImjkXLUmhoqubv/FqVee2WN7Kkv1m28JHzs1HfaU1EexHMLFqmU7YXMhJQaLao3qmCWR5WtyqJhNwGApmh4oZhMuViXbCZsLKS5YBBM5V0SoeCkBg/kIFPMTLlbkyNh4KG6HWpHBInTCRVW12JHApSRPqFhcN2BMv/zsr+jBaC6B4vKEi2UpYmbFfEoOFmZbLIFQsTyaPJul2uVx9lw41LSmzNUQLpbsrrHxUOR292KDRbAkcllCxcpV21S/+Zrp3zEmvEzVHIpnzoSDTz0bvlugWD7h4rKyPmTscooOFsGSyIKEijiqQVuP7Pj2nzx1w7n9+jDyVy13PHMm/GSpg636SbhY1G1j4zObDIrUhGBhSWQOoaI3qmWSUzef+a+meealqk6cORd++/TTYYfqRFzCxbyKGNu9mOKDRbAk8iJCRe9VVYxHX3v6LzV7pqvqnXj+fPhV1YneEy5epMhdIHM1IlgESyIzhIr+O3XzmbPffPX0pyyVpOFDbw0fPHM27J1+JtzY9HvRT8LFjGJ3gczVpGBRLYkcburgLKFi8Kpj25+6/uwXnrn2uY+oZPRPFSbOPRd+SiPmYAkX5e4CmasxwSJ0wsX+akk1gUvpK6EiPd1Kxpmt5//gyPu+6+NNvx8xVT0T5y+EvWfPhXeoTKSlweGiEUsgXY0KFqGBZ4kIFemrejKmtj1z8tzVFz5x+qYzH7FksnwfeVvYf+75sOfMufCas+fCxtyuv0kaGC6KOwvkcpoYLBpzvLpQkaeqmvHtVz77lWeHn/vk2WvO/46g8VJVkHj+fBg7+1zYofkyPw0LF+8cGw8TCVxH3zQuWISGHK8uVJSjW9E4s+X5h5q4dFItbVy4GN7x/PnwtueeD9sFiTI0JFzcNzYe9idwHX3VyGAROuGiaqK5M4FLiU6oKN/pV5x5ZvrGs49XYeO5qy8ceW7ThQdKqGxUlYiL3wnff/5CeEMVIs4+F4Y0XJar8HBxPIQw2qQlkK7GBotQ6BZUoaK5qsPSTr/i7PTZa56feu6qC18/d835v/rOmvbj59df/GJKu1Cq8FD9Wi1lfKcdhqoAcf582Oxwr2YqNFxM16Gi2Omai2l6sNgewsyDL6LfQqhgMd3gUf1fnr723ImLa78z888X137nVFX1mPtbL65pP7bQsst/fnP4JxvWhTe/5Pd8J3z/xYvh1u7/rnog6n+/XlMlCykwXNwxNh4OJnAdA9HoYBEK6rcQKoCcFRQuDo2Nh70JXMfAXNHQ1/2C9vDuqlv3vkQuZ0WECiB3z54N4fhXQrhwMesXUvVVNK5Zc67GVyy6cu23ECqAkmRcuWh0X8Vsja9YzDJW/8XIhlABlCbjysVeoaJDsKi1h3efqMNFFoQKoFQZhov7mjYEazGCxSzt4d3VuO+7krmgBQgVQOkyChdHmjgEazGCxRzt4d3V4KxDSV3ULEIF0BQZhIuTOVW6+0WwmN/+urs3KUIF0DQJh4uqJ2+siZM1L0ewmEd7ePfp1Jo5hQqgqRINF/s1a85PsFhA3cyZxPn5QgXQdImFi3ubPFnzcgSLRbSHd1dp9I5BXoNQAdCRSLioJmve45EsTLC4jPbw7oODmswpVAC82IDDhcmaS2Dy5hK1piarPcq39+u/J1QALGwAEzqrnrvtmjUvT8Vi6fb2a6eIUAGwuD5XLrrjuoWKJRAslqjeKTJa71vuGaECYGn6GC6M614GwWIZer0NVagAWJ4+hIs7jOteHsFimeqdItG3oQoVACvTw3BhW+kKCBYrEHsbqlABsDo9CBe2la6QYLFC9TbUVYcLoQIgjojhogoVez2WlREsVmG1M7CqbGwAAAm5SURBVC6ECoC4IoQLsypWyRyLCFpTk1XA2LOcP0moAOidFc65OG5b6eqpWETQHt69dzlHrQsVAL21gsqFUBGJikVES6lcCBUA/bPEyoWpmhEJFpG1piarHSM75vtThQqA/rtMuOhO1TQAKxJLIfGNzjf6W6gAGIxFlkWEih4QLCKbNfr7hXAhVAAM1jzhQqjoEcGiB2aHC6ECIA2zwsVTQkXvCBY90g0XL//y0NkiXyBAhs49H9qPT4V3CxW9I1j0UBUu/v5HHv++UzefES4ABuzKK0P75deGd/+7B8MnPIveESx67C9/8ZaTwgXAYHVDxc//Wfi4R9FbgkUfCBcAgyNU9Jc5Fn3Umprc8q9++bYvbvub4Vc15kUDDJBQ0X+CxQD85L6prwoXAL21cUM4e93W8H37/zScdKv7x1LIAPzR+PCtJ98w9bXGvXCAPhEqBkewGJAqXPzDjzzx5Ua+eIAeEioGS7AYoD++7/rXfultj/5uY28AQGRbrwlfEyoGS49FAt76vkc/9rpP3vSzTb8PAKtRhYpfPRxudRMHS8UiAZ/6wE0/d2zskbue33RBygNYgeu2hiNCRRoEi0R89v03H3joxx99t3ABsDw3Xht+972fmTmfiQRYCknMD3344W2v/vMbvrz1kU0bm34vABZTzai4/mXhN97zqfBeNyodgkWCqnBxy19fe+z6f7h6S9PvBcB8DL5Kl2CRMIO0AF7KdtK06bFIWDXrwnZUgEtsJ02fikUG3vxrj+x/7adf/lvrzqxpNf1eAM1V7fzQpJk+wSITuz7wj+/67v917f2aOoGmqfoprtsa/tt//HT4OQ8/fYJFRqqmzlc+tPULr3hoy41NvxdAM6xfGy5c97Lw05o08yFYZOhf7n/88Ks/f8Oupt8HoGybN4XTLxsKO/VT5EWwyNTu93/9g9/72Rt/Sd8FUKLhLeHYf/psuM3DzY9gkTF9F0BpDL3Kn2CRuarv4savXPMZ8y6A3FXzKYaHwh36KfImWBSiOiH1ez5//c9YGgFyVM2nuPqq8GP6KfInWBTE0giQG1tJyyNYFMbSCJALSx9lEiwKZWkESJldH+USLAr2I79x4odv/Z/Xf9rSCJAKuz7KJ1g0gIFaQAqGNodvDl0d3qhBs2yCRUNUjZ2vOXzD721+cv2apt8LoL+qKsXwUHjwlyfDO9368gkWDVI1dl778OaJV/3VdTubfi+A/qjGcm+9JvzEXZ8If+GWN4Ng0UDVMey3/sX1H1K9AHpFlaK5BIuGUr0AekWVotkEi4ZTvQBiUaUgCBYE1QsgAlUKugQLXmAkOLBcRnIzl2DBS7z9PY898Kq/uu52UzuBxTg4jPkIFsyrmtp5099t+cNXPLTlRncImK064+Nl14T3/cInwwE3hrkECxaluRPoqpY9XnZN+Px7PxNG3RQWIliwJNVY8O1fHP5RyyPQTNWyx+ZNYa/mTC5HsGDJquWR67969UFHskNzWPZguQQLlq1aHrnpS1vuvv4frt7i7kGZ7PZgpQQLVuyt73v0Y9u+OLxH/wWUo9tHsXFD2GO3ByshWLBq+i+gDPooiEGwIIpqeufWr286JGBAfkzNJCbBgqg0eEI+qkAxtDncqzGTmAQLekLAgHQJFPSSYEFPCRiQDoGCfhAs6AsBAwZHoKCfBAv6SsCA/hEoGATBgoHoBoyXf3nou+0igbgECgZJsGCgbFOFeMyhIAWCBckwyROWrzspc8P68CsCBSkQLEjOD3344V+55a+v/QVnkcDC1q8NF7YOhUPr1oZfN3qblAgWJEsfBrzU0Obwzc2bwm/onyBVggXJq/owNn97/a9aJqGpquWOLVeH45s2hP9guYPUCRZkpTqyfesjm/697ao0QbW7Y/Om8EeOLicnggVZ6lYxbvrSln+z9ZFNGz1FSlH1Tmy+Kvwf1QlyJViQvV0f+Md3bfnGxl+++fjWHXoxyFW1VXTD+vCH7/lUeK+HSM4EC4qy+/1f/+DQYxt/ylIJOdi4IZwd2hz+u50dlESwoEjdpZIt39j0jlc8tOVGT5lUVGHi6k3hU+vXhY9Y6qBEggXFEzIYNGGCJhEsaBQhg34RJmgqwYLGak1Nbvmx+773l6qeDEO4iKEaXrVxQ/jTtWvCQWGCphIsoFbtLrn6ifX/9rqHr/5ntrCyFNXW0E0bw0m7OeASwQLm0V0y2fyt9aPDJzdvM/GTrqoqsX5d+MK6teEPfv7PwsfdGHgxwQKWoKpmbDq19l9f88TGN173tc03WDZpjmr65cb14fi6tWHC+RxweYIFrMDsoDH02MZrVTTKIUjA6ggWEEF1Euum6XV7N0yvfcNVp9bfeuP/vWaz+5q+bo/E2jXhIUsbEIdgAT1SHZi2/uk1uzadXvf6a57YeJOG0MGqQsSG9eHJdWvDV6pqxJVXhgdMu4T4BAvooypsrD135fdXlY2rn9ywfcs3Ng7p14ivWs5YuyZMVZWItWvCESEC+kewgAGrdqCsP7PmnVV148rzV2zd8timHWvPXblehWNxVQVi7drwzPp14cQVrTBdVSGuuCJ80fwIGCzBAhJW9W6sfe7KH+iGjqtOrX/N2nNXbth0at3m0htGr7wytDeuD9PVP1fNlNWvVXhotcJjeiEgXYIFZKxb7aheQbXEsvbMlbdW/9wNIPW/T6b6MTsshFmBIdShofpV1QHyJlhAw8wOI3N1KyNz//1V59ds+J5vXLPhqqfXnp7v93VDwVxCAjSPYAEARHOFWwkAxCJYAADRCBYAQDSCBQAQjWABAEQjWAAA0QgWAEA0ggUAEI1gAQBEI1gAANEIFgBANIIFABCNYAEARCNYAADRCBYAQDSCBQAQjWABAEQjWAAA0QgWAEA0ggUAEI1gAQBEI1gAANEIFgBANIIFABCNYAEARCNYAADRCBYAQDSCBQAQjWABAEQjWAAA0QgWAEA0ggUAEI1gAQBEI1gAANEIFgBANIIFABCNYAEARCNYAADRCBYAQDSCBQAQjWABAEQjWAAA0QgWAEA0ggUAEI1gAQBEI1gAANEIFgBANIIFABCNYAEARCNYAADRCBYAQDSCBQAQjWABAEQjWAAA0QgWAEA0ggUAEI1gAQBEI1gAANEIFgBANIIFABCNYAEARCNYAADRCBYAQDSCBQAQjWABAEQjWAAA0QgWAEA0ggUAEI1gAQBEI1gAANEIFgBANIIFABCNYAEARCNYAADRCBYAQDSCBQAQjWABAEQjWAAA0QgWAEA0ggUAEI1gAQBEI1gAANEIFgBANIIFABCNYAEARCNYAADRCBYAQDSCBQAQRwjh/wPJj4pHYhEYDgAAAABJRU5ErkJggg=="
+  },
+  "connections": [
+    {
+      "key": "apiKey",
+      "label": "API Key",
+      "comments": "Authenticate requests to Customer.io using an API key & secret",
+      "inputs": [
+        {
+          "placeholder": "API Key",
+          "required": true,
+          "shown": true,
+          "comments": "Provide the API key from the developer console.",
+          "example": "example-a131bf1767a7",
+          "key": "apiKey",
+          "type": "string",
+          "default": "",
+          "label": "API Key"
+        },
+        {
+          "placeholder": "Site Id",
+          "required": true,
+          "shown": true,
+          "comments": "Provide the Site Id obtained from the developer console.",
+          "example": "example-a131bf1767a7",
+          "key": "siteId",
+          "type": "string",
+          "default": "",
+          "label": "Site Id"
+        }
+      ],
+      "documentation": {
+        "description": "An API key and SiteID are both required to interact with Customer.io.\nThe Customer.io **API Key** serves as the **API Key**, and the **Site ID** serves as the **API Secret**.\nRead more about authentication in the [Customer.io docs](https://customer.io/docs/managing-credentials/).\n"
+      }
+    }
+  ],
+  "actions": {
+    "destroy": {
+      "display": {
+        "label": "Destroy",
+        "description": "Delete a customer by unique ID"
+      },
+      "key": "destroy",
+      "inputs": [
+        {
+          "required": true,
+          "example": "exampleCustomerId",
+          "comments": "A customer Id is a unique identifier that lets you target a specific individual.",
+          "key": "id",
+          "type": "string",
+          "default": "",
+          "label": "ID"
+        },
+        {
+          "placeholder": "Region",
+          "model": [
+            {
+              "label": "US",
+              "value": "US"
+            },
+            {
+              "label": "EU",
+              "value": "EU"
+            }
+          ],
+          "required": true,
+          "comments": "Provide the region in which your account is configured on.",
+          "key": "region",
+          "type": "string",
+          "default": "",
+          "label": "Region"
+        },
+        {
+          "required": true,
+          "key": "cioConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "identify": {
+      "display": {
+        "label": "Identify",
+        "description": "Create or update a customer"
+      },
+      "key": "identify",
+      "inputs": [
+        {
+          "required": true,
+          "example": "exampleCustomerId",
+          "comments": "A customer Id is a unique identifier that lets you target a specific individual.",
+          "key": "id",
+          "type": "string",
+          "default": "",
+          "label": "ID"
+        },
+        {
+          "placeholder": "Region",
+          "model": [
+            {
+              "label": "US",
+              "value": "US"
+            },
+            {
+              "label": "EU",
+              "value": "EU"
+            }
+          ],
+          "required": true,
+          "comments": "Provide the region in which your account is configured on.",
+          "key": "region",
+          "type": "string",
+          "default": "",
+          "label": "Region"
+        },
+        {
+          "required": true,
+          "comments": "Provide key and value pairs that make up a customer record. The key must be a string, and the value can either be a string, number, array, or an object.",
+          "key": "customerData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Customer Data"
+        },
+        {
+          "required": true,
+          "key": "cioConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ],
+      "documentation": {
+        "description": "When creating a customer it is important to keep in mind the required fields, as well as their correct datatypes that Customer.io will expect you to provide.\nWhen updating a customer you must provide the id of the customer, as well as any additional fields you would like to update the customer with.\n`id`: String or Number(required)\n`data`: The key for this input must be a string. The value can be a string, number, array, boolean, or an object.\n"
+      }
+    },
+    "track": {
+      "display": {
+        "label": "Track",
+        "description": "Track customer events"
+      },
+      "key": "track",
+      "inputs": [
+        {
+          "required": true,
+          "example": "exampleCustomerId",
+          "comments": "A customer Id is a unique identifier that lets you target a specific individual.",
+          "key": "id",
+          "type": "string",
+          "default": "",
+          "label": "ID"
+        },
+        {
+          "placeholder": "Region",
+          "model": [
+            {
+              "label": "US",
+              "value": "US"
+            },
+            {
+              "label": "EU",
+              "value": "EU"
+            }
+          ],
+          "required": true,
+          "comments": "Provide the region in which your account is configured on.",
+          "key": "region",
+          "type": "string",
+          "default": "",
+          "label": "Region"
+        },
+        {
+          "required": false,
+          "comments": "Provide key and value pairs that describe the event that your customer performed.",
+          "key": "eventData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Event Data"
+        },
+        {
+          "example": "myCustomerEvent",
+          "required": true,
+          "comments": "Provide a string value for the name of the new event.",
+          "key": "eventName",
+          "type": "string",
+          "default": "",
+          "label": "Event Name"
+        },
+        {
+          "required": true,
+          "key": "cioConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "trackPageView": {
+      "display": {
+        "label": "Track Page View",
+        "description": "Track customer history"
+      },
+      "examplePayload": {
+        "data": {}
+      },
+      "key": "trackPageView",
+      "inputs": [
+        {
+          "required": true,
+          "example": "exampleCustomerId",
+          "comments": "A customer Id is a unique identifier that lets you target a specific individual.",
+          "key": "id",
+          "type": "string",
+          "default": "",
+          "label": "ID"
+        },
+        {
+          "placeholder": "Region",
+          "model": [
+            {
+              "label": "US",
+              "value": "US"
+            },
+            {
+              "label": "EU",
+              "value": "EU"
+            }
+          ],
+          "required": true,
+          "comments": "Provide the region in which your account is configured on.",
+          "key": "region",
+          "type": "string",
+          "default": "",
+          "label": "Region"
+        },
+        {
+          "required": true,
+          "example": "www.example.com",
+          "comments": "To track a specific page, enter the full path. To track any page, use the asterisk '*'",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "key": "cioConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "rawRequest": {
+      "display": {
+        "label": "Raw Request - Track API",
+        "description": "Send a raw HTTP request to Customer.io API"
+      },
+      "key": "rawRequest",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Region",
+          "model": [
+            {
+              "label": "US",
+              "value": "US"
+            },
+            {
+              "label": "EU",
+              "value": "EU"
+            }
+          ],
+          "required": true,
+          "comments": "Provide the region in which your account is configured on.",
+          "key": "region",
+          "type": "string",
+          "default": "",
+          "label": "Region"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "Input the path only (/v1/accounts/region), The base URL is already included (https://track.customer.io/api). For example, to connect to https://track.customer.io/api/v1/accounts/region, only /v1/accounts/region is entered in this field.",
+          "example": "/v1/accounts/region",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "The file name to apply to a file",
+          "required": false,
+          "comments": "File names to apply to the file data inputs. Keys must match the file data keys above.",
+          "key": "fileDataFileNames",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data File Names"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        }
+      ]
+    }
+  },
+  "triggers": {},
+  "dataSources": {},
+  "documentation": {
+    "description": "**Customer.io** is an automated messaging platform for marketing departments.\nThis component allows you to create, delete and track customers on the Customer.io platform through the Track API.\n"
+  },
+  "$version": 1
+}

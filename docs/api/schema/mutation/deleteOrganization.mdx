@@ -1,0 +1,25 @@
+---
+id: deleteOrganization
+title: deleteOrganization Mutation
+sidebar_label: deleteOrganization
+description: Learn how to use the deleteOrganization Mutation for Prismatic's API.
+---
+
+    Removes the specified Organization object.
+
+Access is permitted when any of the following condition(s) are met: 1. The signed-in User has any of the following permissions for the object: [org_superuser].
+
+## Input fields ([DeleteOrganizationInput!](api/schema/input_object/DeleteOrganizationInput.mdx))
+
+| Argument           | Type                                     | Description                                                 |
+| ------------------ | ---------------------------------------- | ----------------------------------------------------------- |
+| `id`               | [`ID`](api/schema/scalar/ID.mdx)         | The ID of the Organization to mutate.                       |
+| `clientMutationId` | [`String`](api/schema/scalar/String.mdx) | A unique identifier for the client performing the mutation. |
+
+## Return fields ([DeleteOrganizationPayload](api/schema/object/DeleteOrganizationPayload.mdx))
+
+###### <b>clientMutationId</b> ([String](api/schema/scalar/String.mdx))
+
+###### <b>errors</b> ([[ErrorType!]!](api/schema/object/ErrorType.mdx))
+
+###### <b>organization</b> ([Organization](api/schema/object/Organization.mdx))

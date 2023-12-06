@@ -1,0 +1,1084 @@
+{
+  "key": "hash",
+  "documentationUrl": "https://prismatic.io/docs/components/hash/",
+  "public": true,
+  "display": {
+    "label": "Hash",
+    "description": "Compute hashes of strings using common hash functions",
+    "iconPath": "icon.png",
+    "category": "Helpers",
+    "iconBase64": "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"
+  },
+  "connections": [],
+  "actions": {
+    "computeHash": {
+      "display": {
+        "label": "Compute Hash",
+        "description": "Compute the hash of a string using a hash function"
+      },
+      "examplePayload": {
+        "data": {
+          "hex": "<hex encoded hash value>",
+          "base64": "<base64 encoded hash value>"
+        }
+      },
+      "key": "computeHash",
+      "inputs": [
+        {
+          "required": true,
+          "example": "md5",
+          "model": [
+            {
+              "label": "BLAKE2b512",
+              "value": "blake2b512"
+            },
+            {
+              "label": "BLAKE2s256",
+              "value": "blake2s256"
+            },
+            {
+              "label": "MD4",
+              "value": "md4"
+            },
+            {
+              "label": "MD5",
+              "value": "md5"
+            },
+            {
+              "label": "MD5-SHA1",
+              "value": "md5-sha1"
+            },
+            {
+              "label": "RIPEMD160",
+              "value": "ripemd160"
+            },
+            {
+              "label": "SHA1",
+              "value": "sha1"
+            },
+            {
+              "label": "SHA224",
+              "value": "sha224"
+            },
+            {
+              "label": "SHA256",
+              "value": "sha256"
+            },
+            {
+              "label": "SHA3-224",
+              "value": "sha3-224"
+            },
+            {
+              "label": "SHA3-256",
+              "value": "sha3-256"
+            },
+            {
+              "label": "SHA3-384",
+              "value": "sha3-384"
+            },
+            {
+              "label": "SHA3-512",
+              "value": "sha3-512"
+            },
+            {
+              "label": "SHA384",
+              "value": "sha384"
+            },
+            {
+              "label": "SHA512",
+              "value": "sha512"
+            },
+            {
+              "label": "SHA512-224",
+              "value": "sha512-224"
+            },
+            {
+              "label": "SHA512-256",
+              "value": "sha512-256"
+            },
+            {
+              "label": "SM3",
+              "value": "sm3"
+            },
+            {
+              "label": "whirlpool",
+              "value": "whirlpool"
+            }
+          ],
+          "key": "hashFunction",
+          "type": "string",
+          "default": "sha256",
+          "label": "Hash Function"
+        },
+        {
+          "required": true,
+          "example": "Hello World",
+          "comments": "The message to generate a hash of",
+          "key": "message",
+          "type": "string",
+          "default": "",
+          "label": "Message"
+        }
+      ]
+    },
+    "computeHmac": {
+      "display": {
+        "label": "Compute HMAC Hash",
+        "description": "Compute an HMAC hash given a message, secret and hash function"
+      },
+      "examplePayload": {
+        "data": {
+          "hex": "<hex encoded hmac value>",
+          "base64": "<base64 encoded hmac value>",
+          "byteArray": {
+            "type": "Buffer",
+            "data": [
+              60,
+              98,
+              121,
+              116,
+              101,
+              32,
+              97,
+              114,
+              114,
+              97,
+              121,
+              32,
+              104,
+              109,
+              97,
+              99,
+              32,
+              118,
+              97,
+              108,
+              117,
+              101,
+              62
+            ]
+          }
+        }
+      },
+      "key": "computeHmac",
+      "inputs": [
+        {
+          "required": true,
+          "example": "md5",
+          "model": [
+            {
+              "label": "BLAKE2b512",
+              "value": "blake2b512"
+            },
+            {
+              "label": "BLAKE2s256",
+              "value": "blake2s256"
+            },
+            {
+              "label": "MD4",
+              "value": "md4"
+            },
+            {
+              "label": "MD5",
+              "value": "md5"
+            },
+            {
+              "label": "MD5-SHA1",
+              "value": "md5-sha1"
+            },
+            {
+              "label": "RIPEMD160",
+              "value": "ripemd160"
+            },
+            {
+              "label": "SHA1",
+              "value": "sha1"
+            },
+            {
+              "label": "SHA224",
+              "value": "sha224"
+            },
+            {
+              "label": "SHA256",
+              "value": "sha256"
+            },
+            {
+              "label": "SHA3-224",
+              "value": "sha3-224"
+            },
+            {
+              "label": "SHA3-256",
+              "value": "sha3-256"
+            },
+            {
+              "label": "SHA3-384",
+              "value": "sha3-384"
+            },
+            {
+              "label": "SHA3-512",
+              "value": "sha3-512"
+            },
+            {
+              "label": "SHA384",
+              "value": "sha384"
+            },
+            {
+              "label": "SHA512",
+              "value": "sha512"
+            },
+            {
+              "label": "SHA512-224",
+              "value": "sha512-224"
+            },
+            {
+              "label": "SHA512-256",
+              "value": "sha512-256"
+            },
+            {
+              "label": "SM3",
+              "value": "sm3"
+            },
+            {
+              "label": "whirlpool",
+              "value": "whirlpool"
+            }
+          ],
+          "key": "hashFunction",
+          "type": "string",
+          "default": "sha256",
+          "label": "Hash Function"
+        },
+        {
+          "required": true,
+          "example": "p@$sW0Rd",
+          "comments": "The cryptographic secret key used to hash the payload's body. This must be a string or byte array",
+          "key": "secretKey",
+          "type": "string",
+          "default": "",
+          "label": "Secret Key"
+        },
+        {
+          "required": true,
+          "example": "Hello World",
+          "comments": "The message to generate a hash of",
+          "key": "message",
+          "type": "string",
+          "default": "",
+          "label": "Message"
+        }
+      ],
+      "documentation": {
+        "description": "If you plan to send webhook requests to a third-party from Prismatic, you can use the **Compute HMAC Hash** action to compute the HMAC hash of a given string using a **secret key**.\n"
+      }
+    },
+    "computeblake2b512": {
+      "display": {
+        "label": "Compute BLAKE2b512 Hash",
+        "description": "Compute the BLAKE2b512 hash of a string"
+      },
+      "examplePayload": {
+        "data": {
+          "hex": "<hex encoded hash value>",
+          "base64": "<base64 encoded hash value>"
+        }
+      },
+      "key": "computeblake2b512",
+      "inputs": [
+        {
+          "required": true,
+          "example": "Hello World",
+          "comments": "The message to generate a hash of",
+          "key": "message",
+          "type": "string",
+          "default": "",
+          "label": "Message"
+        }
+      ]
+    },
+    "computeblake2s256": {
+      "display": {
+        "label": "Compute BLAKE2s256 Hash",
+        "description": "Compute the BLAKE2s256 hash of a string"
+      },
+      "examplePayload": {
+        "data": {
+          "hex": "<hex encoded hash value>",
+          "base64": "<base64 encoded hash value>"
+        }
+      },
+      "key": "computeblake2s256",
+      "inputs": [
+        {
+          "required": true,
+          "example": "Hello World",
+          "comments": "The message to generate a hash of",
+          "key": "message",
+          "type": "string",
+          "default": "",
+          "label": "Message"
+        }
+      ]
+    },
+    "computemd4": {
+      "display": {
+        "label": "Compute MD4 Hash",
+        "description": "Compute the MD4 hash of a string"
+      },
+      "examplePayload": {
+        "data": {
+          "hex": "<hex encoded hash value>",
+          "base64": "<base64 encoded hash value>"
+        }
+      },
+      "key": "computemd4",
+      "inputs": [
+        {
+          "required": true,
+          "example": "Hello World",
+          "comments": "The message to generate a hash of",
+          "key": "message",
+          "type": "string",
+          "default": "",
+          "label": "Message"
+        }
+      ]
+    },
+    "computemd5": {
+      "display": {
+        "label": "Compute MD5 Hash",
+        "description": "Compute the MD5 hash of a string"
+      },
+      "examplePayload": {
+        "data": {
+          "hex": "<hex encoded hash value>",
+          "base64": "<base64 encoded hash value>"
+        }
+      },
+      "key": "computemd5",
+      "inputs": [
+        {
+          "required": true,
+          "example": "Hello World",
+          "comments": "The message to generate a hash of",
+          "key": "message",
+          "type": "string",
+          "default": "",
+          "label": "Message"
+        }
+      ]
+    },
+    "computemd5-sha1": {
+      "display": {
+        "label": "Compute MD5-SHA1 Hash",
+        "description": "Compute the MD5-SHA1 hash of a string"
+      },
+      "examplePayload": {
+        "data": {
+          "hex": "<hex encoded hash value>",
+          "base64": "<base64 encoded hash value>"
+        }
+      },
+      "key": "computemd5-sha1",
+      "inputs": [
+        {
+          "required": true,
+          "example": "Hello World",
+          "comments": "The message to generate a hash of",
+          "key": "message",
+          "type": "string",
+          "default": "",
+          "label": "Message"
+        }
+      ]
+    },
+    "computeripemd160": {
+      "display": {
+        "label": "Compute RIPEMD160 Hash",
+        "description": "Compute the RIPEMD160 hash of a string"
+      },
+      "examplePayload": {
+        "data": {
+          "hex": "<hex encoded hash value>",
+          "base64": "<base64 encoded hash value>"
+        }
+      },
+      "key": "computeripemd160",
+      "inputs": [
+        {
+          "required": true,
+          "example": "Hello World",
+          "comments": "The message to generate a hash of",
+          "key": "message",
+          "type": "string",
+          "default": "",
+          "label": "Message"
+        }
+      ]
+    },
+    "computesha1": {
+      "display": {
+        "label": "Compute SHA1 Hash",
+        "description": "Compute the SHA1 hash of a string"
+      },
+      "examplePayload": {
+        "data": {
+          "hex": "<hex encoded hash value>",
+          "base64": "<base64 encoded hash value>"
+        }
+      },
+      "key": "computesha1",
+      "inputs": [
+        {
+          "required": true,
+          "example": "Hello World",
+          "comments": "The message to generate a hash of",
+          "key": "message",
+          "type": "string",
+          "default": "",
+          "label": "Message"
+        }
+      ]
+    },
+    "computesha224": {
+      "display": {
+        "label": "Compute SHA224 Hash",
+        "description": "Compute the SHA224 hash of a string"
+      },
+      "examplePayload": {
+        "data": {
+          "hex": "<hex encoded hash value>",
+          "base64": "<base64 encoded hash value>"
+        }
+      },
+      "key": "computesha224",
+      "inputs": [
+        {
+          "required": true,
+          "example": "Hello World",
+          "comments": "The message to generate a hash of",
+          "key": "message",
+          "type": "string",
+          "default": "",
+          "label": "Message"
+        }
+      ]
+    },
+    "computesha256": {
+      "display": {
+        "label": "Compute SHA256 Hash",
+        "description": "Compute the SHA256 hash of a string"
+      },
+      "examplePayload": {
+        "data": {
+          "hex": "<hex encoded hash value>",
+          "base64": "<base64 encoded hash value>"
+        }
+      },
+      "key": "computesha256",
+      "inputs": [
+        {
+          "required": true,
+          "example": "Hello World",
+          "comments": "The message to generate a hash of",
+          "key": "message",
+          "type": "string",
+          "default": "",
+          "label": "Message"
+        }
+      ]
+    },
+    "computesha3-224": {
+      "display": {
+        "label": "Compute SHA3-224 Hash",
+        "description": "Compute the SHA3-224 hash of a string"
+      },
+      "examplePayload": {
+        "data": {
+          "hex": "<hex encoded hash value>",
+          "base64": "<base64 encoded hash value>"
+        }
+      },
+      "key": "computesha3-224",
+      "inputs": [
+        {
+          "required": true,
+          "example": "Hello World",
+          "comments": "The message to generate a hash of",
+          "key": "message",
+          "type": "string",
+          "default": "",
+          "label": "Message"
+        }
+      ]
+    },
+    "computesha3-256": {
+      "display": {
+        "label": "Compute SHA3-256 Hash",
+        "description": "Compute the SHA3-256 hash of a string"
+      },
+      "examplePayload": {
+        "data": {
+          "hex": "<hex encoded hash value>",
+          "base64": "<base64 encoded hash value>"
+        }
+      },
+      "key": "computesha3-256",
+      "inputs": [
+        {
+          "required": true,
+          "example": "Hello World",
+          "comments": "The message to generate a hash of",
+          "key": "message",
+          "type": "string",
+          "default": "",
+          "label": "Message"
+        }
+      ]
+    },
+    "computesha3-384": {
+      "display": {
+        "label": "Compute SHA3-384 Hash",
+        "description": "Compute the SHA3-384 hash of a string"
+      },
+      "examplePayload": {
+        "data": {
+          "hex": "<hex encoded hash value>",
+          "base64": "<base64 encoded hash value>"
+        }
+      },
+      "key": "computesha3-384",
+      "inputs": [
+        {
+          "required": true,
+          "example": "Hello World",
+          "comments": "The message to generate a hash of",
+          "key": "message",
+          "type": "string",
+          "default": "",
+          "label": "Message"
+        }
+      ]
+    },
+    "computesha3-512": {
+      "display": {
+        "label": "Compute SHA3-512 Hash",
+        "description": "Compute the SHA3-512 hash of a string"
+      },
+      "examplePayload": {
+        "data": {
+          "hex": "<hex encoded hash value>",
+          "base64": "<base64 encoded hash value>"
+        }
+      },
+      "key": "computesha3-512",
+      "inputs": [
+        {
+          "required": true,
+          "example": "Hello World",
+          "comments": "The message to generate a hash of",
+          "key": "message",
+          "type": "string",
+          "default": "",
+          "label": "Message"
+        }
+      ]
+    },
+    "computesha384": {
+      "display": {
+        "label": "Compute SHA384 Hash",
+        "description": "Compute the SHA384 hash of a string"
+      },
+      "examplePayload": {
+        "data": {
+          "hex": "<hex encoded hash value>",
+          "base64": "<base64 encoded hash value>"
+        }
+      },
+      "key": "computesha384",
+      "inputs": [
+        {
+          "required": true,
+          "example": "Hello World",
+          "comments": "The message to generate a hash of",
+          "key": "message",
+          "type": "string",
+          "default": "",
+          "label": "Message"
+        }
+      ]
+    },
+    "computesha512": {
+      "display": {
+        "label": "Compute SHA512 Hash",
+        "description": "Compute the SHA512 hash of a string"
+      },
+      "examplePayload": {
+        "data": {
+          "hex": "<hex encoded hash value>",
+          "base64": "<base64 encoded hash value>"
+        }
+      },
+      "key": "computesha512",
+      "inputs": [
+        {
+          "required": true,
+          "example": "Hello World",
+          "comments": "The message to generate a hash of",
+          "key": "message",
+          "type": "string",
+          "default": "",
+          "label": "Message"
+        }
+      ]
+    },
+    "computesha512-224": {
+      "display": {
+        "label": "Compute SHA512-224 Hash",
+        "description": "Compute the SHA512-224 hash of a string"
+      },
+      "examplePayload": {
+        "data": {
+          "hex": "<hex encoded hash value>",
+          "base64": "<base64 encoded hash value>"
+        }
+      },
+      "key": "computesha512-224",
+      "inputs": [
+        {
+          "required": true,
+          "example": "Hello World",
+          "comments": "The message to generate a hash of",
+          "key": "message",
+          "type": "string",
+          "default": "",
+          "label": "Message"
+        }
+      ]
+    },
+    "computesha512-256": {
+      "display": {
+        "label": "Compute SHA512-256 Hash",
+        "description": "Compute the SHA512-256 hash of a string"
+      },
+      "examplePayload": {
+        "data": {
+          "hex": "<hex encoded hash value>",
+          "base64": "<base64 encoded hash value>"
+        }
+      },
+      "key": "computesha512-256",
+      "inputs": [
+        {
+          "required": true,
+          "example": "Hello World",
+          "comments": "The message to generate a hash of",
+          "key": "message",
+          "type": "string",
+          "default": "",
+          "label": "Message"
+        }
+      ]
+    },
+    "computesm3": {
+      "display": {
+        "label": "Compute SM3 Hash",
+        "description": "Compute the SM3 hash of a string"
+      },
+      "examplePayload": {
+        "data": {
+          "hex": "<hex encoded hash value>",
+          "base64": "<base64 encoded hash value>"
+        }
+      },
+      "key": "computesm3",
+      "inputs": [
+        {
+          "required": true,
+          "example": "Hello World",
+          "comments": "The message to generate a hash of",
+          "key": "message",
+          "type": "string",
+          "default": "",
+          "label": "Message"
+        }
+      ]
+    },
+    "computewhirlpool": {
+      "display": {
+        "label": "Compute whirlpool Hash",
+        "description": "Compute the whirlpool hash of a string"
+      },
+      "examplePayload": {
+        "data": {
+          "hex": "<hex encoded hash value>",
+          "base64": "<base64 encoded hash value>"
+        }
+      },
+      "key": "computewhirlpool",
+      "inputs": [
+        {
+          "required": true,
+          "example": "Hello World",
+          "comments": "The message to generate a hash of",
+          "key": "message",
+          "type": "string",
+          "default": "",
+          "label": "Message"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "hmacWebhookTrigger": {
+      "display": {
+        "label": "HMAC Webhook Trigger",
+        "description": "Validate a payload using an HMAC hash function"
+      },
+      "synchronousResponseSupport": "valid",
+      "scheduleSupport": "invalid",
+      "isCommonTrigger": false,
+      "key": "hmacWebhookTrigger",
+      "inputs": [
+        {
+          "required": false,
+          "example": "200",
+          "model": [
+            {
+              "label": "100 Continue",
+              "value": "100"
+            },
+            {
+              "label": "101 Switching Protocols",
+              "value": "101"
+            },
+            {
+              "label": "200 OK",
+              "value": "200"
+            },
+            {
+              "label": "201 Created",
+              "value": "201"
+            },
+            {
+              "label": "202 Accepted",
+              "value": "202"
+            },
+            {
+              "label": "203 Non-Authoritative Information",
+              "value": "203"
+            },
+            {
+              "label": "204 No Content",
+              "value": "204"
+            },
+            {
+              "label": "205 Reset Content",
+              "value": "205"
+            },
+            {
+              "label": "206 Partial Content",
+              "value": "206"
+            },
+            {
+              "label": "300 Multiple Choices",
+              "value": "300"
+            },
+            {
+              "label": "301 Moved Permanently",
+              "value": "301"
+            },
+            {
+              "label": "302 Found",
+              "value": "302"
+            },
+            {
+              "label": "303 See Other",
+              "value": "303"
+            },
+            {
+              "label": "304 Not Modified",
+              "value": "304"
+            },
+            {
+              "label": "307 Temporary Redirect",
+              "value": "307"
+            },
+            {
+              "label": "400 Bad Request",
+              "value": "400"
+            },
+            {
+              "label": "401 Unauthorized",
+              "value": "401"
+            },
+            {
+              "label": "402 Payment Required",
+              "value": "402"
+            },
+            {
+              "label": "403 Forbidden",
+              "value": "403"
+            },
+            {
+              "label": "404 Not Found",
+              "value": "404"
+            },
+            {
+              "label": "405 Method Not Allowed",
+              "value": "405"
+            },
+            {
+              "label": "406 Not Acceptable",
+              "value": "406"
+            },
+            {
+              "label": "407 Proxy Authentication Required",
+              "value": "407"
+            },
+            {
+              "label": "408 Request Timeout",
+              "value": "408"
+            },
+            {
+              "label": "409 Conflict",
+              "value": "409"
+            },
+            {
+              "label": "410 Gone",
+              "value": "410"
+            },
+            {
+              "label": "411 Length Required",
+              "value": "411"
+            },
+            {
+              "label": "412 Precondition Failed",
+              "value": "412"
+            },
+            {
+              "label": "413 Payload Too Large",
+              "value": "413"
+            },
+            {
+              "label": "414 URI Too Long",
+              "value": "414"
+            },
+            {
+              "label": "415 Unsupported Media Type",
+              "value": "415"
+            },
+            {
+              "label": "416 Range Not Satisfiable",
+              "value": "416"
+            },
+            {
+              "label": "417 Expectation Failed",
+              "value": "417"
+            },
+            {
+              "label": "426 Upgrade Required",
+              "value": "426"
+            },
+            {
+              "label": "428 Precondition Required",
+              "value": "428"
+            },
+            {
+              "label": "429 Too Many Requests",
+              "value": "429"
+            },
+            {
+              "label": "431 Request Header Fields Too Large",
+              "value": "431"
+            },
+            {
+              "label": "451 Unavailable For Legal Reasons",
+              "value": "451"
+            }
+          ],
+          "comments": "The HTTP status code to use for the response",
+          "key": "statusCode",
+          "type": "string",
+          "default": "",
+          "label": "Response Status Code"
+        },
+        {
+          "required": false,
+          "example": "application/json",
+          "model": [
+            {
+              "label": "application/json",
+              "value": "application/json"
+            },
+            {
+              "label": "application/octet-stream",
+              "value": "application/octet-stream"
+            },
+            {
+              "label": "application/xhtml+xml",
+              "value": "application/xhtml+xml"
+            },
+            {
+              "label": "application/xml",
+              "value": "application/xml"
+            },
+            {
+              "label": "text/css",
+              "value": "text/css"
+            },
+            {
+              "label": "text/csv",
+              "value": "text/csv"
+            },
+            {
+              "label": "text/html",
+              "value": "text/html"
+            },
+            {
+              "label": "text/plain",
+              "value": "text/plain"
+            },
+            {
+              "label": "text/xml",
+              "value": "text/xml"
+            }
+          ],
+          "comments": "The Content-Type header to use for the response",
+          "key": "contentType",
+          "type": "string",
+          "default": "",
+          "label": "Response Content Type"
+        },
+        {
+          "required": false,
+          "comments": "List of key/value pairs to use as additional headers for the response",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Additional Response Headers"
+        },
+        {
+          "required": false,
+          "example": "{\"status\":\"success\"}",
+          "comments": "The body to use for the response",
+          "key": "body",
+          "type": "string",
+          "default": "",
+          "label": "Response Body"
+        },
+        {
+          "required": true,
+          "example": "x-hmac-sha256",
+          "comments": "The name of the header that contains the HMAC hash of the payload's body",
+          "key": "hmacHeaderName",
+          "type": "string",
+          "default": "",
+          "label": "HMAC Header Name"
+        },
+        {
+          "required": true,
+          "example": "p@$sW0Rd",
+          "comments": "The cryptographic secret key used to hash the payload's body. This must be a string or byte array",
+          "key": "secretKey",
+          "type": "string",
+          "default": "",
+          "label": "Secret Key"
+        },
+        {
+          "required": true,
+          "example": "md5",
+          "model": [
+            {
+              "label": "BLAKE2b512",
+              "value": "blake2b512"
+            },
+            {
+              "label": "BLAKE2s256",
+              "value": "blake2s256"
+            },
+            {
+              "label": "MD4",
+              "value": "md4"
+            },
+            {
+              "label": "MD5",
+              "value": "md5"
+            },
+            {
+              "label": "MD5-SHA1",
+              "value": "md5-sha1"
+            },
+            {
+              "label": "RIPEMD160",
+              "value": "ripemd160"
+            },
+            {
+              "label": "SHA1",
+              "value": "sha1"
+            },
+            {
+              "label": "SHA224",
+              "value": "sha224"
+            },
+            {
+              "label": "SHA256",
+              "value": "sha256"
+            },
+            {
+              "label": "SHA3-224",
+              "value": "sha3-224"
+            },
+            {
+              "label": "SHA3-256",
+              "value": "sha3-256"
+            },
+            {
+              "label": "SHA3-384",
+              "value": "sha3-384"
+            },
+            {
+              "label": "SHA3-512",
+              "value": "sha3-512"
+            },
+            {
+              "label": "SHA384",
+              "value": "sha384"
+            },
+            {
+              "label": "SHA512",
+              "value": "sha512"
+            },
+            {
+              "label": "SHA512-224",
+              "value": "sha512-224"
+            },
+            {
+              "label": "SHA512-256",
+              "value": "sha512-256"
+            },
+            {
+              "label": "SM3",
+              "value": "sm3"
+            },
+            {
+              "label": "whirlpool",
+              "value": "whirlpool"
+            }
+          ],
+          "key": "hashFunction",
+          "type": "string",
+          "default": "sha256",
+          "label": "HMAC Hash Function"
+        }
+      ],
+      "documentation": {
+        "description": "HMAC (or hash-based message authentication code) is an authentication mechanism that allows you verify that incoming webhook messages are genuine.\n\n#### How does HMAC work?\n\nAn external system (yours or a third-party) produces a cryptographic hash of the webhook payload's body using a secret key, and sends the hash as an HTTP header along with the webhook request.\nOnly the external system and your integration know the secret key.\n\nThis trigger, then, uses the secret key to produce a hash of the received payload.\nIf the hash generated in the trigger matches the hash sent as a header, the payload is processed.\nIf the hashes do not match, an error is thrown and the integration does not run.\nThis prevents a bad actor from sending bogus payloads to your instances - they cannot spoof an HMAC hash without the correct signing key.\n\nYou can read more about HMAC on our [blog](https://prismatic.io/blog/how-secure-webhook-endpoints-hmac/).\n\n#### Example HMAC Signature\n\nSuppose you would like to sign a JSON payload that reads `{\"foo\":\"bar\",\"baz\":123,\"buz\":false}` using the SHA256 hashing algorithm (you can use a number of hashing algorithms, SHA256 being the most common for HMAC).\nYou've chosen a secret key of `secret123` (please use a more complex secret!).\nYou can generate a hash in NodeJS using the `crypto` module:\n\n```js title=\"Compute an HMAC hash in a third-party system\"\nconst body = '{\"foo\":\"bar\",\"baz\":123,\"buz\":false}';\nconst hmac = crypto.createHmac(\"sha256\", \"secret123\");\nconst hash = hmac.update(body, \"utf-8\").digest(\"hex\");\n// Generates 44cfc2defd77a70bedef0228634c45800fce1e678174895e984bd608c221bdb8\n```\n\nMost modern languages have HMAC libraries: [NodeJS](https://nodejs.org/api/crypto.html), [Python](https://docs.python.org/3/library/hmac.html), [PHP](https://www.php.net/manual/en/function.hash-hmac.php), [.NET C#](https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.hmac?view=net-6.0).\n\nYou can then take that hash and pass it in as a header in a webhook invocation request:\n\n```bash\ncurl https://hooks.prismatic.io/example \\\n  --request POST \\\n  --header \"my-hmac-hash: 44cfc2defd77a70bedef0228634c45800fce1e678174895e984bd608c221bdb8\" \\\n  --header \"content-type: application/json\" \\\n  --data '{\"foo\":\"bar\",\"baz\":123,\"buz\":false}'\n```\n\nWhen you configure your HMAC trigger in Prismatic, then, you can enter `secret123` as your **HMAC Secret Key**, `my-hmac-hash` as your **HMAC Header Name**, and `SHA256` as your **HMAC Algorithm** (you can obviously change those values).\n"
+      }
+    }
+  },
+  "documentation": {
+    "description": "The **Hash** component allows you to compute the hash of a string using a variety of common hash functions (MD5, SHA256, etc).\n"
+  },
+  "$version": 1
+}

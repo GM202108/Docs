@@ -1,0 +1,17 @@
+---
+id: UpdateAlertWebhookInput
+title: UpdateAlertWebhookInput Input Object
+sidebar_label: UpdateAlertWebhookInput
+description: Learn how to use the UpdateAlertWebhookInput Input Object for Prismatic's API.
+---
+
+## Input fields
+
+| Argument           | Type                                     | Description                                                                           |
+| ------------------ | ---------------------------------------- | ------------------------------------------------------------------------------------- |
+| `name`             | [`String`](api/schema/scalar/String.mdx) | The name of the AlertWebhook.                                                         |
+| `url`              | [`String`](api/schema/scalar/String.mdx) | The URL of the AlertWebhook.                                                          |
+| `payloadTemplate`  | [`String`](api/schema/scalar/String.mdx) | The template that is hydrated and then used as the body of the AlertWebhook request.  |
+| `headers`          | [`String`](api/schema/scalar/String.mdx) | A JSON string of key/value pairs that will be sent as headers in the Webhook request. |
+| `id`               | [`ID`](api/schema/scalar/ID.mdx)         | The ID of the AlertWebhook to mutate.                                                 |
+| `clientMutationId` | [`String`](api/schema/scalar/String.mdx) | A unique identifier for the client performing the mutation.                           |

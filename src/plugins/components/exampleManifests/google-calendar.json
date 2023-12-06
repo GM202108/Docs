@@ -1,0 +1,938 @@
+{
+  "key": "google-calendar",
+  "public": true,
+  "documentationUrl": "https://prismatic.io/docs/components/google-calendar/",
+  "display": {
+    "label": "Google Calendar",
+    "description": "Manage calendars and events in Google Calendar",
+    "iconPath": "icon.png",
+    "category": "Application Connectors",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "oauth2Type": "authorization_code",
+      "key": "oauth2",
+      "label": "Google Calendar OAuth 2.0",
+      "comments": "Authenticate requests to Google Calendar using values obtained from the Google Cloud Platform.",
+      "iconPath": "oauth-button.png",
+      "inputs": [
+        {
+          "placeholder": "Authorize URL",
+          "required": true,
+          "shown": false,
+          "comments": "The OAuth 2.0 Authorization URL for Google Calendar",
+          "key": "authorizeUrl",
+          "type": "string",
+          "default": "https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&prompt=consent",
+          "label": "Authorize URL"
+        },
+        {
+          "placeholder": "Token URL",
+          "required": true,
+          "shown": false,
+          "comments": "The OAuth 2.0 Token URL for Google Calendar",
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "https://oauth2.googleapis.com/token",
+          "label": "Token URL"
+        },
+        {
+          "placeholder": "Scopes",
+          "required": false,
+          "shown": true,
+          "comments": "A space-delimited set of one or more scopes to get the user's permission to access.",
+          "key": "scopes",
+          "type": "string",
+          "default": "https://www.googleapis.com/auth/calendar",
+          "label": "Scopes"
+        },
+        {
+          "placeholder": "Client ID",
+          "required": true,
+          "comments": "Provide a string value for the client Id of your OAuth 2.0 application.",
+          "shown": true,
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "Client ID"
+        },
+        {
+          "placeholder": "Client Secret",
+          "comments": "Provide a string value for the client secret of your OAuth 2.0 application.",
+          "required": true,
+          "shown": true,
+          "key": "clientSecret",
+          "type": "password",
+          "default": "",
+          "label": "Client Secret"
+        }
+      ],
+      "documentation": {
+        "description": "The Google Calendar component authenticates requests through Google's OAuth service.\nTo create a Google Calendar developer account and authenticate using Google OAuth, follow the directions [here](https://developers.google.com/calendar/api/guides/auth)\nNow, you will have to configure OAuth 2.0 settings in Prismatic.\nCreate a new Google Calendar connection of type **OAuth 2.0**.\n\n-   For **Client ID** and **Client Secret** enter the values that you got from the Google Cloud Platform auth settings.\n-   For **Scopes** choose from the list found on the [Google docs](https://developers.google.com/identity/protocols/oauth2/scopes)\n"
+      }
+    }
+  ],
+  "actions": {
+    "listCalendar": {
+      "display": {
+        "label": "List Calendars",
+        "description": "List all calendars"
+      },
+      "key": "listCalendar",
+      "inputs": [
+        {
+          "required": false,
+          "comments": "Specify the pagination token that's returned by a previous request to retrieve the next page of results",
+          "example": "lslTXFcbLQKkb0vP9Kgh5hy0Y0OnC7Z9ZPHPwPmMnxSk3eiDRMkct7D8E",
+          "key": "pageToken",
+          "type": "string",
+          "default": "",
+          "label": "Page Token"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 50.",
+          "example": "20",
+          "key": "maxResults",
+          "type": "string",
+          "default": "",
+          "label": "Max Results"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createCalendar": {
+      "display": {
+        "label": "Create Calendar",
+        "description": "Create a new calendar"
+      },
+      "key": "createCalendar",
+      "inputs": [
+        {
+          "required": true,
+          "example": "This is an example summary.",
+          "comments": "Provide a string value for the summary.",
+          "key": "summary",
+          "type": "string",
+          "default": "",
+          "label": "Summary"
+        },
+        {
+          "example": "This is an example description",
+          "required": true,
+          "comments": "Provide a string value for the description.",
+          "key": "description",
+          "type": "string",
+          "default": "",
+          "label": "Description"
+        },
+        {
+          "required": true,
+          "example": "America/Chicago",
+          "comments": "Provide a valid value for the timezone of the event. For a complete list of timezones refer to the google docs.",
+          "key": "timeZone",
+          "type": "string",
+          "default": "",
+          "label": "Time Zone "
+        },
+        {
+          "required": true,
+          "key": "googleConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getCalendar": {
+      "display": {
+        "label": "Get Calendar",
+        "description": "Get the information and metadata of a calendar by Id"
+      },
+      "key": "getCalendar",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "exampleId",
+          "comments": "Provide a string value for the id of the calendar.",
+          "key": "calendarId",
+          "type": "string",
+          "default": "",
+          "label": "Calendar Id"
+        }
+      ]
+    },
+    "deleteCalendar": {
+      "display": {
+        "label": "Delete Calendar",
+        "description": "Delete an existing calendar by Id"
+      },
+      "key": "deleteCalendar",
+      "inputs": [
+        {
+          "required": true,
+          "example": "exampleId",
+          "comments": "Provide a string value for the id of the calendar.",
+          "key": "calendarId",
+          "type": "string",
+          "default": "",
+          "label": "Calendar Id"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listEvents": {
+      "display": {
+        "label": "List Events",
+        "description": "List all events in a given calendar"
+      },
+      "key": "listEvents",
+      "inputs": [
+        {
+          "required": true,
+          "key": "googleConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "exampleId",
+          "comments": "Provide a string value for the id of the calendar.",
+          "key": "calendarId",
+          "type": "string",
+          "default": "",
+          "label": "Calendar Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 50.",
+          "example": "20",
+          "key": "maxResults",
+          "type": "string",
+          "default": "",
+          "label": "Max Results"
+        },
+        {
+          "required": false,
+          "comments": "Specify the pagination token that's returned by a previous request to retrieve the next page of results",
+          "example": "lslTXFcbLQKkb0vP9Kgh5hy0Y0OnC7Z9ZPHPwPmMnxSk3eiDRMkct7D8E",
+          "key": "pageToken",
+          "type": "string",
+          "default": "",
+          "label": "Page Token"
+        },
+        {
+          "required": false,
+          "comments": "Specify the token for syncing the latest resources that have been modified since the last sync request",
+          "example": "lslTXFcbLQKkb0vP9Kgh5hy0Y0OnC7Z9ZPHPwPmMnxSk3eiDRMkct7D8E",
+          "key": "syncToken",
+          "type": "string",
+          "default": "",
+          "label": "Sync Token"
+        },
+        {
+          "comments": "The maximum number of attendees to include in the response. If there are more than the specified number of attendees, only the participant is returned. Optional. ",
+          "key": "maxAttendees",
+          "type": "string",
+          "default": "",
+          "label": "Max Attendees"
+        },
+        {
+          "comments": "The order of the events returned in the result. Optional. The default is an unspecified, stable order.",
+          "model": [
+            {
+              "label": "Start Time",
+              "value": "startTime"
+            },
+            {
+              "label": "Updated",
+              "value": "updated"
+            }
+          ],
+          "required": false,
+          "key": "orderBy",
+          "type": "string",
+          "default": "",
+          "label": "Order By"
+        },
+        {
+          "comments": "Free text search terms to find events that match these terms in the following fields: summary, description, location, attendee's displayName, attendee's email",
+          "required": false,
+          "key": "q",
+          "type": "string",
+          "default": "",
+          "label": "Query"
+        },
+        {
+          "required": false,
+          "key": "showDeleted",
+          "type": "boolean",
+          "default": false,
+          "label": "Show Deleted"
+        },
+        {
+          "required": false,
+          "key": "showHiddenInvitations",
+          "type": "boolean",
+          "default": "false",
+          "label": "Show Hidden Invitations"
+        },
+        {
+          "comments": "Whether to expand recurring events into instances and only return single one-off events and instances of recurring events, but not the underlying recurring events themselves. Optional. The default is False.",
+          "required": false,
+          "key": "singleEvents",
+          "type": "boolean",
+          "default": false,
+          "label": "Single Events"
+        },
+        {
+          "comments": "Lower bound for an event's end time to filter by.",
+          "key": "timeMin",
+          "type": "string",
+          "default": "",
+          "label": "Time Min"
+        },
+        {
+          "required": false,
+          "comments": "Upper bound for an event's start time to filter by. Must be a timestamp with timezone offset, 2011-06-03T10:00:00-07:00",
+          "key": "timeMax",
+          "type": "string",
+          "default": "",
+          "label": "Time Max"
+        },
+        {
+          "required": false,
+          "comments": "Lower bound for an event's last modification time (as a RFC 3339 timestamp) to filter by. When specified, entries deleted since this time will always be included regardless of showDeleted. Optional. The default is not to filter by last modification time.",
+          "key": "updatedMin",
+          "type": "string",
+          "default": "",
+          "label": "Updated Min"
+        },
+        {
+          "comments": "Time zone used in the response. Optional. ",
+          "required": false,
+          "key": "timeZone",
+          "type": "string",
+          "default": "",
+          "label": "Time Zone"
+        }
+      ]
+    },
+    "createEvent": {
+      "display": {
+        "label": "Create Event",
+        "description": "Create a new event in a given calendar"
+      },
+      "key": "createEvent",
+      "inputs": [
+        {
+          "required": true,
+          "example": "exampleId",
+          "comments": "Provide a string value for the id of the calendar.",
+          "key": "calendarId",
+          "type": "string",
+          "default": "",
+          "label": "Calendar Id"
+        },
+        {
+          "required": true,
+          "example": "This is an example summary.",
+          "comments": "Provide a string value for the summary.",
+          "key": "summary",
+          "type": "string",
+          "default": "",
+          "label": "Summary"
+        },
+        {
+          "example": "This is an example description",
+          "required": true,
+          "comments": "Provide a string value for the description.",
+          "key": "description",
+          "type": "string",
+          "default": "",
+          "label": "Description"
+        },
+        {
+          "required": true,
+          "example": "America/Chicago",
+          "comments": "Provide a valid value for the timezone of the event. For a complete list of timezones refer to the google docs.",
+          "key": "timeZone",
+          "type": "string",
+          "default": "",
+          "label": "Time Zone "
+        },
+        {
+          "required": true,
+          "example": "2015-05-28T17:00:00-07:00",
+          "comments": "Provide a date time value for the starting time of the event.",
+          "key": "startTime",
+          "type": "string",
+          "default": "",
+          "label": "Start Time"
+        },
+        {
+          "required": true,
+          "example": "2015-05-28T17:00:00-07:00",
+          "comments": "Provide a date time value for the ending time of the event.",
+          "key": "endTime",
+          "type": "string",
+          "default": "",
+          "label": "End Time"
+        },
+        {
+          "example": "The Rec Center",
+          "required": true,
+          "comments": "Provide a string value for the location of the event.",
+          "key": "eventLocation",
+          "type": "string",
+          "default": "",
+          "label": "Event Location"
+        },
+        {
+          "language": "json",
+          "required": false,
+          "comments": "Provide an array of attendee objects as described at https://developers.google.com/calendar/api/v3/reference/events/insert",
+          "key": "attendees",
+          "type": "code",
+          "default": "[\n  {\n    \"email\": \"lpage@example.com\",\n    \"optional\": true\n  },\n  {\n    \"email\": \"sbrin@example.com\",\n    \"optional\": false\n  }\n]",
+          "label": "Attendees"
+        },
+        {
+          "model": [
+            {
+              "label": "Email",
+              "value": "email"
+            },
+            {
+              "label": "Popup",
+              "value": "popup"
+            }
+          ],
+          "required": false,
+          "comments": "This field is only required if useDefaultReminder is set to false.",
+          "key": "remindMethod",
+          "type": "string",
+          "default": "",
+          "label": "Remind Method"
+        },
+        {
+          "required": true,
+          "comments": "If this field is true, the event will use the default reminder settings.",
+          "key": "useDefaultReminder",
+          "type": "boolean",
+          "default": "false",
+          "label": "Default Reminder"
+        },
+        {
+          "example": "30",
+          "required": false,
+          "comments": "This field is only required if useDefaultReminder is set to false.",
+          "key": "remindMinutes",
+          "type": "string",
+          "default": "",
+          "label": "Remind Before (minutes)"
+        },
+        {
+          "required": false,
+          "comments": "Creates a Google Meet link when set to true.",
+          "key": "addConferenceEvent",
+          "type": "boolean",
+          "default": "false",
+          "label": "Add Conference Event"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "model": [
+            {
+              "label": "",
+              "value": ""
+            },
+            {
+              "label": "All",
+              "value": "all"
+            },
+            {
+              "label": "External Only",
+              "value": "externalOnly"
+            },
+            {
+              "label": "None",
+              "value": "none"
+            }
+          ],
+          "required": false,
+          "comments": "Whether to send notifications about the creation of the new event. Note that some emails might still be sent. The default is false.",
+          "key": "sendUpdates",
+          "type": "string",
+          "default": "",
+          "label": "Send Updates"
+        }
+      ]
+    },
+    "getEvent": {
+      "display": {
+        "label": "Get Event",
+        "description": "Get the information and metadata of an event by Id"
+      },
+      "key": "getEvent",
+      "inputs": [
+        {
+          "required": true,
+          "example": "exampleId",
+          "comments": "Provide a string value for the id of the calendar.",
+          "key": "calendarId",
+          "type": "string",
+          "default": "",
+          "label": "Calendar Id"
+        },
+        {
+          "example": "The Rec Center",
+          "required": true,
+          "comments": "Provide the unique identifier of the event.",
+          "key": "eventId",
+          "type": "string",
+          "default": "",
+          "label": "Event Id"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "updateEvent": {
+      "display": {
+        "label": "Update Event",
+        "description": "Update the information and metadata of an existing event"
+      },
+      "key": "updateEvent",
+      "inputs": [
+        {
+          "required": true,
+          "example": "exampleId",
+          "comments": "Provide a string value for the id of the calendar.",
+          "key": "calendarId",
+          "type": "string",
+          "default": "",
+          "label": "Calendar Id"
+        },
+        {
+          "example": "The Rec Center",
+          "required": true,
+          "comments": "Provide the unique identifier of the event.",
+          "key": "eventId",
+          "type": "string",
+          "default": "",
+          "label": "Event Id"
+        },
+        {
+          "required": false,
+          "example": "This is an example summary.",
+          "comments": "Provide a string value for the summary.",
+          "key": "summary",
+          "type": "string",
+          "default": "",
+          "label": "Summary"
+        },
+        {
+          "example": "This is an example description",
+          "required": false,
+          "comments": "Provide a string value for the description.",
+          "key": "description",
+          "type": "string",
+          "default": "",
+          "label": "Description"
+        },
+        {
+          "required": true,
+          "example": "America/Chicago",
+          "comments": "Provide a valid value for the timezone of the event. For a complete list of timezones refer to the google docs.",
+          "key": "timeZone",
+          "type": "string",
+          "default": "",
+          "label": "Time Zone "
+        },
+        {
+          "required": true,
+          "example": "2015-05-28T17:00:00-07:00",
+          "comments": "Provide a date time value for the starting time of the event.",
+          "key": "startTime",
+          "type": "string",
+          "default": "",
+          "label": "Start Time"
+        },
+        {
+          "required": true,
+          "example": "2015-05-28T17:00:00-07:00",
+          "comments": "Provide a date time value for the ending time of the event.",
+          "key": "endTime",
+          "type": "string",
+          "default": "",
+          "label": "End Time"
+        },
+        {
+          "example": "The Rec Center",
+          "required": false,
+          "comments": "Provide a string value for the location of the event.",
+          "key": "eventLocation",
+          "type": "string",
+          "default": "",
+          "label": "Event Location"
+        },
+        {
+          "language": "json",
+          "required": false,
+          "comments": "Provide an array of attendee objects as described at https://developers.google.com/calendar/api/v3/reference/events/insert",
+          "key": "attendees",
+          "type": "code",
+          "default": "[\n  {\n    \"email\": \"lpage@example.com\",\n    \"optional\": true\n  },\n  {\n    \"email\": \"sbrin@example.com\",\n    \"optional\": false\n  }\n]",
+          "label": "Attendees"
+        },
+        {
+          "required": true,
+          "comments": "If this field is true, the event will use the default reminder settings.",
+          "key": "useDefaultReminder",
+          "type": "boolean",
+          "default": "false",
+          "label": "Default Reminder"
+        },
+        {
+          "model": [
+            {
+              "label": "Email",
+              "value": "email"
+            },
+            {
+              "label": "Popup",
+              "value": "popup"
+            }
+          ],
+          "required": false,
+          "comments": "This field is only required if useDefaultReminder is set to false.",
+          "key": "remindMethod",
+          "type": "string",
+          "default": "",
+          "label": "Remind Method"
+        },
+        {
+          "example": "30",
+          "required": false,
+          "comments": "This field is only required if useDefaultReminder is set to false.",
+          "key": "remindMinutes",
+          "type": "string",
+          "default": "",
+          "label": "Remind Before (minutes)"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteEvent": {
+      "display": {
+        "label": "Delete Event",
+        "description": "Delete an event by an Id"
+      },
+      "key": "deleteEvent",
+      "inputs": [
+        {
+          "required": true,
+          "example": "exampleId",
+          "comments": "Provide a string value for the id of the calendar.",
+          "key": "calendarId",
+          "type": "string",
+          "default": "",
+          "label": "Calendar Id"
+        },
+        {
+          "example": "The Rec Center",
+          "required": true,
+          "comments": "Provide the unique identifier of the event.",
+          "key": "eventId",
+          "type": "string",
+          "default": "",
+          "label": "Event Id"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "rawRequest": {
+      "display": {
+        "label": "Raw Request",
+        "description": "Send a raw HTTP request to Google Calendar API"
+      },
+      "key": "rawRequest",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "Input the path only (/colors), The base URL is already included (https://www.googleapis.com/calendar/v3). For example, to connect to https://www.googleapis.com/calendar/v3/colors, only /colors is entered in this field.",
+          "example": "/colors",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "The file name to apply to a file",
+          "required": false,
+          "comments": "File names to apply to the file data inputs. Keys must match the file data keys above.",
+          "key": "fileDataFileNames",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data File Names"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        }
+      ]
+    }
+  },
+  "triggers": {},
+  "dataSources": {
+    "calendars": {
+      "display": {
+        "label": "Calendars",
+        "description": "Get a list of available calendars"
+      },
+      "dataSourceType": "picklist",
+      "examplePayload": {
+        "result": [
+          {
+            "label": "123-456-7890",
+            "key": "1234567890"
+          }
+        ]
+      },
+      "key": "calendars",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    }
+  },
+  "documentation": {
+    "description": "[Google Calendar](https://calendar.google.com/calendar/) is a time-management and scheduling calendar service developed by Google.\nThis component allows you to create, read, update and delete events and calendars connected to your Google account.\n"
+  },
+  "$version": 1
+}

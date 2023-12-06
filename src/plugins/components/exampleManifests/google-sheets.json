@@ -1,0 +1,683 @@
+{
+  "key": "google-sheets",
+  "documentationUrl": "https://prismatic.io/docs/components/google-sheets/",
+  "public": true,
+  "display": {
+    "label": "Google Sheets",
+    "description": "Create, read, and modify Google Spreadsheets",
+    "iconPath": "icon.png",
+    "category": "Data Platforms",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "oauth2Type": "authorization_code",
+      "key": "oauth2",
+      "label": "Google Sheets OAuth 2.0",
+      "comments": "Authenticate requests to Google Sheets using values obtained from the Google Cloud Platform.",
+      "iconPath": "oauth-button.png",
+      "inputs": [
+        {
+          "placeholder": "Authorize URL",
+          "required": true,
+          "shown": false,
+          "comments": "The OAuth 2.0 Authorization URL for Google Sheets",
+          "key": "authorizeUrl",
+          "type": "string",
+          "default": "https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&prompt=consent",
+          "label": "Authorize URL"
+        },
+        {
+          "placeholder": "Token URL",
+          "required": true,
+          "shown": false,
+          "comments": "The OAuth 2.0 Token URL for Google Sheets",
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "https://oauth2.googleapis.com/token",
+          "label": "Token URL"
+        },
+        {
+          "placeholder": "Scopes",
+          "required": false,
+          "shown": true,
+          "comments": "A space-delimited set of one or more scopes to get the user's permission to access.",
+          "key": "scopes",
+          "type": "string",
+          "default": "https://www.googleapis.com/auth/spreadsheets",
+          "label": "Scopes"
+        },
+        {
+          "placeholder": "Client ID",
+          "required": true,
+          "shown": true,
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "Client ID"
+        },
+        {
+          "placeholder": "Client Secret",
+          "required": true,
+          "shown": true,
+          "key": "clientSecret",
+          "type": "password",
+          "default": "",
+          "label": "Client Secret"
+        }
+      ],
+      "documentation": {
+        "description": "The Google Sheets component authenticates requests through Google's OAuth service.\nTo create a Google Sheets developer account and authenticate using Google OAuth, follow directions [here](https://developers.google.com/sheets/api/quickstart/quickstarts-overview?hl=en)\nNow, you will have to configure OAuth 2.0 settings in Prismatic.\nCreate a new Google Sheets connection.\n\n-   For **Client ID** and **Client Secret** enter the values that you got from the Google Cloud Platform auth settings.\n-   For **Scopes** choose from the list found on the [Google docs](https://developers.google.com/identity/protocols/oauth2/scopes)\n"
+      }
+    }
+  ],
+  "actions": {
+    "addSheet": {
+      "display": {
+        "label": "Add Worksheet",
+        "description": "Add a new Worksheet to a Google Sheet Document"
+      },
+      "key": "addSheet",
+      "inputs": [
+        {
+          "placeholder": "Spreadsheet ID",
+          "required": true,
+          "example": "12SawrJM-AcbLMgorjcyaGpPrKnNTp7FPot4yvM1ehbI",
+          "comments": "Every spreadsheet is represented by a Spreadsheet resource and has a unique spreadsheetId value, containing letters, numbers, hyphens, or underscores. You can find the spreadsheet ID in a Google Sheets URL. ",
+          "key": "spreadsheetId",
+          "type": "string",
+          "default": "",
+          "label": "Spreadsheet ID"
+        },
+        {
+          "placeholder": "Title",
+          "required": true,
+          "example": "MySpreadSheet",
+          "comments": "Specifies the title of the sheet.",
+          "key": "title",
+          "type": "string",
+          "default": "",
+          "label": "Worksheet Title"
+        },
+        {
+          "placeholder": "Headings",
+          "required": true,
+          "example": "[\"Column 1\",\"Column 2\",\"Column 3\"]",
+          "comments": "An array of strings that are the column headings.",
+          "key": "headers",
+          "type": "data",
+          "default": "",
+          "label": "Column Headings"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "appendRows": {
+      "display": {
+        "label": "Append Rows",
+        "description": "Append new rows to a Worksheet"
+      },
+      "key": "appendRows",
+      "inputs": [
+        {
+          "placeholder": "Spreadsheet ID",
+          "required": true,
+          "example": "12SawrJM-AcbLMgorjcyaGpPrKnNTp7FPot4yvM1ehbI",
+          "comments": "Every spreadsheet is represented by a Spreadsheet resource and has a unique spreadsheetId value, containing letters, numbers, hyphens, or underscores. You can find the spreadsheet ID in a Google Sheets URL. ",
+          "key": "spreadsheetId",
+          "type": "string",
+          "default": "",
+          "label": "Spreadsheet ID"
+        },
+        {
+          "placeholder": "Title",
+          "required": true,
+          "example": "MySpreadSheet",
+          "comments": "Specifies the title of the sheet.",
+          "key": "title",
+          "type": "string",
+          "default": "",
+          "label": "Worksheet Title"
+        },
+        {
+          "placeholder": "Rows",
+          "language": "json",
+          "required": true,
+          "example": "[[1,2,3], [4,5,6]] or [\n  {\n    \"Column 1\": \"a\",\n    \"Column 2\": \"b\",\n    \"Column 3\": \"c\"\n  },\n  {\n    \"Column 1\": \"d\",\n    \"Column 2\": \"e\",\n    \"Column 3\": \"f\"\n  }\n]",
+          "comments": "Can be an array of arrays, with the outer array items representing the rows and the inner array values being the cell values. Can also be an array of objects, where the object keys are the corresponding column header values and the object values are the cell values.",
+          "key": "rows",
+          "type": "code",
+          "default": "",
+          "label": "Rows"
+        },
+        {
+          "required": true,
+          "comments": "Specifies whether values should be converted as if they were typed into the spreadsheet or whether to store the raw values as provided.",
+          "key": "storeRawValues",
+          "type": "boolean",
+          "default": "false",
+          "label": "Store Raw Values"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "clearSheet": {
+      "display": {
+        "label": "Clear Worksheet",
+        "description": "Clear all data in the a Worksheet"
+      },
+      "key": "clearSheet",
+      "inputs": [
+        {
+          "placeholder": "Spreadsheet ID",
+          "required": true,
+          "example": "12SawrJM-AcbLMgorjcyaGpPrKnNTp7FPot4yvM1ehbI",
+          "comments": "Every spreadsheet is represented by a Spreadsheet resource and has a unique spreadsheetId value, containing letters, numbers, hyphens, or underscores. You can find the spreadsheet ID in a Google Sheets URL. ",
+          "key": "spreadsheetId",
+          "type": "string",
+          "default": "",
+          "label": "Spreadsheet ID"
+        },
+        {
+          "placeholder": "Title",
+          "required": true,
+          "example": "MySpreadSheet",
+          "comments": "Specifies the title of the sheet.",
+          "key": "title",
+          "type": "string",
+          "default": "",
+          "label": "Worksheet Title"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createDocument": {
+      "display": {
+        "label": "Create Spreadsheet",
+        "description": "Create a new Google Sheet Document"
+      },
+      "key": "createDocument",
+      "inputs": [
+        {
+          "placeholder": "Title",
+          "required": true,
+          "example": "MySpreadSheet",
+          "comments": "Specifies the title of the document.",
+          "key": "title",
+          "type": "string",
+          "default": "",
+          "label": "Document Title"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getRows": {
+      "display": {
+        "label": "Get Rows",
+        "description": "Get the cell values of rows in a Worksheet"
+      },
+      "examplePayload": {
+        "data": [
+          {
+            "Column 1": "a",
+            "Column 2": "b"
+          },
+          {
+            "Column 1": "c",
+            "Column 2": "d"
+          }
+        ]
+      },
+      "key": "getRows",
+      "inputs": [
+        {
+          "placeholder": "Spreadsheet ID",
+          "required": true,
+          "example": "12SawrJM-AcbLMgorjcyaGpPrKnNTp7FPot4yvM1ehbI",
+          "comments": "Every spreadsheet is represented by a Spreadsheet resource and has a unique spreadsheetId value, containing letters, numbers, hyphens, or underscores. You can find the spreadsheet ID in a Google Sheets URL. ",
+          "key": "spreadsheetId",
+          "type": "string",
+          "default": "",
+          "label": "Spreadsheet ID"
+        },
+        {
+          "placeholder": "Title",
+          "required": true,
+          "example": "MySpreadSheet",
+          "comments": "Specifies the title of the sheet.",
+          "key": "title",
+          "type": "string",
+          "default": "",
+          "label": "Worksheet Title"
+        },
+        {
+          "placeholder": "Limit",
+          "required": false,
+          "example": "100",
+          "comments": "The number of rows to retrieve at once.",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "placeholder": "Offset",
+          "required": false,
+          "example": "0",
+          "comments": "The number of rows to skip from the top.",
+          "key": "offset",
+          "type": "string",
+          "default": "",
+          "label": "Offset"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listSheets": {
+      "display": {
+        "label": "List Worksheets",
+        "description": "List information about all Worksheets in a Google Sheet Document"
+      },
+      "key": "listSheets",
+      "inputs": [
+        {
+          "placeholder": "Spreadsheet ID",
+          "required": true,
+          "example": "12SawrJM-AcbLMgorjcyaGpPrKnNTp7FPot4yvM1ehbI",
+          "comments": "Every spreadsheet is represented by a Spreadsheet resource and has a unique spreadsheetId value, containing letters, numbers, hyphens, or underscores. You can find the spreadsheet ID in a Google Sheets URL. ",
+          "key": "spreadsheetId",
+          "type": "string",
+          "default": "",
+          "label": "Spreadsheet ID"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "removeSheet": {
+      "display": {
+        "label": "Remove Worksheet",
+        "description": "Remove a Worksheet from a Google Sheet Document"
+      },
+      "key": "removeSheet",
+      "inputs": [
+        {
+          "placeholder": "Spreadsheet ID",
+          "required": true,
+          "example": "12SawrJM-AcbLMgorjcyaGpPrKnNTp7FPot4yvM1ehbI",
+          "comments": "Every spreadsheet is represented by a Spreadsheet resource and has a unique spreadsheetId value, containing letters, numbers, hyphens, or underscores. You can find the spreadsheet ID in a Google Sheets URL. ",
+          "key": "spreadsheetId",
+          "type": "string",
+          "default": "",
+          "label": "Spreadsheet ID"
+        },
+        {
+          "placeholder": "Title",
+          "required": true,
+          "example": "MySpreadSheet",
+          "comments": "Specifies the title of the sheet.",
+          "key": "title",
+          "type": "string",
+          "default": "",
+          "label": "Worksheet Title"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "setHeaderRow": {
+      "display": {
+        "label": "Set Header Row",
+        "description": "Set the column headings in a Worksheet"
+      },
+      "key": "setHeaderRow",
+      "inputs": [
+        {
+          "placeholder": "Spreadsheet ID",
+          "required": true,
+          "example": "12SawrJM-AcbLMgorjcyaGpPrKnNTp7FPot4yvM1ehbI",
+          "comments": "Every spreadsheet is represented by a Spreadsheet resource and has a unique spreadsheetId value, containing letters, numbers, hyphens, or underscores. You can find the spreadsheet ID in a Google Sheets URL. ",
+          "key": "spreadsheetId",
+          "type": "string",
+          "default": "",
+          "label": "Spreadsheet ID"
+        },
+        {
+          "placeholder": "Title",
+          "required": true,
+          "example": "MySpreadSheet",
+          "comments": "Specifies the title of the sheet.",
+          "key": "title",
+          "type": "string",
+          "default": "",
+          "label": "Worksheet Title"
+        },
+        {
+          "placeholder": "Headings",
+          "required": true,
+          "example": "[\"Column 1\",\"Column 2\",\"Column 3\"]",
+          "comments": "An array of strings that are the column headings.",
+          "key": "headers",
+          "type": "data",
+          "default": "",
+          "label": "Column Headings"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "updateRows": {
+      "display": {
+        "label": "Update Rows",
+        "description": "Update call values of rows in a Worksheet"
+      },
+      "key": "updateRows",
+      "inputs": [
+        {
+          "placeholder": "Spreadsheet ID",
+          "required": true,
+          "example": "12SawrJM-AcbLMgorjcyaGpPrKnNTp7FPot4yvM1ehbI",
+          "comments": "Every spreadsheet is represented by a Spreadsheet resource and has a unique spreadsheetId value, containing letters, numbers, hyphens, or underscores. You can find the spreadsheet ID in a Google Sheets URL. ",
+          "key": "spreadsheetId",
+          "type": "string",
+          "default": "",
+          "label": "Spreadsheet ID"
+        },
+        {
+          "placeholder": "Title",
+          "required": true,
+          "example": "MySpreadSheet",
+          "comments": "Specifies the title of the sheet.",
+          "key": "title",
+          "type": "string",
+          "default": "",
+          "label": "Worksheet Title"
+        },
+        {
+          "placeholder": "Values",
+          "language": "json",
+          "required": true,
+          "example": "{\n  \"1\": {\n    \"Column 1\": \"a\",\n    \"Column 2\": \"b\",\n    \"Column 3\": \"c\"\n  },\n  \"2\": {\n    \"Column 1\": \"d\",\n    \"Column 2\": \"e\",\n    \"Column 3\": \"f\"\n  }\n}",
+          "comments": "An object where the keys are row numbers and the values are objects where their keys are column names and their values are cell values.",
+          "key": "values",
+          "type": "code",
+          "default": "",
+          "label": "Values"
+        },
+        {
+          "required": true,
+          "comments": "Specifies whether values should be converted as if they were typed into the spreadsheet or whether to store the raw values as provided.",
+          "key": "storeRawValues",
+          "type": "boolean",
+          "default": "false",
+          "label": "Store Raw Values"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "rawRequest": {
+      "display": {
+        "label": "Raw Request",
+        "description": "Send a raw HTTP request to Sheets API"
+      },
+      "key": "rawRequest",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "Input the path only (/v4/spreadsheets/{spreadsheetId}), The base URL is already included (https://sheets.googleapis.com). For example, to connect to https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}, only /v4/spreadsheets/{spreadsheetId} is entered in this field.",
+          "example": "/v4/spreadsheets/{spreadsheetId}",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "The file name to apply to a file",
+          "required": false,
+          "comments": "File names to apply to the file data inputs. Keys must match the file data keys above.",
+          "key": "fileDataFileNames",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data File Names"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        }
+      ]
+    }
+  },
+  "triggers": {},
+  "dataSources": {},
+  "documentation": {
+    "description": "[Google Sheets](https://www.google.com/sheets/about/) is Google's spreadsheet service.\nThis component allows you to create, read, and modify spreadsheets stored in a Google Drive Account.\n"
+  },
+  "$version": 1
+}

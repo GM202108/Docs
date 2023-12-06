@@ -1,0 +1,2257 @@
+{
+  "key": "mailchimp",
+  "public": true,
+  "documentationUrl": "https://prismatic.io/docs/components/mailchimp/",
+  "display": {
+    "category": "Application Connectors",
+    "label": "Mailchimp",
+    "description": "Interact with email campaign lists and e-commerce resources.",
+    "iconPath": "icon.png",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "oauth2Type": "authorization_code",
+      "key": "oauth2",
+      "label": "Mailchimp OAuth 2.0 Connection",
+      "inputs": [
+        {
+          "placeholder": "Authorize URL",
+          "required": true,
+          "shown": false,
+          "comments": "The OAuth 2.0 Authorization URL for Mailchimp",
+          "key": "authorizeUrl",
+          "type": "string",
+          "default": "https://login.mailchimp.com/oauth2/authorize",
+          "label": "Authorize URL"
+        },
+        {
+          "placeholder": "Token URL",
+          "required": true,
+          "shown": false,
+          "comments": "The OAuth 2.0 Token URL for Mailchimp",
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "https://login.mailchimp.com/oauth2/token",
+          "label": "Token URL"
+        },
+        {
+          "placeholder": "Scopes",
+          "required": false,
+          "shown": false,
+          "comments": "Mailchimp does not support granular scopes.",
+          "key": "scopes",
+          "type": "string",
+          "default": "",
+          "label": "Scopes"
+        },
+        {
+          "placeholder": "Client ID",
+          "required": true,
+          "shown": true,
+          "example": "000000000000",
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "Client ID"
+        },
+        {
+          "placeholder": "Client secret",
+          "required": true,
+          "shown": true,
+          "example": "0123456789abcdef0123456789abcdef0123456789abcdef01",
+          "key": "clientSecret",
+          "type": "password",
+          "default": "",
+          "label": "Client secret"
+        }
+      ]
+    },
+    {
+      "key": "apiKey",
+      "label": "Mailchimp API Key",
+      "comments": "Authenticate requests to Mailchimp using an API Key",
+      "inputs": [
+        {
+          "placeholder": "API Key",
+          "required": true,
+          "shown": true,
+          "comments": "Provide a string value for the API Key.",
+          "key": "apiKey",
+          "type": "string",
+          "default": "",
+          "label": "API Key"
+        }
+      ],
+      "documentation": {
+        "description": "This component can be configured to use an API Key to authenticate the request. An API key can be obtained by following Mailchimp's [quickstart guide](https://mailchimp.com/developer/marketing/guides/quick-start/)\n"
+      }
+    }
+  ],
+  "actions": {
+    "ping": {
+      "display": {
+        "label": "Ping",
+        "description": "Send a ping to determine the status of the Mailchimp servers"
+      },
+      "key": "ping",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listCampaigns": {
+      "display": {
+        "label": "List Campaigns",
+        "description": "Get all campaigns in an account"
+      },
+      "key": "listCampaigns",
+      "inputs": [
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 1000.",
+          "example": "20",
+          "key": "count",
+          "type": "string",
+          "default": "",
+          "label": "Result Count"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the page offset for the given object's results.",
+          "example": "3",
+          "key": "offset",
+          "type": "string",
+          "default": "",
+          "label": "Offset"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "sendCampaign": {
+      "display": {
+        "label": "Send Campaign",
+        "description": "Send a Mailchimp campaign. For RSS Campaigns, the campaign will send according to its schedule. All other campaigns will send immediately."
+      },
+      "key": "sendCampaign",
+      "inputs": [
+        {
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the campaign Id.",
+          "required": false,
+          "key": "campaignId",
+          "type": "string",
+          "default": "",
+          "label": "Campaign Id"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getMember": {
+      "display": {
+        "label": "Get Member",
+        "description": "Get information about a specific list member, including a currently subscribed, unsubscribed, or bounced member"
+      },
+      "key": "getMember",
+      "inputs": [
+        {
+          "required": true,
+          "example": "53ce5example278",
+          "comments": "Provide a string value for the Id of the list.",
+          "key": "listId",
+          "type": "string",
+          "default": "",
+          "label": "List Id"
+        },
+        {
+          "example": "example23370f6fe20d1b66b686e1dfb8bac5ba",
+          "comments": "The MD5 hash of the lowercase version of the list member's email address. This endpoint also accepts email addresses.",
+          "required": true,
+          "key": "subscriberHash",
+          "type": "string",
+          "default": "",
+          "label": "SubscriberHash"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteMember": {
+      "display": {
+        "label": "Delete Member",
+        "description": "Delete all personally identifiable information related to a list member, and remove them from a list. This will make it impossible to re-import the list member"
+      },
+      "key": "deleteMember",
+      "inputs": [
+        {
+          "required": true,
+          "example": "53ce5example278",
+          "comments": "Provide a string value for the Id of the list.",
+          "key": "listId",
+          "type": "string",
+          "default": "",
+          "label": "List Id"
+        },
+        {
+          "example": "example23370f6fe20d1b66b686e1dfb8bac5ba",
+          "comments": "The MD5 hash of the lowercase version of the list member's email address. This endpoint also accepts email addresses.",
+          "required": true,
+          "key": "subscriberHash",
+          "type": "string",
+          "default": "",
+          "label": "SubscriberHash"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "updateMember": {
+      "display": {
+        "label": "Update Member",
+        "description": "Update a specific member in a given list"
+      },
+      "key": "updateMember",
+      "inputs": [
+        {
+          "required": true,
+          "example": "53ce5example278",
+          "comments": "Provide a string value for the Id of the list.",
+          "key": "listId",
+          "type": "string",
+          "default": "",
+          "label": "List Id"
+        },
+        {
+          "example": "example23370f6fe20d1b66b686e1dfb8bac5ba",
+          "comments": "The MD5 hash of the lowercase version of the list member's email address. This endpoint also accepts email addresses.",
+          "required": true,
+          "key": "subscriberHash",
+          "type": "string",
+          "default": "",
+          "label": "SubscriberHash"
+        },
+        {
+          "example": "someone@example.com",
+          "comments": "Provide a string value that represents the email address.",
+          "required": false,
+          "key": "email",
+          "type": "string",
+          "default": "",
+          "label": "Email"
+        },
+        {
+          "example": "English",
+          "comments": "The default language for this lists's forms.",
+          "required": false,
+          "key": "language",
+          "type": "string",
+          "default": "",
+          "label": "Language"
+        },
+        {
+          "example": "subscribed",
+          "comments": "Subscriber's current status. Possible values: \"subscribed\", \"unsubscribed\", \"cleaned\", \"pending\", or \"transactional\".",
+          "required": false,
+          "key": "status",
+          "type": "string",
+          "default": "",
+          "label": "Status"
+        },
+        {
+          "example": "html",
+          "comments": "Type of email this member asked to get ('html' or 'text').",
+          "required": false,
+          "key": "emailType",
+          "type": "string",
+          "default": "",
+          "label": "Email Type"
+        },
+        {
+          "comments": "A dictionary of merge fields (audience fields) where the keys are the merge tags. For example, {\"FNAME\":\"Freddie\"}",
+          "required": false,
+          "key": "mergeFields",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Merge Fields"
+        },
+        {
+          "example": "exampleId",
+          "comments": "Provide a string value for the marketing permission Id",
+          "required": false,
+          "key": "marketingPermissionId",
+          "type": "string",
+          "default": "",
+          "label": "Marketing Permission Id"
+        },
+        {
+          "comments": "The tags that are associated with a member.",
+          "required": false,
+          "key": "tags",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Tags"
+        },
+        {
+          "comments": "Provide a boolean value for the enabled field.",
+          "required": false,
+          "key": "enabled",
+          "type": "boolean",
+          "default": "false",
+          "label": "enabled"
+        },
+        {
+          "comments": "The key of this object's properties is the Id of the interest in question.",
+          "required": false,
+          "key": "interests",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Interests"
+        },
+        {
+          "comments": "Provide a boolean to determine VIP status.",
+          "required": false,
+          "key": "vip",
+          "type": "boolean",
+          "default": "false",
+          "label": "VIP"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "archiveMember": {
+      "display": {
+        "label": "Archive Member",
+        "description": "Archive a list member"
+      },
+      "key": "archiveMember",
+      "inputs": [
+        {
+          "required": true,
+          "example": "53ce5example278",
+          "comments": "Provide a string value for the Id of the list.",
+          "key": "listId",
+          "type": "string",
+          "default": "",
+          "label": "List Id"
+        },
+        {
+          "example": "example23370f6fe20d1b66b686e1dfb8bac5ba",
+          "comments": "The MD5 hash of the lowercase version of the list member's email address. This endpoint also accepts email addresses.",
+          "required": true,
+          "key": "subscriberHash",
+          "type": "string",
+          "default": "",
+          "label": "SubscriberHash"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listMembers": {
+      "display": {
+        "label": "List Members",
+        "description": "Get information about members in a specific Mailchimp list"
+      },
+      "examplePayload": {
+        "data": {}
+      },
+      "key": "listMembers",
+      "inputs": [
+        {
+          "required": true,
+          "example": "53ce5example278",
+          "comments": "Provide a string value for the Id of the list.",
+          "key": "listId",
+          "type": "string",
+          "default": "",
+          "label": "List Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 1000.",
+          "example": "20",
+          "key": "count",
+          "type": "string",
+          "default": "",
+          "label": "Result Count"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the page offset for the given object's results.",
+          "example": "3",
+          "key": "offset",
+          "type": "string",
+          "default": "",
+          "label": "Offset"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "addMember": {
+      "display": {
+        "label": "Add Member",
+        "description": "Add a new member to a list"
+      },
+      "key": "addMember",
+      "inputs": [
+        {
+          "required": true,
+          "example": "53ce5example278",
+          "comments": "Provide a string value for the Id of the list.",
+          "key": "listId",
+          "type": "string",
+          "default": "",
+          "label": "List Id"
+        },
+        {
+          "example": "someone@example.com",
+          "comments": "Provide a string value that represents the email address.",
+          "required": true,
+          "key": "email",
+          "type": "string",
+          "default": "",
+          "label": "Email"
+        },
+        {
+          "example": "English",
+          "comments": "The default language for this lists's forms.",
+          "required": true,
+          "key": "language",
+          "type": "string",
+          "default": "",
+          "label": "Language"
+        },
+        {
+          "example": "subscribed",
+          "comments": "Subscriber's current status. Possible values: \"subscribed\", \"unsubscribed\", \"cleaned\", \"pending\", or \"transactional\".",
+          "required": true,
+          "key": "status",
+          "type": "string",
+          "default": "",
+          "label": "Status"
+        },
+        {
+          "example": "html",
+          "comments": "Type of email this member asked to get ('html' or 'text').",
+          "required": false,
+          "key": "emailType",
+          "type": "string",
+          "default": "",
+          "label": "Email Type"
+        },
+        {
+          "comments": "A dictionary of merge fields (audience fields) where the keys are the merge tags. For example, {\"FNAME\":\"Freddie\"}",
+          "required": false,
+          "key": "mergeFields",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Merge Fields"
+        },
+        {
+          "example": "exampleId",
+          "comments": "Provide a string value for the marketing permission Id",
+          "required": false,
+          "key": "marketingPermissionId",
+          "type": "string",
+          "default": "",
+          "label": "Marketing Permission Id"
+        },
+        {
+          "comments": "The tags that are associated with a member.",
+          "required": false,
+          "key": "tags",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Tags"
+        },
+        {
+          "comments": "Provide a boolean value for the enabled field.",
+          "required": false,
+          "key": "enabled",
+          "type": "boolean",
+          "default": "false",
+          "label": "enabled"
+        },
+        {
+          "comments": "The key of this object's properties is the Id of the interest in question.",
+          "required": false,
+          "key": "interests",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Interests"
+        },
+        {
+          "comments": "Provide a boolean to determine VIP status.",
+          "required": false,
+          "key": "vip",
+          "type": "boolean",
+          "default": "false",
+          "label": "VIP"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteList": {
+      "display": {
+        "label": "Delete List",
+        "description": "Delete a list from your Mailchimp account"
+      },
+      "key": "deleteList",
+      "inputs": [
+        {
+          "required": true,
+          "example": "53ce5example278",
+          "comments": "Provide a string value for the Id of the list.",
+          "key": "listId",
+          "type": "string",
+          "default": "",
+          "label": "List Id"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getListsInfo": {
+      "display": {
+        "label": "Get Lists Info",
+        "description": "Get information about all lists in the account"
+      },
+      "key": "getListsInfo",
+      "inputs": [
+        {
+          "required": false,
+          "comments": "Provide an integer value for the page offset for the given object's results.",
+          "example": "3",
+          "key": "offset",
+          "type": "string",
+          "default": "",
+          "label": "Offset"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 1000.",
+          "example": "20",
+          "key": "count",
+          "type": "string",
+          "default": "",
+          "label": "Result Count"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "addList": {
+      "display": {
+        "label": "Add List",
+        "description": "Create a new list in your Mailchimp account"
+      },
+      "key": "addList",
+      "inputs": [
+        {
+          "example": "Example Company inc.",
+          "comments": "Provide a string value that represents the company.",
+          "required": false,
+          "key": "company",
+          "type": "string",
+          "default": "",
+          "label": "Company"
+        },
+        {
+          "example": "4 Privet Drive",
+          "comments": "Provide a string value that represents the 1st address field.",
+          "required": false,
+          "key": "address1",
+          "type": "string",
+          "default": "",
+          "label": "Address 1"
+        },
+        {
+          "example": "apt 4",
+          "comments": "Provide a string value that represents the 2nd address field.",
+          "required": false,
+          "key": "address2",
+          "type": "string",
+          "default": "",
+          "label": "Address 2"
+        },
+        {
+          "example": "Palo Alto",
+          "comments": "Provide a string value that represents the city.",
+          "required": false,
+          "key": "city",
+          "type": "string",
+          "default": "",
+          "label": "City"
+        },
+        {
+          "example": "CA",
+          "comments": "Provide a string value that represents the state.",
+          "required": false,
+          "key": "state",
+          "type": "string",
+          "default": "",
+          "label": "State"
+        },
+        {
+          "example": "90210",
+          "comments": "Provide a string value that represents the postal code.",
+          "required": false,
+          "key": "postalCode",
+          "type": "string",
+          "default": "",
+          "label": "Postal Code"
+        },
+        {
+          "example": "5556879055",
+          "comments": "Provide a string value that represents phone number",
+          "required": false,
+          "key": "phone",
+          "type": "string",
+          "default": "",
+          "label": "Phone"
+        },
+        {
+          "example": "United States",
+          "comments": "Provide a string value that represents the country",
+          "required": false,
+          "key": "country",
+          "type": "string",
+          "default": "",
+          "label": "Country"
+        },
+        {
+          "example": "Example Name",
+          "comments": "Provide a string value that represents the name of the list.",
+          "required": true,
+          "key": "name",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        },
+        {
+          "example": "John.Doe@gmail.com",
+          "comments": "The 'from' name on the campaign (not an email address).",
+          "required": true,
+          "key": "fromEmail",
+          "type": "string",
+          "default": "",
+          "label": "From Email"
+        },
+        {
+          "example": "John Doe",
+          "comments": "The default 'from name' for campaigns sent to this list.",
+          "required": true,
+          "key": "fromName",
+          "type": "string",
+          "default": "",
+          "label": "From Name"
+        },
+        {
+          "example": "This is an example subject",
+          "comments": "Provide a string value that represents the subject of the email.",
+          "required": true,
+          "key": "subject",
+          "type": "string",
+          "default": "",
+          "label": "Subject"
+        },
+        {
+          "example": "English",
+          "comments": "The default language for this lists's forms.",
+          "required": true,
+          "key": "language",
+          "type": "string",
+          "default": "",
+          "label": "Language"
+        },
+        {
+          "comments": "Whether or not the list has marketing permissions (eg. GDPR) enabled.",
+          "required": true,
+          "key": "marketingPermissions",
+          "type": "boolean",
+          "default": "false",
+          "label": "Marketing Permissions"
+        },
+        {
+          "comments": "Whether the list supports multiple formats for emails. When set to true, subscribers can choose whether they want to receive HTML or plain-text emails. When set to false, subscribers will receive HTML emails, with a plain-text alternative backup.",
+          "required": true,
+          "key": "emailTypeOption",
+          "type": "boolean",
+          "default": "false",
+          "label": "Email Type Option"
+        },
+        {
+          "example": "This is an example reminder!",
+          "comments": "Provide a string value that represents the permission reminder.",
+          "required": true,
+          "key": "permissionReminder",
+          "type": "string",
+          "default": "",
+          "label": "Permission reminder"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getList": {
+      "display": {
+        "label": "Get List",
+        "description": "Get information about a specific list in your Mailchimp account. Results include list members who have signed up but haven't confirmed their subscription yet and unsubscribed or cleaned."
+      },
+      "key": "getList",
+      "inputs": [
+        {
+          "required": true,
+          "example": "53ce5example278",
+          "comments": "Provide a string value for the Id of the list.",
+          "key": "listId",
+          "type": "string",
+          "default": "",
+          "label": "List Id"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "updateList": {
+      "display": {
+        "label": "Update List",
+        "description": "Update the information or metadata of a list"
+      },
+      "key": "updateList",
+      "inputs": [
+        {
+          "required": true,
+          "example": "53ce5example278",
+          "comments": "Provide a string value for the Id of the list.",
+          "key": "listId",
+          "type": "string",
+          "default": "",
+          "label": "List Id"
+        },
+        {
+          "example": "Example Company inc.",
+          "comments": "Provide a string value that represents the company.",
+          "required": false,
+          "key": "company",
+          "type": "string",
+          "default": "",
+          "label": "Company"
+        },
+        {
+          "example": "4 Privet Drive",
+          "comments": "Provide a string value that represents the 1st address field.",
+          "required": false,
+          "key": "address1",
+          "type": "string",
+          "default": "",
+          "label": "Address 1"
+        },
+        {
+          "example": "apt 4",
+          "comments": "Provide a string value that represents the 2nd address field.",
+          "required": false,
+          "key": "address2",
+          "type": "string",
+          "default": "",
+          "label": "Address 2"
+        },
+        {
+          "example": "Palo Alto",
+          "comments": "Provide a string value that represents the city.",
+          "required": false,
+          "key": "city",
+          "type": "string",
+          "default": "",
+          "label": "City"
+        },
+        {
+          "example": "United States",
+          "comments": "Provide a string value that represents the country",
+          "required": false,
+          "key": "country",
+          "type": "string",
+          "default": "",
+          "label": "Country"
+        },
+        {
+          "example": "5556879055",
+          "comments": "Provide a string value that represents phone number",
+          "required": false,
+          "key": "phone",
+          "type": "string",
+          "default": "",
+          "label": "Phone"
+        },
+        {
+          "example": "CA",
+          "comments": "Provide a string value that represents the state.",
+          "required": false,
+          "key": "state",
+          "type": "string",
+          "default": "",
+          "label": "State"
+        },
+        {
+          "example": "Example Name",
+          "comments": "Provide a string value that represents the name of the list.",
+          "required": true,
+          "key": "name",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        },
+        {
+          "example": "John.Doe@gmail.com",
+          "comments": "The 'from' name on the campaign (not an email address).",
+          "required": true,
+          "key": "fromEmail",
+          "type": "string",
+          "default": "",
+          "label": "From Email"
+        },
+        {
+          "example": "John Doe",
+          "comments": "The default 'from name' for campaigns sent to this list.",
+          "required": true,
+          "key": "fromName",
+          "type": "string",
+          "default": "",
+          "label": "From Name"
+        },
+        {
+          "example": "90210",
+          "comments": "Provide a string value that represents the postal code.",
+          "required": false,
+          "key": "postalCode",
+          "type": "string",
+          "default": "",
+          "label": "Postal Code"
+        },
+        {
+          "example": "This is an example subject",
+          "comments": "Provide a string value that represents the subject of the email.",
+          "required": true,
+          "key": "subject",
+          "type": "string",
+          "default": "",
+          "label": "Subject"
+        },
+        {
+          "example": "English",
+          "comments": "The default language for this lists's forms.",
+          "required": true,
+          "key": "language",
+          "type": "string",
+          "default": "",
+          "label": "Language"
+        },
+        {
+          "comments": "Whether or not the list has marketing permissions (eg. GDPR) enabled.",
+          "required": true,
+          "key": "marketingPermissions",
+          "type": "boolean",
+          "default": "false",
+          "label": "Marketing Permissions"
+        },
+        {
+          "comments": "Whether the list supports multiple formats for emails. When set to true, subscribers can choose whether they want to receive HTML or plain-text emails. When set to false, subscribers will receive HTML emails, with a plain-text alternative backup.",
+          "required": true,
+          "key": "emailTypeOption",
+          "type": "boolean",
+          "default": "false",
+          "label": "Email Type Option"
+        },
+        {
+          "example": "This is an example reminder!",
+          "comments": "Provide a string value that represents the permission reminder.",
+          "required": true,
+          "key": "permissionReminder",
+          "type": "string",
+          "default": "",
+          "label": "Permission reminder"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listStores": {
+      "display": {
+        "label": "List Stores",
+        "description": "Get information about all stores in the account"
+      },
+      "key": "listStores",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getCustomer": {
+      "display": {
+        "label": "Get Customer",
+        "description": "Get information about a store's specific customer"
+      },
+      "key": "getCustomer",
+      "inputs": [
+        {
+          "required": false,
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the store Id.",
+          "key": "storeId",
+          "type": "string",
+          "default": "",
+          "label": "Store Id"
+        },
+        {
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the customer Id.",
+          "required": false,
+          "key": "customerId",
+          "type": "string",
+          "default": "",
+          "label": "Customer Id"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getProductInfo": {
+      "display": {
+        "label": "Get Product",
+        "description": "Get information about a specific product"
+      },
+      "key": "getProductInfo",
+      "inputs": [
+        {
+          "required": false,
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the store Id.",
+          "key": "storeId",
+          "type": "string",
+          "default": "",
+          "label": "Store Id"
+        },
+        {
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the product Id.",
+          "required": true,
+          "key": "productId",
+          "type": "string",
+          "default": "",
+          "label": "Product Id"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getStore": {
+      "display": {
+        "label": "Get Store",
+        "description": "Get information about a specific store"
+      },
+      "key": "getStore",
+      "inputs": [
+        {
+          "required": false,
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the store Id.",
+          "key": "storeId",
+          "type": "string",
+          "default": "",
+          "label": "Store Id"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "addCustomer": {
+      "display": {
+        "label": "Add Customer",
+        "description": "Add a new customer to a store"
+      },
+      "key": "addCustomer",
+      "inputs": [
+        {
+          "required": false,
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the store Id.",
+          "key": "storeId",
+          "type": "string",
+          "default": "",
+          "label": "Store Id"
+        },
+        {
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the customer Id.",
+          "required": false,
+          "key": "customerId",
+          "type": "string",
+          "default": "",
+          "label": "Customer Id"
+        },
+        {
+          "example": "someone@example.com",
+          "comments": "Provide a string value that represents the email address.",
+          "required": true,
+          "key": "email",
+          "type": "string",
+          "default": "",
+          "label": "Email"
+        },
+        {
+          "example": "true",
+          "required": true,
+          "comments": "The customer's opt-in status. This value will never overwrite the opt-in status of a pre-existing Mailchimp list member, but will apply to list members that are added through the e-commerce API endpoints. Customers who don't opt in to your Mailchimp list will be added as Transactional members.",
+          "key": "optInStatus",
+          "type": "boolean",
+          "default": "false",
+          "label": "Opt In Status"
+        },
+        {
+          "example": "Example Company inc.",
+          "comments": "Provide a string value that represents the company.",
+          "required": false,
+          "key": "company",
+          "type": "string",
+          "default": "",
+          "label": "Company"
+        },
+        {
+          "example": "John",
+          "comments": "Provide a string value that represents a first name.",
+          "required": false,
+          "key": "firstName",
+          "type": "string",
+          "default": "",
+          "label": "First Name"
+        },
+        {
+          "example": "Doe",
+          "comments": "Provide a string value that represents a last name.",
+          "required": false,
+          "key": "lastName",
+          "type": "string",
+          "default": "",
+          "label": "Last Name"
+        },
+        {
+          "example": "4 Privet Drive",
+          "comments": "Provide a string value that represents the 1st address field.",
+          "required": false,
+          "key": "address1",
+          "type": "string",
+          "default": "",
+          "label": "Address 1"
+        },
+        {
+          "example": "apt 4",
+          "comments": "Provide a string value that represents the 2nd address field.",
+          "required": false,
+          "key": "address2",
+          "type": "string",
+          "default": "",
+          "label": "Address 2"
+        },
+        {
+          "example": "Palo Alto",
+          "comments": "Provide a string value that represents the city.",
+          "required": false,
+          "key": "city",
+          "type": "string",
+          "default": "",
+          "label": "City"
+        },
+        {
+          "example": "USA",
+          "comments": "Provide a string value that represents the country code",
+          "required": false,
+          "key": "countryCode",
+          "type": "string",
+          "default": "",
+          "label": "Country Code"
+        },
+        {
+          "example": "BC",
+          "comments": "Provide a string value that represents the province code.",
+          "required": false,
+          "key": "provinceCode",
+          "type": "string",
+          "default": "",
+          "label": "Province Code"
+        },
+        {
+          "example": "90210",
+          "comments": "Provide a string value that represents the postal code.",
+          "required": false,
+          "key": "postalCode",
+          "type": "string",
+          "default": "",
+          "label": "Postal Code"
+        },
+        {
+          "example": "British Colombia",
+          "comments": "Provide a string value that represents the province.",
+          "required": false,
+          "key": "province",
+          "type": "string",
+          "default": "",
+          "label": "Province"
+        },
+        {
+          "example": "United States",
+          "comments": "Provide a string value that represents the country",
+          "required": false,
+          "key": "country",
+          "type": "string",
+          "default": "",
+          "label": "Country"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteCustomer": {
+      "display": {
+        "label": "Delete Customer",
+        "description": "Delete a customer from a store"
+      },
+      "key": "deleteCustomer",
+      "inputs": [
+        {
+          "required": false,
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the store Id.",
+          "key": "storeId",
+          "type": "string",
+          "default": "",
+          "label": "Store Id"
+        },
+        {
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the customer Id.",
+          "required": false,
+          "key": "customerId",
+          "type": "string",
+          "default": "",
+          "label": "Customer Id"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "updateCustomer": {
+      "display": {
+        "label": "Update Customer",
+        "description": "Update a specific customer's information"
+      },
+      "key": "updateCustomer",
+      "inputs": [
+        {
+          "required": false,
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the store Id.",
+          "key": "storeId",
+          "type": "string",
+          "default": "",
+          "label": "Store Id"
+        },
+        {
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the customer Id.",
+          "required": false,
+          "key": "customerId",
+          "type": "string",
+          "default": "",
+          "label": "Customer Id"
+        },
+        {
+          "example": "true",
+          "required": true,
+          "comments": "The customer's opt-in status. This value will never overwrite the opt-in status of a pre-existing Mailchimp list member, but will apply to list members that are added through the e-commerce API endpoints. Customers who don't opt in to your Mailchimp list will be added as Transactional members.",
+          "key": "optInStatus",
+          "type": "boolean",
+          "default": "false",
+          "label": "Opt In Status"
+        },
+        {
+          "example": "Example Company inc.",
+          "comments": "Provide a string value that represents the company.",
+          "required": false,
+          "key": "company",
+          "type": "string",
+          "default": "",
+          "label": "Company"
+        },
+        {
+          "example": "John",
+          "comments": "Provide a string value that represents a first name.",
+          "required": false,
+          "key": "firstName",
+          "type": "string",
+          "default": "",
+          "label": "First Name"
+        },
+        {
+          "example": "Doe",
+          "comments": "Provide a string value that represents a last name.",
+          "required": false,
+          "key": "lastName",
+          "type": "string",
+          "default": "",
+          "label": "Last Name"
+        },
+        {
+          "example": "4 Privet Drive",
+          "comments": "Provide a string value that represents the 1st address field.",
+          "required": false,
+          "key": "address1",
+          "type": "string",
+          "default": "",
+          "label": "Address 1"
+        },
+        {
+          "example": "apt 4",
+          "comments": "Provide a string value that represents the 2nd address field.",
+          "required": false,
+          "key": "address2",
+          "type": "string",
+          "default": "",
+          "label": "Address 2"
+        },
+        {
+          "example": "Palo Alto",
+          "comments": "Provide a string value that represents the city.",
+          "required": false,
+          "key": "city",
+          "type": "string",
+          "default": "",
+          "label": "City"
+        },
+        {
+          "example": "British Colombia",
+          "comments": "Provide a string value that represents the province.",
+          "required": false,
+          "key": "province",
+          "type": "string",
+          "default": "",
+          "label": "Province"
+        },
+        {
+          "example": "BC",
+          "comments": "Provide a string value that represents the province code.",
+          "required": false,
+          "key": "provinceCode",
+          "type": "string",
+          "default": "",
+          "label": "Province Code"
+        },
+        {
+          "example": "90210",
+          "comments": "Provide a string value that represents the postal code.",
+          "required": false,
+          "key": "postalCode",
+          "type": "string",
+          "default": "",
+          "label": "Postal Code"
+        },
+        {
+          "example": "United States",
+          "comments": "Provide a string value that represents the country",
+          "required": false,
+          "key": "country",
+          "type": "string",
+          "default": "",
+          "label": "Country"
+        },
+        {
+          "example": "USA",
+          "comments": "Provide a string value that represents the country code",
+          "required": false,
+          "key": "countryCode",
+          "type": "string",
+          "default": "",
+          "label": "Country Code"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listCustomers": {
+      "display": {
+        "label": "List Customers",
+        "description": "Get information about a store's customers"
+      },
+      "key": "listCustomers",
+      "inputs": [
+        {
+          "required": false,
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the store Id.",
+          "key": "storeId",
+          "type": "string",
+          "default": "",
+          "label": "Store Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 1000.",
+          "example": "20",
+          "key": "count",
+          "type": "string",
+          "default": "",
+          "label": "Result Count"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the page offset for the given object's results.",
+          "example": "3",
+          "key": "offset",
+          "type": "string",
+          "default": "",
+          "label": "Offset"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getCustomerInfo": {
+      "display": {
+        "label": "Get Customer",
+        "description": "Get information about a store's specific customer"
+      },
+      "key": "getCustomerInfo",
+      "inputs": [
+        {
+          "required": false,
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the store Id.",
+          "key": "storeId",
+          "type": "string",
+          "default": "",
+          "label": "Store Id"
+        },
+        {
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the customer Id.",
+          "required": false,
+          "key": "customerId",
+          "type": "string",
+          "default": "",
+          "label": "Customer Id"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listProducts": {
+      "display": {
+        "label": "List Products",
+        "description": "List all products from a store"
+      },
+      "key": "listProducts",
+      "inputs": [
+        {
+          "required": false,
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the store Id.",
+          "key": "storeId",
+          "type": "string",
+          "default": "",
+          "label": "Store Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 1000.",
+          "example": "20",
+          "key": "count",
+          "type": "string",
+          "default": "",
+          "label": "Result Count"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the page offset for the given object's results.",
+          "example": "3",
+          "key": "offset",
+          "type": "string",
+          "default": "",
+          "label": "Offset"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteProduct": {
+      "display": {
+        "label": "Delete Product",
+        "description": "Delete a product from a store"
+      },
+      "key": "deleteProduct",
+      "inputs": [
+        {
+          "required": false,
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the store Id.",
+          "key": "storeId",
+          "type": "string",
+          "default": "",
+          "label": "Store Id"
+        },
+        {
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the product Id.",
+          "required": true,
+          "key": "productId",
+          "type": "string",
+          "default": "",
+          "label": "Product Id"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listOrders": {
+      "display": {
+        "label": "List Orders",
+        "description": "List all the orders in a store"
+      },
+      "key": "listOrders",
+      "inputs": [
+        {
+          "required": false,
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the store Id.",
+          "key": "storeId",
+          "type": "string",
+          "default": "",
+          "label": "Store Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 1000.",
+          "example": "20",
+          "key": "count",
+          "type": "string",
+          "default": "",
+          "label": "Result Count"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the page offset for the given object's results.",
+          "example": "3",
+          "key": "offset",
+          "type": "string",
+          "default": "",
+          "label": "Offset"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteOrder": {
+      "display": {
+        "label": "Delete Order",
+        "description": "Delete an order"
+      },
+      "key": "deleteOrder",
+      "inputs": [
+        {
+          "example": "Provide a string value for the id of the order in the store.",
+          "comments": "Provide a string value that represents the order id.",
+          "required": false,
+          "key": "orderId",
+          "type": "string",
+          "default": "",
+          "label": "Order Id"
+        },
+        {
+          "required": false,
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the store Id.",
+          "key": "storeId",
+          "type": "string",
+          "default": "",
+          "label": "Store Id"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getOrderInfo": {
+      "display": {
+        "label": "Get Order",
+        "description": "Get information about a specific order"
+      },
+      "key": "getOrderInfo",
+      "inputs": [
+        {
+          "required": false,
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the store Id.",
+          "key": "storeId",
+          "type": "string",
+          "default": "",
+          "label": "Store Id"
+        },
+        {
+          "example": "Provide a string value for the id of the order in the store.",
+          "comments": "Provide a string value that represents the order id.",
+          "required": false,
+          "key": "orderId",
+          "type": "string",
+          "default": "",
+          "label": "Order Id"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listAccountOrders": {
+      "display": {
+        "label": "List Account Orders",
+        "description": "Get information about an account's orders"
+      },
+      "key": "listAccountOrders",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 1000.",
+          "example": "20",
+          "key": "count",
+          "type": "string",
+          "default": "",
+          "label": "Result Count"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the page offset for the given object's results.",
+          "example": "3",
+          "key": "offset",
+          "type": "string",
+          "default": "",
+          "label": "Offset"
+        }
+      ]
+    },
+    "deleteOrderLineItem": {
+      "display": {
+        "label": "Delete Order Line Item",
+        "description": "Delete an order Line Item"
+      },
+      "key": "deleteOrderLineItem",
+      "inputs": [
+        {
+          "example": "Provide a string value for the id of the order in the store.",
+          "comments": "Provide a string value that represents the order id.",
+          "required": false,
+          "key": "orderId",
+          "type": "string",
+          "default": "",
+          "label": "Order Id"
+        },
+        {
+          "required": false,
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the store Id.",
+          "key": "storeId",
+          "type": "string",
+          "default": "",
+          "label": "Store Id"
+        },
+        {
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the line Id.",
+          "required": true,
+          "key": "lineId",
+          "type": "string",
+          "default": "",
+          "label": "Line Id"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getOrderLineItem": {
+      "display": {
+        "label": "Get Order Line Item",
+        "description": "Get an order Line Item"
+      },
+      "key": "getOrderLineItem",
+      "inputs": [
+        {
+          "example": "Provide a string value for the id of the order in the store.",
+          "comments": "Provide a string value that represents the order id.",
+          "required": false,
+          "key": "orderId",
+          "type": "string",
+          "default": "",
+          "label": "Order Id"
+        },
+        {
+          "required": false,
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the store Id.",
+          "key": "storeId",
+          "type": "string",
+          "default": "",
+          "label": "Store Id"
+        },
+        {
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the line Id.",
+          "required": true,
+          "key": "lineId",
+          "type": "string",
+          "default": "",
+          "label": "Line Id"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listOrderLineItems": {
+      "display": {
+        "label": "List Order Line Items",
+        "description": "List Order Line items"
+      },
+      "key": "listOrderLineItems",
+      "inputs": [
+        {
+          "required": false,
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the store Id.",
+          "key": "storeId",
+          "type": "string",
+          "default": "",
+          "label": "Store Id"
+        },
+        {
+          "example": "Provide a string value for the id of the order in the store.",
+          "comments": "Provide a string value that represents the order id.",
+          "required": false,
+          "key": "orderId",
+          "type": "string",
+          "default": "",
+          "label": "Order Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 1000.",
+          "example": "20",
+          "key": "count",
+          "type": "string",
+          "default": "",
+          "label": "Result Count"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the page offset for the given object's results.",
+          "example": "3",
+          "key": "offset",
+          "type": "string",
+          "default": "",
+          "label": "Offset"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteCart": {
+      "display": {
+        "label": "Delete Cart",
+        "description": "Delete a specific cart"
+      },
+      "key": "deleteCart",
+      "inputs": [
+        {
+          "required": false,
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the store Id.",
+          "key": "storeId",
+          "type": "string",
+          "default": "",
+          "label": "Store Id"
+        },
+        {
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the cart Id.",
+          "required": true,
+          "key": "cartId",
+          "type": "string",
+          "default": "",
+          "label": "Cart Id"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listCarts": {
+      "display": {
+        "label": "List Carts",
+        "description": "Get information about a store's carts"
+      },
+      "key": "listCarts",
+      "inputs": [
+        {
+          "required": false,
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the store Id.",
+          "key": "storeId",
+          "type": "string",
+          "default": "",
+          "label": "Store Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the page offset for the given object's results.",
+          "example": "3",
+          "key": "offset",
+          "type": "string",
+          "default": "",
+          "label": "Offset"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 1000.",
+          "example": "20",
+          "key": "count",
+          "type": "string",
+          "default": "",
+          "label": "Result Count"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getCart": {
+      "display": {
+        "label": "Get Cart",
+        "description": "Get information about a specific cart"
+      },
+      "key": "getCart",
+      "inputs": [
+        {
+          "required": false,
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the store Id.",
+          "key": "storeId",
+          "type": "string",
+          "default": "",
+          "label": "Store Id"
+        },
+        {
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the cart Id.",
+          "required": true,
+          "key": "cartId",
+          "type": "string",
+          "default": "",
+          "label": "Cart Id"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteCartLineItem": {
+      "display": {
+        "label": "Delete Cart Line Items",
+        "description": "Get information about a cart's line items."
+      },
+      "key": "deleteCartLineItem",
+      "inputs": [
+        {
+          "required": false,
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the store Id.",
+          "key": "storeId",
+          "type": "string",
+          "default": "",
+          "label": "Store Id"
+        },
+        {
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the cart Id.",
+          "required": true,
+          "key": "cartId",
+          "type": "string",
+          "default": "",
+          "label": "Cart Id"
+        },
+        {
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the line Id.",
+          "required": true,
+          "key": "lineId",
+          "type": "string",
+          "default": "",
+          "label": "Line Id"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getCartLineItem": {
+      "display": {
+        "label": "Get Cart Line Item",
+        "description": "Get information about a cart's specific line item"
+      },
+      "key": "getCartLineItem",
+      "inputs": [
+        {
+          "required": false,
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the store Id.",
+          "key": "storeId",
+          "type": "string",
+          "default": "",
+          "label": "Store Id"
+        },
+        {
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the cart Id.",
+          "required": true,
+          "key": "cartId",
+          "type": "string",
+          "default": "",
+          "label": "Cart Id"
+        },
+        {
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the line Id.",
+          "required": true,
+          "key": "lineId",
+          "type": "string",
+          "default": "",
+          "label": "Line Id"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listCartLineItem": {
+      "display": {
+        "label": "List Cart Line Items",
+        "description": "Get information about a cart's line items."
+      },
+      "key": "listCartLineItem",
+      "inputs": [
+        {
+          "required": false,
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the store Id.",
+          "key": "storeId",
+          "type": "string",
+          "default": "",
+          "label": "Store Id"
+        },
+        {
+          "example": "53ce5example278",
+          "comments": "Provide a string value that represents the cart Id.",
+          "required": true,
+          "key": "cartId",
+          "type": "string",
+          "default": "",
+          "label": "Cart Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 1000.",
+          "example": "20",
+          "key": "count",
+          "type": "string",
+          "default": "",
+          "label": "Result Count"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the page offset for the given object's results.",
+          "example": "3",
+          "key": "offset",
+          "type": "string",
+          "default": "",
+          "label": "Offset"
+        },
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "rawRequest": {
+      "display": {
+        "label": "Raw Request",
+        "description": "Send a raw HTTP request to Mailchimp API"
+      },
+      "key": "rawRequest",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "Input the path only (/reporting/facebook-ads), The base URL is already included (https://${dc}.api.mailchimp.com/3.0). For example, to connect to https://${dc}.api.mailchimp.com/3.0/reporting/facebook-ads, only /reporting/facebook-ads is entered in this field.",
+          "example": "/reporting/facebook-ads",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        }
+      ]
+    }
+  },
+  "triggers": {},
+  "dataSources": {},
+  "documentation": {
+    "description": "[Mailchimp](https://www.mailchimp.com/) is a marketing automation platform and email marketing service.\nThe Mailchimp component allows you to interact with your mailchimp email campaigns and your e-commerce site.\n",
+    "dev": "You can configure a Mailchimp [webhook](https://mailchimp.com/developer/transactional/docs/webhooks/#add-a-new-webhook) to send information to a Prismatic webhook URL under certain conditions (\"Profile Updates\", \"Subscribes\", \"Campaign Sending\", etc.).\n\nFor more information on configuring webhooks refer to the [Mailchimp Docs](https://mailchimp.com/developer/transactional/docs/webhooks/)\n"
+  },
+  "$version": 1
+}

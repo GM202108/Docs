@@ -1,0 +1,805 @@
+{
+  "key": "change-data-format",
+  "documentationUrl": "https://prismatic.io/docs/components/change-data-format/",
+  "public": true,
+  "display": {
+    "label": "Change Data Format",
+    "description": "Change data from one format to another",
+    "iconPath": "icon.png",
+    "category": "Helpers",
+    "iconBase64": "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"
+  },
+  "connections": [],
+  "actions": {
+    "deserializeFromJson": {
+      "display": {
+        "label": "Deserialize JSON",
+        "description": "Deserialize JSON data"
+      },
+      "examplePayload": {
+        "data": {
+          "person": {
+            "first": "Bob",
+            "last": "Johnson"
+          },
+          "dob": "1990-01-01"
+        }
+      },
+      "key": "deserializeFromJson",
+      "inputs": [
+        {
+          "placeholder": "Data to deserialize",
+          "required": true,
+          "comments": "JSON text to deserialize so it can be referenced in a subsequent step.",
+          "example": "{\n  \"person\": {\n    \"first\": \"Bob\",\n    \"last\": \"Johnson\"\n  },\n  \"dob\": \"1990-01-01\"\n}",
+          "key": "data",
+          "type": "code",
+          "default": "",
+          "label": "Data"
+        }
+      ]
+    },
+    "deserializeFromXml": {
+      "display": {
+        "label": "Deserialize XML",
+        "description": "Deserialize XML data"
+      },
+      "examplePayload": {
+        "data": {
+          "person": {
+            "first": "Bob",
+            "last": "Johnson"
+          },
+          "dob": "1990-01-01"
+        }
+      },
+      "key": "deserializeFromXml",
+      "inputs": [
+        {
+          "placeholder": "Data to deserialize",
+          "required": true,
+          "comments": "XML text to deserialize so it can be referenced in a subsequent step.",
+          "example": "<dob>1990-01-01</dob>\n<person>\n  <first>Bob</first>\n  <last>Johnson</last>\n</person>",
+          "key": "data",
+          "type": "code",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "required": false,
+          "comments": "Interpret numbers as strings?",
+          "key": "numbersAsStrings",
+          "type": "boolean",
+          "default": "false",
+          "label": "Parse numbers as strings?"
+        }
+      ]
+    },
+    "deserializeFromYaml": {
+      "display": {
+        "label": "Deserialize YAML",
+        "description": "Deserialize YAML data"
+      },
+      "examplePayload": {
+        "data": {
+          "person": {
+            "first": "Bob",
+            "last": "Johnson"
+          },
+          "dob": "1990-01-01"
+        }
+      },
+      "key": "deserializeFromYaml",
+      "inputs": [
+        {
+          "placeholder": "Data to deserialize",
+          "required": true,
+          "comments": "YAML text to deserialize so it can be referenced in a subsequent step.",
+          "example": "---\nperson:\n  first: Bob\n  last: Johnson\ndob: '1990-01-01'",
+          "key": "data",
+          "type": "code",
+          "default": "",
+          "label": "Data"
+        }
+      ]
+    },
+    "deserializeFromBinary": {
+      "display": {
+        "label": "Deserialize BINARY",
+        "description": "Deserialize BINARY data"
+      },
+      "examplePayload": {
+        "data": {
+          "person": {
+            "first": "Bob",
+            "last": "Johnson"
+          },
+          "dob": "1990-01-01"
+        }
+      },
+      "key": "deserializeFromBinary",
+      "inputs": [
+        {
+          "placeholder": "Data to deserialize",
+          "required": true,
+          "comments": "BINARY text to deserialize so it can be referenced in a subsequent step.",
+          "example": null,
+          "key": "data",
+          "type": "code",
+          "default": "",
+          "label": "Data"
+        }
+      ]
+    },
+    "deserializeFromCsv": {
+      "display": {
+        "label": "Deserialize CSV",
+        "description": "Deserialize CSV data"
+      },
+      "examplePayload": {
+        "data": {
+          "person": {
+            "first": "Bob",
+            "last": "Johnson"
+          },
+          "dob": "1990-01-01"
+        }
+      },
+      "key": "deserializeFromCsv",
+      "inputs": [
+        {
+          "placeholder": "Data to deserialize",
+          "required": true,
+          "comments": "CSV text to deserialize so it can be referenced in a subsequent step.",
+          "example": "\"person__first\",\"person__last\",\"dob\"\n\"Bob\",\"Johnson\",\"1990-01-01\"",
+          "key": "data",
+          "type": "code",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "required": false,
+          "comments": "Specify if your CSV contains a header row.",
+          "key": "isHeader",
+          "type": "boolean",
+          "default": "true",
+          "label": "CSV Header"
+        },
+        {
+          "required": true,
+          "comments": "When enabled, keys with double-underscores will be parsed as nested objects. For example, 'person__first,person__last' will become '{ person: { first, last } }' rather than '{ person__first, person__last }'",
+          "key": "unFlattenCsvKeys",
+          "type": "boolean",
+          "default": "false",
+          "label": "Un-Flatten CSV Keys"
+        }
+      ]
+    },
+    "jsonToXml": {
+      "display": {
+        "label": "JSON to XML",
+        "description": "Convert JSON to XML"
+      },
+      "examplePayload": {
+        "data": "<dob>1990-01-01</dob>\n<person>\n  <first>Bob</first>\n  <last>Johnson</last>\n</person>",
+        "contentType": "text/xml"
+      },
+      "key": "jsonToXml",
+      "inputs": [
+        {
+          "placeholder": "Data to change format of",
+          "language": "json",
+          "required": true,
+          "comments": "JSON data to convert to XML",
+          "example": "{\n  \"person\": {\n    \"first\": \"Bob\",\n    \"last\": \"Johnson\"\n  },\n  \"dob\": \"1990-01-01\"\n}",
+          "key": "data",
+          "type": "code",
+          "default": "",
+          "label": "Data"
+        }
+      ]
+    },
+    "jsonToYaml": {
+      "display": {
+        "label": "JSON to YAML",
+        "description": "Convert JSON to YAML"
+      },
+      "examplePayload": {
+        "data": "---\nperson:\n  first: Bob\n  last: Johnson\ndob: '1990-01-01'",
+        "contentType": "text/yaml"
+      },
+      "key": "jsonToYaml",
+      "inputs": [
+        {
+          "placeholder": "Data to change format of",
+          "language": "json",
+          "required": true,
+          "comments": "JSON data to convert to YAML",
+          "example": "{\n  \"person\": {\n    \"first\": \"Bob\",\n    \"last\": \"Johnson\"\n  },\n  \"dob\": \"1990-01-01\"\n}",
+          "key": "data",
+          "type": "code",
+          "default": "",
+          "label": "Data"
+        }
+      ]
+    },
+    "jsonToCsv": {
+      "display": {
+        "label": "JSON to CSV",
+        "description": "Convert JSON to CSV"
+      },
+      "examplePayload": {
+        "data": "\"person__first\",\"person__last\",\"dob\"\n\"Bob\",\"Johnson\",\"1990-01-01\"",
+        "contentType": "text/csv"
+      },
+      "key": "jsonToCsv",
+      "inputs": [
+        {
+          "placeholder": "Data to change format of",
+          "language": "json",
+          "required": true,
+          "comments": "JSON data to convert to CSV",
+          "example": "{\n  \"person\": {\n    \"first\": \"Bob\",\n    \"last\": \"Johnson\"\n  },\n  \"dob\": \"1990-01-01\"\n}",
+          "key": "data",
+          "type": "code",
+          "default": "",
+          "label": "Data"
+        }
+      ]
+    },
+    "xmlToJson": {
+      "display": {
+        "label": "XML to JSON",
+        "description": "Convert XML to JSON"
+      },
+      "examplePayload": {
+        "data": "{\n  \"person\": {\n    \"first\": \"Bob\",\n    \"last\": \"Johnson\"\n  },\n  \"dob\": \"1990-01-01\"\n}",
+        "contentType": "application/json"
+      },
+      "key": "xmlToJson",
+      "inputs": [
+        {
+          "placeholder": "Data to change format of",
+          "language": "xml",
+          "required": true,
+          "comments": "XML data to convert to JSON",
+          "example": "<dob>1990-01-01</dob>\n<person>\n  <first>Bob</first>\n  <last>Johnson</last>\n</person>",
+          "key": "data",
+          "type": "code",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "required": false,
+          "comments": "Interpret numbers as strings?",
+          "key": "numbersAsStrings",
+          "type": "boolean",
+          "default": "false",
+          "label": "Parse numbers as strings?"
+        }
+      ]
+    },
+    "xmlToYaml": {
+      "display": {
+        "label": "XML to YAML",
+        "description": "Convert XML to YAML"
+      },
+      "examplePayload": {
+        "data": "---\nperson:\n  first: Bob\n  last: Johnson\ndob: '1990-01-01'",
+        "contentType": "text/yaml"
+      },
+      "key": "xmlToYaml",
+      "inputs": [
+        {
+          "placeholder": "Data to change format of",
+          "language": "xml",
+          "required": true,
+          "comments": "XML data to convert to YAML",
+          "example": "<dob>1990-01-01</dob>\n<person>\n  <first>Bob</first>\n  <last>Johnson</last>\n</person>",
+          "key": "data",
+          "type": "code",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "required": false,
+          "comments": "Interpret numbers as strings?",
+          "key": "numbersAsStrings",
+          "type": "boolean",
+          "default": "false",
+          "label": "Parse numbers as strings?"
+        }
+      ]
+    },
+    "xmlToCsv": {
+      "display": {
+        "label": "XML to CSV",
+        "description": "Convert XML to CSV"
+      },
+      "examplePayload": {
+        "data": "\"person__first\",\"person__last\",\"dob\"\n\"Bob\",\"Johnson\",\"1990-01-01\"",
+        "contentType": "text/csv"
+      },
+      "key": "xmlToCsv",
+      "inputs": [
+        {
+          "placeholder": "Data to change format of",
+          "language": "xml",
+          "required": true,
+          "comments": "XML data to convert to CSV",
+          "example": "<dob>1990-01-01</dob>\n<person>\n  <first>Bob</first>\n  <last>Johnson</last>\n</person>",
+          "key": "data",
+          "type": "code",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "required": false,
+          "comments": "Interpret numbers as strings?",
+          "key": "numbersAsStrings",
+          "type": "boolean",
+          "default": "false",
+          "label": "Parse numbers as strings?"
+        }
+      ]
+    },
+    "yamlToJson": {
+      "display": {
+        "label": "YAML to JSON",
+        "description": "Convert YAML to JSON"
+      },
+      "examplePayload": {
+        "data": "{\n  \"person\": {\n    \"first\": \"Bob\",\n    \"last\": \"Johnson\"\n  },\n  \"dob\": \"1990-01-01\"\n}",
+        "contentType": "application/json"
+      },
+      "key": "yamlToJson",
+      "inputs": [
+        {
+          "placeholder": "Data to change format of",
+          "language": "yaml",
+          "required": true,
+          "comments": "YAML data to convert to JSON",
+          "example": "---\nperson:\n  first: Bob\n  last: Johnson\ndob: '1990-01-01'",
+          "key": "data",
+          "type": "code",
+          "default": "",
+          "label": "Data"
+        }
+      ]
+    },
+    "yamlToXml": {
+      "display": {
+        "label": "YAML to XML",
+        "description": "Convert YAML to XML"
+      },
+      "examplePayload": {
+        "data": "<dob>1990-01-01</dob>\n<person>\n  <first>Bob</first>\n  <last>Johnson</last>\n</person>",
+        "contentType": "text/xml"
+      },
+      "key": "yamlToXml",
+      "inputs": [
+        {
+          "placeholder": "Data to change format of",
+          "language": "yaml",
+          "required": true,
+          "comments": "YAML data to convert to XML",
+          "example": "---\nperson:\n  first: Bob\n  last: Johnson\ndob: '1990-01-01'",
+          "key": "data",
+          "type": "code",
+          "default": "",
+          "label": "Data"
+        }
+      ]
+    },
+    "yamlToCsv": {
+      "display": {
+        "label": "YAML to CSV",
+        "description": "Convert YAML to CSV"
+      },
+      "examplePayload": {
+        "data": "\"person__first\",\"person__last\",\"dob\"\n\"Bob\",\"Johnson\",\"1990-01-01\"",
+        "contentType": "text/csv"
+      },
+      "key": "yamlToCsv",
+      "inputs": [
+        {
+          "placeholder": "Data to change format of",
+          "language": "yaml",
+          "required": true,
+          "comments": "YAML data to convert to CSV",
+          "example": "---\nperson:\n  first: Bob\n  last: Johnson\ndob: '1990-01-01'",
+          "key": "data",
+          "type": "code",
+          "default": "",
+          "label": "Data"
+        }
+      ]
+    },
+    "binaryToJson": {
+      "display": {
+        "label": "JavaScript Object to JSON",
+        "description": "Convert JavaScript Object to JSON"
+      },
+      "examplePayload": {
+        "data": "{\n  \"person\": {\n    \"first\": \"Bob\",\n    \"last\": \"Johnson\"\n  },\n  \"dob\": \"1990-01-01\"\n}",
+        "contentType": "application/json"
+      },
+      "key": "binaryToJson",
+      "inputs": [
+        {
+          "placeholder": "Data to change format of",
+          "language": null,
+          "required": true,
+          "comments": "JavaScript Object data to convert to JSON",
+          "example": null,
+          "key": "data",
+          "type": "code",
+          "default": "",
+          "label": "Data"
+        }
+      ]
+    },
+    "binaryToXml": {
+      "display": {
+        "label": "JavaScript Object to XML",
+        "description": "Convert JavaScript Object to XML"
+      },
+      "examplePayload": {
+        "data": "<dob>1990-01-01</dob>\n<person>\n  <first>Bob</first>\n  <last>Johnson</last>\n</person>",
+        "contentType": "text/xml"
+      },
+      "key": "binaryToXml",
+      "inputs": [
+        {
+          "placeholder": "Data to change format of",
+          "language": null,
+          "required": true,
+          "comments": "JavaScript Object data to convert to XML",
+          "example": null,
+          "key": "data",
+          "type": "code",
+          "default": "",
+          "label": "Data"
+        }
+      ]
+    },
+    "binaryToYaml": {
+      "display": {
+        "label": "JavaScript Object to YAML",
+        "description": "Convert JavaScript Object to YAML"
+      },
+      "examplePayload": {
+        "data": "---\nperson:\n  first: Bob\n  last: Johnson\ndob: '1990-01-01'",
+        "contentType": "text/yaml"
+      },
+      "key": "binaryToYaml",
+      "inputs": [
+        {
+          "placeholder": "Data to change format of",
+          "language": null,
+          "required": true,
+          "comments": "JavaScript Object data to convert to YAML",
+          "example": null,
+          "key": "data",
+          "type": "code",
+          "default": "",
+          "label": "Data"
+        }
+      ]
+    },
+    "binaryToCsv": {
+      "display": {
+        "label": "JavaScript Object to CSV",
+        "description": "Convert JavaScript Object to CSV"
+      },
+      "examplePayload": {
+        "data": "\"person__first\",\"person__last\",\"dob\"\n\"Bob\",\"Johnson\",\"1990-01-01\"",
+        "contentType": "text/csv"
+      },
+      "key": "binaryToCsv",
+      "inputs": [
+        {
+          "placeholder": "Data to change format of",
+          "language": null,
+          "required": true,
+          "comments": "JavaScript Object data to convert to CSV",
+          "example": null,
+          "key": "data",
+          "type": "code",
+          "default": "",
+          "label": "Data"
+        }
+      ]
+    },
+    "csvToJson": {
+      "display": {
+        "label": "CSV to JSON",
+        "description": "Convert CSV to JSON"
+      },
+      "examplePayload": {
+        "data": "{\n  \"person\": {\n    \"first\": \"Bob\",\n    \"last\": \"Johnson\"\n  },\n  \"dob\": \"1990-01-01\"\n}",
+        "contentType": "application/json"
+      },
+      "key": "csvToJson",
+      "inputs": [
+        {
+          "placeholder": "Data to change format of",
+          "language": "csv",
+          "required": true,
+          "comments": "CSV data to convert to JSON",
+          "example": "\"person__first\",\"person__last\",\"dob\"\n\"Bob\",\"Johnson\",\"1990-01-01\"",
+          "key": "data",
+          "type": "code",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "required": false,
+          "comments": "Specify if your CSV contains a header row.",
+          "key": "isHeader",
+          "type": "boolean",
+          "default": "true",
+          "label": "CSV Header"
+        },
+        {
+          "required": true,
+          "comments": "When enabled, keys with double-underscores will be parsed as nested objects. For example, 'person__first,person__last' will become '{ person: { first, last } }' rather than '{ person__first, person__last }'",
+          "key": "unFlattenCsvKeys",
+          "type": "boolean",
+          "default": "false",
+          "label": "Un-Flatten CSV Keys"
+        }
+      ]
+    },
+    "csvToXml": {
+      "display": {
+        "label": "CSV to XML",
+        "description": "Convert CSV to XML"
+      },
+      "examplePayload": {
+        "data": "<dob>1990-01-01</dob>\n<person>\n  <first>Bob</first>\n  <last>Johnson</last>\n</person>",
+        "contentType": "text/xml"
+      },
+      "key": "csvToXml",
+      "inputs": [
+        {
+          "placeholder": "Data to change format of",
+          "language": "csv",
+          "required": true,
+          "comments": "CSV data to convert to XML",
+          "example": "\"person__first\",\"person__last\",\"dob\"\n\"Bob\",\"Johnson\",\"1990-01-01\"",
+          "key": "data",
+          "type": "code",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "required": false,
+          "comments": "Specify if your CSV contains a header row.",
+          "key": "isHeader",
+          "type": "boolean",
+          "default": "true",
+          "label": "CSV Header"
+        },
+        {
+          "required": true,
+          "comments": "When enabled, keys with double-underscores will be parsed as nested objects. For example, 'person__first,person__last' will become '{ person: { first, last } }' rather than '{ person__first, person__last }'",
+          "key": "unFlattenCsvKeys",
+          "type": "boolean",
+          "default": "false",
+          "label": "Un-Flatten CSV Keys"
+        }
+      ]
+    },
+    "csvToYaml": {
+      "display": {
+        "label": "CSV to YAML",
+        "description": "Convert CSV to YAML"
+      },
+      "examplePayload": {
+        "data": "---\nperson:\n  first: Bob\n  last: Johnson\ndob: '1990-01-01'",
+        "contentType": "text/yaml"
+      },
+      "key": "csvToYaml",
+      "inputs": [
+        {
+          "placeholder": "Data to change format of",
+          "language": "csv",
+          "required": true,
+          "comments": "CSV data to convert to YAML",
+          "example": "\"person__first\",\"person__last\",\"dob\"\n\"Bob\",\"Johnson\",\"1990-01-01\"",
+          "key": "data",
+          "type": "code",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "required": false,
+          "comments": "Specify if your CSV contains a header row.",
+          "key": "isHeader",
+          "type": "boolean",
+          "default": "true",
+          "label": "CSV Header"
+        },
+        {
+          "required": true,
+          "comments": "When enabled, keys with double-underscores will be parsed as nested objects. For example, 'person__first,person__last' will become '{ person: { first, last } }' rather than '{ person__first, person__last }'",
+          "key": "unFlattenCsvKeys",
+          "type": "boolean",
+          "default": "false",
+          "label": "Un-Flatten CSV Keys"
+        }
+      ]
+    },
+    "deserializeJsonl": {
+      "display": {
+        "label": "Deserialize JSON Lines (.jsonl)",
+        "description": "Transform .jsonl data to a JavaScript array"
+      },
+      "key": "deserializeJsonl",
+      "inputs": [
+        {
+          "required": true,
+          "example": "[\"Name\", \"Session\", \"Score\", \"Completed\"]\n[\"Gilbert\", \"2013\", 24, true]\n[\"Alexa\", \"2013\", 29, true]\n[\"May\", \"2012B\", 14, false]\n[\"Deloise\", \"2012A\", 19, true]",
+          "key": "jsonl",
+          "type": "code",
+          "default": "",
+          "label": "JSONL Data"
+        }
+      ]
+    },
+    "serializeJsonl": {
+      "display": {
+        "label": "Serialize JSON Lines (.jsonl)",
+        "description": "Serialize an array of JavaScript objects into .jsonl"
+      },
+      "key": "serializeJsonl",
+      "inputs": [
+        {
+          "comments": "Must be a reference to an array of JavaScript objects",
+          "required": true,
+          "key": "array",
+          "type": "string",
+          "default": "",
+          "label": "Array of JavaScript Objects to serialize"
+        }
+      ]
+    },
+    "deserializeFormData": {
+      "display": {
+        "label": "Deserialize URL-encoded Form Data",
+        "description": "Deserialize Form Data (x-www-form-urlencoded)"
+      },
+      "examplePayload": {
+        "data": {
+          "foo": "bar",
+          "baz": "123"
+        }
+      },
+      "key": "deserializeFormData",
+      "inputs": [
+        {
+          "placeholder": "Data to deserialize",
+          "required": true,
+          "comments": "Form data to deserialize so it can be referenced in a subsequent step.",
+          "example": "foo=bar&baz=123",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        }
+      ]
+    },
+    "serializeFormData": {
+      "display": {
+        "label": "Serialize URL-encoded Form Data",
+        "description": "Serialize Form Data (x-www-form-urlencoded)"
+      },
+      "examplePayload": {
+        "data": "foo=bar&baz=123"
+      },
+      "key": "serializeFormData",
+      "inputs": [
+        {
+          "placeholder": "Data to serialize",
+          "language": "json",
+          "required": true,
+          "comments": "Form data to deserialize so it can be referenced in a subsequent step.",
+          "key": "data",
+          "type": "code",
+          "default": "",
+          "label": "Data"
+        }
+      ]
+    },
+    "convertToBoolean": {
+      "display": {
+        "label": "Convert To Boolean",
+        "description": "Convert a value to a number"
+      },
+      "key": "convertToBoolean",
+      "inputs": [
+        {
+          "required": true,
+          "key": "value",
+          "type": "string",
+          "default": "",
+          "label": "The value to be converted to a boolean"
+        }
+      ]
+    },
+    "convertToInt": {
+      "display": {
+        "label": "Convert To Integer",
+        "description": "Convert a value to an int"
+      },
+      "key": "convertToInt",
+      "inputs": [
+        {
+          "required": true,
+          "key": "value",
+          "type": "string",
+          "default": "",
+          "label": "The value to be converted to a integer"
+        }
+      ]
+    },
+    "convertToString": {
+      "display": {
+        "label": "Convert To String",
+        "description": "Convert a value to a string"
+      },
+      "key": "convertToString",
+      "inputs": [
+        {
+          "required": true,
+          "key": "value",
+          "type": "string",
+          "default": "",
+          "label": "The value to be converted to a string"
+        }
+      ]
+    },
+    "convertToNumber": {
+      "display": {
+        "label": "Convert To Number",
+        "description": "Convert a value to a number"
+      },
+      "key": "convertToNumber",
+      "inputs": [
+        {
+          "required": true,
+          "key": "value",
+          "type": "string",
+          "default": "",
+          "label": "The value to be converted to a number"
+        }
+      ]
+    },
+    "prettyPrint": {
+      "display": {
+        "label": "Pretty Print",
+        "description": "Format data to be more human-readable"
+      },
+      "key": "prettyPrint",
+      "inputs": [
+        {
+          "placeholder": "Data to pretty print",
+          "required": true,
+          "comments": "Data to pretty print",
+          "key": "data",
+          "type": "text",
+          "default": "",
+          "label": "Data"
+        }
+      ]
+    }
+  },
+  "triggers": {},
+  "dataSources": {},
+  "documentation": {
+    "description": "The **change data format** component allows you to convert data between common formats, like JSON, XML, CSV, and YAML, and to serialize (turn an object into a string) or deserialize (turn a string into an object) each supported format.\n",
+    "dev": "For example, the \"JSON to XML\" action will convert a JSON string that looks like this:\n\n```json\n{\n  \"user\": {\n    \"name\": \"John Doe\",\n    \"dob\": \"19880101\",\n    \"phones\": [\"555-123-4567\", \"555-555-5555\"]\n  }\n}\n```\n\ninto an XML string that looks like this:\n\n```xml\n<user>\n  <name>John Doe</name>\n  <dob>19880101</dob>\n  <phones>555-123-4567</phones>\n  <phones>555-555-5555</phones>\n</user>\n```\n\nA \"Deserialize XML\" action, when run on the above XML, would convert the XML into an object whose keys can be referenced in subsequent steps.\n\n<Screenshot filename=\"components/deserialize-xml.png\" />\n"
+  },
+  "$version": 1
+}

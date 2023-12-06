@@ -1,0 +1,1487 @@
+{
+  "key": "ms-sharepoint",
+  "public": true,
+  "documentationUrl": "https://prismatic.io/docs/components/ms-sharepoint/",
+  "display": {
+    "category": "Application Connectors",
+    "label": "Microsoft SharePoint",
+    "description": "Interact with sites, drives, and items connected to your instance of Microsoft SharePoint.",
+    "iconPath": "icon.png",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "key": "oauth",
+      "label": "Microsoft SharePoint OAuth 2.0",
+      "comments": "Authenticates actions in the Microsoft SharePoint component.",
+      "oauth2Type": "authorization_code",
+      "inputs": [
+        {
+          "placeholder": "Authorize URL",
+          "required": true,
+          "shown": true,
+          "comments": "Provide a tenant specific OAuth 2.0 authorize endpoint.",
+          "key": "authorizeUrl",
+          "type": "string",
+          "default": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+          "label": "Authorize URL"
+        },
+        {
+          "placeholder": "Token URL",
+          "required": true,
+          "shown": true,
+          "comments": "Provide a tenant specific OAuth 2.0 token endpoint.",
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+          "label": "Token URL"
+        },
+        {
+          "placeholder": "Scopes",
+          "required": true,
+          "shown": true,
+          "comments": "Space separated OAuth 2.0 permission scopes",
+          "key": "scopes",
+          "type": "string",
+          "default": "Sites.ReadWrite.All Sites.Manage.All offline_access",
+          "label": "Scopes"
+        },
+        {
+          "placeholder": "Client ID",
+          "required": true,
+          "shown": true,
+          "comments": "Client Id of your Azure application",
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "Client ID"
+        },
+        {
+          "placeholder": "Client Secret",
+          "required": true,
+          "shown": true,
+          "comments": "Client Secret generated under 'Certificates & Secrets' in your Azure application.",
+          "key": "clientSecret",
+          "type": "password",
+          "default": "",
+          "label": "Client Secret"
+        }
+      ],
+      "documentation": {
+        "description": "Once you have an instance of Microsoft SharePoint licensed to your account, you will need to create and configure a new \"App Registration\" within your [Azure Active Directory tenant](https://portal.azure.com/#home).\nWhen creating the application you will be prompted to select the 'Supported account types'. Under this section, be sure to select 'Accounts in any organizational directory (Any Azure AD directory - Multitenant)'.\n\nYou will need to go to \"Platforms\" and add the \"Web\" platform. In that section you should add Prismatic's OAuth 2.0 callback URL - https<!---->://oauth2.prismatic.io/callback - as a **Redirect URI**.\n\nNext, go to \"Certificates & Secrets\" for the app and add a new **Client Secret**. Note this value as you will need to supply it to the connection within Prismatic.\n\nYou will also need the **Application (client) ID** from the \"Overview\" page.\n\nThe last step of configuring the \"App Registration\" is assigning \"App Permissions\". Click \"Add Permission\", click on the square labeled \"SharePoint\", and then \"Delegated permissions\". You should select all permissions that are required for your desired integration.\n\nNow, configure the OAuth 2.0 connection in Prismatic.\nAdd an MS SharePoint OAuth 2.0 connection config variable:\n\n-   Use the **Application (client) ID** value for the **Client ID** field.\n-   Use the **Client Secret** for the same named field.\n-   If you didn't select Multitenant when creating the Azure application, you will need to replace the **Authorize URL** and **Token URL** with ones specific to your tenant.\n\nSave your integration and you should be able to authenticate a user through MS SharePoint with OAuth 2.0.\n"
+      }
+    }
+  ],
+  "actions": {
+    "listDrives": {
+      "display": {
+        "label": "List Drives",
+        "description": "List all drives within any given SharePoint site"
+      },
+      "examplePayload": {
+        "data": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#drives",
+          "value": [
+            {
+              "createdDateTime": "2023-05-14T05:14:52Z",
+              "description": "",
+              "id": "b!o2UaIfdNxk-5091VjGz1sDVso2efo6RGrpVCkPpe547Qrf38sox_TYIFuj9QrJhv",
+              "lastModifiedDateTime": "2023-05-14T05:14:52Z",
+              "name": "Documents",
+              "webUrl": "https://example.sharepoint.com/Shared%20Documents",
+              "driveType": "documentLibrary",
+              "createdBy": {
+                "user": {
+                  "displayName": "System Account"
+                }
+              },
+              "owner": {
+                "group": {
+                  "id": "9705118a-6ce1-4fa3-adba-09f94b69d568",
+                  "displayName": "9705118a-6ce1-4fa3-acda-09f94b69d446"
+                }
+              },
+              "quota": {
+                "deleted": 0,
+                "remaining": 27487789251101,
+                "state": "normal",
+                "total": 27487790694400,
+                "used": 1443299
+              }
+            }
+          ]
+        }
+      },
+      "key": "listDrives",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a SharePoint site.",
+          "example": "example.sharepoint.com,c45de8832-a4969-479d-aeb2-7nAh8321,48bf81d7-2d37-40a9-b47b-c1d1960d00f87",
+          "key": "siteId",
+          "type": "string",
+          "default": "",
+          "label": "Site Id"
+        },
+        {
+          "required": false,
+          "example": "100",
+          "comments": "Enter a number amount for the page size.",
+          "key": "pageLimit",
+          "type": "string",
+          "default": "",
+          "label": "Page Limit"
+        },
+        {
+          "required": false,
+          "example": "X%2744537079ghv",
+          "comments": "Enter the token for the desired page.",
+          "key": "pageToken",
+          "type": "string",
+          "default": "",
+          "label": "Page Token"
+        }
+      ]
+    },
+    "getDrive": {
+      "display": {
+        "label": "Get Drive",
+        "description": "Returns the information and metadata of a SharePoint drive"
+      },
+      "key": "getDrive",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a SharePoint drive.",
+          "example": "b!WumF-zsD8ku93Y0QqhKM9jVTjPefo6RGrpVCkPpe547Qrf38sox_TYIFuj9sqJhv",
+          "key": "driveId",
+          "type": "string",
+          "default": "",
+          "label": "Drive"
+        }
+      ]
+    },
+    "getFilesFromDrive": {
+      "display": {
+        "label": "List Files in Drive",
+        "description": "List all the files from a Drive"
+      },
+      "key": "getFilesFromDrive",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a SharePoint drive.",
+          "example": "b!WumF-zsD8ku93Y0QqhKM9jVTjPefo6RGrpVCkPpe547Qrf38sox_TYIFuj9sqJhv",
+          "key": "driveId",
+          "type": "string",
+          "default": "",
+          "label": "Drive"
+        }
+      ]
+    },
+    "getFile": {
+      "display": {
+        "label": "Get File",
+        "description": "Get a file from a Drive"
+      },
+      "key": "getFile",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a SharePoint drive.",
+          "example": "b!WumF-zsD8ku93Y0QqhKM9jVTjPefo6RGrpVCkPpe547Qrf38sox_TYIFuj9sqJhv",
+          "key": "driveId",
+          "type": "string",
+          "default": "",
+          "label": "Drive"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a SharePoint item Id.",
+          "example": "01Q7VXROAW7LCB32ODBRCKZNSJIC544XAQ",
+          "key": "itemId",
+          "type": "string",
+          "default": "",
+          "label": "Item Id"
+        }
+      ]
+    },
+    "uploadFile": {
+      "display": {
+        "label": "Upload File",
+        "description": "Upload a file to the specified drive or folder's drive"
+      },
+      "key": "uploadFile",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a SharePoint drive.",
+          "example": "b!WumF-zsD8ku93Y0QqhKM9jVTjPefo6RGrpVCkPpe547Qrf38sox_TYIFuj9sqJhv",
+          "key": "driveId",
+          "type": "string",
+          "default": "",
+          "label": "Drive"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the name of the new file.",
+          "example": "reports.csv",
+          "key": "fileName",
+          "type": "string",
+          "default": "",
+          "label": "File Name"
+        },
+        {
+          "required": true,
+          "comments": "Provide data to be uploaded to your desired SharePoint drive.",
+          "example": "These are my file contents.",
+          "key": "fileData",
+          "type": "data",
+          "default": "",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "Folder ID",
+          "required": false,
+          "example": "01Q7VXAXZW7LCB32ODBRCKZNSJIC544FXU",
+          "comments": "Provide the unique identifier of a Sharepoint folder Id.",
+          "key": "folderId",
+          "type": "string",
+          "default": "",
+          "label": "Folder ID"
+        }
+      ]
+    },
+    "updateFile": {
+      "display": {
+        "label": "Update File",
+        "description": "Update a file to the specified drive"
+      },
+      "key": "updateFile",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a SharePoint drive.",
+          "example": "b!WumF-zsD8ku93Y0QqhKM9jVTjPefo6RGrpVCkPpe547Qrf38sox_TYIFuj9sqJhv",
+          "key": "driveId",
+          "type": "string",
+          "default": "",
+          "label": "Drive"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a SharePoint item Id.",
+          "example": "01Q7VXROAW7LCB32ODBRCKZNSJIC544XAQ",
+          "key": "itemId",
+          "type": "string",
+          "default": "",
+          "label": "Item Id"
+        },
+        {
+          "required": true,
+          "comments": "Provide data to be uploaded to your desired SharePoint drive.",
+          "example": "These are my file contents.",
+          "key": "fileData",
+          "type": "data",
+          "default": "",
+          "label": "File Data"
+        }
+      ]
+    },
+    "downloadFile": {
+      "display": {
+        "label": "Download File",
+        "description": "Download a file from the specified drive"
+      },
+      "key": "downloadFile",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a SharePoint drive.",
+          "example": "b!WumF-zsD8ku93Y0QqhKM9jVTjPefo6RGrpVCkPpe547Qrf38sox_TYIFuj9sqJhv",
+          "key": "driveId",
+          "type": "string",
+          "default": "",
+          "label": "Drive"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a SharePoint item Id.",
+          "example": "01Q7VXROAW7LCB32ODBRCKZNSJIC544XAQ",
+          "key": "itemId",
+          "type": "string",
+          "default": "",
+          "label": "Item Id"
+        }
+      ]
+    },
+    "getFilesFromDriveFolder": {
+      "display": {
+        "label": "List Folder Files in Drive",
+        "description": "List all the files inside of a folder from a Drive"
+      },
+      "key": "getFilesFromDriveFolder",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a SharePoint drive.",
+          "example": "b!WumF-zsD8ku93Y0QqhKM9jVTjPefo6RGrpVCkPpe547Qrf38sox_TYIFuj9sqJhv",
+          "key": "driveId",
+          "type": "string",
+          "default": "",
+          "label": "Drive"
+        },
+        {
+          "placeholder": "Folder ID",
+          "required": false,
+          "example": "01Q7VXAXZW7LCB32ODBRCKZNSJIC544FXU",
+          "comments": "Provide the unique identifier of a Sharepoint folder Id.",
+          "key": "folderId",
+          "type": "string",
+          "default": "",
+          "label": "Folder ID"
+        }
+      ]
+    },
+    "listSiteLists": {
+      "display": {
+        "label": "List Site Lists",
+        "description": "List all Site Lists"
+      },
+      "key": "listSiteLists",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a SharePoint site.",
+          "example": "example.sharepoint.com,c45de8832-a4969-479d-aeb2-7nAh8321,48bf81d7-2d37-40a9-b47b-c1d1960d00f87",
+          "key": "siteId",
+          "type": "string",
+          "default": "",
+          "label": "Site Id"
+        }
+      ]
+    },
+    "getListItemsInSite": {
+      "display": {
+        "label": "List Items in Site List",
+        "description": "Return all items inside the given site list"
+      },
+      "key": "getListItemsInSite",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a SharePoint site.",
+          "example": "example.sharepoint.com,c45de8832-a4969-479d-aeb2-7nAh8321,48bf81d7-2d37-40a9-b47b-c1d1960d00f87",
+          "key": "siteId",
+          "type": "string",
+          "default": "",
+          "label": "Site Id"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a SharePoint site list.",
+          "example": "48bf81d7-2d37-40a9-b47b-c1d1960d00f87",
+          "key": "listId",
+          "type": "string",
+          "default": "",
+          "label": "List Id"
+        },
+        {
+          "required": false,
+          "example": "100",
+          "comments": "Enter a number amount for the page size.",
+          "key": "pageLimit",
+          "type": "string",
+          "default": "",
+          "label": "Page Limit"
+        },
+        {
+          "required": false,
+          "example": "X%2744537079ghv",
+          "comments": "Enter the token for the desired page.",
+          "key": "pageToken",
+          "type": "string",
+          "default": "",
+          "label": "Page Token"
+        },
+        {
+          "required": false,
+          "example": "name, description, id",
+          "comments": "Provide a comma separated list of fields to overwrite the default result set.",
+          "key": "optInFields",
+          "type": "string",
+          "default": "",
+          "label": "Opt In Fields"
+        }
+      ]
+    },
+    "createItemInSite": {
+      "display": {
+        "label": "Create Item in Site List",
+        "description": "Create a new item inside the given site list"
+      },
+      "key": "createItemInSite",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a SharePoint site.",
+          "example": "example.sharepoint.com,c45de8832-a4969-479d-aeb2-7nAh8321,48bf81d7-2d37-40a9-b47b-c1d1960d00f87",
+          "key": "siteId",
+          "type": "string",
+          "default": "",
+          "label": "Site Id"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a SharePoint site list.",
+          "example": "48bf81d7-2d37-40a9-b47b-c1d1960d00f87",
+          "key": "listId",
+          "type": "string",
+          "default": "",
+          "label": "List Id"
+        },
+        {
+          "required": true,
+          "comments": "For each item, provide a key value pair to be added to the new drive item's properties.",
+          "key": "fields",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Fields"
+        }
+      ]
+    },
+    "getList": {
+      "display": {
+        "label": "Get Site List",
+        "description": "Returns the information and metadata of an existing site list"
+      },
+      "key": "getList",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a SharePoint site.",
+          "example": "example.sharepoint.com,c45de8832-a4969-479d-aeb2-7nAh8321,48bf81d7-2d37-40a9-b47b-c1d1960d00f87",
+          "key": "siteId",
+          "type": "string",
+          "default": "",
+          "label": "Site Id"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a SharePoint site list.",
+          "example": "48bf81d7-2d37-40a9-b47b-c1d1960d00f87",
+          "key": "listId",
+          "type": "string",
+          "default": "",
+          "label": "List Id"
+        }
+      ]
+    },
+    "getItemInSite": {
+      "display": {
+        "label": "Get Item from Site List",
+        "description": "Returns the information and metadata of the given item"
+      },
+      "key": "getItemInSite",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a SharePoint site.",
+          "example": "example.sharepoint.com,c45de8832-a4969-479d-aeb2-7nAh8321,48bf81d7-2d37-40a9-b47b-c1d1960d00f87",
+          "key": "siteId",
+          "type": "string",
+          "default": "",
+          "label": "Site Id"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a SharePoint site list.",
+          "example": "48bf81d7-2d37-40a9-b47b-c1d1960d00f87",
+          "key": "listId",
+          "type": "string",
+          "default": "",
+          "label": "List Id"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a SharePoint item Id.",
+          "example": "01Q7VXROAW7LCB32ODBRCKZNSJIC544XAQ",
+          "key": "itemId",
+          "type": "string",
+          "default": "",
+          "label": "Item Id"
+        },
+        {
+          "required": false,
+          "example": "name, description, id",
+          "comments": "Provide a comma separated list of fields to overwrite the default result set.",
+          "key": "optInFields",
+          "type": "string",
+          "default": "",
+          "label": "Opt In Fields"
+        }
+      ]
+    },
+    "listSites": {
+      "display": {
+        "label": "List Sites",
+        "description": "List all SharePoint sites"
+      },
+      "examplePayload": {
+        "data": {
+          "value": [
+            {
+              "description": "Example description",
+              "id": "example.sharepoint.com,c45e332-a998-479d-aeb2-2a",
+              "name": "Example SharePoint Site",
+              "webUrl": "https://example.sharepoint.com",
+              "displayName": "Communication Site",
+              "siteCollection": {
+                "hostname": "https://example.sharepoint.com"
+              }
+            }
+          ]
+        }
+      },
+      "key": "listSites",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "example": "100",
+          "comments": "Enter a number amount for the page size.",
+          "key": "pageLimit",
+          "type": "string",
+          "default": "",
+          "label": "Page Limit"
+        },
+        {
+          "required": false,
+          "example": "X%2744537079ghv",
+          "comments": "Enter the token for the desired page.",
+          "key": "pageToken",
+          "type": "string",
+          "default": "",
+          "label": "Page Token"
+        }
+      ]
+    },
+    "listFollowedSites": {
+      "display": {
+        "label": "List Followed Sites",
+        "description": "List all Followed Sites"
+      },
+      "examplePayload": {
+        "data": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#sites",
+          "value": [
+            {
+              "displayName": "Example",
+              "id": "example.sharepoint.com,6c44888f-5883-4ef0-c542-d21a802cfea6,ed2d5d06-e192-4047-afa6-a5d7f25b3418",
+              "sharepointIds": {
+                "siteId": "6c44888f-5883-4ef0-c542-d21a802cfea6",
+                "webId": "ed2d5d06-e192-4047-afa6-a5d7f25b3418"
+              },
+              "siteCollection": {
+                "hostname": "example.sharepoint.com"
+              },
+              "webUrl": "https://example.sharepoint.com/sites/Example"
+            }
+          ]
+        }
+      },
+      "key": "listFollowedSites",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "example": "100",
+          "comments": "Enter a number amount for the page size.",
+          "key": "pageLimit",
+          "type": "string",
+          "default": "",
+          "label": "Page Limit"
+        },
+        {
+          "required": false,
+          "example": "X%2744537079ghv",
+          "comments": "Enter the token for the desired page.",
+          "key": "pageToken",
+          "type": "string",
+          "default": "",
+          "label": "Page Token"
+        }
+      ]
+    },
+    "getRootSite": {
+      "display": {
+        "label": "Get Root Site",
+        "description": "Returns the information and metadata of the root SharePoint site in your tenant"
+      },
+      "examplePayload": {
+        "data": {
+          "description": "Example description",
+          "id": "example.sharepoint.com,c45e332-a998-479d-aeb2-2a",
+          "name": "Example SharePoint Site",
+          "webUrl": "https://example.sharepoint.com",
+          "displayName": "Communication Site",
+          "siteCollection": {
+            "hostname": "https://example.sharepoint.com"
+          }
+        }
+      },
+      "key": "getRootSite",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getSite": {
+      "display": {
+        "label": "Get Site",
+        "description": "Returns the information and metadata of the given SharePoint site"
+      },
+      "examplePayload": {
+        "data": {
+          "description": "Example description",
+          "id": "example.sharepoint.com,c45e332-a998-479d-aeb2-2a",
+          "name": "Example SharePoint Site",
+          "webUrl": "https://example.sharepoint.com",
+          "displayName": "Communication Site",
+          "siteCollection": {
+            "hostname": "https://example.sharepoint.com"
+          }
+        }
+      },
+      "key": "getSite",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a SharePoint site.",
+          "example": "example.sharepoint.com,c45de8832-a4969-479d-aeb2-7nAh8321,48bf81d7-2d37-40a9-b47b-c1d1960d00f87",
+          "key": "siteId",
+          "type": "string",
+          "default": "",
+          "label": "Site Id"
+        }
+      ]
+    },
+    "listSharedDocuments": {
+      "display": {
+        "label": "List Shared Documents",
+        "description": "Lists documents shared with the user."
+      },
+      "key": "listSharedDocuments",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listSubscriptions": {
+      "display": {
+        "label": "List Subscriptions",
+        "description": "List all available Subscriptions"
+      },
+      "examplePayload": {
+        "data": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#subscriptions",
+          "value": [
+            {
+              "id": "38031b7d-16b1-448a-8e68-68b8aec6df45",
+              "resource": "/me/drive/root",
+              "applicationId": "0fed8223-8c47-4c71-ba78-92c6f9441235",
+              "changeType": "updated",
+              "clientState": null,
+              "notificationUrl": "https://hooks.prismatic.io/trigger/SW5",
+              "notificationQueryOptions": null,
+              "lifecycleNotificationUrl": null,
+              "expirationDateTime": "2023-07-01T11:23:00Z",
+              "creatorId": "62162f3c-04d4-4b39-b2a4-ad891a5dcb8f",
+              "includeResourceData": null,
+              "latestSupportedTlsVersion": "v1_2",
+              "encryptionCertificate": null,
+              "encryptionCertificateId": null,
+              "notificationUrlAppId": null
+            }
+          ]
+        }
+      },
+      "key": "listSubscriptions",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "Show only subscriptions for this Instance's Subscriptions",
+          "key": "showInstanceSubscriptions",
+          "type": "boolean",
+          "default": true,
+          "label": "Show Instance Subscriptions"
+        }
+      ]
+    },
+    "createSiteListSubscription": {
+      "display": {
+        "label": "Create Site List Subscription",
+        "description": "Create a Site List subscription for Microsoft SharePoint"
+      },
+      "examplePayload": {
+        "data": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#subscriptions/$entity",
+          "id": "e9d5b726-4478-4412-bfba-268530484566",
+          "resource": "sites/example.sharepoint.com,17cd4ada-1a76-420e-a7ec-4adaa3327c86,87742bc7-2d2f-404c-8255-d3d9fa9a6561/lists/3a3c0f6a-86da-4567-94d4-3b939da63200",
+          "applicationId": "e76615c0-13e3-4cd2-8235-a2d628ad13de",
+          "changeType": "updated",
+          "clientState": null,
+          "notificationUrl": "https://example.com/webhook/",
+          "notificationQueryOptions": null,
+          "lifecycleNotificationUrl": null,
+          "expirationDateTime": "2022-11-22T23:32:10.231Z",
+          "creatorId": "c8edbeda-c453-446c-91ce-c6d5c7310a6c",
+          "includeResourceData": null,
+          "latestSupportedTlsVersion": "v1_2",
+          "encryptionCertificate": null,
+          "encryptionCertificateId": null,
+          "notificationUrlAppId": null
+        }
+      },
+      "key": "createSiteListSubscription",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a SharePoint site.",
+          "example": "example.sharepoint.com,c45de8832-a4969-479d-aeb2-7nAh8321,48bf81d7-2d37-40a9-b47b-c1d1960d00f87",
+          "key": "siteId",
+          "type": "string",
+          "default": "",
+          "label": "Site Id"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of a SharePoint site list.",
+          "example": "48bf81d7-2d37-40a9-b47b-c1d1960d00f87",
+          "key": "listId",
+          "type": "string",
+          "default": "",
+          "label": "List Id"
+        },
+        {
+          "required": true,
+          "comments": "URL to send events of this Subscription to",
+          "key": "notificationUrl",
+          "type": "string",
+          "default": "",
+          "label": "Notification URL"
+        },
+        {
+          "required": false,
+          "comments": "Expiration date/time for subscription. If unspecified the default will be the current date/time plus 29 days (close to the maximum permitted by the Graph API).",
+          "key": "expirationDateTime",
+          "type": "string",
+          "default": "",
+          "label": "Expiration Date/Time"
+        },
+        {
+          "required": false,
+          "comments": "Enable to allow more than one webhook per endpoint",
+          "key": "allowDuplicates",
+          "type": "boolean",
+          "default": "false",
+          "label": "Allow Duplicates"
+        }
+      ]
+    },
+    "updateSiteListSubscriptionExpiration": {
+      "display": {
+        "label": "Update Site List Subscription Expiration",
+        "description": "Update existing Site List subscription expiration for Microsoft SharePoint"
+      },
+      "examplePayload": {
+        "data": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#subscriptions/$entity",
+          "id": "e9d5b726-4478-4412-bfba-268530484566",
+          "resource": "sites/example.sharepoint.com,17cd4ada-1a76-420e-a7ec-4adaa3327c86,87742bc7-2d2f-404c-8255-d3d9fa9a6561/lists/3a3c0f6a-86da-4567-94d4-3b939da63200",
+          "applicationId": "e76615c0-13e3-4cd2-8235-a2d628ad13de",
+          "changeType": "updated",
+          "clientState": null,
+          "notificationUrl": "https://example.com/webhook/",
+          "notificationQueryOptions": null,
+          "lifecycleNotificationUrl": null,
+          "expirationDateTime": "2022-11-22T23:32:10.231Z",
+          "creatorId": "c8edbeda-c453-446c-91ce-c6d5c7310a6c",
+          "includeResourceData": null,
+          "latestSupportedTlsVersion": "v1_2",
+          "encryptionCertificate": null,
+          "encryptionCertificateId": null,
+          "notificationUrlAppId": null
+        }
+      },
+      "key": "updateSiteListSubscriptionExpiration",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Subscription ID to manage",
+          "key": "subscriptionId",
+          "type": "string",
+          "default": "",
+          "label": "Subscription ID"
+        },
+        {
+          "required": false,
+          "comments": "Expiration date/time for subscription. If unspecified the default will be the current date/time plus 29 days (close to the maximum permitted by the Graph API).",
+          "key": "expirationDateTime",
+          "type": "string",
+          "default": "",
+          "label": "Expiration Date/Time"
+        }
+      ],
+      "documentation": {
+        "description": "[Subscriptions have an expiration date/time](https://learn.microsoft.com/en-us/graph/api/resources/subscription?view=graph-rest-1.0#maximum-length-of-subscription-per-resource-type) provided upon creation. This can also be modified with the update API. This action will default to adding 29 days (close to the maximum value for SharePoint resources) to the current date/time unless a value is specified. This is useful for \"touching\" the subscription to ensure its expiration is extended.\n"
+      }
+    },
+    "deleteSubscription": {
+      "display": {
+        "label": "Delete a Subscription",
+        "description": "Delete a Subscription by ID"
+      },
+      "examplePayload": {
+        "data": ""
+      },
+      "key": "deleteSubscription",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "The Id the subscription to delete",
+          "example": "48bf81d7-2d37-40a9-b47b-c1d1960d00f87",
+          "key": "subscriptionId",
+          "type": "string",
+          "default": "",
+          "label": "Subscription Id"
+        }
+      ]
+    },
+    "deleteAllInstanceSubscriptions": {
+      "display": {
+        "label": "Delete All Instance Subscriptions",
+        "description": "Delete all subscriptions pointed at this instance"
+      },
+      "examplePayload": {
+        "data": {
+          "subscriptionsRemoved": [
+            "26ebd1e9-c54a-4bbe-9583-fc05974952a4",
+            "b9b27172-ee2e-4248-86df-fc98cb71d914"
+          ]
+        }
+      },
+      "key": "deleteAllInstanceSubscriptions",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getCurrentUser": {
+      "display": {
+        "label": "Get Current User",
+        "description": "Get the information and metadata of the user that is currently logged in"
+      },
+      "examplePayload": {
+        "data": {
+          "businessPhones": [
+            "+1 555 555 5555"
+          ],
+          "displayName": "exampleUser",
+          "givenName": "exampleUser",
+          "jobTitle": "Retail Manager",
+          "mail": "someoneV@example.onmicrosoft.com",
+          "mobilePhone": "+1 555 555 5555",
+          "officeLocation": "example",
+          "preferredLanguage": "en-US",
+          "surname": "Example",
+          "id": "3693-4789-a1c3-f4de565f"
+        }
+      },
+      "key": "getCurrentUser",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createSubscription": {
+      "display": {
+        "label": "Create a Subscription",
+        "description": "Create a Subscription to notify you of changes to a resource"
+      },
+      "examplePayload": {
+        "data": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#subscriptions/$entity",
+          "id": "38031b7d-16b1-448a-8e68-68b8aec62315",
+          "resource": "/me/drive/root",
+          "applicationId": "0fed8223-8c47-4c71-ba78-92c6f9448725",
+          "changeType": "updated",
+          "clientState": "client-specific string",
+          "notificationUrl": "https://hooks.prismatic.io/trigger/SW5z",
+          "notificationQueryOptions": null,
+          "lifecycleNotificationUrl": null,
+          "expirationDateTime": "2023-07-01T11:23:00Z",
+          "creatorId": "6219df3c-04d4-4b39-b2a4-ad162a5dcb8f",
+          "includeResourceData": null,
+          "latestSupportedTlsVersion": "v1_2",
+          "encryptionCertificate": null,
+          "encryptionCertificateId": null,
+          "notificationUrlAppId": null
+        }
+      },
+      "key": "createSubscription",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "The type of changes that should generate notifications for this subscription. OneDrive only supports updated.",
+          "example": "updated",
+          "key": "changeType",
+          "type": "string",
+          "default": "updated",
+          "label": "Change Type"
+        },
+        {
+          "required": true,
+          "comments": "The URL that notifications should be delivered to, if required for the specified notificationType.",
+          "example": "https://contoso.azurewebsites.net/api/webhook-receiver",
+          "key": "notificationUrl",
+          "type": "string",
+          "default": "",
+          "label": "Notification URL"
+        },
+        {
+          "required": true,
+          "comments": "The relative path of the subscription within the drive. Read-only.",
+          "example": "/me/drive/root",
+          "key": "resource",
+          "type": "string",
+          "default": "",
+          "label": "Resource"
+        },
+        {
+          "required": true,
+          "comments": "The date and time when the subscription will expire if not updated or renewed.",
+          "example": "2018-01-01T11:23:00.000Z",
+          "key": "expirationDateTime",
+          "type": "string",
+          "default": "",
+          "label": "Expiration Date Time"
+        },
+        {
+          "required": false,
+          "comments": "An optional string value that is passed back in the notification message for this subscription.",
+          "example": "client-specific string",
+          "key": "clientState",
+          "type": "string",
+          "default": "",
+          "label": "Client State"
+        },
+        {
+          "required": false,
+          "comments": "Enable to allow more than one subscription per endpoint",
+          "key": "allowDuplicates",
+          "type": "boolean",
+          "default": false,
+          "label": "Allow Duplicates"
+        }
+      ]
+    },
+    "rawRequest": {
+      "display": {
+        "label": "Raw Request",
+        "description": "Send a raw HTTP request to Microsoft Sharepoint's API"
+      },
+      "key": "rawRequest",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "Input the path only (/me/followedSites), The base URL is already included (https://graph.microsoft.com/v1.0). For example, to connect to https://graph.microsoft.com/v1.0/me/followedSites, only /me/followedSites is entered in this field.",
+          "example": "/me/followedSites",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "The file name to apply to a file",
+          "required": false,
+          "comments": "File names to apply to the file data inputs. Keys must match the file data keys above.",
+          "key": "fileDataFileNames",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data File Names"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        }
+      ]
+    },
+    "listChanges": {
+      "display": {
+        "label": "List Changes",
+        "description": "Track changes in a driveItem and its children over time."
+      },
+      "key": "listChanges",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "The URL to track changes in a driveItem and its children over time. You can also paste here the @odata.nextLink or @odata.deltaLink from a previous response to resume tracking changes.",
+          "example": "/drives/{drive-id}/root/delta",
+          "key": "deltaURL",
+          "type": "string",
+          "default": "/drives/{drive-id}/root/delta",
+          "label": "URL to fetch for delta"
+        },
+        {
+          "required": false,
+          "comments": "Filters properties (columns). https://learn.microsoft.com/en-us/graph/query-parameters?tabs=http#select-parameter",
+          "example": "givenName,surname",
+          "key": "$select",
+          "type": "string",
+          "default": "",
+          "label": "$select Parameter"
+        },
+        {
+          "required": false,
+          "comments": "Retrieves related resources. https://learn.microsoft.com/en-us/graph/query-parameters?tabs=http#expand-parameter",
+          "example": "members",
+          "key": "$expand",
+          "type": "string",
+          "default": "",
+          "label": "$expand Parameter"
+        },
+        {
+          "required": false,
+          "comments": "Sets the page size of results.\thttps://learn.microsoft.com/en-us/graph/query-parameters?tabs=http#top-parameter",
+          "example": "5",
+          "key": "$top",
+          "type": "string",
+          "default": "",
+          "label": "$top Parameter"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "webhook": {
+      "display": {
+        "label": "Webhook",
+        "description": "Trigger for handling webhooks from SharePoint"
+      },
+      "scheduleSupport": "invalid",
+      "synchronousResponseSupport": "valid",
+      "allowsBranching": true,
+      "staticBranchNames": [
+        "Notification",
+        "URL Validation"
+      ],
+      "key": "webhook",
+      "inputs": []
+    }
+  },
+  "dataSources": {
+    "listDrives": {
+      "display": {
+        "label": "List Drives from Source",
+        "description": "A picklist of files in a given directory"
+      },
+      "dataSourceType": "picklist",
+      "key": "listDrives",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "Retrieve the list of Drive resources available for a target User, Group, or Site. https://learn.microsoft.com/en-us/graph/api/drive-list?view=graph-rest-1.0&tabs=http",
+          "example": "/groups/{groupId}/drives",
+          "key": "dir",
+          "type": "string",
+          "default": "/groups/{groupId}/drives",
+          "label": "Directory"
+        }
+      ]
+    },
+    "listFolders": {
+      "display": {
+        "label": "List Folders from Source",
+        "description": "A picklist of folders in a given directory"
+      },
+      "dataSourceType": "picklist",
+      "key": "listFolders",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "Retrieve the list of Drive resources available for a target User, Group, or Site. https://learn.microsoft.com/en-us/graph/api/drive-list?view=graph-rest-1.0&tabs=http",
+          "example": "/groups/{groupId}/drives",
+          "key": "dir",
+          "type": "string",
+          "default": "/groups/{groupId}/drives",
+          "label": "Directory"
+        }
+      ]
+    },
+    "listSites": {
+      "display": {
+        "label": "List Sites from Sharepoint",
+        "description": "A picklist of Sites"
+      },
+      "dataSourceType": "picklist",
+      "key": "listSites",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    }
+  },
+  "documentation": {
+    "description": "[Microsoft SharePoint](https://www.microsoft.com/en-us/microsoft-365/sharepoint/collaboration?ms.officeurl=sharepoint&rtc=1) is a web-based collaborative platform that integrates with Microsoft Office.\nThis component allows you to interact with your sites, drives, and items by making queries through the Microsoft Graph API.\n"
+  },
+  "$version": 1
+}

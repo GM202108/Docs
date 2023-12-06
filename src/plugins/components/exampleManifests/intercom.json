@@ -1,0 +1,1325 @@
+{
+  "key": "intercom",
+  "public": true,
+  "documentationUrl": "https://prismatic.io/docs/components/intercom/",
+  "display": {
+    "label": "Intercom",
+    "description": "Manage companies, contacts and tags on the Intercom platform",
+    "category": "Application Connectors",
+    "iconPath": "icon.png",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "key": "intercom",
+      "label": "Intercom",
+      "comments": "Connection to Intercom",
+      "oauth2Type": "authorization_code",
+      "inputs": [
+        {
+          "required": true,
+          "shown": false,
+          "comments": "Authorization URL for Intercom",
+          "key": "authorizeUrl",
+          "type": "string",
+          "default": "https://app.intercom.com/oauth",
+          "label": "Authorize URL"
+        },
+        {
+          "required": true,
+          "shown": false,
+          "comments": "Token URL for Intercom",
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "https://api.intercom.io/auth/eagle/token",
+          "label": "Token URL"
+        },
+        {
+          "required": false,
+          "shown": false,
+          "comments": "Space delimited scopes",
+          "key": "scopes",
+          "type": "string",
+          "default": "",
+          "label": "Scopes"
+        },
+        {
+          "required": true,
+          "comments": "Client ID of your Intercom app",
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "Client ID"
+        },
+        {
+          "required": true,
+          "comments": "Client Secret of your Intercom app",
+          "key": "clientSecret",
+          "type": "password",
+          "default": "",
+          "label": "Client Secret"
+        }
+      ],
+      "documentation": {
+        "description": "To connect to Intercom you will need to create a new app in their [Developer Hub](https://developers.intercom.com/).\n\nClick \"New App\" and select \"Public app\" (you can use \"Internal integration\" if you do not need to connect to customer Intercom workspaces).\n\nTo enable OAuth you need to navigate to \"Authentication\", click the \"Edit\" button, and check \"Use OAuth\". Click \"Add redirect URL\" and enter Prismatic's callback URL: https<!---->://oauth2.prismatic.io/callback\n\nYou can also use this opportunity to reduce the selected Permissions (scopes) if desired. Once complete, click \"Save\".\n\nNext, collect the **Client ID** and **Client secret** from the \"Basic information\" page.\n\nYou are now ready to create the OAuth 2.0 connection to Intercom within Prismatic:\n\n- Enter the **Client ID** and **Client secret** values into the same named fields.\n\nSave your integration and you should now be able to authenticate to Intercom.\n\nNote that you will need to submit your Intercom app for review when it is ready for production.\n"
+      }
+    }
+  ],
+  "actions": {
+    "createContact": {
+      "display": {
+        "label": "Create Contact",
+        "description": "Create a new Contact"
+      },
+      "examplePayload": {
+        "data": {
+          "type": "contact",
+          "id": "5ba682d23d7cf92bef87bfd4",
+          "workspace_id": "ecahpwf5",
+          "external_id": "25",
+          "role": "user",
+          "email": "wash@serenity.io",
+          "phone": "+1123456789",
+          "name": "Hoban Washburn",
+          "avatar": "https://example.org/128Wash.jpg",
+          "owner_id": 127,
+          "social_profiles": {
+            "type": "list",
+            "data": [
+              {
+                "type": "social_profile",
+                "name": "Twitter",
+                "url": "http://twitter.com/th1sland"
+              }
+            ]
+          },
+          "unsubscribed_from_emails": false,
+          "created_at": 1571672154,
+          "updated_at": 1571672158,
+          "signed_up_at": 1571069751,
+          "last_seen_at": 1571069751,
+          "last_replied_at": 1571672158,
+          "last_contacted_at": 1571672158,
+          "last_email_opened_at": 1571673478,
+          "last_email_clicked_at": 1571676789,
+          "language_override": null,
+          "browser": "chrome",
+          "browser_version": "77.0.3865.90",
+          "browser_language": "en",
+          "os": "OS X 10.14.6",
+          "location": {
+            "type": "location",
+            "country": "Ireland",
+            "region": "Dublin",
+            "city": "Dublin"
+          },
+          "android_app_name": null,
+          "android_app_version": null,
+          "android_device": null,
+          "android_os_version": null,
+          "android_sdk_version": null,
+          "android_last_seen_at": null,
+          "ios_app_name": null,
+          "ios_app_version": null,
+          "ios_device": null,
+          "ios_os_version": null,
+          "ios_sdk_version": null,
+          "ios_last_seen_at": null,
+          "custom_attributes": {
+            "paid_subscriber": true,
+            "monthly_spend": 155.5,
+            "team_mates": 1
+          },
+          "tags": {
+            "type": "list",
+            "data": [
+              {
+                "type": "tag",
+                "id": "2",
+                "url": "/tags/2"
+              },
+              {
+                "type": "tag",
+                "id": "4",
+                "url": "/tags/4"
+              },
+              {
+                "type": "tag",
+                "id": "5",
+                "url": "/tags/5"
+              }
+            ],
+            "url": "/contacts/5ba682d23d7cf92bef87bfd4/tags"
+          },
+          "notes": {
+            "type": "list",
+            "data": [
+              {
+                "type": "note",
+                "id": "20114858",
+                "url": "/notes/20114858"
+              }
+            ],
+            "url": "/contacts/5ba682d23d7cf92bef87bfd4/notes"
+          },
+          "companies": {
+            "type": "list",
+            "data": [
+              {
+                "type": "company",
+                "id": "5ba686093d7cf93552a3dc99",
+                "url": "/companies/5ba686093d7cf93552a3dc99"
+              },
+              {
+                "type": "company",
+                "id": "5cee64a03d7cf90c51b36f19",
+                "url": "/companies/5cee64a03d7cf90c51b36f19"
+              },
+              {
+                "type": "company",
+                "id": "5d7668883d7cf944dbc5c791",
+                "url": "/companies/5d7668883d7cf944dbc5c791"
+              }
+            ],
+            "url": "/contacts/5ba682d23d7cf92bef87bfd4/companies"
+          }
+        }
+      },
+      "key": "createContact",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "User",
+              "value": "user"
+            },
+            {
+              "label": "Lead",
+              "value": "lead"
+            }
+          ],
+          "comments": "The role of the contact",
+          "key": "role",
+          "type": "string",
+          "default": "",
+          "label": "Role"
+        },
+        {
+          "comments": "Unique identifier for the entity from external systems",
+          "key": "external_id",
+          "type": "string",
+          "default": "",
+          "label": "External ID"
+        },
+        {
+          "required": true,
+          "comments": "Email of the contact",
+          "key": "email",
+          "type": "string",
+          "default": "",
+          "label": "Email"
+        },
+        {
+          "comments": "Phone of the contact",
+          "key": "phone",
+          "type": "string",
+          "default": "",
+          "label": "Phone"
+        },
+        {
+          "comments": "Name of the contact",
+          "key": "name",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        },
+        {
+          "comments": "An image URL containing the avatar of a contact",
+          "key": "avatar",
+          "type": "string",
+          "default": "",
+          "label": "Avatar URL"
+        },
+        {
+          "comments": "The time specified for when a contact signed up",
+          "key": "signed_up_at",
+          "type": "string",
+          "default": "",
+          "label": "Signed Up At"
+        },
+        {
+          "comments": "The time when the contact was last seen",
+          "key": "last_seen_at",
+          "type": "string",
+          "default": "",
+          "label": "Last Seen At"
+        },
+        {
+          "comments": "Whether the contact is unsubscribed from emails",
+          "key": "unsubscribed_from_emails",
+          "type": "boolean",
+          "default": "false",
+          "label": "Unsubscribed From Emails"
+        }
+      ]
+    },
+    "updateContact": {
+      "display": {
+        "label": "Update Contact",
+        "description": "Update an existing Contact"
+      },
+      "examplePayload": {
+        "data": {
+          "type": "contact",
+          "id": "5ba682d23d7cf92bef87bfd4",
+          "workspace_id": "ecahpwf5",
+          "external_id": "25",
+          "role": "user",
+          "email": "wash@serenity.io",
+          "phone": "+1123456789",
+          "name": "Hoban Washburn",
+          "avatar": "https://example.org/128Wash.jpg",
+          "owner_id": 127,
+          "social_profiles": {
+            "type": "list",
+            "data": [
+              {
+                "type": "social_profile",
+                "name": "Twitter",
+                "url": "http://twitter.com/th1sland"
+              }
+            ]
+          },
+          "unsubscribed_from_emails": false,
+          "created_at": 1571672154,
+          "updated_at": 1571672158,
+          "signed_up_at": 1571069751,
+          "last_seen_at": 1571069751,
+          "last_replied_at": 1571672158,
+          "last_contacted_at": 1571672158,
+          "last_email_opened_at": 1571673478,
+          "last_email_clicked_at": 1571676789,
+          "language_override": null,
+          "browser": "chrome",
+          "browser_version": "77.0.3865.90",
+          "browser_language": "en",
+          "os": "OS X 10.14.6",
+          "location": {
+            "type": "location",
+            "country": "Ireland",
+            "region": "Dublin",
+            "city": "Dublin"
+          },
+          "android_app_name": null,
+          "android_app_version": null,
+          "android_device": null,
+          "android_os_version": null,
+          "android_sdk_version": null,
+          "android_last_seen_at": null,
+          "ios_app_name": null,
+          "ios_app_version": null,
+          "ios_device": null,
+          "ios_os_version": null,
+          "ios_sdk_version": null,
+          "ios_last_seen_at": null,
+          "custom_attributes": {
+            "paid_subscriber": true,
+            "monthly_spend": 155.5,
+            "team_mates": 1
+          },
+          "tags": {
+            "type": "list",
+            "data": [
+              {
+                "type": "tag",
+                "id": "2",
+                "url": "/tags/2"
+              },
+              {
+                "type": "tag",
+                "id": "4",
+                "url": "/tags/4"
+              },
+              {
+                "type": "tag",
+                "id": "5",
+                "url": "/tags/5"
+              }
+            ],
+            "url": "/contacts/5ba682d23d7cf92bef87bfd4/tags"
+          },
+          "notes": {
+            "type": "list",
+            "data": [
+              {
+                "type": "note",
+                "id": "20114858",
+                "url": "/notes/20114858"
+              }
+            ],
+            "url": "/contacts/5ba682d23d7cf92bef87bfd4/notes"
+          },
+          "companies": {
+            "type": "list",
+            "data": [
+              {
+                "type": "company",
+                "id": "5ba686093d7cf93552a3dc99",
+                "url": "/companies/5ba686093d7cf93552a3dc99"
+              },
+              {
+                "type": "company",
+                "id": "5cee64a03d7cf90c51b36f19",
+                "url": "/companies/5cee64a03d7cf90c51b36f19"
+              },
+              {
+                "type": "company",
+                "id": "5d7668883d7cf944dbc5c791",
+                "url": "/companies/5d7668883d7cf944dbc5c791"
+              }
+            ],
+            "url": "/contacts/5ba682d23d7cf92bef87bfd4/companies"
+          }
+        }
+      },
+      "key": "updateContact",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Unique identifier for the entity given by Intercom",
+          "key": "id",
+          "type": "string",
+          "default": "",
+          "label": "ID"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "User",
+              "value": "user"
+            },
+            {
+              "label": "Lead",
+              "value": "lead"
+            }
+          ],
+          "comments": "The role of the contact",
+          "key": "role",
+          "type": "string",
+          "default": "",
+          "label": "Role"
+        },
+        {
+          "comments": "Unique identifier for the entity from external systems",
+          "key": "external_id",
+          "type": "string",
+          "default": "",
+          "label": "External ID"
+        },
+        {
+          "required": true,
+          "comments": "Email of the contact",
+          "key": "email",
+          "type": "string",
+          "default": "",
+          "label": "Email"
+        },
+        {
+          "comments": "Phone of the contact",
+          "key": "phone",
+          "type": "string",
+          "default": "",
+          "label": "Phone"
+        },
+        {
+          "comments": "Name of the contact",
+          "key": "name",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        },
+        {
+          "comments": "An image URL containing the avatar of a contact",
+          "key": "avatar",
+          "type": "string",
+          "default": "",
+          "label": "Avatar URL"
+        },
+        {
+          "comments": "The time specified for when a contact signed up",
+          "key": "signed_up_at",
+          "type": "string",
+          "default": "",
+          "label": "Signed Up At"
+        },
+        {
+          "comments": "The time when the contact was last seen",
+          "key": "last_seen_at",
+          "type": "string",
+          "default": "",
+          "label": "Last Seen At"
+        },
+        {
+          "comments": "Whether the contact is unsubscribed from emails",
+          "key": "unsubscribed_from_emails",
+          "type": "boolean",
+          "default": "false",
+          "label": "Unsubscribed From Emails"
+        }
+      ]
+    },
+    "deleteContact": {
+      "display": {
+        "label": "Delete Contact",
+        "description": "Delete an existing Contact"
+      },
+      "examplePayload": {
+        "data": {
+          "id": "5ba682d23d7cf92bef87bfd4",
+          "object": "contact",
+          "deleted": true
+        }
+      },
+      "key": "deleteContact",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Unique identifier for the entity given by Intercom",
+          "key": "id",
+          "type": "string",
+          "default": "",
+          "label": "ID"
+        }
+      ]
+    },
+    "archiveContact": {
+      "display": {
+        "label": "Archive Contact",
+        "description": "Archive an existing Contact"
+      },
+      "examplePayload": {
+        "data": {
+          "id": "5ba682d23d7cf92bef87bfd4",
+          "object": "contact",
+          "archived": true
+        }
+      },
+      "key": "archiveContact",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Unique identifier for the entity given by Intercom",
+          "key": "id",
+          "type": "string",
+          "default": "",
+          "label": "ID"
+        }
+      ]
+    },
+    "unarchiveContact": {
+      "display": {
+        "label": "Unarchive Contact",
+        "description": "Unarchive an archived Contact"
+      },
+      "examplePayload": {
+        "data": {
+          "id": "5ba682d23d7cf92bef87bfd4",
+          "object": "contact",
+          "archived": false
+        }
+      },
+      "key": "unarchiveContact",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Unique identifier for the entity given by Intercom",
+          "key": "id",
+          "type": "string",
+          "default": "",
+          "label": "ID"
+        }
+      ]
+    },
+    "searchContacts": {
+      "display": {
+        "label": "Search Contacts",
+        "description": "Search through all Contacts"
+      },
+      "key": "searchContacts",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "User",
+              "value": "user"
+            },
+            {
+              "label": "Lead",
+              "value": "lead"
+            }
+          ],
+          "comments": "The role of the contact",
+          "key": "role",
+          "type": "string",
+          "default": "",
+          "label": "Role"
+        },
+        {
+          "comments": "Name of the contact",
+          "required": false,
+          "key": "name",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        },
+        {
+          "required": false,
+          "comments": "Email of the contact",
+          "key": "email",
+          "type": "string",
+          "default": "",
+          "label": "Email"
+        },
+        {
+          "comments": "Cursor used for pagination to fetch next page of results",
+          "key": "startingAfter",
+          "type": "string",
+          "default": "",
+          "label": "Starting After Cursor"
+        }
+      ]
+    },
+    "attachCompany": {
+      "display": {
+        "label": "Attach Company to Contact",
+        "description": "Attach Company to Contact"
+      },
+      "key": "attachCompany",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Unique identifier for the entity given by Intercom",
+          "key": "id",
+          "type": "string",
+          "default": "",
+          "label": "ID"
+        },
+        {
+          "required": true,
+          "comments": "Identifier of Company",
+          "key": "companyId",
+          "type": "string",
+          "default": "",
+          "label": "Company ID"
+        }
+      ]
+    },
+    "detachCompany": {
+      "display": {
+        "label": "Detach Company from Contact",
+        "description": "Detach Company from Contact"
+      },
+      "key": "detachCompany",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Unique identifier for the entity given by Intercom",
+          "key": "id",
+          "type": "string",
+          "default": "",
+          "label": "ID"
+        },
+        {
+          "required": true,
+          "comments": "Identifier of Company",
+          "key": "companyId",
+          "type": "string",
+          "default": "",
+          "label": "Company ID"
+        }
+      ]
+    },
+    "attachTag": {
+      "display": {
+        "label": "Attach Tag to Contact",
+        "description": "Attach a Tag to a Contact"
+      },
+      "key": "attachTag",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Unique identifier for the entity given by Intercom",
+          "key": "id",
+          "type": "string",
+          "default": "",
+          "label": "ID"
+        },
+        {
+          "required": true,
+          "comments": "Identifier of Tag",
+          "key": "tagId",
+          "type": "string",
+          "default": "",
+          "label": "Tag ID"
+        }
+      ]
+    },
+    "detachTag": {
+      "display": {
+        "label": "Detach Tag from Contact",
+        "description": "Detach a Tag from a Contact"
+      },
+      "key": "detachTag",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Unique identifier for the entity given by Intercom",
+          "key": "id",
+          "type": "string",
+          "default": "",
+          "label": "ID"
+        },
+        {
+          "required": true,
+          "comments": "Identifier of Tag",
+          "key": "tagId",
+          "type": "string",
+          "default": "",
+          "label": "Tag ID"
+        }
+      ]
+    },
+    "createCompany": {
+      "display": {
+        "label": "Create Company",
+        "description": "Create a new Company"
+      },
+      "examplePayload": {
+        "data": {
+          "type": "company",
+          "id": "531ee472cce572a6ec000006",
+          "name": "Blue Sun",
+          "plan": "plan1",
+          "company_id": "6",
+          "remote_created_at": 1394531169,
+          "created_at": 1394533506,
+          "updated_at": 1396874658,
+          "size": 85,
+          "website": "http://www.example.com",
+          "industry": "Manufacturing",
+          "monthly_spend": 49,
+          "session_count": 26,
+          "user_count": 10,
+          "custom_attributes": {
+            "paid_subscriber": true,
+            "team_mates": 0
+          }
+        }
+      },
+      "key": "createCompany",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Company ID you have defined for the company",
+          "key": "company_id",
+          "type": "string",
+          "default": "",
+          "label": "Company ID"
+        },
+        {
+          "required": true,
+          "comments": "Time the company was created by you",
+          "key": "remote_created_at",
+          "type": "string",
+          "default": "",
+          "label": "Remote Created At"
+        },
+        {
+          "required": true,
+          "comments": "Name of the company",
+          "key": "name",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        },
+        {
+          "comments": "How much revenue the company generates for your business",
+          "key": "monthly_spend",
+          "type": "string",
+          "default": "",
+          "label": "Monthly Spend"
+        },
+        {
+          "comments": "Name of the plan associated with the company",
+          "key": "plan",
+          "type": "string",
+          "default": "",
+          "label": "Plan"
+        },
+        {
+          "comments": "Number of employees in this company",
+          "key": "size",
+          "type": "string",
+          "default": "",
+          "label": "Size"
+        },
+        {
+          "comments": "The URL for this company's website",
+          "key": "website",
+          "type": "string",
+          "default": "",
+          "label": "Website"
+        },
+        {
+          "comments": "The industry this company operates in",
+          "key": "industry",
+          "type": "string",
+          "default": "",
+          "label": "Industry"
+        }
+      ]
+    },
+    "updateCompany": {
+      "display": {
+        "label": "Update Company",
+        "description": "Update an existing Company"
+      },
+      "examplePayload": {
+        "data": {
+          "type": "company",
+          "id": "531ee472cce572a6ec000006",
+          "name": "Blue Sun",
+          "plan": "plan1",
+          "company_id": "6",
+          "remote_created_at": 1394531169,
+          "created_at": 1394533506,
+          "updated_at": 1396874658,
+          "size": 85,
+          "website": "http://www.example.com",
+          "industry": "Manufacturing",
+          "monthly_spend": 49,
+          "session_count": 26,
+          "user_count": 10,
+          "custom_attributes": {
+            "paid_subscriber": true,
+            "team_mates": 0
+          }
+        }
+      },
+      "key": "updateCompany",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Company ID you have defined for the company",
+          "key": "company_id",
+          "type": "string",
+          "default": "",
+          "label": "Company ID"
+        },
+        {
+          "required": false,
+          "comments": "Time the company was created by you",
+          "key": "remote_created_at",
+          "type": "string",
+          "default": "",
+          "label": "Remote Created At"
+        },
+        {
+          "required": false,
+          "comments": "Name of the company",
+          "key": "name",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        },
+        {
+          "comments": "How much revenue the company generates for your business",
+          "key": "monthly_spend",
+          "type": "string",
+          "default": "",
+          "label": "Monthly Spend"
+        },
+        {
+          "comments": "Name of the plan associated with the company",
+          "key": "plan",
+          "type": "string",
+          "default": "",
+          "label": "Plan"
+        },
+        {
+          "comments": "Number of employees in this company",
+          "key": "size",
+          "type": "string",
+          "default": "",
+          "label": "Size"
+        },
+        {
+          "comments": "The URL for this company's website",
+          "key": "website",
+          "type": "string",
+          "default": "",
+          "label": "Website"
+        },
+        {
+          "comments": "The industry this company operates in",
+          "key": "industry",
+          "type": "string",
+          "default": "",
+          "label": "Industry"
+        }
+      ]
+    },
+    "deleteCompany": {
+      "display": {
+        "label": "Delete Company",
+        "description": "Delete an existing Company"
+      },
+      "examplePayload": {
+        "data": {
+          "id": "5ba682d23d7cf92bef87bfd4",
+          "object": "company",
+          "deleted": "true"
+        }
+      },
+      "key": "deleteCompany",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Company ID you have defined for the company",
+          "key": "id",
+          "type": "string",
+          "default": "",
+          "label": "Company ID"
+        }
+      ]
+    },
+    "listCompanies": {
+      "display": {
+        "label": "List Companies",
+        "description": "Page through all Companies"
+      },
+      "key": "listCompanies",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Cursor used for pagination to fetch next page of results",
+          "key": "startingAfter",
+          "type": "string",
+          "default": "",
+          "label": "Starting After Cursor"
+        }
+      ]
+    },
+    "createTag": {
+      "display": {
+        "label": "Create Tag",
+        "description": "Create a new Tag"
+      },
+      "examplePayload": {
+        "data": {
+          "id": "17513",
+          "name": "independent",
+          "type": "tag"
+        }
+      },
+      "key": "createTag",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Name of the tag",
+          "key": "name",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        }
+      ]
+    },
+    "updateTag": {
+      "display": {
+        "label": "Update Tag",
+        "description": "Update an existing Tag"
+      },
+      "examplePayload": {
+        "data": {
+          "id": "17513",
+          "name": "independent",
+          "type": "tag"
+        }
+      },
+      "key": "updateTag",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "ID of the tag",
+          "key": "id",
+          "type": "string",
+          "default": "",
+          "label": "ID"
+        },
+        {
+          "required": true,
+          "comments": "Name of the tag",
+          "key": "name",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        }
+      ]
+    },
+    "deleteTag": {
+      "display": {
+        "label": "Delete Tag",
+        "description": "Delete an existing Tag"
+      },
+      "examplePayload": {
+        "data": {
+          "id": "17513",
+          "name": "independent",
+          "type": "tag"
+        }
+      },
+      "key": "deleteTag",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "ID of the tag",
+          "key": "id",
+          "type": "string",
+          "default": "",
+          "label": "ID"
+        }
+      ]
+    },
+    "listTags": {
+      "display": {
+        "label": "List Tags",
+        "description": "List all Tags"
+      },
+      "examplePayload": {
+        "data": [
+          {
+            "id": "17513",
+            "name": "independent",
+            "type": "tag"
+          }
+        ]
+      },
+      "key": "listTags",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "rawRequest": {
+      "display": {
+        "label": "Raw Request",
+        "description": "Issue a raw HTTP request to the Intercom API"
+      },
+      "key": "rawRequest",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "This is the URL to call.",
+          "example": "/sobjects/Account",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL. Must be a string or a reference to output from a previous step.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        }
+      ]
+    }
+  },
+  "triggers": {},
+  "documentation": {
+    "description": "[Intercom](https://intercom.com) is a tool purpose-built for sales, marketing, and support to use together.\n"
+  },
+  "$version": 1
+}

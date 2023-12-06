@@ -1,0 +1,96 @@
+---
+id: testing-integrations
+title: Testing Integrations
+description: Test integrations as you build them
+---
+
+import Screenshot from "@site/src/components/screenshot";
+import Vimeo from "@site/src/components/vimeo";
+import Icon from "@mui/material/Icon";
+
+The integration designer provides a sandbox for testing integrations.
+From the designer you can invoke an integration, configure test values for config variables, and view test logs in real time.
+
+You can test your integration after you set test values for config variables by clicking the **SAVE & RUN TEST** button.
+
+If your integration is made up of multiple [flows](building-integrations.mdx#flows-in-integrations), each flow is tested independently.
+Click the flow name on the top left of the integration designer area, select the flow you would like to test, and then click **SAVE & RUN TEST**.
+Note that each flow has a distinct webhook URL, so if you are invoking the integration from a third-party app via webhook, you'll need to note the flow's webhook URL.
+
+## Test config variables
+
+If your integration uses config variables, you can specify testing values for those variables under the **Configuration** tab of the **Test Runner** drawer.
+If you specified default values for your [config variables](building-integrations.mdx#config-variables-in-integrations), those will be preset for you.
+Otherwise, fill in testing values and credentials for the purposes of testing your integration.
+
+<Screenshot
+  filename="integrations/test-config-variables.png"
+  maxWidth="600px"
+  alt="Configure test for integration in  app"
+/>
+
+We recommend that you create testing, non-production sandbox credentials for integration tests.
+
+## Test run outputs
+
+After running an integration test, the output of each step is available in the **Step Outputs** tab of the **Test Runner** drawer.
+Select which step you would like to see results for from the dropdown menu.
+You can reference those results in subsequent steps.
+This is helpful for debugging and verifying the flow of data within your integration.
+
+<Screenshot
+  filename="integrations/test-outputs.png"
+  maxWidth="450px"
+  alt="Step outputs for tests in  app"
+/>
+
+## Test run logs
+
+Output for your test run is displayed under the **Logs** tab in the **Test Runner** drawer.
+If any of your steps log output or throw errors, you will see those logs and errors in this window.
+
+<Screenshot
+  filename="shared/test-logs.png"
+  maxWidth="400px"
+  alt="Logs for tests in  app"
+/>
+
+**For More Information**:
+[Logging](logging.mdx),
+[Log Retention](logging.mdx#log-retention)
+
+## Testing a webhook trigger
+
+An integration can be invoked via webhook.
+This is useful if you have a third-party system that sends data to an integration to be processed.
+
+To test a webhook invocation of an integration, open the **Trigger** tab of the **Test Runner** drawer and take note of the "POST URL".
+
+<Screenshot
+  filename="integrations/test-trigger.png"
+  maxWidth="600px"
+  alt="Test webhook trigger in  app"
+/>
+
+You can use that URL to invoke a test of your integration, just as you would to invoke an execution of a deployed instance - see our [webhook trigger](integration-triggers.mdx#webhook-triggers) docs.
+You can also specify a **test payload body** to be processed by the integration, and if your integration requires custom HTTP **headers**, those can be specified under the test payload body.
+
+### Replaying test invocations
+
+:::tip Time-saving tip
+Just like [instance replays](instances.mdx#instance-execution-retry-and-replay), you can replay a test integration invocation.
+That comes in handy if you are testing an integration invocation from a third-party app.
+You don't need to set up your third-party environment every time - you can fire off a webhook invocation once from your third-party app with a payload, and run that same payload through your integration until you're happy with the results.
+:::
+
+To replay a test integration invocation, open the **Test Runner** drawer and click into the **Runner** tab.
+Click the <Icon>replay</Icon> icon to the right of the test that you would like to replay.
+
+<Screenshot
+  filename="integrations/test-integration-replay.png"
+  maxWidth="500px"
+  alt="Replay test integration invocation in  app"
+/>
+
+The payload that was sent to trigger this integration test will be fed back into another test of the integration.
+This allows you to make changes to your integration and iterate quickly, without needing to reconfigure your third-party apps and services to fire new webhook requests over and over.

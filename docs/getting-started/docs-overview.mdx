@@ -1,0 +1,90 @@
+---
+id: docs-overview
+title: Docs Overview
+description: What Prismatic is, who it's for, how it's different from other integration platforms or workflow automation tools.
+---
+
+import InternalLink from "@site/src/components/internal-link";
+import Screenshot from "@site/src/components/screenshot";
+
+## What is ?
+
+ is the integration platform for B2B software companies. It's the quickest way to build integrations to the other apps your customers use and to add a native integration marketplace to your product.
+
+ significantly reduces overall integration effort and enables non-dev teams to take on more of the integration workload, so that you can deliver integrations faster and spend more time on core product innovation.
+
+With , you can:
+
+- Build reusable [integrations](integrations.mdx) in a low-code integration designer that's tailored for your product
+- Use [pre-built components](components/component-catalog.mdx) to handle most of your integrations' functionality, and write [custom components](custom-components/writing-custom-components.mdx) when needed
+- Quickly add an [integration marketplace](integration-marketplace.mdx) to your product so customers can explore, activate, and monitor integrations
+- Enable the [embedded designer](/embedded-designer) for your customers to create their own integrations between your product and the other apps they use.
+- Easily deploy customer-specific integration [instances](instances.mdx) with unique configurations and connections
+- Provide better support with tools like [logging](logging.mdx) and [alerting](monitoring-and-alerting.mdx)
+- Run your integrations in a purpose-built environment designed for security and scalability
+- Use powerful dev tools to mold the platform to your product, industry, and the way you build software
+
+<Screenshot
+  filename="shared/acmeerp-integration.png"
+  maxWidth="800px"
+  alt="AcmeERP Fuel Integration diagram in  app"
+/>
+
+## Who uses ?
+
+ is for B2B (business-to-business) software companies, meaning software companies that provide applications used by businesses. It's a good fit for products/teams ranging from early-stage and growing SaaS startups to large, established software companies looking to improve the way they do integrations.
+
+Many B2B software teams serve customers in niche vertical markets, and we designed  with that in mind. We provide powerful and flexible tools so you can build exactly the integrations your customers need, no matter who your customers are, no matter what systems you need to connect to, no matter how "non-standard" your integration scenario.
+
+And, with the embedded designer, your customers can use  themselves to build integrations with your product that they need, but which don't make sense for your other customers.
+
+## What kind of integrations can you build using ?
+
+ supports integrations ranging from simple and standard to complex, bespoke, and vertical-specific.
+Teams use it to build integrations between applications of all kinds, SaaS or legacy, with or without a modern API, regardless of protocol or data format.
+Here are some example use cases:
+
+- Use job data from your system to create invoices in your customers' ERP.
+- Import and process data from third-party forms that vary significantly from customer to customer.
+- Email activity summary reports with parameters and intervals defined on a per-customer basis.
+
+## How is  different from other integration platforms or workflow automation tools?
+
+Most integration platforms on the market help teams automate their own workflows by connecting the applications used within their own business.  was designed specifically for B2B software companies who need to build integrations and provide a first-class integration experience **for their customers**. That leads to some key differences, including:
+
+1.  integrations can be deployed to multiple customers, each with their own configuration and credentials
+2.  supports integrating with niche systems that vary widely technically
+3.  fits smoothly into software teams' existing infrastructure and processes
+4.  includes an embeddable integration marketplace experience that you can provide to customers
+
+## Is  for engineering teams or less technical teams?
+
+### Short answer
+
+Both.
+
+### Longer answer
+
+We designed  to empower every team in your company in their role in the integration process.
+
+'s web application enables customer-facing teams to easily configure and deploy integrations as well as to support, monitor, and troubleshoot them in production.
+
+Non-dev integration builders can create many integrations in  without engineering involvement. When you require a piece of logic or a connector that's highly specific to your product or industry, developers can write reusable [custom components](custom-components/writing-custom-components.mdx) that anyone can include in an integration, empowering non-dev team members to build exactly the integrations your customers need.
+
+'s [robust CLI](cli/cli-usage.mdx) and [fully exposed API](api/api-overview.mdx) give Development and DevOps teams full power to interact with everything in the platform, and to incorporate  into existing systems such as source control, CI/CD, unit testing, and incident management.
+
+## How are these docs organized?
+
+Docs are currently organized into a few sections:
+
+- Getting Started is a set of guides that will walk you through the development, configuration, and deployment of a simple integration, a more complex integration, and your first custom component to give you a sense of how  works and what you can do with it.
+- [Articles](organization.mdx) includes articles on how to use the  web app and write custom components, as well as several quickstart guides to walk you through more advanced topics like [writing custom components](quickstarts/first-custom-component.mdx), [using loops in integrations](quickstarts/looping-over-files.mdx), and more.
+- [Components](components/component-catalog.mdx) provides you with a list of built-in components that you can use to build your integrations.
+- In **CLI & SDKs** you will find documentation on 's [CLI tool](cli/cli-usage.mdx) and [custom component library](spectral/custom-component-library.mdx).
+- [API docs](api/api-overview.mdx) outline how to interact directly with 's GraphQL API.
+
+## How can I learn more?
+
+If you have any questions that aren't answered by our documentation, you can always reach us at support@.io.
+
+It's always helpful to see how a solution applies to your specific situation. If you'd like to discuss how  can help in your integration scenario or get a tailored demo, contact us <InternalLink href="/contact/">here</InternalLink>.

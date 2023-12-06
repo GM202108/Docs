@@ -1,0 +1,136 @@
+.hero {
+  align-items: flex-start;
+  background-image: url("../../static/img/hero-primary.png");
+  background-position: top right;
+  background-size: cover;
+  color: var(--white01) !important;
+  height: 700px;
+  position: relative;
+  text-align: center;
+  z-index: 0;
+}
+
+.hero .hero__container {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.hero .content {
+  padding-left: 1em;
+}
+
+.hero .hero__title {
+  color: var(--white01);
+  margin-bottom: 0.1em;
+  font-weight: 800;
+}
+
+.hero .hero__subtitle {
+  margin: 0 auto 2em auto;
+  max-width: 750px;
+  width: 90%;
+  font-size: 22px;
+}
+
+.page-content {
+  margin-top: -420px;
+  position: relative;
+}
+
+.main-wrapper {
+  flex: unset;
+}
+
+@media all and (max-width: 450px) {
+  .hero {
+    height: auto;
+    padding-bottom: 0;
+  }
+  .page-content {
+    margin-top: 0;
+  }
+}
+
+.top-section {
+  max-width: 965px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.top-section .feature-card {
+  margin: 20px;
+  width: 270px;
+}
+
+.gradient-background {
+  background: linear-gradient(white 37%, white 37.1%, var(--gray04) 100%);
+}
+
+.section-content {
+  max-width: 1200px;
+  width: 86%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+}
+
+.feature-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  transition: opacity 1s;
+}
+
+.card-group {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+@media all and (max-width: 900px) {
+  .card-group .feature-card {
+    width: 100%;
+    max-width: 600px;
+  }
+}
+
+.group-spacer {
+  padding-bottom: 4em;
+}
+
+.get-started {
+  padding-bottom: 3em;
+}
+
+.gray-section .section-content {
+  padding-bottom: 8em;
+}
+
+.read-the-docs {
+  padding: 2em 0;
+}
+
+.read-the-docs .title-area {
+  text-align: center;
+}
+
+.read-the-docs h4 {
+  font-size: 16.8px;
+}
+
+.home-page h2 {
+  margin-bottom: 0.2em;
+  font-weight: 500;
+}
+
+.call_to_action_container {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.call_to_action_container > .row {
+  padding-bottom: 5px;
+}

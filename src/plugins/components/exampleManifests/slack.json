@@ -1,0 +1,1864 @@
+{
+  "key": "slack",
+  "documentationUrl": "https://prismatic.io/docs/components/slack/",
+  "public": true,
+  "display": {
+    "label": "Slack",
+    "description": "Send messages to Slack channels and users",
+    "iconPath": "icon.png",
+    "category": "Application Connectors",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "oauth2Type": "authorization_code",
+      "key": "oauth2",
+      "label": "Slack OAuth 2.0",
+      "comments": "Authenticate requests to Slack using values obtained from the developer console.",
+      "inputs": [
+        {
+          "placeholder": "Authorize URL",
+          "required": true,
+          "shown": true,
+          "comments": "The OAuth 2.0 Authorization URL for Slack. If you want to request access to the API on behalf of a user, append a 'user_scope' query parameter to the end of the Authorize URL: https://slack.com/oauth/v2/authorize?user_scope=chat:write",
+          "key": "authorizeUrl",
+          "type": "string",
+          "default": "https://slack.com/oauth/v2/authorize",
+          "label": "Authorize URL"
+        },
+        {
+          "placeholder": "Token URL",
+          "required": true,
+          "shown": true,
+          "comments": "The OAuth 2.0 Token URL for Slack",
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "https://slack.com/api/oauth.v2.access",
+          "label": "Token URL"
+        },
+        {
+          "placeholder": "Revoke URL",
+          "required": true,
+          "shown": true,
+          "comments": "The OAuth 2.0 Revocation URL for Slack",
+          "key": "revokeUrl",
+          "type": "string",
+          "default": "https://slack.com/api/auth.revoke",
+          "label": "Revoke URL"
+        },
+        {
+          "placeholder": "Scopes",
+          "required": true,
+          "shown": true,
+          "example": "chat:write chat:write.public users:read channels:read files:read files:write channels:write channels:history groups:history mpim:history im:history",
+          "comments": "A space-delimited set of one or more scopes to get the user's permission to access.",
+          "key": "scopes",
+          "type": "string",
+          "default": "chat:write chat:write.public chat:write.customize channels:read groups:read im:read mpim:read",
+          "label": "Scopes"
+        },
+        {
+          "placeholder": "Client ID",
+          "required": true,
+          "shown": true,
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "Client ID"
+        },
+        {
+          "placeholder": "Client Secret",
+          "required": true,
+          "shown": true,
+          "key": "clientSecret",
+          "type": "password",
+          "default": "",
+          "label": "Client Secret"
+        },
+        {
+          "placeholder": "Signing Secret",
+          "required": true,
+          "shown": true,
+          "key": "signingSecret",
+          "type": "password",
+          "default": "",
+          "label": "Signing Secret"
+        },
+        {
+          "required": true,
+          "comments": "Flip the flag to true if you want to access the API as a user. If flipped you must also provide a 'user_scope' query parameter to the end of the Authorize URL. Leaving the flag false will grant you a bot token instead.",
+          "key": "isUser",
+          "type": "boolean",
+          "default": "false",
+          "label": "Is User"
+        }
+      ],
+      "documentation": {
+        "description": "The vast majority of actions in this component use OAuth 2.0 for authentication.\nTo create a Slack OAuth 2.0 connection, first create and configure a Slack App by visiting the Slack [Developer App Portal](https://api.slack.com/apps):\n\n1. Click **Create New App**\n1. Choose to create the app **From scratch**\n1. Give your app a name and select your workspace. We'll configure it to be multi-workspace capable in a moment\n1. Select **OAuth & Permissions** from the sidebar\n   1. Under **Redirect URLs**, add `https://oauth2.prismatic.io/callback` as a redirect URL.\n   1. At the bottom, add some **User Token Scopes** if you plan for this integration to send messages on behalf of customers, or **Bot Token Scopes** if a Slack \"bot\" will send the messages.\n      What [scopes](https://api.slack.com/scopes/) you need is dependent on what types of things your Slack integration will need to do (create channels, send messages, etc).\n      If you just need to send messages to a channel as a bot, add these scopes: `chat:write chat:write.public`. If you want to send messages as a user, see the section [below](#sending-messages-as-a-user).\n1. Next, select **Distribute App** under **Manage Distribution**. Confirm that you have \"removed hard coded information\" and select **Activate Public Distribution**.\n   Your app needs to be publicly distributed for your customers to install it in their Slack workspaces.\n1. Finally, open **Basic Information**. Take note of the **Client ID**, **Client Secret** and **Signing Secret**.\n\nNow it's time to configure your integration to use your Slack OAuth 2.0 app.\nAdd a Slack step to your integration - that'll create a connection config variable for you.\nOpen up that [connection](connections.mdx) config variable.\n\nEnter **Client ID**, **Signing Secret** and **Client Secret** that you noted before.\n\nThe **Scopes** that you need to enter depends on what Slack actions your integration includes:\n\n- If you're just sending messages to a channel, you can enter the scopes `chat:write chat:write.public` and that will assign you a bot token that can write messages to public channels. See [below](#sending-messages-to-private-channels) for information on sending messages to private channels.\n- Conversation and channel-related actions require `admin.conversations:write`.\n\nEnter scopes with spaces in between them (e.g. `chat:write users:read users:read.email`).\n\nA list of all Slack OAuth scopes and what each does are available in their [docs](https://api.slack.com/scopes/).\n\n### Sending messages to private channels\n\nThe `chat:write.public` scope allows your bot to send messages to public channels.\nIf you would like to send messages to private channels, or would like to be more selective about what channels your bot can send messages to, your customer will need to invite the bot to specific channels.\n\nIf a bot does not have `chat:write.public` or tries to write to a private channel it's not a part of, you'll receive a `not_in_channel` error from Slack when you attempt to send a message to that channel.\n\n### Sending messages as a user\n\nSlack applications typically send messages as bot users.\nIf you would instead like to send messages as a user, edit the `Auth URL` add `chat:write` to a user_scope query parameter on the Authorization URL to get a User token. To manage channels, add the `channels:write` scope.\n\nYour `Auth URL`, then, will look something like this: `https://slack.com/oauth/v2/authorize?user_scope=chat:write`\n\n### Dynamically changing your bot's name\n\nYour bot's username and icon are things you set when you create your Slack app.\nIf you would like to override your bot's username within your integration, you will need to request the `chat:write.customize` scope in addition to `chat:write`.\n\n### GovSlack\n\nSlack offrs [GovSlack](https://slack.com/solutions/govslack) for government organizations that require compliance with FIPS 140-2, FedRAMP, ITAR, etc.\nTo use the Slack component with GovSlack, change the beginning of OAuth auth URL, token URL, and revoke URL from `https://slack.com` to `https://slack-gov.com`.\nThe component will automatically point API requests towards the Slack Gov API endpoint.\n"
+      }
+    },
+    {
+      "key": "webhookUrl",
+      "label": "Webhook URL",
+      "comments": "Slack Webhook URL hosting",
+      "inputs": [
+        {
+          "placeholder": "Slack Webhook URL",
+          "required": true,
+          "comments": "The Slack webhook URL. Instructions for generating a Slack webhook are available on the Slack component docs page.",
+          "example": "https://hooks.slack.com/services/TXXXX/BXXXXX/XXXXXXX",
+          "key": "webhookUrl",
+          "type": "string",
+          "default": "",
+          "label": "Webhook URL"
+        }
+      ],
+      "documentation": {
+        "description": "The [Slack Message from Webhook](#slack-message-from-webhook) and the [Slack Block Message from Webhook](#slack-block-message-from-webhook) actions are the only Slack actions that do not authenticate with OAuth.\nInstead, it uses Slack [Incoming Webhooks](https://api.slack.com/messaging/webhooks).\nFor your customers to use this authorization method, they will need to create their own Slack apps and incoming webhooks.\n\nTo generate a Slack incoming webhook URL:\n\n1. Navigate to https://api.slack.com/apps\n1. Click **Create New App**, adding an app to your workspace.\n1. Under **Add features and functionality** select **Incoming Webhooks**\n1. **Activate Incoming Webhooks** and then **Add New Webhook to Workspace**\n1. Take note of the Webhook URL. It should be of the form `https://hooks.slack.com/services/foo/bar/baz`\n"
+      }
+    }
+  ],
+  "actions": {
+    "postMessage": {
+      "display": {
+        "label": "Post Message",
+        "description": "Post a message to a slack channel"
+      },
+      "examplePayload": {
+        "data": {
+          "ok": true,
+          "channel": "C011B7U3R9U",
+          "ts": "1646951430.367539",
+          "message": {
+            "type": "message",
+            "subtype": "bot_message",
+            "text": "The message I sent",
+            "ts": "1646951430.367539",
+            "username": "My Slack App",
+            "bot_id": "B036D2DCT54"
+          },
+          "response_metadata": {
+            "scopes": [
+              "identify",
+              "chat:write",
+              "chat:write.public",
+              "chat.write.customize"
+            ],
+            "acceptedScopes": [
+              "chat:write"
+            ]
+          }
+        }
+      },
+      "key": "postMessage",
+      "inputs": [
+        {
+          "placeholder": "Message to send",
+          "required": true,
+          "comments": "The message to send the Slack channel.",
+          "example": "Hello from Prismatic!",
+          "key": "message",
+          "type": "text",
+          "default": "",
+          "label": "Message"
+        },
+        {
+          "required": true,
+          "comments": "The name or static ID of the Slack channel.",
+          "example": "general",
+          "key": "channelName",
+          "type": "string",
+          "default": "",
+          "label": "Channel Name or ID"
+        },
+        {
+          "required": false,
+          "comments": "The username of the bot the message will be sent from. This requires the 'chat:write.customize' scope.",
+          "example": "exampleUser",
+          "key": "username",
+          "type": "string",
+          "default": "",
+          "label": "Bot Username"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "A unique identifier of a message or thread to reply to (thread_ts)",
+          "example": "84350944036",
+          "key": "messageId",
+          "type": "string",
+          "default": "",
+          "label": "Message Id"
+        }
+      ]
+    },
+    "deleteMessage": {
+      "display": {
+        "label": "Delete message",
+        "description": "Delete the content and metadata of an existing message"
+      },
+      "key": "deleteMessage",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "A unique identifier of a message or thread to reply to (thread_ts)",
+          "example": "84350944036",
+          "key": "messageId",
+          "type": "string",
+          "default": "",
+          "label": "Message Id"
+        },
+        {
+          "required": true,
+          "comments": "The static ID of the Slack channel.",
+          "example": "C02MS7HV6KB",
+          "key": "channelId",
+          "type": "string",
+          "default": "",
+          "label": "Channel ID"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deletePendingMessage": {
+      "display": {
+        "label": "Delete a pending scheduled message",
+        "description": "Delete the content and metadata of a pending scheduled message from a queue"
+      },
+      "key": "deletePendingMessage",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "A unique identifier of a message or thread to reply to (thread_ts)",
+          "example": "84350944036",
+          "key": "messageId",
+          "type": "string",
+          "default": "",
+          "label": "Message Id"
+        },
+        {
+          "required": true,
+          "comments": "The static ID of the Slack channel.",
+          "example": "C02MS7HV6KB",
+          "key": "channelId",
+          "type": "string",
+          "default": "",
+          "label": "Channel ID"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "updateMessage": {
+      "display": {
+        "label": "Update Message",
+        "description": "Update the contents of an existing message"
+      },
+      "key": "updateMessage",
+      "inputs": [
+        {
+          "placeholder": "Message to send",
+          "required": true,
+          "comments": "The message to send the Slack channel.",
+          "example": "Hello from Prismatic!",
+          "key": "message",
+          "type": "text",
+          "default": "",
+          "label": "Message"
+        },
+        {
+          "required": true,
+          "comments": "A unique identifier of a message or thread to reply to (thread_ts)",
+          "example": "84350944036",
+          "key": "messageId",
+          "type": "string",
+          "default": "",
+          "label": "Message Id"
+        },
+        {
+          "required": true,
+          "comments": "The static ID of the Slack channel.",
+          "example": "C02MS7HV6KB",
+          "key": "channelId",
+          "type": "string",
+          "default": "",
+          "label": "Channel ID"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "postEphemeralMessage": {
+      "display": {
+        "label": "Post Ephemeral Message",
+        "description": "Post an ephemeral message to a user or channel"
+      },
+      "key": "postEphemeralMessage",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The name or static ID of the Slack channel.",
+          "example": "general",
+          "key": "channelName",
+          "type": "string",
+          "default": "",
+          "label": "Channel Name or ID"
+        },
+        {
+          "required": true,
+          "example": "84350944036",
+          "comments": "Provide a string value for the unique identifier of the user you want to send the message to.",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "User Id"
+        },
+        {
+          "required": false,
+          "comments": "The username of the bot the message will be sent from. This requires the 'chat:write.customize' scope.",
+          "example": "exampleUser",
+          "key": "username",
+          "type": "string",
+          "default": "",
+          "label": "Bot Username"
+        },
+        {
+          "placeholder": "Message to send",
+          "required": true,
+          "comments": "The message to send the Slack channel.",
+          "example": "Hello from Prismatic!",
+          "key": "message",
+          "type": "text",
+          "default": "",
+          "label": "Message"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "closeConversation": {
+      "display": {
+        "label": "Close Conversation",
+        "description": "Close an existing conversation"
+      },
+      "key": "closeConversation",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The name of the Slack conversation.",
+          "example": "Book Club",
+          "key": "conversationName",
+          "type": "string",
+          "default": "",
+          "label": "Conversation Name"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createConversation": {
+      "display": {
+        "label": "Create Conversation",
+        "description": "Create a new conversation"
+      },
+      "examplePayload": {
+        "data": {
+          "ok": true,
+          "channels": [
+            {
+              "id": "COZ7e3d",
+              "name": "example channel",
+              "is_channel": true,
+              "is_group": false,
+              "is_im": false,
+              "is_private": false,
+              "is_archived": false,
+              "created": 6426934241,
+              "creator": "example",
+              "unlinked": 0,
+              "name_normalized": "example channel",
+              "shared_team_ids": [
+                "TW2oP78"
+              ],
+              "purpose": {
+                "value": "This channel was created for an example response."
+              }
+            }
+          ]
+        }
+      },
+      "key": "createConversation",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The name of the Slack conversation.",
+          "example": "Book Club",
+          "key": "conversationName",
+          "type": "string",
+          "default": "",
+          "label": "Conversation Name"
+        },
+        {
+          "required": true,
+          "comments": "This flag will determine if the Slack conversation is private.",
+          "key": "isPrivate",
+          "type": "boolean",
+          "default": "false",
+          "label": "Is Private"
+        },
+        {
+          "required": false,
+          "comments": "The Id of the Slack team.",
+          "example": "84350944036",
+          "key": "teamId",
+          "type": "string",
+          "default": "",
+          "label": "Team Id"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "renameConversation": {
+      "display": {
+        "label": "Rename Conversation",
+        "description": "Rename an existing conversation"
+      },
+      "key": "renameConversation",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The name of the Slack conversation.",
+          "example": "Book Club",
+          "key": "conversationName",
+          "type": "string",
+          "default": "",
+          "label": "Conversation Name"
+        },
+        {
+          "required": true,
+          "comments": "The name of the Slack conversation.",
+          "example": "Book Club",
+          "key": "newConversationName",
+          "type": "string",
+          "default": "",
+          "label": "New Conversation Name"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getUser": {
+      "display": {
+        "label": "Get User By Email",
+        "description": "Get a user's information by email"
+      },
+      "examplePayload": {
+        "data": {
+          "ok": true,
+          "user": {
+            "id": "example",
+            "color": "example",
+            "deleted": false,
+            "real_name": "Example User",
+            "name": "Example User",
+            "tz": "America/Chicago",
+            "profile": {
+              "title": "example",
+              "phone": "example",
+              "skype": "example",
+              "real_name": "Slackbots",
+              "real_name_normalized": "example",
+              "first_name": "example",
+              "email": "example",
+              "team": "example",
+              "display_name": "example"
+            }
+          }
+        }
+      },
+      "key": "getUser",
+      "inputs": [
+        {
+          "required": true,
+          "example": "someone@example.com",
+          "comments": "Provide a string value for the email address of the user.",
+          "key": "email",
+          "type": "string",
+          "default": "",
+          "label": "Email"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getUserById": {
+      "display": {
+        "label": "Get User By ID",
+        "description": "Get a user's information by ID"
+      },
+      "examplePayload": {
+        "data": {
+          "ok": true,
+          "user": {
+            "id": "example",
+            "color": "example",
+            "deleted": false,
+            "real_name": "Example User",
+            "name": "Example User",
+            "tz": "America/Chicago",
+            "profile": {
+              "title": "example",
+              "phone": "example",
+              "skype": "example",
+              "real_name": "Slackbots",
+              "real_name_normalized": "example",
+              "always_active": true,
+              "first_name": "example",
+              "email": "example",
+              "team": "example",
+              "display_name": "example"
+            }
+          }
+        }
+      },
+      "key": "getUserById",
+      "inputs": [
+        {
+          "required": true,
+          "example": "W012A3CDE",
+          "key": "user",
+          "type": "string",
+          "default": "",
+          "label": "User ID"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "leaveConversation": {
+      "display": {
+        "label": "Leave Conversations",
+        "description": "Leave an existing conversation"
+      },
+      "key": "leaveConversation",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The name or static ID of the Slack channel.",
+          "example": "general",
+          "key": "channelName",
+          "type": "string",
+          "default": "",
+          "label": "Channel Name or ID"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listConversations": {
+      "display": {
+        "label": "List Conversations",
+        "description": "List all conversations"
+      },
+      "examplePayload": {
+        "data": {
+          "ok": true,
+          "channels": [
+            {
+              "id": "COZ7e3d",
+              "name": "example channel",
+              "is_channel": true,
+              "is_group": false,
+              "is_im": false,
+              "is_private": false,
+              "is_archived": false,
+              "created": 6426934241,
+              "creator": "example",
+              "unlinked": 0,
+              "name_normalized": "example channel",
+              "shared_team_ids": [
+                "TW2oP78"
+              ],
+              "purpose": {
+                "value": "This channel was created for an example response."
+              }
+            }
+          ]
+        }
+      },
+      "key": "listConversations",
+      "inputs": [
+        {
+          "required": false,
+          "comments": "The Id of the Slack team.",
+          "example": "84350944036",
+          "key": "teamId",
+          "type": "string",
+          "default": "",
+          "label": "Team Id"
+        },
+        {
+          "required": false,
+          "example": "80",
+          "comments": "Provide a numerical limit to the amount of results returned.",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide a cursor pointing to the page you would like to access",
+          "example": "3",
+          "key": "cursor",
+          "type": "string",
+          "default": "",
+          "label": "Cursor"
+        },
+        {
+          "required": false,
+          "comments": "This flag will determine if archived results will be excluded from the result set.",
+          "key": "excludeArchived",
+          "type": "boolean",
+          "default": "false",
+          "label": "Exclude Archived"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "key": "includePublicChannels",
+          "type": "boolean",
+          "default": "true",
+          "label": "Include public channels?"
+        },
+        {
+          "key": "includePrivateChannels",
+          "type": "boolean",
+          "default": "false",
+          "label": "Include private channels?"
+        },
+        {
+          "key": "includeMultiPartyImchannels",
+          "type": "boolean",
+          "default": "false",
+          "label": "Include multi-party IM (mpim) channels?"
+        },
+        {
+          "key": "includeImChannels",
+          "type": "boolean",
+          "default": "false",
+          "label": "Include IM channels?"
+        }
+      ]
+    },
+    "listConversationMembers": {
+      "display": {
+        "label": "List Conversation Members",
+        "description": "List all members of a conversation"
+      },
+      "key": "listConversationMembers",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The name or static ID of the Slack channel.",
+          "example": "general",
+          "key": "channelName",
+          "type": "string",
+          "default": "",
+          "label": "Channel Name or ID"
+        },
+        {
+          "required": false,
+          "example": "80",
+          "comments": "Provide a numerical limit to the amount of results returned.",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide a cursor pointing to the page you would like to access",
+          "example": "3",
+          "key": "cursor",
+          "type": "string",
+          "default": "",
+          "label": "Cursor"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listUsers": {
+      "display": {
+        "label": "List Users",
+        "description": "List Users"
+      },
+      "examplePayload": {
+        "data": {
+          "ok": true,
+          "members": [
+            {
+              "id": "Exmple",
+              "team_id": "34700c09vs0zx",
+              "name": "Example",
+              "deleted": false,
+              "color": "37373",
+              "profile": {
+                "title": "example",
+                "phone": "example",
+                "skype": "example",
+                "real_name": "Slackbots",
+                "real_name_normalized": "example",
+                "always_active": true,
+                "first_name": "example",
+                "email": "example",
+                "team": "example",
+                "display_name": "example"
+              }
+            }
+          ],
+          "response_metadata": {
+            "next_cursor": "",
+            "scopes": [
+              "admin",
+              "idetify",
+              "channels:read"
+            ]
+          }
+        }
+      },
+      "key": "listUsers",
+      "inputs": [
+        {
+          "required": false,
+          "example": "80",
+          "comments": "Provide a numerical limit to the amount of results returned.",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide a cursor pointing to the page you would like to access",
+          "example": "3",
+          "key": "cursor",
+          "type": "string",
+          "default": "",
+          "label": "Cursor"
+        },
+        {
+          "required": false,
+          "comments": "The Id of the Slack team.",
+          "example": "84350944036",
+          "key": "teamId",
+          "type": "string",
+          "default": "",
+          "label": "Team Id"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "postSlackMessage": {
+      "display": {
+        "label": "Slack Message From Webhook",
+        "description": "Post a message to a Slack channel from a webhook URL"
+      },
+      "examplePayload": {
+        "data": {
+          "text": "ok"
+        }
+      },
+      "key": "postSlackMessage",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Message to send",
+          "required": true,
+          "comments": "The message to send the Slack channel.",
+          "example": "Hello from Prismatic!",
+          "key": "message",
+          "type": "text",
+          "default": "",
+          "label": "Message"
+        }
+      ]
+    },
+    "postBlockMessage": {
+      "display": {
+        "label": "Post Block Message",
+        "description": "Post a message to a slack channel"
+      },
+      "examplePayload": {
+        "data": {
+          "ok": true,
+          "channel": "C011B7U3R9U",
+          "ts": "1646951430.367539",
+          "message": {
+            "type": "message",
+            "subtype": "bot_message",
+            "text": "The message I sent",
+            "ts": "1646951430.367539",
+            "username": "My Slack App",
+            "bot_id": "B036D2DCT54"
+          },
+          "response_metadata": {
+            "scopes": [
+              "identify",
+              "chat:write",
+              "chat:write.public",
+              "chat:write.customize"
+            ],
+            "acceptedScopes": [
+              "chat:write"
+            ]
+          }
+        }
+      },
+      "key": "postBlockMessage",
+      "inputs": [
+        {
+          "language": "json",
+          "required": true,
+          "comments": "A JSON array containing blocks (objects) that make up the desired message. Use Slack's Block Kit Builder (https://app.slack.com/block-kit-builder/) to build block messages.",
+          "key": "blocks",
+          "type": "code",
+          "default": "{\n  \"blocks\": [\n    {\n      \"type\": \"section\",\n      \"text\": {\n        \"type\": \"plain_text\",\n        \"text\": \"Hello world\"\n      }\n    }\n  ]\n}",
+          "label": "Blocks"
+        },
+        {
+          "placeholder": "Message to send",
+          "required": true,
+          "comments": "This message will override if your block cannot be sent",
+          "example": "Hello from Prismatic!",
+          "key": "message",
+          "type": "text",
+          "default": "",
+          "label": "Alt Message"
+        },
+        {
+          "required": true,
+          "comments": "The name or static ID of the Slack channel.",
+          "example": "general",
+          "key": "channelName",
+          "type": "string",
+          "default": "",
+          "label": "Channel Name or ID"
+        },
+        {
+          "required": false,
+          "comments": "The username of the bot the message will be sent from. This requires the 'chat:write.customize' scope.",
+          "example": "exampleUser",
+          "key": "username",
+          "type": "string",
+          "default": "",
+          "label": "Bot Username"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "A unique identifier of a message or thread to reply to (thread_ts)",
+          "example": "84350944036",
+          "key": "messageId",
+          "type": "string",
+          "default": "",
+          "label": "Message Id"
+        }
+      ]
+    },
+    "postWebhookBlockMessage": {
+      "display": {
+        "label": "Slack Block Message From Webhook",
+        "description": "Post a block formatted message to a Slack channel from a webhook URL"
+      },
+      "examplePayload": {
+        "data": {
+          "text": "ok"
+        }
+      },
+      "key": "postWebhookBlockMessage",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Message to send",
+          "required": true,
+          "comments": "This message will override if your block cannot be sent",
+          "example": "Hello from Prismatic!",
+          "key": "message",
+          "type": "text",
+          "default": "",
+          "label": "Alt Message"
+        },
+        {
+          "language": "json",
+          "required": true,
+          "comments": "A JSON array containing blocks (objects) that make up the desired message. Use Slack's Block Kit Builder (https://app.slack.com/block-kit-builder/) to build block messages.",
+          "key": "blocks",
+          "type": "code",
+          "default": "{\n  \"blocks\": [\n    {\n      \"type\": \"section\",\n      \"text\": {\n        \"type\": \"plain_text\",\n        \"text\": \"Hello world\"\n      }\n    }\n  ]\n}",
+          "label": "Blocks"
+        }
+      ]
+    },
+    "archiveConversation": {
+      "display": {
+        "label": "Archive Conversation",
+        "description": "Archive an existing conversation"
+      },
+      "key": "archiveConversation",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The name or static ID of the Slack channel.",
+          "example": "general",
+          "key": "channelName",
+          "type": "string",
+          "default": "",
+          "label": "Channel Name or ID"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "conversationExists": {
+      "display": {
+        "label": "Conversation Exists",
+        "description": "Returns true if the conversation already exists"
+      },
+      "key": "conversationExists",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The name or static ID of the Slack channel.",
+          "example": "general",
+          "key": "channelName",
+          "type": "string",
+          "default": "",
+          "label": "Channel Name or ID"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listScheduledMessages": {
+      "display": {
+        "label": "List Scheduled Messages",
+        "description": "List all scheduled messages"
+      },
+      "key": "listScheduledMessages",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listFiles": {
+      "display": {
+        "label": "List Files",
+        "description": "List all available files"
+      },
+      "key": "listFiles",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "Provide a cursor pointing to the page you would like to access",
+          "example": "3",
+          "key": "cursor",
+          "type": "string",
+          "default": "",
+          "label": "Cursor"
+        }
+      ]
+    },
+    "inviteUserToConversation": {
+      "display": {
+        "label": "Invite User To Conversation",
+        "description": "Invite a user to an existing conversation"
+      },
+      "key": "inviteUserToConversation",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The name or static ID of the Slack channel.",
+          "example": "general",
+          "key": "channelName",
+          "type": "string",
+          "default": "",
+          "label": "Channel Name or ID"
+        },
+        {
+          "required": true,
+          "example": "84350944036",
+          "comments": "Provide a string value for the unique identifier of the user you want to send the message to.",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "User Id"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "setConversationPurpose": {
+      "display": {
+        "label": "Set Conversation Purpose",
+        "description": "Set the purpose of an existing conversation"
+      },
+      "key": "setConversationPurpose",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The name or static ID of the Slack channel.",
+          "example": "general",
+          "key": "channelName",
+          "type": "string",
+          "default": "",
+          "label": "Channel Name or ID"
+        },
+        {
+          "required": true,
+          "example": "84350944036",
+          "comments": "Provide a string value for the unique identifier of the user you want to send the message to.",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "User Id"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Provide a string value for the purpose of the given conversation.",
+          "example": "Engineering",
+          "key": "purpose",
+          "type": "string",
+          "default": "",
+          "label": "Conversation Purpose"
+        }
+      ]
+    },
+    "setConversationTopic": {
+      "display": {
+        "label": "Set Conversation Topic",
+        "description": "Set the purpose of an existing conversation"
+      },
+      "key": "setConversationTopic",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "The name or static ID of the Slack channel.",
+          "example": "general",
+          "key": "channelName",
+          "type": "string",
+          "default": "",
+          "label": "Channel Name or ID"
+        },
+        {
+          "required": true,
+          "example": "84350944036",
+          "comments": "Provide a string value for the unique identifier of the user you want to send the message to.",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "User Id"
+        },
+        {
+          "comments": "Provide a string value for the topic of the given conversation.",
+          "example": "Engineering",
+          "key": "topic",
+          "type": "string",
+          "default": "",
+          "label": "Conversation Topic"
+        }
+      ]
+    },
+    "listUsersConversations": {
+      "display": {
+        "label": "List Users Conversations",
+        "description": "List Users Conversations"
+      },
+      "examplePayload": {
+        "data": {
+          "ok": true,
+          "channels": [
+            {
+              "id": "COZ7e3d",
+              "name": "example channel",
+              "is_channel": true,
+              "is_group": false,
+              "is_im": false,
+              "is_private": false,
+              "is_archived": false,
+              "created": 6426934241,
+              "creator": "example",
+              "unlinked": 0,
+              "name_normalized": "example channel",
+              "shared_team_ids": [
+                "TW2oP78"
+              ],
+              "purpose": {
+                "value": "This channel was created for an example response."
+              }
+            }
+          ]
+        }
+      },
+      "key": "listUsersConversations",
+      "inputs": [
+        {
+          "required": true,
+          "example": "84350944036",
+          "comments": "Provide a string value for the unique identifier of the user you want to send the message to.",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "User Id"
+        },
+        {
+          "required": false,
+          "example": "80",
+          "comments": "Provide a numerical limit to the amount of results returned.",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide a cursor pointing to the page you would like to access",
+          "example": "3",
+          "key": "cursor",
+          "type": "string",
+          "default": "",
+          "label": "Cursor"
+        },
+        {
+          "required": false,
+          "comments": "The Id of the Slack team.",
+          "example": "84350944036",
+          "key": "teamId",
+          "type": "string",
+          "default": "",
+          "label": "Team Id"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "uploadFile": {
+      "display": {
+        "label": "Upload File",
+        "description": "Upload a new file to a slack conversation"
+      },
+      "key": "uploadFile",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Provide the data for a file to be uploaded",
+          "required": true,
+          "key": "fileContent",
+          "type": "data",
+          "default": "",
+          "label": "File Content"
+        },
+        {
+          "comments": "Provide a name for the file.",
+          "required": true,
+          "example": "reports.csv",
+          "key": "fileName",
+          "type": "string",
+          "default": "",
+          "label": "File Name"
+        },
+        {
+          "required": true,
+          "example": "csv",
+          "comments": "A full list of supported file types can be found here: https://api.slack.com/types/file#file_types",
+          "key": "fileType",
+          "type": "string",
+          "default": "",
+          "label": "File Name"
+        },
+        {
+          "required": false,
+          "example": "Monthly Reports",
+          "comments": "The title of the file as it will appear in the channel",
+          "key": "title",
+          "type": "string",
+          "default": "",
+          "label": "File Title"
+        },
+        {
+          "required": false,
+          "example": "general,marketing",
+          "comments": "Provide a comma separated list of channel names, or ids that the file will be shared in.",
+          "key": "channels",
+          "type": "string",
+          "default": "",
+          "label": "Channels"
+        },
+        {
+          "required": false,
+          "example": "Example message",
+          "comments": "The message text introducing the file in the specified channels when uploaded",
+          "key": "initialComment",
+          "type": "string",
+          "default": "",
+          "label": "Initial Comment"
+        },
+        {
+          "required": false,
+          "example": "u830hd230",
+          "comments": "Provide another message's ts value to upload this file as a reply. Never use a reply's ts value, use the parent instead.",
+          "key": "thread",
+          "type": "string",
+          "default": "",
+          "label": "Thread Reply"
+        },
+        {
+          "required": false,
+          "comments": "Provide a cursor pointing to the page you would like to access",
+          "example": "3",
+          "key": "cursor",
+          "type": "string",
+          "default": "",
+          "label": "Cursor"
+        }
+      ]
+    },
+    "getConversationsHistory": {
+      "display": {
+        "label": "Get Conversation History",
+        "description": "Get the history of a conversation"
+      },
+      "examplePayload": {
+        "data": {
+          "ok": true,
+          "messages": [
+            {
+              "client_msg_id": "123123-123123-123123",
+              "type": "message",
+              "text": "hello world",
+              "user": "U01QFFSE2QK",
+              "ts": "166149417.178179",
+              "team": "TH0GJM0M8"
+            }
+          ]
+        }
+      },
+      "key": "getConversationsHistory",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The name or static ID of the Slack channel.",
+          "example": "general",
+          "key": "channelName",
+          "type": "string",
+          "default": "",
+          "label": "Channel Name or ID"
+        },
+        {
+          "required": false,
+          "example": "80",
+          "comments": "Provide a numerical limit to the amount of results returned.",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide a cursor pointing to the page you would like to access",
+          "example": "3",
+          "key": "cursor",
+          "type": "string",
+          "default": "",
+          "label": "Cursor"
+        },
+        {
+          "key": "includeAllMetadata",
+          "type": "boolean",
+          "default": false,
+          "label": "Include All Metadata"
+        },
+        {
+          "comments": "Include messages with oldest or latest timestamps in results. Ignored unless either timestamp is specified",
+          "required": false,
+          "key": "inclusive",
+          "type": "boolean",
+          "default": false,
+          "label": "Inclusive"
+        },
+        {
+          "comments": "Only messages before this Unix timestamp will be included in results. Default is current time.",
+          "required": false,
+          "key": "latest",
+          "type": "string",
+          "default": "",
+          "label": "Latest"
+        },
+        {
+          "comments": "Only messages after this Unix timestamp will be included in results",
+          "required": false,
+          "key": "oldest",
+          "type": "string",
+          "default": "",
+          "label": "Oldest"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "rawRequest": {
+      "display": {
+        "label": "Raw Request",
+        "description": "Send a raw HTTP request to Slack API"
+      },
+      "key": "rawRequest",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "Input the path only (/team.info), The base URL is already included (https://slack.com/api). For example, to connect to https://slack.com/api/team.info, only /team.info is entered in this field.",
+          "example": "/team.info",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "The file name to apply to a file",
+          "required": false,
+          "comments": "File names to apply to the file data inputs. Keys must match the file data keys above.",
+          "key": "fileDataFileNames",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data File Names"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "webhook": {
+      "display": {
+        "label": "Slack Events API Webhook",
+        "description": "Trigger for handling webhooks from Slack's events API"
+      },
+      "allowsBranching": true,
+      "staticBranchNames": [
+        "Notification",
+        "URL Verify",
+        "Management"
+      ],
+      "synchronousResponseSupport": "invalid",
+      "scheduleSupport": "invalid",
+      "examplePayload": {
+        "branch": "Notification",
+        "payload": {
+          "headers": {
+            "accept": "*/*",
+            "Content-Type": "application/json",
+            "User-Agent": "Slackbot 1.0 (+https://api.slack.com/robots)",
+            "Host": "hooks.example.prismatic.io"
+          },
+          "body": {
+            "data": {}
+          },
+          "rawBody": {
+            "data": {
+              "type": "Buffer",
+              "data": [
+                69,
+                120,
+                97,
+                109,
+                112,
+                108,
+                101
+              ]
+            }
+          },
+          "queryParameters": {},
+          "webhookUrls": {
+            "Flow 1": "https://hooks.example.prismatic.io/trigger/EXAMPLEGbG93Q29uZmlnOmRlNmNmNDMyLTliNWMtN0005NDMxLTRmYzA4ZjViODgxOA=="
+          },
+          "webhookApiKeys": {
+            "Flow 1": [
+              "abc-123"
+            ]
+          },
+          "customer": {
+            "externalId": "customer-example-external-id",
+            "name": "John Doe"
+          }
+        },
+        "response": {
+          "statusCode": 200,
+          "contentType": "text/plain",
+          "body": "3eZbrw1aBm2rZgRNFdxV2595E9CY3gmdALWMmHkvFXO7tYXAYM8P"
+        }
+      },
+      "key": "webhook",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "slackConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ],
+      "documentation": {
+        "description": "You can configure Slack to send [events](https://api.slack.com/apis/connections/events-api#subscriptions) to a Prismatic integration.\nThis webhook trigger uses your Slack app's **signing secret** to [verify](https://api.slack.com/authentication/verifying-requests-from-slack) that messages come from Slack.\nIf a [challenge request](https://api.slack.com/apis/connections/events-api#subscriptions) is received, this trigger responds with the proper challenge response and this trigger follows the \"URL Verify\" branch.\nFor other notifications, like a \"channel create\" event occurred, this trigger follows the \"Notification\" path.\n\nIf you would like to invoke a flow that uses a Slack webhook trigger from an app other than Slack, you can send an additional header, `prismatic-bypass-challenge: true` with your request, to bypass Slack message verification.\nWhen that header is present your integration will follow the \"Management\" branch.\n"
+      }
+    },
+    "slashCommandWebhook": {
+      "display": {
+        "label": "Slack App Webhook",
+        "description": "Trigger for handling slash command and modal webhooks from Slack"
+      },
+      "synchronousResponseSupport": "invalid",
+      "scheduleSupport": "invalid",
+      "key": "slashCommandWebhook",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "slackConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "language": "json",
+          "required": false,
+          "key": "responseBody",
+          "type": "code",
+          "default": "",
+          "label": "Response Body"
+        },
+        {
+          "model": [
+            {
+              "label": "text/plain",
+              "value": "text/plain"
+            },
+            {
+              "label": "application/json",
+              "value": "application/json"
+            }
+          ],
+          "required": true,
+          "key": "contentType",
+          "type": "string",
+          "default": "text/plain",
+          "label": "Content Type"
+        }
+      ]
+    }
+  },
+  "dataSources": {
+    "selectChannels": {
+      "display": {
+        "label": "Select Channel",
+        "description": "Select a Slack channel from a dropdown menu (up to 10,000 channels)"
+      },
+      "dataSourceType": "picklist",
+      "examplePayload": {
+        "result": [
+          {
+            "key": "C123456",
+            "label": "#general (ID: C123456)"
+          },
+          {
+            "key": "C000000",
+            "label": "#other-channel (ID: C000000)"
+          },
+          {
+            "key": "C555555",
+            "label": "#random (ID: C555555)"
+          }
+        ]
+      },
+      "key": "selectChannels",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The connection to use",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Show '#my-channel' vs. '#my-channel (ID: C123456)'",
+          "key": "showIdInDropdown",
+          "type": "boolean",
+          "default": "false",
+          "label": "Show channel ID in dropdown?"
+        },
+        {
+          "key": "includePublicChannels",
+          "type": "boolean",
+          "default": "true",
+          "label": "Include public channels?"
+        },
+        {
+          "key": "includePrivateChannels",
+          "type": "boolean",
+          "default": "false",
+          "label": "Include private channels?"
+        },
+        {
+          "key": "includeMultiPartyImchannels",
+          "type": "boolean",
+          "default": "false",
+          "label": "Include multi-party IM (mpim) channels?"
+        },
+        {
+          "key": "includeImChannels",
+          "type": "boolean",
+          "default": "false",
+          "label": "Include IM channels?"
+        }
+      ]
+    }
+  },
+  "documentation": {
+    "description": "The **Slack** component allows you to post messages to a Slack channel.\n"
+  },
+  "$version": 1
+}

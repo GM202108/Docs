@@ -1,0 +1,1081 @@
+{
+  "key": "airtable",
+  "documentationUrl": "https://prismatic.io/docs/components/airtable/",
+  "public": true,
+  "display": {
+    "label": "Airtable",
+    "description": "Manage records, tables and bases in Airtable",
+    "iconPath": "icon.png",
+    "category": "Data Platforms",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "oauth2Type": "authorization_code",
+      "oauth2PkceMethod": "S256",
+      "key": "oauth",
+      "label": "Airtable OAuth 2.0",
+      "inputs": [
+        {
+          "placeholder": "Authorize URL",
+          "required": true,
+          "shown": false,
+          "comments": "The OAuth 2.0 Authorization URL for Airtable",
+          "key": "authorizeUrl",
+          "type": "string",
+          "default": "https://airtable.com/oauth2/v1/authorize",
+          "label": "Authorize URL"
+        },
+        {
+          "placeholder": "Token URL",
+          "required": true,
+          "shown": false,
+          "comments": "The OAuth 2.0 Token URL for Airtable",
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "https://airtable.com/oauth2/v1/token",
+          "label": "Token URL"
+        },
+        {
+          "placeholder": "Scopes",
+          "required": true,
+          "shown": true,
+          "comments": "A space-delimited set of one or more scopes to get the user's permission to access.",
+          "key": "scopes",
+          "type": "string",
+          "default": "data.records:read data.records:write data.recordComments:read data.recordComments:write schema.bases:read schema.bases:write webhook:manage",
+          "label": "Scopes"
+        },
+        {
+          "placeholder": "Client ID",
+          "required": true,
+          "shown": true,
+          "comments": "Provide the Client ID you received from https://airtable.com/create/oauth.",
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "Client ID"
+        },
+        {
+          "placeholder": "Client Secret",
+          "required": true,
+          "shown": true,
+          "comments": "Provide the Client Secret you received from https://airtable.com/create/oauth.",
+          "key": "clientSecret",
+          "type": "password",
+          "default": "",
+          "label": "Client Secret"
+        }
+      ],
+      "documentation": {
+        "description": "To create an OAuth 2.0 app in Airtable, first log in to Airtable and then visit [airtable.com/create/oauth](https://airtable.com/create/oauth).\n\nRegister a new OAuth integration, and enter `https://oauth2.prismatic.io/callback` as the OAuth redirect URL.\n\nUnder **Scopes**, select all scopes that you'll need.\nNote which scopes you selected, along with the **Client ID** and **Client secret** that Airtable provides you.\nEnter scopes, client ID and client secret into Prismatic's config wizard designer.\n"
+      }
+    },
+    {
+      "key": "personalAccessToken",
+      "label": "Personal Access Token",
+      "comments": "Airtable personal access token",
+      "inputs": [
+        {
+          "placeholder": "API Key",
+          "required": true,
+          "shown": true,
+          "comments": "You can generate an API key from https://airtable.com/create/tokens",
+          "example": "pat0000.ffffffff",
+          "key": "apiKey",
+          "type": "string",
+          "default": "",
+          "label": "API Key"
+        }
+      ],
+      "documentation": {
+        "description": "A **personal access token** can be used for testing an Airtable integration.\nYou can create a personal access token at [airtable.com/create/tokens](https://airtable.com/create/tokens).\n"
+      }
+    },
+    {
+      "key": "apiKey",
+      "label": "[Legacy] Airtable API Key and Base ID",
+      "comments": "Airtable API Key and Base ID. Will be deprecated on Feb 1, 2024.",
+      "inputs": [
+        {
+          "placeholder": "Airtable Base ID",
+          "required": true,
+          "shown": true,
+          "comments": "Visit https://airtable.com/api and select your workspace. The ID of your base will be printed for you in green.",
+          "example": "appGJJCPlhEXAMPLE",
+          "key": "base",
+          "type": "string",
+          "default": "",
+          "label": "Airtable Base ID"
+        },
+        {
+          "placeholder": "API Key",
+          "required": true,
+          "shown": true,
+          "comments": "You can generate an API key from https://airtable.com/account.",
+          "example": "keyvTlNCTqEXAMPLE",
+          "key": "apiKey",
+          "type": "string",
+          "default": "",
+          "label": "API Key"
+        }
+      ],
+      "documentation": {
+        "description": "Airtable API keys will be [deprecated on Feb 1, 2024](https://support.airtable.com/docs/airtable-api-key-deprecation-notice).\nPlease elect to use OAuth 2.0 or personal access tokens instead.\n"
+      }
+    }
+  ],
+  "actions": {
+    "getBaseSchema": {
+      "display": {
+        "label": "Get Base Schema",
+        "description": "Get all tables schema within a base"
+      },
+      "examplePayload": {
+        "data": {
+          "tables": [
+            {
+              "description": "Apartments to track.",
+              "fields": [
+                {
+                  "description": "Name of the apartment",
+                  "id": "fld1VnoyuotSTyxW1",
+                  "name": "Name",
+                  "type": "singleLineText"
+                },
+                {
+                  "id": "fldoaIqdn5szURHpw",
+                  "name": "Pictures",
+                  "type": "multipleAttachments"
+                },
+                {
+                  "id": "fldumZe00w09RYTW6",
+                  "name": "District",
+                  "options": {
+                    "inverseLinkFieldId": "fldWnCJlo2z6ttT8Y",
+                    "isReversed": false,
+                    "linkedTableId": "tblK6MZHez0ZvBChZ",
+                    "prefersSingleRecordLink": true
+                  },
+                  "type": "multipleRecordLinks"
+                }
+              ],
+              "id": "tbltp8DGLhqbUmjK1",
+              "name": "Apartments",
+              "primaryFieldId": "fld1VnoyuotSTyxW1",
+              "views": [
+                {
+                  "id": "viwQpsuEDqHFqegkp",
+                  "name": "Grid view",
+                  "type": "grid"
+                }
+              ]
+            },
+            {
+              "fields": [
+                {
+                  "id": "fldEVzvQOoULO38yl",
+                  "name": "Name",
+                  "type": "singleLineText"
+                },
+                {
+                  "description": "Apartments that belong to this district",
+                  "id": "fldWnCJlo2z6ttT8Y",
+                  "name": "Apartments",
+                  "options": {
+                    "inverseLinkFieldId": "fldumZe00w09RYTW6",
+                    "isReversed": false,
+                    "linkedTableId": "tbltp8DGLhqbUmjK1",
+                    "prefersSingleRecordLink": false
+                  },
+                  "type": "multipleRecordLinks"
+                }
+              ],
+              "id": "tblK6MZHez0ZvBChZ",
+              "name": "Districts",
+              "primaryFieldId": "fldEVzvQOoULO38yl",
+              "views": [
+                {
+                  "id": "viwi3KXvrKug2mIBS",
+                  "name": "Grid view",
+                  "type": "grid"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "key": "getBaseSchema",
+      "inputs": [
+        {
+          "placeholder": "Connection",
+          "required": true,
+          "comments": "Access keys provide programmatic access to access resources in AWS. See https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html.",
+          "key": "airtableConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "example": "appLkNDICXNqxSDhG",
+          "comments": "The ID of the base to interact with. Required if you use an OAuth connection, and optional if you specify base ID with a legacy API Key connection.",
+          "key": "baseId",
+          "type": "string",
+          "default": "",
+          "label": "Base ID"
+        }
+      ]
+    },
+    "listBases": {
+      "display": {
+        "label": "List Bases",
+        "description": "List all bases within the Airtable account"
+      },
+      "examplePayload": {
+        "data": [
+          {
+            "id": "appLkNDICXNqxSDhG",
+            "name": "Apartment Hunting",
+            "permissionLevel": "create"
+          },
+          {
+            "id": "appSW9R5uCNmRmfl6",
+            "name": "Project Tracker",
+            "permissionLevel": "edit"
+          }
+        ]
+      },
+      "key": "listBases",
+      "inputs": [
+        {
+          "placeholder": "Connection",
+          "required": true,
+          "comments": "Access keys provide programmatic access to access resources in AWS. See https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html.",
+          "key": "airtableConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createRecord": {
+      "display": {
+        "label": "Create Record",
+        "description": "Create a new record in the given table"
+      },
+      "examplePayload": {
+        "data": {
+          "id": "recZ6jmpj3EXAMPLE",
+          "createdTime": "2022-06-01T17:50:40.000Z",
+          "fields": {
+            "Notes": "We finished this and we're ready to move on to our backlog",
+            "Status": "Complete",
+            "Start date": "2022-05-31",
+            "Projects": "Updated sales process",
+            "Another": 0
+          }
+        }
+      },
+      "key": "createRecord",
+      "inputs": [
+        {
+          "required": false,
+          "example": "appLkNDICXNqxSDhG",
+          "comments": "The ID of the base to interact with. Required if you use an OAuth connection, and optional if you specify base ID with a legacy API Key connection.",
+          "key": "baseId",
+          "type": "string",
+          "default": "",
+          "label": "Base ID"
+        },
+        {
+          "required": true,
+          "example": "myExampleTable",
+          "comments": "Provide the name of the table you would like to access.",
+          "key": "tableName",
+          "type": "string",
+          "default": "",
+          "label": "Table Name"
+        },
+        {
+          "required": true,
+          "comments": "A record is the base equivalent of a row in a spreadsheet.",
+          "key": "recordFields",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Record Fields"
+        },
+        {
+          "placeholder": "Connection",
+          "required": true,
+          "comments": "Access keys provide programmatic access to access resources in AWS. See https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html.",
+          "key": "airtableConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteRecord": {
+      "display": {
+        "label": "Delete Record",
+        "description": "Delete a record inside of the given table"
+      },
+      "examplePayload": {
+        "data": {
+          "deleted": true,
+          "id": "rec560UJdUtocSouk"
+        }
+      },
+      "key": "deleteRecord",
+      "inputs": [
+        {
+          "required": false,
+          "example": "appLkNDICXNqxSDhG",
+          "comments": "The ID of the base to interact with. Required if you use an OAuth connection, and optional if you specify base ID with a legacy API Key connection.",
+          "key": "baseId",
+          "type": "string",
+          "default": "",
+          "label": "Base ID"
+        },
+        {
+          "required": true,
+          "example": "myExampleTable",
+          "comments": "Provide the name of the table you would like to access.",
+          "key": "tableName",
+          "type": "string",
+          "default": "",
+          "label": "Table Name"
+        },
+        {
+          "required": true,
+          "example": "rec6r4kNmGDk5D52F",
+          "comments": "Within Airtable, each record has a unique identifier known as a Record ID. If you are familiar with Entity-Relationship Diagrams or ERDs, then the record id would be the primary key.",
+          "key": "recordId",
+          "type": "string",
+          "default": "",
+          "label": "Record ID"
+        },
+        {
+          "placeholder": "Connection",
+          "required": true,
+          "comments": "Access keys provide programmatic access to access resources in AWS. See https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html.",
+          "key": "airtableConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getRecord": {
+      "display": {
+        "label": "Get Record",
+        "description": "Retrieve a record by ID from the given table"
+      },
+      "examplePayload": {
+        "data": {
+          "id": "recZ6jmpj3EXAMPLE",
+          "createdTime": "2022-06-01T17:50:40.000Z",
+          "fields": {
+            "Notes": "We finished this and we're ready to move on to our backlog",
+            "Status": "Complete",
+            "Start date": "2022-05-31",
+            "Projects": "Updated sales process",
+            "Another": 0
+          }
+        }
+      },
+      "key": "getRecord",
+      "inputs": [
+        {
+          "required": false,
+          "example": "appLkNDICXNqxSDhG",
+          "comments": "The ID of the base to interact with. Required if you use an OAuth connection, and optional if you specify base ID with a legacy API Key connection.",
+          "key": "baseId",
+          "type": "string",
+          "default": "",
+          "label": "Base ID"
+        },
+        {
+          "required": true,
+          "example": "myExampleTable",
+          "comments": "Provide the name of the table you would like to access.",
+          "key": "tableName",
+          "type": "string",
+          "default": "",
+          "label": "Table Name"
+        },
+        {
+          "required": true,
+          "example": "rec6r4kNmGDk5D52F",
+          "comments": "Within Airtable, each record has a unique identifier known as a Record ID. If you are familiar with Entity-Relationship Diagrams or ERDs, then the record id would be the primary key.",
+          "key": "record",
+          "type": "string",
+          "default": "",
+          "label": "Record ID"
+        },
+        {
+          "placeholder": "Connection",
+          "required": true,
+          "comments": "Access keys provide programmatic access to access resources in AWS. See https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html.",
+          "key": "airtableConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listRecords": {
+      "display": {
+        "label": "List Records",
+        "description": "List all records inside of the given table"
+      },
+      "examplePayload": {
+        "data": [
+          {
+            "id": "recZ6jmpj3EXAMPLE",
+            "createdTime": "2022-06-01T17:50:40.000Z",
+            "fields": {
+              "Notes": "We finished this and we're ready to move on to our backlog",
+              "Status": "Complete",
+              "Start date": "2022-05-31",
+              "Projects": "Updated sales process",
+              "Another": 0
+            }
+          }
+        ]
+      },
+      "key": "listRecords",
+      "inputs": [
+        {
+          "required": false,
+          "example": "appLkNDICXNqxSDhG",
+          "comments": "The ID of the base to interact with. Required if you use an OAuth connection, and optional if you specify base ID with a legacy API Key connection.",
+          "key": "baseId",
+          "type": "string",
+          "default": "",
+          "label": "Base ID"
+        },
+        {
+          "required": true,
+          "example": "myExampleTable",
+          "comments": "Provide the name of the table you would like to access.",
+          "key": "tableName",
+          "type": "string",
+          "default": "",
+          "label": "Table Name"
+        },
+        {
+          "placeholder": "Connection",
+          "required": true,
+          "comments": "Access keys provide programmatic access to access resources in AWS. See https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html.",
+          "key": "airtableConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "Grid view",
+          "required": false,
+          "comments": "The name or ID of a view in your table. If set, only records in that view will be returned, sorted in the way that the view is sorted.",
+          "key": "view",
+          "type": "string",
+          "default": "",
+          "label": "View"
+        },
+        {
+          "example": "Notes",
+          "required": false,
+          "comments": "Enter the names (or IDs) of the fields you would like returned. If you omit this list, all fields will be returned.",
+          "key": "fields",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Fields"
+        },
+        {
+          "example": "AND({Quantity} * {Price} > 100, NOT({Shipped?}))",
+          "required": false,
+          "comments": "Filter results to only records that meet some particular criteria.",
+          "key": "filterByFormula",
+          "type": "string",
+          "default": "",
+          "label": "Filter By Formula"
+        }
+      ],
+      "documentation": {
+        "description": "#### Filtering Records\n\nYou can filter for specific records using the **Filter By Formula** input.\nFor example, if you want only records where the product of the `Quantity` and `Price` fields is greater than 100, and the record's `Shipped?` field is not checked, you can use a formula like this:\n\n```\nAND({Quantity} * {Price} > 100, NOT({Shipped?}))\n```\n\nFull documentation on Airtable formula is available on their [support site](https://support.airtable.com/hc/en-us/articles/203255215-Formula-Field-Reference).\n"
+      }
+    },
+    "updateRecord": {
+      "display": {
+        "label": "Update Record",
+        "description": "Update a record's content inside a given table"
+      },
+      "examplePayload": {
+        "data": {
+          "id": "recZ6jmpj3EXAMPLE",
+          "createdTime": "2022-06-01T17:50:40.000Z",
+          "fields": {
+            "Notes": "We finished this and we're ready to move on to our backlog",
+            "Status": "Complete",
+            "Start date": "2022-05-31",
+            "Projects": "Updated sales process",
+            "Another": 0
+          }
+        }
+      },
+      "key": "updateRecord",
+      "inputs": [
+        {
+          "required": false,
+          "example": "appLkNDICXNqxSDhG",
+          "comments": "The ID of the base to interact with. Required if you use an OAuth connection, and optional if you specify base ID with a legacy API Key connection.",
+          "key": "baseId",
+          "type": "string",
+          "default": "",
+          "label": "Base ID"
+        },
+        {
+          "required": true,
+          "example": "myExampleTable",
+          "comments": "Provide the name of the table you would like to access.",
+          "key": "tableName",
+          "type": "string",
+          "default": "",
+          "label": "Table Name"
+        },
+        {
+          "required": true,
+          "example": "rec6r4kNmGDk5D52F",
+          "comments": "Within Airtable, each record has a unique identifier known as a Record ID. If you are familiar with Entity-Relationship Diagrams or ERDs, then the record id would be the primary key.",
+          "key": "record",
+          "type": "string",
+          "default": "",
+          "label": "Record ID"
+        },
+        {
+          "required": true,
+          "comments": "A record is the base equivalent of a row in a spreadsheet.",
+          "key": "recordFields",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Record Fields"
+        },
+        {
+          "placeholder": "Connection",
+          "required": true,
+          "comments": "Access keys provide programmatic access to access resources in AWS. See https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html.",
+          "key": "airtableConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getCurrentUser": {
+      "display": {
+        "label": "Get Current User",
+        "description": "Get user ID and OAuth scopes for the current user"
+      },
+      "key": "getCurrentUser",
+      "inputs": [
+        {
+          "placeholder": "Connection",
+          "required": true,
+          "comments": "Access keys provide programmatic access to access resources in AWS. See https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html.",
+          "key": "airtableConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "rawRequest": {
+      "display": {
+        "label": "Raw Request",
+        "description": "Send a raw HTTP request to Airtable API"
+      },
+      "key": "rawRequest",
+      "inputs": [
+        {
+          "placeholder": "Connection",
+          "required": true,
+          "comments": "Access keys provide programmatic access to access resources in AWS. See https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "Input the path only (/v0/meta/bases/{BASE_ID}/tables), The base URL is already included (https://api.airtable.com). For example, to connect to https://api.airtable.com/v0/meta/bases/{BASE_ID}/tables, only /v0/meta/bases/{BASE_ID}/tables is entered in this field.",
+          "example": "/v0/meta/bases/{BASE_ID}/tables",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "The file name to apply to a file",
+          "required": false,
+          "comments": "File names to apply to the file data inputs. Keys must match the file data keys above.",
+          "key": "fileDataFileNames",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data File Names"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        }
+      ]
+    },
+    "deleteWebhook": {
+      "display": {
+        "label": "Delete Webhook",
+        "description": "Delete a webhook"
+      },
+      "key": "deleteWebhook",
+      "inputs": [
+        {
+          "required": false,
+          "example": "appLkNDICXNqxSDhG",
+          "comments": "The ID of the base to interact with. Required if you use an OAuth connection, and optional if you specify base ID with a legacy API Key connection.",
+          "key": "baseId",
+          "type": "string",
+          "default": "",
+          "label": "Base ID"
+        },
+        {
+          "required": true,
+          "comments": "The ID of the webhook to be deleted.",
+          "key": "webhookId",
+          "type": "string",
+          "default": "",
+          "label": "Webhook ID"
+        },
+        {
+          "placeholder": "Connection",
+          "required": true,
+          "comments": "Access keys provide programmatic access to access resources in AWS. See https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html.",
+          "key": "airtableConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listWebhooks": {
+      "display": {
+        "label": "List Webhooks",
+        "description": "List all webhooks registered for a base"
+      },
+      "key": "listWebhooks",
+      "inputs": [
+        {
+          "required": false,
+          "example": "appLkNDICXNqxSDhG",
+          "comments": "The ID of the base to interact with. Required if you use an OAuth connection, and optional if you specify base ID with a legacy API Key connection.",
+          "key": "baseId",
+          "type": "string",
+          "default": "",
+          "label": "Base ID"
+        },
+        {
+          "placeholder": "Connection",
+          "required": true,
+          "comments": "Access keys provide programmatic access to access resources in AWS. See https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html.",
+          "key": "airtableConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createWebhook": {
+      "display": {
+        "label": "Create Webhook",
+        "description": "Create a new webhook for a base"
+      },
+      "key": "createWebhook",
+      "inputs": [
+        {
+          "required": false,
+          "example": "appLkNDICXNqxSDhG",
+          "comments": "The ID of the base to interact with. Required if you use an OAuth connection, and optional if you specify base ID with a legacy API Key connection.",
+          "key": "baseId",
+          "type": "string",
+          "default": "",
+          "label": "Base ID"
+        },
+        {
+          "placeholder": "Connection",
+          "required": true,
+          "comments": "Access keys provide programmatic access to access resources in AWS. See https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html.",
+          "key": "airtableConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "An optional URL that can receive notification pings.",
+          "key": "notificationUrl",
+          "type": "string",
+          "default": "",
+          "label": "Notification URL"
+        },
+        {
+          "language": "json",
+          "required": true,
+          "comments": "A JSON object that describe the types of changes the webhook is interested in.",
+          "key": "specification",
+          "type": "code",
+          "default": "{\n  \"options\": {\n    \"filters\": {\n      \"fromSources\": [\n        \"publicApi\"\n      ],\n      \"dataTypes\": [\n        \"tableData\"\n      ],\n      \"recordChangeScope\": \"tblMwMnUJpKoJUDzo\"\n    }\n  }\n}",
+          "label": "Specification"
+        }
+      ]
+    },
+    "refreshWebhook": {
+      "display": {
+        "label": "Refresh Webhook",
+        "description": "Extend the life of a webhook"
+      },
+      "key": "refreshWebhook",
+      "inputs": [
+        {
+          "required": false,
+          "example": "appLkNDICXNqxSDhG",
+          "comments": "The ID of the base to interact with. Required if you use an OAuth connection, and optional if you specify base ID with a legacy API Key connection.",
+          "key": "baseId",
+          "type": "string",
+          "default": "",
+          "label": "Base ID"
+        },
+        {
+          "required": true,
+          "comments": "The ID of the webhook to be deleted.",
+          "key": "webhookId",
+          "type": "string",
+          "default": "",
+          "label": "Webhook ID"
+        },
+        {
+          "placeholder": "Connection",
+          "required": true,
+          "comments": "Access keys provide programmatic access to access resources in AWS. See https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html.",
+          "key": "airtableConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "webhook": {
+      "display": {
+        "label": "Airtable Webhook",
+        "description": "Trigger for handling webhooks from Airtable"
+      },
+      "synchronousResponseSupport": "invalid",
+      "scheduleSupport": "invalid",
+      "examplePayload": {
+        "payload": {
+          "headers": {
+            "Accept": "*/*",
+            "Content-Type": "application/json",
+            "Host": "hooks.prismatic.io",
+            "User-Agent": "Airtable (https://api.airtable.com)"
+          },
+          "queryParameters": null,
+          "rawBody": {
+            "data": "<data (547 bytes)>"
+          },
+          "body": {
+            "data": [
+              {
+                "id": "rec12345",
+                "fields": {
+                  "Field 1": "Value 1",
+                  "Field 2": "Value 2"
+                },
+                "createdTime": "2023-01-01T00:00:00.000Z"
+              }
+            ],
+            "contentType": "application/json"
+          },
+          "pathFragment": "",
+          "webhookUrls": {
+            "Flow 1": "https://hooks.example.prismatic.io/trigger/EXAMPLESW5zdGFuY2VGbG93Q29uZmlnOjJjNjkwY2VjLWMwODctNDMxZC05MjVjLTEzODQ2OTkzNzAyMw=="
+          },
+          "webhookApiKeys": {
+            "Flow 1": [
+              "sample-api-key"
+            ],
+            "create record": [
+              "sample-api-key"
+            ],
+            "Airtable trigger": [
+              "sample-api-key"
+            ]
+          },
+          "invokeUrl": "https://hooks.example.prismatic.io/trigger/EXAMPLESW5zdGFuY2VGbG93Q29uZmlnOjJjNjkwY2VjLWMwODctNDMxZC05MjVjLTEzODQ2OTkzNzAyMw==",
+          "executionId": "SW5zdGFuY2VFeGVjdXRpb25SZXN1bHQ6NTgwMzdhOTAtMWZkZi00NjFiLTgwOTUtNWY4Njg1YzUxMzY3",
+          "customer": {
+            "id": "testCustomerId",
+            "name": "Test Customer",
+            "externalId": "testCustomerExternalId"
+          },
+          "instance": {
+            "id": "testInstanceId",
+            "name": "Test Instance"
+          },
+          "user": {
+            "id": "testUserId",
+            "email": "testUserEmail@example.com",
+            "name": "Test User",
+            "externalId": "testUserExternalId"
+          }
+        }
+      },
+      "key": "webhook",
+      "inputs": []
+    }
+  },
+  "dataSources": {
+    "selectBase": {
+      "dataSourceType": "picklist",
+      "display": {
+        "label": "Select Base",
+        "description": "Select an Airtable base"
+      },
+      "key": "selectBase",
+      "inputs": [
+        {
+          "placeholder": "Connection",
+          "required": true,
+          "comments": "Access keys provide programmatic access to access resources in AWS. See https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html.",
+          "key": "airtableConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "When enabled, the base or table ID will be included next to the dropdown menu options.",
+          "key": "includeId",
+          "type": "boolean",
+          "default": "false",
+          "label": "Include ID in dropdown menu?"
+        }
+      ]
+    },
+    "selectTable": {
+      "dataSourceType": "picklist",
+      "display": {
+        "label": "Select Table",
+        "description": "Select a table from a base"
+      },
+      "key": "selectTable",
+      "inputs": [
+        {
+          "placeholder": "Connection",
+          "required": true,
+          "comments": "Access keys provide programmatic access to access resources in AWS. See https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html.",
+          "key": "airtableConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "appLkNDICXNqxSDhG",
+          "comments": "The ID of the base to interact with. Required if you use an OAuth connection, and optional if you specify base ID with a legacy API Key connection.",
+          "key": "baseId",
+          "type": "string",
+          "default": "",
+          "label": "Base ID"
+        },
+        {
+          "comments": "When enabled, the base or table ID will be included next to the dropdown menu options.",
+          "key": "includeId",
+          "type": "boolean",
+          "default": "false",
+          "label": "Include ID in dropdown menu?"
+        }
+      ]
+    }
+  },
+  "documentation": {
+    "description": "[Airtable](https://airtable.com/) is a spreadsheet-database hybrid, with the features of a database but applied to a spreadsheet.\nThis component allows you to list, create, delete, and update records in an Airtable Base.\n",
+    "dev": "Airtable developer documentation can be found [here](https://www.airtable.com/developers).\n"
+  },
+  "$version": 1
+}

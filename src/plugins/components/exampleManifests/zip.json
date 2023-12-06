@@ -1,0 +1,125 @@
+{
+  "key": "zip",
+  "public": true,
+  "documentationUrl": "https://prismatic.io/docs/components/zip/",
+  "display": {
+    "label": "Zip",
+    "category": "Helpers",
+    "description": "Provides utility methods for working with zip files",
+    "iconPath": "icon.png",
+    "iconBase64": "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"
+  },
+  "connections": [],
+  "actions": {
+    "unzip": {
+      "display": {
+        "label": "Unzip",
+        "description": "Decompress a Zip file"
+      },
+      "examplePayload": {
+        "data": [
+          {
+            "name": "filename.txt",
+            "data": {
+              "data": {
+                "type": "Buffer",
+                "data": [
+                  104,
+                  101,
+                  108,
+                  108,
+                  111
+                ]
+              },
+              "contentType": "text/plain"
+            },
+            "path": "path/"
+          }
+        ]
+      },
+      "key": "unzip",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Zip data to decompress",
+          "key": "file",
+          "type": "data",
+          "default": "",
+          "label": "Zip File Data"
+        }
+      ]
+    },
+    "zip": {
+      "display": {
+        "label": "Zip",
+        "description": "Compress a Zip file"
+      },
+      "examplePayload": {
+        "data": {
+          "type": "Buffer",
+          "data": [
+            104,
+            101,
+            108,
+            108,
+            111
+          ]
+        },
+        "contentType": "application/zip"
+      },
+      "key": "zip",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Files to include in the Zip; should be an object with filename keys and values containing file contents",
+          "key": "files",
+          "type": "data",
+          "default": "",
+          "label": "Files"
+        }
+      ],
+      "documentation": {
+        "description": "[Collection Tools](../collection-tools) has useful utilities for building up data to provide to the Zip action.\n"
+      }
+    },
+    "decompressGzip": {
+      "display": {
+        "label": "Decompress Gzip",
+        "description": "Decompress Gzip file"
+      },
+      "key": "decompressGzip",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Gzip data to decompress",
+          "key": "file",
+          "type": "data",
+          "default": "",
+          "label": "Gzip File Data"
+        }
+      ]
+    },
+    "compressGzip": {
+      "display": {
+        "label": "Compress Gzip",
+        "description": "Compress Gzip file"
+      },
+      "key": "compressGzip",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "File to Gzip compress",
+          "key": "file",
+          "type": "data",
+          "default": "",
+          "label": "File Data"
+        }
+      ]
+    }
+  },
+  "triggers": {},
+  "documentation": {
+    "description": "The **Zip** component helps with handling and manipulating `.zip` files.\n"
+  },
+  "$version": 1
+}

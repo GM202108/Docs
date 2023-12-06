@@ -1,0 +1,1723 @@
+{
+  "key": "zendesk",
+  "public": true,
+  "documentationUrl": "https://prismatic.io/docs/components/zendesk/",
+  "display": {
+    "label": "Zendesk",
+    "category": "Application Connectors",
+    "description": "Manage Tickets and users in Zendesk",
+    "iconPath": "icon.png",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "oauth2Type": "authorization_code",
+      "key": "oauth2",
+      "label": "Zendesk Connection",
+      "comments": "Authenticates requests to Zendesk using an OAuth 2.0 connection.",
+      "inputs": [
+        {
+          "placeholder": "Authorize URL",
+          "required": true,
+          "shown": true,
+          "comments": "The OAuth 2.0 Authorization URL for Zendesk",
+          "example": "https://acme-inc.zendesk.com/oauth/authorizations/new",
+          "key": "authorizeUrl",
+          "type": "string",
+          "default": "https://YOUR-ZENDESK-DOMAIN.zendesk.com/oauth/authorizations/new",
+          "label": "Authorize URL"
+        },
+        {
+          "placeholder": "Token URL",
+          "required": true,
+          "shown": true,
+          "comments": "The OAuth 2.0 Token URL for Zendesk",
+          "example": "https://acme-inc.zendesk.com/oauth/tokens",
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "https://YOUR-ZENDESK-DOMAIN.zendesk.com/oauth/tokens",
+          "label": "Token URL"
+        },
+        {
+          "placeholder": "Scopes",
+          "required": true,
+          "shown": true,
+          "comments": "A space-delimited set of one or more scopes to get the user's permission to access.",
+          "example": "read write",
+          "key": "scopes",
+          "type": "string",
+          "default": "read write",
+          "label": "Scopes"
+        },
+        {
+          "placeholder": "Client ID",
+          "required": true,
+          "shown": true,
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "Client ID"
+        },
+        {
+          "placeholder": "Client Secret",
+          "required": true,
+          "shown": true,
+          "key": "clientSecret",
+          "type": "password",
+          "default": "",
+          "label": "Client Secret"
+        }
+      ],
+      "documentation": {
+        "description": "The Zendesk component authenticates requests with OAuth 2.0.\nTo configure an application inside zendesk follow the directions in this [guide](https://support.zendesk.com/hc/en-us/articles/4408845965210-Using-OAuth-authentication-with-your-application)\nNow, you will have to create a new Zendesk connection in Prismatic.\n\n-   For **Client ID** enter in the unique identifier of your app inside the Zendesk admin dashboard.\n    For **Client Secret** enter the generated client secret you received from the Zendesk admin dashboard.\n-   For **Scopes** refer to the [guide](https://support.zendesk.com/hc/en-us/articles/4408845965210-Using-OAuth-authentication-with-your-application) that was linked above. There is detailed information on picking the correct scope.\n\nYou can find your subdomain inside of your Zendesk URL: https://{YOUR SUBDOMAIN HERE}.zendesk.com/\n"
+      }
+    }
+  ],
+  "actions": {
+    "createTicket": {
+      "display": {
+        "label": "Create Ticket",
+        "description": "Create a new ticket"
+      },
+      "key": "createTicket",
+      "inputs": [
+        {
+          "example": "John Doe",
+          "required": true,
+          "comments": "provide a string value for the name of the requester.",
+          "key": "requesterName",
+          "type": "string",
+          "default": "",
+          "label": "Requester Name"
+        },
+        {
+          "example": "John.Doe@example-email.com",
+          "required": true,
+          "comments": "Provide a string value for the email of the requester.",
+          "key": "requesterEmail",
+          "type": "string",
+          "default": "",
+          "label": "Requester Email"
+        },
+        {
+          "example": "403598029853443232",
+          "required": false,
+          "comments": "Provide a valid user id for the assignee of the ticket.",
+          "key": "assigneeId",
+          "type": "string",
+          "default": "",
+          "label": "Assignee Id"
+        },
+        {
+          "example": "Jane.Doe@example-prismatic.io",
+          "required": false,
+          "comments": "Provide a string value for the name of the recipient.",
+          "key": "recipientEmail",
+          "type": "string",
+          "default": "",
+          "label": "Recipient Email"
+        },
+        {
+          "required": false,
+          "example": "This is an example ticket subject.",
+          "comments": "Provide a string value for the subject of the ticket",
+          "key": "ticketSubject",
+          "type": "string",
+          "default": "",
+          "label": "Ticket Subject"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "High",
+              "value": "high"
+            },
+            {
+              "label": "Low",
+              "value": "low"
+            },
+            {
+              "label": "Normal",
+              "value": "normal"
+            },
+            {
+              "label": "Urgent",
+              "value": "urgent"
+            }
+          ],
+          "comments": "Provide a string value for the priority of the ticket.",
+          "key": "ticketPriority",
+          "type": "string",
+          "default": "",
+          "label": "Ticket Priority"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "Closed",
+              "value": "closed"
+            },
+            {
+              "label": "Hold",
+              "value": "hold"
+            },
+            {
+              "label": "New",
+              "value": "new"
+            },
+            {
+              "label": "Open",
+              "value": "open"
+            },
+            {
+              "label": "Pending",
+              "value": "pending"
+            },
+            {
+              "label": "Solved",
+              "value": "solved"
+            }
+          ],
+          "comments": "Provide a string value for the status of the ticket.",
+          "key": "ticketStatus",
+          "type": "string",
+          "default": "",
+          "label": "Ticket Status"
+        },
+        {
+          "example": "This is an example Comment.",
+          "required": false,
+          "comments": "When creating a ticket, this field can be used to give a ticket description. It will also leave a comment on the ticket from the assignee.",
+          "key": "ticketComment",
+          "type": "string",
+          "default": "",
+          "label": "Ticket Comment Body"
+        },
+        {
+          "example": "<p>This is an example Comment.</p>",
+          "required": false,
+          "comments": "When creating a ticket, this field can be used to give a ticket description using HTML. It will also leave a comment on the ticket from the assignee.",
+          "key": "ticketCommentHTML",
+          "type": "string",
+          "default": "",
+          "label": "Ticket Comment HTML Body"
+        },
+        {
+          "example": "Engineering",
+          "required": false,
+          "comments": "For each item, provide a string value for the tag.",
+          "key": "tags",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Tags"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "Incident",
+              "value": "Incident"
+            },
+            {
+              "label": "Problem",
+              "value": "Problem"
+            },
+            {
+              "label": "Question",
+              "value": "Question"
+            },
+            {
+              "label": "Task",
+              "value": "Task"
+            }
+          ],
+          "comments": "Provide a string value for the type of the ticket.",
+          "key": "ticketType",
+          "type": "string",
+          "default": "",
+          "label": "Ticket Type"
+        },
+        {
+          "required": false,
+          "example": "488042375842",
+          "comments": "Provide an integer value to specify the Organization of the requester.",
+          "key": "requesterOrganization",
+          "type": "string",
+          "default": "",
+          "label": "Requester Organization Id"
+        },
+        {
+          "required": false,
+          "example": "488042375842",
+          "comments": "For each item provide a unique identifier of the follower you want to add to the issue.",
+          "key": "followers",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Followers"
+        },
+        {
+          "required": true,
+          "key": "zendeskConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "The ID of this issue from an external system",
+          "key": "externalId",
+          "type": "string",
+          "default": "",
+          "label": "External ID"
+        },
+        {
+          "required": false,
+          "comments": "This flag toggles debugging. When true the integration will log any requests and failures.",
+          "key": "debug",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug"
+        }
+      ]
+    },
+    "listTickets": {
+      "display": {
+        "label": "List Tickets",
+        "description": "List all Tickets"
+      },
+      "key": "listTickets",
+      "inputs": [
+        {
+          "required": true,
+          "key": "zendeskConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "This flag toggles debugging. When true the integration will log any requests and failures.",
+          "key": "debug",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug"
+        }
+      ]
+    },
+    "getByExternalId": {
+      "display": {
+        "label": "Get Ticket By External ID",
+        "description": "Get a ticket by external ID"
+      },
+      "key": "getByExternalId",
+      "inputs": [
+        {
+          "required": true,
+          "key": "zendeskConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "This flag toggles debugging. When true the integration will log any requests and failures.",
+          "key": "debug",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug"
+        },
+        {
+          "required": false,
+          "comments": "The ID of this issue from an external system",
+          "key": "externalId",
+          "type": "string",
+          "default": "",
+          "label": "External ID"
+        }
+      ]
+    },
+    "showTicket": {
+      "display": {
+        "label": "Show Ticket",
+        "description": "Get the information and metadata of a ticket by Id"
+      },
+      "key": "showTicket",
+      "inputs": [
+        {
+          "example": "ExampleTicketId",
+          "required": true,
+          "comments": "Provide the unique identifier for the ticket you would like to show.",
+          "key": "ticketId",
+          "type": "string",
+          "default": "",
+          "label": "Ticket Id"
+        },
+        {
+          "required": true,
+          "key": "zendeskConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "This flag toggles debugging. When true the integration will log any requests and failures.",
+          "key": "debug",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug"
+        }
+      ]
+    },
+    "deleteTicket": {
+      "display": {
+        "label": "Delete Ticket",
+        "description": "Delete the information and metadata of a ticket by Id"
+      },
+      "key": "deleteTicket",
+      "inputs": [
+        {
+          "example": "ExampleTicketId",
+          "required": true,
+          "comments": "Provide the unique identifier for the ticket you would like to show.",
+          "key": "ticketId",
+          "type": "string",
+          "default": "",
+          "label": "Ticket Id"
+        },
+        {
+          "required": true,
+          "key": "zendeskConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "This flag toggles debugging. When true the integration will log any requests and failures.",
+          "key": "debug",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug"
+        }
+      ]
+    },
+    "updateTicket": {
+      "display": {
+        "label": "Update Ticket",
+        "description": "Update the information and metadata of a ticket by Id"
+      },
+      "key": "updateTicket",
+      "inputs": [
+        {
+          "example": "ExampleTicketId",
+          "required": true,
+          "comments": "Provide the unique identifier for the ticket you would like to show.",
+          "key": "ticketId",
+          "type": "string",
+          "default": "",
+          "label": "Ticket Id"
+        },
+        {
+          "example": "This is an example Comment.",
+          "required": false,
+          "comments": "When creating a ticket, this field can be used to give a ticket description. It will also leave a comment on the ticket from the assignee.",
+          "key": "ticketComment",
+          "type": "string",
+          "default": "",
+          "label": "Ticket Comment Body"
+        },
+        {
+          "example": "<p>This is an example Comment.</p>",
+          "required": false,
+          "comments": "When creating a ticket, this field can be used to give a ticket description using HTML. It will also leave a comment on the ticket from the assignee.",
+          "key": "ticketCommentHTML",
+          "type": "string",
+          "default": "",
+          "label": "Ticket Comment HTML Body"
+        },
+        {
+          "required": false,
+          "comments": "The file to attach to the comment - either string contents or a binary file",
+          "key": "file",
+          "type": "data",
+          "default": "",
+          "label": "File"
+        },
+        {
+          "required": false,
+          "comments": "The name of the file to upload",
+          "key": "fileName",
+          "type": "string",
+          "default": "",
+          "label": "File Name"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "Closed",
+              "value": "closed"
+            },
+            {
+              "label": "Hold",
+              "value": "hold"
+            },
+            {
+              "label": "New",
+              "value": "new"
+            },
+            {
+              "label": "Open",
+              "value": "open"
+            },
+            {
+              "label": "Pending",
+              "value": "pending"
+            },
+            {
+              "label": "Solved",
+              "value": "solved"
+            }
+          ],
+          "comments": "Provide a string value for the status of the ticket.",
+          "key": "ticketStatus",
+          "type": "string",
+          "default": "",
+          "label": "Ticket Status"
+        },
+        {
+          "example": "Jane.Doe@example-prismatic.io",
+          "required": false,
+          "comments": "Provide a valid email for the assignee of the ticket.",
+          "key": "assigneeEmail",
+          "type": "string",
+          "default": "",
+          "label": "Assignee Email"
+        },
+        {
+          "example": "403598029853443232",
+          "required": false,
+          "comments": "Provide a valid user id for the assignee of the ticket.",
+          "key": "assigneeId",
+          "type": "string",
+          "default": "",
+          "label": "Assignee Id"
+        },
+        {
+          "example": "Engineering",
+          "required": false,
+          "comments": "For each item, provide a string value for the tag.",
+          "key": "tags",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Tags"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "Incident",
+              "value": "Incident"
+            },
+            {
+              "label": "Problem",
+              "value": "Problem"
+            },
+            {
+              "label": "Question",
+              "value": "Question"
+            },
+            {
+              "label": "Task",
+              "value": "Task"
+            }
+          ],
+          "comments": "Provide a string value for the type of the ticket.",
+          "key": "ticketType",
+          "type": "string",
+          "default": "",
+          "label": "Ticket Type"
+        },
+        {
+          "required": false,
+          "example": "This is an example ticket subject.",
+          "comments": "Provide a string value for the subject of the ticket",
+          "key": "ticketSubject",
+          "type": "string",
+          "default": "",
+          "label": "Ticket Subject"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "High",
+              "value": "high"
+            },
+            {
+              "label": "Low",
+              "value": "low"
+            },
+            {
+              "label": "Normal",
+              "value": "normal"
+            },
+            {
+              "label": "Urgent",
+              "value": "urgent"
+            }
+          ],
+          "comments": "Provide a string value for the priority of the ticket.",
+          "key": "ticketPriority",
+          "type": "string",
+          "default": "",
+          "label": "Ticket Priority"
+        },
+        {
+          "required": false,
+          "example": "488042375842",
+          "comments": "Provide an integer value to specify the Organization of the requester.",
+          "key": "requesterOrganization",
+          "type": "string",
+          "default": "",
+          "label": "Requester Organization Id"
+        },
+        {
+          "required": true,
+          "key": "zendeskConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "This flag toggles debugging. When true the integration will log any requests and failures.",
+          "key": "debug",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug"
+        }
+      ]
+    },
+    "createUser": {
+      "display": {
+        "label": "Create User",
+        "description": "Create a new user"
+      },
+      "key": "createUser",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the name of the user.",
+          "example": "John Doe",
+          "key": "userName",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        },
+        {
+          "required": true,
+          "comments": "Provide a valid email address for the user. Make sure this value does not conflict with any other users in your Zendesk Domain",
+          "example": "someone@example-prismatic.io",
+          "key": "userEmail",
+          "type": "string",
+          "default": "",
+          "label": "Email Address"
+        },
+        {
+          "required": false,
+          "comments": "Provide which level of permissions the user is granted.",
+          "model": [
+            {
+              "label": "Admin",
+              "value": "admin"
+            },
+            {
+              "label": "Agent",
+              "value": "agent"
+            },
+            {
+              "label": "End User",
+              "value": "end-user"
+            }
+          ],
+          "key": "userRole",
+          "type": "string",
+          "default": "",
+          "label": "User Role"
+        },
+        {
+          "required": false,
+          "comments": "Provide a valid phone number for the user.",
+          "example": "15554008989",
+          "key": "userPhone",
+          "type": "string",
+          "default": "",
+          "label": "Phone Number"
+        },
+        {
+          "required": false,
+          "comments": "A unique identifier from another system. The API treats the id as case sensitive. Example: \"ian1\" and \"Ian1\" are different users",
+          "key": "externalId",
+          "type": "string",
+          "default": "",
+          "label": "External Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value that represents notes to be attached to the user.",
+          "example": "These are some example notes.",
+          "key": "userNotes",
+          "type": "string",
+          "default": "",
+          "label": "Notes"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value that represents details to be attached to the user.",
+          "example": "These are some example user details",
+          "key": "userDetails",
+          "type": "string",
+          "default": "",
+          "label": "Details"
+        },
+        {
+          "required": false,
+          "comments": "This flag specifies whether or not the user will have moderator permissions.",
+          "key": "isModerator",
+          "type": "boolean",
+          "default": "false",
+          "label": "Moderator"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value that represents an alias to give to a user.",
+          "example": "Example Alias",
+          "key": "userAlias",
+          "type": "string",
+          "default": "",
+          "label": "Alias"
+        },
+        {
+          "required": false,
+          "comments": "Flip this flag to true if any of the user's identities is verified.",
+          "key": "isVerified",
+          "type": "boolean",
+          "default": "false",
+          "label": "Verified"
+        },
+        {
+          "required": false,
+          "comments": "Provide the unique identifier of the organization.",
+          "key": "organizationId",
+          "type": "string",
+          "default": "",
+          "label": "Organization Id"
+        },
+        {
+          "required": true,
+          "key": "zendeskConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "This flag toggles debugging. When true the integration will log any requests and failures.",
+          "key": "debug",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug"
+        }
+      ]
+    },
+    "updateUser": {
+      "display": {
+        "label": "Update User",
+        "description": "Update the information and metadata of a user by Id"
+      },
+      "key": "updateUser",
+      "inputs": [
+        {
+          "required": true,
+          "example": "488042375842",
+          "comments": "Provide an integer value for the unique identifier of the user.",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "UserId"
+        },
+        {
+          "required": false,
+          "comments": "Provide which level of permissions the user is granted.",
+          "model": [
+            {
+              "label": "Admin",
+              "value": "admin"
+            },
+            {
+              "label": "Agent",
+              "value": "agent"
+            },
+            {
+              "label": "End User",
+              "value": "end-user"
+            }
+          ],
+          "key": "userRole",
+          "type": "string",
+          "default": "",
+          "label": "User Role"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the name of the user.",
+          "example": "John Doe",
+          "key": "userName",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        },
+        {
+          "required": false,
+          "comments": "Provide a valid email address for the user. Make sure this value does not conflict with any other users in your Zendesk Domain",
+          "example": "someone@example-prismatic.io",
+          "key": "userEmail",
+          "type": "string",
+          "default": "",
+          "label": "Email Address"
+        },
+        {
+          "required": false,
+          "comments": "Provide a valid phone number for the user.",
+          "example": "15554008989",
+          "key": "userPhone",
+          "type": "string",
+          "default": "",
+          "label": "Phone Number"
+        },
+        {
+          "required": false,
+          "comments": "A unique identifier from another system. The API treats the id as case sensitive. Example: \"ian1\" and \"Ian1\" are different users",
+          "key": "externalId",
+          "type": "string",
+          "default": "",
+          "label": "External Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value that represents notes to be attached to the user.",
+          "example": "These are some example notes.",
+          "key": "userNotes",
+          "type": "string",
+          "default": "",
+          "label": "Notes"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value that represents details to be attached to the user.",
+          "example": "These are some example user details",
+          "key": "userDetails",
+          "type": "string",
+          "default": "",
+          "label": "Details"
+        },
+        {
+          "required": false,
+          "comments": "This flag specifies whether or not the user will have moderator permissions.",
+          "key": "isModerator",
+          "type": "boolean",
+          "default": "false",
+          "label": "Moderator"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value that represents an alias to give to a user.",
+          "example": "Example Alias",
+          "key": "userAlias",
+          "type": "string",
+          "default": "",
+          "label": "Alias"
+        },
+        {
+          "required": false,
+          "comments": "Provide a valid timezone that the user operates in.",
+          "example": "Berlin",
+          "key": "userTimeZone",
+          "type": "string",
+          "default": "",
+          "label": "Time Zone"
+        },
+        {
+          "required": false,
+          "comments": "Flip this flag to true if any of the user's identities is verified.",
+          "key": "isVerified",
+          "type": "boolean",
+          "default": "false",
+          "label": "Verified"
+        },
+        {
+          "required": false,
+          "comments": "Provide the unique identifier of the organization.",
+          "key": "organizationId",
+          "type": "string",
+          "default": "",
+          "label": "Organization Id"
+        },
+        {
+          "required": true,
+          "key": "zendeskConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "This flag toggles debugging. When true the integration will log any requests and failures.",
+          "key": "debug",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug"
+        }
+      ],
+      "documentation": {
+        "description": "Updating a user's 'User Role' from a end-user to administrator may cause a failed execution.\nFor more information refer to the [user permissions guide](https://support.zendesk.com/hc/en-us/articles/4408883763866-Understanding-Zendesk-Support-user-roles) in the Zendesk docs.\n"
+      }
+    },
+    "deleteUser": {
+      "display": {
+        "label": "Delete User",
+        "description": "Delete the information and metadata of a user by Id"
+      },
+      "key": "deleteUser",
+      "inputs": [
+        {
+          "required": false,
+          "example": "488042375842",
+          "comments": "Provide an integer value for the unique identifier of the user.",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "UserId"
+        },
+        {
+          "required": true,
+          "key": "zendeskConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "This flag toggles debugging. When true the integration will log any requests and failures.",
+          "key": "debug",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug"
+        }
+      ]
+    },
+    "listUsers": {
+      "display": {
+        "label": "List Users",
+        "description": "List all Users"
+      },
+      "examplePayload": {
+        "data": {
+          "users": [],
+          "count": 5,
+          "next_page": 5,
+          "previous_page": 5
+        }
+      },
+      "key": "listUsers",
+      "inputs": [
+        {
+          "required": true,
+          "key": "zendeskConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "This flag toggles debugging. When true the integration will log any requests and failures.",
+          "key": "debug",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug"
+        }
+      ]
+    },
+    "showUser": {
+      "display": {
+        "label": "Show User",
+        "description": "Get the information and metadata of a user by Id"
+      },
+      "key": "showUser",
+      "inputs": [
+        {
+          "required": false,
+          "example": "488042375842",
+          "comments": "Provide an integer value for the unique identifier of the user.",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "UserId"
+        },
+        {
+          "required": true,
+          "key": "zendeskConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "This flag toggles debugging. When true the integration will log any requests and failures.",
+          "key": "debug",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug"
+        }
+      ]
+    },
+    "searchUsers": {
+      "display": {
+        "label": "Search Users",
+        "description": "Returns an array of users who meet the search criteria."
+      },
+      "examplePayload": {
+        "data": {
+          "users": [
+            {
+              "id": 35436,
+              "name": "Robert Jones",
+              "notes": "sigil issue"
+            },
+            {
+              "id": 9873843,
+              "name": "Terry Gilliam"
+            }
+          ]
+        }
+      },
+      "key": "searchUsers",
+      "inputs": [
+        {
+          "required": false,
+          "comments": "The external_id parameter does not support the search syntax. It only accepts ids.",
+          "key": "externalId",
+          "type": "string",
+          "default": "",
+          "label": "External Id"
+        },
+        {
+          "required": false,
+          "comments": "The query parameter supports the Zendesk search syntax for more advanced user searches. It can specify a partial or full value of any user property, including name, email address, notes, or phone. Example: query=\"jdoe\".",
+          "key": "query",
+          "type": "string",
+          "default": "",
+          "label": "Query"
+        },
+        {
+          "required": true,
+          "key": "zendeskConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "This flag toggles debugging. When true the integration will log any requests and failures.",
+          "key": "debug",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug"
+        }
+      ]
+    },
+    "listTicketsByUser": {
+      "display": {
+        "label": "List Tickets Requested By User",
+        "description": "List all of the tickets that a particular user has requested"
+      },
+      "examplePayload": {
+        "data": {
+          "tickets": [],
+          "count": 5,
+          "next_page": 5,
+          "previous_page": 5
+        }
+      },
+      "key": "listTicketsByUser",
+      "inputs": [
+        {
+          "required": false,
+          "example": "488042375842",
+          "comments": "Provide an integer value for the unique identifier of the user.",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "UserId"
+        },
+        {
+          "required": true,
+          "key": "zendeskConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "This flag toggles debugging. When true the integration will log any requests and failures.",
+          "key": "debug",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug"
+        }
+      ]
+    },
+    "listTicketsToUser": {
+      "display": {
+        "label": "List Tickets Assigned To User",
+        "description": "List all of the tickets that have been assigned to a particular user"
+      },
+      "examplePayload": {
+        "data": {
+          "tickets": [],
+          "count": 5,
+          "next_page": 5,
+          "previous_page": 5
+        }
+      },
+      "key": "listTicketsToUser",
+      "inputs": [
+        {
+          "required": false,
+          "example": "488042375842",
+          "comments": "Provide an integer value for the unique identifier of the user.",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "UserId"
+        },
+        {
+          "required": true,
+          "key": "zendeskConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "This flag toggles debugging. When true the integration will log any requests and failures.",
+          "key": "debug",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug"
+        }
+      ]
+    },
+    "createWebhookTrigger": {
+      "display": {
+        "label": "Create Webhook Trigger",
+        "description": "Create a trigger to cause a webhook to fire"
+      },
+      "examplePayload": {
+        "data": {
+          "trigger": {
+            "url": "https://example.zendesk.com/api/v2/triggers/10849292971419.json",
+            "id": 10849292971419,
+            "title": "Trigger for 01GK8E6BKWMJZD2TEXAMPLE",
+            "active": true,
+            "updated_at": "2022-12-02T03:36:44Z",
+            "created_at": "2022-12-02T03:36:44Z",
+            "default": false,
+            "actions": [
+              {
+                "field": "notification_webhook",
+                "value": [
+                  "01GK8E6BKWMJZD2TEXAMPLE",
+                  "{\"current_user\": \"{{current_user.details}}\"}"
+                ]
+              }
+            ],
+            "conditions": {
+              "all": [],
+              "any": [
+                {
+                  "field": "status",
+                  "operator": "changed",
+                  "value": null
+                },
+                {
+                  "field": "status",
+                  "operator": "not_changed",
+                  "value": null
+                }
+              ]
+            },
+            "description": null,
+            "position": 10,
+            "raw_title": "01GK8E6BKWMJZD2TEXAMPLE",
+            "category_id": "4558610559259"
+          }
+        }
+      },
+      "key": "createWebhookTrigger",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "key": "title",
+          "type": "string",
+          "default": "",
+          "label": "Trigger Name"
+        },
+        {
+          "required": true,
+          "example": "01GK7R2DBS16XB76SPDEXAMPLE",
+          "key": "webhookId",
+          "type": "string",
+          "default": "",
+          "label": "Webhook ID"
+        },
+        {
+          "comments": "The body to send to the webhook. See https://support.zendesk.com/hc/en-us/articles/4408886858138-Zendesk-Support-placeholders-reference",
+          "language": "json",
+          "required": true,
+          "key": "messageBody",
+          "type": "code",
+          "default": "{\n  \"current_user\": {\n    \"details\": \"{{current_user.details}}\",\n    \"email\": \"{{current_user.email}}\",\n    \"external_id\": \"{{current_user.external_id}}\",\n    \"first_name\": \"{{current_user.first_name}}\",\n    \"language\": \"{{current_user.language}}\",\n    \"name\": \"{{current_user.name}}\",\n    \"notes\": \"{{current_user.notes}}\",\n    \"organization.details\": \"{{current_user.organization.details}}\",\n    \"organization.name\": \"{{current_user.organization.name}}\",\n    \"organization.notes\": \"{{current_user.organization.notes}}\",\n    \"phone\": \"{{current_user.phone}}\",\n    \"tags\": \"{{current_user.tags}}\"\n  },\n  \"ticket\": {\n    \"account\": \"{{ticket.account}}\",\n    \"assignee\": {\n      \"first_name\": \"{{ticket.assignee.first_name}}\",\n      \"last_name\": \"{{ticket.assignee.last_name}}\",\n      \"name\": \"{{ticket.assignee.name}}\"\n    },\n    \"brand\": {\n      \"name\": \"{{ticket.brand.name}}\"\n    },\n    \"cc_names\": \"{{ticket.cc_names}}\",\n    \"ccs\": \"{{ticket.ccs}}\",\n    \"comments_formatted\": \"{{ticket.comments_formatted}}\",\n    \"description\": \"{{ticket.description}}\",\n    \"due_date\": \"{{ticket.due_date}}\",\n    \"email_cc_names\": \"{{ticket.email_cc_names}}\",\n    \"email_ccs\": \"{{ticket.email_ccs}}\",\n    \"external_id\": \"{{ticket.external_id}}\",\n    \"follower_names\": \"{{ticket.follower_names}}\",\n    \"follower_reply_type_message\": \"{{ticket.follower_reply_type_message}}\",\n    \"followers\": \"{{ticket.followers}}\",\n    \"group\": {\n      \"name\": \"{{ticket.group.name}}\"\n    },\n    \"id\": \"{{ticket.id}}\",\n    \"in_business_hours\": \"{{ticket.in_business_hours}}\",\n    \"latest_comment_formatted\": \"{{ticket.latest_comment_formatted}}\",\n    \"latest_public_comment_formatted\": \"{{ticket.latest_public_comment_formatted}}\",\n    \"link\": \"{{ticket.link}}\",\n    \"organization\": {\n      \"external_id\": \"{{ticket.organization.external_id}}\",\n      \"name\": \"{{ticket.organization.name}}\"\n    },\n    \"priority\": \"{{ticket.priority}}\",\n    \"public_comments_formatted\": \"{{ticket.public_comments_formatted}}\",\n    \"requester\": {\n      \"email\": \"{{ticket.requester.email}}\",\n      \"external_id\": \"{{ticket.requester.external_id}}\",\n      \"first_name\": \"{{ticket.requester.first_name}}\",\n      \"language\": \"{{ticket.requester.language}}\",\n      \"last_name\": \"{{ticket.requester.last_name}}\",\n      \"name\": \"{{ticket.requester.name}}\",\n      \"phone\": \"{{ticket.requester.phone}}\"\n    },\n    \"status\": \"{{ticket.status}}\",\n    \"tags\": \"{{ticket.tags}}\",\n    \"ticket_field_ID\": \"{{ticket.ticket_field_ID}}\",\n    \"ticket_field_option_title_ID\": \"{{ticket.ticket_field_option_title_ID}}\",\n    \"ticket_form\": \"{{ticket.ticket_form}}\",\n    \"ticket_type\": \"{{ticket.ticket_type}}\",\n    \"title\": \"{{ticket.title}}\",\n    \"via\": \"{{ticket.via}}\"\n  }\n}",
+          "label": "Webhook Message Body"
+        },
+        {
+          "comments": "The conditions under which this trigger will fire. Leave the default to fire under any change.",
+          "language": "json",
+          "required": true,
+          "key": "conditions",
+          "type": "code",
+          "default": "{\n  \"all\": [],\n  \"any\": [\n    {\n      \"field\": \"status\",\n      \"operator\": \"changed\"\n    },\n    {\n      \"field\": \"status\",\n      \"operator\": \"not_changed\"\n    }\n  ]\n}",
+          "label": "Trigger Conditions"
+        },
+        {
+          "comments": "Allow a duplicate trigger with the same title to be created?",
+          "required": true,
+          "key": "allowDuplicates",
+          "type": "boolean",
+          "default": "false",
+          "label": "Allow Duplicates?"
+        }
+      ]
+    },
+    "listTriggers": {
+      "display": {
+        "label": "List Triggers",
+        "description": "List workflow triggers"
+      },
+      "key": "listTriggers",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createWebhook": {
+      "display": {
+        "label": "Create Webhook",
+        "description": "Create a webhook in Zendesk to notify you of changes to your users, organization, or tickets"
+      },
+      "examplePayload": {
+        "data": {
+          "webhook": {
+            "id": "01GK8E6BKWMJZD2T8Y5AXJQMG5",
+            "name": "Test from Prismatic",
+            "status": "active",
+            "subscriptions": [
+              "conditional_ticket_events"
+            ],
+            "created_at": "2022-12-02T03:31:00Z",
+            "created_by": "7272236579355",
+            "endpoint": "https://hooks.prismatic.io/trigger/EXAMPLE",
+            "http_method": "POST",
+            "request_format": "json"
+          }
+        }
+      },
+      "key": "createWebhook",
+      "inputs": [
+        {
+          "required": true,
+          "key": "zendeskConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "The URL to send data to",
+          "key": "callbackUrl",
+          "type": "string",
+          "default": "",
+          "label": "Callback URL"
+        },
+        {
+          "required": true,
+          "comments": "A unique name to assign this webhook",
+          "key": "name",
+          "type": "string",
+          "default": "",
+          "label": "Webhook Name"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "conditional_ticket_events",
+              "value": "conditional_ticket_events"
+            },
+            {
+              "label": "zen:event-type:organization.created",
+              "value": "zen:event-type:organization.created"
+            },
+            {
+              "label": "zen:event-type:organization.custom_field_changed",
+              "value": "zen:event-type:organization.custom_field_changed"
+            },
+            {
+              "label": "zen:event-type:organization.deleted",
+              "value": "zen:event-type:organization.deleted"
+            },
+            {
+              "label": "zen:event-type:organization.external_id_changed",
+              "value": "zen:event-type:organization.external_id_changed"
+            },
+            {
+              "label": "zen:event-type:organization.name_changed",
+              "value": "zen:event-type:organization.name_changed"
+            },
+            {
+              "label": "zen:event-type:organization.tags_changed",
+              "value": "zen:event-type:organization.tags_changed"
+            },
+            {
+              "label": "zen:event-type:user.active_changed",
+              "value": "zen:event-type:user.active_changed"
+            },
+            {
+              "label": "zen:event-type:user.alias_changed",
+              "value": "zen:event-type:user.alias_changed"
+            },
+            {
+              "label": "zen:event-type:user.created",
+              "value": "zen:event-type:user.created"
+            },
+            {
+              "label": "zen:event-type:user.custom_field_changed",
+              "value": "zen:event-type:user.custom_field_changed"
+            },
+            {
+              "label": "zen:event-type:user.custom_role_changed",
+              "value": "zen:event-type:user.custom_role_changed"
+            },
+            {
+              "label": "zen:event-type:user.default_group_changed",
+              "value": "zen:event-type:user.default_group_changed"
+            },
+            {
+              "label": "zen:event-type:user.deleted",
+              "value": "zen:event-type:user.deleted"
+            },
+            {
+              "label": "zen:event-type:user.details_changed",
+              "value": "zen:event-type:user.details_changed"
+            },
+            {
+              "label": "zen:event-type:user.external_id_changed",
+              "value": "zen:event-type:user.external_id_changed"
+            },
+            {
+              "label": "zen:event-type:user.group_membership_created",
+              "value": "zen:event-type:user.group_membership_created"
+            },
+            {
+              "label": "zen:event-type:user.group_membership_deleted",
+              "value": "zen:event-type:user.group_membership_deleted"
+            },
+            {
+              "label": "zen:event-type:user.identity_changed",
+              "value": "zen:event-type:user.identity_changed"
+            },
+            {
+              "label": "zen:event-type:user.identity_created",
+              "value": "zen:event-type:user.identity_created"
+            },
+            {
+              "label": "zen:event-type:user.identity_deleted",
+              "value": "zen:event-type:user.identity_deleted"
+            },
+            {
+              "label": "zen:event-type:user.last_login_changed",
+              "value": "zen:event-type:user.last_login_changed"
+            },
+            {
+              "label": "zen:event-type:user.merged",
+              "value": "zen:event-type:user.merged"
+            },
+            {
+              "label": "zen:event-type:user.name_changed",
+              "value": "zen:event-type:user.name_changed"
+            },
+            {
+              "label": "zen:event-type:user.notes_changed",
+              "value": "zen:event-type:user.notes_changed"
+            },
+            {
+              "label": "zen:event-type:user.only_private_comments_changed",
+              "value": "zen:event-type:user.only_private_comments_changed"
+            },
+            {
+              "label": "zen:event-type:user.organization_membership_created",
+              "value": "zen:event-type:user.organization_membership_created"
+            },
+            {
+              "label": "zen:event-type:user.organization_membership_deleted",
+              "value": "zen:event-type:user.organization_membership_deleted"
+            },
+            {
+              "label": "zen:event-type:user.password_changed",
+              "value": "zen:event-type:user.password_changed"
+            },
+            {
+              "label": "zen:event-type:user.photo_changed",
+              "value": "zen:event-type:user.photo_changed"
+            },
+            {
+              "label": "zen:event-type:user.role_changed",
+              "value": "zen:event-type:user.role_changed"
+            },
+            {
+              "label": "zen:event-type:user.suspended_changed",
+              "value": "zen:event-type:user.suspended_changed"
+            },
+            {
+              "label": "zen:event-type:user.tags_changed",
+              "value": "zen:event-type:user.tags_changed"
+            },
+            {
+              "label": "zen:event-type:user.time_zone_changed",
+              "value": "zen:event-type:user.time_zone_changed"
+            }
+          ],
+          "comments": "Determines what events trigger a webhook to fire",
+          "key": "events",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Events"
+        },
+        {
+          "required": true,
+          "key": "allowDuplicates",
+          "type": "boolean",
+          "default": "false",
+          "label": "Allow Duplicates?"
+        }
+      ]
+    },
+    "deleteInstanceWebhooks": {
+      "display": {
+        "label": "Delete Instance Webhooks",
+        "description": "Delete all webhooks pointed at this instance"
+      },
+      "key": "deleteInstanceWebhooks",
+      "inputs": [
+        {
+          "required": true,
+          "key": "zendeskConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteWebhook": {
+      "display": {
+        "label": "Delete Webhook",
+        "description": "Delete a webhook by ID"
+      },
+      "key": "deleteWebhook",
+      "inputs": [
+        {
+          "required": true,
+          "key": "zendeskConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "01GK59HW1XMB8WVZ43RPVAPXRM",
+          "key": "webhookId",
+          "type": "string",
+          "default": "",
+          "label": "Webhook ID"
+        }
+      ]
+    },
+    "listWebhooks": {
+      "display": {
+        "label": "List Webhooks",
+        "description": "List webhooks configured in Zendesk"
+      },
+      "key": "listWebhooks",
+      "inputs": [
+        {
+          "required": true,
+          "key": "zendeskConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Show only webhooks that point to this instance",
+          "key": "showOnlyInstanceWebhooks",
+          "type": "boolean",
+          "default": "true",
+          "label": "Show only instance webhooks"
+        }
+      ]
+    },
+    "rawRequest": {
+      "display": {
+        "label": "Raw Request",
+        "description": "Issue a raw HTTP request"
+      },
+      "key": "rawRequest",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "This is the URL to call.",
+          "example": "/sobjects/Account",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        }
+      ],
+      "documentation": {
+        "description": "The **Raw Request** action allows you to interact with API endpoints that are not covered by other actions.\nFor example, if you want to [list groups](https://developer.zendesk.com/api-reference/ticketing/groups/groups/#list-groups), which as an endpoint of `/api/v2/groups`, you can enter `/groups` as the endpoint and select the GET verb.\n"
+      }
+    }
+  },
+  "triggers": {
+    "webhook": {
+      "display": {
+        "label": "Zendesk Webhook",
+        "description": "Handle and validate webhook requests from Zendesk"
+      },
+      "synchronousResponseSupport": "invalid",
+      "scheduleSupport": "invalid",
+      "key": "webhook",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    }
+  },
+  "dataSources": {},
+  "documentation": {
+    "description": "**Zendesk** is a public company headquartered in San Francisco, California.\nIt provides software-as-a-service products related to customer support, sales, and other customer communications.\nThe **Zendesk** component allows you to manage Users and Tickets inside your Zendesk domain.\n",
+    "dev": "## Zendesk webhooks\n\nThe Zendesk API supports two types of webhooks - one for when something has changed for a user or an organization, and one when something has changed on a support ticket.\n\n### Zendesk user and support webhooks\n\nIf you would like to be alerted when a change to a user or organization has occurred, create a new webhook using the [Create Webhook](#create-webhook) action.\nSelect the events that will cause a the webhook to fire.\nFor example, selecting the `zen:event-type:user.deleted` event will cause the webhook to fire whenever a user is deleted.\nA full list of webhook event types are available in the [Zendesk developer docs](https://developer.zendesk.com/api-reference/event-connectors/webhooks/webhook-event-types/).\n\n### Zendesk ticket webhooks\n\nIf you would like to be alerted when a ticket has changed, first create a webhook using the [Create Webhook](#create-webhook) action.\nWhen selecting webhook events, choose `conditional_ticket_events` (and only that value).\nThis will create a webhook, pointed at a Prismatic instance flow, that can be triggered conditionally.\n\nNext, you need to create a **trigger** that will send data via the webhook you created.\nFetch your webhook's **id** from the step where you created the webhook, and feed it into a [Create Trigger](#create-webhook-trigger) action.\nThe default conditional and webhook body values will cause the webhook to be triggered whenever a ticket is changed, and will send all data related to the ticket to the webhook.\nWe recommend keeping the default values.\nYou can change the conditions under which the trigger fires - see the Zendesk [conditions reference](https://developer.zendesk.com/documentation/ticketing/reference-guides/conditions-reference/) for details.\n"
+  },
+  "$version": 1
+}

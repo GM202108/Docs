@@ -1,0 +1,436 @@
+{
+  "key": "monday",
+  "public": true,
+  "documentationUrl": "https://prismatic.io/docs/components/monday/",
+  "display": {
+    "category": "Application Connectors",
+    "label": "Monday",
+    "description": "Manage boards, tasks and workflows within Monday.",
+    "iconPath": "icon.png",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "key": "oauth",
+      "label": "OAuth 2.0",
+      "comments": "OAuth 2.0 flow",
+      "oauth2Type": "authorization_code",
+      "inputs": [
+        {
+          "placeholder": "Authorize URL",
+          "required": true,
+          "shown": false,
+          "comments": "The OAuth 2.0 Authorization URL for Monday",
+          "key": "authorizeUrl",
+          "type": "string",
+          "default": "https://auth.monday.com/oauth2/authorize",
+          "label": "Authorize URL"
+        },
+        {
+          "placeholder": "Token URL",
+          "required": true,
+          "shown": false,
+          "comments": "The OAuth 2.0 Token URL for Monday",
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "https://auth.monday.com/oauth2/token",
+          "label": "Token URL"
+        },
+        {
+          "placeholder": "Scopes",
+          "required": false,
+          "shown": true,
+          "comments": "Space separated OAuth 2.0 permission scopes for Monday. See https://developer.monday.com/apps/docs/oauth#set-up-permission-scopes.",
+          "example": "me:read boards:read",
+          "key": "scopes",
+          "type": "string",
+          "default": "account:read assets:read boards:read boards:write me:read notifications:write tags:read teams:read updates:read updates:write users:read users:write webhooks:write workspaces:read workspaces:write",
+          "label": "Scopes"
+        },
+        {
+          "placeholder": "Client ID",
+          "required": true,
+          "shown": true,
+          "comments": "Client Identifier of your app for Monday",
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "Client ID"
+        },
+        {
+          "placeholder": "Client Secret",
+          "required": true,
+          "shown": true,
+          "comments": "Client Secret of your app for Monday",
+          "key": "clientSecret",
+          "type": "password",
+          "default": "",
+          "label": "Client Secret"
+        }
+      ],
+      "documentation": {
+        "description": "To configure OAuth 2.0 you will first need to [register a Monday app](https://developer.monday.com/apps/docs/oauth).\nEnsure that the Prismatic Callback URL is added to the app in Monday.\n\nNow you will need to add the Monday component's **OAuth 2.0** connection to your integration and configure it with:\n\n- For **Client ID** and **Client Secret** enter the values that you got from your Monday app.\n- For **Scopes** refer to [Monday's OAuth 2.0 documentation](https://developer.monday.com/apps/docs/oauth#set-up-permission-scopes).\n"
+      }
+    },
+    {
+      "key": "apiKey",
+      "label": "API Key",
+      "comments": "API Key connection",
+      "inputs": [
+        {
+          "placeholder": "API Key",
+          "required": true,
+          "shown": true,
+          "comments": "API Key",
+          "key": "apiKey",
+          "type": "string",
+          "default": "",
+          "label": "API Key"
+        }
+      ],
+      "documentation": {
+        "description": "For testing purposes, you can use an **API key** to authenticate requests to the Monday GraphQL API.\nYou can configure a Monday Personal API token from your user admin settings.\nFor more information refer to the [Monday documentation](https://developer.monday.com/apps/docs/choosing-auth).\nWe recommend using OAuth when you deploy your integration to customers.\n"
+      }
+    }
+  ],
+  "actions": {
+    "archiveBoard": {
+      "display": {
+        "label": "Archive Board",
+        "description": "Delete the information and metadata of a board by Id"
+      },
+      "examplePayload": {
+        "data": {
+          "archive_board": {
+            "id": "4277545378"
+          }
+        }
+      },
+      "key": "archiveBoard",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of the board",
+          "key": "boardId",
+          "type": "string",
+          "default": "",
+          "label": "Board ID"
+        }
+      ]
+    },
+    "createBoard": {
+      "display": {
+        "label": "Create Board",
+        "description": "Create a new board inside your Monday account"
+      },
+      "examplePayload": {
+        "data": {
+          "create_board": {
+            "id": "4277545378"
+          }
+        }
+      },
+      "key": "createBoard",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the name of the board.",
+          "key": "boardName",
+          "type": "string",
+          "default": "",
+          "label": "Board Name"
+        },
+        {
+          "required": true,
+          "example": "public",
+          "model": [
+            {
+              "label": "Public",
+              "value": "public"
+            },
+            {
+              "label": "Private",
+              "value": "private"
+            },
+            {
+              "label": "Shareable",
+              "value": "shareable"
+            }
+          ],
+          "comments": "Provide a string value for the kind of board.",
+          "key": "boardKind",
+          "type": "string",
+          "default": "",
+          "label": "Board Kind"
+        },
+        {
+          "required": false,
+          "comments": "Provide the unique identifier of the folder.",
+          "key": "folderId",
+          "type": "string",
+          "default": "",
+          "label": "Folder ID"
+        },
+        {
+          "required": false,
+          "comments": "Provide the unique identifier of the workspace.",
+          "key": "workspaceId",
+          "type": "string",
+          "default": "",
+          "label": "Workspace ID"
+        },
+        {
+          "required": false,
+          "comments": "Provide the unique identifier of the template that your board extends.",
+          "key": "templateId",
+          "type": "string",
+          "default": "",
+          "label": "Template ID"
+        }
+      ]
+    },
+    "getBoard": {
+      "display": {
+        "label": "Get Board",
+        "description": "Get the information and metadata of a board by ID"
+      },
+      "examplePayload": {
+        "data": {
+          "boards": [
+            {
+              "id": "2924980809",
+              "name": "H2 Kickoff",
+              "state": "active",
+              "board_folder_id": null,
+              "columns": [
+                {
+                  "title": "Name",
+                  "type": "name"
+                },
+                {
+                  "title": "Person",
+                  "type": "multiple-person"
+                },
+                {
+                  "title": "Status",
+                  "type": "color"
+                },
+                {
+                  "title": "Date",
+                  "type": "date"
+                }
+              ],
+              "creator": {
+                "id": 32002207
+              }
+            }
+          ]
+        }
+      },
+      "key": "getBoard",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of the board",
+          "key": "boardId",
+          "type": "string",
+          "default": "",
+          "label": "Board ID"
+        }
+      ]
+    },
+    "listBoards": {
+      "display": {
+        "label": "List Boards",
+        "description": "List all available boards in your Monday account"
+      },
+      "examplePayload": {
+        "data": {
+          "boards": [
+            {
+              "id": "2924980809",
+              "name": "Example Board",
+              "state": "active",
+              "board_folder_id": null,
+              "creator": {
+                "id": 32002207
+              }
+            }
+          ]
+        }
+      },
+      "key": "listBoards",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 1000.",
+          "example": "20",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Result Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the page offset for the given object's results.",
+          "example": "3",
+          "key": "page",
+          "type": "string",
+          "default": "",
+          "label": "Page Offset"
+        }
+      ]
+    },
+    "genericRequest": {
+      "display": {
+        "label": "Generic GraphQL Request",
+        "description": "Issue any GraphQL query or mutation with variables"
+      },
+      "key": "genericRequest",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "language": "graphql",
+          "key": "query",
+          "type": "code",
+          "default": "{\n  me {\n    id\n    email\n  }\n}",
+          "label": "Query or Mutation"
+        },
+        {
+          "required": false,
+          "key": "variables",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Variables"
+        },
+        {
+          "language": "json",
+          "required": false,
+          "key": "variablesObject",
+          "type": "code",
+          "default": "",
+          "label": "Variables Object"
+        }
+      ]
+    },
+    "getItemsByColumnValue": {
+      "display": {
+        "label": "Get Items By Column Value",
+        "description": "Fetch items that have a certain column value"
+      },
+      "examplePayload": {
+        "data": {
+          "items_by_column_values": [
+            {
+              "id": "4277581981",
+              "name": "Task 1",
+              "creator": {
+                "email": "example@email.com"
+              },
+              "updated_at": "2023-04-10T16:23:17Z",
+              "state": "active",
+              "column_values": [
+                {
+                  "id": "numbers",
+                  "text": "1234",
+                  "title": "Some Numbers",
+                  "value": "\"1234\"",
+                  "description": null,
+                  "type": "numeric"
+                },
+                {
+                  "id": "item_id",
+                  "text": "4277581981",
+                  "title": "Item ID",
+                  "value": null,
+                  "description": null,
+                  "type": "pulse-id"
+                },
+                {
+                  "id": "text",
+                  "text": "Hi There",
+                  "title": "Text",
+                  "value": "\"Hi There\"",
+                  "description": null,
+                  "type": "text"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "key": "getItemsByColumnValue",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of the board",
+          "key": "boardId",
+          "type": "string",
+          "default": "",
+          "label": "Board ID"
+        },
+        {
+          "required": true,
+          "example": "status",
+          "comments": "Provide the ID of the column.",
+          "key": "columnId",
+          "type": "string",
+          "default": "",
+          "label": "Column ID"
+        },
+        {
+          "required": true,
+          "comments": "The column's value to search items by",
+          "key": "columnValue",
+          "type": "string",
+          "default": "",
+          "label": "Column Value"
+        }
+      ]
+    }
+  },
+  "triggers": {},
+  "dataSources": {},
+  "documentation": {
+    "description": "[Monday](https://www.monday.com/) is a Cloud-based platform that allows companies to create their own applications and work management software.\nThe **Monday** component allows you to manage columns, items, and subscribers in a Monday board.\n",
+    "dev": "Monday offers a [GraphQL-based](https://graphql.org/) API.\nThis gives you flexibility and control over what data you send to Monday, and what data you request back.\n\nWhile this component offers some actions that wrap common GraphQL queries and mutations, there are many more queries and mutations for which there aren't dedicated actions.\nIf you'd like to run a query or mutation that is not represented by an action, please use the [Generic Request](#genericrequest) action.\n"
+  },
+  "$version": 1
+}

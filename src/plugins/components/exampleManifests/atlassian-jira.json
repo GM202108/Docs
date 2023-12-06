@@ -1,0 +1,2378 @@
+{
+  "key": "atlassian-jira",
+  "public": true,
+  "documentationUrl": "https://prismatic.io/docs/components/atlassian-jira/",
+  "display": {
+    "label": "Jira",
+    "category": "Application Connectors",
+    "description": "Manage Jira issues, comments, projects and users",
+    "iconPath": "icon.png",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "oauth2Type": "authorization_code",
+      "key": "oauth2",
+      "label": "Jira OAuth 2.0 Connection",
+      "inputs": [
+        {
+          "placeholder": "Authorize URL",
+          "required": true,
+          "shown": true,
+          "comments": "The OAuth 2.0 Authorization URL for Jira",
+          "key": "authorizeUrl",
+          "type": "string",
+          "default": "https://auth.atlassian.com/authorize?audience=api.atlassian.com&prompt=consent",
+          "label": "Authorize URL"
+        },
+        {
+          "placeholder": "Token URL",
+          "required": true,
+          "shown": true,
+          "comments": "The OAuth 2.0 Token URL for Jira",
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "https://auth.atlassian.com/oauth/token",
+          "label": "Token URL"
+        },
+        {
+          "placeholder": "Scopes",
+          "required": true,
+          "shown": true,
+          "comments": "A space-delimited set of one or more scopes to get the user's permission to access.",
+          "key": "scopes",
+          "type": "string",
+          "default": "read:project:jira read:user:jira write:issue:jira read:issue:jira read:issue-link:jira write:issue-link:jira read:issue-link-type:jira write:issue-link-type:jira read:issue.transition:jira delete:issue:jira offline_access",
+          "label": "Scopes"
+        },
+        {
+          "placeholder": "Client ID",
+          "required": true,
+          "shown": true,
+          "example": "c9e4APadFFkbtTycoNtrHKBtYgUyZWy",
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "Client ID"
+        },
+        {
+          "placeholder": "Client Secret",
+          "required": true,
+          "shown": true,
+          "example": "ntDBx4ao5czkFu7Mzp5FTlYG0y3_ukxkSiPhwnTkhsdKHJITGRCGP3ZWlXTYyu",
+          "key": "clientSecret",
+          "type": "password",
+          "default": "",
+          "label": "Client Secret"
+        },
+        {
+          "placeholder": "Version",
+          "required": true,
+          "shown": true,
+          "comments": "Provide a string value for the version of your Jira API request",
+          "example": "2",
+          "key": "version",
+          "type": "string",
+          "default": "2",
+          "label": "Version"
+        }
+      ],
+      "documentation": {
+        "description": "While Jira's Cloud API has support for legacy OAuth 1.0, Prismatic only offers support for [Jira's OAuth 2.0 (3LO) flows](https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/#enabling-oauth-2-0--3lo-).\nIf you select OAuth 2.0, you need to enable it for your app using the [Atlassian developer console](https://developer.atlassian.com/console).\n\nCreate a new \"Oauth 2.0 integration\" and give it a name.\nUnder the app details section, take note of your client Id and client secret values that were generated.\nAfter you have saved those values, find the Authorization section and click configure on Oauth 2.0 (3LO).\nThere you will be prompted to enter your redirect URL, which you can find under the credentials tab in the Prismatic settings. - https<!---->://oauth2.prismatic.io/callback - as a **Redirect URL**.\nNext navigate to the permissions. It is important that you remain consistent with the scopes you supply in both Jira, and your Prismatic connection.\nThe default scopes on a new connection in Prismatic will be as follows:\n`read:project:jira`\n`read:user:jira`\n`write:issue:jira`\n`read:issue:jira`\n`read:issue-link:jira`\n`write:issue-link:jira`\n`read:issue-link-type:jira`\n`write:issue-link-type:jira`\n`read:issue.transition:jira`\n`delete:issue:jira`\nThese scopes will provide access to the most of the actions in the Jira component, but you may have to modify the scopes in both locations (Prismatic and Atlassian Console) to meet your needs.\n\nFor more information on developing Jira applications, follow the guide [here](https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/).\n\nNext, you can configure an OAuth 2.0 connection within Prismatic.\nAdd a Jira step to your integration.\nThis will automatically create a Jira connection config variable.\nEnsure the connection is of type `Jira OAuth 2.0 Connection` and enter the following details:\n\n-   For **Client ID** and **Client Secret** enter the values that you got from the Atlassian Developer Console\n-   As stated previously **Scopes** will default to the following:\n    `read:project:jira`\n    `read:user:jira`\n    `write:issue:jira`\n    `read:issue:jira`\n    `read:issue-link:jira`\n    `write:issue-link:jira`\n    `read:issue-link-type:jira`\n    `write:issue-link-type:jira`\n    `read:issue.transition:jira`\n    `delete:issue:jira`.\n    with the addition of `offline_access` on the connection side to obtain a refresh token.\n    From here you can do any [additional configuration](https://developer.atlassian.com/cloud/jira/platform/scopes-for-connect-and-oauth-2-3LO-apps/#oauth-2-0-authorization-code-only-scopes) to match your use case. For example, you might assign the scopes `manage:jira-project read:jira-user` if you plan to work with Users and Projects. You will need to enable these scopes on the [Atlassian Developer Console](https://developer.atlassian.com/apps) page for your OAuth 2.0 Jira app. It is important to include `offline_access` in your scopes, or you will not be given a refresh token.\n-   For **Version** enter the version of Jira you use (you likely use version **2**).\n\n\nJira API: manage:jira-configuration, manage:jira-project, write:jira-work, read:jira-work.\n\n\n"
+      }
+    },
+    {
+      "key": "basic",
+      "label": "Jira Basic Connection",
+      "inputs": [
+        {
+          "placeholder": "Username",
+          "required": true,
+          "shown": true,
+          "comments": "Provide a valid username for the given jira account you want to connect.",
+          "example": "exampleUser",
+          "key": "username",
+          "type": "string",
+          "default": "",
+          "label": "Username"
+        },
+        {
+          "placeholder": "API Key",
+          "required": true,
+          "shown": true,
+          "comments": "Provide an api token to authenticate all requests with. Cloud users need to generate an API token for this value.",
+          "example": "exampleSecurePassword",
+          "key": "password",
+          "type": "string",
+          "default": "",
+          "label": "API Key"
+        },
+        {
+          "placeholder": "Host",
+          "required": true,
+          "shown": true,
+          "comments": "Provide a string value for the URL of your Jira account.",
+          "example": "example.atlassian.net",
+          "key": "host",
+          "type": "string",
+          "default": "",
+          "label": "Host"
+        },
+        {
+          "placeholder": "Version",
+          "required": true,
+          "shown": true,
+          "comments": "Provide a string value for the version of your Jira API request",
+          "example": "3",
+          "key": "version",
+          "type": "string",
+          "default": "3",
+          "label": "Version"
+        }
+      ],
+      "documentation": {
+        "description": "If you select Basic Auth and you are using Jira Cloud, you will need to supply your Jira email and an API token to the connection.\nIf you are on a locally hosted instance of Jira, you will need to supply your Jira email and password to the connection.\nFor information on generating an API token from Jira Cloud, refer to the [Atlassian docs](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/).\n"
+      }
+    }
+  ],
+  "actions": {
+    "getBoard": {
+      "display": {
+        "label": "Get Board",
+        "description": "Get information and metadata of a board by Id"
+      },
+      "examplePayload": {
+        "data": {
+          "id": 84,
+          "self": "https://your-domain.atlassian.net/rest/agile/1.0/board/84",
+          "name": "scrum board",
+          "type": "scrum",
+          "location": {
+            "projectId": 10040,
+            "userId": 10040,
+            "userAccountId": "5b10a2844c20165700ede21g",
+            "displayName": "Example Project",
+            "projectName": "Example Project",
+            "projectKey": "Example Project Key",
+            "projectTypeKey": "KEY",
+            "name": "Example Project"
+          }
+        }
+      },
+      "key": "getBoard",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide the ID of the Board.",
+          "key": "boardId",
+          "type": "string",
+          "default": "",
+          "label": "Board ID"
+        }
+      ]
+    },
+    "listBoards": {
+      "display": {
+        "label": "List Boards",
+        "description": "Retrieve a list of existing boards"
+      },
+      "examplePayload": {
+        "data": {
+          "maxResults": 2,
+          "startAt": 1,
+          "total": 5,
+          "isLast": false,
+          "values": [
+            {
+              "id": 84,
+              "self": "https://your-domain.atlassian.net/rest/agile/1.0/board/84",
+              "name": "scrum board",
+              "type": "scrum"
+            },
+            {
+              "id": 92,
+              "self": "https://your-domain.atlassian.net/rest/agile/1.0/board/92",
+              "name": "kanban board",
+              "type": "kanban"
+            }
+          ]
+        }
+      },
+      "key": "listBoards",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "example": "3",
+          "comments": "Provide the index of the first item to return (to start from)",
+          "key": "startAt",
+          "type": "string",
+          "default": "0",
+          "label": "Start At"
+        },
+        {
+          "required": false,
+          "example": "50",
+          "comments": "Provide a value for the maximum amount of results to be returned in the request.",
+          "key": "maxResults",
+          "type": "string",
+          "default": "",
+          "label": "Max Results"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "favourite",
+              "value": "favourite"
+            },
+            {
+              "label": "my",
+              "value": "my"
+            }
+          ],
+          "comments": "The filter applied to the list of dashboards.",
+          "key": "filter",
+          "type": "string",
+          "default": "",
+          "label": "Filter"
+        }
+      ]
+    },
+    "listBoardsSprints": {
+      "display": {
+        "label": "List Board Sprints",
+        "description": "List all sprints within a board"
+      },
+      "examplePayload": {
+        "data": {
+          "maxResults": 2,
+          "startAt": 1,
+          "total": 5,
+          "isLast": false,
+          "values": [
+            {
+              "id": 37,
+              "self": "https://your-domain.atlassian.net/rest/agile/1.0/sprint/23",
+              "state": "closed",
+              "name": "sprint 1",
+              "startDate": "2015-04-11T15:22:00.000+10:00",
+              "endDate": "2015-04-20T01:22:00.000+10:00",
+              "completeDate": "2015-04-20T11:04:00.000+10:00",
+              "originBoardId": 5,
+              "goal": "sprint 1 goal"
+            },
+            {
+              "id": 72,
+              "self": "https://your-domain.atlassian.net/rest/agile/1.0/sprint/73",
+              "state": "future",
+              "name": "sprint 2",
+              "goal": "sprint 2 goal"
+            }
+          ]
+        }
+      },
+      "key": "listBoardsSprints",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide the ID of the Board.",
+          "key": "boardId",
+          "type": "string",
+          "default": "",
+          "label": "Board ID"
+        },
+        {
+          "required": false,
+          "example": "3",
+          "comments": "Provide the index of the first item to return (to start from)",
+          "key": "startAt",
+          "type": "string",
+          "default": "0",
+          "label": "Start At"
+        },
+        {
+          "required": false,
+          "example": "50",
+          "comments": "Provide a value for the maximum amount of results to be returned in the request.",
+          "key": "maxResults",
+          "type": "string",
+          "default": "",
+          "label": "Max Results"
+        }
+      ]
+    },
+    "getComments": {
+      "display": {
+        "label": "Get Comments",
+        "description": "Get all the comments on a given issue"
+      },
+      "examplePayload": {
+        "data": {
+          "startAt": 0,
+          "maxResults": 1,
+          "total": 1,
+          "comments": [
+            {
+              "self": "https://your-domain.atlassian.net/rest/api/3/issue/10010/comment/10000",
+              "id": "10000",
+              "author": {
+                "self": "https://your-domain.atlassian.net/rest/api/3/user?accountId=5b10a2844c20165700ede21g",
+                "accountId": "5b10a2844c20165700ede21g",
+                "displayName": "Mia Krystof",
+                "active": false
+              },
+              "body": {
+                "type": "doc",
+                "version": 1,
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget venenatis elit. Duis eu justo eget augue iaculis fermentum. Sed semper quam laoreet nisi egestas at posuere augue semper."
+                      }
+                    ]
+                  }
+                ]
+              },
+              "updateAuthor": {
+                "self": "https://your-domain.atlassian.net/rest/api/3/user?accountId=5b10a2844c20165700ede21g",
+                "accountId": "5b10a2844c20165700ede21g",
+                "displayName": "Mia Krystof",
+                "active": false
+              },
+              "created": "2021-01-17T12:34:00.000+0000",
+              "updated": "2021-01-18T23:45:00.000+0000",
+              "visibility": {
+                "type": "role",
+                "value": "Administrators",
+                "identifier": "Administrators"
+              }
+            }
+          ]
+        }
+      },
+      "key": "getComments",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide the ID of the Issue.",
+          "key": "issueId",
+          "type": "string",
+          "default": "",
+          "label": "Issue ID"
+        }
+      ]
+    },
+    "addComment": {
+      "display": {
+        "label": "Add Comment",
+        "description": "Add a comment to an existing issue"
+      },
+      "key": "addComment",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide the ID of the Issue.",
+          "key": "issueId",
+          "type": "string",
+          "default": "",
+          "label": "Issue ID"
+        },
+        {
+          "required": true,
+          "example": "This is an example comment.",
+          "comments": "Provide a string value for the comment.",
+          "key": "comment",
+          "type": "string",
+          "default": "",
+          "label": "Comment"
+        }
+      ]
+    },
+    "updateComment": {
+      "display": {
+        "label": "Update Comment",
+        "description": "Update the contents and metadata of an existing comment."
+      },
+      "key": "updateComment",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide the ID of the Issue.",
+          "key": "issueId",
+          "type": "string",
+          "default": "",
+          "label": "Issue ID"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide the Comment ID.",
+          "key": "commentId",
+          "type": "string",
+          "default": "",
+          "label": "Comment ID"
+        },
+        {
+          "required": true,
+          "example": "This is an example comment.",
+          "comments": "Provide a string value for the comment.",
+          "key": "comment",
+          "type": "string",
+          "default": "",
+          "label": "Comment"
+        }
+      ]
+    },
+    "deleteComment": {
+      "display": {
+        "label": "Delete Comment",
+        "description": "Delete a comment from an issue"
+      },
+      "key": "deleteComment",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide the ID of the Issue.",
+          "key": "issueId",
+          "type": "string",
+          "default": "",
+          "label": "Issue ID"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide the Comment ID.",
+          "key": "commentId",
+          "type": "string",
+          "default": "",
+          "label": "Comment ID"
+        }
+      ]
+    },
+    "searchIssues": {
+      "display": {
+        "label": "Search Issues",
+        "description": "Returns a list of issues that match the given string of text"
+      },
+      "key": "searchIssues",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "Search",
+          "comments": "Provide a string value to search on.",
+          "key": "searchString",
+          "type": "string",
+          "default": "",
+          "label": "Search"
+        },
+        {
+          "required": false,
+          "example": "JS-Example",
+          "comments": "Provide a string value for the key of the project.",
+          "key": "projectKey",
+          "type": "string",
+          "default": "",
+          "label": "Project Key"
+        }
+      ]
+    },
+    "getIssue": {
+      "display": {
+        "label": "Get Issue",
+        "description": "Get the information and metadata of an issue"
+      },
+      "key": "getIssue",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide the ID of the Issue.",
+          "key": "issueId",
+          "type": "string",
+          "default": "",
+          "label": "Issue ID"
+        }
+      ]
+    },
+    "findIssue": {
+      "display": {
+        "label": "Find Issue",
+        "description": "Find Issue by attribute"
+      },
+      "key": "findIssue",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "Number",
+              "value": "number"
+            },
+            {
+              "label": "Summary",
+              "value": "summary"
+            }
+          ],
+          "comments": "Attribute to search",
+          "key": "searchType",
+          "type": "string",
+          "default": "",
+          "label": "Search Type"
+        },
+        {
+          "required": true,
+          "comments": "Value to search for",
+          "key": "searchValue",
+          "type": "string",
+          "default": "",
+          "label": "Search Value"
+        }
+      ]
+    },
+    "listIssues": {
+      "display": {
+        "label": "List Issues",
+        "description": "Returns a list of issues"
+      },
+      "key": "listIssues",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "example": "3",
+          "comments": "Provide the index of the first item to return (to start from)",
+          "key": "startAt",
+          "type": "string",
+          "default": "0",
+          "label": "Start At"
+        },
+        {
+          "required": false,
+          "example": "50",
+          "comments": "Provide a value for the maximum amount of results to be returned in the request.",
+          "key": "maxResults",
+          "type": "string",
+          "default": "",
+          "label": "Max Results"
+        }
+      ]
+    },
+    "createIssue": {
+      "display": {
+        "label": "Create Issue",
+        "description": "Create an issue within a given project"
+      },
+      "key": "createIssue",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide the ID of the Project.",
+          "key": "projectId",
+          "type": "string",
+          "default": "",
+          "label": "Project ID"
+        },
+        {
+          "required": true,
+          "example": "This is an example summary.",
+          "comments": "Provide a string value for the summary of the issue.",
+          "key": "summary",
+          "type": "string",
+          "default": "",
+          "label": "Summary"
+        },
+        {
+          "required": false,
+          "example": "This is an example summary.",
+          "comments": "Provide a string value for the description of the issue.",
+          "key": "description",
+          "type": "string",
+          "default": "",
+          "label": "Description"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "Bug",
+              "value": "Bug"
+            },
+            {
+              "label": "Task",
+              "value": "Task"
+            },
+            {
+              "label": "Story",
+              "value": "Story"
+            },
+            {
+              "label": "Epic",
+              "value": "Epic"
+            }
+          ],
+          "comments": "Provide a string value for the type of issue.",
+          "key": "issueType",
+          "type": "string",
+          "default": "",
+          "label": "Issue Type"
+        },
+        {
+          "required": false,
+          "example": "b7b399c5b7c40279d7211271",
+          "comments": "Provide the Account ID for the person being assigned the issue.",
+          "key": "assignee",
+          "type": "string",
+          "default": "",
+          "label": "Assignee Account ID"
+        },
+        {
+          "required": false,
+          "example": "b7b399c5b7c40279d7211271",
+          "comments": "Provide the Account ID for the person that is reporting the issue.",
+          "key": "reporter",
+          "type": "string",
+          "default": "",
+          "label": "Reporter Account ID"
+        },
+        {
+          "required": false,
+          "example": "2019-05-11",
+          "comments": "Provide due date for the issue.",
+          "key": "dueDate",
+          "type": "string",
+          "default": "",
+          "label": "Due Date"
+        },
+        {
+          "required": false,
+          "example": "High",
+          "comments": "Provide the unique identifier of the priority. This value can either be an Id, key, or name of the desired record.",
+          "key": "priority",
+          "type": "string",
+          "default": "",
+          "label": "Priority"
+        },
+        {
+          "required": false,
+          "example": "performance",
+          "comments": "Provide a list of labels for the issue.",
+          "key": "labels",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Labels"
+        },
+        {
+          "required": false,
+          "example": "[\n  {\n    \"id\": \"10000\"\n  }\n]",
+          "language": "json",
+          "comments": "Provide JSON data for the versions. You must supply a JSON array with an object containing an Id.",
+          "key": "versions",
+          "type": "code",
+          "default": "",
+          "label": "Versions"
+        },
+        {
+          "required": false,
+          "example": "{\n  id: \"10001\",\n}",
+          "language": "json",
+          "comments": "Provide JSON data for the fix versions. Your object must have a property 'id'",
+          "key": "fixVersions",
+          "type": "code",
+          "default": "",
+          "label": "Fix Versions"
+        }
+      ]
+    },
+    "updateIssue": {
+      "display": {
+        "label": "Update Issue",
+        "description": "Update an existing issue within a given project"
+      },
+      "key": "updateIssue",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide the ID of the Issue.",
+          "key": "issueId",
+          "type": "string",
+          "default": "",
+          "label": "Issue ID"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide the ID of the Project.",
+          "key": "projectId",
+          "type": "string",
+          "default": "",
+          "label": "Project ID"
+        },
+        {
+          "required": false,
+          "example": "This is an example summary.",
+          "comments": "Provide a string value for the summary of the issue.",
+          "key": "summary",
+          "type": "string",
+          "default": "",
+          "label": "Summary"
+        },
+        {
+          "required": false,
+          "example": "This is an example summary.",
+          "comments": "Provide a string value for the description of the issue.",
+          "key": "description",
+          "type": "string",
+          "default": "",
+          "label": "Description"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "Bug",
+              "value": "Bug"
+            },
+            {
+              "label": "Task",
+              "value": "Task"
+            },
+            {
+              "label": "Story",
+              "value": "Story"
+            },
+            {
+              "label": "Epic",
+              "value": "Epic"
+            }
+          ],
+          "comments": "Provide a string value for the type of issue.",
+          "key": "issueType",
+          "type": "string",
+          "default": "",
+          "label": "Issue Type"
+        },
+        {
+          "required": false,
+          "example": "b7b399c5b7c40279d7211271",
+          "comments": "Provide the Account ID for the person being assigned the issue.",
+          "key": "assignee",
+          "type": "string",
+          "default": "",
+          "label": "Assignee Account ID"
+        },
+        {
+          "required": false,
+          "example": "b7b399c5b7c40279d7211271",
+          "comments": "Provide the Account ID for the person that is reporting the issue.",
+          "key": "reporter",
+          "type": "string",
+          "default": "",
+          "label": "Reporter Account ID"
+        },
+        {
+          "required": false,
+          "example": "{\n  id: \"10001\",\n}",
+          "language": "json",
+          "comments": "Provide JSON data for the fix versions. Your object must have a property 'id'",
+          "key": "fixVersions",
+          "type": "code",
+          "default": "",
+          "label": "Fix Versions"
+        },
+        {
+          "required": false,
+          "example": "High",
+          "comments": "Provide the unique identifier of the priority. This value can either be an Id, key, or name of the desired record.",
+          "key": "priority",
+          "type": "string",
+          "default": "",
+          "label": "Priority"
+        },
+        {
+          "required": false,
+          "example": "performance",
+          "comments": "Provide a list of labels for the issue.",
+          "key": "labels",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Labels"
+        },
+        {
+          "required": false,
+          "example": "2019-05-11",
+          "comments": "Provide due date for the issue.",
+          "key": "dueDate",
+          "type": "string",
+          "default": "",
+          "label": "Due Date"
+        },
+        {
+          "required": false,
+          "example": "[\n  {\n    \"id\": \"10000\"\n  }\n]",
+          "language": "json",
+          "comments": "Provide JSON data for the versions. You must supply a JSON array with an object containing an Id.",
+          "key": "versions",
+          "type": "code",
+          "default": "",
+          "label": "Versions"
+        }
+      ]
+    },
+    "deleteIssue": {
+      "display": {
+        "label": "Delete Issue",
+        "description": "Delete an issue by id"
+      },
+      "key": "deleteIssue",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide the ID of the Issue.",
+          "key": "issueId",
+          "type": "string",
+          "default": "",
+          "label": "Issue ID"
+        }
+      ]
+    },
+    "downloadAttachment": {
+      "display": {
+        "label": "Download Issue Attachment",
+        "description": "Download the attachment data connected to an issue"
+      },
+      "key": "downloadAttachment",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide the ID of the Issue.",
+          "key": "issueId",
+          "type": "string",
+          "default": "",
+          "label": "Issue ID"
+        }
+      ]
+    },
+    "listIssueTransitions": {
+      "display": {
+        "label": "List Issue Transitions",
+        "description": "Returns a list of issue transitions"
+      },
+      "key": "listIssueTransitions",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide the ID of the Issue.",
+          "key": "issueId",
+          "type": "string",
+          "default": "",
+          "label": "Issue ID"
+        }
+      ]
+    },
+    "listIssueWorklogs": {
+      "display": {
+        "label": "List Issue Worklogs",
+        "description": "Returns a list of issue worklogs"
+      },
+      "key": "listIssueWorklogs",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide the ID of the Issue.",
+          "key": "issueId",
+          "type": "string",
+          "default": "",
+          "label": "Issue ID"
+        }
+      ]
+    },
+    "transitionIssue": {
+      "display": {
+        "label": "Transition Issue",
+        "description": "Transition an existing issue by Id"
+      },
+      "key": "transitionIssue",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide the ID of the Issue.",
+          "key": "issueId",
+          "type": "string",
+          "default": "",
+          "label": "Issue ID"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide the ID of the Transition.",
+          "key": "transitionId",
+          "type": "string",
+          "default": "",
+          "label": "Transition ID"
+        }
+      ]
+    },
+    "addIssueAttachment": {
+      "display": {
+        "label": "Add Issue Attachment",
+        "description": "Add a file attachment to an issue"
+      },
+      "key": "addIssueAttachment",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide the ID of the Issue.",
+          "key": "issueId",
+          "type": "string",
+          "default": "",
+          "label": "Issue ID"
+        },
+        {
+          "required": true,
+          "comments": "The file to upload - either string contents or a binary file",
+          "key": "file",
+          "type": "data",
+          "default": "",
+          "label": "File"
+        },
+        {
+          "required": true,
+          "comments": "The name of the file to upload",
+          "key": "fileName",
+          "type": "string",
+          "default": "",
+          "label": "File Name"
+        }
+      ]
+    },
+    "findProject": {
+      "display": {
+        "label": "Find Project",
+        "description": "Find Project by attribute"
+      },
+      "key": "findProject",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "Name",
+              "value": "name"
+            },
+            {
+              "label": "Key",
+              "value": "key"
+            }
+          ],
+          "comments": "Attribute to search",
+          "key": "searchType",
+          "type": "string",
+          "default": "",
+          "label": "Search Type"
+        },
+        {
+          "required": true,
+          "comments": "Value to search for",
+          "key": "searchValue",
+          "type": "string",
+          "default": "",
+          "label": "Search Value"
+        }
+      ]
+    },
+    "getProject": {
+      "display": {
+        "label": "Get Project",
+        "description": "Get the information and metadata of a project"
+      },
+      "key": "getProject",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide the ID of the Project.",
+          "key": "projectId",
+          "type": "string",
+          "default": "",
+          "label": "Project ID"
+        }
+      ]
+    },
+    "listProjects": {
+      "display": {
+        "label": "List Projects",
+        "description": "Retrieve a list of all projects"
+      },
+      "key": "listProjects",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "example": "50",
+          "comments": "Provide a value for the maximum amount of results to be returned in the request.",
+          "key": "maxResults",
+          "type": "string",
+          "default": "",
+          "label": "Max Results"
+        },
+        {
+          "required": false,
+          "example": "3",
+          "comments": "Provide the index of the first item to return (to start from)",
+          "key": "startAt",
+          "type": "string",
+          "default": "0",
+          "label": "Start At"
+        }
+      ]
+    },
+    "searchProjects": {
+      "display": {
+        "label": "Search Projects",
+        "description": "Returns a list of projects that match the given string of text"
+      },
+      "key": "searchProjects",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "Search",
+          "comments": "Provide a string value to search on.",
+          "key": "searchString",
+          "type": "string",
+          "default": "",
+          "label": "Search"
+        }
+      ]
+    },
+    "searchUsers": {
+      "display": {
+        "label": "Search Users",
+        "description": "Returns a single user that matches the given string of text"
+      },
+      "key": "searchUsers",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "Search",
+          "comments": "Provide a string value to search on.",
+          "key": "searchString",
+          "type": "string",
+          "default": "",
+          "label": "Search"
+        }
+      ]
+    },
+    "getCurrentUser": {
+      "display": {
+        "label": "Get Current User",
+        "description": "Get the information and metadata of the current user"
+      },
+      "key": "getCurrentUser",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listAssignableUsers": {
+      "display": {
+        "label": "List Assignable Users",
+        "description": "Returns a list of users assignable to projects & issues"
+      },
+      "examplePayload": {
+        "data": [
+          {
+            "displayName": "exampleUser",
+            "accountId": "example-483204",
+            "accountType": "atlassian",
+            "emailAddress": "someone@example.com",
+            "active": true
+          },
+          {
+            "displayName": "exampleUser",
+            "accountId": "example-483204",
+            "accountType": "atlassian",
+            "emailAddress": "someone@example.com",
+            "active": true
+          }
+        ]
+      },
+      "key": "listAssignableUsers",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "JS-Example",
+          "comments": "Provide a string value for the key of the project.",
+          "key": "projectKey",
+          "type": "string",
+          "default": "",
+          "label": "Project Key"
+        },
+        {
+          "required": false,
+          "example": "3",
+          "comments": "Provide the index of the first item to return (to start from)",
+          "key": "startAt",
+          "type": "string",
+          "default": "0",
+          "label": "Start At"
+        },
+        {
+          "required": false,
+          "example": "50",
+          "comments": "Provide a value for the maximum amount of results to be returned in the request.",
+          "key": "maxResults",
+          "type": "string",
+          "default": "",
+          "label": "Max Results"
+        }
+      ]
+    },
+    "findUser": {
+      "display": {
+        "label": "Find User",
+        "description": "Find User by attribute"
+      },
+      "key": "findUser",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Value to search for",
+          "key": "searchValue",
+          "type": "string",
+          "default": "",
+          "label": "Search Value"
+        }
+      ]
+    },
+    "getUser": {
+      "display": {
+        "label": "Get User",
+        "description": "Get information and metadata about an user by id"
+      },
+      "key": "getUser",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "b7b399c5b7c40279d7211271",
+          "comments": "Provide the Account ID of the account to use.",
+          "key": "accountId",
+          "type": "string",
+          "default": "",
+          "label": "Account ID"
+        },
+        {
+          "required": false,
+          "example": "body, version, history",
+          "comments": "The response may contain a list under the _expandable property; you can specify any of its values separated by commas.",
+          "key": "expand",
+          "type": "string",
+          "default": "",
+          "label": "Expand"
+        }
+      ]
+    },
+    "createUser": {
+      "display": {
+        "label": "Create User",
+        "description": "Create a new user record"
+      },
+      "key": "createUser",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "someone@example.com",
+          "comments": "Provide a string value for a valid email address.",
+          "key": "emailAddress",
+          "type": "string",
+          "default": "",
+          "label": "Email Address"
+        },
+        {
+          "required": true,
+          "example": "Example User",
+          "comments": "Provide a string value for the username of the user.",
+          "key": "username",
+          "type": "string",
+          "default": "",
+          "label": "Username"
+        },
+        {
+          "required": true,
+          "example": "superSecretPassword",
+          "comments": "Provide a password to assign to the user.",
+          "key": "password",
+          "type": "string",
+          "default": "",
+          "label": "Password"
+        },
+        {
+          "required": true,
+          "comments": "This flag will determine if the user will receive notifications.",
+          "key": "notifications",
+          "type": "boolean",
+          "default": "false",
+          "label": "Notifications"
+        },
+        {
+          "required": false,
+          "example": "John Doe",
+          "comments": "Provide a string value for the display name to assign to the new user.",
+          "key": "displayName",
+          "type": "string",
+          "default": "",
+          "label": "Display Name"
+        }
+      ]
+    },
+    "getStatusList": {
+      "display": {
+        "label": "Get Status List",
+        "description": "Returns a status list"
+      },
+      "key": "getStatusList",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide the ID of the Project.",
+          "key": "projectId",
+          "type": "string",
+          "default": "",
+          "label": "Project ID"
+        },
+        {
+          "required": false,
+          "example": "50",
+          "comments": "Provide a value for the maximum amount of results to be returned in the request.",
+          "key": "maxResults",
+          "type": "string",
+          "default": "",
+          "label": "Max Results"
+        },
+        {
+          "required": false,
+          "example": "3",
+          "comments": "Provide the index of the first item to return (to start from)",
+          "key": "startAt",
+          "type": "string",
+          "default": "0",
+          "label": "Start At"
+        }
+      ]
+    },
+    "listIssueFields": {
+      "display": {
+        "label": "List Issue Fields",
+        "description": "List all non-custom issue fields"
+      },
+      "examplePayload": {
+        "data": [
+          {
+            "id": "description",
+            "name": "Description",
+            "custom": false,
+            "orderable": true,
+            "navigable": true,
+            "searchable": true,
+            "clauseNames": [
+              "description"
+            ],
+            "schema": {
+              "type": "string",
+              "system": "description"
+            }
+          },
+          {
+            "id": "summary",
+            "key": "summary",
+            "name": "Summary",
+            "custom": false,
+            "orderable": true,
+            "navigable": true,
+            "searchable": true,
+            "clauseNames": [
+              "summary"
+            ],
+            "schema": {
+              "type": "string",
+              "system": "summary"
+            }
+          }
+        ]
+      },
+      "key": "listIssueFields",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listIssueCustomFields": {
+      "display": {
+        "label": "List Issue Custom Fields",
+        "description": "List all configured issue fields"
+      },
+      "examplePayload": {
+        "data": [
+          {
+            "clauseNames": [],
+            "custom": true,
+            "id": "statuscategorychangedate",
+            "key": "statuscategorychangedate",
+            "name": "Status Category Changed",
+            "navigable": true,
+            "orderable": false,
+            "schema": {
+              "type": "datetime",
+              "system": "statuscategorychangedate"
+            },
+            "searchable": true
+          }
+        ]
+      },
+      "key": "listIssueCustomFields",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listIssueLinkTypes": {
+      "display": {
+        "label": "List Issue Link Types",
+        "description": "List all available issue link types"
+      },
+      "key": "listIssueLinkTypes",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listIssueTypes": {
+      "display": {
+        "label": "List Issue Types",
+        "description": "Returns a list of issue types"
+      },
+      "key": "listIssueTypes",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listPriorities": {
+      "display": {
+        "label": "List Priorities",
+        "description": "Returns a list of all priorities"
+      },
+      "key": "listPriorities",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "example": "50",
+          "comments": "Provide a value for the maximum amount of results to be returned in the request.",
+          "key": "maxResults",
+          "type": "string",
+          "default": "",
+          "label": "Max Results"
+        },
+        {
+          "required": false,
+          "example": "3",
+          "comments": "Provide the index of the first item to return (to start from)",
+          "key": "startAt",
+          "type": "string",
+          "default": "0",
+          "label": "Start At"
+        }
+      ]
+    },
+    "getVersion": {
+      "display": {
+        "label": "Get Version",
+        "description": "Get the information and metadata of an existing version"
+      },
+      "key": "getVersion",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide the ID of the Version.",
+          "key": "versionId",
+          "type": "string",
+          "default": "",
+          "label": "Version ID"
+        }
+      ]
+    },
+    "listVersions": {
+      "display": {
+        "label": "List Versions",
+        "description": "Returns a list of all versions"
+      },
+      "examplePayload": {
+        "data": {
+          "self": "https://your-domain.atlassian.net/rest/api/3/project/PR/version?startAt=0&maxResults=2",
+          "nextPage": "https://your-domain.atlassian.net/rest/api/3/project/PR/version?startAt=2&maxResults=2",
+          "maxResults": 2,
+          "startAt": 0,
+          "total": 7,
+          "isLast": false,
+          "values": [
+            {
+              "self": "https://your-domain.atlassian.net/rest/api/3/version/10000",
+              "id": "10000",
+              "description": "An excellent version",
+              "name": "New Version 1",
+              "archived": false,
+              "released": true,
+              "releaseDate": "2010-07-06",
+              "overdue": true,
+              "userReleaseDate": "6/Jul/2010",
+              "projectId": 10000
+            },
+            {
+              "self": "https://your-domain.atlassian.net/rest/api/3/version/10010",
+              "id": "10010",
+              "description": "Minor Bugfix version",
+              "name": "Next Version",
+              "archived": false,
+              "released": false,
+              "overdue": false,
+              "projectId": 10000,
+              "issuesStatusForFixVersion": {
+                "unmapped": 0,
+                "toDo": 10,
+                "inProgress": 20,
+                "done": 100
+              }
+            }
+          ]
+        }
+      },
+      "key": "listVersions",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide the ID of the Project.",
+          "key": "projectId",
+          "type": "string",
+          "default": "",
+          "label": "Project ID"
+        },
+        {
+          "required": false,
+          "example": "50",
+          "comments": "Provide a value for the maximum amount of results to be returned in the request.",
+          "key": "maxResults",
+          "type": "string",
+          "default": "",
+          "label": "Max Results"
+        },
+        {
+          "required": false,
+          "example": "3",
+          "comments": "Provide the index of the first item to return (to start from)",
+          "key": "startAt",
+          "type": "string",
+          "default": "0",
+          "label": "Start At"
+        }
+      ]
+    },
+    "createVersion": {
+      "display": {
+        "label": "Create Version",
+        "description": "Create a new version"
+      },
+      "examplePayload": {
+        "data": {
+          "self": "https://your-domain.atlassian.net/rest/api/3/version/10000",
+          "id": "10000",
+          "description": "An excellent version",
+          "name": "New Version 1",
+          "archived": false,
+          "released": true,
+          "releaseDate": "2010-07-06",
+          "userReleaseDate": "6/Jul/2010",
+          "project": "PXA",
+          "projectId": 10000
+        }
+      },
+      "key": "createVersion",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "example": "This is an example summary.",
+          "comments": "Provide a string value for the description of the issue.",
+          "key": "description",
+          "type": "string",
+          "default": "",
+          "label": "Description"
+        },
+        {
+          "required": true,
+          "example": "2019.08.18",
+          "comments": "Provide a string value for the name of the version.",
+          "key": "versionName",
+          "type": "string",
+          "default": "",
+          "label": "Version Name"
+        },
+        {
+          "required": false,
+          "comments": "This flag determines if the given version is archived.",
+          "key": "archived",
+          "type": "boolean",
+          "default": "false",
+          "label": "Archived"
+        },
+        {
+          "required": false,
+          "comments": "This flag determines if the given version has been released.",
+          "key": "released",
+          "type": "boolean",
+          "default": "false",
+          "label": "Released"
+        },
+        {
+          "required": false,
+          "example": "2021-07-22",
+          "comments": "Provide a value for the startDate.",
+          "key": "startDate",
+          "type": "string",
+          "default": "",
+          "label": "Start Date"
+        },
+        {
+          "required": false,
+          "example": "2021-07-22",
+          "comments": "Provide a valid date for the release of the given version.",
+          "key": "releaseDate",
+          "type": "string",
+          "default": "",
+          "label": "Release Date"
+        },
+        {
+          "required": false,
+          "example": "JS-Example",
+          "comments": "Provide a string value for the key of the project.",
+          "key": "projectKey",
+          "type": "string",
+          "default": "",
+          "label": "Project Key"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide the ID of the Project.",
+          "key": "projectId",
+          "type": "string",
+          "default": "",
+          "label": "Project ID"
+        }
+      ]
+    },
+    "updateVersion": {
+      "display": {
+        "label": "Update Version",
+        "description": "Update an existing version by Id"
+      },
+      "examplePayload": {
+        "data": {
+          "self": "https://your-domain.atlassian.net/rest/api/3/version/10000",
+          "id": "10000",
+          "description": "An excellent version",
+          "name": "New Version 1",
+          "archived": false,
+          "released": true,
+          "releaseDate": "2010-07-06",
+          "userReleaseDate": "6/Jul/2010",
+          "project": "PXA",
+          "projectId": 10000
+        }
+      },
+      "key": "updateVersion",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide the ID of the Version.",
+          "key": "versionId",
+          "type": "string",
+          "default": "",
+          "label": "Version ID"
+        },
+        {
+          "required": false,
+          "example": "This is an example summary.",
+          "comments": "Provide a string value for the description of the issue.",
+          "key": "description",
+          "type": "string",
+          "default": "",
+          "label": "Description"
+        },
+        {
+          "required": false,
+          "example": "2019.08.18",
+          "comments": "Provide a string value for the name of the version.",
+          "key": "versionName",
+          "type": "string",
+          "default": "",
+          "label": "Version Name"
+        },
+        {
+          "required": false,
+          "comments": "This flag determines if the given version is archived.",
+          "key": "archived",
+          "type": "boolean",
+          "default": "false",
+          "label": "Archived"
+        },
+        {
+          "required": false,
+          "comments": "This flag determines if the given version has been released.",
+          "key": "released",
+          "type": "boolean",
+          "default": "false",
+          "label": "Released"
+        },
+        {
+          "required": false,
+          "example": "2021-07-22",
+          "comments": "Provide a value for the startDate.",
+          "key": "startDate",
+          "type": "string",
+          "default": "",
+          "label": "Start Date"
+        },
+        {
+          "required": false,
+          "example": "2021-07-22",
+          "comments": "Provide a valid date for the release of the given version.",
+          "key": "releaseDate",
+          "type": "string",
+          "default": "",
+          "label": "Release Date"
+        },
+        {
+          "required": false,
+          "example": "JS-Example",
+          "comments": "Provide a string value for the key of the project.",
+          "key": "projectKey",
+          "type": "string",
+          "default": "",
+          "label": "Project Key"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide the ID of the Project.",
+          "key": "projectId",
+          "type": "string",
+          "default": "",
+          "label": "Project ID"
+        }
+      ]
+    },
+    "listWebhooks": {
+      "display": {
+        "label": "List Webhooks",
+        "description": "List all webhooks configured, including those for other integrations"
+      },
+      "examplePayload": {
+        "data": {
+          "isLast": true,
+          "maxResults": 100,
+          "startAt": 0,
+          "total": 1,
+          "values": [
+            {
+              "events": [
+                "jira:issue_created"
+              ],
+              "expirationDate": "2022-12-18T15:22:13.418-0900",
+              "id": 1,
+              "jqlFilter": "project = EXAMPLE"
+            }
+          ]
+        }
+      },
+      "key": "listWebhooks",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createWebhook": {
+      "display": {
+        "label": "Create Webhook",
+        "description": "Create a webhook to send data from Jira to an instance URL"
+      },
+      "examplePayload": {
+        "data": {
+          "webhookRegistrationResult": [
+            {
+              "createdWebhookId": 7
+            }
+          ]
+        }
+      },
+      "key": "createWebhook",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Reference a flow's URL from the trigger payload",
+          "key": "webhookUrl",
+          "type": "string",
+          "default": "",
+          "label": "Webhook URL"
+        },
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Webhook Details payload to send in this create request; must match structure of `webhooks` property for Register Dynamic Webhook endpoint: https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-webhooks/#api-rest-api-3-webhook-post",
+          "example": "[\n  {\n    \"events\": [\n      \"jira:issue_created\",\n      \"jira:issue_updated\"\n    ],\n    \"fieldIdsFilter\": [\n      \"summary\",\n      \"customfield_10029\"\n    ],\n    \"jqlFilter\": \"project = PROJ\"\n  },\n  {\n    \"events\": [\n      \"jira:issue_deleted\"\n    ],\n    \"jqlFilter\": \"project IN (PROJ, EXP) AND status = done\"\n  },\n  {\n    \"events\": [\n      \"issue_property_set\"\n    ],\n    \"issuePropertyKeysFilter\": [\n      \"my-issue-property-key\"\n    ],\n    \"jqlFilter\": \"project = PROJ\"\n  }\n]",
+          "key": "webhookDetails",
+          "type": "code",
+          "default": "",
+          "label": "Webhook Details"
+        }
+      ],
+      "documentation": {
+        "description": "Registering a [Dynamic Webhook](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-webhooks/) requires supplying a [highly configurable payload called \"Webhook Details\"](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-webhooks/#api-rest-api-3-webhook-post). It's important to configure this for all use cases as each Jira app is only permitted to create and manage one endpoint.\n"
+      }
+    },
+    "deleteWebhook": {
+      "display": {
+        "label": "Delete Webhook",
+        "description": "Delete a webhook by ID"
+      },
+      "examplePayload": {
+        "data": ""
+      },
+      "key": "deleteWebhook",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "THe ID of the webhook to remove",
+          "key": "webhookId",
+          "type": "string",
+          "default": "",
+          "label": "Webhook ID"
+        }
+      ]
+    },
+    "refreshWebhook": {
+      "display": {
+        "label": "Refresh Webhook",
+        "description": "Refresh webhook expiration by ID"
+      },
+      "examplePayload": {
+        "data": {
+          "expirationDate": "2022-12-21T09:20:20.388-0900"
+        }
+      },
+      "key": "refreshWebhook",
+      "inputs": [
+        {
+          "required": true,
+          "key": "jiraConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "THe ID of the webhook to remove",
+          "key": "webhookId",
+          "type": "string",
+          "default": "",
+          "label": "Webhook ID"
+        }
+      ]
+    },
+    "rawRequest": {
+      "display": {
+        "label": "Raw Request",
+        "description": "Send a raw HTTP request to Jira API"
+      },
+      "key": "rawRequest",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "Input the path only (/rest/api/3/project/recent), The base URL is already included (https://api.atlassian.com/ex/jira/<CLOUD_ID>). For example, to connect to https://api.atlassian.com/ex/jira/<CLOUD_ID>/rest/api/3/project/recent, only /rest/api/3/project/recent is entered in this field.",
+          "example": "/sobjects/Account",
+          "key": "url",
+          "type": "string",
+          "default": "/rest/api/3/project/recent",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "The file name to apply to a file",
+          "required": false,
+          "comments": "File names to apply to the file data inputs. Keys must match the file data keys above.",
+          "key": "fileDataFileNames",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data File Names"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        }
+      ]
+    }
+  },
+  "triggers": {},
+  "dataSources": {
+    "selectProject": {
+      "display": {
+        "label": "Select Project",
+        "description": "Select a project"
+      },
+      "dataSourceType": "picklist",
+      "key": "selectProject",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "selectProjects": {
+      "display": {
+        "label": "Select Projects",
+        "description": "Select one or many projects"
+      },
+      "dataSourceType": "objectSelection",
+      "key": "selectProjects",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "selectIssueType": {
+      "display": {
+        "label": "Select Issue Type",
+        "description": "Select an issue type"
+      },
+      "dataSourceType": "picklist",
+      "key": "selectIssueType",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide one or more Project IDs.",
+          "key": "projectIds",
+          "type": "string",
+          "default": "",
+          "label": "Project ID(s)"
+        }
+      ]
+    },
+    "selectIssueTypes": {
+      "display": {
+        "label": "Select Issue Types",
+        "description": "Select one or many Issue Types"
+      },
+      "dataSourceType": "objectSelection",
+      "key": "selectIssueTypes",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "10201",
+          "comments": "Provide one or more Project IDs.",
+          "key": "projectIds",
+          "type": "string",
+          "default": "",
+          "label": "Project ID(s)"
+        }
+      ]
+    },
+    "issueFields": {
+      "display": {
+        "label": "Issue Fields",
+        "description": "A map of a list of fields to Jira Issue Fields."
+      },
+      "dataSourceType": "picklist",
+      "key": "issueFields",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "key": "onlyCustomFields",
+          "type": "boolean",
+          "default": "false",
+          "label": "Only Custom Fields"
+        }
+      ]
+    }
+  },
+  "documentation": {
+    "description": "[Jira](https://www.atlassian.com/software/jira) is a proprietary issue tracking product developed by Atlassian that allows bug tracking and agile project management.\nThis component allows you to create, update, comment on, and delete issues in a Jira project.\n"
+  },
+  "$version": 1
+}

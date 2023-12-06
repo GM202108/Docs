@@ -1,0 +1,2166 @@
+{
+  "key": "sage",
+  "public": true,
+  "documentationUrl": "https://prismatic.io/docs/components/sage/",
+  "display": {
+    "label": "Sage Accounting",
+    "description": "Manage contacts and others connected to your Sage account.",
+    "category": "Application Connectors",
+    "iconPath": "icon.png",
+    "iconBase64": "iVBORw0KGgoAAAANSUhEUgAAAhcAAAIWCAYAAADkha/tAAAACXBIWXMAABcRAAAXEQHKJvM/AAAgAElEQVR4nO3d63HcVrY2YPRXU9U/5ROBOMUAzIlAdATmRCA5AmsisByB6QgsRTBSBKYiMBVA1xEjOOJP/uJXkBZsiOatuxewN4DnqeqR7bGlJq7vXvu2ur6+bgAAsvw/RxIAyCRcAACphAsAIJVwAQCkEi4AgFTCBQCQSrgAAFIJFwBAKuECAEglXAAAqYQLACCVcAEApBIuAIBUwgUAkEq4AABSCRcAQCrhAgBIJVwAAKmECwAglXABAKQSLgCAVMIFAJBKuAAAUgkXAEAq4QIASCVcAACphAsAIJVwAQCkEi4AgFTCBQCQSrgAAFIJFwBAKuECAEglXAAAqYQLACCVcAEApBIuAIBUwgUAkEq4AABSCRcAQCrhAgBIJVwAAKmECwAglXABAKQSLgCAVMIFAJBKuAAAUgkXAEAq4QIASCVcAACphAsAIJVwAQCkEi4AgFTCBQCQSrgAAFIJFwBAKuECAEglXAAAqYQLACCVcAEApBIuAIBUwgUAkEq4AABSCRcAQCrhAgBIJVwAAKmECwAglXABAKQSLgCAVMIFAJBKuAAAUgkXAEAq4QIASCVcAACphAsAIJVwAQCkEi4AgFTCBQCQSrgAAFIJFwBAKuECAEglXAAAqYQLACCVcAEApBIuAIBUwgUAkEq4AABSCRcAQCrhAgBIJVwAAKmECwAglXABAKQSLgCAVMIFAJBKuAAAUgkXAEAq4QIASCVcAACphAsAIJVwAQCkEi4AgFTCBQCQSrgAAFIJFwBAKuECAEglXAAAqYQLACCVcAEApBIuAIBUwgUAkEq4AABSCRcAQCrhAgBIJVwAAKmECwAglXABAKQSLgCAVMIFAJBKuAAAUgkXAEAq4QIASCVcAACphAsAIJVwAQCkEi4AgFTCBQCQSrgAAFIJFwBAKuECAEglXAAAqYQLACCVcAEApBIuAIBUwgUAkEq4AABSCRcAQCrhAgBIJVwAAKmECwAglXABAKQSLgCAVMIFAJBKuAAAUgkXAEAq4QIASCVcAACphAsAIJVwAQCkEi4AgFTCBQCQSrgAAFIJFwBAKuECAEglXAAAqYQLACCVcAEApBIuAIBUwgUAkEq4AABSCRcAQCrhAgBIJVwAAKmECwAglXABAKQSLgCAVMIFAJBKuAAAUgkXAEAq4QIASPWPpR/O1WZ91DTNN03THMc/6v6+9WzH3/ZD0zSf4q8/xqf9+/P21+vDq/OEr84WbjnP3a/tP/t2z2P5vvfX3flunbX/c314deZcDWe1WR80TXMQ5/SbuIeb+PXJFn9wd99257C9Tz+6X+djtVkfx7XS/zQ7XCud/rP+/Ob1c3149enh32Kmx/r6+rqCrzGOuLCOep99Xyr7uOg9wLqHmJdQgjjP3bk+KHyeO5fdeY7P2dIfPrtYbdbf9M7t8R4NgG29j/N3dn149bbYAeDRbjwH2s/TAkfvsveMP497fhFhddbhondxjfkQ2teH7sUTD7KPw/5x09Z72XSfGoLENi5unG+t5BuiMnESn1ru43dN07Qh4212QOxVYoqYaiMnqpMnE3jeX8Y9fzbne35W4SJeNCe9C2yXMldtLnoXYvqDbIriIXJc2csmS3e+38aDZ5HnO+7lF/GpPTC+aZrmddZLebVZv2qa5qeM32sX14dXq1J/9rbiWfAingUlKhMZLnrP99lUxWYRLlabdXdxfV/B1xnah16LaTGt3Jk8RHbxLs716+l99e1Fq719uT6f2nePl8Srfc+VcHG/XvB8OcNnwWU830+n/nyfbLiIh9DLuMjmUKHYxUVciK/nGDQm1nod2mweOreJLsxXM6lE7RUyhIvbRQPj5USD5y7ahuTpVCvWkwsXM3sIZWovxNcRNCZdSo9z/GJBD5FtvY+X1+QHAEcj4XSmVcf2nny57XkSLr7mmf+5YXEaDYvJPNsnEy5cYFtJ7QMeS3RvvVSleLRJh4zSL9ERvYmQ8agXg3DxRVQqTj3z/zSpkFF9uBAq9pLSBzykmfefjuV9vLwm0V0SL423Czvf7YvhxWMG7C09XMQz4VTl8k6Xcb9XPQ6r2hU623LparNub8TfBYudtQ/v31ab9af2gRU3bTXiIdpOtf1FsNhLe3/8sdqsT2s7xzfFOf9jgee7HRf23/YcVfBdqrXarF/GM0GwuNuTeK6fR1CvUpWVi7jAXi14oOZQqiirRffHK4FiEBfRQq6qqyRCz1sNhc/asRgnd61hs8TKRYy9ee362MnP14dXr2r7UlVVLqJacRYtWcEi35N4aH0sUclou7jatN2mbsFiMO1x/T1eUFWI1tWZF8ef2jFFVbc6xxSNjXPXx85+iipGsYXXblNNuHCBjaoLGedx3Ad1o4vLYM1xtA+cs9LdJL1g4bx/rb0Hz8a4/2q22qxfR2NDY3I/XWA9qeULVREuXGDFdGMyzoZqRUUX1/lCFjirzbN4gRVp0fSChfv6dl3f+eICRht6o4ppbEWeblxPFVXLouHCBVaN9AGB7Yslzq0urrKKlOAFi60sKmDEtfFRNWswP0WDvahi4SJaU8qldfkxXkTH+3yrqFb84dxWoyvBjxIwBIudLCJguDZG8zzGYRTrFi0yW8QFNgm/xhoZj55VYkZA9dqZJEdDzhSKa+DcgN2d/RA7os5utkiEp9+G+L25Uzsz6bjE7MDRw4VgMSkfYlrjg4szRbXjrfNavUEfNtEVpmK1nw8lj+EQ4UKwKKpIwBi1WyRaNYLFdHz7mBHtMYDod+d1Er6NtU7SxQJRgsX+ZnUMo+EhWJQz2D1/n9HChWAxWe35eqivvqr51TzoeXb/frxAfnTo6est9U5Zz8ce5Dlat0isc2A64vS8uT68evBFFBeuWT/TcRnjL25dJXIb0XD4qOEwD1ndIjFo/9x1UZUfxtqTZJTKRcweECym54fHBIvmywPpRez+yDQ8ieWWM1iqn6/0Bne7Lury21izxgYPF/GD/DL0n0O6rROugDE5z/Zd0U93CHd4bfxNtd6OMUV1jMpF1dvCcqudS2cCxuTsO9Crug2TKEulunpPx3gvDxou4iKTXqdl7z45AWNSnu46uDP+O2ua8CeV6sn4fuh9SAYb0GmQ1ySlDvYxyHMyLq4Pr7ae8bParD9aLGt+dh3Q2ZsRONUG5UW8s87i7896/995f52IG6sYt4Gq/dmPY+bcVO6JdlD3wVDrX/xjiN80vJxgsLiM0c3t51Pv10+PXEiqu8ia3gXX/Vp7Cy99FHFbwVht1k2lAaN7kHTn+GN8Hqs7r905ntJD5abP1Yttzn9ULeYULC4eOP9HGkoPejWxYHERg07PIjw8+v6/PrzqB4/+X3ch6zg+JxXfJ0/inL0c4jcfpHIxoarFRVwYnz8Z0/LuE1OzjuJzXNEDa9DpSRVUMLrzfB4PkbNH/Dc7iRZN/xxP5QX84frw6tGjyNuddCfaJXLZuxbaXz9uc99HA+Kgd35n1y20S+Uijssfw3yjVF2geP2YBmOGeO6/iE+Nz4N/DvHuGypcvCq5Nv4DRr+47hM3ZZdySwyCGmXec4GA8a5rlQwdGu8T5/dF5S2Yzr+2qNBN4UXSuYwBbG+HCJbRd919Jl/d2DFc1L7s+/vYK2mwhsVjROPjVWWh9P314dVem1XeZqhwUWNf7JsIFEUvroeM/KAabUGVZpyA8S5eIFXOUKr0wdL36/Xh1YMl0gmNpWlfKKfXh1ejrRAZ3UWTHui6bbiofN+Q9pnwsmQD4zYVPgu+y343poeLeDn+N/U33c+bSKxVXVyP0QsaQzzIRw0WnQFeTBcxnfJ1iZ3/dlFxyHhwYOdEujyLt1LjHE9yr5VtwkXF18OHCBW1NyaPo6pWujGeXr0YIlzU0qp59I6etYsb+EUMvMm4CIsEi07SNTJ6qzRbTNWubXXLe7tGKm+lXsQ9X80LJY7X6ZS6S7YMF7V1gV9GsBx9o659VHIcU6sXQ6xzMejc2Udqy7tHcwgWzZebvZ2tchqtyn/Hi3VXRYNFs/86GO/jJjiecrBovhyH0xgY+KGCr9N56P6t4f6+za+xV0pVLdW41w72vGerFI2eQWYa7KjbWnxSwaL5cp204eK7CEelpJ7L1HARA71KJ/QfHtNvPFXtCzXKV9/t8MAqHiw6OwSMD71QUXWpcxvRXXdcUcB4qDSaPvBrT+3D+N/tPV9rt1g0Do4jAM1JTcsNvIlgMdkGZTzXDgo+C76PmS0psisXpR881bw8h9ZeiFuGjOqOzSMDxmV89+papVnipVhLwLhzHEj0D9dU3u9aqpOoYEWj54cKvsreKqtafN65eSpjru7TexaUWuE47Zxmh4tRdlu7w89LCRZ9N0LGXS+nakPXAwHjTawgN/vzGg+Vk8Jl0c9urD7YV1PV4sMUW6pxLc8hYLyoJGi+eezOzVMRla5SWyikHcvscJFWUtnSRfRZLVaEjDbc/efGC6r6as4tN9JldIHMojXyWNFFUkNr8K5GQi3hogsWk7w2ZhIwarhOZxcs+uJnG3uszpOsPUeyw0WpqXV2ZgwxmOkgXtaT6SbqBYx3Ua2YZRfIQ+J8lR78d1cjoWRlsnMx5WDRifM8yTEY8fIpPXVy1sGi56RAd2nKcU2dirrarIfZBe1h/7OkFi7zFt0Svxf8If825z362P+v3Ff67HLqg/ZuqnFly4emoq4267eFt1SfdOVqWzHI8nzkbqi936lplYuYKVLCe8GCOYmqzUXBH+m2ykUNVYtXcwoWoYpxNo8VL7qSweIy1jJZWnfp2FWavbtGMrtFvnnEvwM8TskZELeVvEuNp+q8n+L6BQ+JF8eUfq7S65zMMWA+KGZEvRvxj9x7fNUQi2gB+ys6vfKW+e6lw8WcB+69Klyp2kbJ8/BhjgFzCy9HrHJVVbkAklQwoLWmcPFminsDban6QekROEuOD5nt4oiPMXKV68m+Qx3mEC4mu/sgPKCm1mzJcDH72WAxe6T26kXJLpH3S51BdsPpVKoXs6hcxOZAMDdzb60/xrsFVC06tU8bLxkuLDfw12J7Y1Uv9hp3kRkuSg6yES4g182SaKnZIktqrVYbLmIqcqkq8YWqxVfGuk7q6BYpPDXoWWxfDeS4Ofur1FLPi3mpRIWmph1y+0quzrrkQZx/E9fJGDNH9hp3kd0tUnK+9i8F19oABrDAaYe1/rwlw8Xi9ox6hOqrF9nhovSNcXbPpkvAtNTaih9SreNLSj1XLZJ4ixF3Aq4mXJS+MdrS7e+rzdrgH0hSMLAv8aVSXbiI8RalpqBOYjv9QsboGlG5uOGnds1+VQyYtCUO4quxclGyu9lAzruNcWyEi1t8G1UMXSUAuyv2/FziUt9bGOPYPInK1dZSw0VMF6ptE55nETI+tt0ltyxrDNRpiXtI1NhSL7YpZaE/dxJGvFZ2Ov9DLKJVaxmr3Yzpp6Zp/je6TE5Xm3XpTXiAuxnIV4dS4ULV4mFjrOq6U+XiH/nfoym91/9jfBufH1ebdROj0s/iYv5owRaAP922S+4YhMuHfRzh/BztMrB2qHDx2wC/75C+7Y+GjsBxESfuPC7y7tePC1qOGJqCfe5Lvc/e17JnUuHxaioXDzsf4Vqpo3LRzklebdZvmqZ5nv17j+xpfP524iJ8NDf6BM97SfvTjRvjk4FJsB0hvgolx6ipXDxsjGO0U7fYEJWLJlYPm3q4eIx+8Lg3PfYCSRPdMN1F8VVlRJcMUBED4NnJIOGifUGuNutqSnsV6i9I89UxutEl040DOdeKAwooGS488+pQzYDOTrtK5u8D/v5z9rcumdVmfRFBow0cb4WN+8WU46m3una6qZm8jxU1zEreQweWDqjCTquzDhYuonrxbgIzR6aiCxzfxyZtF72gsbglcnvh4Thewkfxa6lliiFLTQ2HkgFX43TChqxctF7Gw7/Uds1z9jTGtTxfbdaXMUtntkEjRq13nyPX1OwtcdOyGgnr7GTQcNGW7mMTsV+cnkE96QWNixhQ+3rKXSex5OxJfFS/lsdMAZiwIVbo/Mr14dXpSLu38UV/JdLXU9tXZbVZv1ht1m315f9ivRTBAgrYdU8JaMYIF+GFMmcRz3ubt5Xc2fBe7UMs9n35JFBANap9ZjCuXQbWjhIu2oW1ImDUtqnZUrQjz/+ISkY1rZEIFadRpfjJOAqAKtUZLpq/ts49FjCKaisZ7TiYl6W/SIzFaceE/Fj6uwCQa7Rw0QgYtXgSU1nPSlQx2u6ZdldalQqA+Ro1XDRfB4wxtorlbs+iijHagM+oVvxhehvApGw983D0cNH8FTCODPIs7kkM+Hwx5BeJsRVnUa0AYEJ2WdagSLhoYpDn9eFVGzB+LfUd+NNv7WDPIQ5HdL2c2WcGJmdS09ipS7Fw0bk+vGoHF36nm6S459kBI6a/ftQNArAsxcNFE/uQRDfJzxV8nSV7HuMi9tarWBi0CbAwVYSL5q9ukvbF9k8rehb1075jMAQLmIUzp5FdVRMuOu3AkevDq5PoKnlfx7danNM9V/R8rSsEYBZ2mnhRXbjotF0l14dXx1HJeFPHt1qMJxEQthYLdFm+G2AedtpEsNpw0YlKRlum/5+maf5j4Odovt12/EVUO+yAC7Bw1YeLTozJOL0+vGrXOP9XTGEVNIb105Yb1pxO8YcE4E7nuxyayYSLvnYRrnYKay9o/Mf4jME8qnoRg0CtZQEwL/PsFnlIBI3TGJ/Rdp38O6oawkaO54+sXqRMYQWqsVOLldnZKVz8I/97lBNbu7+Nz2exd8ZRfA60rnfyKrbMv1VULZ5O60cC7tM+T1ebtWPETiFzVuHiNrFA11fztWPg4TexvO1B7+MFebu2evEywtttim/hzuzsMxUayLP1viLNEsLFbWLjtOa2RWKiC+Agwkf3gOvCSLPgysfJbdNTI6hZ04JsS16A7ZtH/Dtjea/au2y7bFrWLDVc3CcOZHcw3971r8YqlP3W1fEtfz2nasit4ULVAtKp2lCLnXcuFy52FF0E/crHvUvlxtiPplcF6caATKXV/30bqG7pGjkp9H0echEh8TwGJJ33BiZ93DWNjynWGbFNPSWdF6xcfOfMF7fTYM5GuBhPjP1o7uiK6QacHsen1mrH8Y3BskcVla8v4rt9HmNzz/gQJqK9vnpdmJRR9D7qPTeZGOGiAvEAPe+6HeKl/TKqAjX1PR/d6CoqXbW4jGP22ktoUKWqPDWNPVgq9xU7mfw6F3MUa3e8iG6TXyv6EY8f+PsxtdvzH8Riah6Aw6q+C4nBOPfsRLioWCx5/jL6Hi8r+KY3B5qV6IttBxj9q92eX9fH7C11YGM1szMKB/eSjRf2JFxMQPQ7HlcQMP7sotlzS/ZdtcHiWKViMXSL1GHnGQN72mZfIyojXExEvFCLJ/leqBj7xu+ChWrFciwuXMQU99qUCvOm5E6YcDEhETDeFP7G3cNv7Bv/hWBRjJfLeGr8mUud/28rDVs8gnAxPbVsEDbmTf9GV0g5BUPdEsviNf7MJe+9WtfR4QHCxcTE4k817Pg6ZgvrdMQ/qyZLLws/XWDLtbpzXnitCeFiooSLaVrSwjIXC65a1PRivSj05y5txkCtP2+pBs33ukamSbiYppIv27HLtkvuDqnpoVpqvYPFtFxj08RatwMo2aCxf9EEFQ8X7eyD1Wa91LL3rkoObOxeMmOFjCWHi5peNKWuuZMFtVxfVPAd7nLnJo4jeKl6MT1Fw0VMa2wT8Y+rzfqtC2hS5rLba5UKrSNyn1Ih78mCqhfVhovomiy1zs4T1YvpKRYuesGiW5jp+/bvBQz4rLZwUbJaVssMqcGsNusXEwjsqhc8WpFwcUuw6LRl4I8Vttpq4/jMX20D+0p2Tz2Nl+8sxUtzCl3DJcPFk25jR6Zh9HBxT7DotP/8jzk/TBKUfPF0L5lSsweWorZwUXoDq1czbrm+qmz341tdH169LbwFwffeC19bbdYntTbGRw0XjwgWfb+tNuvXSmFfi+Pxfak/v7eg0lgvm8VVaeI+qapEHuurlPR0jt0jq826DZE/VvBVHqtk9aJ1qrL9xWqzbseh/DeGE1R3TEYLF1sGi87zWg9cQSUHNpWoVizx3Nc6eK304m0/zqnlGg2F0i/rbZXummjfH4se/N/+7G3Du2maX+IfPanxPTlKuNgxWHS+jQO3+NHCcRx/KvgVSrReny4pXMZDs9bZEaWrF81cWq5xnnd9JhYTq3WW7hJ9utTB/7EWylk0vPuqCxiDh4s9g0Wn/W9/WW3WZ3FwFydupNKthv5COmO+aJYULF9W/MKpYc2RKltpO3hd8YJZD6lh8Om3SwsY7fiKuAfvum6qujcGDRdJwaLvWXtwF1rFqOFh1H+5jBkuni8hVMbPWPO1Xcuy85MNGFHSflty3FSC14UHdna+XUK3ee+a+e8j3qXV3BuDhYtef2J2K6yrYpzHYKhZiwvrrJKHUalw0SxkGtrrmsvkhRdSuql7iE5mDEavK2TKwaIb1F3LWJEuYMxyobW4vj9uec1UETAGCRe9m2jIEe/tRfX7nLtKepWfZxV8nYsbMwbGDhfPVpv1bBdTigFaNZznh9S0ad6Tqcwqi3v5vpL21NR0L7bXwX/bbSTm0k0S22K099pvOzY4igeM9HDRCxZj3UTtA/l/4wEzm/JYdP2MeRwfcvOlUqL//ac5znOPn+nmAK1a1bgj7/PoLq2y9Rqh+I85LZkfDY03FXyVvh9rvg4eo20oR0Pjj4TGRtGAkRouCgSLvuex+NakS2RtV0/b5RPTjGoqkX9VBo3SaIlR47Na/yQeJL9V8FUeq9apk0+j9XpWS3dp3MsfC8/wGlKNlcTqroPHiEpF+yz43+SGRrGAkRYuCgeLvmdxcbXLiL+aSpdJPIja4/d7haXTyztarKVmD3Qt1cmOuYkWyvmEKhafRYv1QwVf5S7Pet2lRa6PG/fybDf4q7R60Sl+HTwkxtO9iGvljwGfBUUCxur6+nr/36SeYHGXDzFY7m0FKw3+KYLPScwQqPkh9Ob68Opv3RFR7i3dKmsXdnoV8++rF/fKywm0Zn++Pry6tWUaXXa/3Pb/Vegipk4Ofu9H99aLiYydudP14dXqsf9uXM8fJ7Bex2jXwX3ieB3Hc/9k5OPWNhKPY2D24PYOFxMIFjddRGm3/c7nY19ovUBxMqGH0L9jX4GvRBL+o+xX+1MVD4+7xLF6OaFKxX3h4iDKt1Pzobv3M8Job8Gz4wIvisFsEy6a6YXNJvs6eEhUTrpP6Wf+aAFjr3AxwWBxm4so73efT5kXXFxYR/E5nmCZtJ0lcmfX0mqz/lThQ/UirssuQI7efRNh4qj3UJnaeb8zXDRffr6pr9XQRNXrPFren3+9K5j2Suvtrwdxbucy8+Mr24aL5svxmfJMmEdfB3eJwN1+vuk97w8qPSajBIydw8VMgsVDur0UPm0xvuCod4HNoSXzw/Xh1Z1rTMQgpCm0xj/0zmO3+Vr/r3fxzY29T47jn83hnngoXJzEoj7MzI7hoqYqZqYP9zwjDiY8pmbwgLFTuFhIsODLBXjQ2wn1b7xkZuvecNF8Ofcf5zxgcal2CRdNPWOweLxBA8aus0UEi2U4vS9YNF8eRG8rWrWRcc12UTO2F2G05plEfG3QWSS7hotXXiizd/FQy7VnattGkyC6y0rvkEldXng3TMpgAWOncBGt1WMX0axts4GWFuxyzW7FVHYXJfYlbiw5ZV3ASF2YcOdFtOIiEjDm6d1tU0/vEiOr38//sHBTzKx658DQiYrWrw7IpLx+qAt8W3ut0BkB40A/26xc7tgaVb1YLqVwvnJ9ePVS6JyMN3G+Uu29/HeknWMX0my82CXBRgtW9WKB4nrRPcJNLzQ8q/fDbasvZ0jZW6R9uFwfXrVTEn+e01FfoF+36Q65hb7WhYrrptZ9Jiig1/AUMOp07xpG+0rdFTVmF/xbiXSS3u9bGotuMn2tCxUtIC8S/iRgVOly6GDRZIeL5q8WzJGLaVI+xN4IGV6ZnrhoBnnzFQGjKt3CWYMGi2aIcNHE7IHrw6sj3SST8CEutpSRwvrfl633IhEwdje7l7CAUYX22B+NtdfSIOGiE90k32nJVis1WHRicKdgub9JvqBNU9/LD3NdlE7AKOpNPOtH2zF60HDR/PWiOdIXX51BgkUngqUZRLv7YYvN8qojYOzkP2OUq0uKwf9HBv+OphtfsdMswH0MHi6avy6ol1HFkFrLez9ksOgxwG83gw+2GoOAsZX2nJ9O6PvuJQb//jDhH2EKPow1vuI2o4SLTlvF6I3F8MApo51uOkawUAbdzSyCRacXMFwDd5vVOX+s+Jn/pdt8EO2uxqONr7jNqOGiEyXzA6WxUbVh7t9DrMR2HwFjK7N8yfQChkXWvtbdk4sLFp24NnST5Gmfs//aYtPJwRQJF81fXSUvIrl66AzrfYwSLjJQTMB40OxfMnG/Hxvo+6euZL34HYV77wJrJO3uMsbsFK1W9BULF532QMRD5zshI113wY06Svg2BnLd6WJJLxkzyD57F+d8sgN2hxD3wIHB/1trn6kHtY3ZKR4uOjEeQ8jIU+UF1xvIpYXy5SVTTUtjLAueQdaN3D8Ze+T+VPQG/6toP6w9Pv8sMRPkMaoJF51eyPiXVu5O3tV8wTV/DeQ6WvDDo+sGWexLZoEzyLogWXvXVxWh/0ZFW3fq19rn5nc1VKTvU1246MTF1bZy/xn9tEYU3+9NDOQ5qfmC68QqrscLrGJ0FaXF97U3X88g+89Mr4OLXpCs/r6sbW2V3vXxg0rG52dHFyrOKvg+96o2XHTiJfTq+vDqIAb8WJjpL5dRWu4qFZMrr0dL7mAB05O71ka1FaWSovtuTtdBN95plyD5zUDfabLa50SvkrGkd8DNZ3z1oaKzur6+ruObbGG1WX8TG221ZdVvJ/PF87Qvqval/HZOL6o4rx+GwDoAAAkCSURBVC/j86SCr5ShPVevdnkorDbr9r95Vuh7/1xqOlvvOmgrl09LfIc9tJWKNii93vXeLHze38dLvGqrzfogro8pXiOPMfln/CTDRV9cZMcRNr6v55ul+9C72KZQXt3ZDMLjZewPcbpPNWmp4aJvtVl3L5BSx+Gx3keg2HtMhfO+ndVmfRLPi5OJN0pm9YyffLi4KS604/hMuarRtoDO4jOrCsU2IjyexAum9vP5LkJFyvnykvlL7zp4WVFL9aIXItNeBqvNuuRDeXLhoq/3/D+ZSEXjXe8ZP6tG4+zCRV+0gI9jZkL3a63J9n0Mpmo/Z3OvTuyiV6XqPqUfHgJgAb2gcVIgfL2PQHE2xBin1WbdPqP+yP59t/DdlPr171Ph86KJ6+csrp9ZHOe7zDpc3CYuuO6i6/56rNBxGeHhUy9IfLSYzm7iXB71PgcDVjfaIPExHgyfz50AWIfVZn3cazwcJb5EPsQ5Px/rZRDdQL8N/efc419zfR5FY/PoxrN/qHDaf158jOfFop7ziwsX9+kFjyYuwL7uwrzNx/j0fepN6/roRTSe3kOkiV/7o+/vOo9d6Lv595+Ev+mJwNHcuI/793dz4x5tevdxsXO+2qzbPvfnJf7s5susjFWpP7uk3vVy8xq57Xlx87ppIkQ0nvV/ES4AKrHarD8V7Lr9EGtKwN6qX+cCYAliMGLJMWEqdKQRLgDq8KLwtxAuSCNcABQW471Kr9MjXJBGuAAor/jaEnOfGsm4hAuAgmKmQrEZImHpm4KRTLgAKCSmTdewDbtdekklXACUc1rJypG6REhlnQuAAipYjbNz0W4NX8H3YEZULgBGVlGwaHSJMAThAmBElQWLppIxH8yMcAFUqR3s2O61EWtAzEKFweLC3jkMQbgAqhOzKM5iiub5arN+OfWztNqsTysLFo0uEYZiQCdQlV6wuLl9frsWw4up7ToZlZe3t/w8NfinXTwZgsoFUI17gkXrWdM0/7varF/Fv1e9qLicVxos3gsWDEW4AKrwQLDo+6lpmo81d5WsNuuj1Wbd/iy/FN7p9D6nlX4vZkC3CFDcFsHipovYl+Pt9eHVpwp+joP4PqWX836ItS0YlHABFLVHsOi7jJb46xKl/tgf5MUEQkXnh+vDK1NQGYxwARSTFCxuehcDKAetZkSV4qRpmpeVLOH9WKoWDE64AIoYKFjc9C7+jLN913OIMNFWKI4iVEwpUPSpWjA44QIY3UjB4qbLmLnRfj7ds1nXNxEgmvj1m5ipMgeqFoxCuABGVShY8MV314dXdkBlcKaiAqMRLIp6J1gwFuECGIVgUdRlDDyFUQgXwOAEi+JeWY2TMRlzAQxKsCiuXeb7eOHHgJGpXACDESyKu4zFvWBUwgUwCMGiCpPbRZZ5EC6AdIJFFX6+Prx6u/SDQBnGXACpBIsqvLk+vNIdQjHCBZBGsKjCh+vDq6MJfE9mTLcIkEKwqMKH2P8EihIugCztS82+FeV8DhZD7gQLjyVcACli8GAbMC4c0dG9EyyoiTEXQKroHmm39P7ekR3Fr9eHV5b2pirCBTCI1WbdvvB+cXQH83m/kOvDq9cz/fmYMOECGMxqsz6KKoZBnrnarqeT68Or8zn9UMyHMRfAYOLl147D+NVRTtOOrzgSLKiZygUwitVmfRxVjKeO+E4uYzlvq25SPeECGNVqs37VNM1PjvpW3kWwMBuESRAugNGtNut2PYxTM0oedBGDNlUrmBThAigmukpODfj8m8s4LqeqFUyRcAEUt9qs2022XhmP8dmb9ljYKp0pEy6Aaiw8ZAgVzIZwAVQnQsbLBXSXXMYMmlOhgjkRLoBqxZiMNmg8n9lZuogxFa+NqWCOhAugerFfyYv4TLWa0VYp3kaVwgJYzJpwAUxKTGM9mUjQaCsUZ22oMJ2UJREugMmKoHEcYaP99Unhn6WtTpxHheJMhYKlEi6A2YiN0vqfZwP/bO8jTHz+CBPwhXABzFpUN/qfJqocj/UpwkMTv36KIGEgJtxBuAAAUtlyHQBIJVwAAKmECwAglXABAKQSLgCAVMIFAJBKuAAAUgkXAEAq4QIASCVcAACphAsAIJVwAQCkEi4AgFTCBQCQSrgAAFIJFwBAKuECAEglXAAAqYQLACCVcAEApBIuAIBUwgUAkEq4AABSCRcAQCrhAgBIJVwAAKmECwAglXABAKQSLgCAVMIFAJBKuAAAUgkXAEAq4QIASCVcAACphAsAIJVwAQCkEi4AgFTCBQCQSrgAAFIJFwBAKuECAEglXAAAqYQLACCVcAEApBIuAIBUwgUAkEq4AABSCRcAQCrhAgBIJVwAAKmECwAglXABAKQSLgCAVMIFAJBKuAAAUgkXAEAq4QIASCVcAACphAsAIJVwAQCkEi4AgFTCBQCQSrgAAFIJFwBAKuECAEglXAAAqYQLACCVcAEApBIuAIBUwgUAkEq4AABSCRcAQCrhAgBIJVwAAKmECwAglXABAKQSLgCAVMIFAJBKuAAAUgkXAEAq4QIASCVcAACphAsAIJVwAQCkEi4AgFTCBQCQSrgAAFIJFwBAKuECAEglXAAAqYQLACCVcAEApBIuAIBUwgUAkEq4AABSCRcAQCrhAgBIJVwAAKmECwAglXABAKQSLgCAVMIFAJBKuAAAUgkXAEAq4QIASCVcAACphAsAIJVwAQCkEi4AgFTCBQCQSrgAAFIJFwBAKuECAEglXAAAqYQLACCVcAEApBIuAIBUwgUAkEq4AABSCRcAQCrhAgBIJVwAAKmECwAglXABAKQSLgCAVMIFAJBKuAAAUgkXAEAq4QIASCVcAACphAsAIJVwAQCkEi4AgFTCBQCQSrgAAFIJFwBAKuECAEglXAAAqYQLACCVcAEApBIuAIBUwgUAkEq4AABSCRcAQCrhAgBIJVwAAKmECwAglXABAKQSLgCAVMIFAJBKuAAAUgkXAEAq4QIASCVcAACphAsAIJVwAQCkEi4AgFTCBQCQSrgAAFIJFwBAKuECAEglXAAAqYQLACCVcAEApBIuAIBUwgUAkEq4AABSCRcAQCrhAgDI0zTN/wcT/4KcNhThTQAAAABJRU5ErkJggg=="
+  },
+  "connections": [
+    {
+      "key": "oauth",
+      "label": "OAuth 2.0",
+      "comments": "OAuth 2.0 flow",
+      "oauth2Type": "authorization_code",
+      "inputs": [
+        {
+          "placeholder": "Authorize URL",
+          "required": true,
+          "shown": false,
+          "comments": "The OAuth 2.0 Authorization URL for Sage",
+          "key": "authorizeUrl",
+          "type": "string",
+          "default": "https://www.sageone.com/oauth2/auth/central?filter=apiv3.1",
+          "label": "Authorize URL"
+        },
+        {
+          "placeholder": "Token URL",
+          "required": true,
+          "shown": false,
+          "comments": "The OAuth 2.0 Token URL for Sage",
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "https://oauth.accounting.sage.com/token",
+          "label": "Token URL"
+        },
+        {
+          "placeholder": "Scopes",
+          "required": true,
+          "shown": true,
+          "comments": "Space separated OAuth 2.0 permission scopes for Sage",
+          "key": "scopes",
+          "type": "string",
+          "default": "full_access",
+          "label": "Scopes"
+        },
+        {
+          "placeholder": "Client ID",
+          "required": true,
+          "shown": true,
+          "comments": "Client Identifier of your app for Sage",
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "Client ID"
+        },
+        {
+          "placeholder": "Client Secret",
+          "required": true,
+          "shown": true,
+          "comments": "Client Secret of your app for Sage",
+          "key": "clientSecret",
+          "type": "password",
+          "default": "",
+          "label": "Client Secret"
+        }
+      ],
+      "documentation": {
+        "description": "You will first need to create and configure a [Connected App](https://developer.sage.com/api/accounting/guides/client_app_registration/) within Sage Accounting.\nBe sure to enter Prismatic's OAuth callback URL - https<!---->://oauth2.prismatic.io/callback - as a **Callback URL**.\nSelect **Require Secret for Web Server Flow** and **Require Secret for Refresh Token Flow**:\n\nOnce the app has been created, you will be provided with a **Client Id** and **Client Secret**.\n\nCreate a new connection for the Sage component and use the following values:\n\n-   For **Client ID** and **Client Secret** enter the values that you received previously.\n-   For **Scopes** enter either `full_access` or `readonly`. [Sage Authentication Documentation](https://developer.sage.com/api/accounting/guides/authentication/)\n"
+      }
+    }
+  ],
+  "actions": {
+    "createContact": {
+      "display": {
+        "label": "Create Contact",
+        "description": "Create a new contact"
+      },
+      "examplePayload": {
+        "data": {
+          "results": {
+            "id": "example-80745034",
+            "displayed_as": "Example Contact",
+            "$path": "/contacts/example",
+            "created_at": "2022-01-03T18:00:57Z",
+            "updated_at": "2022-01-03T18:00:57Z",
+            "links": [
+              {
+                "href": "https://accounting.na.sageone.com/contacts/customers/example",
+                "rel": "alternative",
+                "type": "text/html"
+              }
+            ],
+            "contact_types": [
+              {
+                "id": "CUSTOMER",
+                "displayd_as": "Customer"
+              }
+            ],
+            "name": "exampleName",
+            "reference": null,
+            "default_sales_ledger_account": {
+              "id": "example",
+              "displayed_as": "Professional Fees"
+            }
+          }
+        }
+      },
+      "key": "createContact",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "Example Name",
+          "comments": "Provide a string value for a name.",
+          "required": true,
+          "key": "name",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        },
+        {
+          "example": "example-2356795",
+          "comments": "For each list item, provide an Id of a contact type",
+          "required": true,
+          "key": "contactTypeIds",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Contact Type Ids"
+        },
+        {
+          "example": "uniqueValue",
+          "comments": "Provide a string value for the reference of the contact.",
+          "required": false,
+          "key": "reference",
+          "type": "string",
+          "default": "",
+          "label": "Reference"
+        },
+        {
+          "example": "example-80430964",
+          "comments": "Provide the unique identifier of the default sales ledger.",
+          "required": false,
+          "key": "defaultSalesLedgerId",
+          "type": "string",
+          "default": "",
+          "label": "Default Sales Ledger Id"
+        },
+        {
+          "example": "example-80430964",
+          "comments": "Provide the unique identifier of the sales tax rate for the contact.",
+          "required": false,
+          "key": "defaultSalesTaxRateId",
+          "type": "string",
+          "default": "",
+          "label": "Default Sales Tax Rate Id"
+        },
+        {
+          "example": "example-80430964",
+          "comments": "Provide the unique identifier of the default purchase ledger for the contact.",
+          "required": false,
+          "key": "defaultPurchaseLedgerId",
+          "type": "string",
+          "default": "",
+          "label": "Default Purchase Ledger Id"
+        },
+        {
+          "example": "80430964",
+          "comments": "Provide a string value for the VAT registration number for the contact.",
+          "required": false,
+          "key": "taxNumber",
+          "type": "string",
+          "default": "",
+          "label": "Tax Number"
+        },
+        {
+          "example": "This is an example note.",
+          "comments": "Provide a string value for notes.",
+          "required": false,
+          "key": "notes",
+          "type": "string",
+          "default": "",
+          "label": "Notes"
+        },
+        {
+          "example": "350.00",
+          "comments": "Provide a number value for the credit limit of the contact.",
+          "required": false,
+          "key": "creditLimit",
+          "type": "string",
+          "default": "",
+          "label": "Credit Limit"
+        },
+        {
+          "example": "10",
+          "comments": "Provide a number value for the credit days of the contact.",
+          "required": false,
+          "key": "creditDays",
+          "type": "string",
+          "default": "",
+          "label": "Credit Days"
+        },
+        {
+          "example": "example-80430964",
+          "comments": "Provide a valid GUID, used for importing/exporting contacts from 3rd party services.",
+          "required": false,
+          "key": "sourceGuid",
+          "type": "string",
+          "default": "",
+          "label": "Source GUID"
+        },
+        {
+          "example": "example-24525235",
+          "comments": "Provide the unique identifier of the currency type.",
+          "required": false,
+          "key": "currencyId",
+          "type": "string",
+          "default": "",
+          "label": "Currency Id"
+        },
+        {
+          "example": "Example Name",
+          "comments": "Provide a string value for a name.",
+          "required": false,
+          "key": "addressName",
+          "type": "string",
+          "default": "",
+          "label": "Address Name"
+        },
+        {
+          "example": "4 Privet Drive",
+          "comments": "Provide a valid street address",
+          "required": false,
+          "key": "addressLine1",
+          "type": "string",
+          "default": "",
+          "label": "Address Line 1"
+        },
+        {
+          "example": "apt 319",
+          "comments": "Provide a string value for the 2nd address line.",
+          "required": false,
+          "key": "addressLine2",
+          "type": "string",
+          "default": "",
+          "label": "Address Line 2"
+        },
+        {
+          "example": "Beverly Hills",
+          "comments": "Provide a string value for the city of the address.",
+          "required": false,
+          "key": "city",
+          "type": "string",
+          "default": "",
+          "label": "City"
+        },
+        {
+          "example": "",
+          "comments": "Provide a unique identifier for the contact's country.",
+          "required": false,
+          "key": "countryId",
+          "type": "string",
+          "default": "",
+          "label": "Country Id"
+        },
+        {
+          "example": "90211",
+          "comments": "Provide a value for the postal code.",
+          "required": false,
+          "key": "postalCode",
+          "type": "string",
+          "default": "",
+          "label": "Postal Code"
+        },
+        {
+          "example": "example-9489210",
+          "comments": "Provide a value for the postal code.",
+          "required": false,
+          "key": "bankAccountId",
+          "type": "string",
+          "default": "",
+          "label": "Bank Account Id"
+        },
+        {
+          "example": "90211",
+          "comments": "Provide a unique identifier for the address type",
+          "required": false,
+          "key": "addressTypeId",
+          "type": "string",
+          "default": "",
+          "label": "Address Type Id"
+        },
+        {
+          "example": "North America",
+          "comments": "Provide a valid region for the contact.",
+          "required": false,
+          "key": "region",
+          "type": "string",
+          "default": "",
+          "label": "Region"
+        },
+        {
+          "example": "Example Name",
+          "comments": "Provide a string value for a name.",
+          "required": false,
+          "key": "deliveryName",
+          "type": "string",
+          "default": "",
+          "label": "Delivery Address Name"
+        },
+        {
+          "example": "North America",
+          "comments": "Provide a valid region for the contact.",
+          "required": false,
+          "key": "deliveryRegion",
+          "type": "string",
+          "default": "",
+          "label": "Delivery Address Region"
+        },
+        {
+          "comments": "This flag will determine if this is the contacts main address.",
+          "required": false,
+          "key": "isMainAddress",
+          "type": "boolean",
+          "default": "false",
+          "label": "Is Main Address"
+        },
+        {
+          "example": "4 Privet Drive",
+          "comments": "Provide a valid street address",
+          "required": false,
+          "key": "deliveryLine1",
+          "type": "string",
+          "default": "",
+          "label": "Delivery Address Line 1"
+        },
+        {
+          "example": "apt 319",
+          "comments": "Provide a string value for the 2nd address line.",
+          "required": false,
+          "key": "deliveryLine2",
+          "type": "string",
+          "default": "",
+          "label": "Delivery Address Line 2"
+        },
+        {
+          "example": "Beverly Hills",
+          "comments": "Provide a string value for the city of the address.",
+          "required": false,
+          "key": "deliveryCity",
+          "type": "string",
+          "default": "",
+          "label": "Delivery Address City"
+        },
+        {
+          "example": "90211",
+          "comments": "Provide a value for the postal code.",
+          "required": false,
+          "key": "deliveryPostalCode",
+          "type": "string",
+          "default": "",
+          "label": "Delivery Address Postal Code"
+        },
+        {
+          "example": "",
+          "comments": "Provide a unique identifier for the contact's country.",
+          "required": false,
+          "key": "deliveryCountryId",
+          "type": "string",
+          "default": "",
+          "label": "Delivery Address Country Id"
+        },
+        {
+          "example": "example-9489210",
+          "comments": "Provide a value for the postal code.",
+          "required": false,
+          "key": "deliveryBankAccountId",
+          "type": "string",
+          "default": "",
+          "label": "Delivery Address Bank Account Id"
+        },
+        {
+          "example": "90211",
+          "comments": "Provide a unique identifier for the address type",
+          "required": false,
+          "key": "deliveryTypeId",
+          "type": "string",
+          "default": "",
+          "label": "Delivery Address Type Id"
+        },
+        {
+          "comments": "This flag will determine if this is the contacts main address.",
+          "required": false,
+          "key": "isMainDelivery",
+          "type": "boolean",
+          "default": "false",
+          "label": "Is Main Address"
+        },
+        {
+          "example": "Example Account",
+          "comments": "Provide a string value for the name of the bank account.",
+          "required": false,
+          "key": "accountName",
+          "type": "string",
+          "default": "",
+          "label": "Account Name"
+        },
+        {
+          "example": "Example Account No",
+          "comments": "Provide a valid bank account number.",
+          "required": false,
+          "key": "accountNumber",
+          "type": "string",
+          "default": "",
+          "label": "Account Number"
+        },
+        {
+          "example": "12-34-56",
+          "comments": "Provide a sort code for the bank account.",
+          "required": false,
+          "key": "sortCode",
+          "type": "string",
+          "default": "",
+          "label": "Sort Code"
+        },
+        {
+          "example": "BOFA",
+          "comments": "Provide a valid BIC for the bank account.",
+          "required": false,
+          "key": "bic",
+          "type": "string",
+          "default": "",
+          "label": "BIC"
+        },
+        {
+          "example": "CY 17 002 00128 00000012005276002﻿",
+          "comments": "Provide a valid IBAN for the bank account.",
+          "required": false,
+          "key": "iban",
+          "type": "string",
+          "default": "",
+          "label": "IBAN"
+        }
+      ]
+    },
+    "listContacts": {
+      "display": {
+        "label": "List Contacts",
+        "description": "List all contacts"
+      },
+      "key": "listContacts",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "100",
+          "required": false,
+          "comments": "Provide a value for the amount of items to be returned in the response.",
+          "key": "itemsPerPage",
+          "type": "string",
+          "default": "",
+          "label": "Items Per Page"
+        },
+        {
+          "example": "1",
+          "required": false,
+          "comments": "Provide a value for the page of results you would like to be returned.",
+          "key": "page",
+          "type": "string",
+          "default": "",
+          "label": "Page"
+        },
+        {
+          "example": "2015-10-27T16:24:52Z",
+          "comments": "Use this to limit the response to Contacts changed since a given date (format: YYYY-MM-DDT(+|-)hh:mm) or date-time (format: YYYY-MM-DDThh:mm:ss(+|-)hh:mm). Inclusive of the passed timestamp.",
+          "required": false,
+          "key": "updated_or_created_since",
+          "type": "string",
+          "default": "",
+          "label": "Update or Created Since"
+        }
+      ]
+    },
+    "deleteContact": {
+      "display": {
+        "label": "Delete Contact",
+        "description": "Delete an existing contact by Id"
+      },
+      "key": "deleteContact",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "example-533242",
+          "comments": "Provide the unique identifier of a contact.",
+          "required": true,
+          "key": "contactId",
+          "type": "string",
+          "default": "",
+          "label": "Contact Id"
+        }
+      ]
+    },
+    "deleteContactPerson": {
+      "display": {
+        "label": "Delete Contact Person",
+        "description": "Delete an existing contact person by Id"
+      },
+      "key": "deleteContactPerson",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "example-533242",
+          "comments": "Provide the unique identifier of a contact person.",
+          "required": true,
+          "key": "contactPersonId",
+          "type": "string",
+          "default": "",
+          "label": "Contact Person Id"
+        }
+      ]
+    },
+    "getContact": {
+      "display": {
+        "label": "Get Contact",
+        "description": "Get the information and metadata of a contact by Id"
+      },
+      "key": "getContact",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "example-533242",
+          "comments": "Provide the unique identifier of a contact.",
+          "required": true,
+          "key": "contactId",
+          "type": "string",
+          "default": "",
+          "label": "Contact Id"
+        }
+      ]
+    },
+    "getContactPerson": {
+      "display": {
+        "label": "Get Contact Person",
+        "description": "Get the information and metadata of a contact person by Id"
+      },
+      "key": "getContactPerson",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "example-533242",
+          "comments": "Provide the unique identifier of a contact person.",
+          "required": true,
+          "key": "contactPersonId",
+          "type": "string",
+          "default": "",
+          "label": "Contact Person Id"
+        }
+      ]
+    },
+    "listContactPeople": {
+      "display": {
+        "label": "List Contact People",
+        "description": "List all contact people"
+      },
+      "key": "listContactPeople",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "100",
+          "required": false,
+          "comments": "Provide a value for the amount of items to be returned in the response.",
+          "key": "itemsPerPage",
+          "type": "string",
+          "default": "",
+          "label": "Items Per Page"
+        },
+        {
+          "example": "1",
+          "required": false,
+          "comments": "Provide a value for the page of results you would like to be returned.",
+          "key": "page",
+          "type": "string",
+          "default": "",
+          "label": "Page"
+        },
+        {
+          "example": "2015-10-27T16:24:52Z",
+          "comments": "Use this to limit the response to Contacts changed since a given date (format: YYYY-MM-DDT(+|-)hh:mm) or date-time (format: YYYY-MM-DDThh:mm:ss(+|-)hh:mm). Inclusive of the passed timestamp.",
+          "required": false,
+          "key": "updated_or_created_since",
+          "type": "string",
+          "default": "",
+          "label": "Update or Created Since"
+        }
+      ]
+    },
+    "listContactTypes": {
+      "display": {
+        "label": "List Contact Types",
+        "description": "List all contact types"
+      },
+      "key": "listContactTypes",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "100",
+          "required": false,
+          "comments": "Provide a value for the amount of items to be returned in the response.",
+          "key": "itemsPerPage",
+          "type": "string",
+          "default": "",
+          "label": "Items Per Page"
+        },
+        {
+          "example": "1",
+          "required": false,
+          "comments": "Provide a value for the page of results you would like to be returned.",
+          "key": "page",
+          "type": "string",
+          "default": "",
+          "label": "Page"
+        }
+      ]
+    },
+    "createSalesInvoice": {
+      "display": {
+        "label": "Create Sales Invoice",
+        "description": "Create a new sales invoice"
+      },
+      "key": "createSalesInvoice",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "example-533242",
+          "comments": "Provide the unique identifier of a contact.",
+          "required": true,
+          "key": "contactId",
+          "type": "string",
+          "default": "",
+          "label": "Contact Id"
+        },
+        {
+          "example": "2022-01-03",
+          "comments": "Provide a valid date value.",
+          "required": true,
+          "key": "date",
+          "type": "string",
+          "default": "",
+          "label": "Date"
+        },
+        {
+          "language": "json",
+          "comments": "Provide a list of javascript objects, each containing information of an an invoice line item.",
+          "required": true,
+          "key": "invoiceLines",
+          "type": "code",
+          "default": "[\n  {\n    \"description\": \"string\",\n    \"ledger_account_id\": \"string\",\n    \"unit_price\": 0,\n    \"product_id\": \"string\",\n    \"service_id\": \"string\",\n    \"quantity\": 0,\n  }\n]",
+          "label": "Invoice Lines"
+        },
+        {
+          "example": "150.00",
+          "comments": "Provide a total amount for the invoice.",
+          "required": false,
+          "key": "totalAmount",
+          "type": "string",
+          "default": "",
+          "label": "Total Amount"
+        }
+      ]
+    },
+    "getSalesInvoice": {
+      "display": {
+        "label": "Get Sales Invoice",
+        "description": "Get the information and metadata of a sales invoice by Id"
+      },
+      "key": "getSalesInvoice",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "example-533242",
+          "comments": "Provide the unique identifier of a sales invoice id.",
+          "required": true,
+          "key": "salesInvoiceId",
+          "type": "string",
+          "default": "",
+          "label": "Sales Invoice Id"
+        }
+      ]
+    },
+    "listSalesInvoices": {
+      "display": {
+        "label": "List Sales Invoices",
+        "description": "List all sales invoices"
+      },
+      "key": "listSalesInvoices",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "100",
+          "required": false,
+          "comments": "Provide a value for the amount of items to be returned in the response.",
+          "key": "itemsPerPage",
+          "type": "string",
+          "default": "",
+          "label": "Items Per Page"
+        },
+        {
+          "example": "1",
+          "required": false,
+          "comments": "Provide a value for the page of results you would like to be returned.",
+          "key": "page",
+          "type": "string",
+          "default": "",
+          "label": "Page"
+        },
+        {
+          "example": "2015-10-27T16:24:52Z",
+          "comments": "Use this to limit the response to Contacts changed since a given date (format: YYYY-MM-DDT(+|-)hh:mm) or date-time (format: YYYY-MM-DDThh:mm:ss(+|-)hh:mm). Inclusive of the passed timestamp.",
+          "required": false,
+          "key": "updated_or_created_since",
+          "type": "string",
+          "default": "",
+          "label": "Update or Created Since"
+        }
+      ]
+    },
+    "deleteSalesInvoice": {
+      "display": {
+        "label": "Delete Sales Invoice",
+        "description": "Delete the information and metadata of a sales invoice by Id"
+      },
+      "key": "deleteSalesInvoice",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "example-533242",
+          "comments": "Provide the unique identifier of a sales invoice id.",
+          "required": true,
+          "key": "salesInvoiceId",
+          "type": "string",
+          "default": "",
+          "label": "Sales Invoice Id"
+        }
+      ]
+    },
+    "updateSalesInvoice": {
+      "display": {
+        "label": "Update Sales Invoice",
+        "description": "Update the information and metadata of a sales invoice by Id"
+      },
+      "key": "updateSalesInvoice",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "example-533242",
+          "comments": "Provide the unique identifier of a sales invoice id.",
+          "required": true,
+          "key": "salesInvoiceId",
+          "type": "string",
+          "default": "",
+          "label": "Sales Invoice Id"
+        },
+        {
+          "example": "example-533242",
+          "comments": "Provide the unique identifier of a contact.",
+          "required": false,
+          "key": "contactId",
+          "type": "string",
+          "default": "",
+          "label": "Contact Id"
+        },
+        {
+          "example": "2022-01-03",
+          "comments": "Provide a valid date value.",
+          "required": false,
+          "key": "date",
+          "type": "string",
+          "default": "",
+          "label": "Date"
+        },
+        {
+          "example": "2022-01-03",
+          "comments": "Provide a valid date value for the due date of the invoice.",
+          "required": true,
+          "key": "dueDate",
+          "type": "string",
+          "default": "",
+          "label": "Due Date"
+        },
+        {
+          "example": "John Doe",
+          "comments": "Provide the name of a contact.",
+          "required": false,
+          "key": "contactName",
+          "type": "string",
+          "default": "",
+          "label": "Contact Name"
+        },
+        {
+          "example": "This is an example note.",
+          "comments": "Provide a string value for notes.",
+          "required": false,
+          "key": "notes",
+          "type": "string",
+          "default": "",
+          "label": "Notes"
+        },
+        {
+          "example": "3",
+          "comments": "Provide a total quantity of the invoice.",
+          "required": false,
+          "key": "totalQuantity",
+          "type": "string",
+          "default": "",
+          "label": "Total Quantity"
+        },
+        {
+          "example": "150.00",
+          "comments": "Provide the net amount of the invoice.",
+          "required": false,
+          "key": "netAmount",
+          "type": "string",
+          "default": "",
+          "label": "Net Amount"
+        },
+        {
+          "example": "150.00",
+          "comments": "Provide a tax amount for the invoice.",
+          "required": false,
+          "key": "taxAmount",
+          "type": "string",
+          "default": "",
+          "label": "Tax Amount"
+        },
+        {
+          "example": "example-24525235",
+          "comments": "Provide the unique identifier of the currency type.",
+          "required": false,
+          "key": "currencyId",
+          "type": "string",
+          "default": "",
+          "label": "Currency Id"
+        },
+        {
+          "example": "150.00",
+          "comments": "Provide a total amount for the invoice.",
+          "required": false,
+          "key": "totalAmount",
+          "type": "string",
+          "default": "",
+          "label": "Total Amount"
+        },
+        {
+          "language": "json",
+          "comments": "Provide a list of javascript objects, each containing information of an an invoice line item.",
+          "required": true,
+          "key": "invoiceLines",
+          "type": "code",
+          "default": "[\n  {\n    \"description\": \"string\",\n    \"ledger_account_id\": \"string\",\n    \"unit_price\": 0,\n    \"product_id\": \"string\",\n    \"service_id\": \"string\",\n    \"quantity\": 0,\n  }\n]",
+          "label": "Invoice Lines"
+        }
+      ]
+    },
+    "deletePurchaseInvoice": {
+      "display": {
+        "label": "Delete Purchase Invoice",
+        "description": "Delete the information and metadata of a purchase invoice by Id"
+      },
+      "key": "deletePurchaseInvoice",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "example-533242",
+          "comments": "Provide the unique identifier of a purchase invoice id.",
+          "required": true,
+          "key": "purchaseInvoiceId",
+          "type": "string",
+          "default": "",
+          "label": "Purchase Invoice Id"
+        }
+      ]
+    },
+    "getPurchaseInvoice": {
+      "display": {
+        "label": "Get Purchase Invoice",
+        "description": "Get the information and metadata of a purchase invoice by Id"
+      },
+      "key": "getPurchaseInvoice",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "example-533242",
+          "comments": "Provide the unique identifier of a purchase invoice id.",
+          "required": true,
+          "key": "purchaseInvoiceId",
+          "type": "string",
+          "default": "",
+          "label": "Purchase Invoice Id"
+        }
+      ]
+    },
+    "listPurchaseInvoice": {
+      "display": {
+        "label": "List Purchase Invoices",
+        "description": "List all purchase invoices"
+      },
+      "key": "listPurchaseInvoice",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "100",
+          "required": false,
+          "comments": "Provide a value for the amount of items to be returned in the response.",
+          "key": "itemsPerPage",
+          "type": "string",
+          "default": "",
+          "label": "Items Per Page"
+        },
+        {
+          "example": "1",
+          "required": false,
+          "comments": "Provide a value for the page of results you would like to be returned.",
+          "key": "page",
+          "type": "string",
+          "default": "",
+          "label": "Page"
+        },
+        {
+          "example": "2015-10-27T16:24:52Z",
+          "comments": "Use this to limit the response to Contacts changed since a given date (format: YYYY-MM-DDT(+|-)hh:mm) or date-time (format: YYYY-MM-DDThh:mm:ss(+|-)hh:mm). Inclusive of the passed timestamp.",
+          "required": false,
+          "key": "updated_or_created_since",
+          "type": "string",
+          "default": "",
+          "label": "Update or Created Since"
+        }
+      ]
+    },
+    "createPurchaseInvoice": {
+      "display": {
+        "label": "Create Purchase Invoice",
+        "description": "Create a new purchase invoice"
+      },
+      "key": "createPurchaseInvoice",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "example-533242",
+          "comments": "Provide the unique identifier of a contact.",
+          "required": true,
+          "key": "contactId",
+          "type": "string",
+          "default": "",
+          "label": "Contact Id"
+        },
+        {
+          "example": "2022-01-03",
+          "comments": "Provide a valid date value.",
+          "required": true,
+          "key": "date",
+          "type": "string",
+          "default": "",
+          "label": "Date"
+        },
+        {
+          "language": "json",
+          "comments": "Provide a list of javascript objects, each containing information of an an invoice line item.",
+          "required": true,
+          "key": "invoiceLines",
+          "type": "code",
+          "default": "[\n  {\n    \"description\": \"string\",\n    \"ledger_account_id\": \"string\",\n    \"unit_price\": 0,\n    \"product_id\": \"string\",\n    \"service_id\": \"string\",\n    \"quantity\": 0,\n  }\n]",
+          "label": "Invoice Lines"
+        },
+        {
+          "example": "150.00",
+          "comments": "Provide a total amount for the invoice.",
+          "required": false,
+          "key": "totalAmount",
+          "type": "string",
+          "default": "",
+          "label": "Total Amount"
+        },
+        {
+          "example": "2022-01-03",
+          "comments": "Provide a valid date value for the due date of the invoice.",
+          "required": true,
+          "key": "dueDate",
+          "type": "string",
+          "default": "",
+          "label": "Due Date"
+        }
+      ]
+    },
+    "updatePurchaseInvoice": {
+      "display": {
+        "label": "Update Purchase Invoice",
+        "description": "Update the information and metadata of a purchase invoice by Id"
+      },
+      "key": "updatePurchaseInvoice",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "example-533242",
+          "comments": "Provide the unique identifier of a purchase invoice id.",
+          "required": true,
+          "key": "purchaseInvoiceId",
+          "type": "string",
+          "default": "",
+          "label": "Purchase Invoice Id"
+        },
+        {
+          "example": "example-533242",
+          "comments": "Provide the unique identifier of a contact.",
+          "required": false,
+          "key": "contactId",
+          "type": "string",
+          "default": "",
+          "label": "Contact Id"
+        },
+        {
+          "example": "2022-01-03",
+          "comments": "Provide a valid date value.",
+          "required": false,
+          "key": "date",
+          "type": "string",
+          "default": "",
+          "label": "Date"
+        },
+        {
+          "example": "2022-01-03",
+          "comments": "Provide a valid date value for the due date of the invoice.",
+          "required": true,
+          "key": "dueDate",
+          "type": "string",
+          "default": "",
+          "label": "Due Date"
+        },
+        {
+          "example": "John Doe",
+          "comments": "Provide the name of a contact.",
+          "required": false,
+          "key": "contactName",
+          "type": "string",
+          "default": "",
+          "label": "Contact Name"
+        },
+        {
+          "example": "This is an example note.",
+          "comments": "Provide a string value for notes.",
+          "required": false,
+          "key": "notes",
+          "type": "string",
+          "default": "",
+          "label": "Notes"
+        },
+        {
+          "example": "3",
+          "comments": "Provide a total quantity of the invoice.",
+          "required": false,
+          "key": "totalQuantity",
+          "type": "string",
+          "default": "",
+          "label": "Total Quantity"
+        },
+        {
+          "example": "150.00",
+          "comments": "Provide the net amount of the invoice.",
+          "required": false,
+          "key": "netAmount",
+          "type": "string",
+          "default": "",
+          "label": "Net Amount"
+        },
+        {
+          "example": "150.00",
+          "comments": "Provide a tax amount for the invoice.",
+          "required": false,
+          "key": "taxAmount",
+          "type": "string",
+          "default": "",
+          "label": "Tax Amount"
+        },
+        {
+          "example": "example-24525235",
+          "comments": "Provide the unique identifier of the currency type.",
+          "required": false,
+          "key": "currencyId",
+          "type": "string",
+          "default": "",
+          "label": "Currency Id"
+        },
+        {
+          "example": "150.00",
+          "comments": "Provide a total amount for the invoice.",
+          "required": false,
+          "key": "totalAmount",
+          "type": "string",
+          "default": "",
+          "label": "Total Amount"
+        },
+        {
+          "language": "json",
+          "comments": "Provide a list of javascript objects, each containing information of an an invoice line item.",
+          "required": true,
+          "key": "invoiceLines",
+          "type": "code",
+          "default": "[\n  {\n    \"description\": \"string\",\n    \"ledger_account_id\": \"string\",\n    \"unit_price\": 0,\n    \"product_id\": \"string\",\n    \"service_id\": \"string\",\n    \"quantity\": 0,\n  }\n]",
+          "label": "Invoice Lines"
+        }
+      ]
+    },
+    "getLedgerAccount": {
+      "display": {
+        "label": "Get Ledger Account",
+        "description": "Get the information and metadata of a Ledger account"
+      },
+      "key": "getLedgerAccount",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "example-2356795",
+          "comments": "Provide the unique identifier of a ledger account.",
+          "required": true,
+          "key": "ledgerAccountId",
+          "type": "string",
+          "default": "",
+          "label": "Ledger Account Id"
+        }
+      ]
+    },
+    "listLedgerAccounts": {
+      "display": {
+        "label": "List Ledger Accounts",
+        "description": "List all Ledger accounts"
+      },
+      "key": "listLedgerAccounts",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "100",
+          "required": false,
+          "comments": "Provide a value for the amount of items to be returned in the response.",
+          "key": "itemsPerPage",
+          "type": "string",
+          "default": "",
+          "label": "Items Per Page"
+        },
+        {
+          "example": "1",
+          "required": false,
+          "comments": "Provide a value for the page of results you would like to be returned.",
+          "key": "page",
+          "type": "string",
+          "default": "",
+          "label": "Page"
+        },
+        {
+          "example": "2015-10-27T16:24:52Z",
+          "comments": "Use this to limit the response to Contacts changed since a given date (format: YYYY-MM-DDT(+|-)hh:mm) or date-time (format: YYYY-MM-DDThh:mm:ss(+|-)hh:mm). Inclusive of the passed timestamp.",
+          "required": false,
+          "key": "updated_or_created_since",
+          "type": "string",
+          "default": "",
+          "label": "Update or Created Since"
+        }
+      ]
+    },
+    "createLedgerAccount": {
+      "display": {
+        "label": "Create Ledger Account",
+        "description": "Create a new Ledger account"
+      },
+      "key": "createLedgerAccount",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "example-2356795",
+          "comments": "Provide the unique identifier of a ledger account type.",
+          "required": true,
+          "key": "ledgerAccountTypeId",
+          "type": "string",
+          "default": "",
+          "label": "Ledger Account Type Id"
+        },
+        {
+          "example": "true",
+          "comments": "This flag determines if the account will be included in the chart of accounts.",
+          "required": true,
+          "key": "includedInChart",
+          "type": "boolean",
+          "default": "false",
+          "label": "Include In Chart"
+        },
+        {
+          "example": "Example Name",
+          "comments": "Provide a string value for a name.",
+          "required": true,
+          "key": "name",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        },
+        {
+          "example": "Example Name",
+          "comments": "Provide a string value for the display name.",
+          "required": true,
+          "key": "displayName",
+          "type": "string",
+          "default": "",
+          "label": "Display Name"
+        },
+        {
+          "example": "1",
+          "comments": "Provide an unique integer value for the nominal code of the ledger account.",
+          "required": true,
+          "key": "nominalCode",
+          "type": "string",
+          "default": "",
+          "label": "Nominal Code"
+        },
+        {
+          "example": "example-238953e2",
+          "comments": "Provide the unique identifier of a tax rate id.",
+          "required": false,
+          "key": "taxRateId",
+          "type": "string",
+          "default": "",
+          "label": "Tax Rate Id"
+        }
+      ]
+    },
+    "listCountries": {
+      "display": {
+        "label": "List Countries",
+        "description": "List all countries"
+      },
+      "key": "listCountries",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "100",
+          "required": false,
+          "comments": "Provide a value for the amount of items to be returned in the response.",
+          "key": "itemsPerPage",
+          "type": "string",
+          "default": "",
+          "label": "Items Per Page"
+        },
+        {
+          "example": "1",
+          "required": false,
+          "comments": "Provide a value for the page of results you would like to be returned.",
+          "key": "page",
+          "type": "string",
+          "default": "",
+          "label": "Page"
+        }
+      ]
+    },
+    "listAddressTypes": {
+      "display": {
+        "label": "List Address Types",
+        "description": "List all address types"
+      },
+      "key": "listAddressTypes",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "100",
+          "required": false,
+          "comments": "Provide a value for the amount of items to be returned in the response.",
+          "key": "itemsPerPage",
+          "type": "string",
+          "default": "",
+          "label": "Items Per Page"
+        },
+        {
+          "example": "1",
+          "required": false,
+          "comments": "Provide a value for the page of results you would like to be returned.",
+          "key": "page",
+          "type": "string",
+          "default": "",
+          "label": "Page"
+        }
+      ]
+    },
+    "listCurrencies": {
+      "display": {
+        "label": "List Currencies",
+        "description": "List all currencies"
+      },
+      "key": "listCurrencies",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "100",
+          "required": false,
+          "comments": "Provide a value for the amount of items to be returned in the response.",
+          "key": "itemsPerPage",
+          "type": "string",
+          "default": "",
+          "label": "Items Per Page"
+        },
+        {
+          "example": "1",
+          "required": false,
+          "comments": "Provide a value for the page of results you would like to be returned.",
+          "key": "page",
+          "type": "string",
+          "default": "",
+          "label": "Page"
+        }
+      ]
+    },
+    "updateContact": {
+      "display": {
+        "label": "Update Contact",
+        "description": "Update the information and metadata of an existing contact by Id"
+      },
+      "examplePayload": {
+        "data": {
+          "results": {
+            "id": "example-80745034",
+            "displayed_as": "Example Contact",
+            "$path": "/contacts/example",
+            "created_at": "2022-01-03T18:00:57Z",
+            "updated_at": "2022-01-03T18:00:57Z",
+            "links": [
+              {
+                "href": "https://accounting.na.sageone.com/contacts/customers/example",
+                "rel": "alternative",
+                "type": "text/html"
+              }
+            ],
+            "contact_types": [
+              {
+                "id": "CUSTOMER",
+                "displayd_as": "Customer"
+              }
+            ],
+            "name": "exampleName",
+            "reference": null,
+            "default_sales_ledger_account": {
+              "id": "example",
+              "displayed_as": "Professional Fees"
+            }
+          }
+        }
+      },
+      "key": "updateContact",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "example-533242",
+          "comments": "Provide the unique identifier of a contact.",
+          "required": true,
+          "key": "contactId",
+          "type": "string",
+          "default": "",
+          "label": "Contact Id"
+        },
+        {
+          "example": "Example Name",
+          "comments": "Provide a string value for a name.",
+          "required": false,
+          "key": "name",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        },
+        {
+          "example": "example-2356795",
+          "comments": "For each list item, provide an Id of a contact type",
+          "required": false,
+          "key": "contactTypeIds",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Contact Type Ids"
+        },
+        {
+          "example": "uniqueValue",
+          "comments": "Provide a string value for the reference of the contact.",
+          "required": false,
+          "key": "reference",
+          "type": "string",
+          "default": "",
+          "label": "Reference"
+        },
+        {
+          "example": "example-80430964",
+          "comments": "Provide the unique identifier of the default sales ledger.",
+          "required": false,
+          "key": "defaultSalesLedgerId",
+          "type": "string",
+          "default": "",
+          "label": "Default Sales Ledger Id"
+        },
+        {
+          "example": "example-80430964",
+          "comments": "Provide the unique identifier of the sales tax rate for the contact.",
+          "required": false,
+          "key": "defaultSalesTaxRateId",
+          "type": "string",
+          "default": "",
+          "label": "Default Sales Tax Rate Id"
+        },
+        {
+          "example": "example-80430964",
+          "comments": "Provide the unique identifier of the default purchase ledger for the contact.",
+          "required": false,
+          "key": "defaultPurchaseLedgerId",
+          "type": "string",
+          "default": "",
+          "label": "Default Purchase Ledger Id"
+        },
+        {
+          "example": "80430964",
+          "comments": "Provide a string value for the VAT registration number for the contact.",
+          "required": false,
+          "key": "taxNumber",
+          "type": "string",
+          "default": "",
+          "label": "Tax Number"
+        },
+        {
+          "example": "This is an example note.",
+          "comments": "Provide a string value for notes.",
+          "required": false,
+          "key": "notes",
+          "type": "string",
+          "default": "",
+          "label": "Notes"
+        },
+        {
+          "example": "350.00",
+          "comments": "Provide a number value for the credit limit of the contact.",
+          "required": false,
+          "key": "creditLimit",
+          "type": "string",
+          "default": "",
+          "label": "Credit Limit"
+        },
+        {
+          "example": "10",
+          "comments": "Provide a number value for the credit days of the contact.",
+          "required": false,
+          "key": "creditDays",
+          "type": "string",
+          "default": "",
+          "label": "Credit Days"
+        },
+        {
+          "example": "example-80430964",
+          "comments": "Provide a valid GUID, used for importing/exporting contacts from 3rd party services.",
+          "required": false,
+          "key": "sourceGuid",
+          "type": "string",
+          "default": "",
+          "label": "Source GUID"
+        },
+        {
+          "example": "example-24525235",
+          "comments": "Provide the unique identifier of the currency type.",
+          "required": false,
+          "key": "currencyId",
+          "type": "string",
+          "default": "",
+          "label": "Currency Id"
+        },
+        {
+          "example": "Example Name",
+          "comments": "Provide a string value for a name.",
+          "required": false,
+          "key": "addressName",
+          "type": "string",
+          "default": "",
+          "label": "Address Name"
+        },
+        {
+          "example": "4 Privet Drive",
+          "comments": "Provide a valid street address",
+          "required": false,
+          "key": "addressLine1",
+          "type": "string",
+          "default": "",
+          "label": "Address Line 1"
+        },
+        {
+          "example": "apt 319",
+          "comments": "Provide a string value for the 2nd address line.",
+          "required": false,
+          "key": "addressLine2",
+          "type": "string",
+          "default": "",
+          "label": "Address Line 2"
+        },
+        {
+          "example": "Beverly Hills",
+          "comments": "Provide a string value for the city of the address.",
+          "required": false,
+          "key": "city",
+          "type": "string",
+          "default": "",
+          "label": "City"
+        },
+        {
+          "example": "",
+          "comments": "Provide a unique identifier for the contact's country.",
+          "required": false,
+          "key": "countryId",
+          "type": "string",
+          "default": "",
+          "label": "Country Id"
+        },
+        {
+          "example": "90211",
+          "comments": "Provide a value for the postal code.",
+          "required": false,
+          "key": "postalCode",
+          "type": "string",
+          "default": "",
+          "label": "Postal Code"
+        },
+        {
+          "example": "example-9489210",
+          "comments": "Provide a value for the postal code.",
+          "required": false,
+          "key": "bankAccountId",
+          "type": "string",
+          "default": "",
+          "label": "Bank Account Id"
+        },
+        {
+          "example": "90211",
+          "comments": "Provide a unique identifier for the address type",
+          "required": false,
+          "key": "addressTypeId",
+          "type": "string",
+          "default": "",
+          "label": "Address Type Id"
+        },
+        {
+          "example": "North America",
+          "comments": "Provide a valid region for the contact.",
+          "required": false,
+          "key": "region",
+          "type": "string",
+          "default": "",
+          "label": "Region"
+        },
+        {
+          "example": "Example Name",
+          "comments": "Provide a string value for a name.",
+          "required": false,
+          "key": "deliveryName",
+          "type": "string",
+          "default": "",
+          "label": "Delivery Address Name"
+        },
+        {
+          "example": "North America",
+          "comments": "Provide a valid region for the contact.",
+          "required": false,
+          "key": "deliveryRegion",
+          "type": "string",
+          "default": "",
+          "label": "Delivery Address Region"
+        },
+        {
+          "comments": "This flag will determine if this is the contacts main address.",
+          "required": false,
+          "key": "isMainAddress",
+          "type": "boolean",
+          "default": "false",
+          "label": "Is Main Address"
+        },
+        {
+          "example": "4 Privet Drive",
+          "comments": "Provide a valid street address",
+          "required": false,
+          "key": "deliveryLine1",
+          "type": "string",
+          "default": "",
+          "label": "Delivery Address Line 1"
+        },
+        {
+          "example": "apt 319",
+          "comments": "Provide a string value for the 2nd address line.",
+          "required": false,
+          "key": "deliveryLine2",
+          "type": "string",
+          "default": "",
+          "label": "Delivery Address Line 2"
+        },
+        {
+          "example": "Beverly Hills",
+          "comments": "Provide a string value for the city of the address.",
+          "required": false,
+          "key": "deliveryCity",
+          "type": "string",
+          "default": "",
+          "label": "Delivery Address City"
+        },
+        {
+          "example": "90211",
+          "comments": "Provide a value for the postal code.",
+          "required": false,
+          "key": "deliveryPostalCode",
+          "type": "string",
+          "default": "",
+          "label": "Delivery Address Postal Code"
+        },
+        {
+          "example": "",
+          "comments": "Provide a unique identifier for the contact's country.",
+          "required": false,
+          "key": "deliveryCountryId",
+          "type": "string",
+          "default": "",
+          "label": "Delivery Address Country Id"
+        },
+        {
+          "example": "example-9489210",
+          "comments": "Provide a value for the postal code.",
+          "required": false,
+          "key": "deliveryBankAccountId",
+          "type": "string",
+          "default": "",
+          "label": "Delivery Address Bank Account Id"
+        },
+        {
+          "example": "90211",
+          "comments": "Provide a unique identifier for the address type",
+          "required": false,
+          "key": "deliveryTypeId",
+          "type": "string",
+          "default": "",
+          "label": "Delivery Address Type Id"
+        },
+        {
+          "comments": "This flag will determine if this is the contacts main address.",
+          "required": false,
+          "key": "isMainDelivery",
+          "type": "boolean",
+          "default": "false",
+          "label": "Is Main Address"
+        },
+        {
+          "example": "Example Account",
+          "comments": "Provide a string value for the name of the bank account.",
+          "required": false,
+          "key": "accountName",
+          "type": "string",
+          "default": "",
+          "label": "Account Name"
+        },
+        {
+          "example": "Example Account No",
+          "comments": "Provide a valid bank account number.",
+          "required": false,
+          "key": "accountNumber",
+          "type": "string",
+          "default": "",
+          "label": "Account Number"
+        },
+        {
+          "example": "12-34-56",
+          "comments": "Provide a sort code for the bank account.",
+          "required": false,
+          "key": "sortCode",
+          "type": "string",
+          "default": "",
+          "label": "Sort Code"
+        },
+        {
+          "example": "BOFA",
+          "comments": "Provide a valid BIC for the bank account.",
+          "required": false,
+          "key": "bic",
+          "type": "string",
+          "default": "",
+          "label": "BIC"
+        },
+        {
+          "example": "CY 17 002 00128 00000012005276002﻿",
+          "comments": "Provide a valid IBAN for the bank account.",
+          "required": false,
+          "key": "iban",
+          "type": "string",
+          "default": "",
+          "label": "IBAN"
+        }
+      ]
+    },
+    "listLedgerAccountTypes": {
+      "display": {
+        "label": "List Ledger Account Types",
+        "description": "List all Ledger account types"
+      },
+      "key": "listLedgerAccountTypes",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "100",
+          "required": false,
+          "comments": "Provide a value for the amount of items to be returned in the response.",
+          "key": "itemsPerPage",
+          "type": "string",
+          "default": "",
+          "label": "Items Per Page"
+        },
+        {
+          "example": "1",
+          "required": false,
+          "comments": "Provide a value for the page of results you would like to be returned.",
+          "key": "page",
+          "type": "string",
+          "default": "",
+          "label": "Page"
+        }
+      ]
+    },
+    "updateLedgerAccount": {
+      "display": {
+        "label": "Update Ledger Account",
+        "description": "Update the information and metadata of a Ledger account by Id"
+      },
+      "key": "updateLedgerAccount",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "example-2356795",
+          "comments": "Provide the unique identifier of the account Id.",
+          "required": true,
+          "key": "accountId",
+          "type": "string",
+          "default": "",
+          "label": "Account Id"
+        },
+        {
+          "example": "example-2356795",
+          "comments": "Provide the unique identifier of a ledger account type.",
+          "required": true,
+          "key": "ledgerAccountTypeId",
+          "type": "string",
+          "default": "",
+          "label": "Ledger Account Type Id"
+        },
+        {
+          "example": "true",
+          "comments": "This flag determines if the account will be included in the chart of accounts.",
+          "required": true,
+          "key": "includedInChart",
+          "type": "boolean",
+          "default": "false",
+          "label": "Include In Chart"
+        },
+        {
+          "example": "Example Name",
+          "comments": "Provide a string value for a name.",
+          "required": true,
+          "key": "name",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        },
+        {
+          "example": "Example Name",
+          "comments": "Provide a string value for the display name.",
+          "required": true,
+          "key": "displayName",
+          "type": "string",
+          "default": "",
+          "label": "Display Name"
+        },
+        {
+          "example": "1",
+          "comments": "Provide an unique integer value for the nominal code of the ledger account.",
+          "required": true,
+          "key": "nominalCode",
+          "type": "string",
+          "default": "",
+          "label": "Nominal Code"
+        },
+        {
+          "example": "example-238953e2",
+          "comments": "Provide the unique identifier of a tax rate id.",
+          "required": false,
+          "key": "taxRateId",
+          "type": "string",
+          "default": "",
+          "label": "Tax Rate Id"
+        },
+        {
+          "example": "NA",
+          "comments": "Provide a value for The General Index of Financial Information.",
+          "required": false,
+          "key": "gifiCode",
+          "type": "string",
+          "default": "",
+          "label": "Gifi Code"
+        }
+      ]
+    },
+    "rawRequest": {
+      "display": {
+        "label": "Raw Request",
+        "description": "Send Raw Request to Sage"
+      },
+      "key": "rawRequest",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "This is the URL to call.",
+          "example": "/contacts",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "The file name to apply to a file",
+          "required": false,
+          "comments": "File names to apply to the file data inputs. Keys must match the file data keys above.",
+          "key": "fileDataFileNames",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data File Names"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        }
+      ]
+    }
+  },
+  "triggers": {},
+  "dataSources": {},
+  "documentation": {
+    "description": "[Sage](https://www.sage.com/en-us/) is software for managing your small business's accounting.\nThis component allows you to generate and track invoices, manage accounts, contacts and more.\n"
+  },
+  "$version": 1
+}

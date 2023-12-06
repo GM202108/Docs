@@ -1,0 +1,44 @@
+---
+id: core-concepts
+title: Core Concepts
+description: Prismatic introduction and terminology
+---
+
+import Screenshot from "@site/src/components/screenshot";
+
+## Organizations, customers, and users
+
+ writes software for other software companies who have their own customers, so it's important to disambiguate terms like [organization](organization.mdx) and [customer](customers.mdx).
+
+When your company signs up with , you create an [organization](organization.mdx) (sometimes referred to as an "account" or "tenant").
+Your organization has multiple [customers](customers.mdx) whom you can manage - those are _your_ customers.
+[Users](users.mdx) can be created for both your organization and your customers, with organization users having broader, company-wide roles and permissions, and customer users having permissions limited in scope to their company.
+To keep things separate, we often refer to organization users as "team members" in docs and the web app.
+
+<Screenshot
+  filename="getting-started/introduction/organization_and_customers.png"
+  maxWidth="500px"
+  alt="Diagram of an organization with customers"
+/>
+
+## Integrations and instances
+
+Within your [organization](organization.mdx) you can assemble an [integration](integrations.mdx) by tying together multiple [component](components.mdx)'s actions.
+That integration can be tested using our [integration designer](testing-integrations.mdx).
+Once you are satisfied with your integration, it can be [published](integrations.mdx#publishing-an-integration), and [instances](instances.mdx) of the integration can be configured and deployed to one or many of your [customers](customers.mdx).
+
+Instances deployed to customers can be configured using customer-specific [config variables](building-integrations.mdx#config-variables-in-integrations), so one integration can be uniquely deployed to multiple customers with different setups.
+
+<Screenshot
+  filename="shared/acmeerp-integration.png"
+  maxWidth="800px"
+  alt="AcmeERP Fuel Integration in  app"
+/>
+
+## Logging, monitoring, and alerting
+
+When an integration behaves unexpectedly (takes too long to run, or fails to run to completion), you want your team to be notified.
+'s [alert monitors](monitoring-and-alerting.mdx) can be configured to monitor your instances, and notify your team in the event of an issue.
+[Logs](logging.mdx) of all instance runs are retained, so you can debug production issues and rapidly resolve problems.
+
+Not all alerts indicate bad things happened - alert monitors can be configured to run when an instance is enabled (so your project management team can mark implementations as complete), or can be configured to alert a customer via Slack or Email that an integration that runs daily ran successfully.

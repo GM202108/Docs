@@ -1,0 +1,3347 @@
+{
+  "key": "shopify",
+  "public": true,
+  "documentationUrl": "https://prismatic.io/docs/components/shopify/",
+  "display": {
+    "label": "Shopify",
+    "description": "Manage customers, products, and orders in your Shopify platform",
+    "iconPath": "icon.png",
+    "category": "Application Connectors",
+    "iconBase64": "iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AABgoElEQVR42uy9B3Rb15ntrzgePyfjiTOeTDKTTDJx8pKXv1jUe+9sAFgEdhIgAIK9iYBksYFEYe8ESVHsVDVkyzIbAJISbYmA4sSTOLHjSR174hI5cRy3WLJE8v7XpUyZklhQLoBb9m+tveatl5kI4D337I1zvvOdZcsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALdpa1vzD1m9oQcyevgVKe1+Jmnz3l+L63e8G1215ZOoqs03wss33hSWrpsMK107FaJePU3+z4jyDbeiqjZfF+t3vZXSeWAosycsVkUsewB/TQAAAICGyNv2PpreHXg4sW2/Nb5++3thunVTgfneRECel9MSlKwixI0730nvDSoXGpZ9EX9tAAAAwEOoxnc8mNbNy0jQ735VWLbuVmABNWa/lEJKVk0ntu3/6dHTkd/AUwAAAADcwBO9cf+S3ObXHVuz7T2+aoVbDH/BVQHVSkLWuufVjE6/f8WTAQAAAKj+pU+oHsjqCE4UN+x8zdOmP++KgHr1dFq3fyeeFAAAAEABinaer6Rpz9Vg9eopupn+fcr3ImJrt32Y0xeyAk8OAAAAcID0rpDd4oadLwcV+BC0N/55VgMyTwjy8BQBAAAAG0k7zk+Oqdry54A8b8YZ/1wFFfoQSe3+JjxRAAAAYBEyugS82Jptf2Ky6c+3JSDV734NTxcAAAC4h8ye4DWi+p2vUnVWn44SN+16G08aAAAAWLZsWape+IhUv/cij4F7/A6FgMZdf8JTBwAAwGnIfX6hbv0NLhj/XCU07XoTTx8AAADnyDsR8++Spj0vBuZzy/jnKqnd/wpGAgAAAM6Q2h6UE1KyepKrxn/ndECBD0HeJYARAQAAgNXkGIRfkjTtsXD5V/+94hevJNK7eYWZvaHRGb1B+eRNg9knIrapTsT8B0YMAAAAxpPRGbwjonzjRzB920UGJb7KlxCWrZuMq9/2fmLr3lfSu3ldZEDAiAIAAEB7Ulr9y/lFK6Zh6lTJmwgrXTuVoN/1RlpPUHVuX+w/YpQBAACgDSrVsgfI430BNDvXzyvyIcJ066aiqjddFzXufEd2bN9LSe1+F5Pb/QbTOgM6U7sC9aldAa1J7f5mSfPu18LLN7jtamGHthGKfAlRw86/ZJ0QJGHUAQAA8CgZBuG/xtVse4MOHfjIX8ukQSa1+V3M6uYnCg3Lvmjv98nu4+0mwwC5JE/nboMR5RtukUEmp0b4JYxCAAAAbiWrjb8hvHT9J56sro+q2nRdfszPkn2at5vS79YtWBnfsP2vdL+fIFSzZjqlw/9JjEYAAABuIbOXF+SpI37CsvVT8rYDVw/1Bv/QZd+vLzg9qmrzJwEMOckgLFs/mXmCV4WRCQAAwGWktfvL+KqVbi32I/fm4+t3vJtxIlDiyu+W0RMii67d8jEjbybM9yLiG3b8NetMxHcxSgEAAFBKcovfE7xCX7eZP6/Ql5Dod72TeSZsjyu/V1a34Lui+p1vsKF3QYh69XRaN68WoxUAAAA15n/Mrz7ITVXy5C9+UePOtzN7wnxd/b2SjvsNCopXEmy7lljctOsNlUH4EEYuAAAAh0lp86t2i/nnexHRNVv+fqgvROjq75TRE7w/snLTp2zuJRBVuemGsiv0BxjBAAAA7Cat3V8T5IYrfINLVk2ndAa2u2U1o8P/PL9oBScaCoVq1k4fOhkagZEMAADAjl/+/ppAV5t/vhe53H8t/0zEt139fchfw7F12z/g3F0EKl8iqy+oACMaAADA0ubfEXjE1b/8yV/9GV28Mnd8H/IEQah6DWdbFfOKfImM7sBijGwAAAALktUriHB1X3+yiU9GL3+VO75PWldgN2mAXL9fgGyPnN4dVIoRDgAA4H6zbBfsDC5ZNeW62++8CVnr/p+66/tIm/f+dwCuJr4rBGAlAAAAwF0cOhX0I6F27aeuM58VRGpXQJ07vgvZJz+ufvvfYPrzXSy0gkjr5kdixAMAAFj2RG/cv4SXbvzYVaYTpl0znd3DP+iO75LR6fevMdVbPoHZL94wyB19FgAAANAY8krf+Nrtr7vKbCIqNt7M6RP+X3d8l+xT0d8LL994k4mmLG3Z+0p6V2BrYuveV8i/mas7E5JXIGd1C76KNwAAADiKrGmv2VUmQzb2URmEj7nll/8J4XJh6bpJJjfumft9DhuC1ye27XuJPC3hqn+TvGMBbwAAAHCQlLYAdUC+t4vMZft77mpHS/YRCC9dP8nkZXmyBXJOH+//3h9sYr6SfPzA8wKVa1oWJ7X7P4s3AQAAOAR5rS+/0DXH/UQNO95x1/cg9/zJJXOPXMVbum4y+fiBIap6JpD/XQs+r75wb1H9jnepPtVAngzIOhEWhTcCAAA4QG5f7NeFunU3XPLLv2HnX4SGZV90x/dINQgfIXsKuNv4w8vX30rtDKqf/RwxNVv/TsV/b0zt1g+X/M5dAWf4FPc1OKhbO+WurRoAAAAeJL5uxx9ctezvLvMniavb9oG7q+dTOvzP3fs5UjoCDVT895PL/MuWLfvCUt8762RoRKiG2s6G4uY9r+PNAAAAFiNvOdDrCnOMrdn6kTvNX9q899fuMn5yiV/avOfX8jbho/N9lidORf8zVRcMpfcGpdq0ivN0yDph6fopKmsQMnqCFHhDAACAhaR2Bh4MKvRxyVE/dx4pS+3wNwTkebtnn798/a3MvpAEG1YjPqTi30s8tvclW/8Oip7471NZ/BhWunaK3FbBmwIAACyCbPYTpl1Heae/MN3aKfL8vbu+R3ovL5fnhiuKyXP4spY9r6rGlz1oy+dK6QgYoOaehM3X7fl75PSFrCAbLVHWj0C/59d4WwAAgEWIGnb90gU3+hGZp4Rb3fUdMs6EbSb/TVebf3DxSiK1076Lc7JPh3mRy+jOX9+7grD375LZF7JPQNHfhdzuSDsZHIQ3BgAAWEBKW+BRqjvLkb/C3blnTNYXRFZu+tTV5h9RvvFmdlfQakc+Y0T5hltUfIbMHn6I/SFAUELVccTomq0f460BAACGk9Hj9/3gklUUN8nxJpI7/J525/eQtu59xdXmH1e37T1JB/+fHP2Mkua9v3F1P4DFkLcdmKDkb5HvRV4dXI63BwAAGExszfb/pdooJfrdf3BriOkOKgrMd2XRnzdZ5f+ys58zvSewhpJGSo07rjn6GWJqt35MVW2HrfUPAAAAaEZKm38l1WYZWbnxhjuN4VBv8A9DXNgPn/y1m9S2f4yKz5p9IuTfqViGJ7chHP0MR07zV5E1DNS0CfYz4S0CAACGkdUt+G5wyaopiov+pnNPBa5x6wpGLTXH6xY6+5503L+fys8rLHP+WB7ZU8CZz5DWFURJr4dQ9erpnBrhl/A2AQAAgxDV7/gN1WaZ0R1Y7M7vkNbl3+dK809p9z9D9WcW63e/RUlDoBOB25z5HNEUtSdOOn7gEt4mAABgCGltAQqqq/5lLft+6c7vQDa5cdlVuPlehLx1v9kVnzu1I6Cfis+Y2hHY5sznyD4VupdX6EvJqk/GCb+v4K0CAACaQzb8CdWsuUl1pz93tvklIS8VctWv/8TWvS+66nNnP8kTURK4Wvf/zNnPImveR0m7ZHnbgSt4swAAgOZIG/deodIsyf3oQ128fe78DhldvEpXtfoV63f/jys/u8ogfCiIgl/ezpwEuPNZTsT8h4CCgkDyEiScCAAAABqT3snfyyug9qrY1E5/t573J6+lDdGsdsnSf0z1lo9suW3PWQ6WrXO6+DKyatN1Kj6LrHX/f1Hxt0vp8D+NNwwAAGhKdOWWd6g0zOiaLW7vCJfoooY/5Ln2I73C77jjO8TVb/ub0xX42rVTVHwW8qZCKo5Rkpci4Q0DAAAaktR2oIzapX9fIvtk6BZ3fofcEyHreEW+lJu/oGgFkXaCz3dbiDm27xdO9+Qv9CGoWq1IOu7/HBV/x7RO954CAQAAsAQppwL/OVSz5haVppl8fP+4u7+HSwr/8sltjIB6d36PtM7As5TcCdDO86Xi85Bn+cM0zt8YGFuz9SO8bQAAQCMS9ftMVJpmePmGm+7YK59LZh9PTsVtevcqoWn3a+5+HjmngtMpCQCdPDlVnyn5+IHnnb8i2ZtIPhGyEW8cAADQgPTu0B/xi1ZQVjRHtrJNPx0c5e7vEVW56Qb1+/7rJmOr9v2ju79L3oDwW1ScYkjpDGii6jNldPr9K3nVsPP3QOx5FW8dAADQAHHdDkqL5mTH9r7s7u+Q2hWop9r8ySY4Gb08gaeei6DE+eN3SW0HjJSOlaZdbzh9JLBkFY4EAgCAp0npCuJReUvewdJ1U57o/R5evuEW5c1+2g6MePLZhJdtcPpOgMRje1+i8jNlng0PoGK8pHQGHHfmc9SMJX1LNybPKzEnjBcPi35XPCx6K6J2zWRI5Yqp8Lo118WtW1/O7AvxxhsOAAALEFu19RqVV+Jmdgc94e7vkN4ZVO+CGws/9fSzia7Z8nfn6xd2/ZHqzxVDwef6rJ+CXZSa5Ru0ZsmTRcOid48ORBNH+6PuKKVvPxGkXn6XeBovIrZp47UdBFYbAADgLjLag2RU9vuPq9v2vie+B3n1LZXmP1PD0MUL9fTzEVFwoiG+YftfKA9cPYE1VFyklNkV+oOl/i3tiFxYYpRcLByK+3veHMO/V6GVK+4LALMKrVoxKeoWfBVvPAAAfEZk5ab3KDPNQh/i0ImgPW4PMTMtfyle+qd42dxRJC17fuf0sbvabR+44rOFaZ0/Eig/fuC5e/97VeOih3XmxJwSU8LP8wdibh1dxPRnlf2kgAhSey0YAGZCQOWKSalh/2N46wEAnCfleOARSo/KNe/5vUd+/VdQ++uf7PaX0ZDxf+jwjOTHD0w43YmxassnrvhsstZ9rzp/VPR2Z8D6scxvqM2yqhKj+A95/THTtpj+XEU3bVjU/D9fCVg5mdYb/C94+wEAnEWlWvZARNmGj6gyzeDilUROj/Bbbv/13x1YTPWv/9TOwBq6PKfUjsBTTt/CWL7xpis+W/ppYaDDxxTzZ9oCE7Lj+4iiIdGf8/qjCXtNf64Epd42BYDZlQD5qaCvYRYAAHCS1OOBJVSaZtJxv1FPfI+Y2q0fUfk9oqo2/51OzymjO6jI6f77pWsnXfX57Dl5QW4RRVVvJpI6/YjD54VOGf5cZZ7l22z+c2sCsBIAAOAkkWUbP6Rsybx03aTQsOyL7v4OuX0hu6ns+kcebcvs40fS6TnlngyNc/r5aNdMuerzyY/7WRbto1C0goip20Kk9vgThy9EUGb6cyVq3Wp3AJgNAVgJAABwipSOwCwqe+Sn9QRVe+J7SPW7X6Py17+oYedbdHtWuWdDtzvddEe9etplKxQnhMvJExN3/Xua1YRYv5PIPMUnjvZHusT05+pg9UqHAgC2AwAAnCOqcsu7lJ2Vp+i+eXshr6cVFK+kruNfgQ+Relywkm7PSnUh8pt0DgAz46lq8/VQzRoioWU3kX062OWGf6/4Om+HA8DtEOA7Gdu37+uYGQAArCa9PSCWyl//6d2Bhz3xPZLa/c1U/voXN+18na7PzNltjuCSVS4JAGRTHrVJZigcjP/E3aY/qyMXwpc8/ocQAAAAZNe/6m1vUlgwd91T30NYun6Syl//mT3Ba+j6zPhFzl2+Q94nQNVn0V1K2aExSc8XDcV/kOch05+r1JN+Tpv/nBAwJTm995uYJQAArCO1PTAggKqe//leREZPkMIjqxi9glxqr/rd+b90fm7B6lVONdwhb+9z9N9WGYQPaUyyDLUx4cWCwZibR2lg+nMlPraNsgAwGwJE3Tv+DbMFAIBVxNVt/x1Vpumq5jK2IGrccY267oW+RBYN9/7nEqpZ61QAEBTbFwBUJuljGpOstNgo+m3eQMwU3Ux/riLq11EaAGa3AzJP876BGQMAwAqS2oPXB95Trc3EX/+5fbH/KFBRV/wX37Djbbo/O7IzoVMBQLX0FkDlxfjva0yy2plOfAPR03Q2fapOACy1EpBk2P0tzBwAAMYjrtv5C6pMM6bac7/+0zoDTlJaxNjr+Qt/loK8XtmpLYDi+QNA+cXEzRqT7IRqOP5a3gAzDP9eBZf7uCQAIAQAAFhBdmfg93hU/frP8yZy+oIyPfVdqLgel65d/xZCWLpukqoAoBmRRamNkucKB+M+YaLh338E0MtlAYBUSIXvVPbTB/4dswgAgJHI9Hv7mX7uf9lnTWeo7PyX1ulfyYTnF162weEAQDblkbbumS4xSl7KH4i9xQbTn6sgzXKXBgCEAAAAYyEv/QnTrvuUMtPsCarw1HeRH9t/lcIb/yaZ8gwj7Oi3T67QhJWunWnKc+jJUIJthj9Xh58Jd7n53wkBlSum0jpwRBAAwCBSjwcUUGea6zxqmvYZ4eJKPHbgImMCQMWmRa87JldFIqs2EUkdBwglhZfs0F2Kp0LdFgBmVwKUFxACAAAMIaZqyzXqbvzz7/fU98h9OmRdYD51jX88cXUxlQGAvGQntm4bkdoTQBy5EMkZ03f2FkDnVwIQAgAADCCjK2AzVaZJtpOVtwV92VPfJanN7zJVQSaudtt7THqOswEguGQVEd+4ncg4GUQ88Sw3TX+u0k8FuD0AzIaAfJPg25hhAAC0JaFh1wtUmab82P6fe/K7RFVvvk7Vd0np9NMx5RmqhmO+ktHHu55zNoTzhn+vUk4c8EgAmDkiWOE7ldSDI4IAABqSVSf4Kr945RQlS+ZFvkT2qejveeq7KE9HfjOokJpjjJ/djPcFWpu+Jfnr2hGphmlNedyt5D7PBYDZlYAjhqDvYLYBANAKecv+Dupuytv9hie/S2pnwFNUfReJfs+rdHxeunH5j3QjsjayKc/RgWgYvE0BYL9HAwBCAACAloSXbviYCsMkawhSu0P8PPld4mq3fUBV57+03sADdHlGWmOSQG2WjBQNxX2cB0O3fwug94DHA8BsCMB2AACAFqR38qKou/Rn8yee/C45NcIv8VW+lHwXsqOeJ78LebOedjQxVW2S/ISON+sxTal9frQIALM1ASlntqEwEADgWcT1O1+iKgAktwd2ePK7ZPYItFR9F1nr3l+43fRN0sfI/fxio/g3+YPRUzBu5p8CQAgAANCSHIPwS4LiVZQU/4WUrJomf7V68vtIWvb8jqrl/5SOgEB3fGaNWfb4nZv1+lHE57o+ADxaBYDZC4QOPYMjggAAD5B8PKCUsl/Mzft+5envE16+eBc8unQxLB+RbWT6zXqMWwE4GUi7ADC7EoDCQACA24mu2vI2JcV/Bd5ExpmwzZ78LkefjfwGVZf/yJr3vkz155sp4jNJh4uG4j9AEZ8n+gDsp2UAQAgAALidtF7/HwZSdO1vTO2Wjzz9fdK7AlupWs1I7w2KcPbzqMZFD+vMiTklpoSf5w+y72Y9pknes4e2AYCUoNSHCKteeTOidu3foxs3vBuv3/gHccvWF2QdOw2Hz/EzFWf5e1UG4WOYuQAATpPYvP8cVYaZ0cXz+FW5CU0736SqjbHDpv9ZEV+JSfxq3kAMivhoJGnnTloHgIXE0y4nhE3edxSu9yWiWlcRMcfWTscf3zCZ0LH5hrRr20dJvTvfSju57xcZp/3GM88GnM0+F1iTfVaQkX0ueL+QWPZFzHgAgDtQdfY/VLNmmg7fR1i6fpKS3v/1O/5sz79LNuVRm2Q9RcOia3loykNbJbRtZ2QAIDU3ADiqiOYVs6HhVkLH5uuSrm3vy3p2vJ3Ut/vXaaf2X84+438651xQRc55/0SF4cCmHaodD2KWBICFZBwPEFBW/Nfi+W55GSeEy6m6yCil079vSdM3yXdpTJL+oqH497GfzwzFH9vK6QBgv3yIyBYyNKyZWWmQdm/7IOOM/7NYTQCA4Ygbd/2YquNy2R3B+z39fdI6A05S08nQm0jpuv9YlopY9kDpSGKc2pgwUTAYdx2GyjzFtmxibAA42ODtoRBwv0TtG24VDAl8MIsCwEBUqmUPhKrX3KLCMCMqNt6kw3dKaN79OiXfp/zz76Pql39ZOyI7UmIUv1wwEDMJE2W2ops2MDgAeNEmAJBK6NxyAzMpAAwk9ThPTNm1v8cPjNDhO0VVbf7U6VsMC32J1E7/VzVmaV2xUfw6btZjl6Ia1jE3ANR50yoAkCJPJmA2BYBhJDTteoGSa38LfYmcHqHHLzURGpZ9kV+0wqHvQP7fxdRtIVJ7A4knLkTCKFmsiLo1jA0AYTQMAGmnD7yA2RQAhhGmXktJt7y4um3v0+H7ZD/JE9l5aoEQ6XcRmaf4xNFnYYxckbBmNXMDQK0X7QKAvHfnNcymADBp+Z/Cm/9SewLq6PCdUtr9Rpe6oji8fAMhO76PyD0XBjPkqMKqVjI2AITW0C8AkP0HMKMCwCAkjXsslDTLKV5JkEvvdPhOooadf7n38wUVeBORVZuIpI79hPJpIQwQIkIrVjA3AFTTLwCQxwMxowLApOV/7dpPqQgA4sadb9PlO802AOKrfG/v5/f4E0eeiYDpQXcpuNyXsQEghIYBQKj3IY4YhI9iVgWAASR3BIVR1iu/K0BFh++kH099RNqyh8g6LSCO9qOID1pYglJv5gaAShoGgCZvIscQEo+ZFQAGIG3c8zyFvfK/4MnvUjoqjygxJ4wXDsV/AnODbAoAOi/GBoBgmgaArDMBJzGzAsAAhLp11ylZ/tfvfMvdn11lED6Em/UgZ8RjcAAQlNMzAKSc2vdLzKwA0Jz09uD1VPXKT+/i5bnF9HGzHkRlANAuZ3AAWE7LACDr3vkuZlcAaE7ysQOU9MoPVrt2+V89kvQD3YisrdgoegOd+CAqxVTzJ8Uvo2cAEHVsuonZFQCaE1u99W1Klv+bdr5J9WfDzXqQ6xXB7ABQSs8tgOjW1QRmVwBojLKD/0+8ohXTlFyV2+1fTMVn0hqTBGqj5LnCobi/w5wgV0txPgwBwEVXBisvRH4TsywANCW1LeAJKsyfr1pBqMaXPejQfr5B+JB2NDG1xCh5KX8wFjfrQW7VIUMwowMAT7ecpgEAlwIBQGvE9bt+Rknv//rt79nz71aPy782U8RnFP8B+/mQJ5V5lsfsAKChbwDIOOt/HrMsADQlVLOOku5/KZ3+S575Lb0s+yFZxKcajr+W1x8N84FoobSTAYwOAEE0DgCpJ/f9GrMsADQkqT1wJxXmH1TgQ6gMon+b79/QXUrZoTFJzxcNxX9wdABmA9FPyX37mR0A1PQNANKe7e9jpgWAhiS27D9NRQCIqtp8/c5+/rjqQc2IPEFtkkwUDMV+CoOB6K7E7r3MDwCN9AwA8e3rb2GmBYCGxNVs/6Oz5i9QrSTSunmjKOKDmCppxy7GB4CDDfQMAFEtq3AUEAC6oVIteyC4ZNWUI6YfqllDxDduJzJP8Wcu2cnD0j7EYCUc28b8AFDvTdttgKP9oT/CjAsAjUjr4PNtNv18byKqchOR1RNMVIykEJoRGYwDYo3iWrcwPgCE1XvRNgBkP8krxIwLAI2Qtew3LGb6vAJfIr52B6E4JSRqL2UQzVblHRUOxcE4INYoVr+J+QGglr4BIP20vxkzLgA0IqZ665v39fJXrSSkTXuJo4ZoouFyzl2mP6vGiVwCLXkhNim6aQPjA0BoDX23AJJP7HkNMy4ANNr/FxStnNn/D9OsJZKP+RNFz4iIpgnFvKY/V9XPpcM0IFYpon4dCwIAfVcApF1bP8asCwBNyDVE7s7uDSHKTMlLGv690o3KYRoQqxRet4bxASCkmr4BIPb4+inMugB4mMYf5z6utypz9Bbli/Yaf/2VbKJ0TE7kD8bANCBW6WDNKuYHgCr6BoCIZl8cBQTAE+ivHPZqsSiPNFuUE3qLctou47coiZrnMogSkxhGAbFWYVUrmB8AKukbAEgdeiZsM2ZjAFyMwSD8ov7qka16q6Jcb1H81t5f+qT01tvGXzQcD4OAWK/QCl/GBwBBBb0DQM5ZXhVmZwBcQI0150vN1lye3qpoa7Yorjli+rOqu5xNqIZFMAaIMwou90EAcLHSTvtdxkwNAEU0vfDEvzRbFfF6q9LQbFV85Izpz/zqtygI3WgijvhBnJOgzJv5AaCM3gEguW/Xm5i1AXACsoiv2aLM0luUo81WxS1nTX9WDVdyiKIh/OqHOBoASpkfAPily2kdACRdWz/BDA6AnZBFfM0WZbEjlfu2qGo8jcgbiIYRQJwVT+uFAODqo4DH1k5jNgdgCWaL+JqtyoZmi+INV5j+7JK/xiyFAUAIAJrljA8APB29A0C43oeQv7jmHzDDA3APbS+qvkwW8TVbFX3NVuXfXGX6s2qayCVURhztg6CZAKBmQQDQ0jsAkFIa+HzM9gDMmP6hr5FFfM1WxUCzVXnD1aZ/Z79/IgeX+UDQZzpyIZLx5j8rugeArLMBrZj5AWdpufLE91xRxGf7Eb8sogCd/CDojhTnDyIAuO0o4P6fwAUAivg8oJrnM4m8AZg/BM1VjiEYAcBNkvfuvAZHAJwp4tNblG960vTv/PJ/PgvmD0HzKPM0jzUB4GADvQNAQsfmG3AIwOoiPr1F8T4dTH/usn8+jvlB0LxKPenHogBA72ZAMcfW4CggYAeznfjcXcRnr/njjD8ELazk3n2sCQBhdfReARDqfYgjBuGjcA/ASNqtOY+1WBRpeoviOb1VOUlH0597fS/MH4IWV2LXbgQAN+rw+WARnAQwBoJY9gX9hDKg2ao4R9df+veqceIQUTAYiwkegpaQpH0HewJAjRf9jwKeCTgJVwGMoMWq2Ovp6n1HOvzhNj8Isk3itm2sCQCh1fQPACmn9v0SzgLovb8/ofym3qq4xCTjn5FFSahNEkzsEGSj4lu3IAC48yhgz86/wmEAbWm7cuQ7eoviNcaZv1VJlI4mYlKHIDsUo9/ImgAQXEX/ACDq2HQTLgNoiWpc9WCzVfFTJpp/9Xg6JnQIslNRTevZEwAq6R8AoltXE3AaQM+lf6tSxkTzr7+Min8IckQR9WvZEwAq6B8AhE0+hPJC5DfhNoB2NFuUP2aa+TdZFLjcB4IclLBmNWsCgKCcCQHAmzh8jp8JtwH0qvi/8sT39BblNKMq/q1KQm1G0R8EORwAqlexKAAsZ0QAyDztfwGOA+j169+qyGDar/+KiymYxCHICYVWrWRNAOCXMiMApJ7c92s4DqBbAOhj1L4/2emvH/v+EOSMQip82RMAdMzYApD2bH8fjgNohd6ieJU5zX5yiaKheEzgEOSkgst8WBMAeDpmrADEt6+/BccBtGHmNj+LYoopAUA7IsPkDUEUSFDqzZ4AoGVGAIhsWYmjgIA+NF45soIp5l/zXAYmbgiiSOSyOVsCQJCGGQGAVO4F4XI4D6DJ8v/hg4w48jeRi0t+IIjKAKBlUQBQezEmAOQYgorgPIAeAcCqzGPE0r8ZS/8QRKXIX83sCQDkCgAzQkD6aX8znAfQJAAouuhu/rXPZxB5mLAhiNoAoPZiVQA42MiMFYDkE3teg/MAWtBsVT5P9yt+CwfR7Q+CqNThZ8JZZf4zAaCeGQFA2rX1YzgPoEkNgPKPdA4AOlT9QxDlyj0XigDgIcW2rZuC8wCPY3hF9ZDeqpyk79J/Jpb+IcgFyjYIWBcAwuqYUQMQ0eyLo4DA87ReVf6Azg1/CnDRDwS5RBmnA9kXAGq9GXMS4NAzYZvhQMCz+/8Tiv20XfofTcREDUEuUmqfH+sCQGgNcwJA9pNB1XAg4OkTAEm07PV/OZs4il7/EOQyyXv2sS4AhFQzpxdA2mm/y3Ag4OkAUE7Ha35VwyJM0hDkQiV27WZfAKhiTgBI7tv1JhwIeHYLwKJ8km4BoPJSGiZoCHKxJO07WBcAghkUACRdWz+BAwEPrwAof0Krdr+WXCJ/AO1+IcjVEh3byr4AUMGc+wBij62dhgMBzwYAi/IvOPMPQdxTXMtm1gUAQQVzVgDC9T6EyiB8CC4EPELHhPKf6FX4l0UcHcDEDEHuUIx+I/sCQDlzAgAppYHPhxMBj9BkPeJDr8K/eEzMEOQmRTasZ10A4JcxKwBkGYLa4ETAM8v/EwoBXQJAxaUUTMoQ5EZF1K9lXwAoXc6oAJB2ev9P4ETAQysAimxaFP5N5BL5gzGYlCHIjQqvXc26AMBjWACQ9+68BicCHqHZqmygQwDQjkgxIUOQmxVWvZJ9AUDLrC2AhI7NN+BEwFMnAPo9bf51KPyDII8otHIFCwMAs1YAolvX4Cgg8FAAsCpf9mwAUBBF6PgHQR5RSIUv6wIAKSYFAKHehzhiED4KNwIe2AJQfOTJAFA2loyJmEHKG4gi8gdjJ4uG4j8oGo5/q8SY8N8lxoQX1GbJiMYkPaMxy5pKR6WFGnPiYVLa0cRU3Zg09l6VjsgTZv5zs/SoxiSrLTFLezVmyQW1UfJcsVH8m6Ih0Z8LBuOu5/VHT+Pv7joFl/kgANBAiqcEYrgRcCsNl4/+q+eu+VXMVP3nYemffibfHz1dNBT3cYlR/IcSY4JZbZZVkYatHk1epRpXPejucVo9Lv9aqUnupzMn5pBBocQoeanIGP9eXn8MwoGTEpR6szMANDIrAGSfDTgFRwJupdV6eL27W/xWjacRalMCkTeAW/7ooILB2Mlio/hPJUbJRfKXe9kl2RomjWHy85KfW22SDquG46/lDWDFwB7xdV6sDAAHG5hVCJhyat8v4UjAvcv/V5UR7vilXz2eTpTMmD4mXM/+sicNP+46+QtaMyotJ3/Rs21Mk21VS0cS4zRmyUDRsOidPFwnvajIgjlWBoA6Zq0AJPbu+CscCbi3ANCieMJVxt84cYjQjcpxtp8Gv/DJfXrtqLReN5a0nGtjXGWSPqYdlZWR2xlYHZgnAKjZGQDCGBYA4js23oQjAfcGAKuizRXL/KWjiVji96AKB2NvqE0JVnLfXkUsewAj/bPxPp76iHZEqikaFl3LwziZURBbA0CtF8OOAq4m8IYC924BWBQjVF/kUzCEa3w9ofyBmFslxoTnS5+X7MfItq12QG1MmODyqsDhZ8JZGwBCa7wYdhLAh1BeiPwm3kzgzgDwO6rMv+FKDn71e6Bav2RY/GvdmCwNv/QdQ2NK+XbxkPg1Lo4fxVOh7A0A1V6MOwqYYxBk440EbsFgEH5Rb1F8SkkAsCjRzMed+/pDsZ9qzbJnagaSvoWR7DzFRtEbXBxHWWd5rA0AIVXMCwCZp/0v4G0EbqHtypHvUPXrv/q5dBizqzUQRRQPi97SjUhz8WufOlSW5K9z9aRA+qkA9gaASuYFgJQT+36DNxK4Z/nfqtxBVQBQmyQwaFcav1H0hvaSPBCjlnrI0xFcHVspfQdYGwCCGRgApD3b38cbCdyC/qpCTE3Vv4LAWWvXtNwlW+LqTPJdGK2uXP4Xv8HVMZbUvZe1AUBQzrwAIDq+fhJvJHBPALAoSqgIADXPZ8CwKRbZ0a58LGkfRqlrIVsMczm8Sjt3IQDQSJEtK3EUELhrC0DRR0UAKMdlPpSJ7L+vMckyMDrdg9osbeTyeEto387aAMAvY96FQKRyLwiX480Erg8AFsUVSvb/zdj/p+AM/xR5ix6K+9y+/P8ml8edqHUrewNAqRcjA0COIagIbyZwxwrAW1QEgMKhOJi4EwV+JaaE35SNpnwPI9K9VHG4+n9Wsc2bEADodxTQjLcTuJTucdXDzRbFFBUX/RxFAaCjPfpvaEfkyRiNnoHL1f+zitFvYG0AIC85YmIASD6x5zW8ncCltEwo/x9V3f9g5vbfyFdiEr9KFqBhJHqOouH4t7g+FiMb1rE3AGiYGQCkXVs/xtsJXIreqvCj5ATAczgBYO9ev9YkU2EEepb6scxvoG11FBFRu4a1ASCIoQEgtm3dFN5Q4NoAcFWRQskJgIspMHYbVTwc/yeNWfY4Rp/n4Xr1/6yENavZGwDUzAwAEc2+OAoIXEuzRVFJRQDQmGUwdxuW/NVGyXOqcdWDGHn0gGypjLEZRYRVr2R3AGj0ZmQIOHReuBVvKXBdALAqzlERAIqG42Hyi3bzi57WmqVHMeLoQ60x+9+x/H9boRW+rA4ABxuYGQByzvKq8KYC120BWJQvOn0CwKqYaVeLiXThKv/yUTmSPM0g+y1gfN5WSIUPuwNAPTMDQNppv8t4U4HrAoBV8Z6zAaDucjYm0QVUOBz3Yell2Q8x0uiHalj0NsbobQnKvFkdAMLqmdkLILlv15t4U4FLaHvxyKNULP9XXkrFJDpfsZ9R9EbdeNZXMdKw/E93kc1yWB0AapkZABI6t36CtxW45tf/hGIlFQFAN5qISfQelZgSfoZ2vvRFOyLVY5zOCQBadgeA0FpmbgHEHls7jbcVuIQmqyKEigBQbBRjEp1r/saEFzC66A15FBNj9XPx2B4Aapi5AhCu9yFUBuFDeGMB5TRfVRxyvgBQSWAp9XOpTQlXMbIYsPyPttV3BwDNclYHgJBqZgYAUkoDn4+3FlAfACyKJmcDQCNaAH9u/uYEVOwyAPWorAXjda4iWW3+pIKrmBsAsgxBbXhrAfU1AFbloLMBoGo8HRPozLK/+GWMKIYs/xvFWP6fo8PnhewPAJXMDQDpp/b/FG8toD4AWJS/cjYAlI3JUe0/JH4N3f2w/M9U5ZwLYX0AEFQwNwAk9u58B28uoBSCWPYFvUXxd2cDQIkpgdOTp2oo/s+qcdHDGFHMQGeStsL071bWGR4CAK2PAm6+gTcXUPvr/wXFv1FxAqBgMJa7TX4G425oTCnfxmhiDkXDomsw/buVfiqA/QGgjLkBILp1DY4CAmppmlBsctb8myyHONzbP2aqbDRtJ0YScygflv0Hlv/vV3LfAdYHAH7pcsYGgHC9N3HEIHwUbzCgcv8/ytkAUPNcBjcnzYFoQjcmS8MoYhbqEckxGP79knfvRQCguXKfDkrAGwwoo/mqIt/5AsBkrnb5exojiHmohuOx/D+PpB07WR8AeDpmB4CsswGn8AYDKlcAOpwNAGqzhHOTJbmHjBa/zEMzmPqfWP6fX+Lj29kfALRejA4AKaf2/RJvMaAuAFiVF1EAaJ/yB2JvVV6M/z5GDwMDgEnWDrOfX6LWLawPAKSYHAASe3b8FW8xoDAAKP7gVAHgRC7HJspoonREjn04LP+zTrHNmxAAaK74jk038RYDaibDcdWDeovypjMBoJZjBYAlJskVjBws/7NR0Y0bEABorqjW1QTeZEAJjT/OfdzZ5f/yi9wpACwYjL1RN571VYwcZqIdkXbA6BdWZMM6TgSAgw3eDA4BPoTyQuQ38TYDp2meUO5CAaCt5/2jCM2ILAqjhrkUDYvegdEvrPDa1RwJAMwuBMx+kp+Dtxk4HwCsuVJnA0DhYBxHrveV/BgjhtnL/0dxXfWiOlizihMBIKzem9EBIPO0/wW80cBp9Bal1hnz11sURB4Xlv4HYibrxzK/gRHD4ABglnXC5BdXWPVKbgSAOmYHgJQT+36DNxpQEQBOOdUB8PlMTkyM2lFZNUYLw5f/h0R/hskvrpBKX24EgBpmbwFIe7a/jzcaOB8ArAqLMwGgggMFgEXD8Th3y/xf/49j+d+GAFDuw4kAEMLwACA6vn4SbzVwvgbAovwTCgAXKfzrjyJ0o9JojBQs/3NBgjJuBIDQamYHgMiWlTgKCJyjxprzJb1FOe1UAeAQuwsAi4cTXsNIwfI/V8Qv9eJEAAiuYnYAmLkU6IJwOd5s4Piv/6uH/z9nCwCPDrD72J/OJN+FkYLlf84EAN1ybgSASuYHgBxDUBHebuD4/v+EMsCpDoDPZ7G7459R/CuMEiz/c0k8DUcCQAXzA0DGmYARvN3A8QBgPZyOAsBF9v7x658dy//Dor/A3G0TF8yflKCc+QEg+cQebE8CJwKARVnjTADQmKWsnQhVRvH/YIRg+Z9LeqI/kkMBYDnjA4C0a+vHeMOB4zUAFuV5ZwJA0VA8a3/9V4zJgzFCmI/aJOuBudsm5dMHORMA+KXMDwCxbeum8IYDJ7YAlD9DB8D5zv2L3sHowPI/15RjEHAoADB/CyCi2RdHAYETKwBW5d8cDQB1LC4A1JpkKoyO+ZfTyy7Kt5c+L9mvG5PG6sZkaRpz4mFSpSOJceT/n3pEGlB6WfZDFbHsAY//+h9J+kHeAIzdVmWeCeJMAODpmL8CMHMU8KnQ7ZiZgN20XHnin50rAExh6XW/MTdV46oHuTouVOOih0kzLzElPF1slPxSNRT/58LBuBt5/Xbuow+QxyhjpgqH4j5RDYveLjEl/Fxtkhl0I9JcnTnZG8v/9FPaCT/uBAAtOwJA9rnAGrgZsJsmq3K1UwWAI+wsANSYJENcGwvkaYcSs2S0aFj0nt1G73CPhZgp1XD8tRJjgrl0VJ5ZPS7/GvXL//FY/rdDyb37uBMANOwIAGmnD1yBmwH7A8CEIsypAsBh9hUAzjT+GZf/iAvPn7zZUGuWPFk0FPchXf72RUNxH5MrBeQWTN141lex/O9eJXbt4UwAIMWGAJDct+tNuBmwG71VqXSqA2B/NBuL/65xwfg1Jul58hc4vcNY9MwlTORnLbskW2Pv99SapH0wdfskbd/FsQDA/ELAhM6tn8DNgAMBQNGMAsB7r/yV1rP5mWtMsva8/phpJh7LLByO+1Btlp0lf9nbVMswLHoXpm6fxG3bORUADjYyfwUg9tjaabgZsD8AWJTDDhcAXmJfAWBef/S0yiR9jI3PunJQtpLcb2fFsxqIJoqN4j9pR2XV+vHUR+b7vuQpBDauULlaopbN3AoA9cwPAOF6H0JlED4ERwN20WxV/rejAUDLwgLAYqP492x8zrox2cGCgZhJVjZsGoyeUpsTLt+7RYDlf8cU07wRAYCBUpzjCeBowGYIYtkX9FbFdXQA/Fw6U2Il68zfnJhDrmyw37yiieIh8Wuz3RuLsPzvkKIa13MqAITWebEiAGSe5R2HqwGbaZpQftPhAkCrgmBbdTV59I0sjmPTMy4dlUfkDXDB/O+uFSC3B7D875gi6tdxKgCE1bJjBSD91P6fwtWAzTRaFVscLgC8zL4CQLLZDZuer3o0eVXBYOwkTA2yR+G1a7i1AlDDjgAg792J1uXAjv3/CUUsCgDnNv+RnmHLsyVb8KIBDuSIDtas4lQACKlmxxaAuGPzp3A1YDN6i6IQBYCfq9Qk92PLs0UBHOSowqpWcCsAVLEjAES3rsFRQGBHALAquhwvABSxrPd/7CRrfv1bkr+eT/MGPxB9FVrhy6kAEMySABCu9yaOGISPwtmAbVsAFuU4CgA/2/83iv+HNXv/JukwjAxyVMFlPtwKABXsaAc8cyvg00EJcDZgWwCwKl9HAeBtkTfGseLXv0H4UP5A7C0YGeSoBGXenAoAggov1gSArLMBp+BsYEnaXpT/g96qnHQkAFReTGXdpDd7dpzpaMyyApgY5Iz4Oi9uBYBy9gSAtJN7X4a7gSVpmFB83/ErgGUsu/0vepotbTRLjOJfwcQgZ8TTcisA8MvYEwASe3b8Fe4GlqTFqtiLDoCf3f43FP8+W55rwWDMTZgY5FQA0HAsAJSypwYgvmPTTbgbWBL9hCIRBYC3VWKS/BcbninZxTAPBgY5KS6Z/0wA0LEnAES1ribgbmDpAGBRlOIK4M8aAJllnWx4pmUjchkMDHJGTzwbwbkAQG55sCUACJt8COWFyG/C4cCiNFuVZ9AB8LMLgEZkiWx4pmqzrAsmBjmj3KfDOBgAlrMoAHgT2U/yc+BwYPEAYFH+2KEOgGYZG1cAHmfDM9WYJEMwMcgZZT8p4FwAIMWmAJB52v8CHA4ssQKg+LNDBYDD7CoAJO+SZ8szLTFJrsDEIGeUcToIAYDhSjmx7zdwOLAgVS/l/iMKANl3AkBtTrgEE4OcUepJf24GgEb2BABpz/b34XJgQVosud7oAHhbxcMJr7EnAMjOwsQgZ5TUs4+TAeBgA3sKAePbNkzC5cAiy/+5PBQAfnYE0JjwAlueq9YsL4GJQc5I1rmbmwGgjj0rAJEtK3EUECyM3pKbiQLAO3cAGNjyXCsvxn//6ABMDHJckvYdnAwAYSwKAKRyDEIfOB2YfwXAoqzDFcCfBQCzrIpNz7ZwKO4TGBnkqMTHtnEyAITWsiwAPBlYDKcDC2wBKC+gAPCzHgDmRFadmdWYpOdhZJCjimvZzM0AUOPFqgCQcSZgBE4HFtgCUP4CBYCf9QAYkUWxKgCYZY/n9UfDzCCHFKPfyM0AUM2uAJDct+d1OB1YaAvgA7sLAC+msHLCK7+YuJltz1dtTrgMM4McUVTjek4GgJAqdgUAaefWj+F04D7aXjz0NRQAzlkBGEz9T7Y945lLgQajp2BokL2KqFvDzQBQya4AENu2fgpuB+b59Z+7Dh0AP1fdeNZX2ficS0elhbgZELJX4bWrORkAglkWACKafXEUEMyz/2/NDbe7ANCSSxxl6b6yyiB8iK3PusQo/hVMDbJHB6tXcjIACMrZFQBIHTov3ArHA3fRYlEeQQHgZxqIYnVKVpmkjxUMxX0EY4NsVWglAgBrbgU8F1gDxwN3rwBYFK3oAPjZRUD90axfJtOZk73zB2NvwdwgWxRS4cvNAFC2nHUBIP30gStwPHB3DYBVYUIB4GcBgOUrAHfqAUxyv/yBGBQFQksquMyHkwGAX8q+FYCk3l1vwfHAvSsAv7W/A2A8ayc8NtcAIARA9kpQ5o0AwBIldG79BI4HPt8TJlQPNFuVN+wrAFSwtgCQVPW4/Gtcef5aY5IgfzB2EkYHLSS+zouTAYCnZd8WQOyxtdNwPfD58v9PDn0bBYB3i7xAh0tjgGx8lD8U+ynMDppPpBFyMgBo2BcAwvU+nFnhBDbQMqHchg6A91wGNJq8imvjQDcu/1HRUPwHMDzoXgVpuBkAglgYAEgpnuaHwPnA7QBgPSyyuwBwRMbqCa9iTB7Mye2gcdHDJSbxL2B60F0BQL2cs2JjAMg6E9gO5wO3twAsymIUAN4t7YjsCJfHhMYkO8HGWx4h+3X4mXBuB4BG9gWA9FP7fwrnAzPoLcpedAC8ZwtgRHKM6+NCNyZLy8fdAZzXoadDOB0ADjawLwAk9u58B84Hbq8AWJXPowDwnsuATJIhjIxly3Qm+a7CobhPYITcVfZZPrcDQD37AoC4Y/OnmN3A7ArAH1EAeLdKTAk/x8i4DXkxEu4P4K4yTgdyOgCE1bOvF0B06xocBQTLlhleUT3UbFFMoQDwbhUNx/8Fo+Pe1YDEyryB6GmYIreUcuIAtwNArRcLjwJ6E0cMwkcxq3Gc1qvKH6AA8H6RjXEwOu6n9HnJ/sKheGwJcEhJPfs4HQBCa73ZeRTwKYEYMxrX9/8nFPtRADjfhUBkHUDKtzFC7oe8TbBkWPxrmCM3JOvcze0AUOPFzqOAZwNOYTZDAWCyXQWAz2dxZuIrG5HLMEIWRm2WVWFLgP1KaN/O6QAQUs3OAJB2cu/LmMVQAFiBK4AX6gUgPYcRsjjlo/KtBUNxH8Eo2SvRsa2cDgDBVewMAIk9O/6KGYzrAcCqNNgTADRmKWcmvmKj6A2MEBu2BPrlX1abEq7mwSxZqdiWzdwOAJXsDADxHRtvYvbi/BaA4qcoAFygEHAgZgojxHZ0Zpk2rz8GWwIsU3TTBm4HgAp2tgOOal1NYNbiegCwKN5FAeDCKh9L2odRYjulZvkGbAmwS1GN6zkdAAQV7FwBIKW8EPlNzFocpWNC+U/2FQBmcm7yU5tlZzFS7NwSGI75SolR/DLMkx2KqFvD7QBQxt4AcOgp/iHMWFz99X9V4YsCwCUbAqFQxtEtATQOYoWENas5HQD4LA4AGWf8n8VMxdUCwAmFAAWAS/QDGIgiNGbZ4xgtDm4JmOR+BYNx12GkzNXB6pXcDgCly1kbAFJO7PsNZimO0mRVZKMAEDcDupr6scxvFBvFr8NMmanQyhWcDgA8HXsDgLR7+weYobi6AmBRNtpTAMjVY15FwyLcC0ABGpP0/NEBGCrTFFzuw+0AoGXvFkB82wa0POdsDYBVMWBrAKjlYAHgHQ1EEWTDG4wY59GaZKq8ftQFMCoAlHE7AJBiawCIal6Jo4AcDgCv4ApgW08DJFzGiKEG9Yg8NH8w9hbMlRnil3ojALA0AJDKMQh9MCtxMQBYlB+jANA2FQzGTpId7zBqqEFnTvYuHI77EAZLf/F0XggAjewNALnnAosxI3GMFkvu11EAaJ80ZlknRg51kP0Cio3i38NkaR4ANAgABxu82XwUcBSzEcfQX83dgAJAe1cBYm6qDMKHMHoo3hIwSYdhtPRVkGY5AkADewsBk/v2vI5ZiGM0WXIjUQDoyCqAtA6jh3q0ZsmTOCFAR0Vy3vxJhdWzdwVA2rn1Y8xAXNv/tx4+ig6A9qtwMO6Galz0MEaQC0LAqLQ+DyGAVlI+E44AQAaAOvYGgNi2dbj0jHsBQHkcBYCOify1ihHkohBw+5ggxhlNdOhcKAIAGQBq2LsFENHsi6OA3AsAijEUADrYHrg/ZrryYvz3MYpcg8YsK8gbQAiggzLP8hEA1MuJEBYHgJlbAQ3BOzDzcGsF4Pe2FQAqUAA4j4qNkpcwily4EjAiO4KVAM8r/WQgAgAZAKrZHQCyzwXWYNbhCAaD8It6i/KmTQWAl1EAuFB3QO1oYipGk+vQmWVa1AR4Vikn9iMAqJcTwVXsDgDppw9cwYzDEfSW3P9EB0DnlT8U+2ndeNZXMaJch3pU1oLTAZ6TvGcPAgAZACrZHQCSene9hdmGIzRdzd1pewGgDBPhIioxJryAEeXiEGCWncVY84yknTsRAMgAUMHuACDp3HwdMw1X9v8thxNQAEhVQWAUoR2RajCqXBwCTJKfYLy5Xwlt2xEA1MsJAcsDQOyxtdOYZbgSAKxKta0dALH8akMIGIiZUo8mr8LIch2qcdWDRcPxb2G8uVfxx7YiAJABoJzdFwKF630IdDnlSg2AVXkCHQCpVdFQ/Pv68dRHMLpcR/W4/GtFQ3EfY7y5T7EtmxAA1MsJfim7AwApxdP8EMwynNgCUE7YVgCYjEnQnqOBw6LfYXS5llKzfAO54oLx5h5FN21AAJgJAF6sDwBZZwLbMcNwYgtA8RY6ALrorgCT9DxGmGvRjcnzsDXlHkXVr0UAUC8neDr2rwCknT7wImYXltM9rnpYb1FO2xIACofiMAk6UhQ4KqvGSHMtaqPkOYw31yu8bg0CABkAtOwPAIm9O9/BzMJyWiaU/w8FgK4OAdFE6ag8E6PNdcwUBQ7Fv4/x5loJa1YjAJABQMP+ACDu2PwpZhaWo7cq/NAB0B0nA6KndWPSWIw411F2Ub6d/DtjvLlOYVUrEQA+E9sDQMyxNTgKyPoAcFWRggJA94WAshG5DKPOdWhMshMYa65TaOUKmP+dAODF8qOA3sQRg/BRzCosptmiqEQBoFu3A6Z15sQkjDwXbQUQyx4oGhb9BWPNNQou94X5zwaABm/WrwIcOs+XYFZhcwCwKs6hAND9NQG6EWkuRp9r0Jnku3BzoGskKPWG+X+mg/XsDwBZZwNOYUZh8xaARfkiCgA9EwLIK24xAl1DiUlyBePMBQFA5wXz51AASDu592XMJuzeAngXBYAeqwkgNCZZKUYh9ZBdAvMHYm9hnFErHgLAHYXWsb8ZkKx7x3uYTVhKw48zvoICQFpcHnQOo9EFBYFmaR3GGMUBQAvjn1VYLftXAETtG29iJmEpjVeOrEABIF2uEZa8RJ5lx6iktiCwcCj+E4wv6gTjn7MCUMP+ABDVuprATMLa5X9lMAoA6SPVsOhtcukaI5PCVYBRaTnGFlWKgPHPUUg1+7cASOU/E/FtzCRsLAC0KnOWMv8miwIFgG5UwVDcR7qxpOUYnVSuAsT9HWPLeSnOh8H4ORgADj3FP4SZhI0rAFZlw9JXAGdh8nOzyOI17YhciBGKVQA66ZAhGMY/R8GV3AgAGWf8n8UswsoAoBhYKgCUX0zB5OehY4Jqs6wKo5SCVYBx1YP5AzE4EeCkMs/yYPxzA0DFck4EgOQTe36LWYSdAeAVFADS+4SA2pRwFcWBzqM2SYcxppxT2skAGP8cCSq4sQIg6972AWYQdgaAj1AASH8VG8VvqCzJX8eIdWIbwCx7HN0BnVNy334Y/9wAUM6NABDftmESMwjLaLHkfh0FgMxR4WDcJ+Ujso0YuY5TbBT/HmPJcSV274XxzxG/jBsBIKp5JY4Csg391dwNSxcAogMgrYoDB6OnNKOyDIxex9CapUcxjhyXtGMXjH9uACjlRg0AqRyD0AczCItosuRGogMgAzUQTahNsh6MYAeKAQ3Ch8gQhXHkmBKObYPxzw0AOu4EgNxzgcWYQdi0AmBRPIECQAZ3DjQl/Fw1LnoYI9k+SoziX2H8OKa41i0w/jnicSgAZJzxH8XswaoCQOVxFAAyW0XDondrxpK+hdFsxzbAiCwbY8cxxeo3wfjnBgAtdwJAct+e1zF7sGoFQDm6aAHgRO7MMTRMfDTvHDgYe73skmwNRrTt2wB5A9HTGDv2K7ppA4z/HnElAEg7t36M2YNdKwC/XywA1KAAkEHFgbG3tJfkgRjVtlE0LLqGcWO/IurXwfQ5GgBi29ZNYeZgy68gQvWA3qL4dNEOgGMoAGRY58BpjQknBGyqAzBLn8GYsV/hdWtg+vcGgEZuBICI5hU4CsgW2q4c+c5S+/9qswSTHtNCwEA0oTEnHsYIXxz1iDwU48V+CWtWwfTv0cEGL86sAigNwTswe7Bi/z93OwoA2XuHgG5EmotRvtgK2LIH8gZicBzQToVVrYDp3xsA6rw51AsgsBazBwtosR4WLd4BEAWACAEsDwHDoncxVuxTaIUvTP8ehXEoAKSfPnAFMwcbCgAtyuJFOwA+l4EJjw0hwJyYg9G+QB2AMeEFjBP7FFzuA9O/R6G13AkASb273sLMwYotAGXvYgGgDB0A2VITMK0dkQsx4u9HZ5K2YozYJ0GZN0z/3gBQw50aAEnnluuYOdgQAKyKy4sWAJrQAZBFfQIm0SdgngAwJjuI8WFnAChFALgvAFRzJwDEHls7jZmDHSsAf1wsABQMxWLCY1MIGIr7SNUv/zJG/px3YDz1kaO4Htgu8bReMP17FFLFnQAQrvchyEZamD0YjOEV1UPNFsUUCgC5JbVJ8mOM/rvJH4ydxNiwIwBoYPj3KphDAYCU4hxPgJmDwbReVf5g8Q6AKABkZ1FgFKEdkR3BG/A55MoIxoYdAQCGf38AqOBWAMg6E9iOmYPBNE8o9i9aAIgOgOxtGTwQe0tlSf463oLbFBvFb2Jc2KYjFyJh+PNIUM6tAJB66sCLmDmYXQCYhA6AXN4KSLDiLbgNeaUyxoRtUpw/CMNHACDkvbv+jJmD2QGgfNECwEEUALK9PwBOBdxGY5IMYUzYphxDMAx/vgBQtpxTAUDcsflTzBxM3gKwKJ9cuADwECY7DqjYKPkl3oRly9RmyWmMB9uUeZoHw59H/FJuBYCYY2twFJDRKwAWxQsLFgCiAyCHugQme2MFQNaO8WCbUk/6wfDnDQDc2gII13sTRwzCR+GkjA0Ayr+gABDSmCUDnA8AZmkdxoJtSu7dB8OfRzwtt1YASB06z5fASZlo/uOqRxbvAIgCQO50CIzj/F6e1iwvwViwTYldu2H4CAAzyjgTcAZuykCarEd8UAAIzUp7SR7I7RWAxMMYB7ZJ0r4Dhj+fNNwLAGkn974MN2ViAaA1l7dgAeAECgA5tw1gkp7n8vtQOirPxDiwTeK2bTD7BcS1ACDr3vEe3JSR+/+5mSgAhGZVNCy6xukAMJKowDiwTfGtW2D2CwWARm4FAFH7hltwUyYGAKuifuECwCRMdFzrDDgYy+kXuXRUWohxYJti9Bth9gvoYAO3AkBUyyoCbsrIFQDFswsFgBJTAiY6rmkgiuBya2CdWabFOLBNUY3rYfYLBYB6b85tA+Q/E/FtOCrjAoDyFygA/PwsPCb2KEI3JjvI2VMAo7JqjAHbFFm/Fma/gMLquBcAcp7i5cJRmbcF8OF85t/IsQLAvMHoqdLnJfsLB2NvoBBQlsHV90FtkvXA3G2TsGY1zH6hAFDrxcGjgP7PwlEZRNuLh7620K//6vF0Tk1mJcaE/yb/JvVjmd/g+o1wOrO0mKvvhMYsfRbmbmMAqF4Fs19AobXcWwFIPrHnt3BVBtE0oVyLAsBZ05NpZ/8uKmLZAyVmySi5H87RFYBazq4AGCXPwdxtU2jVSpj9Agqp9ubgUcBtH8BVGUSLVSlEAWAUkTcQTVSPy792336wWXo0fyBminstgRMPc/WdwHXAtiukwhdmv2AA4N4WQPzxDZNwVQbRbFUcRgFgFKEajl/w7LtuXP4j8j/n0sSuHpGHcvWdKDaK/xfmbpuCy3xg9gsouIp7ASCqeSWOAjLrBICiFQWAUYR2RHpysb8TuSVAdsjjyikBMvRw9Z0oGop/H+ZumwSl3jD7hQJAJfcCwMxJAIPQB87KnBUA07wFgBzqAJjXH0WUXZKtseXvVToqj2D7KYGCwdibXH4nCgZjbsLcbRNf5wWzXygAVCznaADgq+GsTAkAFuVv5i8AlHNmEisciv/Ynr+Zql/+ZbVJOnx0gJ2rAbOnIbgKekHYEQC0CAALSVDBzRWAjDP+o3BWBqAiVA80W5U3uF4AWGJOGHfk70c2yyHDA/sKAGVNXH0nyK0PGLvtIm+9g9kvEADKuBkAkvv2vA53ZQCt1pxvLVQAmD/AnQJAzYgsyuEQNa56UGOSnWDLr0bye9SMJX2LswHAnJgEY7cjAKixArCQ+BwNANLOrR/DXZlQAHj1yNb5zL9hIodLF99MkgV+ThvHSOqeImP8e4xfDTGJX+XyO6Exydph7Lbp8DPhMPrFAoCOmzUAcW3rpuCuTAgAFmXcfAGg6jnudAAsMYp/ReXfVDsi1eQPxNxiZi+EKEJ3KWUHl98JtTFhAuZum3LPhcLoFxGPowEgonkFjgIyogDQqiyaLwCUcqgA0BUtb1Um6WNkXQHTtgWKjZKXuP5OFA+L3oK526ZsgwBGv1gA0HJzC4CU8in+Ljgs3VcArIqueQsAjdwoACQNmjRrl+0nj0l9S4zil/MY0E64YCBmkst7/7MwdfXGE8o4HQijXywAaJZzNgDkGHi1cFi6rwBYlOPzFgAOxnBiAis2iv/klsIyk3xX8XDCa3m0/VtEE9rRxFSuvw+awdT/zIOx26zUPj8Y/RLiagBIO+lngcPSfwvg9fs6AF7hTgfAErO0151/7/KxpH3FpoTf0Kl/AGl4WpO0D28DWb8hy4ax2y55zz6Y/FIBoJGbASCpb9dbmFFoTNuL8n/QW5WT93cATOPGBDYQRVQOylZ64m9fapZvKDEl/CxvIHra03+DElPC03gbPisAJJs7wdhtVmLXbpj8EjrI0QAg6dxyHTMKjWmYUHx/3g6Ao9woACwcjPP4WVWVJfnrZA+BwsG4Tzxw++G0dlRWjTfhc4qGRddg7LZL0r4DJr9UAGjgZiFgzLG105hRaEyLVbF3/g6AYo4c/5NcpNPzKBuRy0qMkpfyBqNdfvVw0VD8B2RdAt6COWFsXPVgXn/MNIzddomObYXJL6Gwem6uAITrfQiVQfgQZhaa0mRVyu41f/1MB0BuFACSl/rQ0ogMwod05sQcsj8BeSkPxZf83CB/9VPR+IhtVIzJg2Hq9imuZTNMfgmF1nlzthAw9zwvFDMLXQsALQrd/QWA3OgAmD8Ye4spJlg+Kt+qNsl6yFME5C2E9h4pJL8rebmPxiTLwKhfmBKz9BmYun2K0W+EyS+1AlDD3V4AWU8GtmNmoWsAsCpO39cBcDyNI8v/4pcZu1TdL/8y+WtVY5bWqU0yQ4lZMqo2SX5CtvAlVw3UpoSrGpOkn+xIyPWufnb9XYdF78LU7VNkw3qY/BIK4XAASD114EXMLLRdAVD++L4OgBwpANSNyfMwAsAd8zdJH8sbwBXA9iqifi1MfqkAUM3dACDv2fUOZhf6bgFcuzcAFBvZXwBIVr/XjWd9FSMAzKI1y0tg6PYrvHY1TH4JBVdxNwCI2zd9itmFhrS9qPqy3qKcvrcAkAu/goqG49GgAtxFsVH8exi6/TpYvRImv1QAqORuAIg5tgZHAemI/sphr/uuAOZIAaB2RNqBEQDm1lTg+J9jCq1cAZNfKgBUcDcAhOu9yaOAj2GWoRlNFmUQJwsAyetuzcneGAHgzvK/SaaCmTumkApfmPwSEnA4AJA6dJ4vwSxDtxUA6+H0+wsAE9m//D8U9yGePrhrBcAo/h+YuWMKLvOByS8VAMqWczoAZJwJOINZhm4BwKKsub8AUMSB438JZjx9MIvGlPJt8kpomLljEpR6w+SXEL+U2wEg5eS+VzDT0Ixmi/L8XQHAQnYAZP9ESJ6fx9MHd5b/zZInYeSOi6/zgskvGQC4vQUg697xHmYaugUAq/LnXCsAJDvi4cmDuXjiEiY2iaeFwS8ZAHTcDgCi9g2Yd2kYAP52dwFgKhcu/3kJTx58vvwvy4CJOxkAYPBLigxJXA4AUS2rCMw2NKLlyhP/fO/+v44DBYAac+JhPH0wi2pY9DZM3DnB4G0IABpuBwBSR56J+C5mHJrQZFWu5loHwLz+6Gn9eOojePqApOyifHseDNwpHX4mHAZvo7geAHKe4uVi1qFLAJhQhN3fAZDdVwAXG8Vv4MmDWchLk2DizknxVCjM3eYAwO06gMwz/v2Ydeiy/29RKOYGgPor2ayfrNQjkmN48oCkfES28Sgu/nFaWWd5MHdbA0ADt1cAkk/s+S1mHpqgtyqa5waAykupLF/+jyJKL8t+iCcPZn79m8SvwsCdV/qpAJi7jQrjeACQdW/7ADMPXVYArIqhuwoAR9hdAFg0FI/BB2bQjaTuwa9/apTSdwDmbqMO1nM7AMQf3zCJ2Yc2AUD533MDgGqY3R0ANSbJEJ46WIbKf0qV1L0X5m6jQuu4XQMQ1bwSRwHpAEEs+4Leovg7lwoAtZfkgXjyoHRUngnjpk7Szl0wd1sDQK0X508CKAyClZiFPEzb89n/flcB4GV2FwAWDMbexFMHqnHRw4VD6PpHpRLat8PcbQ0ANd44CmjgqzETeXr533J4M5cKAEtMkv/CUwcas2QApk2tRK1bYe42KqQaKwAZZ/xHMRN5GL1VGcOlAkCNWdaJp85tbjf9QeEf1Ypt3gRzRwCw/Shg357XMRt5egXgqiKfSwWAef0x02Vjch6ePEeX/ollDxQNx/8Vhk29YvQbYO42KrgSASChe9vfMSN5OgBYFZ13CgAtZAEg+38Z5Q3ETGmNSQI8fU4u/V+AWbtGkQ3rYO4IADYrtm3dFGYkj28BKC5xqQPg51cBR09VjMmDMQK4Axn68nDm32WKqFsLc7dRggoEgIjmFTgK6PEVAIvyfz4vAEzj1ISFlQDuUD+W+Y3CwdgbMGrXSVizGuZuawAoRwAgpXyKvwuzk6f2Q8dVDzZbFbdmA4B2VMa5SYsMAaVmqQijgd37/qph0R9h0q5VWPVKmLutAaAMAeD2UUBeLWYoD9H449zH5xYAFrG8AHCRq4EJ7YhUgxHB1n1/6SAM2vUKrfCFudsofimuBCaVdsrPghnKU8v/E8pdnxcAKghuH42KJjQm6RmMCpbt+5vlJXkwZ7copMIH5m5rANAhAJBK6t35FmYpTwUAa650NgDUXc7GJDbTKEj8qn489RGMDuajG5PG5g1ET2Ncu0eCMm+Yu43iIQDMSNK5+TpmKo8FAIWGKx0A7b0tUDcm9cUIYbD5X0rZkT8QM4Xx7D7xS71g7rYGAC0CAKmYY2unMVt5KgBYFCc/7wAowyR2950Bk7oRaS5GCfMov5i4OX8g9hbGsZsDgBYBwB4hAHgT4XofQmUQPoRZywPorQoL1wsAFy8OjCJKjJKXVP3yL2O0MIOS51LWkRc+Yfy6XzwEAAQAB5R7nheKmcsjAUD59u0rgBUEGqQsrMLhuA/LR+VbMWJovuxvku8qGIyB+XsqAGhg6nYFgEaYP6mss4EdmL3cTPe46mG9RTl9uwAwCxOYDUcF1SbpMNk7AaOHfpANnfIHYycxVj2lSJi6nTrYgF4ApFJPHXgRM5ibabQc+tHs8n/FpRRMYLYWCA7H/003kroHI4hGv/xHpLmo9vesDp8XwtTtVFg9AgApee+uP2MWczMtV3P973QARAGg3asB5H3yqA3wPGTvhrwBjElPK+dcCEzd3gBQB/MnJW7f/ClmMjfTbFGm3ikAHIrHJObQSYG4TzVmWQFGk/tRDcd8pdgkfgXjkB7KOsODqdup0FqYP6no1jU4CuiBAsCqzwsAMYE5uS3wV1wq5D7IY34FQ3EfYezRR+mnAmDq9gaAGmwB3D4K6E0eBXwMM5t7A8BTMwWAz6MAkBINRBMlpoSf68zJ3hhdrkNtljZiv59+Su47AFO3NwBUIwDM6tDZEBlmN7duASj+CwWArqkPINsJVw7KVmKUUVjoN5a0vNgofhNjjJ6Sd++FqdupkCoEgFllnAnAPSxuXQGwKP9KBgANCgBdeGxQ8hPduPxHGG1O7PUTyx7Qjkg78Kuf3pJ27ISp26lgBIA7Sjm57xXMdm6i7cUjj37eARAFgC5fETCKf1U2Judh5Nn7q18ai71+Zkh8fDtM3d4AUIEAMCtZz473MOO569f/hGLl7BXAR/vRAdBdbYWLhkR/1Y7KytD7enHKLsq3FxvFvz+K4lTGSNS6BaaOAOCwRO0bbmHmcxNNVkUIOgB6TvmDsbc0Zukg6gTuhuzjX2IUv3wUbakZp9jmTTB1OyUoRwCYVVTLKgIzoLsKAK8qDqEAkA4nB25fPawxSc9zuVZAPSIPJQsn87AaxVhFN26AqdsbAMpwIdBcHXkm4rtwZ/cUADaiAyD9agWKh+P/pB2V1lePy7/G+jE4nvqIxiytKxoWvZuH5894RTasg6nbKX4pAsBcZZ8TKODO7lgBsCoG0AGQ3mGArBfQmCRDmhFZFFkJz5aK/rIRuazElPCzvIGYKTxr9ii8djVM3e4AgC2Auco8498Pd3ZPAHiFLADELy+m1AxETxUbxa9rzLLO8hHZRqb90icv6ykxJfw0fyD2Fp4nO3WwZhVM3U7xtFgBmKvkk3t/B3d2MQSx7AvNFuXH6ADI4BWCwegp1bDo7RJjglk7IjtCp2JC0vDJX/kas+SCajj+Gvb1uaGw6pUwdQQA544Cdm/7AA7tYuqvHv3GTAHgRRQAsioUDERPFxnj3yMvyCFvKtSMSst1Y7KDmsHU/3TVcr56NHmVzpyYozbJDCUm8a8Kh+M+hOFzUyGVvjB1ewOAGgFgruKPb5iEQ7v6F9rV3A0zHQDNKADkUDgg8gdibpEnDoqHRW+RZ+xLjJKX1OaEy2qTdFhrljypMclOfKZ2tVnWRf6/1WbJafI/J//3io2SXxYbxf9bNCx6L38w9iaMHrorAJT7wNQdkLAJdQCzimxZgaOAbjgBEEUGgMKhOExcEARRIkEZAoAjOtiIADBXCoMAvVFcGgCsyjy9JZdAlzUIgqgSWdEOQ3cgADTA9Ocqx8BXw6VdeQLAomivfT4TkxYEQdQFAB3M3KEAUA/Tv/tWQP9RuLRrtwBGKy4mY9KCIIgy8TQwc0cUVgfTv+soYN+e1+HSLu0BoPy9xizFpAVBEGWCmTsYAGpRAzBXkq5tH8OlXYTBIPyi3qL4FAWAEARRpSf6I2HmDiq0FqY/V7HH103BqV1E25Uj32maQAEgBEHUSfn0QZi5gwqphunPVUQzjgK6cvl/BwoAIQiiUjkGAczc4QCALYB7lfs0bzfc2iVNgBRiFABCEESlMs8EwcwdVHAVAsD9RwF5tXBrl5wAUJSgABCCICqVdsIPZu5oAKhEALhXaaf8LHBrl2wBKPoKUAAIQRCFSu7dBzN3NABU4D6Ae5XUu/MtuLULaJw4dBVXAEMQRKUSu/bAzB2UoBwrAPcdBezYfB1u7QJqnsv4CyYsCIKolLR9F8zc0QBQhgBwr2KOrZ2GW1NMw3DG/ykbS57GhAVBEJUSt22HmTsoPgLAfQrX+xA5BuGX4NoU0vTCoR9qzBJMWBAEUSpRy2aYuaMBQIcagHmPAp7nhcK1qQwAlsMHCoZiMWFBEESpYpo3wswdFA8BYF5lnQ3sgGtTWQB4JScXBYAQBFGtqMb1MHNHA4AWWwDzKf3Uvv+Ca1NIxaWUJzFZQRBEtSLq18HMHQ0AGqwAzCd5784/w7UpRDuS+DImKwiCqFZ47RqYuROC4d8vcfumT+HaFFJsEr+HyQqCIKp1sGYVjNyZANAIw79X0a1rcBSQSvIHYqYwWUEQRLXCqlbAyJ3QQQSAeY4CehMqg/AxODdFlI4kxmlN0r4So/jlwuG4D/MGotETAIIgpxVa4QsjdyYANKAQcD4dOhsig3O7EPVo8irtiFSjNkqeUw3HXysYjLmJCQ2CIHsUXOYDI3dCYfUw+/mUcSbgDFzazWjMsse1o4mpGpP0fIlR/IeCwdgbOD4IQdBCEpR5w8idUGgdzH4+pZzc9wocmQbox1Mf0RqTBLoRWVuJUfJS0VD8B3n90Zj8IAgi+DovGLkzAaAWZj+fZN073oP70hSVQfiQ7lLKjrlbCCg0hCDuiWxmAyN3XCE1qAGYT6L2jbfgtCzYQjg6gEkSglgbADQIAE4FgGoEgPkU1bKKgKOygPqxzG/oxqSx2EKAIPYJJu5kAKhCAFhIR56J+C4clI1bCOOih8m6Ao1JVju7hZCHLQQIYpSeeDYCJu6kgisRABZSzlO8XLglx44masyJh7GFAEH0V+7TYTBxZwNABQLAQso8498PV+Q4NWNJ37pdV/D/t3evP03dcRzHTbaYbNkeLFlcnCGGPbSACGMYZkfAEUUuLY77pQgtl7LBOjbMRImGWoqG25QBU0EGqNjFaLTCYWG6LFl4PJe4JXtiZvZkC9kWL9nYpMtBaUpdS0oP5fSc9yv5/ANA+/2R7/f3+5pG3S2Ea7QQCFnrWC7qKOJBRscBwPdVwNG3f6ICwmcLQZwraBUqZmghEBL61J/PpIgHewCwsxDIV4xntX9S7RBQC2HhaqJgnOAhI0JWN3Vj6RTxIJPdxgHAVwynEv+lqiG4q4mCOcJ9NVHYd5tbCIRIk5rhNIp40AcAWgC+Uti3lauAWIUWwtXq55e8bjhhmGVBEiGBxTSYShEP9gBg4wDgLx85dLFULIS2hTBZ+fWRyfK7tBAI8Z3K08kU8SCTdZQWgN+rgI7sVioT1q6F4Kzb7Pm6Ycv1sgcHuIVAiGvfgJYiHuwBwMoBwO9WwHO7v6IKQd4thMdXE2khEFWlrC+JIi5BKPS+UzOy8w4VB2HXQhCvJh5ylsxRKIhSU9y7nQIuyQGAOQBfqRzS3qeyIHxbCP+zIIm5AqKEFJ1IoIBLcQD4hELvK6WnEh5RRaCsFsK3tRtsX5qqrILxgng1scVZdp/XDUm4paA7ngIuQd7hAMBWQKj8UODIW2+7YU72bCEc5HVDIuPkd8VRwCVIbg+FfjHF/XHzxiHtvXfH0r6zXMxq+cCR9xzVAaqeK2BBEpFjcjtiKeASZG+3OmcACj6NcRnObJ+rHdl5p2F8z/jHjox4vvGBZXRNWjbapo2lXrcQKEokpNl7nAOAJAeALuUfAPJ7o1wlA6/PVw1rf68/v/umZVxXn+da9wzf5oAULYQnC5KsgqnL3UJwFtNCIKuWnGMxFHApDgCdyjsAFPVvc1WcSfqrbiztR8sXGZ1NVwpf5VsaWIMWgveCJFoIRIro7dEUcAmS0xHeB4CC3piFxT3Vn6f8Vn8h3dnk0CfzzQvIVOd0zabHVxNNo+4WAguSSIDR2aMo4Co8AHgO6jU69O1NVypf5FsVUEALQZwraBUqZsQWQjO3EIifiItsKODBR39cw6AeABm3EFiQRLwiLrKhgCvnAMCgHoBlWQVzhPt1Q2HfbVoI6kymleItRXTHNAzqAQjjFoL3gqQJwywLkhR+AKB4S3MAaNcwqAdA2S0EFiQpJ/sv51O8pToA2DUM6gFQSQvBWbfZc0FSy/WyBwd4yCis0ngph+ItUbLbNAzqAaCFsOR1Q+YKZBvLeDbFW6oDgG0Lg3oAsFwLoZnXDWWR+vMZFG+JkuXnAMCgHgB4thCmTJGeLQSuJoY+5tFdFG+pDgBWDYN6ALBSvTfrXqCFELpUD6dRvIOKxqVri3LldmybM/Ql/cygHgBI6LAjb73thjl5SQuB1w0liWkwlSIe4H/5Oe0x80U9CX9UDGi/MQ+npvAJBYAQE+cKrFNV+z1bCCxICiwVp9+isPud7I9y5Xdu+9vQl/SD6UxqW7Jr3bN88gBAhromLRtt08bSJS0Erib6TPnADgr9YrE/qhFXIz8qPpn4a+Vg8vh7I1mRfKIAIIwtLkiyCqauxRbCQW4hLKS0L0mdBd+6RVyDPF/QHf+w/DPtrYbRPaV8UgBAJdxXEwXjhFpvIRSfTFTJHX2NOKj3T2lv4i/Vg6nDdmfxS3wCAABundM1m9S0IKnoxBuKH9SrHUlP5S8bABCwxRaCOFfQKlTMLLQQrimjhVDQHc+gHgAAgfB83fDIZPndcGwh5HXGMagHAECwrII5wntBkpxbCLkdsWEzqPf+SIaBvzAAQNh4akHShGG2+WrJvBwOAHuPb5XloF7VUMrY4auZL/PXAwBQHO8FSYecJXOhPgDo26MZ1AMAYK1ZnXWbQ7kgSW+PZlAPAAA5Ws0FSWJhXsVBvVnTYMply7mM1/gtAgAgEe8WQvMKXjfMsmkY1AMAINxZp0yR3i0EfwuSxF78Sgf1xGt4H17K2cBPHQAAGeqZbnjlqQVJT1oI4n/wDOoBAKAS4uuGx6ar9eX9b94q7Em4p2+PmdfZo10F3XEPywd2fF89tKuRnxIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABC4j8iWwzupsRBcgAAAABJRU5ErkJggg=="
+  },
+  "connections": [
+    {
+      "oauth2Type": "authorization_code",
+      "key": "oauth2",
+      "label": "Shopify OAuth 2.0",
+      "comments": "Authenticate requests to Shopify using values obtained from the Developer Console.",
+      "inputs": [
+        {
+          "placeholder": "Authorize URL",
+          "required": true,
+          "shown": true,
+          "comments": "The OAuth 2.0 Authorization URL for Shopify",
+          "key": "authorizeUrl",
+          "type": "string",
+          "default": "https://YOUR-SHOPIFY-DOMAIN.myshopify.com/admin/oauth/authorize",
+          "label": "Authorize URL"
+        },
+        {
+          "placeholder": "Token URL",
+          "required": true,
+          "shown": true,
+          "comments": "The OAuth 2.0 Token URL for Shopify",
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "https://YOUR-SHOPIFY-DOMAIN.myshopify.com/admin/oauth/access_token",
+          "label": "Token URL"
+        },
+        {
+          "placeholder": "Scopes",
+          "required": false,
+          "shown": true,
+          "comments": "A space-delimited set of one or more scopes to get the user's permission to access. A list of all scopes is available at https://shopify.dev/api/usage/access-scopes#authenticated-access-scopes",
+          "key": "scopes",
+          "type": "string",
+          "default": "write_orders read_customers",
+          "label": "Scopes"
+        },
+        {
+          "placeholder": "API Key",
+          "required": true,
+          "shown": true,
+          "comments": "Obtain this by creating an app at https://partners.shopify.com/",
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "API Key"
+        },
+        {
+          "placeholder": "API Secret",
+          "required": true,
+          "shown": true,
+          "comments": "Obtain this by creating an app at https://partners.shopify.com/",
+          "key": "clientSecret",
+          "type": "password",
+          "default": "",
+          "label": "API Secret"
+        },
+        {
+          "placeholder": "Host",
+          "example": "YOUR-SHOPIFY-DOMAIN.myshopify.com",
+          "comments": "The domain of your Shopify platform, without the https://",
+          "required": true,
+          "shown": true,
+          "key": "host",
+          "type": "string",
+          "default": "YOUR-SHOPIFY-DOMAIN.myshopify.com",
+          "label": "Host"
+        }
+      ],
+      "documentation": {
+        "description": "The Shopify component authenticates requests through a OAuth 2.0 credential.\nInformation on how to generate an OAuth 2.0 app with Shopify can be found [in their documentation](https://shopify.dev/apps/auth/oauth)\n\nNow, you will have to configure OAuth 2.0 settings in Prismatic.\nCreate a new Shopify connection of type **OAuth 2.0**.\n\n-   Enter the **API Key** and **API Secret** that you got from the Shopify developer dashboard.\n-   For **Scopes** choose from the list found on the [Shopify documentation](https://shopify.dev/api/usage/access-scopes#authenticated-access-scopes)\n"
+      }
+    },
+    {
+      "key": "adminApiAccessToken",
+      "label": "Admin API Access Token",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Generate from the 'API credentials' tab of a private Shopify app that you own",
+          "example": "shpat_00000000000000000000000000000000",
+          "key": "adminApiAccessToken",
+          "type": "password",
+          "default": "",
+          "label": "Admin API Access Token"
+        },
+        {
+          "placeholder": "Host",
+          "example": "YOUR-SHOPIFY-DOMAIN.myshopify.com",
+          "comments": "The domain of your Shopify platform, without the https://",
+          "required": true,
+          "shown": true,
+          "key": "host",
+          "type": "string",
+          "default": "YOUR-SHOPIFY-DOMAIN.myshopify.com",
+          "label": "Host"
+        }
+      ],
+      "documentation": {
+        "description": "An **admin API access token** can be used for testing purposes as you develop your integration.\nYou can create an access token from the **API credentials** tab of a private Shopify app that you create.\n\nBefore publishing an integration for customers, we recommend you switch to OAuth 2.0 authentication to give your users a single button-click experience.\n"
+      }
+    }
+  ],
+  "actions": {
+    "createWebhook": {
+      "display": {
+        "label": "Create Webhook",
+        "description": "Creates a webhook for the desired topic in your Shopify store"
+      },
+      "examplePayload": {
+        "data": {
+          "webhook": {
+            "id": 1155048997017,
+            "address": "https://hooks.prismatic.io/trigger/EXAMPLE",
+            "topic": "carts/update",
+            "created_at": "2023-02-09T12:18:11-07:00",
+            "updated_at": "2023-02-09T12:18:11-07:00",
+            "format": "json",
+            "fields": [],
+            "metafield_namespaces": [],
+            "api_version": "2022-04",
+            "private_metafield_namespaces": []
+          }
+        }
+      },
+      "key": "createWebhook",
+      "inputs": [
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "products/create",
+          "model": [
+            {
+              "label": "app_subscriptions/update",
+              "value": "app_subscriptions/update"
+            },
+            {
+              "label": "app/uninstalled",
+              "value": "app/uninstalled"
+            },
+            {
+              "label": "bulk_operations/finish",
+              "value": "bulk_operations/finish"
+            },
+            {
+              "label": "carts/create",
+              "value": "carts/create"
+            },
+            {
+              "label": "carts/update",
+              "value": "carts/update"
+            },
+            {
+              "label": "checkouts/create",
+              "value": "checkouts/create"
+            },
+            {
+              "label": "checkouts/delete",
+              "value": "checkouts/delete"
+            },
+            {
+              "label": "checkouts/update",
+              "value": "checkouts/update"
+            },
+            {
+              "label": "collection_listings/add",
+              "value": "collection_listings/add"
+            },
+            {
+              "label": "collection_listings/remove",
+              "value": "collection_listings/remove"
+            },
+            {
+              "label": "collection_listings/update",
+              "value": "collection_listings/update"
+            },
+            {
+              "label": "collections/create",
+              "value": "collections/create"
+            },
+            {
+              "label": "collections/delete",
+              "value": "collections/delete"
+            },
+            {
+              "label": "collections/update",
+              "value": "collections/update"
+            },
+            {
+              "label": "companies/create",
+              "value": "companies/create"
+            },
+            {
+              "label": "companies/delete",
+              "value": "companies/delete"
+            },
+            {
+              "label": "companies/update",
+              "value": "companies/update"
+            },
+            {
+              "label": "company_contacts/create",
+              "value": "company_contacts/create"
+            },
+            {
+              "label": "company_contacts/delete",
+              "value": "company_contacts/delete"
+            },
+            {
+              "label": "company_contacts/update",
+              "value": "company_contacts/update"
+            },
+            {
+              "label": "company_locations/create",
+              "value": "company_locations/create"
+            },
+            {
+              "label": "company_locations/delete",
+              "value": "company_locations/delete"
+            },
+            {
+              "label": "company_locations/update",
+              "value": "company_locations/update"
+            },
+            {
+              "label": "customer_groups/create",
+              "value": "customer_groups/create"
+            },
+            {
+              "label": "customer_groups/delete",
+              "value": "customer_groups/delete"
+            },
+            {
+              "label": "customer_groups/update",
+              "value": "customer_groups/update"
+            },
+            {
+              "label": "customer_payment_methods/create",
+              "value": "customer_payment_methods/create"
+            },
+            {
+              "label": "customer_payment_methods/revoke",
+              "value": "customer_payment_methods/revoke"
+            },
+            {
+              "label": "customer_payment_methods/update",
+              "value": "customer_payment_methods/update"
+            },
+            {
+              "label": "customers/create",
+              "value": "customers/create"
+            },
+            {
+              "label": "customers/delete",
+              "value": "customers/delete"
+            },
+            {
+              "label": "customers/disable",
+              "value": "customers/disable"
+            },
+            {
+              "label": "customers/enable",
+              "value": "customers/enable"
+            },
+            {
+              "label": "customers/update",
+              "value": "customers/update"
+            },
+            {
+              "label": "customers_marketing_consent/update",
+              "value": "customers_marketing_consent/update"
+            },
+            {
+              "label": "disputes/create",
+              "value": "disputes/create"
+            },
+            {
+              "label": "disputes/update",
+              "value": "disputes/update"
+            },
+            {
+              "label": "domains/create",
+              "value": "domains/create"
+            },
+            {
+              "label": "domains/destroy",
+              "value": "domains/destroy"
+            },
+            {
+              "label": "domains/update",
+              "value": "domains/update"
+            },
+            {
+              "label": "draft_orders/create",
+              "value": "draft_orders/create"
+            },
+            {
+              "label": "draft_orders/delete",
+              "value": "draft_orders/delete"
+            },
+            {
+              "label": "draft_orders/update",
+              "value": "draft_orders/update"
+            },
+            {
+              "label": "fulfillment_events/create",
+              "value": "fulfillment_events/create"
+            },
+            {
+              "label": "fulfillment_events/delete",
+              "value": "fulfillment_events/delete"
+            },
+            {
+              "label": "fulfillment_orders/cancellation_request_accepted",
+              "value": "fulfillment_orders/cancellation_request_accepted"
+            },
+            {
+              "label": "fulfillment_orders/cancellation_request_rejected",
+              "value": "fulfillment_orders/cancellation_request_rejected"
+            },
+            {
+              "label": "fulfillment_orders/cancellation_request_submitted",
+              "value": "fulfillment_orders/cancellation_request_submitted"
+            },
+            {
+              "label": "fulfillment_orders/cancelled",
+              "value": "fulfillment_orders/cancelled"
+            },
+            {
+              "label": "fulfillment_orders/fulfillment_request_accepted",
+              "value": "fulfillment_orders/fulfillment_request_accepted"
+            },
+            {
+              "label": "fulfillment_orders/fulfillment_request_rejected",
+              "value": "fulfillment_orders/fulfillment_request_rejected"
+            },
+            {
+              "label": "fulfillment_orders/fulfillment_request_submitted",
+              "value": "fulfillment_orders/fulfillment_request_submitted"
+            },
+            {
+              "label": "fulfillment_orders/fulfillment_service_failed_to_complete",
+              "value": "fulfillment_orders/fulfillment_service_failed_to_complete"
+            },
+            {
+              "label": "fulfillment_orders/hold_released",
+              "value": "fulfillment_orders/hold_released"
+            },
+            {
+              "label": "fulfillment_orders/line_items_prepared_for_local_delivery",
+              "value": "fulfillment_orders/line_items_prepared_for_local_delivery"
+            },
+            {
+              "label": "fulfillment_orders/line_items_prepared_for_pickup",
+              "value": "fulfillment_orders/line_items_prepared_for_pickup"
+            },
+            {
+              "label": "fulfillment_orders/moved",
+              "value": "fulfillment_orders/moved"
+            },
+            {
+              "label": "fulfillment_orders/order_routing_complete",
+              "value": "fulfillment_orders/order_routing_complete"
+            },
+            {
+              "label": "fulfillment_orders/placed_on_hold",
+              "value": "fulfillment_orders/placed_on_hold"
+            },
+            {
+              "label": "fulfillment_orders/rescheduled",
+              "value": "fulfillment_orders/rescheduled"
+            },
+            {
+              "label": "fulfillment_orders/scheduled_fulfillment_order_ready",
+              "value": "fulfillment_orders/scheduled_fulfillment_order_ready"
+            },
+            {
+              "label": "fulfillments/create",
+              "value": "fulfillments/create"
+            },
+            {
+              "label": "fulfillments/update",
+              "value": "fulfillments/update"
+            },
+            {
+              "label": "inventory_items/create",
+              "value": "inventory_items/create"
+            },
+            {
+              "label": "inventory_items/delete",
+              "value": "inventory_items/delete"
+            },
+            {
+              "label": "inventory_items/update",
+              "value": "inventory_items/update"
+            },
+            {
+              "label": "inventory_levels/connect",
+              "value": "inventory_levels/connect"
+            },
+            {
+              "label": "inventory_levels/disconnect",
+              "value": "inventory_levels/disconnect"
+            },
+            {
+              "label": "inventory_levels/update",
+              "value": "inventory_levels/update"
+            },
+            {
+              "label": "locales/create",
+              "value": "locales/create"
+            },
+            {
+              "label": "locales/update",
+              "value": "locales/update"
+            },
+            {
+              "label": "locations/activate",
+              "value": "locations/activate"
+            },
+            {
+              "label": "locations/create",
+              "value": "locations/create"
+            },
+            {
+              "label": "locations/deactivate",
+              "value": "locations/deactivate"
+            },
+            {
+              "label": "locations/delete",
+              "value": "locations/delete"
+            },
+            {
+              "label": "locations/update",
+              "value": "locations/update"
+            },
+            {
+              "label": "markets/create",
+              "value": "markets/create"
+            },
+            {
+              "label": "markets/delete",
+              "value": "markets/delete"
+            },
+            {
+              "label": "markets/update",
+              "value": "markets/update"
+            },
+            {
+              "label": "order_transactions/create",
+              "value": "order_transactions/create"
+            },
+            {
+              "label": "orders/cancelled",
+              "value": "orders/cancelled"
+            },
+            {
+              "label": "orders/create",
+              "value": "orders/create"
+            },
+            {
+              "label": "orders/delete",
+              "value": "orders/delete"
+            },
+            {
+              "label": "orders/edited",
+              "value": "orders/edited"
+            },
+            {
+              "label": "orders/fulfilled",
+              "value": "orders/fulfilled"
+            },
+            {
+              "label": "orders/paid",
+              "value": "orders/paid"
+            },
+            {
+              "label": "orders/partially_fulfilled",
+              "value": "orders/partially_fulfilled"
+            },
+            {
+              "label": "orders/updated",
+              "value": "orders/updated"
+            },
+            {
+              "label": "payment_schedules/due",
+              "value": "payment_schedules/due"
+            },
+            {
+              "label": "product_listings/add",
+              "value": "product_listings/add"
+            },
+            {
+              "label": "product_listings/remove",
+              "value": "product_listings/remove"
+            },
+            {
+              "label": "product_listings/update",
+              "value": "product_listings/update"
+            },
+            {
+              "label": "products/create",
+              "value": "products/create"
+            },
+            {
+              "label": "products/delete",
+              "value": "products/delete"
+            },
+            {
+              "label": "products/update",
+              "value": "products/update"
+            },
+            {
+              "label": "profiles/create",
+              "value": "profiles/create"
+            },
+            {
+              "label": "profiles/delete",
+              "value": "profiles/delete"
+            },
+            {
+              "label": "profiles/update",
+              "value": "profiles/update"
+            },
+            {
+              "label": "refunds/create",
+              "value": "refunds/create"
+            },
+            {
+              "label": "scheduled_product_listings/add",
+              "value": "scheduled_product_listings/add"
+            },
+            {
+              "label": "scheduled_product_listings/remove",
+              "value": "scheduled_product_listings/remove"
+            },
+            {
+              "label": "scheduled_product_listings/update",
+              "value": "scheduled_product_listings/update"
+            },
+            {
+              "label": "selling_plan_groups/create",
+              "value": "selling_plan_groups/create"
+            },
+            {
+              "label": "selling_plan_groups/delete",
+              "value": "selling_plan_groups/delete"
+            },
+            {
+              "label": "selling_plan_groups/update",
+              "value": "selling_plan_groups/update"
+            },
+            {
+              "label": "shop/update",
+              "value": "shop/update"
+            },
+            {
+              "label": "subscription_billing_attempts/challenged",
+              "value": "subscription_billing_attempts/challenged"
+            },
+            {
+              "label": "subscription_billing_attempts/failure",
+              "value": "subscription_billing_attempts/failure"
+            },
+            {
+              "label": "subscription_billing_attempts/success",
+              "value": "subscription_billing_attempts/success"
+            },
+            {
+              "label": "subscription_billing_cycle_edits/create",
+              "value": "subscription_billing_cycle_edits/create"
+            },
+            {
+              "label": "subscription_billing_cycle_edits/delete",
+              "value": "subscription_billing_cycle_edits/delete"
+            },
+            {
+              "label": "subscription_billing_cycle_edits/update",
+              "value": "subscription_billing_cycle_edits/update"
+            },
+            {
+              "label": "subscription_contracts/create",
+              "value": "subscription_contracts/create"
+            },
+            {
+              "label": "subscription_contracts/update",
+              "value": "subscription_contracts/update"
+            },
+            {
+              "label": "tender_transactions/create",
+              "value": "tender_transactions/create"
+            },
+            {
+              "label": "themes/create",
+              "value": "themes/create"
+            },
+            {
+              "label": "themes/delete",
+              "value": "themes/delete"
+            },
+            {
+              "label": "themes/publish",
+              "value": "themes/publish"
+            },
+            {
+              "label": "themes/update",
+              "value": "themes/update"
+            }
+          ],
+          "comments": "Provide a string value for the topic you would like to point your webhook at. You can chose from the list found in the Shopify docs: https://shopify.dev/docs/api/admin-rest/2023-04/resources/webhook#event-topics",
+          "key": "webhookTopic",
+          "type": "string",
+          "default": "",
+          "label": "Webhook Topic"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the URL the newly created webhook will post to. You can use this input to configure your Shopify trigger.",
+          "key": "postUrl",
+          "type": "string",
+          "default": "",
+          "label": "Post URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "JSON",
+              "value": "json"
+            },
+            {
+              "label": "XML",
+              "value": "xml"
+            }
+          ],
+          "comments": "Provide a string value for the format you would like your webhook to return.",
+          "key": "webhookFormat",
+          "type": "string",
+          "default": "json",
+          "label": "Webhook Format"
+        }
+      ]
+    },
+    "deleteInstanceWebhooks": {
+      "display": {
+        "label": "Delete Instance Webhooks",
+        "description": "Delete all webhooks related to this instance"
+      },
+      "key": "deleteInstanceWebhooks",
+      "inputs": [
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteWebhook": {
+      "display": {
+        "label": "Delete Webhook",
+        "description": "Delete a webhook by ID"
+      },
+      "examplePayload": {
+        "data": null
+      },
+      "key": "deleteWebhook",
+      "inputs": [
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "The ID of an existing webhook",
+          "key": "webhookId",
+          "type": "string",
+          "default": "",
+          "label": "Webhook ID"
+        }
+      ]
+    },
+    "listWebhooks": {
+      "display": {
+        "label": "List Webhooks",
+        "description": "List all webhooks or webhooks for this instance"
+      },
+      "examplePayload": {
+        "data": [
+          {
+            "id": 1155048997017,
+            "address": "https://hooks.prismatic.io/trigger/EXAMPLE",
+            "topic": "carts/update",
+            "created_at": "2023-02-09T12:18:11-07:00",
+            "updated_at": "2023-02-09T12:18:11-07:00",
+            "format": "json",
+            "fields": [],
+            "metafield_namespaces": [],
+            "api_version": "2022-04",
+            "private_metafield_namespaces": []
+          },
+          {
+            "id": 1155049029785,
+            "address": "https://abc-123.ngrok.io/",
+            "topic": "carts/update",
+            "created_at": "2023-02-09T12:19:31-07:00",
+            "updated_at": "2023-02-09T12:19:31-07:00",
+            "format": "json",
+            "fields": [],
+            "metafield_namespaces": [],
+            "api_version": "2022-04",
+            "private_metafield_namespaces": []
+          }
+        ]
+      },
+      "key": "listWebhooks",
+      "inputs": [
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Show only webhooks that point to this instance",
+          "key": "showOnlyInstanceWebhooks",
+          "type": "boolean",
+          "default": "true",
+          "label": "Show only instance webhooks"
+        }
+      ]
+    },
+    "listCustomers": {
+      "display": {
+        "label": "List Customers",
+        "description": "List all customers connected to your platform"
+      },
+      "key": "listCustomers",
+      "inputs": [
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 1000.",
+          "example": "20",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the page offset for the given object's results.",
+          "example": "3",
+          "key": "pageInfo",
+          "type": "string",
+          "default": "",
+          "label": "Page Info"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createCustomer": {
+      "display": {
+        "label": "Create Customer",
+        "description": "Create a new customer"
+      },
+      "key": "createCustomer",
+      "inputs": [
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "John",
+          "comments": "Provide a string value for the first name",
+          "key": "firstName",
+          "type": "string",
+          "default": "",
+          "label": "First Name"
+        },
+        {
+          "required": true,
+          "example": "Doe",
+          "comments": "Provide a string value for the last name of the customer",
+          "key": "lastName",
+          "type": "string",
+          "default": "",
+          "label": "Last Name"
+        },
+        {
+          "required": true,
+          "example": "someone@example.com",
+          "comments": "Provide a string value for the email of the customer",
+          "key": "email",
+          "type": "string",
+          "default": "",
+          "label": "Email"
+        },
+        {
+          "required": false,
+          "example": "+18005555454",
+          "comments": "Provide a value for the phone number of the customer",
+          "key": "phone",
+          "type": "string",
+          "default": "",
+          "label": "Phone"
+        },
+        {
+          "required": false,
+          "example": "This is an example note.",
+          "comments": "Provide a value for a note on the customer",
+          "key": "notes",
+          "type": "string",
+          "default": "",
+          "label": "Notes"
+        },
+        {
+          "required": true,
+          "comments": "This flag will enable emails to be sent to the customer.",
+          "key": "verifiedEmail",
+          "type": "boolean",
+          "default": "false",
+          "label": "Verified Email"
+        },
+        {
+          "language": "json",
+          "comments": "Provide a JSON array containing address objects ",
+          "required": true,
+          "example": "\"[\\n    {\\n      \\\"id\\\": 1053317299,\\n      \\\"customer_id\\\": 1073339466,\\n      \\\"first_name\\\": \\\"Mother\\\",\\n      \\\"last_name\\\": \\\"Lastnameson\\\",\\n      \\\"company\\\": null,\\n      \\\"address1\\\": \\\"123 Oak St\\\",\\n      \\\"address2\\\": null,\\n      \\\"city\\\": \\\"Ottawa\\\",\\n      \\\"province\\\": \\\"Ontario\\\",\\n      \\\"country\\\": \\\"Canada\\\",\\n      \\\"zip\\\": \\\"123 ABC\\\",\\n      \\\"phone\\\": \\\"555-1212\\\",\\n      \\\"name\\\": \\\"Mother Lastnameson\\\",\\n      \\\"province_code\\\": \\\"ON\\\",\\n      \\\"country_code\\\": \\\"CA\\\",\\n      \\\"country_name\\\": \\\"Canada\\\",\\n      \\\"default\\\": true\\n    },\\n  ]\"",
+          "key": "addressList",
+          "type": "code",
+          "default": "",
+          "label": "Address List"
+        },
+        {
+          "placeholder": "Values",
+          "required": false,
+          "comments": "The names of the fields and their values to use when creating/updating a record. You can use this input to specify the key and value of any property that is not already in Prismatic.",
+          "key": "fieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Values"
+        },
+        {
+          "required": false,
+          "comments": "Provide a valid currency format",
+          "example": "USD",
+          "key": "currency",
+          "type": "string",
+          "default": "",
+          "label": "Currency Format"
+        },
+        {
+          "required": false,
+          "example": "Style",
+          "comments": "For each list item, provide a string you would like to tag the product with.",
+          "key": "tags",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Tags"
+        },
+        {
+          "required": false,
+          "comments": "Determines if the customer is tax exempt.",
+          "key": "taxExempt",
+          "type": "boolean",
+          "default": "false",
+          "label": "Tax Exempt"
+        },
+        {
+          "language": "json",
+          "comments": "Provide a JSON array containing metadata objects ",
+          "required": false,
+          "example": "[{\"key\":\"myKey\",\"value\":\"myValue\",\"type\":\"single_line_text_field\",\"namespace\":\"global\"}]",
+          "key": "metafields",
+          "type": "code",
+          "default": "",
+          "label": "Metafields"
+        }
+      ]
+    },
+    "deleteCustomer": {
+      "display": {
+        "label": "Delete Customer",
+        "description": "Delete an existing customer"
+      },
+      "key": "deleteCustomer",
+      "inputs": [
+        {
+          "required": true,
+          "example": "028302",
+          "comments": "Provide a value for the unique identifier of the customer. This value can either be an Id, email, or phone number.",
+          "key": "customerId",
+          "type": "string",
+          "default": "",
+          "label": "Customer"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getCustomer": {
+      "display": {
+        "label": "Get Customer",
+        "description": "Get a customers information and metadata by Id"
+      },
+      "key": "getCustomer",
+      "inputs": [
+        {
+          "required": true,
+          "example": "028302",
+          "comments": "Provide a value for the unique identifier of the customer. This value can either be an Id, email, or phone number.",
+          "key": "customerId",
+          "type": "string",
+          "default": "",
+          "label": "Customer"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "updateCustomer": {
+      "display": {
+        "label": "Update Customer",
+        "description": "Update the information and metadata of an existing customer by Id"
+      },
+      "key": "updateCustomer",
+      "inputs": [
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "028302",
+          "comments": "Provide a value for the unique identifier of the customer. This value can either be an Id, email, or phone number.",
+          "key": "customerId",
+          "type": "string",
+          "default": "",
+          "label": "Customer"
+        },
+        {
+          "required": false,
+          "example": "someone@example.com",
+          "comments": "Provide a string value for the email of the customer",
+          "key": "updateEmail",
+          "type": "string",
+          "default": "",
+          "label": "Email"
+        },
+        {
+          "required": false,
+          "example": "John",
+          "comments": "Provide a string value for the first name",
+          "key": "updateFirstName",
+          "type": "string",
+          "default": "",
+          "label": "First Name"
+        },
+        {
+          "required": false,
+          "example": "Doe",
+          "comments": "Provide a string value for the last name of the customer",
+          "key": "updateLastName",
+          "type": "string",
+          "default": "",
+          "label": "Last Name"
+        },
+        {
+          "required": false,
+          "example": "+18005555454",
+          "comments": "Provide a value for the phone number of the customer",
+          "key": "phone",
+          "type": "string",
+          "default": "",
+          "label": "Phone"
+        },
+        {
+          "required": true,
+          "comments": "This flag will enable emails to be sent to the customer.",
+          "key": "verifiedEmail",
+          "type": "boolean",
+          "default": "false",
+          "label": "Verified Email"
+        },
+        {
+          "required": false,
+          "example": "This is an example note.",
+          "comments": "Provide a value for a note on the customer",
+          "key": "notes",
+          "type": "string",
+          "default": "",
+          "label": "Notes"
+        },
+        {
+          "placeholder": "Values",
+          "required": false,
+          "comments": "The names of the fields and their values to use when creating/updating a record. You can use this input to specify the key and value of any property that is not already in Prismatic.",
+          "key": "fieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Values"
+        },
+        {
+          "required": false,
+          "comments": "Provide a valid currency format",
+          "example": "USD",
+          "key": "currency",
+          "type": "string",
+          "default": "",
+          "label": "Currency Format"
+        },
+        {
+          "required": false,
+          "example": "Style",
+          "comments": "For each list item, provide a string you would like to tag the product with.",
+          "key": "tags",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Tags"
+        },
+        {
+          "required": false,
+          "comments": "Determines if the customer is tax exempt.",
+          "key": "taxExempt",
+          "type": "boolean",
+          "default": "false",
+          "label": "Tax Exempt"
+        },
+        {
+          "language": "json",
+          "comments": "Provide a JSON array containing metadata objects ",
+          "required": false,
+          "example": "[{\"key\":\"myKey\",\"value\":\"myValue\",\"type\":\"single_line_text_field\",\"namespace\":\"global\"}]",
+          "key": "metafields",
+          "type": "code",
+          "default": "",
+          "label": "Metafields"
+        },
+        {
+          "language": "json",
+          "comments": "Provide a JSON array containing address objects ",
+          "required": true,
+          "example": "\"[\\n    {\\n      \\\"id\\\": 1053317299,\\n      \\\"customer_id\\\": 1073339466,\\n      \\\"first_name\\\": \\\"Mother\\\",\\n      \\\"last_name\\\": \\\"Lastnameson\\\",\\n      \\\"company\\\": null,\\n      \\\"address1\\\": \\\"123 Oak St\\\",\\n      \\\"address2\\\": null,\\n      \\\"city\\\": \\\"Ottawa\\\",\\n      \\\"province\\\": \\\"Ontario\\\",\\n      \\\"country\\\": \\\"Canada\\\",\\n      \\\"zip\\\": \\\"123 ABC\\\",\\n      \\\"phone\\\": \\\"555-1212\\\",\\n      \\\"name\\\": \\\"Mother Lastnameson\\\",\\n      \\\"province_code\\\": \\\"ON\\\",\\n      \\\"country_code\\\": \\\"CA\\\",\\n      \\\"country_name\\\": \\\"Canada\\\",\\n      \\\"default\\\": true\\n    },\\n  ]\"",
+          "key": "addressList",
+          "type": "code",
+          "default": "",
+          "label": "Address List"
+        }
+      ]
+    },
+    "listProducts": {
+      "display": {
+        "label": "List Products",
+        "description": "List all products connected to your platform"
+      },
+      "key": "listProducts",
+      "inputs": [
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 1000.",
+          "example": "20",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the page offset for the given object's results.",
+          "example": "3",
+          "key": "pageInfo",
+          "type": "string",
+          "default": "",
+          "label": "Page Info"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getProduct": {
+      "display": {
+        "label": "Get Product",
+        "description": "Get the information and metadata of a product by Id"
+      },
+      "key": "getProduct",
+      "inputs": [
+        {
+          "required": true,
+          "example": "74020090",
+          "comments": "Provide a value for the product Id. This value can either be an Id or a product title.",
+          "key": "productId",
+          "type": "string",
+          "default": "",
+          "label": "Product"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteProduct": {
+      "display": {
+        "label": "Delete Product",
+        "description": "Delete an existing product"
+      },
+      "key": "deleteProduct",
+      "inputs": [
+        {
+          "required": true,
+          "example": "74020090",
+          "comments": "Provide a value for the product Id. This value can either be an Id or a product title.",
+          "key": "productId",
+          "type": "string",
+          "default": "",
+          "label": "Product"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createProduct": {
+      "display": {
+        "label": "Create Product",
+        "description": "Create a new product"
+      },
+      "key": "createProduct",
+      "inputs": [
+        {
+          "required": true,
+          "example": "Classic T-shirt",
+          "comments": "Provide a value for the title of the product",
+          "key": "title",
+          "type": "string",
+          "default": "",
+          "label": "Title"
+        },
+        {
+          "required": false,
+          "example": "<strong>Try our classic fit!</strong>",
+          "comments": "Shopify gives you the option to specify a body formatted in html to be displayed along the rest of the product information.",
+          "key": "body",
+          "type": "string",
+          "default": "",
+          "label": "Body HTML"
+        },
+        {
+          "required": true,
+          "example": "T-shirt",
+          "comments": "Provide a value for the type of product.",
+          "key": "productType",
+          "type": "string",
+          "default": "",
+          "label": "Product Type"
+        },
+        {
+          "required": true,
+          "example": "Burton inc.",
+          "comments": "Provide a value for the vendor of the product.",
+          "key": "vendor",
+          "type": "string",
+          "default": "",
+          "label": "Vendor"
+        },
+        {
+          "required": false,
+          "example": "www.myimages.com/product1",
+          "comments": "Provide a valid url containing the image for the product.",
+          "key": "imageUrl",
+          "type": "string",
+          "default": "",
+          "label": "Image URL"
+        },
+        {
+          "required": false,
+          "example": "Style",
+          "comments": "For each list item, provide a string you would like to tag the product with.",
+          "key": "tags",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Tags"
+        },
+        {
+          "placeholder": "Values",
+          "required": false,
+          "comments": "The names of the fields and their values to use when creating/updating a record. You can use this input to specify the key and value of any property that is not already in Prismatic.",
+          "key": "fieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Values"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "updateProduct": {
+      "display": {
+        "label": "Update Product",
+        "description": "Update the information and metadata of an existing product by Id"
+      },
+      "key": "updateProduct",
+      "inputs": [
+        {
+          "required": true,
+          "example": "74020090",
+          "comments": "Provide a value for the product Id. This value can either be an Id or a product title.",
+          "key": "productId",
+          "type": "string",
+          "default": "",
+          "label": "Product"
+        },
+        {
+          "required": true,
+          "example": "Classic T-shirt",
+          "comments": "Provide a value for the title of the product",
+          "key": "title",
+          "type": "string",
+          "default": "",
+          "label": "Title"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "draft",
+              "value": "draft"
+            },
+            {
+              "label": "active",
+              "value": "active"
+            }
+          ],
+          "comments": "Specify if the product is active or in draft.",
+          "key": "productStatus",
+          "type": "string",
+          "default": "",
+          "label": "Product Status"
+        },
+        {
+          "required": false,
+          "example": "Style",
+          "comments": "For each list item, provide a string you would like to tag the product with.",
+          "key": "tags",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Tags"
+        },
+        {
+          "required": false,
+          "example": "www.myimages.com/product1",
+          "comments": "Provide a valid url containing the image for the product.",
+          "key": "imageUrl",
+          "type": "string",
+          "default": "",
+          "label": "Image URL"
+        },
+        {
+          "placeholder": "Values",
+          "required": false,
+          "comments": "The names of the fields and their values to use when creating/updating a record. You can use this input to specify the key and value of any property that is not already in Prismatic.",
+          "key": "fieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Values"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createVariant": {
+      "display": {
+        "label": "Create Variant",
+        "description": "Create a new variant of the provided product"
+      },
+      "key": "createVariant",
+      "inputs": [
+        {
+          "required": true,
+          "example": "74020090",
+          "comments": "Provide a value for the product Id. This value can either be an Id or a product title.",
+          "key": "productId",
+          "type": "string",
+          "default": "",
+          "label": "Product"
+        },
+        {
+          "required": true,
+          "example": "Yellow",
+          "comments": "Provide the variant title in relation to the base product.",
+          "key": "variantTitle",
+          "type": "string",
+          "default": "",
+          "label": "Variant Title"
+        },
+        {
+          "required": true,
+          "example": "1.00",
+          "comments": "Provide the price of the variant.",
+          "key": "price",
+          "type": "string",
+          "default": "",
+          "label": "Price"
+        },
+        {
+          "required": false,
+          "example": "97802837847",
+          "comments": "Provide the sku(A stock-keeping unit) for the variant",
+          "key": "sku",
+          "type": "string",
+          "default": "",
+          "label": "SKU"
+        },
+        {
+          "required": false,
+          "example": "24.00",
+          "comments": "Provide the weight of the variant (lbs)",
+          "key": "weight",
+          "type": "string",
+          "default": "",
+          "label": "Weight"
+        },
+        {
+          "placeholder": "Values",
+          "required": false,
+          "comments": "The names of the fields and their values to use when creating/updating a record. You can use this input to specify the key and value of any property that is not already in Prismatic.",
+          "key": "fieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Values"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteVariant": {
+      "display": {
+        "label": "Delete Variant",
+        "description": "Delete an existing variant by Id"
+      },
+      "key": "deleteVariant",
+      "inputs": [
+        {
+          "required": true,
+          "example": "74020090",
+          "comments": "Provide a value for the product Id. This value can either be an Id or a product title.",
+          "key": "productId",
+          "type": "string",
+          "default": "",
+          "label": "Product"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of the product variant. This value can either be an Id or a product variant title.",
+          "key": "variantId",
+          "type": "string",
+          "default": "",
+          "label": "Product Variant"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getVariant": {
+      "display": {
+        "label": "Get Variant",
+        "description": "Get the information or metadata of a variant by Id"
+      },
+      "key": "getVariant",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of the product variant. This value can either be an Id or a product variant title.",
+          "key": "variantId",
+          "type": "string",
+          "default": "",
+          "label": "Product Variant"
+        },
+        {
+          "required": true,
+          "example": "74020090",
+          "comments": "Provide a value for the product Id. This value can either be an Id or a product title.",
+          "key": "productId",
+          "type": "string",
+          "default": "",
+          "label": "Product"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listVariants": {
+      "display": {
+        "label": "List Variants",
+        "description": "List all variants connected to the provided product"
+      },
+      "key": "listVariants",
+      "inputs": [
+        {
+          "required": true,
+          "example": "74020090",
+          "comments": "Provide a value for the product Id. This value can either be an Id or a product title.",
+          "key": "productId",
+          "type": "string",
+          "default": "",
+          "label": "Product"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 1000.",
+          "example": "20",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the page offset for the given object's results.",
+          "example": "3",
+          "key": "pageInfo",
+          "type": "string",
+          "default": "",
+          "label": "Page Info"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "updateVariant": {
+      "display": {
+        "label": "Update Variant",
+        "description": "Update the information and metadata of an existing product variant by Id"
+      },
+      "key": "updateVariant",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of the product variant. This value can either be an Id or a product variant title.",
+          "key": "variantId",
+          "type": "string",
+          "default": "",
+          "label": "Product Variant"
+        },
+        {
+          "required": false,
+          "example": "Yellow",
+          "comments": "Provide the variant title in relation to the base product.",
+          "key": "updateVariantTitle",
+          "type": "string",
+          "default": "",
+          "label": "Variant Title"
+        },
+        {
+          "required": false,
+          "example": "1.00",
+          "comments": "Provide the price of the variant.",
+          "key": "updatePrice",
+          "type": "string",
+          "default": "",
+          "label": "Price"
+        },
+        {
+          "required": false,
+          "example": "97802837847",
+          "comments": "Provide the sku(A stock-keeping unit) for the variant",
+          "key": "sku",
+          "type": "string",
+          "default": "",
+          "label": "SKU"
+        },
+        {
+          "required": false,
+          "example": "24.00",
+          "comments": "Provide the weight of the variant (lbs)",
+          "key": "weight",
+          "type": "string",
+          "default": "",
+          "label": "Weight"
+        },
+        {
+          "placeholder": "Values",
+          "required": false,
+          "comments": "The names of the fields and their values to use when creating/updating a record. You can use this input to specify the key and value of any property that is not already in Prismatic.",
+          "key": "fieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Values"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createOrder": {
+      "display": {
+        "label": "Create Order",
+        "description": "Create a new order"
+      },
+      "key": "createOrder",
+      "inputs": [
+        {
+          "language": "json",
+          "comments": "JSON data to be sent as the Order payload.",
+          "required": true,
+          "example": "{\"line_items\":[{\"variant_id\":\"variant-id\",\"quantity\":2}],\"customer\":{\"id\":\"customer-id\"},\"financial_status\":\"status\"}",
+          "key": "orderData",
+          "type": "code",
+          "default": "",
+          "label": "Order Data"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getOrder": {
+      "display": {
+        "label": "Get Order",
+        "description": "Get the information and metadata about an order"
+      },
+      "key": "getOrder",
+      "inputs": [
+        {
+          "required": true,
+          "example": "#3002",
+          "comments": "Provide the unique identifier of the order. This value can either be an Id, orderNumber, orderName, or customer email.",
+          "key": "orderId",
+          "type": "string",
+          "default": "",
+          "label": "Order"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listOrders": {
+      "display": {
+        "label": "List Orders",
+        "description": "List all orders"
+      },
+      "key": "listOrders",
+      "inputs": [
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 1000.",
+          "example": "20",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the page offset for the given object's results.",
+          "example": "3",
+          "key": "pageInfo",
+          "type": "string",
+          "default": "",
+          "label": "Page Info"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteOrder": {
+      "display": {
+        "label": "Delete Order",
+        "description": "Delete an existing order by Id"
+      },
+      "key": "deleteOrder",
+      "inputs": [
+        {
+          "required": true,
+          "example": "#3002",
+          "comments": "Provide the unique identifier of the order. This value can either be an Id, orderNumber, orderName, or customer email.",
+          "key": "orderId",
+          "type": "string",
+          "default": "",
+          "label": "Order"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "cancelOrder": {
+      "display": {
+        "label": "Cancel Order",
+        "description": "Cancel an existing order"
+      },
+      "key": "cancelOrder",
+      "inputs": [
+        {
+          "required": true,
+          "example": "#3002",
+          "comments": "Provide the unique identifier of the order. This value can either be an Id, orderNumber, orderName, or customer email.",
+          "key": "orderId",
+          "type": "string",
+          "default": "",
+          "label": "Order"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "closeOrder": {
+      "display": {
+        "label": "Close Order",
+        "description": "Closes a completed order"
+      },
+      "key": "closeOrder",
+      "inputs": [
+        {
+          "required": true,
+          "example": "#3002",
+          "comments": "Provide the unique identifier of the order. This value can either be an Id, orderNumber, orderName, or customer email.",
+          "key": "orderId",
+          "type": "string",
+          "default": "",
+          "label": "Order"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "rawRequest": {
+      "display": {
+        "label": "Raw Request",
+        "description": "Send a raw HTTP request to Shopify's API"
+      },
+      "key": "rawRequest",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "Input the path only (/users/current.json), The base URL is already included (https://YOUR-DOMAIN.myshopify.com/admin/api/API-VERSION). For example, to connect to https://YOUR-DOMAIN.myshopify.com/admin/api/API-VERSION/users/current.json, only /users/current.json is entered in this field.",
+          "example": "/users/current.json",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        },
+        {
+          "required": true,
+          "comments": "Shopify versions its API. See https://shopify.dev/docs/api/release-notes for a list of available versions.",
+          "key": "apiVersion",
+          "type": "string",
+          "default": "2021-07",
+          "label": "API Version"
+        }
+      ]
+    },
+    "deleteMetafield": {
+      "display": {
+        "label": "Delete Metafield",
+        "description": "Delete the information and metadata of a metafield enabled on your platform"
+      },
+      "key": "deleteMetafield",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a unique identifier of a metaField. This value can either be an Id, key, value, or description.",
+          "example": "r84963704502935",
+          "key": "metaFieldId",
+          "type": "string",
+          "default": "",
+          "label": "MetaField"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getMetafield": {
+      "display": {
+        "label": "Get Metafields",
+        "description": "Get the information and metadata of a metafield enabled on your platform"
+      },
+      "key": "getMetafield",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a unique identifier of a metaField. This value can either be an Id, key, value, or description.",
+          "example": "r84963704502935",
+          "key": "metaFieldId",
+          "type": "string",
+          "default": "",
+          "label": "MetaField"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listMetafields": {
+      "display": {
+        "label": "List Metafields",
+        "description": "List all metafields enabled on your platform"
+      },
+      "examplePayload": {
+        "data": {
+          "data": {
+            "metafields": [
+              {
+                "id": "example",
+                "namespace": "example",
+                "key": "example",
+                "value": "example",
+                "value_type": "string",
+                "description": "This is an example description.",
+                "owner_id": "example",
+                "created_at": "2022-03-31T21:33:14-07:00",
+                "updated_at": "2022-03-31T21:33:14-07:00",
+                "owner_resource": "shop",
+                "type": "ingle_line_text_field"
+              }
+            ]
+          },
+          "headers": {}
+        }
+      },
+      "key": "listMetafields",
+      "inputs": [
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 1000.",
+          "example": "20",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the page offset for the given object's results.",
+          "example": "3",
+          "key": "pageInfo",
+          "type": "string",
+          "default": "",
+          "label": "Page Info"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getLocations": {
+      "display": {
+        "label": "Get Location",
+        "description": "Get the information and metadata of a location enabled on your platform"
+      },
+      "key": "getLocations",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a unique identifier of a location. This value can either be an Id, city, zip, location name, or province.",
+          "example": "r84963704502935",
+          "key": "locationId",
+          "type": "string",
+          "default": "",
+          "label": "Location"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listLocations": {
+      "display": {
+        "label": "List Locations",
+        "description": "List all locations enabled on your platform"
+      },
+      "key": "listLocations",
+      "inputs": [
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 1000.",
+          "example": "20",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the page offset for the given object's results.",
+          "example": "3",
+          "key": "pageInfo",
+          "type": "string",
+          "default": "",
+          "label": "Page Info"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteInventoryLevels": {
+      "display": {
+        "label": "Delete Inventory Levels",
+        "description": "Delete the information and metadata of an Inventory Level"
+      },
+      "key": "deleteInventoryLevels",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a unique identifier of a Inventory Level",
+          "example": "r84963704502935",
+          "key": "levelId",
+          "type": "string",
+          "default": "",
+          "label": "Inventory Level Id"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getInventoryLevels": {
+      "display": {
+        "label": "Get Inventory Levels",
+        "description": "Get the information and metadata of an Inventory Level"
+      },
+      "key": "getInventoryLevels",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a unique identifier of a Inventory Level",
+          "example": "r84963704502935",
+          "key": "levelId",
+          "type": "string",
+          "default": "",
+          "label": "Inventory Level Id"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listInventoryLevels": {
+      "display": {
+        "label": "List Inventory Levels At Location",
+        "description": "List all Inventory Levels"
+      },
+      "key": "listInventoryLevels",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a unique identifier of a location. This value can either be an Id, city, zip, location name, or province.",
+          "example": "r84963704502935",
+          "key": "locationId",
+          "type": "string",
+          "default": "",
+          "label": "Location"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 1000.",
+          "example": "20",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the page offset for the given object's results.",
+          "example": "3",
+          "key": "pageInfo",
+          "type": "string",
+          "default": "",
+          "label": "Page Info"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getInventoryItems": {
+      "display": {
+        "label": "Get Inventory Item",
+        "description": "Get the information and metadata of an Inventory Item enabled on your platform"
+      },
+      "key": "getInventoryItems",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a unique identifier of a Inventory Item",
+          "example": "r84963704502935",
+          "key": "itemId",
+          "type": "string",
+          "default": "",
+          "label": "Inventory Item Id"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listInventoryItems": {
+      "display": {
+        "label": "List Inventory Items",
+        "description": "List all Inventory Items enabled on your platform"
+      },
+      "key": "listInventoryItems",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "For each item, provide an id of the inventory item to be returned in the response.",
+          "example": "39072856",
+          "key": "ids",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Ids"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 1000.",
+          "example": "20",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the page offset for the given object's results.",
+          "example": "3",
+          "key": "pageInfo",
+          "type": "string",
+          "default": "",
+          "label": "Page Info"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getFulfillment": {
+      "display": {
+        "label": "Get Fulfillment",
+        "description": "Get the information and metadata of a fulfillment enabled on your platform"
+      },
+      "key": "getFulfillment",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a unique identifier of a fulfillment",
+          "example": "r84963704502935",
+          "key": "fulfillmentId",
+          "type": "string",
+          "default": "",
+          "label": "Fulfillment Id"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listFulfillments": {
+      "display": {
+        "label": "List Fulfillments",
+        "description": "List all fulfillments enabled on your platform"
+      },
+      "key": "listFulfillments",
+      "inputs": [
+        {
+          "required": true,
+          "example": "#3002",
+          "comments": "Provide the unique identifier of the order. This value can either be an Id, orderNumber, orderName, or customer email.",
+          "key": "orderId",
+          "type": "string",
+          "default": "",
+          "label": "Order"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 1000.",
+          "example": "20",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the page offset for the given object's results.",
+          "example": "3",
+          "key": "pageInfo",
+          "type": "string",
+          "default": "",
+          "label": "Page Info"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getFulfillmentOrder": {
+      "display": {
+        "label": "Get Fulfillment Order",
+        "description": "Retrieve a specific fulfillment order"
+      },
+      "key": "getFulfillmentOrder",
+      "inputs": [
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide a unique identifier of a fulfillment order",
+          "example": "1046000820",
+          "key": "fulfillmentOrderId",
+          "type": "string",
+          "default": "",
+          "label": "Fulfillment Order ID"
+        }
+      ]
+    },
+    "listFulfillmentOrders": {
+      "display": {
+        "label": "List Fulfillment Orders",
+        "description": "Retrieves a list of fulfillment orders for a specific order."
+      },
+      "key": "listFulfillmentOrders",
+      "inputs": [
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "#3002",
+          "comments": "Provide the unique identifier of the order. This value can either be an Id, orderNumber, orderName, or customer email.",
+          "key": "orderId",
+          "type": "string",
+          "default": "",
+          "label": "Order"
+        }
+      ]
+    },
+    "listCurrencies": {
+      "display": {
+        "label": "List Currencies",
+        "description": "List all currencies enabled on your platform"
+      },
+      "key": "listCurrencies",
+      "inputs": [
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 1000.",
+          "example": "20",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the page offset for the given object's results.",
+          "example": "3",
+          "key": "pageInfo",
+          "type": "string",
+          "default": "",
+          "label": "Page Info"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "updateInventoryItems": {
+      "display": {
+        "label": "Update Inventory Item",
+        "description": "Update the information and metadata of an Inventory Item enabled on your platform"
+      },
+      "key": "updateInventoryItems",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a unique identifier of a Inventory Item",
+          "example": "r84963704502935",
+          "key": "itemId",
+          "type": "string",
+          "default": "",
+          "label": "Inventory Item Id"
+        },
+        {
+          "required": false,
+          "example": "97802837847",
+          "comments": "Provide the sku(A stock-keeping unit) for the variant",
+          "key": "sku",
+          "type": "string",
+          "default": "",
+          "label": "SKU"
+        },
+        {
+          "required": false,
+          "example": "1.00",
+          "comments": "Provide a new price for the item.",
+          "key": "price",
+          "type": "string",
+          "default": "",
+          "label": "Price"
+        },
+        {
+          "required": false,
+          "comments": "This field determines if the item is tracked.",
+          "key": "tracked",
+          "type": "boolean",
+          "default": "false",
+          "label": "Is Tracked"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "countLocations": {
+      "display": {
+        "label": "Count Location",
+        "description": "Count the number of locations enabled on your platform"
+      },
+      "key": "countLocations",
+      "inputs": [
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createMetafield": {
+      "display": {
+        "label": "Create Metafield",
+        "description": "Create a new metafield in your platform"
+      },
+      "key": "createMetafield",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a namespace of the metafield.",
+          "example": "my_fields",
+          "key": "namespace",
+          "type": "string",
+          "default": "",
+          "label": "Namespace"
+        },
+        {
+          "required": true,
+          "comments": "Provide a key for the metafield.",
+          "example": "sponsor",
+          "key": "key",
+          "type": "string",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "required": true,
+          "comments": "Provide a value for the metafield.",
+          "example": "MyExample Sponsor",
+          "key": "value",
+          "type": "string",
+          "default": "",
+          "label": "Value"
+        },
+        {
+          "required": true,
+          "comments": "Provide a type for the metafield value.",
+          "example": "string",
+          "model": [
+            {
+              "label": "String",
+              "value": "string"
+            },
+            {
+              "label": "Integer",
+              "value": "integer"
+            },
+            {
+              "label": "Boolean",
+              "value": "boolean"
+            }
+          ],
+          "key": "valueType",
+          "type": "string",
+          "default": "",
+          "label": "Value Type"
+        },
+        {
+          "required": true,
+          "comments": "Provide a type for the metafield. A list of all supported types can be found here: https://shopify.dev/apps/metafields/types",
+          "example": "single_line_text_field",
+          "key": "type",
+          "type": "string",
+          "default": "",
+          "label": "Metafield Type"
+        },
+        {
+          "required": false,
+          "comments": "Provide a description of the metafield value.",
+          "example": "string",
+          "key": "description",
+          "type": "string",
+          "default": "",
+          "label": "Description"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "updateMetafield": {
+      "display": {
+        "label": "Update Metafield",
+        "description": "Update an existing metafield in your platform"
+      },
+      "key": "updateMetafield",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a unique identifier of a metaField. This value can either be an Id, key, value, or description.",
+          "example": "r84963704502935",
+          "key": "metaFieldId",
+          "type": "string",
+          "default": "",
+          "label": "MetaField"
+        },
+        {
+          "required": false,
+          "comments": "Provide a value for the metafield.",
+          "example": "MyExample Sponsor",
+          "key": "value",
+          "type": "string",
+          "default": "",
+          "label": "Value"
+        },
+        {
+          "required": false,
+          "comments": "Provide a type for the metafield value.",
+          "example": "string",
+          "model": [
+            {
+              "label": "String",
+              "value": "string"
+            },
+            {
+              "label": "Integer",
+              "value": "integer"
+            },
+            {
+              "label": "Boolean",
+              "value": "boolean"
+            }
+          ],
+          "key": "valueType",
+          "type": "string",
+          "default": "",
+          "label": "Value Type"
+        },
+        {
+          "required": false,
+          "comments": "Provide a type for the metafield. A list of all supported types can be found here: https://shopify.dev/apps/metafields/types",
+          "example": "single_line_text_field",
+          "key": "type",
+          "type": "string",
+          "default": "",
+          "label": "Metafield Type"
+        },
+        {
+          "required": false,
+          "comments": "Provide a description of the metafield value.",
+          "example": "string",
+          "key": "description",
+          "type": "string",
+          "default": "",
+          "label": "Description"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "connectInventoryLevel": {
+      "display": {
+        "label": "Connect Inventory Item To Location",
+        "description": "Connect an existing Inventory Item to an existing Location"
+      },
+      "key": "connectInventoryLevel",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a unique identifier of a location. This value can either be an Id, city, zip, location name, or province.",
+          "example": "r84963704502935",
+          "key": "locationId",
+          "type": "string",
+          "default": "",
+          "label": "Location"
+        },
+        {
+          "required": true,
+          "comments": "Provide a unique identifier of a Inventory Item",
+          "example": "r84963704502935",
+          "key": "itemId",
+          "type": "string",
+          "default": "",
+          "label": "Inventory Item Id"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "countOrders": {
+      "display": {
+        "label": "Count Orders",
+        "description": "Returns a count of all orders"
+      },
+      "key": "countOrders",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a status for the orders you want to be returned",
+          "model": [
+            {
+              "label": "Any",
+              "value": "any"
+            },
+            {
+              "label": "Open",
+              "value": "open"
+            },
+            {
+              "label": "Closed",
+              "value": "closed"
+            }
+          ],
+          "key": "status",
+          "type": "string",
+          "default": "",
+          "label": "Status"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "countCustomers": {
+      "display": {
+        "label": "Count Customers",
+        "description": "Retrieve a count of all the customers connected to your platform"
+      },
+      "key": "countCustomers",
+      "inputs": [
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createAccountActivationURL": {
+      "display": {
+        "label": "Create Account Activation URL",
+        "description": "Create an account activation URL for an existing customer"
+      },
+      "key": "createAccountActivationURL",
+      "inputs": [
+        {
+          "required": true,
+          "example": "028302",
+          "comments": "Provide a value for the unique identifier of the customer. This value can either be an Id, email, or phone number.",
+          "key": "customerId",
+          "type": "string",
+          "default": "",
+          "label": "Customer"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "countProducts": {
+      "display": {
+        "label": "Count Products",
+        "description": "Count all Products in your account"
+      },
+      "key": "countProducts",
+      "inputs": [
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 1000.",
+          "example": "20",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the page offset for the given object's results.",
+          "example": "3",
+          "key": "pageInfo",
+          "type": "string",
+          "default": "",
+          "label": "Page Info"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "countDraftOrders": {
+      "display": {
+        "label": "Count Draft Orders",
+        "description": "Count all draft orders"
+      },
+      "key": "countDraftOrders",
+      "inputs": [
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createDraftOrder": {
+      "display": {
+        "label": "Create Draft Orders",
+        "description": "Create a new draft order"
+      },
+      "key": "createDraftOrder",
+      "inputs": [
+        {
+          "required": false,
+          "example": "028302",
+          "comments": "Provide a value for the unique identifier of the customer. This value can either be an Id, email, or phone number.",
+          "key": "customerId",
+          "type": "string",
+          "default": "",
+          "label": "Customer"
+        },
+        {
+          "required": true,
+          "language": "json",
+          "example": "[{ title: \"Custom Tee\", price: \"20.00\", quantity: 2 }]",
+          "comments": "Provide a JSON array containing objects(line items). For more information on building line item objects, refer to the Shopify docs: https://shopify.dev/api/admin-rest/2021-10/resources/draftorder#post-draft-orders",
+          "key": "lineItems",
+          "type": "code",
+          "default": "",
+          "label": "Line items"
+        },
+        {
+          "required": false,
+          "comments": "This flag determines if the order will use the customers default address.",
+          "key": "useCustomerAddress",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Customer Default Address"
+        },
+        {
+          "required": true,
+          "comments": "This flag determines if tax is included in the total order price.",
+          "key": "taxIncluded",
+          "type": "boolean",
+          "default": "false",
+          "label": "Taxes Included"
+        },
+        {
+          "required": false,
+          "example": "1.94",
+          "comments": "The total tax of the order.",
+          "key": "totalTax",
+          "type": "string",
+          "default": "",
+          "label": "Total Tax"
+        },
+        {
+          "required": false,
+          "example": "11.94",
+          "comments": "The total price of the order.",
+          "key": "totalPrice",
+          "type": "string",
+          "default": "",
+          "label": "Total Price"
+        },
+        {
+          "required": false,
+          "example": "398",
+          "comments": "The subtotal price of the order.",
+          "key": "subTotalPrice",
+          "type": "string",
+          "default": "",
+          "label": "Subtotal Price"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteDraftOrder": {
+      "display": {
+        "label": "Delete Draft Order",
+        "description": "Delete the information and metadata of a Draft Order"
+      },
+      "key": "deleteDraftOrder",
+      "inputs": [
+        {
+          "required": true,
+          "example": "#3002",
+          "comments": "Provide the unique identifier of the order. This value can either be an Id, orderNumber, orderName, or customer email.",
+          "key": "draftOrderId",
+          "type": "string",
+          "default": "",
+          "label": "Draft Order Id"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getDraftOrder": {
+      "display": {
+        "label": "Get Draft Order",
+        "description": "Get the information and metadata of a Draft Order"
+      },
+      "key": "getDraftOrder",
+      "inputs": [
+        {
+          "required": true,
+          "example": "#3002",
+          "comments": "Provide the unique identifier of the order. This value can either be an Id, orderNumber, orderName, or customer email.",
+          "key": "draftOrderId",
+          "type": "string",
+          "default": "",
+          "label": "Draft Order Id"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listDraftOrders": {
+      "display": {
+        "label": "List Draft Orders",
+        "description": "List all draft orders"
+      },
+      "key": "listDraftOrders",
+      "inputs": [
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 1000.",
+          "example": "20",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the page offset for the given object's results.",
+          "example": "3",
+          "key": "pageInfo",
+          "type": "string",
+          "default": "",
+          "label": "Page Info"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getShopConfig": {
+      "display": {
+        "label": "Get Shop Configuration",
+        "description": "Retrieve the shop's current configuration"
+      },
+      "key": "getShopConfig",
+      "inputs": [
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "countVariants": {
+      "display": {
+        "label": "Count Variants",
+        "description": "Count all product variants"
+      },
+      "key": "countVariants",
+      "inputs": [
+        {
+          "required": true,
+          "example": "74020090",
+          "comments": "Provide a value for the product Id. This value can either be an Id or a product title.",
+          "key": "productId",
+          "type": "string",
+          "default": "",
+          "label": "Product"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteProductImage": {
+      "display": {
+        "label": "Delete Product Image",
+        "description": "Delete the information and metadata of a product image connected to your platform"
+      },
+      "key": "deleteProductImage",
+      "inputs": [
+        {
+          "required": true,
+          "example": "74020090",
+          "comments": "Provide a value for the product Id. This value can either be an Id or a product title.",
+          "key": "productId",
+          "type": "string",
+          "default": "",
+          "label": "Product"
+        },
+        {
+          "required": true,
+          "comments": "Provide a unique identifier of a product image",
+          "example": "r84963704502935",
+          "key": "imageId",
+          "type": "string",
+          "default": "",
+          "label": "Image Id"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getProductImage": {
+      "display": {
+        "label": "Get Product Image",
+        "description": "Get the information and metadata of a product image connected to your platform"
+      },
+      "key": "getProductImage",
+      "inputs": [
+        {
+          "required": true,
+          "example": "74020090",
+          "comments": "Provide a value for the product Id. This value can either be an Id or a product title.",
+          "key": "productId",
+          "type": "string",
+          "default": "",
+          "label": "Product"
+        },
+        {
+          "required": true,
+          "comments": "Provide a unique identifier of a product image",
+          "example": "r84963704502935",
+          "key": "imageId",
+          "type": "string",
+          "default": "",
+          "label": "Image Id"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listProductImages": {
+      "display": {
+        "label": "List Product Images",
+        "description": "List all product images connected to your platform"
+      },
+      "key": "listProductImages",
+      "inputs": [
+        {
+          "required": true,
+          "example": "74020090",
+          "comments": "Provide a value for the product Id. This value can either be an Id or a product title.",
+          "key": "productId",
+          "type": "string",
+          "default": "",
+          "label": "Product"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createProductImage": {
+      "display": {
+        "label": "Create Product Image",
+        "description": "Create a new image on an existing product"
+      },
+      "key": "createProductImage",
+      "inputs": [
+        {
+          "required": true,
+          "example": "74020090",
+          "comments": "Provide a value for the product Id. This value can either be an Id or a product title.",
+          "key": "productId",
+          "type": "string",
+          "default": "",
+          "label": "Product"
+        },
+        {
+          "required": true,
+          "comments": "Provide a name for the file",
+          "example": "logo.gif",
+          "key": "fileName",
+          "type": "string",
+          "default": "",
+          "label": "File Name"
+        },
+        {
+          "required": false,
+          "comments": "Provide a number for the position of the image. For example, providing 1 will set the default image for the product.",
+          "example": "1",
+          "key": "imagePosition",
+          "type": "string",
+          "default": "",
+          "label": "Image Position"
+        },
+        {
+          "required": true,
+          "comments": "Provide a URL for the image",
+          "example": "http://example.com/rails_logo.gif",
+          "key": "imageURL",
+          "type": "string",
+          "default": "",
+          "label": "Image URL"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string of text to be displayed as an alternative if an image cannot be loaded.",
+          "example": "This is example alt text.",
+          "key": "imageAlt",
+          "type": "string",
+          "default": "",
+          "label": "Image Alt"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "countProductImages": {
+      "display": {
+        "label": "Count Product Images",
+        "description": "Count all product images connected to your platform"
+      },
+      "key": "countProductImages",
+      "inputs": [
+        {
+          "required": true,
+          "example": "74020090",
+          "comments": "Provide a value for the product Id. This value can either be an Id or a product title.",
+          "key": "productId",
+          "type": "string",
+          "default": "",
+          "label": "Product"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getCollect": {
+      "display": {
+        "label": "Get Collect",
+        "description": "Get the information and metadata of a collect"
+      },
+      "key": "getCollect",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a unique identifier of a collect",
+          "example": "r84963704502935",
+          "key": "collectId",
+          "type": "string",
+          "default": "",
+          "label": "Collect Id"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listCollects": {
+      "display": {
+        "label": "List Collects",
+        "description": "List all collects enabled on your platform"
+      },
+      "key": "listCollects",
+      "inputs": [
+        {
+          "required": false,
+          "example": "74020090",
+          "comments": "Provide a productId to filter results.",
+          "key": "productId",
+          "type": "string",
+          "default": "",
+          "label": "Product"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 1000.",
+          "example": "20",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the page offset for the given object's results.",
+          "example": "3",
+          "key": "pageInfo",
+          "type": "string",
+          "default": "",
+          "label": "Page Info"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "countCollects": {
+      "display": {
+        "label": "Count Collects",
+        "description": "Count all available collects"
+      },
+      "key": "countCollects",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a unique identifier of a collect",
+          "example": "r84963704502935",
+          "key": "collectId",
+          "type": "string",
+          "default": "",
+          "label": "Collect Id"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteCollect": {
+      "display": {
+        "label": "Delete Collect",
+        "description": "Delete the information and metadata of a collect"
+      },
+      "key": "deleteCollect",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a unique identifier of a collect",
+          "example": "r84963704502935",
+          "key": "collectId",
+          "type": "string",
+          "default": "",
+          "label": "Collect Id"
+        },
+        {
+          "required": true,
+          "key": "shopifyConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "webhook": {
+      "display": {
+        "label": "Webhook",
+        "description": "Trigger for handling webhook requests from the Shopify platform"
+      },
+      "synchronousResponseSupport": "invalid",
+      "scheduleSupport": "invalid",
+      "examplePayload": {
+        "payload": {
+          "headers": {
+            "accept": "*/*",
+            "Content-Type": "application/json",
+            "User-Agent": "Shopify-Captain-Hook",
+            "X-Shopify-Api-Version": "unstable",
+            "X-Shopify-Shop-Domain": "example.myshopify.com",
+            "X-Shopify-Topic": "customers/create",
+            "X-Shopify-Webhook-Id": "example-webhook-id",
+            "Host": "hooks.example.prismatic.io"
+          },
+          "body": {
+            "data": {}
+          },
+          "rawBody": {
+            "data": {
+              "type": "Buffer",
+              "data": [
+                69,
+                120,
+                97,
+                109,
+                112,
+                108,
+                101
+              ]
+            }
+          },
+          "queryParameters": null,
+          "webhookUrls": {
+            "Flow 1": "https://hooks.example.prismatic.io/trigger/EXAMPLEGbG93Q29uZmlnOmRlNmNmNDMyLTliNWMtN0005NDMxLTRmYzA4ZjViODgxOA=="
+          },
+          "webhookApiKeys": {
+            "Flow 1": [
+              "abc-123"
+            ]
+          },
+          "customer": {
+            "externalId": "customer-example-external-id",
+            "name": "John Doe"
+          }
+        }
+      },
+      "key": "webhook",
+      "inputs": [
+        {
+          "required": false,
+          "comments": "The Shopify app's client secret, viewable from the Partner Dashboard",
+          "key": "secret_key",
+          "type": "string",
+          "default": "",
+          "label": "Secret Key"
+        }
+      ],
+      "documentation": {
+        "description": "You can configure a Shopify [webhook](https://shopify.dev/apps/webhooks) to send information to a Prismatic webhook URL under certain conditions (a \"Customer\" is created, a \"Order\" is shipped, etc.).\n\nA full list of configurable operations is available on the [Shopify Docs](https://shopify.dev/api/admin-rest/2021-10/resources/webhook#top)\n"
+      }
+    }
+  },
+  "dataSources": {},
+  "documentation": {
+    "description": "[Shopify](https://www.shopify.com/) is a multinational e-commerce company. They offer a subscription-based software that allows anyone to set up an online store and sell their products.\nThis component allows you to manage the products and customers connected to your Shopify account.\n"
+  },
+  "$version": 1
+}

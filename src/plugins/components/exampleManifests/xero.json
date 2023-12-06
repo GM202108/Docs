@@ -1,0 +1,2924 @@
+{
+  "key": "xero",
+  "public": true,
+  "documentationUrl": "https://prismatic.io/docs/components/xero/",
+  "display": {
+    "label": "Xero",
+    "category": "Application Connectors",
+    "description": "Manage invoices, items, accounts, payments and more objects from your Xero account.",
+    "iconPath": "icon.png",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "oauth2Type": "authorization_code",
+      "key": "oauth2",
+      "label": "Xero OAuth 2.0",
+      "comments": "Authenticate requests to Xero using values obtained from the developer console.",
+      "inputs": [
+        {
+          "placeholder": "Authorize URL",
+          "required": true,
+          "shown": false,
+          "comments": "The OAuth 2.0 Authorization URL for Xero",
+          "key": "authorizeUrl",
+          "type": "string",
+          "default": "https://login.xero.com/identity/connect/authorize",
+          "label": "Authorize URL"
+        },
+        {
+          "placeholder": "Token URL",
+          "required": true,
+          "shown": false,
+          "comments": "The OAuth 2.0 Token URL for Xero",
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "https://identity.xero.com/connect/token",
+          "label": "Token URL"
+        },
+        {
+          "placeholder": "Scopes",
+          "required": true,
+          "shown": true,
+          "example": "accounting.contacts",
+          "comments": "A space-delimited set of one or more scopes to get the user's permission to access. You must specify 'offline_access' to enable automatic token refresh.",
+          "key": "scopes",
+          "type": "string",
+          "default": "offline_access accounting.settings accounting.contacts accounting.attachments",
+          "label": "Scopes"
+        },
+        {
+          "placeholder": "Client ID",
+          "required": true,
+          "shown": true,
+          "comments": "Provide the Client Id you received from the Xero Developer Console.",
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "Client ID"
+        },
+        {
+          "placeholder": "Client Secret",
+          "required": true,
+          "shown": true,
+          "comments": "Provide the Client Secret you generated from the Xero Developer Console.",
+          "key": "clientSecret",
+          "type": "password",
+          "default": "",
+          "label": "Client Secret"
+        },
+        {
+          "placeholder": "Tenant Name",
+          "required": true,
+          "example": "Acme Inc.",
+          "shown": true,
+          "comments": "The name of the tenant you are requesting access to.",
+          "key": "tenant",
+          "type": "string",
+          "default": "",
+          "label": "Tenant Name"
+        }
+      ],
+      "documentation": {
+        "description": "**Xero** uses OAuth 2.0 to authorize requests made to the API.\nIn order for your integration to authenticate with your customers' Xero accounts, you will need to create a Xero OAuth 2.0 app:\n\n-   Log on to Xero's [developer portal](https://developer.xero.com/app/manage/)\n-   Click **New app**\n    -   Give your app a name\n    -   Select **Web app** for **Integration type**\n    -   Enter _your company's_ URL for **Company or application URL**\n    -   Enter `https://oauth2.prismatic.io/callback` for the **Redirect URI**\n-   Next, open the **Configuration** page\n    -   Click **Generate Secret** and take note of the **Client id** and **Client secret** - you'll enter those in Prismatic in a moment\n\nWhen you add a Xero step to an integration, a Xero OAuth 2.0 connection config variable will be created automatically for you:\n\n-   For **Scopes**, enter the scopes from [this list](https://developer.xero.com/documentation/guides/oauth2/scopes/) that are relevant to your integration.\n    Always include the `offline_access` scope in order for authentication tokens to refresh automatically.\n-   For **Client ID** and **Client Secret**, enter the values you noted above.\n-   A single customer might be logged in to multiple tenants, and **Tenant Name** is unique for each customer.\n    Leave that input blank, and click the gear icon next to **Tenant Name**.\n    Adjust **Input Visibility** and select **Customer** to make that input visible to your customers.\n    That way, your customers will be prompted for their tenant name when they enable this integration.\n\nFor additional information regarding authentication, please refer to the [Xero docs](https://developer.xero.com/documentation/guides/oauth2/auth-flow/#2-users-are-redirected-back-to-you-with-a-code).\n"
+      }
+    }
+  ],
+  "actions": {
+    "listContacts": {
+      "display": {
+        "label": "List Contacts",
+        "description": "List all contacts"
+      },
+      "examplePayload": {
+        "data": {
+          "ID": "example-7b92-4e10-84e8-efef27090697",
+          "status": "OK",
+          "ProviderName": "MyExampleProvider",
+          "DateTimeUTC": "/Date(1637616068092)/",
+          "contacts": [
+            {
+              "ContactID": "example-7b92-4e10-84e8-efef27090697",
+              "ContactStatus": "Active",
+              "Name": "Example Contact",
+              "EmailAddress": "someone@example.com",
+              "IsSupplier": "false",
+              "IsCustomer": "false",
+              "updatedDateUTC": "/Date(1637614988203+0000)/"
+            }
+          ]
+        }
+      },
+      "key": "listContacts",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "example": "3",
+          "comments": "Provide the page of the results you would like to return. Pagination will only be enabled if over 100 elements are returned by your request. It is not possible to specify the page size.",
+          "key": "page",
+          "type": "string",
+          "default": "",
+          "label": "Page Number"
+        },
+        {
+          "required": false,
+          "example": "yyyy-mm-ddThhss",
+          "comments": "Only contacts created or modified since this timestamp will be returned.",
+          "key": "modifiedAfter",
+          "type": "string",
+          "default": "",
+          "label": "Modified After"
+        },
+        {
+          "required": false,
+          "example": "Name.Contains(\"Peter\")",
+          "comments": "The where parameter allows you to filter on endpoints and elements that don't have explicit parameters.",
+          "key": "where",
+          "type": "string",
+          "default": "",
+          "label": "Where"
+        }
+      ]
+    },
+    "listConnections": {
+      "display": {
+        "label": "List Connections",
+        "description": "List all connections"
+      },
+      "examplePayload": {
+        "data": [
+          {
+            "id": "example-e40f-414a-8f95-ce6a63196e1a",
+            "authEventId": "example-e40f-414a-8f95-ce6a63196e1a",
+            "tenantId": "example-e40f-414a-8f95-ce6a63196e1a",
+            "tenantType": "ORGANIZATION",
+            "tenantName": "Example"
+          }
+        ]
+      },
+      "key": "listConnections",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getContact": {
+      "display": {
+        "label": "Get Contact",
+        "description": "Get the information and metadata of a contact by Id"
+      },
+      "examplePayload": {
+        "data": {
+          "ID": "example-7b92-4e10-84e8-efef27090697",
+          "status": "OK",
+          "ProviderName": "MyExampleProvider",
+          "DateTimeUTC": "/Date(1637616068092)/",
+          "contacts": [
+            {
+              "ContactID": "example-7b92-4e10-84e8-efef27090697",
+              "ContactStatus": "Active",
+              "Name": "Example Contact",
+              "EmailAddress": "someone@example.com",
+              "IsSupplier": "false",
+              "IsCustomer": "false",
+              "updatedDateUTC": "/Date(1637614988203+0000)/"
+            }
+          ]
+        }
+      },
+      "key": "getContact",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the Contact ID.",
+          "example": "example-e40f-414a-8f95-ce6a63196e1a",
+          "placeholder": "Contact ID",
+          "key": "contactId",
+          "type": "string",
+          "default": "",
+          "label": "Contact ID"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "archiveContact": {
+      "display": {
+        "label": "Archive Contact",
+        "description": "Archive the information and metadata of a contact by Id"
+      },
+      "examplePayload": {
+        "data": {
+          "ID": "example-7b92-4e10-84e8-efef27090697",
+          "status": "OK",
+          "ProviderName": "MyExampleProvider",
+          "DateTimeUTC": "/Date(1637616068092)/",
+          "contacts": [
+            {
+              "ContactID": "example-7b92-4e10-84e8-efef27090697",
+              "ContactStatus": "ARCHIVED",
+              "Name": "Example Contact",
+              "EmailAddress": "someone@example.com",
+              "IsSupplier": "false",
+              "IsCustomer": "false",
+              "updatedDateUTC": "/Date(1637614988203+0000)/"
+            }
+          ]
+        }
+      },
+      "key": "archiveContact",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the Contact ID.",
+          "example": "example-e40f-414a-8f95-ce6a63196e1a",
+          "placeholder": "Contact ID",
+          "key": "contactId",
+          "type": "string",
+          "default": "",
+          "label": "Contact ID"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteAccount": {
+      "display": {
+        "label": "Delete Account",
+        "description": "Delete the information and metadata of an account by Id"
+      },
+      "examplePayload": {
+        "data": {
+          "ID": "example-7b92-4e10-84e8-efef27090697",
+          "status": "OK",
+          "ProviderName": "MyExampleProvider",
+          "DateTimeUTC": "/Date(1637616068092)/",
+          "accounts": [
+            {
+              "AccountID": "example-7b92-4e10-84e8-efef27090697",
+              "Code": "200",
+              "Name": "Example Account",
+              "Status": "ARCHIVED",
+              "Type": "REVENUE",
+              "TaxType": "OUTPUT"
+            }
+          ]
+        }
+      },
+      "key": "deleteAccount",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the Account ID",
+          "example": "example-e40f-414a-8f95-ce6a63196e1a",
+          "placeholder": "Account ID",
+          "key": "accountId",
+          "type": "string",
+          "default": "",
+          "label": "Account ID"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listAccounts": {
+      "display": {
+        "label": "List Accounts",
+        "description": "List all accounts"
+      },
+      "examplePayload": {
+        "data": {
+          "ID": "example-7b92-4e10-84e8-efef27090697",
+          "status": "OK",
+          "ProviderName": "MyExampleProvider",
+          "DateTimeUTC": "/Date(1637616068092)/",
+          "accounts": [
+            {
+              "AccountID": "example-7b92-4e10-84e8-efef27090697",
+              "Code": "200",
+              "Name": "Example Account",
+              "Status": "ARCHIVED",
+              "Type": "REVENUE",
+              "TaxType": "OUTPUT"
+            },
+            {
+              "AccountID": "example-7b92-4e10-84e8-efef27090697",
+              "Code": "200",
+              "Name": "Example Account",
+              "Status": "ARCHIVED",
+              "Type": "REVENUE",
+              "TaxType": "OUTPUT"
+            }
+          ]
+        }
+      },
+      "key": "listAccounts",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "example": "3",
+          "comments": "Provide the page of the results you would like to return. Pagination will only be enabled if over 100 elements are returned by your request. It is not possible to specify the page size.",
+          "key": "page",
+          "type": "string",
+          "default": "",
+          "label": "Page Number"
+        },
+        {
+          "required": false,
+          "example": "yyyy-mm-ddThhss",
+          "comments": "Only contacts created or modified since this timestamp will be returned.",
+          "key": "modifiedAfter",
+          "type": "string",
+          "default": "",
+          "label": "Modified After"
+        },
+        {
+          "required": false,
+          "example": "Name.Contains(\"Peter\")",
+          "comments": "The where parameter allows you to filter on endpoints and elements that don't have explicit parameters.",
+          "key": "where",
+          "type": "string",
+          "default": "",
+          "label": "Where"
+        }
+      ]
+    },
+    "getInvoice": {
+      "display": {
+        "label": "Get Invoice",
+        "description": "Get the information and metadata of an invoice by Id"
+      },
+      "examplePayload": {
+        "data": {
+          "ID": "example-7b92-4e10-84e8-efef27090697",
+          "status": "OK",
+          "ProviderName": "MyExampleProvider",
+          "DateTimeUTC": "/Date(1637616068092)/",
+          "Invoices": [
+            {
+              "InvoiceID": "example-7b92-4e10-84e8-efef27090697",
+              "InvoiceNumber": "example01",
+              "AmountDue": 800,
+              "AmountPaid": 0,
+              "SentToContact": false,
+              "TotalDiscount": 200,
+              "contact": {}
+            }
+          ]
+        }
+      },
+      "key": "getInvoice",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the Invoice ID.",
+          "example": "example-e40f-414a-8f95-ce6a63196e1a",
+          "placeholder": "Invoice ID",
+          "key": "invoiceId",
+          "type": "string",
+          "default": "",
+          "label": "Invoice ID"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getItem": {
+      "display": {
+        "label": "Get Item",
+        "description": "Get the information and metadata of an item by Id"
+      },
+      "examplePayload": {
+        "data": {
+          "ID": "example-7b92-4e10-84e8-efef27090697",
+          "status": "OK",
+          "ProviderName": "MyExampleProvider",
+          "DateTimeUTC": "/Date(1637616068092)/",
+          "Items": [
+            {
+              "ItemID": "example-7b92-4e10-84e8-efef27090697",
+              "Code": "ExampleThing",
+              "Description": "I sell this untracked thing",
+              "PurchaseDescription": "I buy this untracked thing",
+              "UpdatedDateUTC": "/Date(1488338552390+0000)/",
+              "PurchaseDetails": {
+                "UnitPrice": 20,
+                "AccountCode": "400",
+                "TaxType": "NONE"
+              },
+              "SalesDetails": {
+                "UnitPrice": 40,
+                "AccountCode": "200",
+                "TaxType": "OUTPUT2"
+              },
+              "Name": "An Example Untracked Item",
+              "IsTrackedAsInventory": false,
+              "IsSold": true,
+              "IsPurchased": true
+            }
+          ]
+        }
+      },
+      "key": "getItem",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the Item ID.",
+          "example": "example-e40f-414a-8f95-ce6a63196e1a",
+          "placeholder": "Item, ID",
+          "key": "itemId",
+          "type": "string",
+          "default": "",
+          "label": "Item ID"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteInvoice": {
+      "display": {
+        "label": "Delete Invoice",
+        "description": "Delete the information and metadata of an invoice by Id"
+      },
+      "examplePayload": {
+        "data": {
+          "ID": "example-7b92-4e10-84e8-efef27090697",
+          "status": "OK",
+          "ProviderName": "MyExampleProvider",
+          "DateTimeUTC": "/Date(1637616068092)/",
+          "Invoices": [
+            {
+              "InvoiceID": "example-7b92-4e10-84e8-efef27090697",
+              "InvoiceNumber": "example01",
+              "AmountDue": 800,
+              "AmountPaid": 0,
+              "SentToContact": false,
+              "TotalDiscount": 200,
+              "contact": {},
+              "status": "Deleted"
+            }
+          ]
+        }
+      },
+      "key": "deleteInvoice",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the Invoice ID.",
+          "example": "example-e40f-414a-8f95-ce6a63196e1a",
+          "placeholder": "Invoice ID",
+          "key": "invoiceId",
+          "type": "string",
+          "default": "",
+          "label": "Invoice ID"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listInvoices": {
+      "display": {
+        "label": "List Invoices",
+        "description": "List all invoices"
+      },
+      "examplePayload": {
+        "data": {
+          "ID": "example-7b92-4e10-84e8-efef27090697",
+          "status": "OK",
+          "ProviderName": "MyExampleProvider",
+          "DateTimeUTC": "/Date(1637616068092)/",
+          "Invoices": [
+            {
+              "InvoiceID": "example-7b92-4e10-84e8-efef27090697",
+              "InvoiceNumber": "example01",
+              "AmountDue": 800,
+              "AmountPaid": 0,
+              "SentToContact": false,
+              "TotalDiscount": 200,
+              "contact": {}
+            }
+          ]
+        }
+      },
+      "key": "listInvoices",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "example": "3",
+          "comments": "Provide the page of the results you would like to return. Pagination will only be enabled if over 100 elements are returned by your request. It is not possible to specify the page size.",
+          "key": "page",
+          "type": "string",
+          "default": "",
+          "label": "Page Number"
+        },
+        {
+          "required": false,
+          "example": "yyyy-mm-ddThhss",
+          "comments": "Only contacts created or modified since this timestamp will be returned.",
+          "key": "modifiedAfter",
+          "type": "string",
+          "default": "",
+          "label": "Modified After"
+        },
+        {
+          "required": false,
+          "example": "Name.Contains(\"Peter\")",
+          "comments": "The where parameter allows you to filter on endpoints and elements that don't have explicit parameters.",
+          "key": "where",
+          "type": "string",
+          "default": "",
+          "label": "Where"
+        }
+      ]
+    },
+    "deleteItem": {
+      "display": {
+        "label": "Delete Item",
+        "description": "Delete the information and metadata of an item by Id"
+      },
+      "key": "deleteItem",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the Item ID.",
+          "example": "example-e40f-414a-8f95-ce6a63196e1a",
+          "placeholder": "Item, ID",
+          "key": "itemId",
+          "type": "string",
+          "default": "",
+          "label": "Item ID"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listItems": {
+      "display": {
+        "label": "List Items",
+        "description": "List all items"
+      },
+      "examplePayload": {
+        "data": {
+          "Items": [
+            {
+              "ItemID": "19b79d12-0ae1-496e-9649-cbd04b15c7c5",
+              "Code": "ExampleThing",
+              "Description": "I sell this untracked thing",
+              "PurchaseDescription": "I buy this untracked thing",
+              "UpdatedDateUTC": "/Date(1488338552390+0000)/",
+              "PurchaseDetails": {
+                "UnitPrice": 20,
+                "AccountCode": "400",
+                "TaxType": "NONE"
+              },
+              "SalesDetails": {
+                "UnitPrice": 40,
+                "AccountCode": "200",
+                "TaxType": "OUTPUT2"
+              },
+              "Name": "An Example Untracked Item",
+              "IsTrackedAsInventory": false,
+              "IsSold": true,
+              "IsPurchased": true
+            }
+          ]
+        }
+      },
+      "key": "listItems",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "example": "3",
+          "comments": "Provide the page of the results you would like to return. Pagination will only be enabled if over 100 elements are returned by your request. It is not possible to specify the page size.",
+          "key": "page",
+          "type": "string",
+          "default": "",
+          "label": "Page Number"
+        },
+        {
+          "required": false,
+          "example": "yyyy-mm-ddThhss",
+          "comments": "Only contacts created or modified since this timestamp will be returned.",
+          "key": "modifiedAfter",
+          "type": "string",
+          "default": "",
+          "label": "Modified After"
+        },
+        {
+          "required": false,
+          "example": "Name.Contains(\"Peter\")",
+          "comments": "The where parameter allows you to filter on endpoints and elements that don't have explicit parameters.",
+          "key": "where",
+          "type": "string",
+          "default": "",
+          "label": "Where"
+        }
+      ]
+    },
+    "createContact": {
+      "display": {
+        "label": "Create Contact",
+        "description": "Create a new contact"
+      },
+      "examplePayload": {
+        "data": {
+          "ID": "example-7b92-4e10-84e8-efef27090697",
+          "status": "OK",
+          "ProviderName": "MyExampleProvider",
+          "DateTimeUTC": "/Date(1637616068092)/",
+          "contacts": [
+            {
+              "ContactID": "example-7b92-4e10-84e8-efef27090697",
+              "ContactStatus": "Active",
+              "Name": "Example Contact",
+              "EmailAddress": "someone@example.com",
+              "IsSupplier": "false",
+              "IsCustomer": "false",
+              "updatedDateUTC": "/Date(1637614988203+0000)/"
+            }
+          ]
+        }
+      },
+      "key": "createContact",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the name of the contact.",
+          "example": "Acme Inc.",
+          "placeholder": "Contact Name",
+          "key": "contactName",
+          "type": "string",
+          "default": "",
+          "label": "Contact Name"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the first name of the contact.",
+          "example": "John",
+          "placeholder": "First Name",
+          "key": "firstName",
+          "type": "string",
+          "default": "",
+          "label": "First Name"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the last name of the contact.",
+          "example": "Doe",
+          "placeholder": "Last Name",
+          "key": "lastName",
+          "type": "string",
+          "default": "",
+          "label": "Last Name"
+        },
+        {
+          "required": false,
+          "comments": "Provide a valid email address for the contact.",
+          "example": "someone@example.com",
+          "placeholder": "Email Address",
+          "key": "email",
+          "type": "string",
+          "default": "",
+          "label": "Email Address"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the address type.",
+          "example": "POBOX",
+          "model": [
+            {
+              "label": "PO Box",
+              "value": "POBOX"
+            },
+            {
+              "label": "Street",
+              "value": "STREET"
+            },
+            {
+              "label": "Delivery",
+              "value": "DELIVERY"
+            }
+          ],
+          "placeholder": "Address Type",
+          "key": "addressType",
+          "type": "string",
+          "default": "",
+          "label": "Address Type"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value that represents a valid address.",
+          "example": "4 Privet Drive",
+          "placeholder": "Address",
+          "key": "address",
+          "type": "string",
+          "default": "",
+          "label": "Address"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the city of the address.",
+          "example": "San Francisco",
+          "placeholder": "City",
+          "key": "city",
+          "type": "string",
+          "default": "",
+          "label": "City"
+        },
+        {
+          "required": false,
+          "comments": "Provide a valid postal code.",
+          "example": "48423",
+          "placeholder": "Postal Code",
+          "key": "postalCode",
+          "type": "string",
+          "default": "",
+          "label": "Postal Code"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the details of the contacts bank account. Depending on the type of account, providing a value for this field could cause your request to fail. For more information on the expected shape of the Account object, refer to the Xero docs: https://developer.xero.com/documentation/api/accounting/accounts/#get-accounts",
+          "example": "01-0123-example-00",
+          "placeholder": "Bank Account Details",
+          "key": "bankAccountDetails",
+          "type": "string",
+          "default": "",
+          "label": "Bank Account Details"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the status of the contact.",
+          "model": [
+            {
+              "label": "Active",
+              "value": "ACTIVE"
+            },
+            {
+              "label": "Archived",
+              "value": "ARCHIVED"
+            },
+            {
+              "label": "GDP Request",
+              "value": "GDPREQUEST"
+            }
+          ],
+          "placeholder": "Contact Status",
+          "key": "contactStatus",
+          "type": "string",
+          "default": "",
+          "label": "Contact Status"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the Tax number. For more information on what value to provide, refer to the Xero docs: https://developer.xero.com/documentation/api/accounting/types#tax-types",
+          "example": "12-345-678",
+          "placeholder": "Tax Number",
+          "key": "taxNumber",
+          "type": "string",
+          "default": "",
+          "label": "Tax Number"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the tax type of accounts receivable for the account. For more information on what value to provide, refer to the Xero docs: https://developer.xero.com/documentation/api/accounting/types#tax-types",
+          "example": "OUTPUT",
+          "placeholder": "Accounts Receivable Tax Type",
+          "key": "accountsReceivableTaxType",
+          "type": "string",
+          "default": "",
+          "label": "Accounts Receivable Tax Type"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the tax type of accounts payable for the account. For more information on what value to provide, refer to the Xero docs: https://developer.xero.com/documentation/api/accounting/types#tax-types",
+          "example": "OUTPUT",
+          "placeholder": "Accounts Payable Tax Type",
+          "key": "accountsPayableTaxType",
+          "type": "string",
+          "default": "",
+          "label": "Accounts Payable Tax Type"
+        },
+        {
+          "required": false,
+          "comments": "Provide a valid type of currency.",
+          "example": "USD",
+          "placeholder": "Default Currency",
+          "key": "defaultCurrency",
+          "type": "string",
+          "default": "",
+          "label": "Default Currency"
+        }
+      ]
+    },
+    "getContactHistory": {
+      "display": {
+        "label": "Get Contact History",
+        "description": "Get the information and metadata of a contact's history by Id"
+      },
+      "examplePayload": {
+        "data": {
+          "ID": "example-7b92-4e10-84e8-efef27090697",
+          "status": "OK",
+          "ProviderName": "MyExampleProvider",
+          "DateTimeUTC": "/Date(1637616068092)/",
+          "HistoryRecords": [
+            {
+              "Changes": "Edited",
+              "DateUTCString": "2021-11-23T18:38:24",
+              "DateUTC": "/Date(1637692704697+0000)/",
+              "User": "System Generated",
+              "Details": "These are some example details"
+            }
+          ]
+        }
+      },
+      "key": "getContactHistory",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the Contact ID.",
+          "example": "example-e40f-414a-8f95-ce6a63196e1a",
+          "placeholder": "Contact ID",
+          "key": "contactId",
+          "type": "string",
+          "default": "",
+          "label": "Contact ID"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "updateContact": {
+      "display": {
+        "label": "Update Contact",
+        "description": "Update the information and metadata of a contact by Id"
+      },
+      "examplePayload": {
+        "data": {
+          "ID": "example-7b92-4e10-84e8-efef27090697",
+          "status": "OK",
+          "ProviderName": "MyExampleProvider",
+          "DateTimeUTC": "/Date(1637616068092)/",
+          "contacts": [
+            {
+              "ContactID": "example-7b92-4e10-84e8-efef27090697",
+              "ContactStatus": "Active",
+              "Name": "Example Contact",
+              "EmailAddress": "someone@example.com",
+              "IsSupplier": "false",
+              "IsCustomer": "false",
+              "updatedDateUTC": "/Date(1637614988203+0000)/"
+            }
+          ]
+        }
+      },
+      "key": "updateContact",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the Contact ID.",
+          "example": "example-e40f-414a-8f95-ce6a63196e1a",
+          "placeholder": "Contact ID",
+          "key": "contactId",
+          "type": "string",
+          "default": "",
+          "label": "Contact ID"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the unique number identifier of the contact.",
+          "example": "IDexample01",
+          "placeholder": "Contact Number",
+          "key": "contactNumber",
+          "type": "string",
+          "default": "",
+          "label": "Contact Number"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the name of the contact.",
+          "example": "Acme Inc.",
+          "placeholder": "Contact Name",
+          "key": "contactName",
+          "type": "string",
+          "default": "",
+          "label": "Contact Name"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the first name of the contact.",
+          "example": "John",
+          "placeholder": "First Name",
+          "key": "firstName",
+          "type": "string",
+          "default": "",
+          "label": "First Name"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the last name of the contact.",
+          "example": "Doe",
+          "placeholder": "Last Name",
+          "key": "lastName",
+          "type": "string",
+          "default": "",
+          "label": "Last Name"
+        },
+        {
+          "required": false,
+          "comments": "Provide a valid email address for the contact.",
+          "example": "someone@example.com",
+          "placeholder": "Email Address",
+          "key": "email",
+          "type": "string",
+          "default": "",
+          "label": "Email Address"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the tax type of accounts payable for the account. For more information on what value to provide, refer to the Xero docs: https://developer.xero.com/documentation/api/accounting/types#tax-types",
+          "example": "OUTPUT",
+          "placeholder": "Accounts Payable Tax Type",
+          "key": "accountsPayableTaxType",
+          "type": "string",
+          "default": "",
+          "label": "Accounts Payable Tax Type"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the tax type of accounts receivable for the account. For more information on what value to provide, refer to the Xero docs: https://developer.xero.com/documentation/api/accounting/types#tax-types",
+          "example": "OUTPUT",
+          "placeholder": "Accounts Receivable Tax Type",
+          "key": "accountsReceivableTaxType",
+          "type": "string",
+          "default": "",
+          "label": "Accounts Receivable Tax Type"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the details of the contacts bank account. Depending on the type of account, providing a value for this field could cause your request to fail. For more information on the expected shape of the Account object, refer to the Xero docs: https://developer.xero.com/documentation/api/accounting/accounts/#get-accounts",
+          "example": "01-0123-example-00",
+          "placeholder": "Bank Account Details",
+          "key": "bankAccountDetails",
+          "type": "string",
+          "default": "",
+          "label": "Bank Account Details"
+        },
+        {
+          "required": false,
+          "comments": "Provide a valid type of currency.",
+          "example": "USD",
+          "placeholder": "Default Currency",
+          "key": "defaultCurrency",
+          "type": "string",
+          "default": "",
+          "label": "Default Currency"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the Tax number. For more information on what value to provide, refer to the Xero docs: https://developer.xero.com/documentation/api/accounting/types#tax-types",
+          "example": "12-345-678",
+          "placeholder": "Tax Number",
+          "key": "taxNumber",
+          "type": "string",
+          "default": "",
+          "label": "Tax Number"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the status of the contact.",
+          "model": [
+            {
+              "label": "Active",
+              "value": "ACTIVE"
+            },
+            {
+              "label": "Archived",
+              "value": "ARCHIVED"
+            },
+            {
+              "label": "GDP Request",
+              "value": "GDPREQUEST"
+            }
+          ],
+          "placeholder": "Contact Status",
+          "key": "contactStatus",
+          "type": "string",
+          "default": "",
+          "label": "Contact Status"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the city of the address.",
+          "example": "San Francisco",
+          "placeholder": "City",
+          "key": "city",
+          "type": "string",
+          "default": "",
+          "label": "City"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the address type.",
+          "example": "POBOX",
+          "model": [
+            {
+              "label": "PO Box",
+              "value": "POBOX"
+            },
+            {
+              "label": "Street",
+              "value": "STREET"
+            },
+            {
+              "label": "Delivery",
+              "value": "DELIVERY"
+            }
+          ],
+          "placeholder": "Address Type",
+          "key": "addressType",
+          "type": "string",
+          "default": "",
+          "label": "Address Type"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value that represents a valid address.",
+          "example": "4 Privet Drive",
+          "placeholder": "Address",
+          "key": "address",
+          "type": "string",
+          "default": "",
+          "label": "Address"
+        },
+        {
+          "required": false,
+          "comments": "Provide a valid postal code.",
+          "example": "48423",
+          "placeholder": "Postal Code",
+          "key": "postalCode",
+          "type": "string",
+          "default": "",
+          "label": "Postal Code"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createItem": {
+      "display": {
+        "label": "Create Item",
+        "description": "Create a new Item"
+      },
+      "examplePayload": {
+        "data": {
+          "Items": [
+            {
+              "ItemID": "19b79d12-0ae1-496e-9649-cbd04b15c7c5",
+              "Code": "ExampleThing",
+              "Description": "I sell this untracked thing",
+              "PurchaseDescription": "I buy this untracked thing",
+              "UpdatedDateUTC": "/Date(1488338552390+0000)/",
+              "PurchaseDetails": {
+                "UnitPrice": 20,
+                "AccountCode": "400",
+                "TaxType": "NONE"
+              },
+              "SalesDetails": {
+                "UnitPrice": 40,
+                "AccountCode": "200",
+                "TaxType": "OUTPUT2"
+              },
+              "Name": "An Example Untracked Item",
+              "IsTrackedAsInventory": false,
+              "IsSold": true,
+              "IsPurchased": true
+            }
+          ]
+        }
+      },
+      "key": "createItem",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a user-defined valid item code.",
+          "example": "Untracked Item",
+          "placeholder": "Item Code",
+          "key": "itemCode",
+          "type": "string",
+          "default": "",
+          "label": "Item Code"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the description.",
+          "example": "This is an example description",
+          "placeholder": "Description",
+          "key": "description",
+          "type": "string",
+          "default": "",
+          "label": "Description"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the description.",
+          "example": "This is an example description",
+          "placeholder": "Purchase Description",
+          "key": "purchaseDescription",
+          "type": "string",
+          "default": "",
+          "label": "Purchase Description"
+        },
+        {
+          "required": false,
+          "comments": "Provide the unit price of the purchase.",
+          "example": "800",
+          "placeholder": "Purchase Unit Price",
+          "key": "purchaseUnitPrice",
+          "type": "string",
+          "default": "",
+          "label": "Purchase Unit Price"
+        },
+        {
+          "required": false,
+          "comments": "Provide the account code of the purchase.",
+          "example": "200",
+          "placeholder": "Purchase Account Code",
+          "key": "purchaseAccountCode",
+          "type": "string",
+          "default": "",
+          "label": "Purchase Account Code"
+        },
+        {
+          "required": false,
+          "comments": "Provide the tax type of the purchaser. Pick a value from the items listed here: https://developer.xero.com/documentation/api/accounting/types#tax-types",
+          "example": "NONE",
+          "placeholder": "Purchase Tax Type",
+          "key": "purchaseTaxType",
+          "type": "string",
+          "default": "",
+          "label": "Purchase Tax Type"
+        },
+        {
+          "required": false,
+          "comments": "Provide the unit price of the sale, if the item has been sold.",
+          "example": "50.69",
+          "placeholder": "Sales Unit Price",
+          "key": "salesUnitPrice",
+          "type": "string",
+          "default": "",
+          "label": "Sales Unit Price"
+        },
+        {
+          "required": false,
+          "comments": "Provide the account code of the sale.",
+          "example": "200",
+          "placeholder": "Sales Account Code",
+          "key": "salesAccountCode",
+          "type": "string",
+          "default": "",
+          "label": "Sales Account Code"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the name of the item.",
+          "example": "Example Name",
+          "placeholder": "Item Name",
+          "key": "itemName",
+          "type": "string",
+          "default": "",
+          "label": "Item Name"
+        },
+        {
+          "required": false,
+          "comments": "Provide the tax type of the Seller. Provide a value from the items listed here: https://developer.xero.com/documentation/api/accounting/types#tax-types",
+          "example": "NONE",
+          "placeholder": "Sale Tax Type",
+          "key": "salesTaxType",
+          "type": "string",
+          "default": "",
+          "label": "Sales Tax Type"
+        },
+        {
+          "required": false,
+          "comments": "Provide the account code for the inventory asset",
+          "example": "200",
+          "placeholder": "Inventory Asset Account Code",
+          "key": "inventoryAssetAccountCode",
+          "type": "string",
+          "default": "",
+          "label": "Inventory Asset Account Code"
+        },
+        {
+          "required": false,
+          "comments": "Provide a boolean value to determine if the item has been sold yet.",
+          "placeholder": "Is Sold",
+          "key": "isSold",
+          "type": "boolean",
+          "default": "false",
+          "label": "Is Sold"
+        },
+        {
+          "required": false,
+          "comments": "Provide a boolean value to determine if the item has been purchased yet.",
+          "placeholder": "Is Purchased",
+          "key": "isPurchased",
+          "type": "boolean",
+          "default": "false",
+          "label": "Is Purchased"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getItemHistory": {
+      "display": {
+        "label": "Get Item History",
+        "description": "Get the information and metadata of an items's history by Id"
+      },
+      "examplePayload": {
+        "data": {
+          "HistoryRecords": [
+            {
+              "Changes": "Updated",
+              "DateUTCString": "2018-02-28T21:02:11",
+              "DateUTC": "/Date(1519851731990+0000)/",
+              "User": "Example",
+              "Details": "Example Received through the Xero API from ABC Org"
+            },
+            {
+              "Changes": "Created",
+              "DateUTCString": "2018-02-28T21:01:29",
+              "DateUTC": "/Date(1519851689297+0000)/",
+              "User": "Example",
+              "Details": "Example INV-0041 to ABC Furniture for 100.00."
+            }
+          ]
+        }
+      },
+      "key": "getItemHistory",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the Item ID.",
+          "example": "example-e40f-414a-8f95-ce6a63196e1a",
+          "placeholder": "Item, ID",
+          "key": "itemId",
+          "type": "string",
+          "default": "",
+          "label": "Item ID"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "addNoteToItem": {
+      "display": {
+        "label": "Add Note To Item",
+        "description": "Add a note to an item's history by Id"
+      },
+      "examplePayload": {
+        "data": {
+          "ID": "example-7b92-4e10-84e8-efef27090697",
+          "status": "OK",
+          "ProviderName": "MyExampleProvider",
+          "DateTimeUTC": "/Date(1637616068092)/",
+          "HistoryRecords": [
+            {
+              "Changes": "Edited",
+              "DateUTCString": "2021-11-23T18:38:24",
+              "DateUTC": "/Date(1637692704697+0000)/",
+              "User": "System Generated",
+              "Details": "These are some example details"
+            }
+          ]
+        }
+      },
+      "key": "addNoteToItem",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the Item ID.",
+          "example": "example-e40f-414a-8f95-ce6a63196e1a",
+          "placeholder": "Item, ID",
+          "key": "itemId",
+          "type": "string",
+          "default": "",
+          "label": "Item ID"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for notes to add to an object.",
+          "placeholder": "Notes",
+          "example": "These are example notes.",
+          "key": "notes",
+          "type": "string",
+          "default": "",
+          "label": "Notes"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createInvoice": {
+      "display": {
+        "label": "Create Invoice",
+        "description": "Create a new invoice"
+      },
+      "examplePayload": {
+        "data": {
+          "ID": "example-7b92-4e10-84e8-efef27090697",
+          "status": "OK",
+          "ProviderName": "MyExampleProvider",
+          "DateTimeUTC": "/Date(1637616068092)/",
+          "Invoices": [
+            {
+              "InvoiceID": "example-7b92-4e10-84e8-efef27090697",
+              "InvoiceNumber": "example01",
+              "AmountDue": 800,
+              "AmountPaid": 0,
+              "SentToContact": false,
+              "TotalDiscount": 200,
+              "contact": {}
+            }
+          ]
+        }
+      },
+      "key": "createInvoice",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the type of the given invoice.",
+          "placeholder": "Invoice Type",
+          "model": [
+            {
+              "label": "Accounts Payable",
+              "value": "ACCPAY"
+            },
+            {
+              "label": "Accounts Receivable",
+              "value": "ACCREC"
+            }
+          ],
+          "key": "invoiceType",
+          "type": "string",
+          "default": "",
+          "label": "Invoice Type"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the Contact ID.",
+          "example": "example-e40f-414a-8f95-ce6a63196e1a",
+          "placeholder": "Contact ID",
+          "key": "contactId",
+          "type": "string",
+          "default": "",
+          "label": "Contact ID"
+        },
+        {
+          "required": false,
+          "comments": "This value is required if you want to make payments on an invoice. Will default to 'DRAFT'",
+          "placeholder": "Invoice Status",
+          "model": [
+            {
+              "label": "Draft",
+              "value": "DRAFT"
+            },
+            {
+              "label": "Submitted",
+              "value": "SUBMITTED"
+            },
+            {
+              "label": "Authorized",
+              "value": "AUTHORISED"
+            }
+          ],
+          "key": "invoiceStatus",
+          "type": "string",
+          "default": "",
+          "label": "Invoice Status"
+        },
+        {
+          "required": false,
+          "language": "json",
+          "comments": "Provide a JSON array, For each item, provide an object describing a valid line item. The 'ItemCode', 'Tracking', and 'DiscountRate' properties are optional. If you want to provide no line items, simply enter an empty Array.",
+          "placeholder": "Line Items",
+          "key": "lineItems",
+          "type": "code",
+          "default": "[\n  {\n    \"Description\": \"example description\",\n    \"Quantity\": \"10\",\n    \"ItemCode\": \"Use this value to reference an existing item.\",\n    \"UnitAmount\": \"100.00\",\n    \"AccountCode\": \"200\",\n    \"DiscountRate\": \"20\",\n    \"Tracking\": [\n      {\n        \"Name\": \"Activity/Workstream\",\n        \"Option\": \"On site consultancy\"\n      }\n    ]\n  }\n]",
+          "label": "Line Items"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the line Amount Types.",
+          "placeholder": "Line Amount Type",
+          "model": [
+            {
+              "label": "Exclusive",
+              "value": "Exclusive"
+            },
+            {
+              "label": "Inclusive",
+              "value": "Inclusive"
+            },
+            {
+              "label": "No Tax",
+              "value": "NoTax"
+            }
+          ],
+          "key": "lineAmountTypes",
+          "type": "string",
+          "default": "",
+          "label": "Line Amount Type"
+        },
+        {
+          "required": false,
+          "comments": "Provide a valid date for when the invoice was created.",
+          "placeholder": "Date",
+          "example": "/Date(1518685950940+0000)/",
+          "key": "date",
+          "type": "string",
+          "default": "",
+          "label": "Date"
+        },
+        {
+          "required": false,
+          "comments": "Provide a valid date for the due date of the invoice.",
+          "placeholder": "Due Date",
+          "example": "/Date(1518685950940+0000)/",
+          "key": "dueDate",
+          "type": "string",
+          "default": "",
+          "label": "Due Date"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the date in which the invoice was created.",
+          "placeholder": "Date String",
+          "example": "2021-05-27T00:00:00",
+          "key": "dateString",
+          "type": "string",
+          "default": "",
+          "label": "Date String"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the due date of the invoice.",
+          "placeholder": "Due Date String",
+          "example": "2021-05-27T00:00:00",
+          "key": "dueDateString",
+          "type": "string",
+          "default": "",
+          "label": "Due Date String"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "sendInvoice": {
+      "display": {
+        "label": "Send Invoice",
+        "description": "Send an existing accounts receivable invoice through email"
+      },
+      "key": "sendInvoice",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the Invoice ID.",
+          "example": "example-e40f-414a-8f95-ce6a63196e1a",
+          "placeholder": "Invoice ID",
+          "key": "invoiceId",
+          "type": "string",
+          "default": "",
+          "label": "Invoice ID"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ],
+      "documentation": {
+        "description": "You can use the Send Invoice action to trigger the email of a sales invoice out of Xero.\nThe invoice must be of Type ACCREC and a valid Status for sending (SUBMITTED, AUTHORISED or PAID).\nThe email will be sent to the primary email address of the contact on the invoice and any additional contact persons that have IncludeInEmails flag set to true.\nThe sender will be the user who authorized the app connection.\n"
+      }
+    },
+    "voidInvoice": {
+      "display": {
+        "label": "Void Invoice",
+        "description": "Void an existing approved invoice that has no payments applied to it."
+      },
+      "examplePayload": {
+        "data": {
+          "ID": "example-7b92-4e10-84e8-efef27090697",
+          "status": "OK",
+          "ProviderName": "MyExampleProvider",
+          "DateTimeUTC": "/Date(1637616068092)/",
+          "Invoices": [
+            {
+              "InvoiceID": "example-7b92-4e10-84e8-efef27090697",
+              "InvoiceNumber": "example01",
+              "AmountDue": 800,
+              "AmountPaid": 0,
+              "SentToContact": false,
+              "TotalDiscount": 200,
+              "contact": {},
+              "Status": "VOIDED"
+            }
+          ]
+        }
+      },
+      "key": "voidInvoice",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the Invoice ID.",
+          "example": "example-e40f-414a-8f95-ce6a63196e1a",
+          "placeholder": "Invoice ID",
+          "key": "invoiceId",
+          "type": "string",
+          "default": "",
+          "label": "Invoice ID"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "addNoteToInvoice": {
+      "display": {
+        "label": "Add Notes To Invoice",
+        "description": "Add additional notes to an invoice by Id"
+      },
+      "examplePayload": {
+        "data": {
+          "ID": "example-7b92-4e10-84e8-efef27090697",
+          "status": "OK",
+          "ProviderName": "MyExampleProvider",
+          "DateTimeUTC": "/Date(1637616068092)/",
+          "HistoryRecords": [
+            {
+              "Changes": "Edited",
+              "DateUTCString": "2021-11-23T18:38:24",
+              "DateUTC": "/Date(1637692704697+0000)/",
+              "User": "System Generated",
+              "Details": "These are some example details"
+            }
+          ]
+        }
+      },
+      "key": "addNoteToInvoice",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the Invoice ID.",
+          "example": "example-e40f-414a-8f95-ce6a63196e1a",
+          "placeholder": "Invoice ID",
+          "key": "invoiceId",
+          "type": "string",
+          "default": "",
+          "label": "Invoice ID"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for notes to add to an object.",
+          "placeholder": "Notes",
+          "example": "These are example notes.",
+          "key": "notes",
+          "type": "string",
+          "default": "",
+          "label": "Notes"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createAccount": {
+      "display": {
+        "label": "Create Account",
+        "description": "Create a new account"
+      },
+      "examplePayload": {
+        "data": {
+          "ID": "example-7b92-4e10-84e8-efef27090697",
+          "status": "OK",
+          "ProviderName": "MyExampleProvider",
+          "DateTimeUTC": "/Date(1637616068092)/",
+          "accounts": [
+            {
+              "AccountID": "example-7b92-4e10-84e8-efef27090697",
+              "Code": "200",
+              "Name": "Example Account",
+              "Status": "ARCHIVED",
+              "Type": "REVENUE",
+              "TaxType": "OUTPUT"
+            }
+          ]
+        }
+      },
+      "key": "createAccount",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the account code. This value is a customer defined alpha numeric account code.",
+          "placeholder": "Account Code",
+          "example": "200",
+          "key": "accountCode",
+          "type": "string",
+          "default": "",
+          "label": "Account Code"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the name of the account.",
+          "placeholder": "Account Name",
+          "example": "Example Account",
+          "key": "accountName",
+          "type": "string",
+          "default": "",
+          "label": "Account Name"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the type of the given account. You can choose from the list of provided values here: https://developer.xero.com/documentation/api/accounting/types#accounts",
+          "placeholder": "Account Type",
+          "example": "BANK",
+          "key": "accountType",
+          "type": "string",
+          "default": "",
+          "label": "Account Type"
+        },
+        {
+          "required": false,
+          "comments": "For each item, provide a key and value to be used in the request body.",
+          "placeholder": "Optional Values",
+          "example": "exampleValue",
+          "key": "fieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Optional Values"
+        },
+        {
+          "required": false,
+          "comments": "This value is required if you are creating an account of type 'BANK'.",
+          "placeholder": "Bank Account Number",
+          "example": "121-121-1234567",
+          "key": "bankAccountNumber",
+          "type": "string",
+          "default": "",
+          "label": "Bank Account Number"
+        },
+        {
+          "required": false,
+          "comments": "This value will determine if your account will show in expense claims. This field is required for certain accounts.",
+          "key": "showInExpenseClaims",
+          "type": "boolean",
+          "default": "false",
+          "label": "Show In Expense Claims"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ],
+      "documentation": {
+        "description": "Xero has support for many different types of accounts.\nWhen creating certain accounts they may require you to provide additional fields.\nYou can provide these fields with the 'Optional Values' input.\nFor a list of the required values for each type of account, refer to the [documentation](https://developer.xero.com/documentation/api/accounting/accounts#get-accounts) provided by Xero.\n"
+      }
+    },
+    "createAttachment": {
+      "display": {
+        "label": "Create Attachment",
+        "description": "Add an attachment to an existing object. Existing attachments with that file name will be overridden."
+      },
+      "key": "createAttachment",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the type of object you would like to access.",
+          "placeholder": "Object Type",
+          "model": [
+            {
+              "label": "Accounts",
+              "value": "accounts"
+            },
+            {
+              "label": "Bank Transactions",
+              "value": "banktransactions"
+            },
+            {
+              "label": "Bank Transfers",
+              "value": "banktransfers"
+            },
+            {
+              "label": "Contacts",
+              "value": "contacts"
+            },
+            {
+              "label": "Credit Notes",
+              "value": "creditnotes"
+            },
+            {
+              "label": "Invoices",
+              "value": "invoices"
+            },
+            {
+              "label": "Manual Journals",
+              "value": "manualjournals"
+            },
+            {
+              "label": "Purchase Orders",
+              "value": "purchaseorders"
+            },
+            {
+              "label": "Receipts",
+              "value": "receipts"
+            },
+            {
+              "label": "Repeating Invoices",
+              "value": "repeatinginvoices"
+            }
+          ],
+          "key": "objectType",
+          "type": "string",
+          "default": "",
+          "label": "Object Type"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the Id of the object.",
+          "placeholder": "Object ID",
+          "example": "example-e40f-414a-8f95-ce6a63196e1a",
+          "key": "objectId",
+          "type": "string",
+          "default": "",
+          "label": "Object ID"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the name of the file you want to attach to the object. The File Name will become the unique identifier of the file for update operations.",
+          "placeholder": "File Name",
+          "example": "My Example File",
+          "key": "fileName",
+          "type": "string",
+          "default": "",
+          "label": "File Name"
+        },
+        {
+          "required": true,
+          "comments": "Provide a value that represents the data of the file you want to upload",
+          "placeholder": "File Data",
+          "key": "file",
+          "type": "data",
+          "default": "",
+          "label": "File Data"
+        },
+        {
+          "required": true,
+          "comments": "MIME type of the file you want to upload",
+          "example": "image/png",
+          "key": "contentType",
+          "type": "string",
+          "default": "",
+          "label": "Content Type"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getAttachment": {
+      "display": {
+        "label": "Get Attachment",
+        "description": "Get an attachment by ID"
+      },
+      "key": "getAttachment",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the type of object you would like to access.",
+          "placeholder": "Object Type",
+          "model": [
+            {
+              "label": "Accounts",
+              "value": "accounts"
+            },
+            {
+              "label": "Bank Transactions",
+              "value": "banktransactions"
+            },
+            {
+              "label": "Bank Transfers",
+              "value": "banktransfers"
+            },
+            {
+              "label": "Contacts",
+              "value": "contacts"
+            },
+            {
+              "label": "Credit Notes",
+              "value": "creditnotes"
+            },
+            {
+              "label": "Invoices",
+              "value": "invoices"
+            },
+            {
+              "label": "Manual Journals",
+              "value": "manualjournals"
+            },
+            {
+              "label": "Purchase Orders",
+              "value": "purchaseorders"
+            },
+            {
+              "label": "Receipts",
+              "value": "receipts"
+            },
+            {
+              "label": "Repeating Invoices",
+              "value": "repeatinginvoices"
+            }
+          ],
+          "key": "objectType",
+          "type": "string",
+          "default": "",
+          "label": "Object Type"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the Id of the object.",
+          "placeholder": "Object ID",
+          "example": "example-e40f-414a-8f95-ce6a63196e1a",
+          "key": "objectId",
+          "type": "string",
+          "default": "",
+          "label": "Object ID"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the name of the file you want to attach to the object. The File Name will become the unique identifier of the file for update operations.",
+          "placeholder": "File Name",
+          "example": "My Example File",
+          "key": "fileName",
+          "type": "string",
+          "default": "",
+          "label": "File Name"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getPayment": {
+      "display": {
+        "label": "Get Payment",
+        "description": "Get the information and metadata of a payment by id"
+      },
+      "examplePayload": {
+        "data": {
+          "Id": "example-d457-425f-8395-b3bdad78e517",
+          "status": "OK",
+          "ProviderName": "example-provider",
+          "Payments": [
+            {
+              "PaymentID": "19b79d12-0ae1-496e-9649-cbd04b15c7c5",
+              "Date": "/Date(1638144000000+0000)/",
+              "BankAmount": 80,
+              "CurrencyRate": 1,
+              "PaymentType": "ACCRECPAYMENT",
+              "Status": "AUTHORISED",
+              "HasAccount": false
+            }
+          ]
+        }
+      },
+      "key": "getPayment",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the Id of the payment.",
+          "placeholder": "Payment ID",
+          "key": "paymentId",
+          "type": "string",
+          "default": "",
+          "label": "Payment ID"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getPaymentHistory": {
+      "display": {
+        "label": "Get Payment History",
+        "description": "Get the information and metadata of a payment's history by Id"
+      },
+      "key": "getPaymentHistory",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the Id of the payment.",
+          "placeholder": "Payment ID",
+          "key": "paymentId",
+          "type": "string",
+          "default": "",
+          "label": "Payment ID"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listPayments": {
+      "display": {
+        "label": "List Payments",
+        "description": "List all payments"
+      },
+      "examplePayload": {
+        "data": {
+          "Id": "example-d457-425f-8395-b3bdad78e517",
+          "status": "OK",
+          "ProviderName": "example-provider",
+          "Payments": [
+            {
+              "PaymentID": "19b79d12-0ae1-496e-9649-cbd04b15c7c5",
+              "Date": "/Date(1638144000000+0000)/",
+              "BankAmount": 80,
+              "CurrencyRate": 1,
+              "PaymentType": "ACCRECPAYMENT",
+              "Status": "AUTHORISED",
+              "HasAccount": false
+            }
+          ]
+        }
+      },
+      "key": "listPayments",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "example": "3",
+          "comments": "Provide the page of the results you would like to return. Pagination will only be enabled if over 100 elements are returned by your request. It is not possible to specify the page size.",
+          "key": "page",
+          "type": "string",
+          "default": "",
+          "label": "Page Number"
+        },
+        {
+          "required": false,
+          "example": "yyyy-mm-ddThhss",
+          "comments": "Only contacts created or modified since this timestamp will be returned.",
+          "key": "modifiedAfter",
+          "type": "string",
+          "default": "",
+          "label": "Modified After"
+        },
+        {
+          "required": false,
+          "example": "Name.Contains(\"Peter\")",
+          "comments": "The where parameter allows you to filter on endpoints and elements that don't have explicit parameters.",
+          "key": "where",
+          "type": "string",
+          "default": "",
+          "label": "Where"
+        }
+      ]
+    },
+    "payInvoice": {
+      "display": {
+        "label": "Pay Invoice",
+        "description": "Create a new payment on an existing AP/AR invoice"
+      },
+      "key": "payInvoice",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the Invoice ID.",
+          "example": "example-e40f-414a-8f95-ce6a63196e1a",
+          "placeholder": "Invoice ID",
+          "key": "invoiceId",
+          "type": "string",
+          "default": "",
+          "label": "Invoice ID"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the Account ID",
+          "example": "example-e40f-414a-8f95-ce6a63196e1a",
+          "placeholder": "Account ID",
+          "key": "accountId",
+          "type": "string",
+          "default": "",
+          "label": "Account ID"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the date in which the invoice was created.",
+          "placeholder": "Date String",
+          "example": "2021-05-27T00:00:00",
+          "key": "dateString",
+          "type": "string",
+          "default": "",
+          "label": "Date String"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the amount of the payment. This value must be less than or equal to the outstanding amount owed on the invoice.",
+          "placeholder": "Payment Amount",
+          "key": "paymentAmount",
+          "type": "string",
+          "default": "",
+          "label": "Payment Amount"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "reversePayment": {
+      "display": {
+        "label": "Reverse Payment",
+        "description": "Reverse a payment by Id"
+      },
+      "examplePayload": {
+        "data": {
+          "Id": "example-d457-425f-8395-b3bdad78e517",
+          "status": "OK",
+          "ProviderName": "example-provider",
+          "Payments": [
+            {
+              "PaymentID": "19b79d12-0ae1-496e-9649-cbd04b15c7c5",
+              "Date": "/Date(1638144000000+0000)/",
+              "BankAmount": 80,
+              "CurrencyRate": 1,
+              "PaymentType": "ACCRECPAYMENT",
+              "Status": "DELETED",
+              "HasAccount": false
+            }
+          ]
+        }
+      },
+      "key": "reversePayment",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the Id of the payment.",
+          "placeholder": "Payment ID",
+          "key": "paymentId",
+          "type": "string",
+          "default": "",
+          "label": "Payment ID"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getAccount": {
+      "display": {
+        "label": "Get Account",
+        "description": "Get the information and metadata of an account by Id"
+      },
+      "examplePayload": {
+        "data": {
+          "ID": "example-7b92-4e10-84e8-efef27090697",
+          "status": "OK",
+          "ProviderName": "MyExampleProvider",
+          "DateTimeUTC": "/Date(1637616068092)/",
+          "accounts": [
+            {
+              "AccountID": "example-7b92-4e10-84e8-efef27090697",
+              "Code": "200",
+              "Name": "Example Account",
+              "Status": "ARCHIVED",
+              "Type": "REVENUE",
+              "TaxType": "OUTPUT"
+            }
+          ]
+        }
+      },
+      "key": "getAccount",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the Account ID",
+          "example": "example-e40f-414a-8f95-ce6a63196e1a",
+          "placeholder": "Account ID",
+          "key": "accountId",
+          "type": "string",
+          "default": "",
+          "label": "Account ID"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "archiveAccount": {
+      "display": {
+        "label": "Archive Account",
+        "description": "Archive the information and metadata of an account by Id"
+      },
+      "examplePayload": {
+        "data": {
+          "ID": "example-7b92-4e10-84e8-efef27090697",
+          "status": "OK",
+          "ProviderName": "MyExampleProvider",
+          "DateTimeUTC": "/Date(1637616068092)/",
+          "accounts": [
+            {
+              "AccountID": "example-7b92-4e10-84e8-efef27090697",
+              "Code": "200",
+              "Name": "Example Account",
+              "Status": "ARCHIVED",
+              "Type": "REVENUE",
+              "TaxType": "OUTPUT"
+            }
+          ]
+        }
+      },
+      "key": "archiveAccount",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the Account ID",
+          "example": "example-e40f-414a-8f95-ce6a63196e1a",
+          "placeholder": "Account ID",
+          "key": "accountId",
+          "type": "string",
+          "default": "",
+          "label": "Account ID"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "updateAccount": {
+      "display": {
+        "label": "Update Account",
+        "description": "Update the information and metadata of an existing account by Id"
+      },
+      "examplePayload": {
+        "data": {
+          "ID": "example-7b92-4e10-84e8-efef27090697",
+          "status": "OK",
+          "ProviderName": "MyExampleProvider",
+          "DateTimeUTC": "/Date(1637616068092)/",
+          "accounts": [
+            {
+              "AccountID": "example-7b92-4e10-84e8-efef27090697",
+              "Code": "200",
+              "Name": "Example Account",
+              "Status": "ARCHIVED",
+              "Type": "REVENUE",
+              "TaxType": "OUTPUT"
+            }
+          ]
+        }
+      },
+      "key": "updateAccount",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the Account ID",
+          "example": "example-e40f-414a-8f95-ce6a63196e1a",
+          "placeholder": "Account ID",
+          "key": "accountId",
+          "type": "string",
+          "default": "",
+          "label": "Account ID"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the account code. This value is a customer defined alpha numeric account code.",
+          "placeholder": "Account Code",
+          "example": "200",
+          "key": "accountCode",
+          "type": "string",
+          "default": "",
+          "label": "Account Code"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the name of the account.",
+          "placeholder": "Account Name",
+          "example": "Example Account",
+          "key": "accountName",
+          "type": "string",
+          "default": "",
+          "label": "Account Name"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the type of the given account. You can choose from the list of provided values here: https://developer.xero.com/documentation/api/accounting/types#accounts",
+          "placeholder": "Account Type",
+          "example": "BANK",
+          "key": "accountType",
+          "type": "string",
+          "default": "",
+          "label": "Account Type"
+        },
+        {
+          "required": false,
+          "comments": "Provide the tax type of the purchaser. Pick a value from the items listed here: https://developer.xero.com/documentation/api/accounting/types#tax-types",
+          "example": "NONE",
+          "placeholder": "Purchase Tax Type",
+          "key": "purchaseTaxType",
+          "type": "string",
+          "default": "",
+          "label": "Purchase Tax Type"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the description.",
+          "example": "This is an example description",
+          "placeholder": "Description",
+          "key": "description",
+          "type": "string",
+          "default": "",
+          "label": "Description"
+        },
+        {
+          "required": false,
+          "comments": "This flag will enable payments to be made to the given account.",
+          "key": "enablePaymentsToAccount",
+          "type": "boolean",
+          "default": "false",
+          "label": "Enable Payments To Account"
+        },
+        {
+          "required": false,
+          "comments": "For each item, provide a key and value to be used in the request body.",
+          "placeholder": "Optional Values",
+          "example": "exampleValue",
+          "key": "fieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Optional Values"
+        },
+        {
+          "required": false,
+          "comments": "This value will determine if your account will show in expense claims. This field is required for certain accounts.",
+          "key": "showInExpenseClaims",
+          "type": "boolean",
+          "default": "false",
+          "label": "Show In Expense Claims"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "updateItem": {
+      "display": {
+        "label": "Update Item",
+        "description": "Update the information and metadata of an item by Id"
+      },
+      "examplePayload": {
+        "data": {
+          "ID": "example-7b92-4e10-84e8-efef27090697",
+          "status": "OK",
+          "ProviderName": "MyExampleProvider",
+          "DateTimeUTC": "/Date(1637616068092)/",
+          "Items": [
+            {
+              "ItemID": "example-7b92-4e10-84e8-efef27090697",
+              "Code": "ExampleThing",
+              "Description": "I sell this untracked thing",
+              "PurchaseDescription": "I buy this untracked thing",
+              "UpdatedDateUTC": "/Date(1488338552390+0000)/",
+              "PurchaseDetails": {
+                "UnitPrice": 20,
+                "AccountCode": "400",
+                "TaxType": "NONE"
+              },
+              "SalesDetails": {
+                "UnitPrice": 40,
+                "AccountCode": "200",
+                "TaxType": "OUTPUT2"
+              },
+              "Name": "An Example Untracked Item",
+              "IsTrackedAsInventory": false,
+              "IsSold": true,
+              "IsPurchased": true
+            }
+          ]
+        }
+      },
+      "key": "updateItem",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the Item ID.",
+          "example": "example-e40f-414a-8f95-ce6a63196e1a",
+          "placeholder": "Item, ID",
+          "key": "itemId",
+          "type": "string",
+          "default": "",
+          "label": "Item ID"
+        },
+        {
+          "required": true,
+          "comments": "Provide a user-defined valid item code.",
+          "example": "Untracked Item",
+          "placeholder": "Item Code",
+          "key": "itemCode",
+          "type": "string",
+          "default": "",
+          "label": "Item Code"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the name of the item.",
+          "example": "Example Name",
+          "placeholder": "Item Name",
+          "key": "itemName",
+          "type": "string",
+          "default": "",
+          "label": "Item Name"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the description.",
+          "example": "This is an example description",
+          "placeholder": "Description",
+          "key": "description",
+          "type": "string",
+          "default": "",
+          "label": "Description"
+        },
+        {
+          "required": false,
+          "comments": "Provide a boolean value to determine if the item has been sold yet.",
+          "placeholder": "Is Sold",
+          "key": "isSold",
+          "type": "boolean",
+          "default": "false",
+          "label": "Is Sold"
+        },
+        {
+          "required": false,
+          "comments": "Provide a boolean value to determine if the item has been purchased yet.",
+          "placeholder": "Is Purchased",
+          "key": "isPurchased",
+          "type": "boolean",
+          "default": "false",
+          "label": "Is Purchased"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the description.",
+          "example": "This is an example description",
+          "placeholder": "Purchase Description",
+          "key": "purchaseDescription",
+          "type": "string",
+          "default": "",
+          "label": "Purchase Description"
+        },
+        {
+          "required": false,
+          "comments": "Provide the unit price of the purchase.",
+          "example": "800",
+          "placeholder": "Purchase Unit Price",
+          "key": "purchaseUnitPrice",
+          "type": "string",
+          "default": "",
+          "label": "Purchase Unit Price"
+        },
+        {
+          "required": false,
+          "comments": "Provide the tax type of the purchaser. Pick a value from the items listed here: https://developer.xero.com/documentation/api/accounting/types#tax-types",
+          "example": "NONE",
+          "placeholder": "Purchase Tax Type",
+          "key": "purchaseTaxType",
+          "type": "string",
+          "default": "",
+          "label": "Purchase Tax Type"
+        },
+        {
+          "required": false,
+          "comments": "Provide the account code of the purchase.",
+          "example": "200",
+          "placeholder": "Purchase Account Code",
+          "key": "purchaseAccountCode",
+          "type": "string",
+          "default": "",
+          "label": "Purchase Account Code"
+        },
+        {
+          "required": false,
+          "comments": "Provide the account code of the sale.",
+          "example": "200",
+          "placeholder": "Sales Account Code",
+          "key": "salesAccountCode",
+          "type": "string",
+          "default": "",
+          "label": "Sales Account Code"
+        },
+        {
+          "required": false,
+          "comments": "Provide the unit price of the sale, if the item has been sold.",
+          "example": "50.69",
+          "placeholder": "Sales Unit Price",
+          "key": "salesUnitPrice",
+          "type": "string",
+          "default": "",
+          "label": "Sales Unit Price"
+        },
+        {
+          "required": false,
+          "comments": "Provide the tax type of the Seller. Provide a value from the items listed here: https://developer.xero.com/documentation/api/accounting/types#tax-types",
+          "example": "NONE",
+          "placeholder": "Sale Tax Type",
+          "key": "salesTaxType",
+          "type": "string",
+          "default": "",
+          "label": "Sales Tax Type"
+        },
+        {
+          "required": false,
+          "comments": "Provide the account code for the inventory asset",
+          "example": "200",
+          "placeholder": "Inventory Asset Account Code",
+          "key": "inventoryAssetAccountCode",
+          "type": "string",
+          "default": "",
+          "label": "Inventory Asset Account Code"
+        },
+        {
+          "required": false,
+          "comments": "For each item, provide a key and value to be used in the request body.",
+          "placeholder": "Optional Values",
+          "example": "exampleValue",
+          "key": "fieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Optional Values"
+        },
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "xeroConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "rawRequest": {
+      "display": {
+        "label": "Raw Request",
+        "description": "Send Raw Request to Asana"
+      },
+      "key": "rawRequest",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The connection to use.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "This is the URL to call.",
+          "example": "/Accounts",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "The file name to apply to a file",
+          "required": false,
+          "comments": "File names to apply to the file data inputs. Keys must match the file data keys above.",
+          "key": "fileDataFileNames",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data File Names"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "webhook": {
+      "display": {
+        "label": "Webhook",
+        "description": "Trigger for handling webhook requests from your Xero tenant"
+      },
+      "synchronousResponseSupport": "invalid",
+      "scheduleSupport": "invalid",
+      "examplePayload": {
+        "response": {
+          "contentType": "application/json; charset=UTF-8",
+          "statusCode": 200
+        },
+        "payload": {
+          "headers": {
+            "Content-Type": "application/json; charset=UTF-8",
+            "Host": "hooks.example.prismatic.io",
+            "x-xero-signature": "ubUJMsDNGuunnCBc/n1g0wc2SpjplAb"
+          },
+          "body": {
+            "data": {
+              "events": null,
+              "firstEventSequence": 0,
+              "lastEventSequence": 0,
+              "entropy": "FMLHZNKCVK"
+            },
+            "contentType": "application/json; charset=UTF-8"
+          },
+          "rawBody": {
+            "data": {
+              "type": "Buffer",
+              "data": [
+                69,
+                120,
+                97,
+                109,
+                112,
+                108,
+                101
+              ]
+            }
+          },
+          "queryParameters": {},
+          "webhookUrls": {
+            "Flow 1": "https://hooks.example.prismatic.io/trigger/EXAMPLEGbG93Q29uZmlnOmRlNmNmNDMyLTliNWMtN0005NDMxLTRmYzA4ZjViODgxOA=="
+          },
+          "webhookApiKeys": {
+            "Flow 1": [
+              "abc-123"
+            ]
+          },
+          "customer": {
+            "externalId": "customer-example-external-id",
+            "name": "John Doe"
+          }
+        }
+      },
+      "key": "webhook",
+      "inputs": [
+        {
+          "comments": "Provide the webhook key that was created upon subscription.",
+          "example": "up/tz7l0Q9FM6Wyq3Rli0bqJrfqmtl4idswda/LQ==",
+          "key": "webhookKey",
+          "type": "string",
+          "default": "",
+          "label": "Webhook Key"
+        }
+      ]
+    }
+  },
+  "dataSources": {},
+  "documentation": {
+    "description": "[Xero](https://www.xero.com/us/) is a cloud-based accounting software platform for small and medium-sized businesses.\nThe Xero component allows you to manage your invoices, payments, items, and contacts through the Xero Rest API.\n"
+  },
+  "$version": 1
+}

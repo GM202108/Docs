@@ -1,0 +1,27 @@
+---
+id: updateTheme
+title: updateTheme Mutation
+sidebar_label: updateTheme
+description: Learn how to use the updateTheme Mutation for Prismatic's API.
+---
+
+    Updates an Organizations Theme.
+
+Access is permitted when any of the following condition(s) are met: 1. The signed-in User has any of the following permissions for the associated Organization: [org_admin_users].
+
+## Input fields ([UpdateThemeInput!](api/schema/input_object/UpdateThemeInput.mdx))
+
+| Argument           | Type                                                                     | Description                                                      |
+| ------------------ | ------------------------------------------------------------------------ | ---------------------------------------------------------------- |
+| `colors`           | [`[ThemeColorInput]`](api/schema/input_object/ThemeColorInput.mdx)       | A list of inputs that describe the colors used in the theme.     |
+| `properties`       | [`[ThemePropertyInput]`](api/schema/input_object/ThemePropertyInput.mdx) | A list of inputs that describe the properties used in the theme. |
+| `id`               | [`ID`](api/schema/scalar/ID.mdx)                                         | The ID of the Theme to mutate.                                   |
+| `clientMutationId` | [`String`](api/schema/scalar/String.mdx)                                 | A unique identifier for the client performing the mutation.      |
+
+## Return fields ([UpdateThemePayload](api/schema/object/UpdateThemePayload.mdx))
+
+###### <b>clientMutationId</b> ([String](api/schema/scalar/String.mdx))
+
+###### <b>errors</b> ([[ErrorType!]!](api/schema/object/ErrorType.mdx))
+
+###### <b>theme</b> ([Theme](api/schema/object/Theme.mdx))

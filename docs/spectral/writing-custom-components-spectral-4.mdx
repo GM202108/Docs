@@ -1,0 +1,980 @@
+---
+id: writing-custom-components-spectral-4
+title: Writing Custom Components with Spectral 4.x
+description: Create custom Prismatic components using the Prismatic SDK with Spectral 4.x
+sidebar_label: Spectral 4.x Docs
+---
+
+import Screenshot from "@site/src/components/screenshot";
+import Vimeo from "@site/src/components/vimeo";
+import SlugifyBox from "@site/src/components/slugify-box";
+import OldSpectralBanner from "./_old-spectral-banner.mdx";
+
+<OldSpectralBanner />
+
+## Overview
+
+ is extensible and allows for developer users to develop their own custom components.
+Components that  users develop are proprietary to their [organization](organization.mdx), and are private.
+
+[Sample component code](https://github.com/-io/examples/tree/main/components/format-name) is referenced throughout this page.
+
+For a sample component that wraps an HTTP-based API, see our quickstart on [Wrapping an API in a Component](quickstarts/wrapping-an-api-in-a-component.mdx).
+
+## Custom Component Library
+
+ provides a NodeJS package, [@-io/spectral](https://www.npmjs.com/package/@-io/spectral), which provides TypeScript typing and some utility functions.
+Source code for Spectral is available on [github](https://github.com/-io/spectral).
+
+For information on Spectral's utility functions and types, see our [custom component library](spectral/custom-component-library.mdx) docs.
+
+## Initializing a New Component
+
+To initialize a new project, run `prism components:init {{ COMPONENT NAME }}`.
+If you do not have 's CLI tool, `prism`, installed, please take a moment to look through the [Prism overview page](cli/cli-usage.mdx).
+
+```bash
+prism components:init format-name
+```
+
+Your component name must be comprised of alphanumeric characters, hyphens, and underscores, and start and end with alphanumeric characters.
+This will create a directory structure that looks like this:
+
+```
+format-name
+├── assets
+│   └── icon.png
+├── jest.config.js
+├── package.json
+├── src
+│   ├── index.test.ts
+│   └── index.ts
+├── tsconfig.json
+└── webpack.config.js
+```
+
+- `assets/icon.png` is the icon that will be displayed next to your component
+  Square transparent PNGs at least 128 x 128 pixels in size look best, and will be scaled by the web app appropriately.
+- `jest.config.js` contains configuration for the [Jest](https://jestjs.io/) testing framework
+- `package.json` is a standard node package definition file
+- `src/index.ts` contains the code for your component. This file can be broken into multiple files as needed
+- `src/index.test.ts` contains tests for component actions defined in `index.ts`.
+  See [Unit Testing Custom Components](quickstarts/unit-testing-custom-components.mdx)
+- `tsconfig.json` contains configuration for [TypeScript](https://www.typescriptlang.org/)
+- `webpack.config.js` contains configuration for [Webpack](https://webpack.js.org/)
+
+After these files are created run `cd {{ COMPONENT_NAME }}` to enter the directory of your component, and then `npm install` or `yarn install` to install dependencies.
+
+### Custom Components from WSDLs or OpenAPI Specs
+
+Third-party apps and services often provide APIs with hundreds of RESTful endpoints.
+It would be tedious to manually write actions for each individual endpoint.
+Luckily, many companies also provide an API specification - commonly a [Web Service Definition Language (WSDL)](https://www.w3.org/TR/2001/NOTE-wsdl-20010315) file, or an [OpenAPI (Swagger)](https://swagger.io/specification/) specification.
+
+You can generate a custom component from a WSDL file with `prism` by passing the `--wsdl-path` flag to the `components:init` subcommand:
+
+```bash
+prism components:init myThirdPartyComponent --wsdl-path ./thirdPartySpec.wsdl
+```
+
+You can generate a custom component from an OpenAPI definition (you can use a YAML or JSON file - both work fine) with `prism` by passing the `--open-api-path` flag to the `components:init` subcommand:
+
+```bash
+prism components:init myThirdPartyComponent --open-api-path ./third-party-openapi-spec.json
+```
+
+#### OpenAPI Endpoints Without Auth
+
+By default, components generated using an OpenAPI specification include authentication logic.
+If the API you're integrating with does not require authentication, add the `--skip-auth` flag:
+
+```bash
+prism components:init myThirdPartyComponent --skip-auth --open-api-path ./third-party-openapi-spec.json
+```
+
+#### Enabling Retry in a Generated Custom Component
+
+If you would like your custom component's HTTP client to retry failed requests, you can pass in an `--add-retry` flag.
+Actions will then contain additional inputs for how many times to retry, and how long to wait between retries.
+
+```bash
+prism components:init myThirdPartyComponent --add-retry --open-api-path ./third-party-openapi-spec.json
+```
+
+#### Directory Structure of an OpenAPI-Generated Component
+
+A component generated from an OpenAPI spec will have a similar structure to a non-generated component.
+The `src/` directory will still contain source files with `input`, `action`, and `component` definitions.
+Additionally, a `core/` directory will contain an HTTP client, and you will find `models/` and `services/` directories containing TypeScript definitions and functions that invoke the HTTP library to interact with the API.
+
+<Screenshot
+  filename="custom-components/writing-custom-components/stripe-directory-structure.png"
+  maxWidth="400px"
+/>
+
+#### Debugging OpenAPI-Generated Components
+
+All actions in OpenAPI-Generated components take a `debug` input, which is a boolean value (true or false).
+When `debug` is `true`, the full HTTP request that the component makes is logged out.
+This is handy for debugging custom components, but we recommend that you set `debug` to `false` when you deploy your integration to customers to avoid logging sensitive information.
+
+## Writing Actions
+
+A component is comprised of zero, one or many [actions](components.mdx#component-actions).
+For example, the [HTTP component](components/http.mdx) contains actions to [GET](components/http.mdx#httpget) (`httpGet`), [POST](components/http.mdx#post-request) (`httpPost`), etc.
+
+An `action` has three required properties and one optional one:
+
+1. Information on how the web app `display` the action
+1. A function to `perform`
+1. A series of `input` fields
+1. (optional) An `authorization` block that describes what type(s) of credentials the action accepts.
+
+```typescript
+const myAction = action({
+  display: {
+    label: "Brief Description",
+    description: "Longer description to display in web app UI",
+  },
+  perform: async (context, params) => {},
+  inputs: { inputFieldOne, inputFieldTwo },
+  // optional:
+  authorization: {
+    required: true,
+    methods: ["basic", "oauth", "api_key"],
+  },
+});
+```
+
+### Adding Inputs
+
+Components can take [`inputs`](components.mdx#inputs). Each `input` is comprised of a required `label`, and `type` and optional `placeholder`, `default`, `comments`, `required` and `model`.
+
+Consider this example input:
+
+```typescript
+const middleName = input({
+  label: "Middle Name",
+  placeholder: "Middle name of a person",
+  type: "string",
+  required: false,
+  default: "",
+  comments: "Leave blank if the user has no middle name",
+});
+```
+
+This contributes to an input prompt that looks like this:
+
+<Screenshot
+  filename="custom-components/writing-custom-components/inputs.png"
+  maxWidth="700px"
+/>
+
+Note where the `label` and `placeholder` text appeared in the web app, and note that First Name and Last Name are required - indicated with a `*`, but Middle Name is not.
+
+### Action Input Types
+
+An input can take a number of types, which affects how the input renders in the  web app:
+
+- **string** will allow users to input or reference a string of characters.
+  <Screenshot
+    filename="custom-components/writing-custom-components/input-types/string.png"
+    maxWidth="300px"
+  />
+- **text** is similar to **string**, but allows for multi-line input.
+  <Screenshot
+    filename="custom-components/writing-custom-components/input-types/text.png"
+    maxWidth="400px"
+  />
+- **boolean** allows users to enter one of two values: true or false.
+  <Screenshot
+    filename="custom-components/writing-custom-components/input-types/boolean.png"
+    maxWidth="280px"
+  />
+- **code** opens a code editor so users can enter XML, HTML, JSON, etc.
+  <Screenshot
+    filename="custom-components/writing-custom-components/input-types/code.png"
+    maxWidth="420px"
+  />
+- **conditional** allows users to enter a series of logical conditionals.
+  This is most notably used in the [branch](components/branch.mdx) component.
+  <Screenshot
+    filename="custom-components/writing-custom-components/input-types/conditional.png"
+    maxWidth="500px"
+  />
+
+### Creating Dropdown Menu Inputs
+
+Rather than allowing integration builders to enter values for an input, you might want to have users choose a value from a list of possible values.
+You can do that by making your input into a dropdown menu.
+
+<Screenshot
+  filename="custom-components/writing-custom-components/dropdown-input.png"
+  maxWidth="500px"
+/>
+
+To create an input with a dropdown menu, add a `model` property to your input:
+
+```ts
+export const acmeEnvironment = input({
+  label: "Acme Inc Environment to Use",
+  placeholder: "ACME Environment",
+  type: "string",
+  required: true,
+  model: [
+    {
+      label: "Production",
+      value: "https://api.acme.com/",
+    },
+    {
+      label: "Staging",
+      value: "https://staging.acme.com/api",
+    },
+    {
+      label: "Sandbox",
+      value: "https://sandbox.acme.com/api",
+    },
+  ],
+});
+```
+
+The `model` property should be an array of objects, with each object containing a `label` and a `value`.
+The `label` is shown in the dropdown menu.
+The `value` is passed in as the input's value to the custom component.
+
+### Writing `perform` functions
+
+Each action contains one `perform` function, which is an async function with two parameters that may or may not have a return value.
+In this example `firstName`, `middleName`, and `lastName`, are input parameters for this `perform` function
+
+```typescript {7-15}
+const properFormatName = action({
+  display: {
+    label: "Properly Format Name",
+    description: "Properly format a person's name (Last, First M.)",
+  },
+  perform: async (context, { firstName, middleName, lastName }) => {
+    if (middleName) {
+      return {
+        data: `${lastName}, ${firstName} ${middleName[0]}.`,
+      };
+    } else {
+      return { data: `${lastName}, ${firstName}` };
+    }
+  },
+  inputs: { firstName, middleName, lastName },
+});
+```
+
+### `perform` Function Parameters
+
+The `perform` function takes two parameters, `context` and `params`, that can be destructured into their respective properties:
+
+```typescript
+perform: async (context, params) => {},
+// or
+perform: async (
+  { logger, credential },
+  { paramName1, paramName2, ... }
+) => {},
+```
+
+### The `context` Parameter
+
+The `context` parameter is an object that contains five attributes: `logger`, `credential`, `executionId`, `instanceState`, and `stepId`.
+
+### `context.logger`
+
+`context.logger` is a logging object and can be helpful to debug components.
+
+```typescript
+perform: async ({ logger }, params) => {
+  logger.info("Things are going great");
+  logger.warn("Now less great...");
+};
+```
+
+Available log functions in increasing order of severity include `logger.debug`, `logger.info`, `logger.warn` and `logger.error`.
+
+You can also execute `logger.metric` on an object, which helps when [streaming logs and metrics](logging.mdx#external-log-streaming) to an external logging service.
+
+### `context.credential`
+
+`context.credential` is an object that stores information about any credentials tied to this action in the form
+
+```typescript
+{
+  authorizationMethod:
+    "api_key_secret" | "basic" | "private_key" | "api_key" | "oauth2" | "oauth2_client_credentials",
+  fields: {
+    FIELD_NAME: String,
+    FIELD_NAME: String,
+  },
+}
+```
+
+The `fields` presented are dependent on what type of credential is passed in.
+If, for example, you use the `basic` authorization type, the `credential` payload might read
+
+```typescript
+{
+  authorizationMethod: "basic",
+  fields: {
+    username: "MyUser",
+    password: "MyP@$$word",
+  },
+}
+```
+
+The credential parameter can be used in your custom component like this:
+
+```typescript
+perform: async ({ logger, credential }, params) => {
+  logger.log(`Your basic auth username is "${credential.fields.username}"`);
+};
+```
+
+### `context.executionId`
+
+`context.executionId` is a string that contains the ID of the currently running execution.
+
+### `context.instanceState`
+
+`context.instanceState` is a key/value store that may be used to store small amounts of data which is persisted between instance executions.
+It is most notably used by the [Persist Data](components/persist-data.mdx) and [Process Data](components/process-data.mdx) components, but you can use it in your custom components, too.
+
+If, for example, a previous instance run saved a state key of `sampleKey`, you can reference `context.instanceState['sampleKey']` to access that key's value.
+
+To do the reverse, and save data to instance state for subsequent runs, add a `state` property to your perform function's return value:
+
+```typescript
+return {
+  data: "Some Data",
+  state: { exampleKey: "example value", anotherKey: [1, 2, 3] },
+};
+```
+
+:::note Persisted data is scoped per-instance
+Persisted data is scoped **per-instance**.
+So, the same integration deployed to two different customers would have two distinct `instanceState` stores.
+One instance is not able to read from the other instance's `instanceState`.
+:::
+
+### `context.stepId`
+
+`context.stepId` contains the unique identifier (UUID) of the step.
+It is used by the [Process Data - DeDuplicate](components/process-data.mdx#deduplicate) action to track what items in a array have or have not been previously seen.
+You can use it similarly in a custom component to persist step-specific data.
+
+### The `params` Parameter
+
+The `params` parameter is an object that has attributes for each input field the action supports.
+For example, for the perform action [defined above](#writing-perform-functions), `params` has `params.firstName`, `params.middleName`, and `params.lastName`.
+
+`firstName`, `middleName`, and `lastName` are based off of the input objects that are provided to the action as `inputs`.
+
+:::note Shorthand property names
+Note that we are using [shorthand property names](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer) for inputs in our example.
+If your input object variables have different names - say you have a `const myFirstNameInput = input ({...})`, you can structure your action's input property like this:
+
+```typescript
+inputs: {
+    firstName: myFirstNameInput,
+    middleName: myMiddleNameInput,
+    lastName: myLastNameInput,
+}
+```
+
+and the `params` object passed into `perform` will have keys `firstName`, `middleName`, and `lastName`.
+
+Using non-shorthand property names is preferable to some developers to avoid [variable shadowing](https://en.wikipedia.org/wiki/Variable_shadowing).
+:::
+
+The function is written with a destructured `params` parameter.
+It could be rewritten without being destructured.
+
+```typescript {1-3,6}
+perform: async (context, params) => {
+  if (params.middleName == "") {
+    return { data: `${params.lastName}, ${params.firstName}` };
+  } else {
+    return {
+      data: `${params.lastName}, ${params.firstName} ${params.middleName[0]}.`,
+    };
+  }
+},
+```
+
+### Coercing Input Types
+
+TypeScript-based Node libraries often have strict rules about the type of variables that are passed into their functions, but inputs to `perform` functions are of type `unknown` since it's not known ahead of time what types of values users of components are going to pass in.
+For example, you might expect one of your inputs to be a `number`, but a user might pass in a `string` instead.
+That's obviously a problem since `"2" + 3` is `"23"`, while `2 + 3` is `5` in JavaScript.
+
+The Spectral package includes several [utility functions](spectral/modules/_util_.md) for coercing input to be the type of variable that you need.
+Looking at the number/string example, suppose you have some input - `quantity` - that you need turned into a number (even if someone passes in `"123.45"` as a string), and you have another input - `itemName` - that you'd like to be a string.
+You can use `util.types.toNumber()` and `util.types.toString()` to ensure that the input has been converted to a number and string respectively:
+
+```typescript
+import { action, util } from "@-io/spectral";
+import { someThirdPartyApiCall } from "some-example-third-party-library";
+
+action({
+  /*...*/
+  perform: async (context, { quantity, itemName }) => {
+    const response = await someThirdPartyApiCall({
+      orderQuantity: util.types.toNumber(quantity), // Guaranteed to be a number
+      orderItemName: util.types.toString(itemName), // Guaranteed to be a string
+    });
+    return { data: response };
+  },
+});
+```
+
+If an input cannot be coerced into the type you've chosen - for example, suppose you pass `"Hello World"` into `util.toNumber()` - an error will be thrown indicating that `"Hello World"` cannot be coerced into a number.
+
+#### Writing Your Own Type Checking Functions
+
+ provides a variety of type check and type coercion functions for common types (number, integer, string, boolean, etc).
+If you require a uniquely shaped object, you can create your own type check and coercion functions to ensure that inputs your custom component receives have the proper shape that the libraries you rely on expect.
+
+You can import an `interface` or `type` (or write one yourself) and write a function that converts inputs into an expected shape.
+For example, the SendGrid SDK expects an object that has this form:
+
+```json
+{
+  "to": [string],
+  "from": string,
+  "subject": string,
+  "text": string,
+  "html": string
+}
+```
+
+We can pull in that defined type, `MailDataRequired`, from the SendGrid SDK, and write a function that takes inputs and converts them to an object containing a series of strings:
+
+```typescript
+import { MailDataRequired } from "@sendgrid/mail";
+import { util } from "@-io/spectral";
+
+export const createEmailPayload = ({
+  to,
+  from,
+  subject,
+  text,
+  html,
+}): MailDataRequired => ({
+  to: util.types
+    .toString(to)
+    .split(",")
+    .map((recipient: string) => recipient.trim()),
+  from: util.types.toString(from),
+  subject: util.types.toString(from),
+  text: util.types.toString(text),
+  html: util.types.toString(html),
+});
+```
+
+### Action Results
+
+In the example above, the function returns a string of the form `Last, First M.`.
+This return value of a custom component is accessible to subsequent steps by referencing this step's `results`.
+Component outputs can take many forms.
+To return a simple string, number, boolean, array, or object your return block can read:
+
+```typescript
+// return a string:
+return {
+  data: "some string",
+};
+// return a number:
+return {
+  data: 123.45,
+};
+// return a boolean:
+return {
+  data: true,
+};
+// return an array:
+return {
+  data: [1, 2, 3, 4, "a", "b"],
+};
+// return an object:
+return {
+  data: {
+    key1: "value1",
+    key2: ["value2", 123],
+  },
+};
+```
+
+Those values can be used as inputs in subsequent steps by referencing this step's `results`.
+
+### Outputting Binary Data
+
+Some custom components will not output a number, string, boolean, array, or object, but will instead output an entire file (like an image, PDF, video, etc).
+For those custom components, the return value will contain a file `Buffer` as the `data` return, and a `contentType` key to indicate kind of file is being returned.
+See Mozilla's documentation for a list of common file [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
+
+For example, if your custom component returns a rendered PDF file, and the PDF contents are saved in a `Buffer` variable named `pdfContents`, the return block might look like this:
+
+```typescript
+return {
+  data: pdfContents,
+  contentType: "application/pdf",
+};
+```
+
+### Setting Synchronous HTTP Status Codes
+
+If you invoke your instances [synchronously](integration-triggers.mdx#http-status-codes-for-synchronous-integrations) and would like to return an HTTP status code other than `200 - OK`, you can configure the final step of your integration to be a custom component that returns any HTTP status code you want.
+
+To return an HTTP status code other than 200, return a `statusCode` attribute in the object you return from your custom component instead of a `data` attribute:
+
+```typescript
+return {
+  statusCode: 415,
+};
+```
+
+If this custom component is the last step of an integration, then the integration will return an HTTP status code of 415 if invoked synchronously.
+
+Note: When an integration is invoked synchronously, the integration redirects the caller to a URL containing the output results of the final step of the integration.
+If the final step of the integration is a [Stop Execution](components/stop-execution.mdx) action, or any custom component action that returns a `statusCode`, the redirect does not occur and the caller receives a `null` response body instead.
+You should not return both `data` and `statusCode` attributes in a custom component.
+
+### Example Action Payloads
+
+As noted above, actions return results for subsequent steps to consume.
+It's often handy for an integration builder to have access to the shape of the results prior to a test being run.
+Your action can provide an `examplePayload` that can be referenced before test data is available:
+
+```typescript
+{
+  /* ... */
+  examplePayload: {
+    data: {
+      username: "john.doe",
+      name: {
+        first: "John",
+        last: "Doe",
+      },
+      age: 20,
+    },
+  },
+}
+```
+
+In the integration designer, this example payload can be referenced as an input.
+
+**Note:** your `examplePayload` must match the exact TypeScript type of the return value of your `perform` function.
+If your `perform` function's return value does not match the type of the example payload, TypeScript will generate a helpful error message:
+
+<Screenshot
+  filename="custom-components/writing-custom-components/example-result-data-type-mismatch.png"
+  maxWidth="600px"
+/>
+
+## Exporting a Component
+
+Component code contains a default export of `component` type.
+A `component` contains a `key` that uniquely identifies it, whether or not it's `public`, some information about how the web app should `display` it, an object containing the `actions` that the component is comprised of, and if your custom component has its own [triggers](#writing-triggers), an object containing the `triggers` that the component contains.
+For the "proper and improper" names example component, the export can look like this:
+
+```typescript
+export default component({
+  key: "format-name",
+  public: false,
+  display: {
+    label: "Format Name",
+    description: "Format a person's name given a first, middle, and last name",
+    iconPath: "icon.png",
+  },
+  actions: {
+    improperFormatName,
+    properFormatName,
+  },
+});
+```
+
+## Testing a Component
+
+It's important to have good unit tests for software - custom components are no exception.
+You want to catch errors or breaking changes before they wreak havoc on your customers' integrations.
+'s Spectral library provides some utility functions to make writing unit tests easier.
+
+In the examples below, we assume that you use the [Jest](https://jestjs.io/) testing framework which is installed by default when you run `prism components:init`.
+You can swap Jest out for another testing framework if you like.
+
+### Test File Naming Conventions
+
+To create a unit test file, create a new file alongside your code that has the extension `test.ts` (rather than `.ts`).
+For example, if your code lives in `index.ts`, create a file named `index.test.ts`.
+If you separate out your component actions into `actions.ts`, create a corresponding `actions.test.ts`.
+
+### Testing Component Actions
+
+As described [above](#perform-function-parameters) a component action's `perform` function takes two arguments:
+
+- `context` is an object that contains a `logger` and `credential`.
+- `params` is an object that contains input parameters as key-value pairs.
+
+Test `logger` and `credential` parameters are described below.
+Let's ignore them for now and look at the `params` object.
+Consider the example "Format Proper Name" action described previously:
+
+```typescript
+export const properFormatName = action({
+  display: {
+    label: "Properly Format Name",
+    description: "Properly format a person's name (Last, First M.)",
+  },
+  perform: async (context, { firstName, middleName, lastName }) => {
+    if (middleName) {
+      return {
+        data: `${lastName}, ${firstName} ${middleName[0]}.`,
+      };
+    } else {
+      return { data: `${lastName}, ${firstName}` };
+    }
+  },
+  inputs: { firstName, middleName, lastName },
+});
+```
+
+You can use the `@-io/spectral/dist/testing/invoke` function to test an invocation of that action.
+The `invoke` function takes two required and one optional parameters:
+
+- The action's definition (i.e. `properFormatNameAction`)
+- An object containing input parameters
+- An object containing a logger or credentials (optional)
+
+A Jest test file, then, could look like this:
+
+```typescript
+import { properFormatName } from ".";
+import { invoke } from "@-io/spectral/dist/testing";
+
+describe("Test the Proper Name formatter", () => {
+  test("Verify first, middle, and last name", async () => {
+    const { result } = await invoke(properFormatName, {
+      firstName: "John",
+      middleName: "James",
+      lastName: "Doe",
+    });
+    expect(result.data).toStrictEqual("Doe, John J.");
+  });
+  test("Verify first and last name without middle", async () => {
+    const { result } = await invoke(properFormatName, {
+      firstName: "John",
+      middleName: null,
+      lastName: "Doe",
+    });
+    expect(result.data).toStrictEqual("Doe, John");
+  });
+});
+```
+
+You can then run `yarn run jest`, and Jest will run each test, returning an error code if a test failed.
+
+### Verifying Correct Logging in Action Tests
+
+You may want to verify that your action generates some logs of particular severities in certain situations.
+The `invoke` function mentioned above also returns an object, `loggerMock`, with information on what was logged during the action invocation.
+
+You can use Jest to verify that certain lines were logged like this:
+
+```typescript
+test("Ensure that an error is logged", async () => {
+  const level = "error";
+  const message = "Error code 42 occurred.";
+  const { loggerMock } = await invoke(myExampleAction, {
+    exampleInput1,
+    exampleInput2,
+  });
+  expect(loggerMock[level]).toHaveBeenCalledWith(message);
+});
+```
+
+In the above example, the test would pass if an `error` log line of `Error code 42 occurred.` were generated, and would fail otherwise.
+
+### Providing Test Credentials to an Action Test
+
+Many actions require credentials to interact with third-party services.
+You can create a credential object using `@-io/spectral/dist/testing/credentials/*` functions:
+
+```typescript
+import { credentials } from "@-io/spectral/dist/testing";
+
+const myBasicAuthTestCredential = credentials.basic("myUsername", "myPassword");
+console.log(myBasicAuthTestCredential);
+/*
+  {
+    authorizationMethod: 'basic',
+    fields: { username: 'myUsername', password: 'myPassword' }
+  }
+*/
+```
+
+It's not good practice to hard-code credentials.
+Please use best practices, like setting environment variables to store credentials in your CI/CD environment:
+
+```typescript
+import { credentials } from "@-io/spectral/dist/testing";
+
+const myAwsTestCredential = credentials.apiKeySecret(
+  process.env.AWS_ACCESS_KEY_ID,
+  process.env.AWS_SECRET_ACCESS_KEY
+);
+console.log(myAwsTestCredential);
+/*
+  {
+    authorizationMethod: 'api_key_secret',
+    fields: {
+      api_key: 'AKIAIOSFODNN7EXAMPLE',
+      api_secret: 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY'
+    }
+  }
+*/
+```
+
+A full list of `credientials.*` functions is available in the [Spectral typedocs](spectral/modules/_testing_.md#const-credentials).
+
+Credentials can then be passed in as part of the `context` parameter to the `invoke` function, using the `credential` key:
+
+```typescript
+import { saveFile } from "./actions";
+import { credentials, invoke } from "@-io/spectral/dist/testing";
+
+const myAwsTestCredential = credentials.apiKeySecret(
+  process.env.AWS_ACCESS_KEY_ID,
+  process.env.AWS_SECRET_ACCESS_KEY
+);
+
+test("Test saving a file", async () => {
+  const { result } = await invoke(
+    saveFile,
+    {
+      filePath: "/path/to/file.txt",
+      fileContents: "Hello world!",
+    },
+    {
+      credential: myAwsTestCredential,
+    }
+  );
+});
+```
+
+## Writing Triggers
+
+Integrations are usually triggered [on a schedule](integration-triggers.mdx#scheduled-triggers) (meaning instances of the integration run every X minutes, or at a particular time of day) or [via webhook](integration-triggers.mdx#webhook-triggers) (meaning some outside system sends JSON data to a unique URL and an instance processes the data that was sent).
+The vast majority of integrations built in  start with a schedule trigger or webhook trigger.
+There are situations, though, where neither the schedule nor the standard webhook trigger are suitable for one reason or another.
+That's where writing your own triggers come in handy.
+
+Triggers are custom bits of code that are similar to [actions](#writing-actions).
+They give you fine-grained control over how a webhook's payload is presented to the rest of the steps of an integration and what HTTP response is returned to whatever invoked the trigger's webhook URL.
+
+Similar to an action, a trigger is comprised of `display` information, a `perform` function and `inputs`.
+Additionally, you specify if your trigger can be invoked [synchronously](integration-triggers.mdx#synchronous-and-asynchronous-integrations) (`synchronousResponseSupport`) and if your trigger supports scheduling (`scheduleSupport`).
+
+Suppose, for example, a third-party app can be configured to send CSV data via webhook and requires that the webhook echo a header, `x-confirmation-code`, back in plaintext to confirm it got the payload.
+The default webhook trigger accepts JSON, and responds with an [execution ID](api/schema/object/InstanceExecutionResult.mdx#return-fields), so it's not suitable for integrating with this third-party app.
+
+This trigger will return an HTTP 200 and echo a particular header back to the system invoking the webhook, and then it'll parse the CSV payload into an object so that subsequent steps can reference through the trigger's `results.body.data`:
+
+```typescript
+import {
+  input,
+  trigger,
+  TriggerPayload,
+  HttpResponse,
+  util,
+} from "@-io/spectral";
+import papaparse from "papaparse"; // CSV Library
+
+export const csvTrigger = trigger({
+  display: {
+    label: "CSV Webhook",
+    description:
+      "Accepts and parses CSV data into a referenceable object and returns a plaintext ACK to the webhook caller.",
+  },
+  perform: async (context, payload, { hasHeader }) => {
+    // Create a custom HTTP response that echos a header,
+    // x-confirmation-code, that was received as part of
+    // the webhook invocation
+    const response: HttpResponse = {
+      statusCode: 200,
+      contentType: "text/plain; charset=utf-8",
+      body: payload.headers["x-confirmation-code"],
+    };
+
+    // Create a copy of the webhook payload, deserialize
+    // the CSV raw body, and add the deserialized object
+    // to the object to the trigger's outputs
+    const finalPayload: TriggerPayload = { ...payload };
+
+    const parseResult = papaparse.parse(
+      util.types.toString(payload.rawBody.data),
+      {
+        header: util.types.toBool(hasHeader),
+      }
+    );
+
+    finalPayload.body.data = parseResult.data;
+
+    // Return the modified trigger payload and custom HTTP response
+    return Promise.resolve({
+      payload: finalPayload,
+      response,
+    });
+  },
+  inputs: {
+    // Declare if the incoming CSV has header information
+    hasHeader: input({
+      label: "CSV Has Header",
+      type: "boolean",
+      default: "false",
+    }),
+  },
+  synchronousResponseSupport: "invalid", // Do not allow synchronous invocations
+  scheduleSupport: "invalid", // Do not allow scheduled invocations
+});
+
+export default { csvTrigger };
+```
+
+Notice a few things about this example:
+
+- The `trigger`'s form is very similar to that of an `action` definition.
+- The `response` contains an HTTP `statusCode`, `body`, and `contentType` to be returned to the webhook caller.
+- The second argument to the `perform` function - `payload` - contains the same information that a standard webhook trigger returns.
+  The `rawBody.data` presumably contains some CSV text - the `body.data` key of the payload is replaced by the deserialized version of the CSV data.
+- `inputs` work the same way that they work for actions - you define a series of `input`s, and they're passed in as the third parameter of the `perform` function.
+
+For another real-world example of writing a trigger, check out our tutorial on how we [wrote the Salesforce trigger](quickstarts/writing-a-trigger.mdx).
+
+### Add a Trigger to Your Component
+
+Once you've written a trigger, you can add it to an existing component the same way you add an action to your component, but using the `triggers` key:
+
+```typescript {1,15}
+import { csvTrigger } from "./csvTrigger";
+
+export default component({
+  key: "format-name",
+  public: false,
+  display: {
+    label: "Format Name",
+    description: "Format a person's name given a first, middle, and last name",
+    iconPath: "icon.png",
+  },
+  actions: {
+    improperFormatName,
+    properFormatName,
+  },
+  triggers: { csvTrigger },
+});
+```
+
+### Testing a Trigger
+
+Testing a trigger is similar to [testing an action](#testing-component-actions), except you use the [invokeTrigger](spectral/modules/_testing_.md#const-invoketrigger) function.
+For example, if you want to use Jest to test the `csvTrigger` outlined above, your test could look like this:
+
+```typescript
+import { csvTrigger } from "./triggers";
+import {
+  invokeTrigger,
+  defaultTriggerPayload,
+} from "@-io/spectral/dist/testing";
+
+describe("test csv webhook trigger", () => {
+  test("verify the return value of the csv webhook trigger", async () => {
+    const payload = defaultTriggerPayload(); // The payload you can expect a generic trigger to receive
+
+    payload.rawBody.data = "first,last,age\nJohn,Doe,30\nJane,Doe,31";
+    payload.headers.contentType = "text/csv";
+    payload.headers["x-confirmation-code"] = "some-confirmation-code-123";
+
+    const expectedData = [
+      { first: "John", last: "Doe", age: "30" },
+      { first: "Jane", last: "Doe", age: "31" },
+    ];
+
+    const expectedResponse = {
+      statusCode: 200,
+      contentType: "text/plain; charset=utf-8",
+      body: payload.headers["x-confirmation-code"],
+    };
+
+    const {
+      result: {
+        payload: {
+          body: { data },
+        },
+        response,
+      },
+    } = await invokeTrigger(csvTrigger, null, payload, {
+      hasHeader: true,
+    });
+
+    expect(data).toStrictEqual(expectedData);
+    expect(response).toStrictEqual(expectedResponse);
+  });
+});
+```
+
+## Publishing a Component
+
+Package a component with `webpack` by running `npm run build` or `yarn build`:
+
+```bash
+$ yarn build
+yarn run v1.22.10
+$ webpack
+asset icon.png 94.2 KiB [compared for emit] [from: assets/icon.png] [copied]
+asset index.js 92.2 KiB [emitted] (name: main)
+runtime modules 1.04 KiB 5 modules
+modules by path ./node_modules/@-io/spectral/ 49.6 KiB
+  modules by path ./node_modules/@-io/spectral/dist/types/*.js 3.92 KiB 12 modules
+  modules by path ./node_modules/@-io/spectral/dist/*.js 21.4 KiB
+    ./node_modules/@-io/spectral/dist/index.js 4.21 KiB [built] [code generated]
+    ./node_modules/@-io/spectral/dist/util.js 11.9 KiB [built] [code generated]
+    ./node_modules/@-io/spectral/dist/testing.js 5.29 KiB [built] [code generated]
+  ./node_modules/@-io/spectral/node_modules/jest-mock/build/index.js 24.2 KiB [built] [code generated]
+modules by path ./node_modules/date-fns/ 16 KiB
+  modules by path ./node_modules/date-fns/_lib/ 780 bytes
+    ./node_modules/date-fns/_lib/toInteger/index.js 426 bytes [built] [code generated]
+    ./node_modules/date-fns/_lib/requiredArgs/index.js 354 bytes [built] [code generated]
+  4 modules
+./src/index.ts 2.46 KiB [built] [code generated]
+./node_modules/valid-url/index.js 3.99 KiB [built] [code generated]
+webpack 5.41.1 compiled successfully in 1698 ms
+✨  Done in 2.86s.
+```
+
+This will create a `dist/` directory containing your compiled JavaScript and icon image.
+Now use `prism` to publish your component.
+If you do not have 's CLI tool, `prism`, installed, please take a moment to look through the [Prism overview page](cli/cli-usage.mdx).
+
+```bash
+$ prism components:publish
+
+Format Name - Format a person's name given a first, middle, and last name
+Would you like to publish Format Name? (y/N): y
+Successfully submitted Format Name (v6)! The publish should finish processing shortly.
+```
+
+## Upgrading Spectral Versions
+
+We release minor, non-breaking changes to Spectral often, and major changes periodically.
+Major changes come with major version bumps (1.x.x, 2.x.x, 3.x.x, etc).
+
+To upgrade a component from an older major version of spectral to a new one, see our upgrade guides:
+
+- [Spectral 2.x upgrade guide](spectral/spectral-2-upgrade-guide.mdx)
+- [Spectral 3.x upgrade guide](spectral/spectral-3-upgrade-guide.mdx)
+- [Spectral 4.x upgrade guide](spectral/spectral-4-upgrade-guide.mdx)
+
+If you are building a new component, we strongly encourage you to start with the latest version of Spectral.

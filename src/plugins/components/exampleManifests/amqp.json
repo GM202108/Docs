@@ -1,0 +1,295 @@
+{
+  "key": "amqp",
+  "documentationUrl": "https://prismatic.io/docs/components/amqp/",
+  "public": true,
+  "display": {
+    "label": "AMQP",
+    "description": "Send and receive messages on an AMQP-based message broker",
+    "iconPath": "icon.png",
+    "category": "Data Platforms",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "key": "amqp",
+      "label": "AMQP Connection",
+      "comments": "Authenticate requests to an amqp server",
+      "inputs": [
+        {
+          "placeholder": "Host",
+          "required": true,
+          "shown": true,
+          "comments": "The IP address or endpoint of the AMQP server",
+          "key": "host",
+          "type": "string",
+          "default": "192.168.0.1",
+          "label": "Host"
+        },
+        {
+          "placeholder": "Port",
+          "required": true,
+          "shown": true,
+          "comments": "The port of the AMQP server",
+          "key": "port",
+          "type": "string",
+          "default": "5672",
+          "label": "Port"
+        },
+        {
+          "model": [
+            {
+              "label": "AMQP",
+              "value": "amqp"
+            },
+            {
+              "label": "AMQPS",
+              "value": "amqps"
+            }
+          ],
+          "required": true,
+          "comments": "Provide the desired protocol in which you want to interact with the queue. ",
+          "key": "protocol",
+          "type": "string",
+          "default": "amqp",
+          "label": "Protocol"
+        },
+        {
+          "placeholder": "Vhost",
+          "required": false,
+          "comments": "The \"example/vhost\" portion of amqps://amqp.example.com:5672/example/vhost",
+          "key": "vhost",
+          "type": "string",
+          "default": "",
+          "label": "Vhost"
+        },
+        {
+          "placeholder": "Username",
+          "required": false,
+          "shown": true,
+          "comments": "This can be omitted if the AMQP server allows anonymous authentication",
+          "key": "username",
+          "type": "string",
+          "default": "",
+          "label": "Username"
+        },
+        {
+          "placeholder": "Password",
+          "required": false,
+          "shown": true,
+          "comments": "This can be omitted if the AMQP server allows anonymous authentication",
+          "key": "password",
+          "type": "string",
+          "default": "",
+          "label": "Password"
+        }
+      ],
+      "documentation": {
+        "description": "An AMQP connection is comprised of a host name (this can be an IP address or FQDN endpoint), port, protocol and vhost.\nFor example, if you are told that your AMQP server is hosted at `amqps://amqp.example.com:5672/example/vhost`, enter `amqp.example.com` for the **host**, and `5672` for the **port**, select `AMQPS` for the **protocol**, and enter `example/vhost` for the **vhost**.\n\nAMQP often requires authentication (a username and password), but some AMQP servers are anonymous and do not require authentication.\nIf the server you're interacting with is allows anonymous authentication, you can omit the **username** and **password** fields.\n\nYou can verify that your settings are correct using the this component's [Check AMQP Connection](#check-amqp-connection) action.\n"
+      }
+    }
+  ],
+  "actions": {
+    "getMessage": {
+      "display": {
+        "label": "Get Message",
+        "description": "Receives a message from an AMQP-based queue"
+      },
+      "examplePayload": {
+        "data": {
+          "fields": {
+            "deliveryTag": 1,
+            "redelivered": true,
+            "routingKey": "classic",
+            "messageCount": 10
+          },
+          "properties": {
+            "contentType": "text",
+            "contentEncoding": "",
+            "deliveryMode": "exampleMode",
+            "priority": "High",
+            "correlationId": "exampleId",
+            "replyTo": "",
+            "expiration": "",
+            "messageId": "exampleId",
+            "timestamp": "Fri, 06 Aug 2021 00:00:00 GMT",
+            "type": "Buffer",
+            "userId": "exampleId",
+            "appId": "exampleId",
+            "clusterId": "exampleId"
+          },
+          "content": {
+            "type": "Buffer",
+            "data": [
+              69,
+              120,
+              97,
+              109,
+              112,
+              108,
+              101
+            ]
+          },
+          "message": "Example Message Content"
+        }
+      },
+      "key": "getMessage",
+      "inputs": [
+        {
+          "example": "myQueue",
+          "placeholder": "Queue Name",
+          "required": true,
+          "comments": "Provide the name of the queue you would like to interact with.",
+          "key": "queueName",
+          "type": "string",
+          "default": "",
+          "label": "Queue Name"
+        },
+        {
+          "required": true,
+          "key": "amqpConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Automatically mark the message received as \"Acknowledged\"",
+          "key": "acknowledgeMessage",
+          "type": "boolean",
+          "default": "true",
+          "label": "Acknowledge Message"
+        }
+      ],
+      "documentation": {
+        "description": "This action will return a message from a given queue, if a message is available to get.\nIf no message is available, this action will return `null`.\n\nUse a [Branch on Expression](components/branch.mdx) step to branch based on whether or not a message was fetched.\nYou can check if the results of this step are non-null using the **exists** operator.\n\nYou have two options for marking a message \"acknowledged\":\n\n1. You can set the `Acknowledge Message` input to `true`.\n   This will cause the message to be acknowledged immediately, and the message will be removed from the queue.\n1. You can choose to not acknowledge the message immediately, but instead process the message and then pass the message to a [Acknowledge Message](#acknowledgeMessage) step instead.\n   This option is helpful if you would like to ensure the message is processed completely before removing it from the queue.\n"
+      }
+    },
+    "publishMessage": {
+      "display": {
+        "label": "Publish Message",
+        "description": "Add a message to an AMQP-based queue"
+      },
+      "examplePayload": {
+        "data": true
+      },
+      "key": "publishMessage",
+      "inputs": [
+        {
+          "required": true,
+          "key": "amqpConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "myQueue",
+          "placeholder": "Queue Name",
+          "required": true,
+          "comments": "Provide the name of the queue you would like to interact with.",
+          "key": "queueName",
+          "type": "string",
+          "default": "",
+          "label": "Queue Name"
+        },
+        {
+          "example": "Message to Queue",
+          "placeholder": "Message",
+          "required": true,
+          "comments": "Provide a message to push on to the queue.",
+          "key": "message",
+          "type": "string",
+          "default": "",
+          "label": "Message"
+        }
+      ]
+    },
+    "rejectMessage": {
+      "display": {
+        "label": "Reject Message",
+        "description": "Rejects one message from an AMQP-based queue"
+      },
+      "examplePayload": {
+        "data": {
+          "consumerTag": "amq.ctag-ExampleTag"
+        }
+      },
+      "key": "rejectMessage",
+      "inputs": [
+        {
+          "example": "myQueue",
+          "placeholder": "Queue Name",
+          "required": true,
+          "comments": "Provide the name of the queue you would like to interact with.",
+          "key": "queueName",
+          "type": "string",
+          "default": "",
+          "label": "Queue Name"
+        },
+        {
+          "required": true,
+          "key": "amqpConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "acknowledgeMessage": {
+      "display": {
+        "label": "Acknowledge Message",
+        "description": "Acknowledge a previously fetched message"
+      },
+      "key": "acknowledgeMessage",
+      "inputs": [
+        {
+          "required": true,
+          "key": "amqpConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "An AMQP message. This must reference the results of a previous 'Get Message' step",
+          "key": "message",
+          "type": "string",
+          "default": "",
+          "label": "Message"
+        }
+      ]
+    },
+    "checkConnection": {
+      "display": {
+        "label": "Check AMQP Connection",
+        "description": "Verify that an AMQP server is available, and return the server's connection information. This is helpful for debugging purposes."
+      },
+      "examplePayload": {
+        "data": {
+          "host": "amqp.example.com",
+          "copyright": "Copyright (c) 2007-2022 VMware, Inc. or its affiliates.",
+          "information": "Licensed under the MPL 2.0. Website: https://rabbitmq.com",
+          "platform": "Erlang/OTP 24.2.1",
+          "product": "RabbitMQ",
+          "version": "3.9.13",
+          "connection": {
+            "host": "amqp.example.com",
+            "port": "5672",
+            "vhost": "example/vhost",
+            "password": "myPassword",
+            "protocol": "amqp",
+            "username": "myUsername"
+          }
+        }
+      },
+      "key": "checkConnection",
+      "inputs": [
+        {
+          "required": true,
+          "key": "amqpConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    }
+  },
+  "triggers": {},
+  "documentation": {
+    "description": "The Advanced Message Queuing Protocol (**AMQP**) is a standard protocol for interacting with message brokers and queueing platforms.\nIt is used by many common message broker services like [Azure Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/), [Apache Qpid](https://qpid.apache.org/), [RabbitMQ](https://www.rabbitmq.com/) and more.\n\nThis component allows you to manage messages on an AMQP-based queue.\n"
+  },
+  "$version": 1
+}

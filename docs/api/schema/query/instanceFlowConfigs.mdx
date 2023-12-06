@@ -1,0 +1,42 @@
+---
+id: instanceFlowConfigs
+title: instanceFlowConfigs Query
+sidebar_label: instanceFlowConfigs
+description: Learn how to use the instanceFlowConfigs Query for Prismatic's API.
+---
+
+    Returns a Relay Connection to a collection of InstanceFlowConfig objects.
+
+Access is permitted when any of the following condition(s) are met: 1. The signed-in User has any of the following permissions for the associated Organization: [org_admin_instance_permissions, org_manage_instances, org_view_instances]. 2. The signed-in User has any of the following permissions for the object's 'instance' attribute: [instance_admin_permissions, instance_view]. 3. The signed-in User has any of the following permissions for the object's 'instance_Customer' attribute: [customer_manage_marketplace_integrations].
+
+## Input fields
+
+| Argument        | Type                                                                               | Description                                                                                      |
+| --------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| `before`        | [`String`](api/schema/scalar/String.mdx)                                           | Specifies a cursor for use in combination with `last` to implement backward pagination.          |
+| `after`         | [`String`](api/schema/scalar/String.mdx)                                           | Specifies a cursor for use in combination with `first` to implement forward pagination.          |
+| `first`         | [`Int`](api/schema/scalar/Int.mdx)                                                 | A non-negative integer that specifies to return at most `first` edges after the `after` cursor.  |
+| `last`          | [`Int`](api/schema/scalar/Int.mdx)                                                 | A non-negative integer that specifies to return at most `last` edges before the `before` cursor. |
+| `offset`        | [`Int`](api/schema/scalar/Int.mdx)                                                 |                                                                                                  |
+| `flow_Name`     | [`String`](api/schema/scalar/String.mdx)                                           | Filter for objects where flow.name matches the specified value.                                  |
+| `inFailedState` | [`Boolean`](api/schema/scalar/Boolean.mdx)                                         | Filter for objects where inFailedState matches the specified value.                              |
+| `orderBy`       | [`InstanceFlowConfigOrder`](api/schema/input_object/InstanceFlowConfigOrder.mdx)   | DEPRECATED. Prefer using sort_by instead as it allows ordering by many fields.                   |
+| `sortBy`        | [`[InstanceFlowConfigOrder]`](api/schema/input_object/InstanceFlowConfigOrder.mdx) | Allows specifying many field and direction pairs to sort results by.                             |
+
+## Return fields ([InstanceFlowConfigConnection!](api/schema/object/InstanceFlowConfigConnection.mdx))
+
+###### <b>edges</b> ([[InstanceFlowConfigEdge]!](api/schema/object/InstanceFlowConfigEdge.mdx))
+
+List of edges containing the nodes in this connection.
+
+###### <b>nodes</b> ([[InstanceFlowConfig]!](api/schema/object/InstanceFlowConfig.mdx))
+
+List of nodes in this connection.
+
+###### <b>pageInfo</b> ([PageInfo!](api/schema/object/PageInfo.mdx))
+
+Pagination data for this connection.
+
+###### <b>totalCount</b> ([Int!](api/schema/scalar/Int.mdx))
+
+Total count of nodes available.

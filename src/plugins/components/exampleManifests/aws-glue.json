@@ -1,0 +1,1713 @@
+{
+  "key": "aws-glue",
+  "public": true,
+  "documentationUrl": "https://prismatic.io/docs/components/aws-glue/",
+  "display": {
+    "label": "AWS Glue",
+    "description": "Manage AWS Glue crawlers, jobs and triggers",
+    "iconPath": "icon.png",
+    "category": "Data Platforms",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "key": "apiKeySecret",
+      "label": "AWS Glue Access Key and Secret",
+      "comments": "Authenticates requests to AWS Glue using an API Key and API Secret.",
+      "inputs": [
+        {
+          "placeholder": "Access Key ID",
+          "required": true,
+          "shown": true,
+          "comments": "An AWS IAM Access Key ID",
+          "example": "AKIAIOSFODNN7EXAMPLE",
+          "key": "accessKeyId",
+          "type": "string",
+          "default": "",
+          "label": "Access Key ID"
+        },
+        {
+          "placeholder": "Secret Access Key",
+          "required": true,
+          "shown": true,
+          "comments": "An AWS IAM Secret Access Key",
+          "example": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+          "key": "secretAccessKey",
+          "type": "password",
+          "default": "",
+          "label": "Secret Access Key"
+        }
+      ],
+      "documentation": {
+        "description": "An AWS IAM [access key pair](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) is required to interact with AWS Glue.\nMake sure that the key pair you generate in AWS has proper permissions to the AWS Glue resources you want to access.\nRead more about Glue IAM actions in the [AWS docs](https://docs.aws.amazon.com/glue/latest/dg/create-an-iam-role.html).\n"
+      }
+    }
+  ],
+  "actions": {
+    "getJobRun": {
+      "display": {
+        "label": "Get Job Run",
+        "description": "Retrieves the metadata for a given job run."
+      },
+      "examplePayload": {
+        "data": {
+          "JobRun": ""
+        }
+      },
+      "key": "getJobRun",
+      "inputs": [
+        {
+          "placeholder": "AWS Region",
+          "required": true,
+          "comments": "AWS provides services in multiple regions, like us-west-2 or eu-east-1. AWS region indicates the region in which your DynamoDb instance is hosted",
+          "example": "us-east-1",
+          "model": [
+            {
+              "label": "af-south-1",
+              "value": "af-south-1"
+            },
+            {
+              "label": "ap-east-1",
+              "value": "ap-east-1"
+            },
+            {
+              "label": "ap-northeast-1",
+              "value": "ap-northeast-1"
+            },
+            {
+              "label": "ap-northeast-2",
+              "value": "ap-northeast-2"
+            },
+            {
+              "label": "ap-northeast-3",
+              "value": "ap-northeast-3"
+            },
+            {
+              "label": "ap-south-1",
+              "value": "ap-south-1"
+            },
+            {
+              "label": "ap-south-2",
+              "value": "ap-south-2"
+            },
+            {
+              "label": "ap-southeast-1",
+              "value": "ap-southeast-1"
+            },
+            {
+              "label": "ap-southeast-2",
+              "value": "ap-southeast-2"
+            },
+            {
+              "label": "ap-southeast-3",
+              "value": "ap-southeast-3"
+            },
+            {
+              "label": "ap-southeast-4",
+              "value": "ap-southeast-4"
+            },
+            {
+              "label": "ca-central-1",
+              "value": "ca-central-1"
+            },
+            {
+              "label": "eu-central-1",
+              "value": "eu-central-1"
+            },
+            {
+              "label": "eu-central-2",
+              "value": "eu-central-2"
+            },
+            {
+              "label": "eu-north-1",
+              "value": "eu-north-1"
+            },
+            {
+              "label": "eu-south-1",
+              "value": "eu-south-1"
+            },
+            {
+              "label": "eu-south-2",
+              "value": "eu-south-2"
+            },
+            {
+              "label": "eu-west-1",
+              "value": "eu-west-1"
+            },
+            {
+              "label": "eu-west-2",
+              "value": "eu-west-2"
+            },
+            {
+              "label": "eu-west-3",
+              "value": "eu-west-3"
+            },
+            {
+              "label": "me-central-1",
+              "value": "me-central-1"
+            },
+            {
+              "label": "me-south-1",
+              "value": "me-south-1"
+            },
+            {
+              "label": "sa-east-1",
+              "value": "sa-east-1"
+            },
+            {
+              "label": "us-east-1",
+              "value": "us-east-1"
+            },
+            {
+              "label": "us-east-2",
+              "value": "us-east-2"
+            },
+            {
+              "label": "us-gov-east-1",
+              "value": "us-gov-east-1"
+            },
+            {
+              "label": "us-gov-west-1",
+              "value": "us-gov-west-1"
+            },
+            {
+              "label": "us-west-1",
+              "value": "us-west-1"
+            },
+            {
+              "label": "us-west-2",
+              "value": "us-west-2"
+            }
+          ],
+          "key": "awsRegion",
+          "type": "string",
+          "default": "us-east-1",
+          "label": "AWS Region"
+        },
+        {
+          "placeholder": "Name",
+          "required": true,
+          "comments": "Provide a string value for the name (NOT the ARN).",
+          "key": "name",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the run Id.",
+          "key": "runId",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Run Id"
+        },
+        {
+          "required": true,
+          "key": "awsConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listTriggers": {
+      "display": {
+        "label": "List Triggers",
+        "description": "List the names of all triggers in the account."
+      },
+      "examplePayload": {
+        "data": {
+          "NextToken": "",
+          "TriggerNames": [
+            "trigger-1",
+            "trigger-2"
+          ]
+        }
+      },
+      "key": "listTriggers",
+      "inputs": [
+        {
+          "placeholder": "AWS Region",
+          "required": true,
+          "comments": "AWS provides services in multiple regions, like us-west-2 or eu-east-1. AWS region indicates the region in which your DynamoDb instance is hosted",
+          "example": "us-east-1",
+          "model": [
+            {
+              "label": "af-south-1",
+              "value": "af-south-1"
+            },
+            {
+              "label": "ap-east-1",
+              "value": "ap-east-1"
+            },
+            {
+              "label": "ap-northeast-1",
+              "value": "ap-northeast-1"
+            },
+            {
+              "label": "ap-northeast-2",
+              "value": "ap-northeast-2"
+            },
+            {
+              "label": "ap-northeast-3",
+              "value": "ap-northeast-3"
+            },
+            {
+              "label": "ap-south-1",
+              "value": "ap-south-1"
+            },
+            {
+              "label": "ap-south-2",
+              "value": "ap-south-2"
+            },
+            {
+              "label": "ap-southeast-1",
+              "value": "ap-southeast-1"
+            },
+            {
+              "label": "ap-southeast-2",
+              "value": "ap-southeast-2"
+            },
+            {
+              "label": "ap-southeast-3",
+              "value": "ap-southeast-3"
+            },
+            {
+              "label": "ap-southeast-4",
+              "value": "ap-southeast-4"
+            },
+            {
+              "label": "ca-central-1",
+              "value": "ca-central-1"
+            },
+            {
+              "label": "eu-central-1",
+              "value": "eu-central-1"
+            },
+            {
+              "label": "eu-central-2",
+              "value": "eu-central-2"
+            },
+            {
+              "label": "eu-north-1",
+              "value": "eu-north-1"
+            },
+            {
+              "label": "eu-south-1",
+              "value": "eu-south-1"
+            },
+            {
+              "label": "eu-south-2",
+              "value": "eu-south-2"
+            },
+            {
+              "label": "eu-west-1",
+              "value": "eu-west-1"
+            },
+            {
+              "label": "eu-west-2",
+              "value": "eu-west-2"
+            },
+            {
+              "label": "eu-west-3",
+              "value": "eu-west-3"
+            },
+            {
+              "label": "me-central-1",
+              "value": "me-central-1"
+            },
+            {
+              "label": "me-south-1",
+              "value": "me-south-1"
+            },
+            {
+              "label": "sa-east-1",
+              "value": "sa-east-1"
+            },
+            {
+              "label": "us-east-1",
+              "value": "us-east-1"
+            },
+            {
+              "label": "us-east-2",
+              "value": "us-east-2"
+            },
+            {
+              "label": "us-gov-east-1",
+              "value": "us-gov-east-1"
+            },
+            {
+              "label": "us-gov-west-1",
+              "value": "us-gov-west-1"
+            },
+            {
+              "label": "us-west-1",
+              "value": "us-west-1"
+            },
+            {
+              "label": "us-west-2",
+              "value": "us-west-2"
+            }
+          ],
+          "key": "awsRegion",
+          "type": "string",
+          "default": "us-east-1",
+          "label": "AWS Region"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of items that will be returned. Provide a value from 1 to 50.",
+          "example": "20",
+          "key": "maxItems",
+          "type": "string",
+          "default": "",
+          "label": "Max Items"
+        },
+        {
+          "required": false,
+          "comments": "Specify the pagination token that's returned by a previous request to retrieve the next page of results",
+          "example": "lslTXFcbLQKkb0vP9Kgh5hy0Y0OnC7Z9ZPHPwPmMnxSk3eiDRMkct7D8E",
+          "key": "marker",
+          "type": "string",
+          "default": "",
+          "label": "Marker"
+        },
+        {
+          "required": true,
+          "key": "awsConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listCrawlers": {
+      "display": {
+        "label": "List Crawlers",
+        "description": "List Crawlers available in AWS Glue"
+      },
+      "examplePayload": {
+        "data": {
+          "NextToken": "",
+          "CrawlerNames": [
+            "crawler-1",
+            "crawler-2"
+          ]
+        }
+      },
+      "key": "listCrawlers",
+      "inputs": [
+        {
+          "placeholder": "AWS Region",
+          "required": true,
+          "comments": "AWS provides services in multiple regions, like us-west-2 or eu-east-1. AWS region indicates the region in which your DynamoDb instance is hosted",
+          "example": "us-east-1",
+          "model": [
+            {
+              "label": "af-south-1",
+              "value": "af-south-1"
+            },
+            {
+              "label": "ap-east-1",
+              "value": "ap-east-1"
+            },
+            {
+              "label": "ap-northeast-1",
+              "value": "ap-northeast-1"
+            },
+            {
+              "label": "ap-northeast-2",
+              "value": "ap-northeast-2"
+            },
+            {
+              "label": "ap-northeast-3",
+              "value": "ap-northeast-3"
+            },
+            {
+              "label": "ap-south-1",
+              "value": "ap-south-1"
+            },
+            {
+              "label": "ap-south-2",
+              "value": "ap-south-2"
+            },
+            {
+              "label": "ap-southeast-1",
+              "value": "ap-southeast-1"
+            },
+            {
+              "label": "ap-southeast-2",
+              "value": "ap-southeast-2"
+            },
+            {
+              "label": "ap-southeast-3",
+              "value": "ap-southeast-3"
+            },
+            {
+              "label": "ap-southeast-4",
+              "value": "ap-southeast-4"
+            },
+            {
+              "label": "ca-central-1",
+              "value": "ca-central-1"
+            },
+            {
+              "label": "eu-central-1",
+              "value": "eu-central-1"
+            },
+            {
+              "label": "eu-central-2",
+              "value": "eu-central-2"
+            },
+            {
+              "label": "eu-north-1",
+              "value": "eu-north-1"
+            },
+            {
+              "label": "eu-south-1",
+              "value": "eu-south-1"
+            },
+            {
+              "label": "eu-south-2",
+              "value": "eu-south-2"
+            },
+            {
+              "label": "eu-west-1",
+              "value": "eu-west-1"
+            },
+            {
+              "label": "eu-west-2",
+              "value": "eu-west-2"
+            },
+            {
+              "label": "eu-west-3",
+              "value": "eu-west-3"
+            },
+            {
+              "label": "me-central-1",
+              "value": "me-central-1"
+            },
+            {
+              "label": "me-south-1",
+              "value": "me-south-1"
+            },
+            {
+              "label": "sa-east-1",
+              "value": "sa-east-1"
+            },
+            {
+              "label": "us-east-1",
+              "value": "us-east-1"
+            },
+            {
+              "label": "us-east-2",
+              "value": "us-east-2"
+            },
+            {
+              "label": "us-gov-east-1",
+              "value": "us-gov-east-1"
+            },
+            {
+              "label": "us-gov-west-1",
+              "value": "us-gov-west-1"
+            },
+            {
+              "label": "us-west-1",
+              "value": "us-west-1"
+            },
+            {
+              "label": "us-west-2",
+              "value": "us-west-2"
+            }
+          ],
+          "key": "awsRegion",
+          "type": "string",
+          "default": "us-east-1",
+          "label": "AWS Region"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of items that will be returned. Provide a value from 1 to 50.",
+          "example": "20",
+          "key": "maxItems",
+          "type": "string",
+          "default": "",
+          "label": "Max Items"
+        },
+        {
+          "required": false,
+          "comments": "Specify the pagination token that's returned by a previous request to retrieve the next page of results",
+          "example": "lslTXFcbLQKkb0vP9Kgh5hy0Y0OnC7Z9ZPHPwPmMnxSk3eiDRMkct7D8E",
+          "key": "marker",
+          "type": "string",
+          "default": "",
+          "label": "Marker"
+        },
+        {
+          "required": true,
+          "key": "awsConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listJobs": {
+      "display": {
+        "label": "List Jobs",
+        "description": "List job schemas available in AWS Glue"
+      },
+      "examplePayload": {
+        "data": {
+          "JobNames": [
+            "job1",
+            "job2"
+          ],
+          "NextToken": ""
+        }
+      },
+      "key": "listJobs",
+      "inputs": [
+        {
+          "placeholder": "AWS Region",
+          "required": true,
+          "comments": "AWS provides services in multiple regions, like us-west-2 or eu-east-1. AWS region indicates the region in which your DynamoDb instance is hosted",
+          "example": "us-east-1",
+          "model": [
+            {
+              "label": "af-south-1",
+              "value": "af-south-1"
+            },
+            {
+              "label": "ap-east-1",
+              "value": "ap-east-1"
+            },
+            {
+              "label": "ap-northeast-1",
+              "value": "ap-northeast-1"
+            },
+            {
+              "label": "ap-northeast-2",
+              "value": "ap-northeast-2"
+            },
+            {
+              "label": "ap-northeast-3",
+              "value": "ap-northeast-3"
+            },
+            {
+              "label": "ap-south-1",
+              "value": "ap-south-1"
+            },
+            {
+              "label": "ap-south-2",
+              "value": "ap-south-2"
+            },
+            {
+              "label": "ap-southeast-1",
+              "value": "ap-southeast-1"
+            },
+            {
+              "label": "ap-southeast-2",
+              "value": "ap-southeast-2"
+            },
+            {
+              "label": "ap-southeast-3",
+              "value": "ap-southeast-3"
+            },
+            {
+              "label": "ap-southeast-4",
+              "value": "ap-southeast-4"
+            },
+            {
+              "label": "ca-central-1",
+              "value": "ca-central-1"
+            },
+            {
+              "label": "eu-central-1",
+              "value": "eu-central-1"
+            },
+            {
+              "label": "eu-central-2",
+              "value": "eu-central-2"
+            },
+            {
+              "label": "eu-north-1",
+              "value": "eu-north-1"
+            },
+            {
+              "label": "eu-south-1",
+              "value": "eu-south-1"
+            },
+            {
+              "label": "eu-south-2",
+              "value": "eu-south-2"
+            },
+            {
+              "label": "eu-west-1",
+              "value": "eu-west-1"
+            },
+            {
+              "label": "eu-west-2",
+              "value": "eu-west-2"
+            },
+            {
+              "label": "eu-west-3",
+              "value": "eu-west-3"
+            },
+            {
+              "label": "me-central-1",
+              "value": "me-central-1"
+            },
+            {
+              "label": "me-south-1",
+              "value": "me-south-1"
+            },
+            {
+              "label": "sa-east-1",
+              "value": "sa-east-1"
+            },
+            {
+              "label": "us-east-1",
+              "value": "us-east-1"
+            },
+            {
+              "label": "us-east-2",
+              "value": "us-east-2"
+            },
+            {
+              "label": "us-gov-east-1",
+              "value": "us-gov-east-1"
+            },
+            {
+              "label": "us-gov-west-1",
+              "value": "us-gov-west-1"
+            },
+            {
+              "label": "us-west-1",
+              "value": "us-west-1"
+            },
+            {
+              "label": "us-west-2",
+              "value": "us-west-2"
+            }
+          ],
+          "key": "awsRegion",
+          "type": "string",
+          "default": "us-east-1",
+          "label": "AWS Region"
+        },
+        {
+          "required": false,
+          "comments": "Specify the pagination token that's returned by a previous request to retrieve the next page of results",
+          "example": "lslTXFcbLQKkb0vP9Kgh5hy0Y0OnC7Z9ZPHPwPmMnxSk3eiDRMkct7D8E",
+          "key": "marker",
+          "type": "string",
+          "default": "",
+          "label": "Marker"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of items that will be returned. Provide a value from 1 to 50.",
+          "example": "20",
+          "key": "maxItems",
+          "type": "string",
+          "default": "",
+          "label": "Max Items"
+        },
+        {
+          "required": true,
+          "key": "awsConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "startCrawler": {
+      "display": {
+        "label": "Start Crawler",
+        "description": "Starts an existing crawler in AWS Glue."
+      },
+      "examplePayload": {
+        "data": {
+          "Name": "exampleCrawlerName"
+        }
+      },
+      "key": "startCrawler",
+      "inputs": [
+        {
+          "placeholder": "AWS Region",
+          "required": true,
+          "comments": "AWS provides services in multiple regions, like us-west-2 or eu-east-1. AWS region indicates the region in which your DynamoDb instance is hosted",
+          "example": "us-east-1",
+          "model": [
+            {
+              "label": "af-south-1",
+              "value": "af-south-1"
+            },
+            {
+              "label": "ap-east-1",
+              "value": "ap-east-1"
+            },
+            {
+              "label": "ap-northeast-1",
+              "value": "ap-northeast-1"
+            },
+            {
+              "label": "ap-northeast-2",
+              "value": "ap-northeast-2"
+            },
+            {
+              "label": "ap-northeast-3",
+              "value": "ap-northeast-3"
+            },
+            {
+              "label": "ap-south-1",
+              "value": "ap-south-1"
+            },
+            {
+              "label": "ap-south-2",
+              "value": "ap-south-2"
+            },
+            {
+              "label": "ap-southeast-1",
+              "value": "ap-southeast-1"
+            },
+            {
+              "label": "ap-southeast-2",
+              "value": "ap-southeast-2"
+            },
+            {
+              "label": "ap-southeast-3",
+              "value": "ap-southeast-3"
+            },
+            {
+              "label": "ap-southeast-4",
+              "value": "ap-southeast-4"
+            },
+            {
+              "label": "ca-central-1",
+              "value": "ca-central-1"
+            },
+            {
+              "label": "eu-central-1",
+              "value": "eu-central-1"
+            },
+            {
+              "label": "eu-central-2",
+              "value": "eu-central-2"
+            },
+            {
+              "label": "eu-north-1",
+              "value": "eu-north-1"
+            },
+            {
+              "label": "eu-south-1",
+              "value": "eu-south-1"
+            },
+            {
+              "label": "eu-south-2",
+              "value": "eu-south-2"
+            },
+            {
+              "label": "eu-west-1",
+              "value": "eu-west-1"
+            },
+            {
+              "label": "eu-west-2",
+              "value": "eu-west-2"
+            },
+            {
+              "label": "eu-west-3",
+              "value": "eu-west-3"
+            },
+            {
+              "label": "me-central-1",
+              "value": "me-central-1"
+            },
+            {
+              "label": "me-south-1",
+              "value": "me-south-1"
+            },
+            {
+              "label": "sa-east-1",
+              "value": "sa-east-1"
+            },
+            {
+              "label": "us-east-1",
+              "value": "us-east-1"
+            },
+            {
+              "label": "us-east-2",
+              "value": "us-east-2"
+            },
+            {
+              "label": "us-gov-east-1",
+              "value": "us-gov-east-1"
+            },
+            {
+              "label": "us-gov-west-1",
+              "value": "us-gov-west-1"
+            },
+            {
+              "label": "us-west-1",
+              "value": "us-west-1"
+            },
+            {
+              "label": "us-west-2",
+              "value": "us-west-2"
+            }
+          ],
+          "key": "awsRegion",
+          "type": "string",
+          "default": "us-east-1",
+          "label": "AWS Region"
+        },
+        {
+          "placeholder": "Name",
+          "required": true,
+          "comments": "Provide a string value for the name (NOT the ARN).",
+          "key": "name",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        },
+        {
+          "required": true,
+          "key": "awsConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "startJobRun": {
+      "display": {
+        "label": "Start Job Run",
+        "description": "Starts a job run using a AWS Glue job definition."
+      },
+      "examplePayload": {
+        "data": {
+          "Name": "exampleJobRunName"
+        }
+      },
+      "key": "startJobRun",
+      "inputs": [
+        {
+          "placeholder": "AWS Region",
+          "required": true,
+          "comments": "AWS provides services in multiple regions, like us-west-2 or eu-east-1. AWS region indicates the region in which your DynamoDb instance is hosted",
+          "example": "us-east-1",
+          "model": [
+            {
+              "label": "af-south-1",
+              "value": "af-south-1"
+            },
+            {
+              "label": "ap-east-1",
+              "value": "ap-east-1"
+            },
+            {
+              "label": "ap-northeast-1",
+              "value": "ap-northeast-1"
+            },
+            {
+              "label": "ap-northeast-2",
+              "value": "ap-northeast-2"
+            },
+            {
+              "label": "ap-northeast-3",
+              "value": "ap-northeast-3"
+            },
+            {
+              "label": "ap-south-1",
+              "value": "ap-south-1"
+            },
+            {
+              "label": "ap-south-2",
+              "value": "ap-south-2"
+            },
+            {
+              "label": "ap-southeast-1",
+              "value": "ap-southeast-1"
+            },
+            {
+              "label": "ap-southeast-2",
+              "value": "ap-southeast-2"
+            },
+            {
+              "label": "ap-southeast-3",
+              "value": "ap-southeast-3"
+            },
+            {
+              "label": "ap-southeast-4",
+              "value": "ap-southeast-4"
+            },
+            {
+              "label": "ca-central-1",
+              "value": "ca-central-1"
+            },
+            {
+              "label": "eu-central-1",
+              "value": "eu-central-1"
+            },
+            {
+              "label": "eu-central-2",
+              "value": "eu-central-2"
+            },
+            {
+              "label": "eu-north-1",
+              "value": "eu-north-1"
+            },
+            {
+              "label": "eu-south-1",
+              "value": "eu-south-1"
+            },
+            {
+              "label": "eu-south-2",
+              "value": "eu-south-2"
+            },
+            {
+              "label": "eu-west-1",
+              "value": "eu-west-1"
+            },
+            {
+              "label": "eu-west-2",
+              "value": "eu-west-2"
+            },
+            {
+              "label": "eu-west-3",
+              "value": "eu-west-3"
+            },
+            {
+              "label": "me-central-1",
+              "value": "me-central-1"
+            },
+            {
+              "label": "me-south-1",
+              "value": "me-south-1"
+            },
+            {
+              "label": "sa-east-1",
+              "value": "sa-east-1"
+            },
+            {
+              "label": "us-east-1",
+              "value": "us-east-1"
+            },
+            {
+              "label": "us-east-2",
+              "value": "us-east-2"
+            },
+            {
+              "label": "us-gov-east-1",
+              "value": "us-gov-east-1"
+            },
+            {
+              "label": "us-gov-west-1",
+              "value": "us-gov-west-1"
+            },
+            {
+              "label": "us-west-1",
+              "value": "us-west-1"
+            },
+            {
+              "label": "us-west-2",
+              "value": "us-west-2"
+            }
+          ],
+          "key": "awsRegion",
+          "type": "string",
+          "default": "us-east-1",
+          "label": "AWS Region"
+        },
+        {
+          "placeholder": "Name",
+          "required": true,
+          "comments": "Provide a string value for the name (NOT the ARN).",
+          "key": "name",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        },
+        {
+          "example": "10",
+          "required": false,
+          "comments": "The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. If this is omitted, Glue will use the default number of DPUs configured for your job.",
+          "key": "capacity",
+          "type": "string",
+          "default": "",
+          "label": "Allocated Capacity"
+        },
+        {
+          "required": false,
+          "comments": "The name of the SecurityConfiguration structure to be used with this job. This can be left blank if you do not have a security configuration.",
+          "key": "security",
+          "type": "string",
+          "default": "",
+          "label": "Security Configuration"
+        },
+        {
+          "placeholder": "Name",
+          "required": false,
+          "comments": "Optional key value parameters to pass into a job.",
+          "key": "args",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "args"
+        },
+        {
+          "required": true,
+          "key": "awsConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "startTrigger": {
+      "display": {
+        "label": "Start Trigger",
+        "description": "Starts an existing trigger in AWS Glue."
+      },
+      "examplePayload": {
+        "data": {
+          "Name": "exampleTriggerName"
+        }
+      },
+      "key": "startTrigger",
+      "inputs": [
+        {
+          "placeholder": "AWS Region",
+          "required": true,
+          "comments": "AWS provides services in multiple regions, like us-west-2 or eu-east-1. AWS region indicates the region in which your DynamoDb instance is hosted",
+          "example": "us-east-1",
+          "model": [
+            {
+              "label": "af-south-1",
+              "value": "af-south-1"
+            },
+            {
+              "label": "ap-east-1",
+              "value": "ap-east-1"
+            },
+            {
+              "label": "ap-northeast-1",
+              "value": "ap-northeast-1"
+            },
+            {
+              "label": "ap-northeast-2",
+              "value": "ap-northeast-2"
+            },
+            {
+              "label": "ap-northeast-3",
+              "value": "ap-northeast-3"
+            },
+            {
+              "label": "ap-south-1",
+              "value": "ap-south-1"
+            },
+            {
+              "label": "ap-south-2",
+              "value": "ap-south-2"
+            },
+            {
+              "label": "ap-southeast-1",
+              "value": "ap-southeast-1"
+            },
+            {
+              "label": "ap-southeast-2",
+              "value": "ap-southeast-2"
+            },
+            {
+              "label": "ap-southeast-3",
+              "value": "ap-southeast-3"
+            },
+            {
+              "label": "ap-southeast-4",
+              "value": "ap-southeast-4"
+            },
+            {
+              "label": "ca-central-1",
+              "value": "ca-central-1"
+            },
+            {
+              "label": "eu-central-1",
+              "value": "eu-central-1"
+            },
+            {
+              "label": "eu-central-2",
+              "value": "eu-central-2"
+            },
+            {
+              "label": "eu-north-1",
+              "value": "eu-north-1"
+            },
+            {
+              "label": "eu-south-1",
+              "value": "eu-south-1"
+            },
+            {
+              "label": "eu-south-2",
+              "value": "eu-south-2"
+            },
+            {
+              "label": "eu-west-1",
+              "value": "eu-west-1"
+            },
+            {
+              "label": "eu-west-2",
+              "value": "eu-west-2"
+            },
+            {
+              "label": "eu-west-3",
+              "value": "eu-west-3"
+            },
+            {
+              "label": "me-central-1",
+              "value": "me-central-1"
+            },
+            {
+              "label": "me-south-1",
+              "value": "me-south-1"
+            },
+            {
+              "label": "sa-east-1",
+              "value": "sa-east-1"
+            },
+            {
+              "label": "us-east-1",
+              "value": "us-east-1"
+            },
+            {
+              "label": "us-east-2",
+              "value": "us-east-2"
+            },
+            {
+              "label": "us-gov-east-1",
+              "value": "us-gov-east-1"
+            },
+            {
+              "label": "us-gov-west-1",
+              "value": "us-gov-west-1"
+            },
+            {
+              "label": "us-west-1",
+              "value": "us-west-1"
+            },
+            {
+              "label": "us-west-2",
+              "value": "us-west-2"
+            }
+          ],
+          "key": "awsRegion",
+          "type": "string",
+          "default": "us-east-1",
+          "label": "AWS Region"
+        },
+        {
+          "placeholder": "Name",
+          "required": true,
+          "comments": "Provide a string value for the name (NOT the ARN).",
+          "key": "name",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        },
+        {
+          "required": true,
+          "key": "awsConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "stopCrawler": {
+      "display": {
+        "label": "Stop Crawler",
+        "description": "If the specified crawler is running, stops the crawl"
+      },
+      "examplePayload": {
+        "data": {
+          "Name": "exampleCrawlerName"
+        }
+      },
+      "key": "stopCrawler",
+      "inputs": [
+        {
+          "placeholder": "AWS Region",
+          "required": true,
+          "comments": "AWS provides services in multiple regions, like us-west-2 or eu-east-1. AWS region indicates the region in which your DynamoDb instance is hosted",
+          "example": "us-east-1",
+          "model": [
+            {
+              "label": "af-south-1",
+              "value": "af-south-1"
+            },
+            {
+              "label": "ap-east-1",
+              "value": "ap-east-1"
+            },
+            {
+              "label": "ap-northeast-1",
+              "value": "ap-northeast-1"
+            },
+            {
+              "label": "ap-northeast-2",
+              "value": "ap-northeast-2"
+            },
+            {
+              "label": "ap-northeast-3",
+              "value": "ap-northeast-3"
+            },
+            {
+              "label": "ap-south-1",
+              "value": "ap-south-1"
+            },
+            {
+              "label": "ap-south-2",
+              "value": "ap-south-2"
+            },
+            {
+              "label": "ap-southeast-1",
+              "value": "ap-southeast-1"
+            },
+            {
+              "label": "ap-southeast-2",
+              "value": "ap-southeast-2"
+            },
+            {
+              "label": "ap-southeast-3",
+              "value": "ap-southeast-3"
+            },
+            {
+              "label": "ap-southeast-4",
+              "value": "ap-southeast-4"
+            },
+            {
+              "label": "ca-central-1",
+              "value": "ca-central-1"
+            },
+            {
+              "label": "eu-central-1",
+              "value": "eu-central-1"
+            },
+            {
+              "label": "eu-central-2",
+              "value": "eu-central-2"
+            },
+            {
+              "label": "eu-north-1",
+              "value": "eu-north-1"
+            },
+            {
+              "label": "eu-south-1",
+              "value": "eu-south-1"
+            },
+            {
+              "label": "eu-south-2",
+              "value": "eu-south-2"
+            },
+            {
+              "label": "eu-west-1",
+              "value": "eu-west-1"
+            },
+            {
+              "label": "eu-west-2",
+              "value": "eu-west-2"
+            },
+            {
+              "label": "eu-west-3",
+              "value": "eu-west-3"
+            },
+            {
+              "label": "me-central-1",
+              "value": "me-central-1"
+            },
+            {
+              "label": "me-south-1",
+              "value": "me-south-1"
+            },
+            {
+              "label": "sa-east-1",
+              "value": "sa-east-1"
+            },
+            {
+              "label": "us-east-1",
+              "value": "us-east-1"
+            },
+            {
+              "label": "us-east-2",
+              "value": "us-east-2"
+            },
+            {
+              "label": "us-gov-east-1",
+              "value": "us-gov-east-1"
+            },
+            {
+              "label": "us-gov-west-1",
+              "value": "us-gov-west-1"
+            },
+            {
+              "label": "us-west-1",
+              "value": "us-west-1"
+            },
+            {
+              "label": "us-west-2",
+              "value": "us-west-2"
+            }
+          ],
+          "key": "awsRegion",
+          "type": "string",
+          "default": "us-east-1",
+          "label": "AWS Region"
+        },
+        {
+          "placeholder": "Name",
+          "required": true,
+          "comments": "Provide a string value for the name (NOT the ARN).",
+          "key": "name",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        },
+        {
+          "required": true,
+          "key": "awsConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "stopJobRun": {
+      "display": {
+        "label": "Stop Job Run",
+        "description": "Stops one or more job runs for a specified job definition"
+      },
+      "examplePayload": {
+        "data": {
+          "SuccessfulSubmissions": [
+            ""
+          ],
+          "Errors": [
+            ""
+          ]
+        }
+      },
+      "key": "stopJobRun",
+      "inputs": [
+        {
+          "placeholder": "AWS Region",
+          "required": true,
+          "comments": "AWS provides services in multiple regions, like us-west-2 or eu-east-1. AWS region indicates the region in which your DynamoDb instance is hosted",
+          "example": "us-east-1",
+          "model": [
+            {
+              "label": "af-south-1",
+              "value": "af-south-1"
+            },
+            {
+              "label": "ap-east-1",
+              "value": "ap-east-1"
+            },
+            {
+              "label": "ap-northeast-1",
+              "value": "ap-northeast-1"
+            },
+            {
+              "label": "ap-northeast-2",
+              "value": "ap-northeast-2"
+            },
+            {
+              "label": "ap-northeast-3",
+              "value": "ap-northeast-3"
+            },
+            {
+              "label": "ap-south-1",
+              "value": "ap-south-1"
+            },
+            {
+              "label": "ap-south-2",
+              "value": "ap-south-2"
+            },
+            {
+              "label": "ap-southeast-1",
+              "value": "ap-southeast-1"
+            },
+            {
+              "label": "ap-southeast-2",
+              "value": "ap-southeast-2"
+            },
+            {
+              "label": "ap-southeast-3",
+              "value": "ap-southeast-3"
+            },
+            {
+              "label": "ap-southeast-4",
+              "value": "ap-southeast-4"
+            },
+            {
+              "label": "ca-central-1",
+              "value": "ca-central-1"
+            },
+            {
+              "label": "eu-central-1",
+              "value": "eu-central-1"
+            },
+            {
+              "label": "eu-central-2",
+              "value": "eu-central-2"
+            },
+            {
+              "label": "eu-north-1",
+              "value": "eu-north-1"
+            },
+            {
+              "label": "eu-south-1",
+              "value": "eu-south-1"
+            },
+            {
+              "label": "eu-south-2",
+              "value": "eu-south-2"
+            },
+            {
+              "label": "eu-west-1",
+              "value": "eu-west-1"
+            },
+            {
+              "label": "eu-west-2",
+              "value": "eu-west-2"
+            },
+            {
+              "label": "eu-west-3",
+              "value": "eu-west-3"
+            },
+            {
+              "label": "me-central-1",
+              "value": "me-central-1"
+            },
+            {
+              "label": "me-south-1",
+              "value": "me-south-1"
+            },
+            {
+              "label": "sa-east-1",
+              "value": "sa-east-1"
+            },
+            {
+              "label": "us-east-1",
+              "value": "us-east-1"
+            },
+            {
+              "label": "us-east-2",
+              "value": "us-east-2"
+            },
+            {
+              "label": "us-gov-east-1",
+              "value": "us-gov-east-1"
+            },
+            {
+              "label": "us-gov-west-1",
+              "value": "us-gov-west-1"
+            },
+            {
+              "label": "us-west-1",
+              "value": "us-west-1"
+            },
+            {
+              "label": "us-west-2",
+              "value": "us-west-2"
+            }
+          ],
+          "key": "awsRegion",
+          "type": "string",
+          "default": "us-east-1",
+          "label": "AWS Region"
+        },
+        {
+          "placeholder": "Name",
+          "required": true,
+          "comments": "Provide a string value for the name (NOT the ARN).",
+          "key": "name",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        },
+        {
+          "required": true,
+          "comments": "Provide a list of job run Ids",
+          "key": "jobRunIds",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Job Run Ids"
+        },
+        {
+          "required": true,
+          "key": "awsConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "stopTrigger": {
+      "display": {
+        "label": "Stop trigger",
+        "description": "Stops a specified trigger"
+      },
+      "examplePayload": {
+        "data": {
+          "Name": "exampleTriggerName"
+        }
+      },
+      "key": "stopTrigger",
+      "inputs": [
+        {
+          "placeholder": "AWS Region",
+          "required": true,
+          "comments": "AWS provides services in multiple regions, like us-west-2 or eu-east-1. AWS region indicates the region in which your DynamoDb instance is hosted",
+          "example": "us-east-1",
+          "model": [
+            {
+              "label": "af-south-1",
+              "value": "af-south-1"
+            },
+            {
+              "label": "ap-east-1",
+              "value": "ap-east-1"
+            },
+            {
+              "label": "ap-northeast-1",
+              "value": "ap-northeast-1"
+            },
+            {
+              "label": "ap-northeast-2",
+              "value": "ap-northeast-2"
+            },
+            {
+              "label": "ap-northeast-3",
+              "value": "ap-northeast-3"
+            },
+            {
+              "label": "ap-south-1",
+              "value": "ap-south-1"
+            },
+            {
+              "label": "ap-south-2",
+              "value": "ap-south-2"
+            },
+            {
+              "label": "ap-southeast-1",
+              "value": "ap-southeast-1"
+            },
+            {
+              "label": "ap-southeast-2",
+              "value": "ap-southeast-2"
+            },
+            {
+              "label": "ap-southeast-3",
+              "value": "ap-southeast-3"
+            },
+            {
+              "label": "ap-southeast-4",
+              "value": "ap-southeast-4"
+            },
+            {
+              "label": "ca-central-1",
+              "value": "ca-central-1"
+            },
+            {
+              "label": "eu-central-1",
+              "value": "eu-central-1"
+            },
+            {
+              "label": "eu-central-2",
+              "value": "eu-central-2"
+            },
+            {
+              "label": "eu-north-1",
+              "value": "eu-north-1"
+            },
+            {
+              "label": "eu-south-1",
+              "value": "eu-south-1"
+            },
+            {
+              "label": "eu-south-2",
+              "value": "eu-south-2"
+            },
+            {
+              "label": "eu-west-1",
+              "value": "eu-west-1"
+            },
+            {
+              "label": "eu-west-2",
+              "value": "eu-west-2"
+            },
+            {
+              "label": "eu-west-3",
+              "value": "eu-west-3"
+            },
+            {
+              "label": "me-central-1",
+              "value": "me-central-1"
+            },
+            {
+              "label": "me-south-1",
+              "value": "me-south-1"
+            },
+            {
+              "label": "sa-east-1",
+              "value": "sa-east-1"
+            },
+            {
+              "label": "us-east-1",
+              "value": "us-east-1"
+            },
+            {
+              "label": "us-east-2",
+              "value": "us-east-2"
+            },
+            {
+              "label": "us-gov-east-1",
+              "value": "us-gov-east-1"
+            },
+            {
+              "label": "us-gov-west-1",
+              "value": "us-gov-west-1"
+            },
+            {
+              "label": "us-west-1",
+              "value": "us-west-1"
+            },
+            {
+              "label": "us-west-2",
+              "value": "us-west-2"
+            }
+          ],
+          "key": "awsRegion",
+          "type": "string",
+          "default": "us-east-1",
+          "label": "AWS Region"
+        },
+        {
+          "placeholder": "Name",
+          "required": true,
+          "comments": "Provide a string value for the name (NOT the ARN).",
+          "key": "name",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        },
+        {
+          "required": true,
+          "key": "awsConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    }
+  },
+  "triggers": {},
+  "dataSources": {},
+  "documentation": {
+    "description": "[AWS Glue](https://aws.amazon.com/glue) is a serverless data integration service from Amazon Web Services.\nThe AWS Glue component allows you to interact with jobs, triggers, and crawlers in your AWS Glue account.\n"
+  },
+  "$version": 1
+}

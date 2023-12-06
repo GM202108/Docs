@@ -1,0 +1,408 @@
+---
+id: wrapping-an-api-in-a-component
+title: Wrapping an API in a Component
+description: Learn how to write a custom component that wraps an HTTP-base third-party API
+---
+
+import Screenshot from "@site/src/components/screenshot";
+
+Component authors are frequently asked to develop a component that implements a series of API calls for some third-party service (or possibly your own company's API).
+If the API you're creating a component for has an OpenAPI or WSDL spec, you can have `prism` [generate a component](custom-components/writing-custom-components.mdx#custom-components-from-wsdls-or-openapi-specs) based off of your YAML, JSON, or XML spec file.
+
+If, however, your API does not have an OpenAPI or WSDL spec, or if you're just looking to implement actions for a small handful of endpoints, we have some "best practices" you can follow for developing a custom component that implements those endpoints.
+The code for our custom component is available on [GitHub](https://github.com/-io/examples/tree/main/components/acmeerp).
+Let's dive into the code here.
+
+## Our component's spec
+
+For today's tutorial, suppose we're writing a component for "Acme ERP" - a made-up ERP system, and we would like to implement actions for a subset of endpoints that the Acme ERP API offers.
+We're handed a few specs for our component:
+
+- Customers each have distinct instances of Acme ERP, so the API endpoint is different for each customer.
+- Customers authenticate by entering an API key that they generate.
+- For our first integration, there are four endpoints that we want actions for:
+  - **List All Items**: This is a GET call to the API's `/items/` endpoint which returns an array of items in our inventory.
+  - **Get Item**: This is a GET call to `/items/{ ITEM_ID }` and fetches a single item from our inventory by ID.
+  - **Add Item**: This is a POST call to `/items/` to add an item to our inventory.
+  - **Delete Item**: This is a DELETE call to `/items/{ ITEM_ID }` to delete an item from inventory.
+
+## Initializing the component
+
+Like any new custom component, we can create our new component using a subcommand of [prism](cli/cli-usage.mdx):
+
+```bash title="Initialize our component"
+$ prism components:init acmeerp
+Creating component directory for "acmeerp"...
+
+"acmeerp" is ready for development.
+To install dependencies, run either "npm install" or "yarn install"
+To test the component, run "npm run test" or "yarn test"
+To build the component, run "npm run build" or "yarn build"
+To publish the component, run "prism components:publish"
+
+For documentation on writing custom components, visit https://.io/docs/custom-components/writing-custom-components/
+```
+
+Then, I'll install my package's dependencies using `yarn` (though, you can use `npm`, too):
+
+```bash title="Install package dependencies"
+$ yarn
+yarn install v1.22.10
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+[4/4] 🔨  Building fresh packages...
+success Saved lockfile.
+✨  Done in 7.48s.
+```
+
+I'm not going to implement any custom triggers with this component (if you're interested in writing triggers, please see [this quickstart](quickstarts/writing-a-trigger.mdx)), so I'm going to remove `src/triggers.ts` and in `src/index.ts` I'll remove the lines related to triggers.
+While I'm at it, I'll give my component a proper label and description:
+
+```typescript {3,15} title="Remove trigger boilerplate"
+import { component } from "@-io/spectral";
+import actions from "./actions";
+import triggers from "./triggers";
+import connections from "./connections";
+
+export default component({
+  key: "acmeerp",
+  public: false,
+  display: {
+    label: "Acme ERP",
+    description: "Manage inventory in Acme ERP",
+    iconPath: "icon.png",
+  },
+  actions,
+  triggers,
+  connections,
+});
+```
+
+I'll also remove `src/index.test.ts`, as I'll implement unit testing later.
+
+## Creating a shared HTTP client
+
+Our component needs to reach out to a variable endpoint, and needs to accept an API Key.
+So, our connections will need to contain both endpoint and credential information
+To handle those things, let's create a function that takes a connection, and returns an HTTP client pointed at that endpoint.
+At  we really like [Axios](https://axios-http.com/), but you can use another HTTP client library if you like one better.
+
+```bash title="Add Axios to our project"
+$ yarn add axios
+yarn add v1.22.10
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+[4/4] 🔨  Building fresh packages...
+
+success Saved lockfile.
+success Saved 2 new dependencies.
+info Direct dependencies
+info All dependencies
+├─ axios@0.24.0
+└─ follow-redirects@1.14.5
+✨  Done in 6.47s.
+```
+
+Let's first create a `connection`, which will contain the information needed to connect to Acme ERP: the customer's unique endpoint URL and the customer's API key.
+
+```typescript title="src/connections.ts"
+import { connection } from "@-io/spectral";
+
+// Create a connection that contains an API endpoint URL
+// and an API key.
+export const apiKeyConnection = connection({
+  key: "apiKey",
+  label: "Acme Connection",
+  comments: "Acme Connection",
+  inputs: {
+    endpoint: {
+      label: "Acme Endpoint URL",
+      placeholder: "Acme Endpoint URL",
+      type: "string",
+      required: true,
+      comments: "Acme API Endpoint URL",
+      default:
+        "https://my-json-server.typicode.com/-io/placeholder-data",
+      example: "https://my-company.api.acme.com/",
+    },
+    apiKey: {
+      label: "Acme API Key",
+      placeholder: "Acme API Key",
+      type: "password",
+      required: true,
+      comments: "Generate at https://app.acme.com/settings/api-keys",
+    },
+  },
+});
+
+export default [apiKeyConnection];
+```
+
+Then, we'll create a helper function, `getAcmeErpClient`, which will take a connection input and create an HTTP client pointed at the connection's endpoint URL and authenticated with the connection's API key.
+Let's place this code in a new file called `auth.ts`:
+
+```typescript title="src/auth.ts"
+import axios from "axios";
+import { Connection, util } from "@-io/spectral";
+
+export function getAcmeErpClient(acmeConnection: Connection) {
+  const { apiKey, endpoint } = acmeConnection.fields;
+
+  // Return an HTTP client that has been configured to point
+  // towards endpoint URL, and passes an API key as a header
+  return axios.create({
+    baseURL: util.types.toString(endpoint),
+    headers: {
+      Accept: "application/json", // Our API returns JSON
+      Authorization: `Bearer ${apiKey}`,
+    },
+    maxContentLength: Infinity,
+    maxBodyLength: Infinity,
+  });
+}
+```
+
+Now, each of our actions simply need to pass in a connection to the `getAcmeErpClient` function, and they'll be able to make HTTP calls to the Acme ERP API.
+
+If we build and publish this component now, we can create a new connection config variable for our integration and fill in our API key and endpoint URL:
+
+<Screenshot
+  filename="quickstarts/wrapping-an-api-in-a-component/configure-connection.png"
+  alt="Set API key and endpoint for Acme ERP Inventory in  integration designer"
+  maxWidth="700px"
+/>
+
+## Write some actions
+
+Now it's time to implement our actions.
+Remember, we want to create four actions that list all items in our inventory, list a specific item, delete a specific item, and add an item to our inventory.
+
+### List all items action
+
+Let's start with the "list all items" action.
+This action will take a single input - the connection we just defined.
+
+Let's keep our inputs organized, so we'll create a new file, `src/inputs.ts`, with that single input for now that represents our connection (customer's API endpoint and api key).
+At the top of the file, we'll import the `input` type function from our [custom component SDK](spectral/custom-component-library.mdx) library:
+
+```typescript title="src/inputs.ts - Endpoint URL Input"
+import { input } from "@-io/spectral";
+
+export const connectionInput = input({
+  label: "Acme ERP",
+  required: true,
+  type: "connection",
+});
+```
+
+Next, let's replace the contents of `src/actions.ts`.
+We'll import `action` and helper `util` functions from our custom component SDK, our input from `inputs.ts`, and auth and HTTP client info from `auth.ts`.
+Then, we'll add a definition for our "list all items" action:
+
+```typescript title="src/actions.ts - List All Items Action"
+import { action } from "@-io/spectral";
+import { getAcmeErpClient } from "./auth";
+import { connectionInput } from "./inputs";
+
+const listAllItems = action({
+  display: {
+    label: "List All Items",
+    description: "List all items in our inventory",
+  },
+  inputs: {
+    // Declare an input for this action
+    acmeConnection: connectionInput,
+  },
+  perform: async (context, { acmeConnection }) => {
+    // Initialize our HTTP client
+    const acmeErpClient = getAcmeErpClient(acmeConnection);
+
+    // Make a synchronous GET call to "{ endpoint }/items":
+    const response = await acmeErpClient.get("/items/");
+
+    // Return the data that we got back
+    return { data: response.data };
+  },
+  // Show an example payload in the  UI:
+  examplePayload: {
+    data: [
+      {
+        id: 1,
+        name: "Widgets",
+        quantity: 20,
+      },
+      {
+        id: 2,
+        name: "Whatsits",
+        quantity: 100,
+      },
+    ],
+  },
+});
+```
+
+At this point we can run `yarn build` and `prism components:publish` to publish our single-action component to .
+If we add our action to an integration, we can see that the step takes the connection input we specified:
+
+<Screenshot
+  filename="quickstarts/wrapping-an-api-in-a-component/first-action-inputs.png"
+  alt="Acme ERP - List all Items in  integration designer"
+  maxWidth="850px"
+/>
+
+We can also reference the example payload that our action declares in a subsequent step:
+
+<Screenshot
+  filename="quickstarts/wrapping-an-api-in-a-component/first-action-results.png"
+  alt="Acme ERP - Write Log Message in  integration designer"
+  maxWidth="850px"
+/>
+
+### Get item action
+
+Next, let's build another action that fetches a specific item from our API's inventory.
+This action will reuse the same `connectionInput` input that we declared previously, and will also require an `itemIdInput` input, to specify the ID of the item we want to fetch:
+
+```typescript title="src/inputs.ts - Item ID Input"
+export const itemIdInput = input({
+  label: "Item ID",
+  required: true,
+  type: "string",
+});
+```
+
+The "get item" action will be very similar to the previous action - it'll initialize an HTTP client and return some data.
+The `display`, `inputs`, `perform` logic, and `examplePayload` will differ slightly, but the bulk of the action will be the same as before:
+
+```typescript title="src/actions.ts - Get Item Action"
+import { connectionInput, itemIdInput } from "./inputs";
+
+// ...
+
+const getItem = action({
+  display: {
+    label: "Get Item",
+    description: "Get an Item by ID",
+  },
+  inputs: {
+    acmeConnection: connectionInput,
+    itemId: itemIdInput,
+  },
+  perform: async (context, { acmeConnection, itemId }) => {
+    const acmeErpClient = getAcmeErpClient(acmeConnection);
+    const response = await acmeErpClient.get(`/items/${itemId}`);
+    return { data: response.data };
+  },
+  examplePayload: {
+    data: {
+      id: 1,
+      name: "Widgets",
+      quantity: 20,
+    },
+  },
+});
+
+export default { getItem, listAllItems };
+```
+
+### Delete item action
+
+At this point, we "rinse and repeat" - the "delete an item" action will get an HTTP client, send a DELETE HTTP request to an endpoint, and this time return nothing (since a DELETE of an item on our API returns nothing).
+Our "delete an item" action will take an endpoint URL and item ID, like the "get an item" action:
+
+```typescript title="src/actions.ts - Delete an Item Action"
+const deleteItem = action({
+  display: {
+    label: "Delete Item",
+    description: "Delete an Item by ID",
+  },
+  inputs: {
+    acmeConnection: connectionInput,
+    itemId: itemIdInput,
+  },
+  perform: async (context, { acmeConnection, itemId }) => {
+    const acmeErpClient = getAcmeErpClient(acmeConnection);
+    const response = await acmeErpClient.delete(`/items/${itemId}`);
+    return { data: null };
+  },
+});
+
+export default { deleteItem, getItem, listAllItems };
+```
+
+### Add an item action
+
+The "add an item" action has a couple subtle differences from the other three actions:
+
+- It takes additional inputs (`name` and `quanity`).
+  These inputs are not shared by other actions, so we can define them in-line.
+- The HTTP call we use is a POST call, and we pass our `name` and `quantity` inputs to the API as POST parameters.
+
+The reset of the action is very similar to the previous actions:
+
+```typescript title="src/actions.ts - Add Item Action"
+const addItem = action({
+  display: {
+    label: "Add Item",
+    description: "Add an Item to Inventory",
+  },
+  // We can define some inputs inline if they're not reused:
+  inputs: {
+    acmeConnection: connectionInput,
+    name: input({ label: "Item Name", type: "string" }),
+    quantity: input({ label: "Item Quantity", type: "string" }),
+  },
+  perform: async (context, { acmeConnection, name, quantity }) => {
+    const acmeErpClient = getAcmeErpClient(acmeConnection);
+    const response = await acmeErpClient.post("/items/", {
+      name,
+      quantity,
+    });
+    return { data: response.data };
+  },
+  // This API call returns the item object that was created:
+  examplePayload: {
+    data: {
+      id: 1,
+      name: "Widgets",
+      quantity: 20,
+    },
+  },
+});
+
+export default { addItem, deleteItem, getItem, listAllItems };
+```
+
+## Unit testing our component
+
+Now that we've implemented our four actions for our component, let's add some [unit tests](custom-components/writing-custom-components.mdx#unit-tests-for-custom-components) to verify that our actions return what we'd expect them to return.
+To do that, we'll create a new file, `src/actions.test.ts`.
+
+We can import a helper function from 's SDK - `invoke`.
+Then, we can import the actions that we want to test (we'll test "add an item" here) and we can invoke the action and verify that the `result` we receive is what we expect:
+
+```typescript title="src/actions.test.ts - Unit Test the Add Item Action"
+import { invoke, createConnection } from "@-io/spectral/dist/testing";
+import { apiKeyConnection } from "./connections";
+import actions from "./actions";
+
+const acmeConnection = createConnection(apiKeyConnection, {
+  endpoint: "https://my-json-server.typicode.com/-io/placeholder-data",
+  apiKey: process.env.ACME_ERP_API_KEY, // Get API key from an environment variable
+});
+
+describe("test the add item action", () => {
+  test("test that we get back what we sent", async () => {
+    const name = "widgets";
+    const quantity = 123;
+    const { result } = await invoke(
+      actions.addItem, // Invoke the "addItem" action
+      { acmeConnection, name, quantity } // Pass in some inputs that we declared
+    );
+    expect(result.data.name).toEqual(name); // Verify that the response had the same item name
+    expect(result.data.quantity).toEqual(quantity); // Verify that the response had the same item quantity
+  });
+});
+```

@@ -1,0 +1,28 @@
+---
+id: administerObjectPermission
+title: administerObjectPermission Mutation
+sidebar_label: administerObjectPermission
+description: Learn how to use the administerObjectPermission Mutation for Prismatic's API.
+---
+
+    Administers a Permission to an object for the specified User.
+
+Access is not permitted.
+
+## Input fields ([AdministerObjectPermissionInput!](api/schema/input_object/AdministerObjectPermissionInput.mdx))
+
+| Argument           | Type                                        | Description                                                     |
+| ------------------ | ------------------------------------------- | --------------------------------------------------------------- |
+| `grant`            | [`Boolean!`](api/schema/scalar/Boolean.mdx) | Specifies whether to grant or revoke the specified Permission.  |
+| `permission`       | [`ID!`](api/schema/scalar/ID.mdx)           | The Permission to grant for the specified object.               |
+| `object`           | [`ID!`](api/schema/scalar/ID.mdx)           | The object for which the specified Permission is being granted. |
+| `id`               | [`ID`](api/schema/scalar/ID.mdx)            | The ID of the User to mutate.                                   |
+| `clientMutationId` | [`String`](api/schema/scalar/String.mdx)    | A unique identifier for the client performing the mutation.     |
+
+## Return fields ([AdministerObjectPermissionPayload](api/schema/object/AdministerObjectPermissionPayload.mdx))
+
+###### <b>clientMutationId</b> ([String](api/schema/scalar/String.mdx))
+
+###### <b>errors</b> ([[ErrorType!]!](api/schema/object/ErrorType.mdx))
+
+###### <b>user</b> ([User](api/schema/object/User.mdx))

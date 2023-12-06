@@ -1,0 +1,11 @@
+import { CustomThemeOptions, ThemeModeKeyHashProps } from "./types";
+import { defaultCustom } from "./hooks/useCustom";
+import { defaultPalette } from "./hooks/usePalette";
+import { defaultShape } from "./hooks/useShape";
+export { useTheme } from "./hooks/useTheme";
+export * from "./utils";
+export * from "./colors";
+export declare const defaultThemeOptions: Required<CustomThemeOptions>;
+export declare const deprecatedThemeKeyHash: Record<string, string>;
+export { defaultPalette, defaultShape, defaultCustom };
+export type { CustomThemeOptions, ThemeModeKeyHashProps };

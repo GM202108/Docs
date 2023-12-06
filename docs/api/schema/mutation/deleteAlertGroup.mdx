@@ -1,0 +1,25 @@
+---
+id: deleteAlertGroup
+title: deleteAlertGroup Mutation
+sidebar_label: deleteAlertGroup
+description: Learn how to use the deleteAlertGroup Mutation for Prismatic's API.
+---
+
+    Removes the specified AlertGroup object.
+
+Access is permitted when any of the following condition(s) are met: 1. The signed-in User has any of the following permissions for the associated Organization: [org_manage_instances].
+
+## Input fields ([DeleteAlertGroupInput!](api/schema/input_object/DeleteAlertGroupInput.mdx))
+
+| Argument           | Type                                     | Description                                                 |
+| ------------------ | ---------------------------------------- | ----------------------------------------------------------- |
+| `id`               | [`ID`](api/schema/scalar/ID.mdx)         | The ID of the AlertGroup to mutate.                         |
+| `clientMutationId` | [`String`](api/schema/scalar/String.mdx) | A unique identifier for the client performing the mutation. |
+
+## Return fields ([DeleteAlertGroupPayload](api/schema/object/DeleteAlertGroupPayload.mdx))
+
+###### <b>alertGroup</b> ([AlertGroup](api/schema/object/AlertGroup.mdx))
+
+###### <b>clientMutationId</b> ([String](api/schema/scalar/String.mdx))
+
+###### <b>errors</b> ([[ErrorType!]!](api/schema/object/ErrorType.mdx))

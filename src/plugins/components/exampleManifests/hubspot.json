@@ -1,0 +1,3926 @@
+{
+  "key": "hubspot",
+  "public": true,
+  "documentationUrl": "https://prismatic.io/docs/components/hubspot/",
+  "display": {
+    "label": "Hubspot",
+    "description": "Manage objects and associations in the Hubspot CRM platform",
+    "iconPath": "icon.png",
+    "category": "Application Connectors",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "oauth2Type": "authorization_code",
+      "key": "oauth2",
+      "label": "Hubspot OAuth 2.0",
+      "comments": "Authenticate requests to Hubspot using values obtained from the developer console.",
+      "inputs": [
+        {
+          "placeholder": "Authorize URL",
+          "required": true,
+          "shown": false,
+          "comments": "The OAuth 2.0 Authorization URL for Hubspot",
+          "key": "authorizeUrl",
+          "type": "string",
+          "default": "https://app.hubspot.com/oauth/authorize",
+          "label": "Authorize URL"
+        },
+        {
+          "placeholder": "Token URL",
+          "required": true,
+          "shown": false,
+          "comments": "The OAuth 2.0 Token URL for Hubspot",
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "https://api.hubapi.com/oauth/v1/token",
+          "label": "Token URL"
+        },
+        {
+          "placeholder": "Scopes",
+          "required": true,
+          "shown": true,
+          "comments": "A space-delimited set of one or more scopes to get the user's permission to access.",
+          "key": "scopes",
+          "type": "string",
+          "default": "",
+          "label": "Scopes"
+        },
+        {
+          "placeholder": "Client ID",
+          "required": true,
+          "shown": true,
+          "comments": "Provide the Client Id you received from the Hubspot Developer Console.",
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "Client ID"
+        },
+        {
+          "placeholder": "Client Secret",
+          "required": true,
+          "shown": true,
+          "comments": "Provide the Client Secret you received from the Hubspot Developer Console.",
+          "key": "clientSecret",
+          "type": "password",
+          "default": "",
+          "label": "Client Secret"
+        },
+        {
+          "placeholder": "App ID",
+          "required": true,
+          "shown": true,
+          "comments": "Provide the App ID from the Hubspot Developer Console.",
+          "key": "appId",
+          "type": "string",
+          "default": "",
+          "label": "App ID"
+        },
+        {
+          "placeholder": "Developer API Key",
+          "required": false,
+          "shown": true,
+          "comments": "Provide the Developer API Key from the Hubspot Developer Console, if available.",
+          "key": "developerApiKey",
+          "type": "string",
+          "default": "",
+          "label": "Developer API Key"
+        }
+      ],
+      "documentation": {
+        "description": "The Hubspot component authenticates requests through a OAuth 2.0 credential.\nInformation on how to generate an OAuth 2.0 credential with Hubspot can be found [here](https://developers.hubspot.com/docs/api/working-with-oauth)\nNow, you will have to configure a new Auth 2.0 Hubspot connection in Prismatic.\n\n-   For **Client ID** and **Client Secret** enter the values that you got from the Hubspot auth settings.\n-   For **Scopes** choose from the list found on the Hubspot [docs](https://developers.hubspot.com/docs/api/working-with-oauth)\n"
+      }
+    },
+    {
+      "key": "privateAppAccessToken",
+      "label": "Private App Access Token",
+      "comments": "An access token generated when you create a private app. For testing purposes only - use OAuth 2.0 for production integrations.",
+      "inputs": [
+        {
+          "placeholder": "Access Token",
+          "required": true,
+          "shown": true,
+          "comments": "An access token generated when you create a private app. For testing purposes only - use OAuth 2.0 for production integrations.",
+          "key": "accessToken",
+          "type": "string",
+          "default": "",
+          "label": "Access Token"
+        }
+      ]
+    }
+  ],
+  "actions": {
+    "listDeals": {
+      "display": {
+        "label": "List Deals",
+        "description": "Retrieve a list of all deals"
+      },
+      "examplePayload": {
+        "data": {
+          "results": [
+            {
+              "id": 12345,
+              "properties": {
+                "amount": "600.00",
+                "closedate": "2021-09-14T@@:36:404Z",
+                "createdate": "2021-09-14T@@:36:404Z",
+                "dealname": "My Example Deal",
+                "dealstage": "presentationscheduled",
+                "hs_lastmodifieddate": "2021-09-14T@@:36:404Z",
+                "hs_object_id": 12345
+              },
+              "pipeline": "default",
+              "createdAt": "2021-09-14T@@:36:404Z",
+              "updatedAt": "2021-09-14T@@:36:404Z",
+              "archived": false
+            }
+          ],
+          "paging": {
+            "next": {
+              "after": "123456789",
+              "link": "https://api.hubapi.com/crm/v3/objects/products?limit=1&after=123456789"
+            }
+          }
+        }
+      },
+      "key": "listDeals",
+      "inputs": [
+        {
+          "example": "phone",
+          "required": false,
+          "comments": "For each item, provide a property you would like to be returned in the response.",
+          "key": "additionalProperties",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Additional Properties To Return"
+        },
+        {
+          "example": "Contacts",
+          "required": false,
+          "comments": "For each item, provide an object type to retrieve the associated Ids for.",
+          "key": "associationsList",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Associations List"
+        },
+        {
+          "required": true,
+          "comments": "Whether to return only results that have been archived.",
+          "key": "archived",
+          "type": "boolean",
+          "default": "false",
+          "label": "Return Archived Results"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": false,
+          "example": "100",
+          "comments": "Provide a number for the maximum amount of items that will be returned by the search.",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Specify the pagination token that's returned by a previous request to retrieve the next page of results",
+          "example": "lslTXFcbLQKkb0vP9Kgh5hy0Y0OnC7Z9ZPHPwPmMnxSk3eiDRMkct7D8E",
+          "key": "after",
+          "type": "string",
+          "default": "",
+          "label": "Start After "
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createDeal": {
+      "display": {
+        "label": "Create Deal",
+        "description": "Create a new deal"
+      },
+      "key": "createDeal",
+      "inputs": [
+        {
+          "required": false,
+          "comments": "Provide a string value for the amount.",
+          "example": "34,000",
+          "key": "amount",
+          "type": "string",
+          "default": "",
+          "label": "Amount"
+        },
+        {
+          "required": false,
+          "comments": "Provide a date representing when the sale will close.",
+          "example": "2019-12-07T16:50:06.678Z",
+          "key": "closeDate",
+          "type": "string",
+          "default": "",
+          "label": "Close Date"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the name of the deal",
+          "example": "My Example Deal",
+          "key": "dealName",
+          "type": "string",
+          "default": "",
+          "label": "Deal Name"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the owner of the resource",
+          "example": "910901",
+          "key": "hubspotOwnerId",
+          "type": "string",
+          "default": "",
+          "label": "Owner Id"
+        },
+        {
+          "required": true,
+          "example": "default",
+          "comments": "Provide a string value for which pipeline to interact with.",
+          "key": "pipeline",
+          "type": "string",
+          "default": "",
+          "label": "Pipeline"
+        },
+        {
+          "required": true,
+          "comments": "Provide a value for the stage of the deal. Deal stages allow you to categorize and track the progress of the deals that you are working on.",
+          "example": "presentationscheduled",
+          "key": "dealStage",
+          "type": "string",
+          "default": "",
+          "label": "Deal Stage"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "low",
+              "value": "low"
+            },
+            {
+              "label": "medium",
+              "value": "medium"
+            },
+            {
+              "label": "high",
+              "value": "high"
+            }
+          ],
+          "comments": "Provide a string value for priority of the deal.",
+          "key": "priority",
+          "type": "string",
+          "default": "",
+          "label": "Priority"
+        },
+        {
+          "required": false,
+          "example": "newbusiness",
+          "comments": "Provide a string value for the type of deal. By default, categorize your deal as either a New Business or Existing Business. The picklist of values for this property is configurable through Hubspot",
+          "key": "dealType",
+          "type": "string",
+          "default": "",
+          "label": "Deal Type"
+        },
+        {
+          "placeholder": "Values",
+          "required": false,
+          "comments": "The names of the fields and their values to use when creating/updating a record. Hubspot allows you to configure many different properties to your CRM object. You can use this input to specify the key and value of any property that is not already in Prismatic.",
+          "key": "fieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Values"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getDealById": {
+      "display": {
+        "label": "Get Deal",
+        "description": "Retrieve information and metadata about a deal by its Id or name"
+      },
+      "key": "getDealById",
+      "inputs": [
+        {
+          "required": false,
+          "comments": "Provide the unique identifier of the deal",
+          "example": "804874",
+          "key": "dealId",
+          "type": "string",
+          "default": "",
+          "label": "Deal Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the name of the deal",
+          "example": "My Example Deal",
+          "key": "dealName",
+          "type": "string",
+          "default": "",
+          "label": "Deal Name"
+        },
+        {
+          "example": "phone",
+          "required": false,
+          "comments": "For each item, provide a property you would like to be returned in the response.",
+          "key": "additionalProperties",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Additional Properties To Return"
+        },
+        {
+          "example": "Contacts",
+          "required": false,
+          "comments": "For each item, provide an object type to retrieve the associated Ids for.",
+          "key": "associationsList",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Associations List"
+        },
+        {
+          "required": true,
+          "comments": "Whether to return only results that have been archived.",
+          "key": "archived",
+          "type": "boolean",
+          "default": "false",
+          "label": "Return Archived Results"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "updateDeal": {
+      "display": {
+        "label": "Update Deal",
+        "description": "Update the information or metadata of an existing deal"
+      },
+      "key": "updateDeal",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of the deal",
+          "example": "804874",
+          "key": "dealId",
+          "type": "string",
+          "default": "",
+          "label": "Deal Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the amount.",
+          "example": "34,000",
+          "key": "amount",
+          "type": "string",
+          "default": "",
+          "label": "Amount"
+        },
+        {
+          "required": false,
+          "comments": "Provide a date representing when the sale will close.",
+          "example": "2019-12-07T16:50:06.678Z",
+          "key": "closeDate",
+          "type": "string",
+          "default": "",
+          "label": "Close Date"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the name of the deal",
+          "example": "My Example Deal",
+          "key": "updateDealName",
+          "type": "string",
+          "default": "",
+          "label": "Deal Name"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the owner of the resource",
+          "example": "910901",
+          "key": "hubspotOwnerId",
+          "type": "string",
+          "default": "",
+          "label": "Owner Id"
+        },
+        {
+          "required": false,
+          "example": "default",
+          "comments": "Provide a string value for which pipeline to interact with.",
+          "key": "updatePipeline",
+          "type": "string",
+          "default": "",
+          "label": "Pipeline"
+        },
+        {
+          "required": false,
+          "comments": "Provide a value for the stage of the deal. Deal stages allow you to categorize and track the progress of the deals that you are working on.",
+          "example": "presentationscheduled",
+          "key": "updateDealStage",
+          "type": "string",
+          "default": "",
+          "label": "Deal Stage"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "low",
+              "value": "low"
+            },
+            {
+              "label": "medium",
+              "value": "medium"
+            },
+            {
+              "label": "high",
+              "value": "high"
+            }
+          ],
+          "comments": "Provide a string value for priority of the deal.",
+          "key": "priority",
+          "type": "string",
+          "default": "",
+          "label": "Priority"
+        },
+        {
+          "required": false,
+          "example": "newbusiness",
+          "comments": "Provide a string value for the type of deal. By default, categorize your deal as either a New Business or Existing Business. The picklist of values for this property is configurable through Hubspot",
+          "key": "dealType",
+          "type": "string",
+          "default": "",
+          "label": "Deal Type"
+        },
+        {
+          "placeholder": "Values",
+          "required": false,
+          "comments": "The names of the fields and their values to use when creating/updating a record. Hubspot allows you to configure many different properties to your CRM object. You can use this input to specify the key and value of any property that is not already in Prismatic.",
+          "key": "fieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Values"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteDeal": {
+      "display": {
+        "label": "Delete Deal",
+        "description": "Delete a deal by its Id"
+      },
+      "key": "deleteDeal",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of the deal",
+          "example": "804874",
+          "key": "dealId",
+          "type": "string",
+          "default": "",
+          "label": "Deal Id"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "searchDeals": {
+      "display": {
+        "label": "Search Deals",
+        "description": "Returns a list of deals that match the given properties"
+      },
+      "key": "searchDeals",
+      "inputs": [
+        {
+          "required": true,
+          "example": "dealname",
+          "comments": "Provide a string value for the property you would like to search on. Please ensure the spelling and capitalization are correct for the property you want to use.",
+          "key": "propertyName",
+          "type": "string",
+          "default": "",
+          "label": "Property Name"
+        },
+        {
+          "required": true,
+          "example": "myDeal",
+          "comments": "Provide a string value corresponding to the given property name",
+          "key": "value",
+          "type": "string",
+          "default": "",
+          "label": "Value"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the operator used to search on.",
+          "model": [
+            {
+              "label": "Equal To",
+              "value": "EQ"
+            },
+            {
+              "label": "Less Than",
+              "value": "LT"
+            },
+            {
+              "label": "Less Than Or Equal TO",
+              "value": "LTE"
+            },
+            {
+              "label": "Greater Than",
+              "value": "GT"
+            },
+            {
+              "label": "Greater Than Or Equal To",
+              "value": "GTE"
+            },
+            {
+              "label": "Less Than Or Equal To",
+              "value": "BETWEEN"
+            },
+            {
+              "label": "In",
+              "value": "IN"
+            },
+            {
+              "label": "Not In",
+              "value": "NOT_IN"
+            },
+            {
+              "label": "Has Property",
+              "value": "HAS_PROPERTY"
+            },
+            {
+              "label": "Not Has Property",
+              "value": "NOT_HAS_PROPERTY"
+            },
+            {
+              "label": "Contains Token",
+              "value": "CONTAINS_TOKEN"
+            },
+            {
+              "label": "Not Contains Token",
+              "value": "NOT_CONTAINS_TOKEN"
+            }
+          ],
+          "key": "operator",
+          "type": "string",
+          "default": "",
+          "label": "Operator"
+        },
+        {
+          "required": false,
+          "example": "100",
+          "comments": "Provide a number for the maximum amount of items that will be returned by the search.",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Specify the pagination token that's returned by a previous request to retrieve the next page of results",
+          "example": "lslTXFcbLQKkb0vP9Kgh5hy0Y0OnC7Z9ZPHPwPmMnxSk3eiDRMkct7D8E",
+          "key": "after",
+          "type": "string",
+          "default": "",
+          "label": "Start After "
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createProduct": {
+      "display": {
+        "label": "Create Product",
+        "description": "Create a new product"
+      },
+      "key": "createProduct",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide the name of the product.",
+          "example": "myProduct",
+          "key": "productName",
+          "type": "string",
+          "default": "",
+          "label": "Product Name"
+        },
+        {
+          "required": false,
+          "comments": "Provide the description of the object.",
+          "example": "This is an example description.",
+          "key": "description",
+          "type": "string",
+          "default": "",
+          "label": "Description"
+        },
+        {
+          "required": true,
+          "comments": "Provide the SKU of the product.",
+          "example": "804874",
+          "key": "sku",
+          "type": "string",
+          "default": "",
+          "label": "Product SKU"
+        },
+        {
+          "required": true,
+          "comments": "Provide the price of the product.",
+          "example": "80400",
+          "key": "price",
+          "type": "string",
+          "default": "",
+          "label": "Price"
+        },
+        {
+          "required": false,
+          "comments": "Provide the billing frequency of the product. Specify the integer of months in between a P and M in the following format: P{integer}M",
+          "example": "P12M",
+          "key": "recurringBillingPeriod",
+          "type": "string",
+          "default": "",
+          "label": "Recurring Billing Frequency"
+        },
+        {
+          "required": false,
+          "comments": "Provide the unit cost of the product.",
+          "example": "800",
+          "key": "unitCost",
+          "type": "string",
+          "default": "",
+          "label": "Unit Cost"
+        },
+        {
+          "placeholder": "Values",
+          "required": false,
+          "comments": "The names of the fields and their values to use when creating/updating a record. Hubspot allows you to configure many different properties to your CRM object. You can use this input to specify the key and value of any property that is not already in Prismatic.",
+          "key": "fieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Values"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "updateProduct": {
+      "display": {
+        "label": "Update Product",
+        "description": "Update the information and metadata of an existing product"
+      },
+      "key": "updateProduct",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of the product.",
+          "example": "804874",
+          "key": "productId",
+          "type": "string",
+          "default": "",
+          "label": "Product Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide the name of the product.",
+          "example": "myProduct",
+          "key": "updateProductName",
+          "type": "string",
+          "default": "",
+          "label": "Product Name"
+        },
+        {
+          "required": false,
+          "comments": "Provide the description of the object.",
+          "example": "This is an example description.",
+          "key": "description",
+          "type": "string",
+          "default": "",
+          "label": "Description"
+        },
+        {
+          "required": false,
+          "comments": "Provide the SKU of the product.",
+          "example": "804874",
+          "key": "updateSku",
+          "type": "string",
+          "default": "",
+          "label": "Product SKU"
+        },
+        {
+          "required": false,
+          "comments": "Provide the price of the product.",
+          "example": "80400",
+          "key": "updatePrice",
+          "type": "string",
+          "default": "",
+          "label": "Price"
+        },
+        {
+          "required": false,
+          "comments": "Provide the billing frequency of the product. Specify the integer of months in between a P and M in the following format: P{integer}M",
+          "example": "P12M",
+          "key": "recurringBillingPeriod",
+          "type": "string",
+          "default": "",
+          "label": "Recurring Billing Frequency"
+        },
+        {
+          "required": false,
+          "comments": "Provide the unit cost of the product.",
+          "example": "800",
+          "key": "unitCost",
+          "type": "string",
+          "default": "",
+          "label": "Unit Cost"
+        },
+        {
+          "placeholder": "Values",
+          "required": false,
+          "comments": "The names of the fields and their values to use when creating/updating a record. Hubspot allows you to configure many different properties to your CRM object. You can use this input to specify the key and value of any property that is not already in Prismatic.",
+          "key": "fieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Values"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listProducts": {
+      "display": {
+        "label": "List Products",
+        "description": "Retrieve a list of all products"
+      },
+      "examplePayload": {
+        "data": {
+          "results": [
+            {
+              "id": 12345,
+              "properties": {
+                "createdate": "2021-09-14T@@:36:404Z",
+                "hs_lastmodifieddate": "2021-09-14T@@:36:404Z",
+                "hs_object_id": 12345,
+                "name": "Example Product",
+                "price": "6000.00"
+              }
+            }
+          ],
+          "paging": {
+            "next": {
+              "after": "123456789",
+              "link": "https://api.hubapi.com/crm/v3/objects/products?limit=1&after=123456789"
+            }
+          }
+        }
+      },
+      "key": "listProducts",
+      "inputs": [
+        {
+          "example": "phone",
+          "required": false,
+          "comments": "For each item, provide a property you would like to be returned in the response.",
+          "key": "additionalProperties",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Additional Properties To Return"
+        },
+        {
+          "example": "Contacts",
+          "required": false,
+          "comments": "For each item, provide an object type to retrieve the associated Ids for.",
+          "key": "associationsList",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Associations List"
+        },
+        {
+          "required": true,
+          "comments": "Whether to return only results that have been archived.",
+          "key": "archived",
+          "type": "boolean",
+          "default": "false",
+          "label": "Return Archived Results"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": false,
+          "example": "100",
+          "comments": "Provide a number for the maximum amount of items that will be returned by the search.",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Specify the pagination token that's returned by a previous request to retrieve the next page of results",
+          "example": "lslTXFcbLQKkb0vP9Kgh5hy0Y0OnC7Z9ZPHPwPmMnxSk3eiDRMkct7D8E",
+          "key": "after",
+          "type": "string",
+          "default": "",
+          "label": "Start After "
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getProduct": {
+      "display": {
+        "label": "Get Product",
+        "description": "Retrieve the information and metadata of a product by Id or name"
+      },
+      "key": "getProduct",
+      "inputs": [
+        {
+          "required": false,
+          "comments": "Provide the unique identifier of the product.",
+          "example": "804874",
+          "key": "productId",
+          "type": "string",
+          "default": "",
+          "label": "Product Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide the name of the product.",
+          "example": "myProduct",
+          "key": "productName",
+          "type": "string",
+          "default": "",
+          "label": "Product Name"
+        },
+        {
+          "example": "phone",
+          "required": false,
+          "comments": "For each item, provide a property you would like to be returned in the response.",
+          "key": "additionalProperties",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Additional Properties To Return"
+        },
+        {
+          "example": "Contacts",
+          "required": false,
+          "comments": "For each item, provide an object type to retrieve the associated Ids for.",
+          "key": "associationsList",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Associations List"
+        },
+        {
+          "required": true,
+          "comments": "Whether to return only results that have been archived.",
+          "key": "archived",
+          "type": "boolean",
+          "default": "false",
+          "label": "Return Archived Results"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteProduct": {
+      "display": {
+        "label": "Delete Product",
+        "description": "Delete a product by Id"
+      },
+      "key": "deleteProduct",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of the product.",
+          "example": "804874",
+          "key": "productId",
+          "type": "string",
+          "default": "",
+          "label": "Product Id"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listContacts": {
+      "display": {
+        "label": "List Contacts",
+        "description": "Retrieve a list of all contacts"
+      },
+      "examplePayload": {
+        "data": {
+          "results": [
+            {
+              "id": 12345,
+              "properties": {
+                "createdate": "2021-09-14T@@:36:404Z",
+                "email": "someone@example.com",
+                "firstname": "John",
+                "hs_lastmodifieddate": "2021-09-14T@@:36:404Z",
+                "lastname": "Doe",
+                "hs_object_id": 12345
+              },
+              "pipeline": "default",
+              "createdAt": "2021-09-14T@@:36:404Z",
+              "updatedAt": "2021-09-14T@@:36:404Z",
+              "archived": false
+            }
+          ],
+          "paging": {
+            "next": {
+              "after": "123456789",
+              "link": "https://api.hubapi.com/crm/v3/objects/products?limit=1&after=123456789"
+            }
+          }
+        }
+      },
+      "key": "listContacts",
+      "inputs": [
+        {
+          "example": "phone",
+          "required": false,
+          "comments": "For each item, provide a property you would like to be returned in the response.",
+          "key": "additionalProperties",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Additional Properties To Return"
+        },
+        {
+          "example": "Contacts",
+          "required": false,
+          "comments": "For each item, provide an object type to retrieve the associated Ids for.",
+          "key": "associationsList",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Associations List"
+        },
+        {
+          "required": true,
+          "comments": "Whether to return only results that have been archived.",
+          "key": "archived",
+          "type": "boolean",
+          "default": "false",
+          "label": "Return Archived Results"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": false,
+          "example": "100",
+          "comments": "Provide a number for the maximum amount of items that will be returned by the search.",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Specify the pagination token that's returned by a previous request to retrieve the next page of results",
+          "example": "lslTXFcbLQKkb0vP9Kgh5hy0Y0OnC7Z9ZPHPwPmMnxSk3eiDRMkct7D8E",
+          "key": "after",
+          "type": "string",
+          "default": "",
+          "label": "Start After "
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "CreateContact": {
+      "display": {
+        "label": "Create Contact",
+        "description": "Create a new contact"
+      },
+      "key": "CreateContact",
+      "inputs": [
+        {
+          "required": true,
+          "example": "John",
+          "comments": "Provide a string value for the first name of the contact",
+          "key": "contactFirstName",
+          "type": "string",
+          "default": "",
+          "label": "First Name"
+        },
+        {
+          "required": true,
+          "example": "Doe",
+          "comments": "Provide a string value for the last name of the contact",
+          "key": "contactlastName",
+          "type": "string",
+          "default": "",
+          "label": "Last Name"
+        },
+        {
+          "required": false,
+          "example": "(877) 929-0687",
+          "comments": "Provide a value for the phone number.",
+          "key": "phone",
+          "type": "string",
+          "default": "",
+          "label": "Phone"
+        },
+        {
+          "required": false,
+          "example": "Acme Inc.",
+          "comments": "Provide a string value for the company of the contact",
+          "key": "contactCompany",
+          "type": "string",
+          "default": "",
+          "label": "Company"
+        },
+        {
+          "required": false,
+          "example": "someone@example.com",
+          "comments": "Provide a string value for the email of the contact",
+          "key": "contactEmail",
+          "type": "string",
+          "default": "",
+          "label": "Email"
+        },
+        {
+          "required": false,
+          "example": "www.example.com",
+          "comments": "Provide a string value for the website.",
+          "key": "website",
+          "type": "string",
+          "default": "",
+          "label": "Website"
+        },
+        {
+          "placeholder": "Values",
+          "required": false,
+          "comments": "The names of the fields and their values to use when creating/updating a record. Hubspot allows you to configure many different properties to your CRM object. You can use this input to specify the key and value of any property that is not already in Prismatic.",
+          "key": "fieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Values"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteContact": {
+      "display": {
+        "label": "Delete Contact",
+        "description": "Retrieve a list of all contacts"
+      },
+      "key": "deleteContact",
+      "inputs": [
+        {
+          "required": true,
+          "example": "9989223",
+          "comments": "Provide a string value for the unique identifier of the contact.",
+          "key": "contactId",
+          "type": "string",
+          "default": "",
+          "label": "Contact Id"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getContact": {
+      "display": {
+        "label": "Get Contact",
+        "description": "Get the information and metadata of a contact by Id or Email"
+      },
+      "key": "getContact",
+      "inputs": [
+        {
+          "required": false,
+          "example": "9989223",
+          "comments": "Provide a string value for the unique identifier of the contact.",
+          "key": "contactId",
+          "type": "string",
+          "default": "",
+          "label": "Contact Id"
+        },
+        {
+          "required": false,
+          "example": "someone@example.com",
+          "comments": "Provide a string value for the email of the contact",
+          "key": "contactEmail",
+          "type": "string",
+          "default": "",
+          "label": "Email"
+        },
+        {
+          "example": "phone",
+          "required": false,
+          "comments": "For each item, provide a property you would like to be returned in the response.",
+          "key": "additionalProperties",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Additional Properties To Return"
+        },
+        {
+          "example": "Contacts",
+          "required": false,
+          "comments": "For each item, provide an object type to retrieve the associated Ids for.",
+          "key": "associationsList",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Associations List"
+        },
+        {
+          "required": true,
+          "comments": "Whether to return only results that have been archived.",
+          "key": "archived",
+          "type": "boolean",
+          "default": "false",
+          "label": "Return Archived Results"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "updateContact": {
+      "display": {
+        "label": "Update Contact",
+        "description": "Update the information and metadata of an existing contact"
+      },
+      "key": "updateContact",
+      "inputs": [
+        {
+          "required": true,
+          "example": "9989223",
+          "comments": "Provide a string value for the unique identifier of the contact.",
+          "key": "contactId",
+          "type": "string",
+          "default": "",
+          "label": "Contact Id"
+        },
+        {
+          "required": false,
+          "example": "John",
+          "comments": "Provide a string value for the first name of the contact",
+          "key": "contactUpdateFirstName",
+          "type": "string",
+          "default": "",
+          "label": "First Name"
+        },
+        {
+          "required": false,
+          "example": "Doe",
+          "comments": "Provide a string value for the last name of the contact",
+          "key": "contactUpdatelastName",
+          "type": "string",
+          "default": "",
+          "label": "Last Name"
+        },
+        {
+          "required": false,
+          "example": "Acme Inc.",
+          "comments": "Provide a string value for the company of the contact",
+          "key": "contactUpdateCompany",
+          "type": "string",
+          "default": "",
+          "label": "Company"
+        },
+        {
+          "required": false,
+          "example": "someone@example.com",
+          "comments": "Provide a string value for the email of the contact",
+          "key": "contactUpdateEmail",
+          "type": "string",
+          "default": "",
+          "label": "Email"
+        },
+        {
+          "required": false,
+          "example": "(877) 929-0687",
+          "comments": "Provide a value for the phone number of the contact",
+          "key": "updatePhone",
+          "type": "string",
+          "default": "",
+          "label": "Phone"
+        },
+        {
+          "required": false,
+          "example": "www.example.com",
+          "comments": "Provide a string value for the website of the contact",
+          "key": "updateWebsite",
+          "type": "string",
+          "default": "",
+          "label": "Website"
+        },
+        {
+          "placeholder": "Values",
+          "required": false,
+          "comments": "The names of the fields and their values to use when creating/updating a record. Hubspot allows you to configure many different properties to your CRM object. You can use this input to specify the key and value of any property that is not already in Prismatic.",
+          "key": "fieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Values"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listCompanies": {
+      "display": {
+        "label": "List Companies",
+        "description": "Retrieve a list of all companies"
+      },
+      "examplePayload": {
+        "data": {
+          "results": [
+            {
+              "id": 12345,
+              "properties": {
+                "createdate": "2021-09-14T@@:36:404Z",
+                "domain": null,
+                "hs_lastmodifieddate": "2021-09-14T@@:36:404Z",
+                "hs_object_id": 12345,
+                "name": "Example Company"
+              },
+              "pipeline": "default",
+              "createdAt": "2021-09-14T@@:36:404Z",
+              "updatedAt": "2021-09-14T@@:36:404Z",
+              "archived": false
+            }
+          ],
+          "paging": {
+            "next": {
+              "after": "123456789",
+              "link": "https://api.hubapi.com/crm/v3/objects/products?limit=1&after=123456789"
+            }
+          }
+        }
+      },
+      "key": "listCompanies",
+      "inputs": [
+        {
+          "example": "phone",
+          "required": false,
+          "comments": "For each item, provide a property you would like to be returned in the response.",
+          "key": "additionalProperties",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Additional Properties To Return"
+        },
+        {
+          "example": "Contacts",
+          "required": false,
+          "comments": "For each item, provide an object type to retrieve the associated Ids for.",
+          "key": "associationsList",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Associations List"
+        },
+        {
+          "required": true,
+          "comments": "Whether to return only results that have been archived.",
+          "key": "archived",
+          "type": "boolean",
+          "default": "false",
+          "label": "Return Archived Results"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": false,
+          "example": "100",
+          "comments": "Provide a number for the maximum amount of items that will be returned by the search.",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Specify the pagination token that's returned by a previous request to retrieve the next page of results",
+          "example": "lslTXFcbLQKkb0vP9Kgh5hy0Y0OnC7Z9ZPHPwPmMnxSk3eiDRMkct7D8E",
+          "key": "after",
+          "type": "string",
+          "default": "",
+          "label": "Start After "
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createCompany": {
+      "display": {
+        "label": "Create Company",
+        "description": "Create a new company"
+      },
+      "key": "createCompany",
+      "inputs": [
+        {
+          "required": true,
+          "example": "Acme Inc.",
+          "comments": "Provide a string value for the name of the company",
+          "key": "companyName",
+          "type": "string",
+          "default": "",
+          "label": "Company Name"
+        },
+        {
+          "required": false,
+          "example": "Software",
+          "comments": "Provide a string value for the industry of the company",
+          "key": "industry",
+          "type": "string",
+          "default": "",
+          "label": "Industry"
+        },
+        {
+          "required": false,
+          "example": "(800) 555-1515",
+          "comments": "Provide a value for the phone number of the company.",
+          "key": "companyPhone",
+          "type": "string",
+          "default": "",
+          "label": "Phone "
+        },
+        {
+          "required": false,
+          "comments": "Provide the description of the object.",
+          "example": "This is an example description.",
+          "key": "description",
+          "type": "string",
+          "default": "",
+          "label": "Description"
+        },
+        {
+          "required": false,
+          "example": "www.example.com",
+          "comments": "Provide a string value for the domain of the company",
+          "key": "domain",
+          "type": "string",
+          "default": "",
+          "label": "Domain"
+        },
+        {
+          "required": false,
+          "example": "Atherton",
+          "comments": "Provide a string value for the city of the company",
+          "key": "city",
+          "type": "string",
+          "default": "",
+          "label": "City"
+        },
+        {
+          "required": false,
+          "example": "California",
+          "comments": "Provide a string value for the state of the company",
+          "key": "state",
+          "type": "string",
+          "default": "",
+          "label": "State"
+        },
+        {
+          "placeholder": "Values",
+          "required": false,
+          "comments": "The names of the fields and their values to use when creating/updating a record. Hubspot allows you to configure many different properties to your CRM object. You can use this input to specify the key and value of any property that is not already in Prismatic.",
+          "key": "fieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Values"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteCompany": {
+      "display": {
+        "label": "Delete Company",
+        "description": "Delete an existing company by Id"
+      },
+      "key": "deleteCompany",
+      "inputs": [
+        {
+          "required": true,
+          "example": "097829",
+          "comments": "Provide a value for the unique identifier of the company.",
+          "key": "companyId",
+          "type": "string",
+          "default": "",
+          "label": "Company Id"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "updateCompany": {
+      "display": {
+        "label": "Update Company",
+        "description": "Update the information and metadata of an existing company"
+      },
+      "key": "updateCompany",
+      "inputs": [
+        {
+          "required": true,
+          "example": "097829",
+          "comments": "Provide a value for the unique identifier of the company.",
+          "key": "companyId",
+          "type": "string",
+          "default": "",
+          "label": "Company Id"
+        },
+        {
+          "required": false,
+          "example": "Acme Inc.",
+          "comments": "Provide a string value for the name of the company",
+          "key": "updateCompanyName",
+          "type": "string",
+          "default": "",
+          "label": "Company Name"
+        },
+        {
+          "required": false,
+          "example": "Software",
+          "comments": "Provide a string value for the industry of the company",
+          "key": "industry",
+          "type": "string",
+          "default": "",
+          "label": "Industry"
+        },
+        {
+          "required": false,
+          "comments": "Provide the description of the object.",
+          "example": "This is an example description.",
+          "key": "description",
+          "type": "string",
+          "default": "",
+          "label": "Description"
+        },
+        {
+          "required": false,
+          "example": "(800) 555-1515",
+          "comments": "Provide a value for the phone number of the company.",
+          "key": "companyPhone",
+          "type": "string",
+          "default": "",
+          "label": "Phone "
+        },
+        {
+          "required": false,
+          "example": "www.example.com",
+          "comments": "Provide a string value for the domain of the company",
+          "key": "updateDomain",
+          "type": "string",
+          "default": "",
+          "label": "Domain"
+        },
+        {
+          "required": false,
+          "example": "Atherton",
+          "comments": "Provide a string value for the city of the company",
+          "key": "city",
+          "type": "string",
+          "default": "",
+          "label": "City"
+        },
+        {
+          "required": false,
+          "example": "California",
+          "comments": "Provide a string value for the state of the company",
+          "key": "state",
+          "type": "string",
+          "default": "",
+          "label": "State"
+        },
+        {
+          "placeholder": "Values",
+          "required": false,
+          "comments": "The names of the fields and their values to use when creating/updating a record. Hubspot allows you to configure many different properties to your CRM object. You can use this input to specify the key and value of any property that is not already in Prismatic.",
+          "key": "fieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Values"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getCompany": {
+      "display": {
+        "label": "Get Company",
+        "description": "Retrieve the information or metadata of a company by Id, domain, or name"
+      },
+      "key": "getCompany",
+      "inputs": [
+        {
+          "required": false,
+          "example": "097829",
+          "comments": "Provide a value for the unique identifier of the company.",
+          "key": "companyId",
+          "type": "string",
+          "default": "",
+          "label": "Company Id"
+        },
+        {
+          "required": false,
+          "example": "Acme Inc.",
+          "comments": "Provide a string value for the name of the company",
+          "key": "companyName",
+          "type": "string",
+          "default": "",
+          "label": "Company Name"
+        },
+        {
+          "required": false,
+          "example": "www.example.com",
+          "comments": "Provide a string value for the domain of the company",
+          "key": "domain",
+          "type": "string",
+          "default": "",
+          "label": "Domain"
+        },
+        {
+          "example": "phone",
+          "required": false,
+          "comments": "For each item, provide a property you would like to be returned in the response.",
+          "key": "additionalProperties",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Additional Properties To Return"
+        },
+        {
+          "example": "Contacts",
+          "required": false,
+          "comments": "For each item, provide an object type to retrieve the associated Ids for.",
+          "key": "associationsList",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Associations List"
+        },
+        {
+          "required": true,
+          "comments": "Whether to return only results that have been archived.",
+          "key": "archived",
+          "type": "boolean",
+          "default": "false",
+          "label": "Return Archived Results"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listLineItems": {
+      "display": {
+        "label": "List Line Items",
+        "description": "Retrieve a list of all line items"
+      },
+      "examplePayload": {
+        "data": {
+          "results": [
+            {
+              "id": 12345,
+              "properties": {
+                "amount": "600.00",
+                "createdate": "2021-09-14T@@:36:404Z",
+                "hs_lastmodifieddate": "2021-09-14T@@:36:404Z",
+                "hs_object_id": 12345,
+                "hs_product_id": 12345,
+                "quantity": null
+              }
+            }
+          ],
+          "paging": {
+            "next": {
+              "after": "123456789",
+              "link": "https://api.hubapi.com/crm/v3/objects/products?limit=1&after=123456789"
+            }
+          }
+        }
+      },
+      "key": "listLineItems",
+      "inputs": [
+        {
+          "example": "phone",
+          "required": false,
+          "comments": "For each item, provide a property you would like to be returned in the response.",
+          "key": "additionalProperties",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Additional Properties To Return"
+        },
+        {
+          "example": "Contacts",
+          "required": false,
+          "comments": "For each item, provide an object type to retrieve the associated Ids for.",
+          "key": "associationsList",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Associations List"
+        },
+        {
+          "required": true,
+          "comments": "Whether to return only results that have been archived.",
+          "key": "archived",
+          "type": "boolean",
+          "default": "false",
+          "label": "Return Archived Results"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": false,
+          "example": "100",
+          "comments": "Provide a number for the maximum amount of items that will be returned by the search.",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Specify the pagination token that's returned by a previous request to retrieve the next page of results",
+          "example": "lslTXFcbLQKkb0vP9Kgh5hy0Y0OnC7Z9ZPHPwPmMnxSk3eiDRMkct7D8E",
+          "key": "after",
+          "type": "string",
+          "default": "",
+          "label": "Start After "
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getLineItem": {
+      "display": {
+        "label": "Get Line Item",
+        "description": "Retrieve the information and metadata of a line item by Id"
+      },
+      "key": "getLineItem",
+      "inputs": [
+        {
+          "required": false,
+          "comments": "Provide the unique identifier of the line item.",
+          "example": "78349093",
+          "key": "lineItemId",
+          "type": "string",
+          "default": "",
+          "label": "Line Item Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the name of the line item.",
+          "example": "My Line Item",
+          "key": "lineItemName",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        },
+        {
+          "example": "phone",
+          "required": false,
+          "comments": "For each item, provide a property you would like to be returned in the response.",
+          "key": "additionalProperties",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Additional Properties To Return"
+        },
+        {
+          "example": "Contacts",
+          "required": false,
+          "comments": "For each item, provide an object type to retrieve the associated Ids for.",
+          "key": "associationsList",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Associations List"
+        },
+        {
+          "required": true,
+          "comments": "Whether to return only results that have been archived.",
+          "key": "archived",
+          "type": "boolean",
+          "default": "false",
+          "label": "Return Archived Results"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createLineItem": {
+      "display": {
+        "label": "Create Line Item",
+        "description": "Create a new line item"
+      },
+      "key": "createLineItem",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide a string value for the name of the line item.",
+          "example": "My Line Item",
+          "key": "lineItemName",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        },
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of the product.",
+          "example": "804874",
+          "key": "productId",
+          "type": "string",
+          "default": "",
+          "label": "Product Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide the billing frequency of the product. Specify the integer of months in between a P and M in the following format: P{integer}M",
+          "example": "P12M",
+          "key": "recurringBillingPeriod",
+          "type": "string",
+          "default": "",
+          "label": "Recurring Billing Frequency"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the quantity of product in the line item.",
+          "model": [
+            {
+              "label": "Monthly",
+              "value": "monthly"
+            },
+            {
+              "label": "Quarterly",
+              "value": "quarterly"
+            },
+            {
+              "label": "Semi-Annually",
+              "value": "per_six_months"
+            },
+            {
+              "label": "Annually",
+              "value": "annually"
+            },
+            {
+              "label": "Every Two Years",
+              "value": "per_two_years"
+            },
+            {
+              "label": "Every Three years",
+              "value": "per_three_years"
+            }
+          ],
+          "key": "recurringBillingFrequency",
+          "type": "string",
+          "default": "",
+          "label": "Recurring Billing Monthly Rate"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the quantity of product in the line item.",
+          "example": "80",
+          "key": "quantity",
+          "type": "string",
+          "default": "",
+          "label": "Quantity"
+        },
+        {
+          "required": true,
+          "comments": "Provide the price of the product.",
+          "example": "80400",
+          "key": "price",
+          "type": "string",
+          "default": "",
+          "label": "Price"
+        },
+        {
+          "placeholder": "Values",
+          "required": false,
+          "comments": "The names of the fields and their values to use when creating/updating a record. Hubspot allows you to configure many different properties to your CRM object. You can use this input to specify the key and value of any property that is not already in Prismatic.",
+          "key": "fieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Values"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteLineItem": {
+      "display": {
+        "label": "Delete Line Item",
+        "description": "Delete an existing line item by Id"
+      },
+      "key": "deleteLineItem",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of the line item.",
+          "example": "78349093",
+          "key": "lineItemId",
+          "type": "string",
+          "default": "",
+          "label": "Line Item Id"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "updateLineItem": {
+      "display": {
+        "label": "Update Line Item",
+        "description": "Update an the information and metadata of an existing line item"
+      },
+      "key": "updateLineItem",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "Provide the unique identifier of the line item.",
+          "example": "78349093",
+          "key": "lineItemId",
+          "type": "string",
+          "default": "",
+          "label": "Line Item Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the name of the line item.",
+          "example": "My line Item",
+          "key": "updateLineItemName",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        },
+        {
+          "required": false,
+          "comments": "Provide the unique identifier of the product.",
+          "example": "804874",
+          "key": "updateProductId",
+          "type": "string",
+          "default": "",
+          "label": "Product Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide the billing frequency of the product. Specify the integer of months in between a P and M in the following format: P{integer}M",
+          "example": "P12M",
+          "key": "recurringBillingPeriod",
+          "type": "string",
+          "default": "",
+          "label": "Recurring Billing Frequency"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the quantity of product in the line item.",
+          "model": [
+            {
+              "label": "Monthly",
+              "value": "monthly"
+            },
+            {
+              "label": "Quarterly",
+              "value": "quarterly"
+            },
+            {
+              "label": "Semi-Annually",
+              "value": "per_six_months"
+            },
+            {
+              "label": "Annually",
+              "value": "annually"
+            },
+            {
+              "label": "Every Two Years",
+              "value": "per_two_years"
+            },
+            {
+              "label": "Every Three years",
+              "value": "per_three_years"
+            }
+          ],
+          "key": "recurringBillingFrequency",
+          "type": "string",
+          "default": "",
+          "label": "Recurring Billing Monthly Rate"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string value for the quantity of product in the line item.",
+          "example": "80",
+          "key": "quantity",
+          "type": "string",
+          "default": "",
+          "label": "Quantity"
+        },
+        {
+          "required": false,
+          "comments": "Provide the price of the product.",
+          "example": "80400",
+          "key": "updatePrice",
+          "type": "string",
+          "default": "",
+          "label": "Price"
+        },
+        {
+          "placeholder": "Values",
+          "required": false,
+          "comments": "The names of the fields and their values to use when creating/updating a record. Hubspot allows you to configure many different properties to your CRM object. You can use this input to specify the key and value of any property that is not already in Prismatic.",
+          "key": "fieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Values"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listAssociationTypes": {
+      "display": {
+        "label": "List Association Types",
+        "description": "Retrieve a list of all association types available between two objects"
+      },
+      "key": "listAssociationTypes",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The type of the \"from\" object. Choose from \"Contacts\", \"Companies\", \"Deals\", \"Tickets\", \"Calls\", \"Quotes\", \"Line_items\", \"Meetings\", \"Products\", \"Feedback_submissions\", or a custom object you have defined.",
+          "example": "contact",
+          "key": "fromObjectType",
+          "type": "string",
+          "default": "",
+          "label": "From Object Type"
+        },
+        {
+          "required": true,
+          "comments": "The type of the \"to\" object. Choose from \"Contacts\", \"Companies\", \"Deals\", \"Tickets\", \"Calls\", \"Quotes\", \"Line_items\", \"Meetings\", \"Products\", \"Feedback_submissions\", or a custom object you have defined.",
+          "example": "deal",
+          "key": "toObjectType",
+          "type": "string",
+          "default": "",
+          "label": "To Object Type"
+        },
+        {
+          "required": false,
+          "example": "100",
+          "comments": "Provide a number for the maximum amount of items that will be returned by the search.",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Specify the pagination token that's returned by a previous request to retrieve the next page of results",
+          "example": "lslTXFcbLQKkb0vP9Kgh5hy0Y0OnC7Z9ZPHPwPmMnxSk3eiDRMkct7D8E",
+          "key": "after",
+          "type": "string",
+          "default": "",
+          "label": "Start After "
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createAssociations": {
+      "display": {
+        "label": "Create Association",
+        "description": "Create an association between the objects identified in the step"
+      },
+      "key": "createAssociations",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The type of the \"from\" object. Choose from \"Contacts\", \"Companies\", \"Deals\", \"Tickets\", \"Calls\", \"Quotes\", \"Line_items\", \"Meetings\", \"Products\", \"Feedback_submissions\", or a custom object you have defined.",
+          "example": "contact",
+          "key": "fromObjectType",
+          "type": "string",
+          "default": "",
+          "label": "From Object Type"
+        },
+        {
+          "required": true,
+          "comments": "The type of the \"to\" object. Choose from \"Contacts\", \"Companies\", \"Deals\", \"Tickets\", \"Calls\", \"Quotes\", \"Line_items\", \"Meetings\", \"Products\", \"Feedback_submissions\", or a custom object you have defined.",
+          "example": "deal",
+          "key": "toObjectType",
+          "type": "string",
+          "default": "",
+          "label": "To Object Type"
+        },
+        {
+          "required": true,
+          "comments": "Provide a value for the unique identifier of the first object",
+          "example": "890435",
+          "key": "fromId",
+          "type": "string",
+          "default": "",
+          "label": "From Id"
+        },
+        {
+          "required": true,
+          "comments": "Provide a value for the unique identifier of the second object",
+          "example": "890435",
+          "key": "toId",
+          "type": "string",
+          "default": "",
+          "label": "To Id"
+        },
+        {
+          "required": true,
+          "comments": "Provide a value for the type of association to perform. You can get the set of available values for this input by making a step using the \"List Association Types\"",
+          "example": "890435",
+          "key": "associateType",
+          "type": "string",
+          "default": "",
+          "label": "Type Of Association"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "ArchiveAssociations": {
+      "display": {
+        "label": "Archive Association",
+        "description": "Remove the associations between two provided objects"
+      },
+      "key": "ArchiveAssociations",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The type of the \"from\" object. Choose from \"Contacts\", \"Companies\", \"Deals\", \"Tickets\", \"Calls\", \"Quotes\", \"Line_items\", \"Meetings\", \"Products\", \"Feedback_submissions\", or a custom object you have defined.",
+          "example": "contact",
+          "key": "fromObjectType",
+          "type": "string",
+          "default": "",
+          "label": "From Object Type"
+        },
+        {
+          "required": true,
+          "comments": "The type of the \"to\" object. Choose from \"Contacts\", \"Companies\", \"Deals\", \"Tickets\", \"Calls\", \"Quotes\", \"Line_items\", \"Meetings\", \"Products\", \"Feedback_submissions\", or a custom object you have defined.",
+          "example": "deal",
+          "key": "toObjectType",
+          "type": "string",
+          "default": "",
+          "label": "To Object Type"
+        },
+        {
+          "required": true,
+          "comments": "Provide a value for the unique identifier of the first object",
+          "example": "890435",
+          "key": "fromId",
+          "type": "string",
+          "default": "",
+          "label": "From Id"
+        },
+        {
+          "required": true,
+          "comments": "Provide a value for the unique identifier of the second object",
+          "example": "890435",
+          "key": "toId",
+          "type": "string",
+          "default": "",
+          "label": "To Id"
+        },
+        {
+          "required": true,
+          "comments": "Provide a value for the type of association to perform. You can get the set of available values for this input by making a step using the \"List Association Types\"",
+          "example": "890435",
+          "key": "associateType",
+          "type": "string",
+          "default": "",
+          "label": "Type Of Association"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "readAssociations": {
+      "display": {
+        "label": "Read Association",
+        "description": "Get the Ids of the objects associated with those specified in the step"
+      },
+      "key": "readAssociations",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The type of the \"from\" object. Choose from \"Contacts\", \"Companies\", \"Deals\", \"Tickets\", \"Calls\", \"Quotes\", \"Line_items\", \"Meetings\", \"Products\", \"Feedback_submissions\", or a custom object you have defined.",
+          "example": "contact",
+          "key": "fromObjectType",
+          "type": "string",
+          "default": "",
+          "label": "From Object Type"
+        },
+        {
+          "required": true,
+          "comments": "The type of the \"to\" object. Choose from \"Contacts\", \"Companies\", \"Deals\", \"Tickets\", \"Calls\", \"Quotes\", \"Line_items\", \"Meetings\", \"Products\", \"Feedback_submissions\", or a custom object you have defined.",
+          "example": "deal",
+          "key": "toObjectType",
+          "type": "string",
+          "default": "",
+          "label": "To Object Type"
+        },
+        {
+          "required": true,
+          "comments": "Provide a value for the unique identifier of the second object",
+          "example": "890435",
+          "key": "toId",
+          "type": "string",
+          "default": "",
+          "label": "To Id"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listWebhooks": {
+      "display": {
+        "label": "List Webhooks",
+        "description": "List all webhooks for a server"
+      },
+      "key": "listWebhooks",
+      "inputs": [
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createWebhook": {
+      "display": {
+        "label": "Create Webhook",
+        "description": "Create a webhook in HubSpot"
+      },
+      "key": "createWebhook",
+      "inputs": [
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "contact.propertyChange",
+          "comments": "Type of event to listen for. Can be one of create, delete, deletedForPrivacy, or propertyChange.",
+          "required": true,
+          "key": "eventType",
+          "type": "string",
+          "default": "",
+          "label": "Event Type"
+        },
+        {
+          "placeholder": "email",
+          "comments": "The internal name of the property to monitor for changes. Only applies when eventType is propertyChange.",
+          "required": false,
+          "key": "propertyWebhookName",
+          "type": "string",
+          "default": "",
+          "label": "Property Name"
+        },
+        {
+          "comments": "This indicates whether or not the subscription is turned on and actively triggering notifications.",
+          "required": true,
+          "key": "active",
+          "type": "boolean",
+          "default": "false",
+          "label": "Active"
+        }
+      ]
+    },
+    "deleteWebhook": {
+      "display": {
+        "label": "Delete Webhook",
+        "description": "Delete a webhook by ID in HubSpot"
+      },
+      "key": "deleteWebhook",
+      "inputs": [
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "123456789",
+          "comments": "The ID of the subscription to delete",
+          "required": true,
+          "key": "subscriptionId",
+          "type": "string",
+          "default": "",
+          "label": "Subscription ID"
+        }
+      ]
+    },
+    "deleteAllWebhooks": {
+      "display": {
+        "label": "Delete all Instanced Webhooks",
+        "description": "Delete all webhooks created by this instance in HubSpot"
+      },
+      "key": "deleteAllWebhooks",
+      "inputs": [
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listProperties": {
+      "display": {
+        "label": "List Properties",
+        "description": "Retrieve a list of all configured object properties."
+      },
+      "key": "listProperties",
+      "inputs": [
+        {
+          "required": true,
+          "example": "deal",
+          "comments": "Provide a string value for the type of object",
+          "key": "objectType",
+          "type": "string",
+          "default": "",
+          "label": "Object Type"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "rawRequest": {
+      "display": {
+        "label": "Raw Request",
+        "description": "Send a raw HTTP request to Hubspot API"
+      },
+      "key": "rawRequest",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "Input the path only (/crm/v3/objects/deals), The base URL is already included (https://api.hubapi.com). For example, to connect to https://api.hubapi.com/crm/v3/objects/deals, only /crm/v3/objects/deals is entered in this field.",
+          "example": "/crm/v3/objects/deals",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "The file name to apply to a file",
+          "required": false,
+          "comments": "File names to apply to the file data inputs. Keys must match the file data keys above.",
+          "key": "fileDataFileNames",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data File Names"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        }
+      ],
+      "documentation": {
+        "description": "This action allows you to make requests to any Hubspot API endpoint.\nThis is especially helpful for [search](https://developers.hubspot.com/docs/api/crm/search) endpoints, where objects may have custom properties that are unique to your customers.\n\nThe data that you send to Hubspot can be dynamically generated in a [code](components/code.mdx) step.\nThen, you can pass the code step's results as an input reference to the `Data` input.\nFor example, if you are using Hubspot's search API to search for Hubspot \"deals\" that have the name \"Sample Deal\" and are valued less than 100 dollars, you can create a code step that reads like this:\n\n```js\nmodule.exports = async ({ logger, configVars }, stepResults) => {\n    const data = {\n        filterGroups: [\n            {\n                filters: [\n                    {\n                        propertyName: \"dealname\",\n                        operator: \"EQ\",\n                        value: \"Sample Deal\",\n                    },\n                    {\n                        propertyName: \"amount\",\n                        operator: \"LT\",\n                        value: \"100\",\n                    },\n                ],\n            },\n        ],\n        properties: [\n            \"hs_object_id\",\n            \"createdate\",\n            \"hubspot_owner_id\",\n            \"dealstage\",\n            \"amount\",\n            \"dealname\",\n            \"closedate\",\n            \"days_to_close\",\n            \"hs_analytics_source\",\n            \"hs_analytics_source_data_1\",\n            \"hs_analytics_source_data_2\",\n            \"hs_campaign\",\n            \"hs_closed_amount\",\n            \"hs_lastmodifieddate\",\n            \"dealtype\",\n            \"description\",\n        ],\n    };\n\n    return { data };\n};\n```\n\nOn the raw request step, enter `/crm/v3/objects/deals/search` as the `URL` input, `POST` as the `Method`, and reference the code step's `results` as the `Data` input.\n"
+      }
+    },
+    "getCurrentUser": {
+      "display": {
+        "label": "Get Current User",
+        "description": "Return information about the current session's user."
+      },
+      "key": "getCurrentUser",
+      "inputs": [
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "validateConnection": {
+      "display": {
+        "label": "Validate Connection",
+        "description": "Returns a boolean value that specifies whether the provided Connection is valid"
+      },
+      "key": "validateConnection",
+      "inputs": [
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getCustomObject": {
+      "display": {
+        "label": "Get Custom Object",
+        "description": "Retrieves a specific custom object"
+      },
+      "examplePayload": {
+        "data": {
+          "id": "123456",
+          "createdAt": "2020-02-20T18:07:11.390Z",
+          "updatedAt": "2020-02-20T18:09:07.555Z",
+          "properties": [
+            {
+              "updatedAt": "2020-02-20T18:07:11.802Z",
+              "createdAt": "2020-02-20T18:07:11.802Z",
+              "name": "my_object_property",
+              "label": "My object property",
+              "type": "string",
+              "fieldType": "text",
+              "groupName": "my_object_information",
+              "displayOrder": -1,
+              "calculated": false,
+              "externalOptions": false,
+              "archived": false,
+              "hasUniqueValue": false
+            }
+          ],
+          "associations": [
+            {
+              "id": "123",
+              "fromObjectTypeId": "2-123456",
+              "toObjectTypeId": "0-1",
+              "name": "my_object_to_contact"
+            }
+          ],
+          "labels": {
+            "singular": "My object",
+            "plural": "My objects"
+          },
+          "requiredProperties": [
+            "my_object_property"
+          ],
+          "searchableProperties": [
+            "my_object_property"
+          ],
+          "primaryDisplayProperty": "my_object_property",
+          "metaType": "PORTAL_SPECIFIC",
+          "fullyQualifiedName": "p7878787_my_object\"",
+          "name": "my_object"
+        }
+      },
+      "key": "getCustomObject",
+      "inputs": [
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "example": "deal",
+          "comments": "Provide a string value for the type of object",
+          "key": "objectType",
+          "type": "string",
+          "default": "",
+          "label": "Object Type"
+        }
+      ]
+    },
+    "createCustomObject": {
+      "display": {
+        "label": "Create Custom Object",
+        "description": "Creates new custom object schema"
+      },
+      "examplePayload": {
+        "data": {
+          "id": "123456",
+          "createdAt": "2020-02-20T18:07:11.390Z",
+          "updatedAt": "2020-02-20T18:09:07.555Z",
+          "properties": [
+            {
+              "updatedAt": "2020-02-20T18:07:11.802Z",
+              "createdAt": "2020-02-20T18:07:11.802Z",
+              "name": "my_object_property",
+              "label": "My object property",
+              "type": "string",
+              "fieldType": "text",
+              "groupName": "my_object_information",
+              "displayOrder": -1,
+              "calculated": false,
+              "externalOptions": false,
+              "archived": false,
+              "hasUniqueValue": false
+            }
+          ],
+          "associations": [
+            {
+              "id": "123",
+              "fromObjectTypeId": "2-123456",
+              "toObjectTypeId": "0-1",
+              "name": "my_object_to_contact"
+            }
+          ],
+          "labels": {
+            "singular": "My object",
+            "plural": "My objects"
+          },
+          "requiredProperties": [
+            "my_object_property"
+          ],
+          "searchableProperties": [
+            "my_object_property"
+          ],
+          "primaryDisplayProperty": "my_object_property",
+          "metaType": "PORTAL_SPECIFIC",
+          "fullyQualifiedName": "p7878787_my_object\"",
+          "name": "my_object"
+        }
+      },
+      "key": "createCustomObject",
+      "inputs": [
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "example": "My object",
+          "comments": "The word for one object. (There's no way to change this later.)",
+          "required": true,
+          "key": "singularLabel",
+          "type": "string",
+          "default": "",
+          "label": "Singular Label"
+        },
+        {
+          "example": "My object",
+          "comments": "The word for multiple objects. (There's no way to change this later.)",
+          "required": true,
+          "key": "pluralLabel",
+          "type": "string",
+          "default": "",
+          "label": "Plural Label"
+        },
+        {
+          "required": false,
+          "comments": "The names of properties that should be required when creating an object of this type.",
+          "example": "my_object_property",
+          "key": "requiredProperties",
+          "type": "string",
+          "default": [
+            "000xxx"
+          ],
+          "collection": "valuelist",
+          "label": "Required Properties"
+        },
+        {
+          "required": false,
+          "comments": "Names of properties that will be indexed for this object type in by HubSpot's product search.",
+          "example": "my_object_property",
+          "key": "searchableProperties",
+          "type": "string",
+          "default": [
+            "000xxx"
+          ],
+          "collection": "valuelist",
+          "label": "Searchable Properties"
+        },
+        {
+          "required": false,
+          "comments": "The names of secondary properties for this object. These will be displayed as secondary on the HubSpot record page for this object type.",
+          "example": "my_object_property",
+          "key": "secondaryDisplayProperties",
+          "type": "string",
+          "default": [
+            "000xxx"
+          ],
+          "collection": "valuelist",
+          "label": "Secondary Display Properties"
+        },
+        {
+          "language": "json",
+          "comments": "Properties defined for this object type.",
+          "example": "[{\"name\":\"my_object_property\",\"label\":\"My object property\",\"type\":\"string\",\"fieldType\":\"text\",\"groupName\":\"my_object_information\",\"displayOrder\":-1,\"calculated\":false,\"externalOptions\":false,\"archived\":false,\"hasUniqueValue\":false}]",
+          "required": true,
+          "key": "properties",
+          "type": "code",
+          "default": "",
+          "label": "Properties"
+        },
+        {
+          "required": false,
+          "comments": "Associations defined for this object type.",
+          "example": "my_object_property",
+          "key": "associatedObjects",
+          "type": "string",
+          "default": [
+            "000xxx"
+          ],
+          "collection": "valuelist",
+          "label": "Associated Objects"
+        },
+        {
+          "example": "my_object",
+          "comments": "A unique name for this object. For internal use only.",
+          "required": true,
+          "key": "name",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        }
+      ]
+    },
+    "updateCustomObject": {
+      "display": {
+        "label": "Update Custom Object",
+        "description": "Updates an object's schema"
+      },
+      "examplePayload": {
+        "data": {
+          "id": "123456",
+          "createdAt": "2020-02-20T18:07:11.390Z",
+          "updatedAt": "2020-02-20T18:09:07.555Z",
+          "properties": [
+            {
+              "updatedAt": "2020-02-20T18:07:11.802Z",
+              "createdAt": "2020-02-20T18:07:11.802Z",
+              "name": "my_object_property",
+              "label": "My object property",
+              "type": "string",
+              "fieldType": "text",
+              "groupName": "my_object_information",
+              "displayOrder": -1,
+              "calculated": false,
+              "externalOptions": false,
+              "archived": false,
+              "hasUniqueValue": false
+            }
+          ],
+          "associations": [
+            {
+              "id": "123",
+              "fromObjectTypeId": "2-123456",
+              "toObjectTypeId": "0-1",
+              "name": "my_object_to_contact"
+            }
+          ],
+          "labels": {
+            "singular": "My object",
+            "plural": "My objects"
+          },
+          "requiredProperties": [
+            "my_object_property"
+          ],
+          "searchableProperties": [
+            "my_object_property"
+          ],
+          "primaryDisplayProperty": "my_object_property",
+          "metaType": "PORTAL_SPECIFIC",
+          "fullyQualifiedName": "p7878787_my_object\"",
+          "name": "my_object"
+        }
+      },
+      "key": "updateCustomObject",
+      "inputs": [
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "deal",
+          "comments": "Provide a string value for the type of object",
+          "key": "objectType",
+          "type": "string",
+          "default": "",
+          "label": "Fully qualified name or object type ID of your schema."
+        },
+        {
+          "example": "My object",
+          "comments": "The word for one object. (There's no way to change this later.)",
+          "required": false,
+          "key": "singularLabel",
+          "type": "string",
+          "default": "",
+          "label": "Singular Label"
+        },
+        {
+          "example": "My object",
+          "comments": "The word for multiple objects. (There's no way to change this later.)",
+          "required": false,
+          "key": "pluralLabel",
+          "type": "string",
+          "default": "",
+          "label": "Plural Label"
+        },
+        {
+          "required": false,
+          "comments": "The names of properties that should be required when creating an object of this type.",
+          "example": "my_object_property",
+          "key": "requiredProperties",
+          "type": "string",
+          "default": [
+            "000xxx"
+          ],
+          "collection": "valuelist",
+          "label": "Required Properties"
+        },
+        {
+          "required": false,
+          "comments": "Names of properties that will be indexed for this object type in by HubSpot's product search.",
+          "example": "my_object_property",
+          "key": "searchableProperties",
+          "type": "string",
+          "default": [
+            "000xxx"
+          ],
+          "collection": "valuelist",
+          "label": "Searchable Properties"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        }
+      ]
+    },
+    "deleteCustomObject": {
+      "display": {
+        "label": "Delete Custom Object",
+        "description": "Removes custom object schema"
+      },
+      "examplePayload": {
+        "data": {
+          "id": "123456",
+          "createdAt": "2020-02-20T18:07:11.390Z",
+          "updatedAt": "2020-02-20T18:09:07.555Z",
+          "properties": [
+            {
+              "updatedAt": "2020-02-20T18:07:11.802Z",
+              "createdAt": "2020-02-20T18:07:11.802Z",
+              "name": "my_object_property",
+              "label": "My object property",
+              "type": "string",
+              "fieldType": "text",
+              "groupName": "my_object_information",
+              "displayOrder": -1,
+              "calculated": false,
+              "externalOptions": false,
+              "archived": false,
+              "hasUniqueValue": false
+            }
+          ],
+          "associations": [
+            {
+              "id": "123",
+              "fromObjectTypeId": "2-123456",
+              "toObjectTypeId": "0-1",
+              "name": "my_object_to_contact"
+            }
+          ],
+          "labels": {
+            "singular": "My object",
+            "plural": "My objects"
+          },
+          "requiredProperties": [
+            "my_object_property"
+          ],
+          "searchableProperties": [
+            "my_object_property"
+          ],
+          "primaryDisplayProperty": "my_object_property",
+          "metaType": "PORTAL_SPECIFIC",
+          "fullyQualifiedName": "p7878787_my_object\"",
+          "name": "my_object"
+        }
+      },
+      "key": "deleteCustomObject",
+      "inputs": [
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "deal",
+          "comments": "Provide a string value for the type of object",
+          "key": "objectType",
+          "type": "string",
+          "default": "",
+          "label": "Object Type"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": true,
+          "comments": "Whether to return only results that have been archived.",
+          "key": "archived",
+          "type": "boolean",
+          "default": false,
+          "label": "Return Archived Results"
+        }
+      ]
+    },
+    "listCustomObjects": {
+      "display": {
+        "label": "List Custom Objects",
+        "description": "Retrieve all custom objects"
+      },
+      "examplePayload": {
+        "data": {
+          "results": [
+            {
+              "id": "123456",
+              "createdAt": "2020-02-20T18:07:11.390Z",
+              "updatedAt": "2020-02-20T18:09:07.555Z",
+              "properties": [
+                {
+                  "updatedAt": "2020-02-20T18:07:11.802Z",
+                  "createdAt": "2020-02-20T18:07:11.802Z",
+                  "name": "my_object_property",
+                  "label": "My object property",
+                  "type": "string",
+                  "fieldType": "text",
+                  "groupName": "my_object_information",
+                  "displayOrder": -1,
+                  "calculated": false,
+                  "externalOptions": false,
+                  "archived": false,
+                  "hasUniqueValue": false
+                }
+              ],
+              "associations": [
+                {
+                  "id": "123",
+                  "fromObjectTypeId": "2-123456",
+                  "toObjectTypeId": "0-1",
+                  "name": "my_object_to_contact"
+                }
+              ],
+              "labels": {
+                "singular": "My object",
+                "plural": "My objects"
+              },
+              "requiredProperties": [
+                "my_object_property"
+              ],
+              "searchableProperties": [
+                "my_object_property"
+              ],
+              "primaryDisplayProperty": "my_object_property",
+              "metaType": "PORTAL_SPECIFIC",
+              "fullyQualifiedName": "p7878787_my_object\"",
+              "name": "my_object"
+            }
+          ]
+        }
+      },
+      "key": "listCustomObjects",
+      "inputs": [
+        {
+          "required": true,
+          "key": "hubspotConnection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "example": "20000",
+          "comments": "The maximum time a client will await a request",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Flipping this flag will enable the logging of the entire request, before it is sent to the Hubspot API.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "required": false,
+          "comments": "Whether to return only results that have been archived.",
+          "key": "archived",
+          "type": "boolean",
+          "default": "false",
+          "label": "Return Archived Results"
+        },
+        {
+          "example": "phone",
+          "required": false,
+          "comments": "For each item, provide a property you would like to be returned in the response.",
+          "key": "additionalProperties",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Additional Properties To Return"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "webhook": {
+      "display": {
+        "label": "HubSpot Webhook",
+        "description": "Trigger for handling webhooks from HubSpot"
+      },
+      "synchronousResponseSupport": "invalid",
+      "scheduleSupport": "invalid",
+      "examplePayload": {
+        "payload": {
+          "headers": {
+            "Accept": "*/*",
+            "Content-Type": "application/json",
+            "Host": "hooks.prismatic.io",
+            "User-Agent": "HubSpot Connect 2.0 (http://dev.hubspot.com/) (namespace: webhooks-nio-http-client) - WebhooksExecutorDaemon-executor",
+            "X-Amz-Cf-Id": "szJqgg_sc_8OJond4p35bY5yRruCefV1LemK3SBeBqgqA2779Bf0Eg==",
+            "X-Amzn-Trace-Id": "Root=1-648a56ba-5143e5ce5c2bf3c1307a842e",
+            "X-HubSpot-Request-Timestamp": "1686787770380",
+            "X-HubSpot-Signature": "43bb817ae58839a72680655fc39e23a901be4cadb95f3d0c55818476ac227efc",
+            "X-HubSpot-Signature-v3": "AwM+3h1whh6JQ1O1oUoY/AENKbO3klURU+R7mX3WGKs=",
+            "X-HubSpot-Signature-Version": "v1",
+            "X-HubSpot-Timeout-Millis": "10000",
+            "X-Trace": ""
+          },
+          "queryParameters": null,
+          "rawBody": {
+            "data": "<data (547 bytes)>"
+          },
+          "body": {
+            "data": [
+              {
+                "eventId": 3895062059,
+                "subscriptionId": 2139616,
+                "portalId": 39830612,
+                "appId": 1793923,
+                "occurredAt": 1686787769982,
+                "subscriptionType": "contact.propertyChange",
+                "attemptNumber": 0,
+                "objectId": 1301,
+                "propertyName": "firstname",
+                "propertyValue": "John1",
+                "changeSource": "INTEGRATION",
+                "sourceId": "1793923"
+              },
+              {
+                "eventId": 1020354057,
+                "subscriptionId": 2139618,
+                "portalId": 39830612,
+                "appId": 1793923,
+                "occurredAt": 1686787769982,
+                "subscriptionType": "contact.creation",
+                "attemptNumber": 0,
+                "objectId": 1301,
+                "changeFlag": "CREATED",
+                "changeSource": "INTEGRATION",
+                "sourceId": "1793923"
+              }
+            ],
+            "contentType": "application/json"
+          },
+          "pathFragment": "",
+          "webhookUrls": {
+            "Flow 1": "https://hooks.example.prismatic.io/trigger/EXAMPLESW5zdGFuY2VGbG93Q29uZmlnOjJjNjkwY2VjLWMwODctNDMxZC05MjVjLTEzODQ2OTkzNzAyMw=="
+          },
+          "webhookApiKeys": {
+            "Flow 1": [
+              "sample-api-key"
+            ],
+            "create contact": [
+              "sample-api-key"
+            ],
+            "HubSpot trigger": [
+              "sample-api-key"
+            ]
+          },
+          "invokeUrl": "https://hooks.example.prismatic.io/trigger/EXAMPLESW5zdGFuY2VGbG93Q29uZmlnOjJjNjkwY2VjLWMwODctNDMxZC05MjVjLTEzODQ2OTkzNzAyMw==",
+          "executionId": "SW5zdGFuY2VFeGVjdXRpb25SZXN1bHQ6NTgwMzdhOTAtMWZkZi00NjFiLTgwOTUtNWY4Njg1YzUxMzY3",
+          "customer": {
+            "id": "testCustomerId",
+            "name": "Test Customer",
+            "externalId": "testCustomerExternalId"
+          },
+          "instance": {
+            "id": "testInstanceId",
+            "name": "Test Instance"
+          },
+          "user": {
+            "id": "testUserId",
+            "email": "testUserEmail@example.com",
+            "name": "Test User",
+            "externalId": "testUserExternalId"
+          }
+        }
+      },
+      "key": "webhook",
+      "inputs": []
+    }
+  },
+  "dataSources": {
+    "getObjectSelection": {
+      "display": {
+        "label": "Object Selection",
+        "description": "A list of Hubspot objects"
+      },
+      "dataSourceType": "objectSelection",
+      "key": "getObjectSelection",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Hubspot Connection"
+        },
+        {
+          "model": [
+            {
+              "label": "Contacts",
+              "value": "Contacts"
+            },
+            {
+              "label": "Companies",
+              "value": "Companies"
+            },
+            {
+              "label": "Deals",
+              "value": "Deals"
+            },
+            {
+              "label": "Tickets",
+              "value": "Tickets"
+            },
+            {
+              "label": "Calls",
+              "value": "Calls"
+            },
+            {
+              "label": "Line Items",
+              "value": "Line Items"
+            }
+          ],
+          "required": false,
+          "comments": "The objects to include in the selection list.",
+          "key": "objectsToSelect",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Objects to Select"
+        },
+        {
+          "key": "includeCustomObjects",
+          "type": "boolean",
+          "default": false,
+          "label": "Include Custom Objects"
+        }
+      ]
+    }
+  },
+  "documentation": {
+    "description": "[Hubspot](https://www.hubspot.com/) is a Customer Relationship Management software for inbound marketing, sales, and customer service.\nThis component allows you to interact with the Hubspot REST API.\n",
+    "dev": "Documentation for Hubspot's REST API used in this component can be found at https://developers.hubspot.com/docs/api/overview.\n\n:::tip\nIf a Hubspot API endpoint doesn't have a corresponding action within this component, you can leverage the [Raw Request](#raw-request) action to make a request to any Hubspot API endpoint.\n:::\n"
+  },
+  "$version": 1
+}

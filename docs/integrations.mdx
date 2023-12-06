@@ -1,0 +1,497 @@
+---
+id: integrations
+title: An Overview of Using Integrations
+description: An integration is a series of steps (actions) that execute one after another in series. Use Prismatic to create, version, publish, and support integrations.
+---
+
+import ExampleTabs from "@site/src/components/example-tabs";
+import TabItem from "@theme/TabItem";
+import Screenshot from "@site/src/components/screenshot";
+import Icon from "@mui/material/Icon";
+import Vimeo from "@site/src/components/vimeo";
+
+An **integration** is a series of **steps** that execute one after another in series.
+Each step runs an [action](components.mdx#component-actions) - a small bit of code designed to perform a specific task.
+Actions can be things like "HTTP - GET" to fetch the contents of a webpage from the internet, or "Amazon S3 - Put Object" to save a file to Amazon S3.
+You can use a combination of actions from common [built-in components](components/component-catalog.mdx) and your own [custom components](custom-components/writing-custom-components.mdx) to build an integration.
+
+An integration is started when its **trigger** fires.
+Triggers can either follow a [schedule](integration-triggers.mdx#scheduled-triggers), or can be invoked via a [webhook URL](integration-triggers.mdx#webhook-triggers).
+
+Integrations should be developed to be **configuration-driven**, so they can be deployed to multiple customers with potentially different configurations.
+That is accomplished by leveraging [config variables](building-integrations.mdx#config-variables-in-integrations), and have configuring steps to reference those variables.
+
+Many integrations have a single **flow**.
+That is, they have a single trigger that fires, and a single set of steps that are executed one after another.
+ also supports grouping multiple related flows together into a single deployable integration.
+For example, if you have a third-party service (Acme ERP) that sends data via a variety of webhooks to your integrations, it probably makes sense to have a single Acme Corp integration that you or your customers deploy that is made up of several logical flows.
+Each flow has its own trigger, though they all share config variables.
+
+When an integration is completed, it can be [published](#publishing-an-integration).
+[Customers](customers.mdx) can then enable the integration for themselves through the [integration marketplace](integration-marketplace.mdx), or your team members can deploy an [instance](instances.mdx) of the integration on the customer's behalf.
+Regardless of who enables an instance of the integration - your team member or your customer - the person deploying the instance configures the instance with customer-specific config variables.
+
+We recommend that you follow our [Getting Started](getting-started/docs-overview.mdx) tutorials to first acquaint yourself with integration development and deployment.
+
+<!-- <Vimeo title="How to Create Your First Integration" video="533250150" /> -->
+
+## Creating a new integration
+
+<ExampleTabs>
+<TabItem value='webapp'>
+
+To create a new integration in the web app, click **Integrations** from the left-side menu, and then click the **+ Add Integration** button in the upper-right.
+
+When you create a new integration you have a few options:
+
+- You can create a **blank** integration from scratch.
+- You can start from an existing [template](#integration-templates) that you or someone else created.
+- Behind the scenes, integrations are saved as [YAML definitions](#yaml-definition).
+  You can load a YAML file from your clipboard or from a file.
+
+<Screenshot
+  filename="integrations/configure-new-integration.png"
+  alt="Configure a new integration"
+  maxWidth="600px"
+/>
+
+You will be prompted to give your integration a **name** and **description**, and can optionally [categorize](#categorizing-integrations) your integration and assign it [labels](#integration-labels).
+
+<Screenshot
+  filename="integrations/new-integration-name.png"
+  alt="Add integration in  app"
+  maxWidth="620px"
+/>
+
+Next, you'll be asked to select a [trigger](integration-triggers.mdx) for your integration.
+This is what will cause your integration to run, and you can change your trigger at any time.
+
+<Screenshot
+  filename="integrations/new-integration-trigger.png"
+  alt="Select integration trigger in  app"
+  maxWidth="600px"
+/>
+
+</TabItem>
+<TabItem value='cli'>
+
+To create a new integration from the command line, use the `integrations:create` subcommand.
+
+```bash
+prism integrations:create \
+    --name 'Send a .rocket render to the 3D printer' \
+    --description 'Fetch a .rocket file, convert it to AutoCAD, and queue the print job'
+```
+
+</TabItem>
+<TabItem value='api'>
+
+Use the [createIntegration](api/schema/mutation/createIntegration.mdx) mutation to create a new integration:
+
+```graphql
+mutation {
+  createIntegration(
+    input: {
+      name: "Send a .rocket render to the 3D printer"
+      description: "Fetch a .rocket file, convert it to AutoCAD, and queue the print job"
+    }
+  ) {
+    integration {
+      id
+    }
+  }
+}
+```
+
+</TabItem>
+</ExampleTabs>
+
+For more information:
+[Building Integrations](building-integrations.mdx),
+[Testing Integrations](testing-integrations.mdx)
+
+## Integration templates
+
+Some of your integrations will look similar to one another.
+For example, if you are importing opportunities and accounts from a dozen CRM vendors, the steps that fetch data will be unique, but the steps that send data to your app will always look the same.
+Rather than developing those common steps over and over, it saves time to create an integration template that you and your team can start from when you build additional similar integrations.
+
+To turn your integration into a template, first [publish](#publishing-an-integration) a version of your integration.
+Then, open the **Details** dropdown and select **Available as Template**.
+
+<Screenshot
+  filename="integrations/available-as-template.png"
+  alt="Create a new template of an integration"
+  maxWidth="650px"
+/>
+
+You can choose if the template is just for org users, or if you offer [embedded designer](embedded-designer.mdx) you can make the template available to customer integration builders.
+
+## Assigning an icon to an integration
+
+Integrations can be assigned icons, to make them more presentable in the [integration marketplace](integration-marketplace.mdx).
+To assign an icon to an integration from the integration designer by clicking the icon to the left of your integration's name:
+
+<Screenshot
+  filename="integrations/add-icon.png"
+  maxWidth="400px"
+  alt="Add icon to integration in  app"
+/>
+
+Square PNG images that are at least 400 pixels wide look best as integration icons.
+
+## Integration labels
+
+Labels help you keep your integrations organized.
+You can assign any number of labels to an integration from within the integration designer by opening the **DETAILS** menu:
+
+<Screenshot
+  filename="integrations/labels.png"
+  maxWidth="550px"
+  alt="Assign labels to integration in  app"
+/>
+
+You can [search](#listing-and-searching-integrations) for integrations by label.
+_Note_: for consistency, labels are always lower-cased.
+
+If you would like to update labels on previously published versions of your integration, open the **VERSION HISTORY** drawer and select a previously published version of your integration.
+Add labels from the **DETAILS** menu, and click **Save**.
+
+<Screenshot
+  filename="integrations/label-versions.png"
+  maxWidth="650px"
+  alt="Update labels for prior published versions of integration in  app"
+/>
+
+Labels applied to published integration versions appear in the version dropdown menu on an instance configuration page.
+
+<Screenshot
+  filename="integrations/label-versions-instance.png"
+  maxWidth="700px"
+  alt="Versions and labels for instance configuration in  app"
+/>
+
+## Listing and searching integrations
+
+<ExampleTabs>
+<TabItem value='webapp'>
+
+To view all of the integrations your organization has created, click the **Integrations** link on the left-hand sidebar.
+
+<Screenshot
+  filename="integrations/list-integrations.png"
+  alt="All integrations for organization in  app"
+/>
+
+You can search for specific integrations by name by typing a part of the name in the upper search bar, or you can search by **description**, **[category](#categorizing-integrations)**, **[labels](#integration-labels)** or **marketplace availability** by clicking the **Filter** button to the right of the search bar.
+
+<Screenshot
+  filename="integrations/search-integrations.png"
+  alt="Filter integrations in  app"
+  maxWidth="800px"
+/>
+
+</TabItem>
+<TabItem value='cli'>
+
+To list all integrations your organization has created, use the `prism integrations:list` subcommand.
+
+```bash
+prism integrations:list
+
+ Name                                    Description                                                          Version
+ ─────────────────────────────────────── ──────────────────────────────────────────────────────────────────── ──────
+ Deploy Model to Manufacturer            Upload a model of a rocket to the manufacturers                      1
+ Engine Schematics in Wind Tunnel        Deploy Engine Schematics to Wind Tunnel for Testing                  3
+ Example Integration                     Example                                                              2
+ Send a .rocket render to the 3D printer Fetch a .rocket file, convert it to AutoCAD, and queue the print job 12
+ Fabricate 3D Model                      Queue a 3D printing of a rocket model from AutoCAD                   8
+```
+
+Additional flags are available for this subcommand to filter results, format output, or show additional information
+
+```bash
+prism integrations:list --filter 'Name=Fabricate 3D Model' --output json --extended
+
+[
+  {
+    "id": "SW50ZWdyYXRpb246NDkxMDY0OWUtNWVhOC00M2Y3LTk3ODgtMDhlZGI2Y2I3MWVl",
+    "name": "Fabricate 3D Model",
+    "description": "Send 3D rendering of rocket for fabrication",
+    "versionNumber": "3"
+  }
+]
+```
+
+</TabItem>
+<TabItem value='api'>
+
+List integrations by querying [integrations](api/schema/query/integrations.mdx):
+
+```graphql
+query {
+  integrations {
+    nodes {
+      id
+      name
+      description
+    }
+  }
+}
+```
+
+</TabItem>
+</ExampleTabs>
+
+## Categorizing integrations
+
+Integrations can be assigned a "category" for easy sorting and filtering.
+For example, you might have a dozen "ERP" integrations, a few "Inventory Management" integrations, etc.
+Assigning each integration a category allows your team, as well as your customers in the [integration marketplace](integration-marketplace.mdx) to view integrations sorted by category.
+
+You can set a category for an integration by clicking the **DETAILS** dropdown button on the top-left of the integration designer:
+
+<Screenshot
+  filename="integrations/edit-name-description.png"
+  maxWidth="700px"
+  alt="Set category for integration in  app"
+/>
+
+## Publishing an integration
+
+By **publishing** an integration, you mark it ready for deployment to customers.
+
+<ExampleTabs>
+<TabItem value='webapp'>
+
+To publish an integration, first open the **VERSION HISTORY** tab on the left side of the page.
+If you have unpublished changes you'll see an **Unpublished Draft** listed among the integration's versions.
+Type a note about the changes you made to the integration, and then click **SAVE & PUBLISH** to release a new version of your integration:
+
+<Screenshot
+  filename="integrations/version-history.png"
+  maxWidth="600px"
+  alt="Publish integration in  app"
+/>
+
+Integration versions can be marked **Available** or **Unavailable** by toggling the blue toggles to the right of integration versions.
+Marking an integration version **Unavailable** prevents that version from being deployed as an [instance](instances.mdx#deploying-instances) to a customer.
+
+</TabItem>
+<TabItem value='cli'>
+
+Within the CLI tool, you can publish an integration using the `integrations:publish` subcommand.
+You can add an optional description detailing how this publication changed.
+
+```bash
+prism integrations:publish \
+  ${INTEGRATION_ID} \
+  --comment "Updated XML output format to exclude SSN and other PII fields."
+```
+
+</TabItem>
+<TabItem value='api'>
+
+To publish an integration, use the [publishIntegration](api/schema/mutation/publishIntegration.mdx) mutation:
+
+```graphql
+mutation {
+  publishIntegration(
+    input: {
+      id: "SW50ZWdyYXRpb246MzgxYzFmMjgtMjQwYy00OTRiLWE0NTMtZjJiOWRmZTg4NThj"
+      comment: "Added ERP export functionality"
+    }
+  ) {
+    integration {
+      id
+    }
+  }
+}
+```
+
+</TabItem>
+</ExampleTabs>
+
+## Deploying an integration
+
+Once an integration has been [published](#publishing-an-integration), an instance of the integration can be configured and deployed to a customer.
+See the [instances](instances.mdx) article for information on deploying instances of integrations.
+
+You can also enable your customers to deploy integrations themselves, using 's [integration marketplace](integration-marketplace.mdx).
+
+## Viewing deployed instances
+
+To view all instances that have been deployed, click the **Instances** tab from the integration designer screen.
+This screen will display customers to which this integration has been deployed.
+
+<Screenshot
+  filename="integrations/list-instances.png"
+  alt="List of deployed instances in  app"
+  maxWidth="550px"
+/>
+
+The version of this integration that is deployed to each customer is shown within this drawer.
+
+## Forking an integration
+
+<Vimeo video="500063783" title="How to Make a Copy of an Integration" />
+
+Sometimes you will want to make a copy of an integration and modify the copy.
+This is called _forking_ an integration.
+
+<ExampleTabs>
+<TabItem value='webapp'>
+
+From the integration designer, click the <Icon>settings</Icon> icon on the bottom left of the page.
+Then, click **Fork Integrations**.
+Give your forked integration a new name and description and then click **ADD**.
+
+</TabItem>
+<TabItem value='cli'>
+
+To fork an integration, use the `prism integrations:fork` subcommand and pass in the ID of the integration you want to fork:
+
+```bash
+prism integrations:fork ${INTEGRATION_ID} \
+  --name "Customer Import from XML" \
+  --description "Import customers from XML instead of JSON"
+```
+
+</TabItem>
+<TabItem value='api'>
+
+Fork an integration using the [forkIntegration](api/schema/mutation/forkIntegration.mdx) mutation.
+The `parent` is the ID of the integration you want to fork:
+
+```graphql
+mutation {
+  forkIntegration(
+    input: {
+      parent: "SW50ZWdyYXRpb246MzgxYzFmMjgtMjQwYy00OTRiLWE0NTMtZjJiOWRmZTg4NThj"
+      name: "My new integration"
+      description: "A fork of my old integration!"
+    }
+  ) {
+    integration {
+      id
+    }
+  }
+}
+```
+
+</TabItem>
+</ExampleTabs>
+
+## Deleting an integration
+
+:::note Deleting an integration will delete all instances of that integration
+Use caution when deleting an integration.
+Deletion of an integration also deletes all deployed instances of that integration.
+:::
+
+<ExampleTabs>
+<TabItem value='webapp'>
+
+From the integration designer, click the <Icon>settings</Icon> icon on the bottom left of the page.
+Click the **Delete Integration** button on the bottom of the page and confirm by clicking **REMOVE INTEGRATION**.
+
+</TabItem>
+<TabItem value='cli'>
+
+```bash
+# Fetch the integration's ID
+INTEGRATION_ID=$(prism integrations:list --filter 'Name=Deploy Model to Manufacturer' --columns id --no-header)
+
+# Delete the integration
+prism integrations:delete ${INTEGRATION_ID}
+```
+
+</TabItem>
+<TabItem value='api'>
+
+Delete an integration using the [deleteIntegration](api/schema/mutation/deleteIntegration.mdx) mutation:
+
+```graphql
+mutation {
+  deleteIntegration(
+    input: {
+      id: "SW50ZWdyYXRpb246NjQxY2RhMmEtNzkwMi00YjYzLWJjZGEtMmE3NTk0Yzk1YTAy"
+    }
+  ) {
+    integration {
+      id
+    }
+  }
+}
+```
+
+</TabItem>
+</ExampleTabs>
+
+## Integration attachments
+
+Your team can save and share integration-related documents alongside an integration by clicking on the **Attachments** tab from the integration designer page.
+
+<Screenshot
+  filename="integrations/attachments.png"
+  alt="Add attachments to integration in  app"
+  maxWidth="550px"
+/>
+
+## Internal integration documentation
+
+It's helpful to share documentation, specs and notes about an integration with your team members.
+You can add internal (non-customer-facing) notes and documentation to an integration by clicking the **Integration Documentation** button on the right-hand side of the integration designer.
+This will open up a drawer on the right-hand side of the designer.
+
+The drawer has two tabs: **Edit** and **Preview**.
+
+In the **Edit** tab you can type [Markdown syntax](https://www.markdownguide.org/basic-syntax/), including external links, code snippets and externally-hosted images:
+
+<Screenshot
+  filename="integrations/documentation-markdown.png"
+  maxWidth="750px"
+  alt="Add internal integration documentation in  app"
+/>
+
+In the **Preview** tab you can view the rendered markdown:
+
+<Screenshot
+  filename="integrations/documentation-rendered.png"
+  maxWidth="750px"
+  alt="Preview internal integration documentation in  app"
+/>
+
+## YAML definition
+
+Behind the scenes, integrations are represented in YAML.
+You can view the YAML that defines your integration's flows, steps, inputs, connections and config variables by clicking **Manage** at the bottom-left of the integration designer, and selecting **Save/Load**.
+
+<Screenshot
+  filename="integrations/yaml-definition.png"
+  maxWidth="550px"
+  alt="YAML for integration in  app"
+/>
+
+If you are exporting the integration and importing it in a different region (US -> EU, for example), make sure you click a **latest component versions** button, as component versions may not match between regions.
+
+:::tip Tip: Spot changes to integrations
+The YAML present in this drawer corresponds to the integration that is currently being displayed.
+You can view the YAML of a previous version of the integration by first opening the **VERSION HISTORY** drawer and selecting an older integration version.
+
+If you want to spot differences between an older version of your integration and the current version, you can compare the YAML definition of the older version with the YAML definition of the current version using your favorite diff tool (VSCode has a great built-in [diff tool](https://vscode.one/diff-vscode/)).
+:::
+
+### Exporting an integration
+
+Once you've opened the **Save/Load** drawer in the integration designer, you can click **Copy to clipboard** to copy the integration's YAML definition into your clipboard, so you can paste it into an editor of your choice.
+You can also click **Save to file** to download a copy of your integration.
+
+If you are using 's command line tool, `prism`, you can use the [`integrations:export`](cli/prism.mdx#integrationsexport) subcommand to similarly export the YAML definition of your integration.
+
+### Importing an integration
+
+If you have a YAML definition of your integration saved in your clipboard, you can click **Load from clipboard** to replace your current integration with the definition that you have copied.
+Or, you can save a modified YAML file to your computer, and load the YAML definition by clicking **Load from file** and selecting the file you saved.
+
+If you are using `prism`, you can use the [`integrations:import`](cli/prism.mdx#integrationsimport) subcommand to import a YAML definition of your integration.

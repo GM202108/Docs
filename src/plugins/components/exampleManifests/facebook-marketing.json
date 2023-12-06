@@ -1,0 +1,2241 @@
+{
+  "key": "facebook-marketing",
+  "public": true,
+  "documentationUrl": "https://prismatic.io/docs/components/facebook-marketing/",
+  "display": {
+    "category": "Application Connectors",
+    "label": "Facebook Marketing",
+    "description": "Interact with ads and adsets in your Facebook Marketing account.",
+    "iconPath": "icon.png",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "key": "oauth",
+      "label": "Facebook Marketing Oauth 2.0",
+      "comments": "Oauth 2.0 connectivity for Facebook Marketing",
+      "oauth2Type": "authorization_code",
+      "inputs": [
+        {
+          "comments": "Provide a valid authURL for Facebook Marketing",
+          "required": true,
+          "shown": true,
+          "key": "authorizeUrl",
+          "type": "string",
+          "default": "https://www.facebook.com/v17.0/dialog/oauth",
+          "label": "Authorize URL"
+        },
+        {
+          "shown": true,
+          "comments": "Provide a valid Facebook Marketing version to complete the Token URL",
+          "required": true,
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "https://graph.facebook.com/v17.0/oauth/access_token",
+          "label": "Token URL"
+        },
+        {
+          "shown": true,
+          "example": "1233096058094633",
+          "comments": "Provide the App Id that was generated from your Facebook App.",
+          "required": true,
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "App Id"
+        },
+        {
+          "example": "7699008007296c1689ddd30b0cf7c924",
+          "shown": true,
+          "comments": "Provide the App Secret that was generated from your Facebook App.",
+          "required": true,
+          "key": "clientSecret",
+          "type": "string",
+          "default": "",
+          "label": "App Secret"
+        },
+        {
+          "shown": true,
+          "comments": "Provide a valid list of scopes. A list per use case is provided on the Facebook Marketing docs: https://developers.facebook.com/docs/marketing-api/overview/authorization/",
+          "required": true,
+          "key": "scopes",
+          "type": "string",
+          "default": "ads_read ads_management pages_show_list groups_access_member_info leads_retrieval page_events pages_read_user_content public_profile",
+          "label": "Scopes"
+        }
+      ],
+      "documentation": {
+        "description": "This component uses OAuth 2.0 to connect to Facebook's Marketing API.\nTo get started with [Facebook Marketing](https://developers.facebook.com/docs/marketing-apis/get-started), you first need to [create a developer account](https://developers.facebook.com/).\n\n1. Select **Create app**, take note of the App Id and App Secret under the basic tab.\n1. Navigate to the Facebook Login Section:\n    1. You will see an input to enter your Prismatic Redirect URL.\n    1. Under the **Valid OAuth Redirect URIs** section add `https://oauth2.prismatic.io/callback` as a **Redirect URI**.\n1. Now add a new Facebook Marketing action to your Prismatic integration, and you will see a new connection.\n1. Enter the values that you previously saved from your Facebook Developer App.\n1. All the scopes you need should already exist in the connection. However if you need to enter additional scopes you can refer to [Facebook Marketing Docs](https://developers.facebook.com/docs/permissions/reference/) to find the correct ones.\n\nNow you can make a new Facebook Marketing connection in Prismatic, and provide the values you obtained earlier.\n\nFor any additional setup information, refer to the [Facebook Marketing Docs](https://developers.facebook.com/docs/marketing-apis/overview)\n"
+      }
+    },
+    {
+      "key": "sandboxToken",
+      "label": "Sandbox Ad Account Token",
+      "comments": "Use this connection to connect to a sandbox ad account.",
+      "inputs": [
+        {
+          "required": true,
+          "shown": true,
+          "comments": "A valid sandbox token for Facebook Marketing API",
+          "key": "token",
+          "type": "string",
+          "default": "",
+          "label": "Sandbox Token"
+        }
+      ],
+      "documentation": {
+        "description": "This component may also use the Sandbox Ad token to connect a Facebook Marketing's Sandbox Ad Account\nTo get started with [Facebook Marketing](https://developers.facebook.com/docs/marketing-apis/get-started), you first need to [create a developer account](https://developers.facebook.com/).\n\n1. Select **Create app**, take note of the App Id and App Secret under the basic tab.\n1. Navigate and expand the Marketing API Section and select the Tools section.\n    1. In the **Sandbox Ad Account Managment** section, create and name a new Sandbox Ad Account.\n    1. Under Actions select the button with a key icon and in the Generate Access Token window Select **Generate**\n    1. Add this Access Token to the Sandbox Ad Token Connection Type in Prismatic.\n1. All the scopes you need should already exist in the connection. However if you need to enter additional scopes you can refer to [Facebook Marketing Docs](https://developers.facebook.com/docs/permissions/reference/) to find the correct ones.\n\nFor any additional setup information, refer to the [Facebook Marketing Docs](https://developers.facebook.com/docs/marketing-apis/overview)\n"
+      }
+    }
+  ],
+  "actions": {
+    "getCurrentUser": {
+      "display": {
+        "label": "Get Current User",
+        "description": "Get the information and metadata of the current user"
+      },
+      "key": "getCurrentUser",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "example": "17",
+          "comments": "Provide the version of a graphql.",
+          "key": "version",
+          "type": "string",
+          "default": 17,
+          "label": "Graph Version"
+        }
+      ]
+    },
+    "listAddAccounts": {
+      "display": {
+        "label": "List Ad Accounts",
+        "description": "Get the information and metadata of the current user"
+      },
+      "key": "listAddAccounts",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "Provide a limit for the result set.",
+          "example": "30",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide the token for the item before the current one.",
+          "example": "xOTQ1MjAwNzI5NDE=",
+          "key": "before",
+          "type": "string",
+          "default": "",
+          "label": "Before"
+        },
+        {
+          "required": false,
+          "comments": "Provide the token for the item after the current one.",
+          "example": "xOTQ1MjAwNzI5NDE=",
+          "key": "after",
+          "type": "string",
+          "default": "",
+          "label": "After"
+        },
+        {
+          "required": false,
+          "comments": "Provide a comma separated list of fields to be returned",
+          "key": "fields",
+          "type": "string",
+          "default": "name,age,balance,is_personal,account_status,line_numbers,adcreatives",
+          "label": "Fields"
+        },
+        {
+          "required": false,
+          "example": "17",
+          "comments": "Provide the version of a graphql.",
+          "key": "version",
+          "type": "string",
+          "default": 17,
+          "label": "Graph Version"
+        }
+      ]
+    },
+    "getUserById": {
+      "display": {
+        "label": "Get User By Id",
+        "description": "Get the information and metadata of a given user"
+      },
+      "key": "getUserById",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "587490763",
+          "comments": "Provide the Id of a user.",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "User Id"
+        },
+        {
+          "required": false,
+          "example": "17",
+          "comments": "Provide the version of a graphql.",
+          "key": "version",
+          "type": "string",
+          "default": 17,
+          "label": "Graph Version"
+        }
+      ]
+    },
+    "listAdsInAccount": {
+      "display": {
+        "label": "List Ads In Account",
+        "description": "List all ad sets in an ad account"
+      },
+      "key": "listAdsInAccount",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "act_342512647855388",
+          "comments": "Provide the identifier of an Ad Account. This value can either be an Id, or the name of the account.",
+          "key": "adAccountId",
+          "type": "string",
+          "default": "",
+          "label": "Ad Account"
+        },
+        {
+          "required": false,
+          "comments": "Provide the token for the item before the current one.",
+          "example": "xOTQ1MjAwNzI5NDE=",
+          "key": "before",
+          "type": "string",
+          "default": "",
+          "label": "Before"
+        },
+        {
+          "required": false,
+          "comments": "Provide the token for the item after the current one.",
+          "example": "xOTQ1MjAwNzI5NDE=",
+          "key": "after",
+          "type": "string",
+          "default": "",
+          "label": "After"
+        },
+        {
+          "required": false,
+          "comments": "Provide a limit for the result set.",
+          "example": "30",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide a comma separated list of fields to be returned",
+          "key": "fields",
+          "type": "string",
+          "default": "name,adset,account_id,ad_review_feedback,adlabels,adset_id,bid_amount,campaign,campaign_id,configured_status,conversion_domain,created_time,creative,effective_status,issues_info,last_updated_by_app_id,preview_shareable_link,recommendations,status,tracking_specs",
+          "label": "Fields"
+        },
+        {
+          "required": false,
+          "example": "17",
+          "comments": "Provide the version of a graphql.",
+          "key": "version",
+          "type": "string",
+          "default": 17,
+          "label": "Graph Version"
+        }
+      ]
+    },
+    "listCampaignsInAccount": {
+      "display": {
+        "label": "List Campaigns In Account",
+        "description": "List all campaigns in an ad account"
+      },
+      "key": "listCampaignsInAccount",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "act_342512647855388",
+          "comments": "Provide the identifier of an Ad Account. This value can either be an Id, or the name of the account.",
+          "key": "adAccountId",
+          "type": "string",
+          "default": "",
+          "label": "Ad Account"
+        },
+        {
+          "required": false,
+          "comments": "Provide a limit for the result set.",
+          "example": "30",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide the token for the item before the current one.",
+          "example": "xOTQ1MjAwNzI5NDE=",
+          "key": "before",
+          "type": "string",
+          "default": "",
+          "label": "Before"
+        },
+        {
+          "required": false,
+          "comments": "Provide the token for the item after the current one.",
+          "example": "xOTQ1MjAwNzI5NDE=",
+          "key": "after",
+          "type": "string",
+          "default": "",
+          "label": "After"
+        },
+        {
+          "required": false,
+          "example": "17",
+          "comments": "Provide the version of a graphql.",
+          "key": "version",
+          "type": "string",
+          "default": 17,
+          "label": "Graph Version"
+        }
+      ]
+    },
+    "listAdSetsInAccount": {
+      "display": {
+        "label": "List Ad Sets In Account",
+        "description": "List all ads in an ad account"
+      },
+      "key": "listAdSetsInAccount",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "act_342512647855388",
+          "comments": "Provide the identifier of an Ad Account. This value can either be an Id, or the name of the account.",
+          "key": "adAccountId",
+          "type": "string",
+          "default": "",
+          "label": "Ad Account"
+        },
+        {
+          "required": false,
+          "comments": "Provide a limit for the result set.",
+          "example": "30",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide the token for the item before the current one.",
+          "example": "xOTQ1MjAwNzI5NDE=",
+          "key": "before",
+          "type": "string",
+          "default": "",
+          "label": "Before"
+        },
+        {
+          "required": false,
+          "comments": "Provide the token for the item after the current one.",
+          "example": "xOTQ1MjAwNzI5NDE=",
+          "key": "after",
+          "type": "string",
+          "default": "",
+          "label": "After"
+        },
+        {
+          "required": false,
+          "comments": "Provide a comma separated list of fields to be returned",
+          "key": "fields",
+          "type": "string",
+          "default": "name,account_id,adlabels,adset_schedule,asset_feed_id,attribution_spec,bid_adjustments,bid_amount,bid_constraints,bid_info,billing_event,budget_remaining,campaign,configured_status,created_time,creative_sequence,daily_budget,daily_min_spend_target,daily_spend_cap,destination_type,effective_status,end_time,optimization_goal,optimization_sub_event,pacing_type,promoted_object,recommendations,status,targeting,start_time,targeting_optimization_types,updated_time",
+          "label": "Fields"
+        },
+        {
+          "required": false,
+          "example": "17",
+          "comments": "Provide the version of a graphql.",
+          "key": "version",
+          "type": "string",
+          "default": 17,
+          "label": "Graph Version"
+        }
+      ]
+    },
+    "listAdLeads": {
+      "display": {
+        "label": "List Ad Leads",
+        "description": "List all ad groups in a given ad account"
+      },
+      "key": "listAdLeads",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "act_342512647855388",
+          "comments": "Provide the identifier of an Ad Account. This value can either be an Id, or the name of the account.",
+          "key": "adAccountId",
+          "type": "string",
+          "default": "",
+          "label": "Ad Account"
+        },
+        {
+          "required": true,
+          "example": "342512647855388",
+          "comments": "Provide the Id of an Ad or Ad Set",
+          "key": "adId",
+          "type": "string",
+          "default": "",
+          "label": "Ad Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide a limit for the result set.",
+          "example": "30",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide the token for the item before the current one.",
+          "example": "xOTQ1MjAwNzI5NDE=",
+          "key": "before",
+          "type": "string",
+          "default": "",
+          "label": "Before"
+        },
+        {
+          "required": false,
+          "comments": "Provide the token for the item after the current one.",
+          "example": "xOTQ1MjAwNzI5NDE=",
+          "key": "after",
+          "type": "string",
+          "default": "",
+          "label": "After"
+        },
+        {
+          "required": false,
+          "comments": "Provide a comma separated list of fields to be returned",
+          "key": "fields",
+          "type": "string",
+          "default": "name",
+          "label": "Fields"
+        },
+        {
+          "required": false,
+          "example": "17",
+          "comments": "Provide the version of a graphql.",
+          "key": "version",
+          "type": "string",
+          "default": 17,
+          "label": "Graph Version"
+        }
+      ]
+    },
+    "rawRequest": {
+      "display": {
+        "label": "Raw Request",
+        "description": "Send a raw HTTP request to Facebook Marketing API"
+      },
+      "key": "rawRequest",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "example": "17",
+          "comments": "Provide the version of a graphql.",
+          "key": "version",
+          "type": "string",
+          "default": 17,
+          "label": "Graph Version"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "Input the path only (/accounts), The base URL is already included (https://graph.facebook.com/v<INPUT_VERSION>.0). For example, to connect to https://graph.facebook.com/v<INPUT_VERSION>.0/accounts, only /accounts is entered in this field.",
+          "example": "/accounts",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "The file name to apply to a file",
+          "required": false,
+          "comments": "File names to apply to the file data inputs. Keys must match the file data keys above.",
+          "key": "fileDataFileNames",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data File Names"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        }
+      ]
+    },
+    "updateAd": {
+      "display": {
+        "label": "Update Ad",
+        "description": "Update the information and metadata of a given ad or adset"
+      },
+      "key": "updateAd",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "act_342512647855388",
+          "comments": "Provide the identifier of an Ad Account. This value can either be an Id, or the name of the account.",
+          "key": "adAccountId",
+          "type": "string",
+          "default": "",
+          "label": "Ad Account"
+        },
+        {
+          "required": true,
+          "example": "342512647855388",
+          "comments": "Provide the Id of an Ad or Ad Set",
+          "key": "adId",
+          "type": "string",
+          "default": "",
+          "label": "Ad Id"
+        },
+        {
+          "required": false,
+          "example": "My New Ad",
+          "comments": "Provide a name for the given ad",
+          "key": "adName",
+          "type": "string",
+          "default": "",
+          "label": "Ad Name"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "Active",
+              "value": "ACTIVE"
+            },
+            {
+              "label": "Paused",
+              "value": "PAUSED"
+            },
+            {
+              "label": "Deleted",
+              "value": "DELETED"
+            },
+            {
+              "label": "Archived",
+              "value": "ARCHIVED"
+            }
+          ],
+          "comments": "Provide a status for the given ad. During testing, it is recommended to set ads to a PAUSED status so as to not incur accidental spend.",
+          "key": "status",
+          "type": "string",
+          "default": "",
+          "label": "Ad Status"
+        },
+        {
+          "required": false,
+          "example": "58789326952",
+          "comments": "Provide the Id of the desired creative",
+          "key": "creativeId",
+          "type": "string",
+          "default": "",
+          "label": "Creative Id"
+        },
+        {
+          "language": "JSON",
+          "required": false,
+          "example": "[\n  {\n    \"action.type\": [\n      \"attention_event\"\n    ],\n    \"creative\": [\n      \"23849551358310668\"\n    ]\n  },\n  {\n    \"action.type\": [\n      \"dwell\"\n    ],\n    \"creative\": [\n      \"23849551358310668\"\n    ]\n  },\n  {\n    \"action.type\": [\n      \"post_engagement\"\n    ],\n    \"page\": [\n      \"105171555498035\"\n    ],\n    \"post\": [\n      \"105174712164386\"\n    ]\n  }\n]",
+          "comments": "Provide a JSON array containing valid tracking specs. The shape of this field can change depending on the type of ad: https://developers.facebook.com/docs/marketing-api/tracking-specs#default_by_ad ",
+          "key": "tracking",
+          "type": "code",
+          "default": "",
+          "label": "Tracking"
+        },
+        {
+          "required": false,
+          "comments": "Provide optional values to mutate the given object.",
+          "key": "optionalValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Optional Values"
+        },
+        {
+          "required": false,
+          "comments": "Provide a comma separated list of fields to be returned",
+          "key": "fields",
+          "type": "string",
+          "default": "name,adset,account_id,ad_review_feedback,adlabels,adset_id,bid_amount,campaign,campaign_id,configured_status,conversion_domain,created_time,creative,effective_status,issues_info,last_updated_by_app_id,preview_shareable_link,recommendations,status,tracking_specs",
+          "label": "Fields"
+        },
+        {
+          "required": false,
+          "example": "17",
+          "comments": "Provide the version of a graphql.",
+          "key": "version",
+          "type": "string",
+          "default": 17,
+          "label": "Graph Version"
+        }
+      ]
+    },
+    "deleteAd": {
+      "display": {
+        "label": "Delete Ad",
+        "description": "Delete the information and metadata of a given ad"
+      },
+      "key": "deleteAd",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "act_342512647855388",
+          "comments": "Provide the identifier of an Ad Account. This value can either be an Id, or the name of the account.",
+          "key": "adAccountId",
+          "type": "string",
+          "default": "",
+          "label": "Ad Account"
+        },
+        {
+          "required": true,
+          "example": "342512647855388",
+          "comments": "Provide the Id of an Ad or Ad Set",
+          "key": "adId",
+          "type": "string",
+          "default": "",
+          "label": "Ad Id"
+        },
+        {
+          "required": false,
+          "example": "17",
+          "comments": "Provide the version of a graphql.",
+          "key": "version",
+          "type": "string",
+          "default": 17,
+          "label": "Graph Version"
+        }
+      ]
+    },
+    "getAdPreview": {
+      "display": {
+        "label": "List Ad Previews",
+        "description": "Get a list of all previews of the given ad"
+      },
+      "key": "getAdPreview",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "act_342512647855388",
+          "comments": "Provide the identifier of an Ad Account. This value can either be an Id, or the name of the account.",
+          "key": "adAccountId",
+          "type": "string",
+          "default": "",
+          "label": "Ad Account"
+        },
+        {
+          "required": true,
+          "example": "342512647855388",
+          "comments": "Provide the Id of an Ad or Ad Set",
+          "key": "adId",
+          "type": "string",
+          "default": "",
+          "label": "Ad Id"
+        },
+        {
+          "required": true,
+          "comments": "Provide a type of ad format to preview.",
+          "model": [
+            {
+              "label": "Desktop Standard",
+              "value": "DESKTOP_FEED_STANDARD"
+            },
+            {
+              "label": "Mobile Baisic",
+              "value": "MOBILE_FEED_BASIC"
+            },
+            {
+              "label": "Mobile Standard",
+              "value": "MOBILE_FEED_STANDARD"
+            },
+            {
+              "label": "Mobile Fullwidth",
+              "value": "MOBILE_FULLWIDTH"
+            }
+          ],
+          "key": "adFormat",
+          "type": "string",
+          "default": "",
+          "label": "Ad Format"
+        },
+        {
+          "required": false,
+          "example": "17",
+          "comments": "Provide the version of a graphql.",
+          "key": "version",
+          "type": "string",
+          "default": 17,
+          "label": "Graph Version"
+        }
+      ]
+    },
+    "listAdCreatives": {
+      "display": {
+        "label": "List Ad Creatives",
+        "description": "List all ad creatives in a given ad account"
+      },
+      "key": "listAdCreatives",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "act_342512647855388",
+          "comments": "Provide the identifier of an Ad Account. This value can either be an Id, or the name of the account.",
+          "key": "adAccountId",
+          "type": "string",
+          "default": "",
+          "label": "Ad Account"
+        },
+        {
+          "required": false,
+          "comments": "Provide a limit for the result set.",
+          "example": "30",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide the token for the item before the current one.",
+          "example": "xOTQ1MjAwNzI5NDE=",
+          "key": "before",
+          "type": "string",
+          "default": "",
+          "label": "Before"
+        },
+        {
+          "required": false,
+          "comments": "Provide the token for the item after the current one.",
+          "example": "xOTQ1MjAwNzI5NDE=",
+          "key": "after",
+          "type": "string",
+          "default": "",
+          "label": "After"
+        },
+        {
+          "required": false,
+          "comments": "Provide a comma separated list of fields to be returned",
+          "key": "fields",
+          "type": "string",
+          "default": "name, object_story_spec, adlabels, body, object_id, url_tags",
+          "label": "Fields"
+        },
+        {
+          "required": false,
+          "example": "17",
+          "comments": "Provide the version of a graphql.",
+          "key": "version",
+          "type": "string",
+          "default": 17,
+          "label": "Graph Version"
+        }
+      ]
+    },
+    "getAd": {
+      "display": {
+        "label": "Get Ad",
+        "description": "Get the information and metadata of a given ad"
+      },
+      "key": "getAd",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "342512647855388",
+          "comments": "Provide the Id of an Ad or Ad Set",
+          "key": "adId",
+          "type": "string",
+          "default": "",
+          "label": "Ad Id"
+        },
+        {
+          "required": true,
+          "example": "act_342512647855388",
+          "comments": "Provide the identifier of an Ad Account. This value can either be an Id, or the name of the account.",
+          "key": "adAccountId",
+          "type": "string",
+          "default": "",
+          "label": "Ad Account"
+        },
+        {
+          "required": false,
+          "comments": "Provide a comma separated list of fields to be returned",
+          "key": "fields",
+          "type": "string",
+          "default": "name,adset,account_id,ad_review_feedback,adlabels,adset_id,bid_amount,campaign,campaign_id,configured_status,conversion_domain,created_time,creative,effective_status,issues_info,last_updated_by_app_id,preview_shareable_link,recommendations,status,tracking_specs",
+          "label": "Fields"
+        },
+        {
+          "required": false,
+          "example": "17",
+          "comments": "Provide the version of a graphql.",
+          "key": "version",
+          "type": "string",
+          "default": 17,
+          "label": "Graph Version"
+        }
+      ]
+    },
+    "getAdSet": {
+      "display": {
+        "label": "Get Ad Set",
+        "description": "Get the information and metadata of a given Ad Set"
+      },
+      "key": "getAdSet",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "342512647855388",
+          "comments": "Provide the Id of an Ad or Ad Set",
+          "key": "adId",
+          "type": "string",
+          "default": "",
+          "label": "Ad Set Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide a comma separated list of fields to be returned",
+          "key": "fields",
+          "type": "string",
+          "default": "name,account_id,adlabels,adset_schedule,asset_feed_id,attribution_spec,bid_adjustments,bid_amount,bid_constraints,bid_info,billing_event,budget_remaining,campaign,configured_status,created_time,creative_sequence,daily_budget,daily_min_spend_target,daily_spend_cap,destination_type,effective_status,end_time,optimization_goal,optimization_sub_event,pacing_type,promoted_object,recommendations,status,targeting,start_time,targeting_optimization_types,updated_time",
+          "label": "Fields"
+        },
+        {
+          "required": false,
+          "example": "17",
+          "comments": "Provide the version of a graphql.",
+          "key": "version",
+          "type": "string",
+          "default": 17,
+          "label": "Graph Version"
+        }
+      ]
+    },
+    "updateAdSet": {
+      "display": {
+        "label": "Update Ad Set",
+        "description": "Update the information and metadata of a given Ad Set"
+      },
+      "key": "updateAdSet",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "act_342512647855388",
+          "comments": "Provide the identifier of an Ad Account. This value can either be an Id, or the name of the account.",
+          "key": "adAccountId",
+          "type": "string",
+          "default": "",
+          "label": "Ad Account"
+        },
+        {
+          "required": true,
+          "example": "342512647855388",
+          "comments": "Provide the Id of an Ad or Ad Set",
+          "key": "adId",
+          "type": "string",
+          "default": "",
+          "label": "Ad Set Id"
+        },
+        {
+          "required": false,
+          "example": "My New Ad",
+          "comments": "Provide a name for the given ad",
+          "key": "adName",
+          "type": "string",
+          "default": "",
+          "label": "Ad Name"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "Active",
+              "value": "ACTIVE"
+            },
+            {
+              "label": "Paused",
+              "value": "PAUSED"
+            },
+            {
+              "label": "Deleted",
+              "value": "DELETED"
+            },
+            {
+              "label": "Archived",
+              "value": "ARCHIVED"
+            }
+          ],
+          "comments": "Provide a status for the given ad. During testing, it is recommended to set ads to a PAUSED status so as to not incur accidental spend.",
+          "key": "status",
+          "type": "string",
+          "default": "",
+          "label": "Ad Status"
+        },
+        {
+          "language": "JSON",
+          "required": false,
+          "example": "[\n  {\n    \"action.type\": [\n      \"attention_event\"\n    ],\n    \"creative\": [\n      \"23849551358310668\"\n    ]\n  },\n  {\n    \"action.type\": [\n      \"dwell\"\n    ],\n    \"creative\": [\n      \"23849551358310668\"\n    ]\n  },\n  {\n    \"action.type\": [\n      \"post_engagement\"\n    ],\n    \"page\": [\n      \"105171555498035\"\n    ],\n    \"post\": [\n      \"105174712164386\"\n    ]\n  }\n]",
+          "comments": "Provide a JSON array containing valid tracking specs. The shape of this field can change depending on the type of ad: https://developers.facebook.com/docs/marketing-api/tracking-specs#default_by_ad ",
+          "key": "tracking",
+          "type": "code",
+          "default": "",
+          "label": "Tracking"
+        },
+        {
+          "required": false,
+          "comments": "Provide optional values to mutate the given object.",
+          "key": "optionalValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Optional Values"
+        },
+        {
+          "required": false,
+          "comments": "Provide a comma separated list of fields to be returned",
+          "key": "fields",
+          "type": "string",
+          "default": "name,account_id,adlabels,adset_schedule,asset_feed_id,attribution_spec,bid_adjustments,bid_amount,bid_constraints,bid_info,billing_event,budget_remaining,campaign,configured_status,created_time,creative_sequence,daily_budget,daily_min_spend_target,daily_spend_cap,destination_type,effective_status,end_time,optimization_goal,optimization_sub_event,pacing_type,promoted_object,recommendations,status,targeting,start_time,targeting_optimization_types,updated_time",
+          "label": "Fields"
+        },
+        {
+          "required": false,
+          "example": "17",
+          "comments": "Provide the version of a graphql.",
+          "key": "version",
+          "type": "string",
+          "default": 17,
+          "label": "Graph Version"
+        }
+      ]
+    },
+    "getAdAccount": {
+      "display": {
+        "label": "Get Ad Account",
+        "description": "Get the information and metadata of the given ad account"
+      },
+      "key": "getAdAccount",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "act_342512647855388",
+          "comments": "Provide the identifier of an Ad Account. This value can either be an Id, or the name of the account.",
+          "key": "adAccountId",
+          "type": "string",
+          "default": "",
+          "label": "Ad Account"
+        },
+        {
+          "required": false,
+          "comments": "Provide a limit for the result set.",
+          "example": "30",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide the token for the item before the current one.",
+          "example": "xOTQ1MjAwNzI5NDE=",
+          "key": "before",
+          "type": "string",
+          "default": "",
+          "label": "Before"
+        },
+        {
+          "required": false,
+          "comments": "Provide the token for the item after the current one.",
+          "example": "xOTQ1MjAwNzI5NDE=",
+          "key": "after",
+          "type": "string",
+          "default": "",
+          "label": "After"
+        },
+        {
+          "required": false,
+          "comments": "Provide a comma separated list of fields to be returned",
+          "key": "fields",
+          "type": "string",
+          "default": "name,age,balance,is_personal,account_status,line_numbers,adcreatives",
+          "label": "Fields"
+        },
+        {
+          "required": false,
+          "example": "17",
+          "comments": "Provide the version of a graphql.",
+          "key": "version",
+          "type": "string",
+          "default": 17,
+          "label": "Graph Version"
+        }
+      ]
+    },
+    "getAdCreative": {
+      "display": {
+        "label": "Get Ad Creative",
+        "description": "Get the information and metadata of the given ad creative"
+      },
+      "key": "getAdCreative",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "act_342512647855388",
+          "comments": "Provide the identifier of an Ad Account. This value can either be an Id, or the name of the account.",
+          "key": "adAccountId",
+          "type": "string",
+          "default": "",
+          "label": "Ad Account"
+        },
+        {
+          "required": true,
+          "example": "342512647855388",
+          "comments": "Provide a unique identifier of the adCreative. This value can either be the ID, or the name.",
+          "key": "adCreativeId",
+          "type": "string",
+          "default": "",
+          "label": "Ad Creative"
+        },
+        {
+          "required": false,
+          "comments": "Provide a limit for the result set.",
+          "example": "30",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide the token for the item before the current one.",
+          "example": "xOTQ1MjAwNzI5NDE=",
+          "key": "before",
+          "type": "string",
+          "default": "",
+          "label": "Before"
+        },
+        {
+          "required": false,
+          "comments": "Provide the token for the item after the current one.",
+          "example": "xOTQ1MjAwNzI5NDE=",
+          "key": "after",
+          "type": "string",
+          "default": "",
+          "label": "After"
+        },
+        {
+          "required": false,
+          "comments": "Provide a comma separated list of fields to be returned",
+          "key": "fields",
+          "type": "string",
+          "default": "name, object_story_spec, adlabels, body, object_id, url_tags",
+          "label": "Fields"
+        },
+        {
+          "required": false,
+          "example": "17",
+          "comments": "Provide the version of a graphql.",
+          "key": "version",
+          "type": "string",
+          "default": 17,
+          "label": "Graph Version"
+        }
+      ]
+    },
+    "updateAdCreative": {
+      "display": {
+        "label": "Update Ad Creative",
+        "description": "Update the information and metadata of the given ad creative"
+      },
+      "key": "updateAdCreative",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "act_342512647855388",
+          "comments": "Provide the identifier of an Ad Account. This value can either be an Id, or the name of the account.",
+          "key": "adAccountId",
+          "type": "string",
+          "default": "",
+          "label": "Ad Account"
+        },
+        {
+          "required": true,
+          "example": "342512647855388",
+          "comments": "Provide the Id of an Ad or Ad Set",
+          "key": "adCreativeId",
+          "type": "string",
+          "default": "",
+          "label": "Ad Creative Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide an string for the URL tags on the given adCreative",
+          "example": "rid=Dcid_238495513324Cgid_23849551352290668%257Cadid_23849551899068",
+          "key": "urlTags",
+          "type": "string",
+          "default": "",
+          "label": "URL Tags"
+        },
+        {
+          "required": false,
+          "comments": "Provide an Id for the object story of the adCreative.",
+          "example": "1051738543535_10636436633230",
+          "key": "objectStoryId",
+          "type": "string",
+          "default": "",
+          "label": "Object Story Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide a name for the adCreative.",
+          "example": "My Ad Creative",
+          "key": "name",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        },
+        {
+          "required": false,
+          "comments": "Provide a body for the adCreative.",
+          "example": "This is an example description body.",
+          "key": "body",
+          "type": "string",
+          "default": "",
+          "label": "Body"
+        },
+        {
+          "required": false,
+          "comments": "Provide a limit for the result set.",
+          "example": "30",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide the token for the item before the current one.",
+          "example": "xOTQ1MjAwNzI5NDE=",
+          "key": "before",
+          "type": "string",
+          "default": "",
+          "label": "Before"
+        },
+        {
+          "required": false,
+          "comments": "Provide the token for the item after the current one.",
+          "example": "xOTQ1MjAwNzI5NDE=",
+          "key": "after",
+          "type": "string",
+          "default": "",
+          "label": "After"
+        },
+        {
+          "required": false,
+          "comments": "Provide a comma separated list of fields to be returned",
+          "key": "fields",
+          "type": "string",
+          "default": "name, object_story_spec, adlabels, body, object_id, url_tags",
+          "label": "Fields"
+        },
+        {
+          "required": false,
+          "comments": "Provide optional values to mutate the given object.",
+          "key": "optionalValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Optional Values"
+        },
+        {
+          "required": false,
+          "example": "17",
+          "comments": "Provide the version of a graphql.",
+          "key": "version",
+          "type": "string",
+          "default": 17,
+          "label": "Graph Version"
+        }
+      ]
+    },
+    "listAdsInAdset": {
+      "display": {
+        "label": "List Ads In Adset",
+        "description": "List all ads in a given adset"
+      },
+      "key": "listAdsInAdset",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "act_342512647855388",
+          "comments": "Provide the identifier of an Ad Account. This value can either be an Id, or the name of the account.",
+          "key": "adAccountId",
+          "type": "string",
+          "default": "",
+          "label": "Ad Account"
+        },
+        {
+          "required": true,
+          "example": "342512647855388",
+          "comments": "Provide the Id of an Ad or Ad Set",
+          "key": "adId",
+          "type": "string",
+          "default": "",
+          "label": "AdSet Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide a comma separated list of fields to be returned",
+          "key": "fields",
+          "type": "string",
+          "default": "name,adset,account_id,ad_review_feedback,adlabels,adset_id,bid_amount,campaign,campaign_id,configured_status,conversion_domain,created_time,creative,effective_status,issues_info,last_updated_by_app_id,preview_shareable_link,recommendations,status,tracking_specs",
+          "label": "Fields"
+        },
+        {
+          "required": false,
+          "example": "17",
+          "comments": "Provide the version of a graphql.",
+          "key": "version",
+          "type": "string",
+          "default": 17,
+          "label": "Graph Version"
+        }
+      ]
+    },
+    "addUrlTagsToCreative": {
+      "display": {
+        "label": "Add URL Tags To Ad Creative",
+        "description": "Update an existing Ad Creative to include a new set of URL Tags"
+      },
+      "key": "addUrlTagsToCreative",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "act_342512647855388",
+          "comments": "Provide the identifier of an Ad Account. This value can either be an Id, or the name of the account.",
+          "key": "adAccountId",
+          "type": "string",
+          "default": "",
+          "label": "Ad Account"
+        },
+        {
+          "required": true,
+          "comments": "Provide an string for the URL tags on the given adCreative",
+          "example": "rid=Dcid_238495513324Cgid_23849551352290668%257Cadid_23849551899068",
+          "key": "urlTags",
+          "type": "string",
+          "default": "",
+          "label": "URL Tags"
+        },
+        {
+          "required": true,
+          "comments": "Provide an Id for the object story of the adCreative.",
+          "example": "1051738543535_10636436633230",
+          "key": "objectStoryId",
+          "type": "string",
+          "default": "",
+          "label": "Object Story Id"
+        },
+        {
+          "required": false,
+          "comments": "Provide a limit for the result set.",
+          "example": "30",
+          "key": "limit",
+          "type": "string",
+          "default": "",
+          "label": "Limit"
+        },
+        {
+          "required": false,
+          "comments": "Provide the token for the item before the current one.",
+          "example": "xOTQ1MjAwNzI5NDE=",
+          "key": "before",
+          "type": "string",
+          "default": "",
+          "label": "Before"
+        },
+        {
+          "required": false,
+          "comments": "Provide the token for the item after the current one.",
+          "example": "xOTQ1MjAwNzI5NDE=",
+          "key": "after",
+          "type": "string",
+          "default": "",
+          "label": "After"
+        },
+        {
+          "required": false,
+          "comments": "Provide a comma separated list of fields to be returned",
+          "key": "fields",
+          "type": "string",
+          "default": "name, object_story_spec, adlabels, body, object_id, url_tags",
+          "label": "Fields"
+        },
+        {
+          "required": false,
+          "comments": "Provide optional values to mutate the given object.",
+          "key": "optionalValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Optional Values"
+        },
+        {
+          "required": false,
+          "example": "17",
+          "comments": "Provide the version of a graphql.",
+          "key": "version",
+          "type": "string",
+          "default": 17,
+          "label": "Graph Version"
+        }
+      ]
+    },
+    "businessByName": {
+      "display": {
+        "label": "Get Business By Name",
+        "description": "Fetch an business with the provided name"
+      },
+      "key": "businessByName",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "key": "businessName",
+          "type": "string",
+          "default": "",
+          "label": "Business Name"
+        },
+        {
+          "required": false,
+          "example": "17",
+          "comments": "Provide the version of a graphql.",
+          "key": "version",
+          "type": "string",
+          "default": 17,
+          "label": "Graph Version"
+        }
+      ]
+    },
+    "createAd": {
+      "display": {
+        "label": "Create Ad",
+        "description": "Creates a new ad"
+      },
+      "key": "createAd",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "act_342512647855388",
+          "comments": "Provide the identifier of an Ad Account. This value can either be an Id, or the name of the account.",
+          "key": "adAccountId",
+          "type": "string",
+          "default": "",
+          "label": "Ad Account"
+        },
+        {
+          "language": "json",
+          "required": true,
+          "example": "{\"creative_id\":\"<CREATIVE_ID>\"}",
+          "comments": "This field is required for create. The ID or creative spec of the ad creative to be used by this ad. You can read more about creatives here. You may supply the ID within an object as follows:",
+          "key": "creative",
+          "type": "code",
+          "default": "",
+          "label": "Creative"
+        },
+        {
+          "required": true,
+          "comments": "Name of the ad.",
+          "example": "My Ad Creative",
+          "key": "name",
+          "type": "string",
+          "default": "",
+          "label": "Name"
+        },
+        {
+          "required": true,
+          "comments": "The ID of the ad set, required on creation.",
+          "key": "adset_id",
+          "type": "string",
+          "default": "",
+          "label": "Adset Id"
+        },
+        {
+          "language": "json",
+          "required": false,
+          "comments": "The ad set spec for this ad. When the spec is provided, adset_id field is not required.",
+          "key": "adset_spec",
+          "type": "code",
+          "default": "",
+          "label": "Adset Spec"
+        },
+        {
+          "required": false,
+          "comments": "Indicates the end time for the ad.",
+          "key": "ad_schedule_end_time",
+          "type": "string",
+          "default": "",
+          "label": "Ad Schedule End Time"
+        },
+        {
+          "required": false,
+          "comments": "Indicates the start time for the ad.",
+          "key": "ad_schedule_start_time",
+          "type": "string",
+          "default": "",
+          "label": "Ad Schedule Start Time"
+        },
+        {
+          "language": "json",
+          "required": false,
+          "comments": "Ad Labels associated with this campaign",
+          "example": "[{\"id\":\"ad Label Id\",\"account\":\"Ad Account\",\"created_time\":\"2012-08-15T00:00:00.000Z\",\"updated_time\":\"2012-08-15T00:00:00.000Z\",\"name\":\"Ad Name\"}]",
+          "key": "adLabels",
+          "type": "code",
+          "default": "",
+          "label": "Ad Labels"
+        },
+        {
+          "required": false,
+          "comments": "The ID of the audience.",
+          "key": "audience_id",
+          "type": "string",
+          "default": "",
+          "label": "Audience Id"
+        },
+        {
+          "required": false,
+          "comments": "Bid amount for this ad which will be used in auction instead of the ad set bid_amount, if specified. Any updates to the ad set bid_amount will overwrite this value with the new ad set value",
+          "key": "bid_amount",
+          "type": "string",
+          "default": "",
+          "label": "Bid Amount"
+        },
+        {
+          "required": false,
+          "comments": "The domain where conversions happen. Required to create or update an ad in a campaign that shares data with a pixel. This field will be auto-populated for existing ads by inferring from destination URLs . Note that this field should contain only the first and second level domains, and not the full URL. For example facebook.com.",
+          "key": "conversion_domain",
+          "type": "string",
+          "default": "",
+          "label": "Conversion Domain"
+        },
+        {
+          "required": false,
+          "comments": "The format of the date.",
+          "key": "date_format",
+          "type": "string",
+          "default": "",
+          "label": "Date Format"
+        },
+        {
+          "required": false,
+          "comments": "The sequence of the ad within the same campaign",
+          "key": "display_sequence",
+          "type": "string",
+          "default": "",
+          "label": "Display Sequence"
+        },
+        {
+          "required": false,
+          "comments": "The ID of the draft ad.",
+          "key": "draft_adgroup_id",
+          "type": "string",
+          "default": "",
+          "label": "Draft Adgroup Id"
+        },
+        {
+          "required": false,
+          "comments": "Flag to create a new audience based on users who engage with this ad",
+          "key": "engagement_audience",
+          "type": "boolean",
+          "default": "false",
+          "label": "Engagement Audience"
+        },
+        {
+          "required": false,
+          "comments": "Include the demolink hashes.",
+          "key": "include_demolink_hashes",
+          "type": "boolean",
+          "default": "false",
+          "label": "Include Demolink Hashes"
+        },
+        {
+          "required": false,
+          "comments": "This is set to ACTIVE for meta reward ad.",
+          "model": [
+            {
+              "label": "INACTIVE",
+              "value": "INACTIVE"
+            },
+            {
+              "label": "ACTIVE",
+              "value": "ACTIVE"
+            }
+          ],
+          "key": "meta_reward_adgroup_status",
+          "type": "string",
+          "default": "",
+          "label": "Meta Reward Adgroup Status"
+        },
+        {
+          "required": false,
+          "comments": "Priority of the ad.",
+          "key": "priority",
+          "type": "boolean",
+          "default": "false",
+          "label": "Priority"
+        },
+        {
+          "required": false,
+          "comments": "ID of the source Ad, if applicable.",
+          "key": "source_ad_id",
+          "type": "string",
+          "default": "",
+          "label": "Source Ad Id"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "Active",
+              "value": "ACTIVE"
+            },
+            {
+              "label": "Paused",
+              "value": "PAUSED"
+            },
+            {
+              "label": "Deleted",
+              "value": "DELETED"
+            },
+            {
+              "label": "Archived",
+              "value": "ARCHIVED"
+            }
+          ],
+          "comments": "Provide a status for the given ad. During testing, it is recommended to set ads to a PAUSED status so as to not incur accidental spend.",
+          "key": "status",
+          "type": "string",
+          "default": "",
+          "label": "Ad Status"
+        },
+        {
+          "required": false,
+          "example": "17",
+          "comments": "Provide the version of a graphql.",
+          "key": "version",
+          "type": "string",
+          "default": 17,
+          "label": "Graph Version"
+        }
+      ]
+    },
+    "createCampaign": {
+      "display": {
+        "label": "Create Campaign",
+        "description": "Creates a new campaign"
+      },
+      "key": "createCampaign",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "act_342512647855388",
+          "comments": "Provide the identifier of an Ad Account. This value can either be an Id, or the name of the account.",
+          "key": "adAccountId",
+          "type": "string",
+          "default": "",
+          "label": "Ad Account"
+        },
+        {
+          "required": true,
+          "comments": "special_ad_categories",
+          "model": [
+            {
+              "label": "NONE",
+              "value": "NONE"
+            },
+            {
+              "label": "EMPLOYMENT",
+              "value": "EMPLOYMENT"
+            },
+            {
+              "label": "HOUSING",
+              "value": "HOUSING"
+            },
+            {
+              "label": "CREDIT",
+              "value": "CREDIT"
+            },
+            {
+              "label": "ISSUES_ELECTIONS_POLITICS",
+              "value": "ISSUES_ELECTIONS_POLITICS"
+            },
+            {
+              "label": "ONLINE_GAMBLING_AND_GAMING",
+              "value": "ONLINE_GAMBLING_AND_GAMING"
+            }
+          ],
+          "key": "special_ad_categories",
+          "type": "string",
+          "default": "",
+          "label": "Special Ad Categories"
+        },
+        {
+          "required": false,
+          "comments": "special_ad_category_country",
+          "key": "special_ad_category_country",
+          "type": "string",
+          "default": [
+            "000xxx"
+          ],
+          "collection": "valuelist",
+          "label": "Special Ad Category Country"
+        },
+        {
+          "required": true,
+          "comments": "Name for this campaign",
+          "key": "campaignName",
+          "type": "string",
+          "default": "",
+          "label": "Campaign Name"
+        },
+        {
+          "required": true,
+          "comments": "Campaign's objective. If it is specified the API will validate that any ads created under the campaign match that objective.",
+          "model": [
+            {
+              "label": "APP_INSTALLS",
+              "value": "APP_INSTALLS"
+            },
+            {
+              "label": "BRAND_AWARENESS",
+              "value": "BRAND_AWARENESS"
+            },
+            {
+              "label": "CONVERSIONS",
+              "value": "CONVERSIONS"
+            },
+            {
+              "label": "EVENT_RESPONSES",
+              "value": "EVENT_RESPONSES"
+            },
+            {
+              "label": "LEAD_GENERATION",
+              "value": "LEAD_GENERATION"
+            },
+            {
+              "label": "LINK_CLICKS",
+              "value": "LINK_CLICKS"
+            },
+            {
+              "label": "LOCAL_AWARENESS",
+              "value": "LOCAL_AWARENESS"
+            },
+            {
+              "label": "MESSAGES",
+              "value": "MESSAGES"
+            },
+            {
+              "label": "OFFER_CLAIMS",
+              "value": "OFFER_CLAIMS"
+            },
+            {
+              "label": "OUTCOME_APP_PROMOTION",
+              "value": "OUTCOME_APP_PROMOTION"
+            },
+            {
+              "label": "OUTCOME_AWARENESS",
+              "value": "OUTCOME_AWARENESS"
+            },
+            {
+              "label": "OUTCOME_ENGAGEMENT",
+              "value": "OUTCOME_ENGAGEMENT"
+            },
+            {
+              "label": "OUTCOME_LEADS",
+              "value": "OUTCOME_LEADS"
+            },
+            {
+              "label": "OUTCOME_SALES",
+              "value": "OUTCOME_SALES"
+            },
+            {
+              "label": "OUTCOME_TRAFFIC",
+              "value": "OUTCOME_TRAFFIC"
+            },
+            {
+              "label": "PAGE_LIKES",
+              "value": "PAGE_LIKES"
+            },
+            {
+              "label": "POST_ENGAGEMENT",
+              "value": "POST_ENGAGEMENT"
+            },
+            {
+              "label": "PRODUCT_CATALOG_SALES",
+              "value": "PRODUCT_CATALOG_SALES"
+            },
+            {
+              "label": "REACH",
+              "value": "REACH"
+            },
+            {
+              "label": "STORE_VISITS",
+              "value": "STORE_VISITS"
+            },
+            {
+              "label": "VIDEO_VIEWS",
+              "value": "VIDEO_VIEWS"
+            }
+          ],
+          "key": "objective",
+          "type": "string",
+          "default": "",
+          "label": "Objective"
+        },
+        {
+          "language": "json",
+          "required": false,
+          "comments": "Ad Labels associated with this campaign",
+          "example": "[{\"id\":\"ad Label Id\",\"account\":\"Ad Account\",\"created_time\":\"2012-08-15T00:00:00.000Z\",\"updated_time\":\"2012-08-15T00:00:00.000Z\",\"name\":\"Ad Name\"}]",
+          "key": "adLabels",
+          "type": "code",
+          "default": "",
+          "label": "Ad Labels"
+        },
+        {
+          "required": false,
+          "comments": "Choose bid strategy for this campaign to suit your specific business goals.",
+          "model": [
+            {
+              "label": "LOWEST_COST_WITHOUT_CAP",
+              "value": "LOWEST_COST_WITHOUT_CAP"
+            },
+            {
+              "label": "LOWEST_COST_WITH_BID_CAP",
+              "value": "LOWEST_COST_WITH_BID_CAP"
+            },
+            {
+              "label": "COST_CAP",
+              "value": "COST_CAP"
+            }
+          ],
+          "key": "bid_strategy",
+          "type": "string",
+          "default": "",
+          "label": "Bid Strategy"
+        },
+        {
+          "required": false,
+          "comments": "This field will help Facebook make optimizations to delivery, pricing, and limits. All ad sets in this campaign must match the buying type.",
+          "key": "buying_type",
+          "type": "string",
+          "default": "",
+          "label": "Buying Type"
+        },
+        {
+          "required": false,
+          "comments": "campaign_optimization_type",
+          "model": [
+            {
+              "label": "NONE",
+              "value": "NONE"
+            },
+            {
+              "label": "ICO_ONLY",
+              "value": "ICO_ONLY"
+            }
+          ],
+          "key": "campaign_optimization_type",
+          "type": "string",
+          "default": "",
+          "label": "Campaign Optimization Type"
+        },
+        {
+          "required": false,
+          "comments": "Daily budget of this campaign. All adsets under this campaign will share this budget. You can either set budget at the campaign level or at the adset level, not both.",
+          "key": "daily_budget",
+          "type": "string",
+          "default": "",
+          "label": "Daily Budget"
+        },
+        {
+          "required": false,
+          "comments": "To create an iOS 14 campaign, enable SKAdNetwork attribution for this campaign.",
+          "key": "is_skadnetwork_attribution",
+          "type": "boolean",
+          "default": "false",
+          "label": "Is Skadnetwork Attribution"
+        },
+        {
+          "required": false,
+          "comments": "is_using_l3_schedule",
+          "key": "is_using_l3_schedule",
+          "type": "boolean",
+          "default": "false",
+          "label": "Is Using L3 Schedule"
+        },
+        {
+          "language": "json",
+          "required": false,
+          "comments": "Array of Iterative Split Test Configs created under this campaign .",
+          "key": "iterative_split_test_configs",
+          "type": "code",
+          "default": "",
+          "label": "Iterative Split Test Configs"
+        },
+        {
+          "required": false,
+          "comments": "Lifetime budget of this campaign. All adsets under this campaign will share this budget. You can either set budget at the campaign level or at the adset level, not both.",
+          "key": "lifetime_budget",
+          "type": "string",
+          "default": "",
+          "label": "Lifetime Budget"
+        },
+        {
+          "language": "json",
+          "required": false,
+          "comments": "The object this campaign is promoting across all its ads. It's required for SKAdNetwork or Aggregated Event Measurement campaign creation. Only product_catalog_id is used at the ad set level.",
+          "key": "promoted_object",
+          "type": "code",
+          "default": "",
+          "label": "Promoted Object"
+        },
+        {
+          "required": false,
+          "comments": "Used if a campaign has been copied. The ID from the original campaign that was copied.",
+          "key": "source_campaign_id",
+          "type": "string",
+          "default": "",
+          "label": "Source Campaign Id"
+        },
+        {
+          "required": false,
+          "comments": "A spend cap for the campaign, such that it will not spend more than this cap. Defined as integer value of subunit in your currency with a minimum value of $100 USD (or approximate local equivalent). Set the value to 922337203685478 to remove the spend cap. Not available for Reach and Frequency or Premium Self Serve campaigns",
+          "key": "spend_cap",
+          "type": "string",
+          "default": "",
+          "label": "Spend Cap"
+        },
+        {
+          "required": false,
+          "comments": "start_time",
+          "key": "start_time",
+          "type": "string",
+          "default": "",
+          "label": "Start Time"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "Active",
+              "value": "ACTIVE"
+            },
+            {
+              "label": "Paused",
+              "value": "PAUSED"
+            },
+            {
+              "label": "Deleted",
+              "value": "DELETED"
+            },
+            {
+              "label": "Archived",
+              "value": "ARCHIVED"
+            }
+          ],
+          "comments": "Only ACTIVE and PAUSED are valid during creation. Other statuses can be used for update. If it is set to PAUSED, its active child objects will be paused and have an effective status CAMPAIGN_PAUSED.",
+          "key": "status",
+          "type": "string",
+          "default": "",
+          "label": "Ad Status"
+        },
+        {
+          "required": false,
+          "comments": "stop_time",
+          "key": "stop_time",
+          "type": "string",
+          "default": "",
+          "label": "Stop Time"
+        },
+        {
+          "required": false,
+          "comments": "Topline Id",
+          "key": "topline_id",
+          "type": "string",
+          "default": "",
+          "label": "Topline Id"
+        },
+        {
+          "required": false,
+          "example": "17",
+          "comments": "Provide the version of a graphql.",
+          "key": "version",
+          "type": "string",
+          "default": 17,
+          "label": "Graph Version"
+        }
+      ]
+    }
+  },
+  "triggers": {},
+  "dataSources": {
+    "businessNames": {
+      "display": {
+        "label": "Business Names",
+        "description": "A picklist of business names"
+      },
+      "dataSourceType": "picklist",
+      "key": "businessNames",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "example": "17",
+          "comments": "Provide the version of a graphql.",
+          "key": "version",
+          "type": "string",
+          "default": 17,
+          "label": "Graph Version"
+        }
+      ]
+    }
+  },
+  "documentation": {
+    "description": "[Facebook Marketing](https://developers.facebook.com/docs/marketing-apis/get-started) offers digital marketing for a variety of channels for building communication with your audience.\nThe **Facebook Marketing** component allows you to interact with your ads, adsets, campaigns and more.\n"
+  },
+  "$version": 1
+}

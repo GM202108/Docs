@@ -1,0 +1,1178 @@
+{
+  "key": "persist-data",
+  "documentationUrl": "https://prismatic.io/docs/components/persist-data/",
+  "public": true,
+  "display": {
+    "label": "Persist Data",
+    "description": "Persist small amounts of data that will be available later in the execution or in subsequent executions of the Instance",
+    "iconPath": "icon.png",
+    "category": "Helpers",
+    "iconBase64": "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"
+  },
+  "connections": [],
+  "actions": {
+    "addCrossFlowValueToSet": {
+      "display": {
+        "label": "Cross Flow - Add Value To Set",
+        "description": "Add a value to the set with the specified key, creating the set as needed"
+      },
+      "key": "addCrossFlowValueToSet",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Value",
+          "required": true,
+          "comments": "This is the value that will be stored",
+          "example": "Example Value",
+          "key": "valueInput",
+          "type": "data",
+          "default": "",
+          "label": "Value"
+        }
+      ]
+    },
+    "appendCrossFlowValueToList": {
+      "display": {
+        "label": "Cross Flow - Append Value To List",
+        "description": "Append a value to the list with the specified key, creating the list as needed"
+      },
+      "key": "appendCrossFlowValueToList",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Value",
+          "required": true,
+          "comments": "This is the value that will be stored",
+          "example": "Example Value",
+          "key": "valueInput",
+          "type": "data",
+          "default": "",
+          "label": "Value"
+        }
+      ]
+    },
+    "decrementCrossFlowValue": {
+      "display": {
+        "label": "Cross Flow - Decrement Value",
+        "description": "Decrement the stored integer value with the specified key by the specified amount"
+      },
+      "key": "decrementCrossFlowValue",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Amount",
+          "required": false,
+          "comments": "This is the amount that will be used for incrementing/decrementing",
+          "example": "1",
+          "key": "amountInput",
+          "type": "data",
+          "default": "1",
+          "label": "Amount"
+        }
+      ]
+    },
+    "getCrossFlowValue": {
+      "display": {
+        "label": "Cross Flow - Get Value",
+        "description": "Get the value with the specified key, returning the specified default value if key not present"
+      },
+      "examplePayload": {
+        "data": "Example Saved Value"
+      },
+      "key": "getCrossFlowValue",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Default Value",
+          "required": false,
+          "comments": "This is the value that will be returned if there is no value present",
+          "example": "Example Default Value",
+          "key": "defaultValueInput",
+          "type": "data",
+          "default": "",
+          "label": "Default Value"
+        }
+      ]
+    },
+    "incrementCrossFlowValue": {
+      "display": {
+        "label": "Cross Flow - Increment Value",
+        "description": "Increment the stored integer value with the specified key by the specified amount"
+      },
+      "key": "incrementCrossFlowValue",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Amount",
+          "required": false,
+          "comments": "This is the amount that will be used for incrementing/decrementing",
+          "example": "1",
+          "key": "amountInput",
+          "type": "data",
+          "default": "1",
+          "label": "Amount"
+        }
+      ]
+    },
+    "listCrossFlowKeys": {
+      "display": {
+        "label": "Cross Flow - List Keys",
+        "description": "List all keys persisted at the cross-flow level"
+      },
+      "key": "listCrossFlowKeys",
+      "inputs": []
+    },
+    "removeCrossFlowState": {
+      "display": {
+        "label": "Cross Flow - Clear All State",
+        "description": "Delete all cross-flow state stored for this instance"
+      },
+      "key": "removeCrossFlowState",
+      "inputs": []
+    },
+    "removeCrossFlowValue": {
+      "display": {
+        "label": "Cross Flow - Remove Value",
+        "description": "Remove the value with the specified key"
+      },
+      "key": "removeCrossFlowValue",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        }
+      ]
+    },
+    "removeCrossFlowValueFromList": {
+      "display": {
+        "label": "Cross Flow - Remove Value From List",
+        "description": "Remove the value from the list with the specified key"
+      },
+      "key": "removeCrossFlowValueFromList",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Value",
+          "required": true,
+          "comments": "This is the value that will be removed",
+          "example": "Example Value",
+          "key": "valueInput",
+          "type": "data",
+          "default": "",
+          "label": "Value"
+        }
+      ]
+    },
+    "removeCrossFlowValueFromSet": {
+      "display": {
+        "label": "Cross Flow - Remove Value From Set",
+        "description": "Remove the value from the set with the specified key"
+      },
+      "key": "removeCrossFlowValueFromSet",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Value",
+          "required": true,
+          "comments": "This is the value that will be removed",
+          "example": "Example Value",
+          "key": "valueInput",
+          "type": "data",
+          "default": "",
+          "label": "Value"
+        }
+      ]
+    },
+    "saveCrossFlowCurrentTime": {
+      "display": {
+        "label": "Cross Flow - Save Current Time",
+        "description": "Save the current time in UTC using the specified key"
+      },
+      "key": "saveCrossFlowCurrentTime",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        }
+      ]
+    },
+    "saveCrossFlowValue": {
+      "display": {
+        "label": "Cross Flow - Save Value",
+        "description": "Save a value with the specified key for use at a later time"
+      },
+      "key": "saveCrossFlowValue",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Value",
+          "required": true,
+          "comments": "This is the value that will be stored",
+          "example": "Example Value",
+          "key": "valueInput",
+          "type": "data",
+          "default": "",
+          "label": "Value"
+        }
+      ]
+    },
+    "addExecutionValueToSet": {
+      "display": {
+        "label": "Execution - Add Value To Set",
+        "description": "Add a value to the set with the specified key, creating the set as needed"
+      },
+      "key": "addExecutionValueToSet",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Value",
+          "required": true,
+          "comments": "This is the value that will be stored",
+          "example": "Example Value",
+          "key": "valueInput",
+          "type": "data",
+          "default": "",
+          "label": "Value"
+        }
+      ]
+    },
+    "appendExecutionValueToList": {
+      "display": {
+        "label": "Execution - Append Value To List",
+        "description": "Append a value to the list with the specified key, creating the list as needed"
+      },
+      "key": "appendExecutionValueToList",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Value",
+          "required": true,
+          "comments": "This is the value that will be stored",
+          "example": "Example Value",
+          "key": "valueInput",
+          "type": "data",
+          "default": "",
+          "label": "Value"
+        }
+      ]
+    },
+    "decrementExecutionValue": {
+      "display": {
+        "label": "Execution - Decrement Value",
+        "description": "Decrement the stored integer value with the specified key by the specified amount"
+      },
+      "key": "decrementExecutionValue",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Amount",
+          "required": false,
+          "comments": "This is the amount that will be used for incrementing/decrementing",
+          "example": "1",
+          "key": "amountInput",
+          "type": "data",
+          "default": "1",
+          "label": "Amount"
+        }
+      ]
+    },
+    "getExecutionValue": {
+      "display": {
+        "label": "Execution - Get Value",
+        "description": "Get the value with the specified key, returning the specified default value if key not present"
+      },
+      "examplePayload": {
+        "data": "Example Saved Value"
+      },
+      "key": "getExecutionValue",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Default Value",
+          "required": false,
+          "comments": "This is the value that will be returned if there is no value present",
+          "example": "Example Default Value",
+          "key": "defaultValueInput",
+          "type": "data",
+          "default": "",
+          "label": "Default Value"
+        }
+      ]
+    },
+    "incrementExecutionValue": {
+      "display": {
+        "label": "Execution - Increment Value",
+        "description": "Increment the stored integer value with the specified key by the specified amount"
+      },
+      "key": "incrementExecutionValue",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Amount",
+          "required": false,
+          "comments": "This is the amount that will be used for incrementing/decrementing",
+          "example": "1",
+          "key": "amountInput",
+          "type": "data",
+          "default": "1",
+          "label": "Amount"
+        }
+      ]
+    },
+    "listExecutionKeys": {
+      "display": {
+        "label": "Execution - List Keys",
+        "description": "List all keys persisted at the execution level"
+      },
+      "key": "listExecutionKeys",
+      "inputs": []
+    },
+    "removeExecutionState": {
+      "display": {
+        "label": "Execution - Clear All State",
+        "description": "Delete all execution state"
+      },
+      "key": "removeExecutionState",
+      "inputs": []
+    },
+    "removeExecutionValue": {
+      "display": {
+        "label": "Execution - Remove Value",
+        "description": "Remove the value with the specified key"
+      },
+      "key": "removeExecutionValue",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        }
+      ]
+    },
+    "removeExecutionValueFromList": {
+      "display": {
+        "label": "Execution - Remove Value From List",
+        "description": "Remove the value from the list with the specified key"
+      },
+      "key": "removeExecutionValueFromList",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Value",
+          "required": true,
+          "comments": "This is the value that will be removed",
+          "example": "Example Value",
+          "key": "valueInput",
+          "type": "data",
+          "default": "",
+          "label": "Value"
+        }
+      ]
+    },
+    "removeExecutionValueFromSet": {
+      "display": {
+        "label": "Execution - Remove Value From Set",
+        "description": "Remove the value from the set with the specified key"
+      },
+      "key": "removeExecutionValueFromSet",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Value",
+          "required": true,
+          "comments": "This is the value that will be removed",
+          "example": "Example Value",
+          "key": "valueInput",
+          "type": "data",
+          "default": "",
+          "label": "Value"
+        }
+      ]
+    },
+    "saveExecutionCurrentTime": {
+      "display": {
+        "label": "Execution - Save Current Time",
+        "description": "Save the current time in UTC using the specified key"
+      },
+      "key": "saveExecutionCurrentTime",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        }
+      ]
+    },
+    "saveExecutionValue": {
+      "display": {
+        "label": "Execution - Save Value",
+        "description": "Save a value with the specified key for use at a later time"
+      },
+      "key": "saveExecutionValue",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Value",
+          "required": true,
+          "comments": "This is the value that will be stored",
+          "example": "Example Value",
+          "key": "valueInput",
+          "type": "data",
+          "default": "",
+          "label": "Value"
+        }
+      ]
+    },
+    "addInstanceValueToSet": {
+      "display": {
+        "label": "Flow - Add Value To Set",
+        "description": "Add a value to the set with the specified key, creating the set as needed"
+      },
+      "key": "addInstanceValueToSet",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Value",
+          "required": true,
+          "comments": "This is the value that will be stored",
+          "example": "Example Value",
+          "key": "valueInput",
+          "type": "data",
+          "default": "",
+          "label": "Value"
+        }
+      ]
+    },
+    "appendInstanceValueToList": {
+      "display": {
+        "label": "Flow - Append Value To List",
+        "description": "Append a value to the list with the specified key, creating the list as needed"
+      },
+      "key": "appendInstanceValueToList",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Value",
+          "required": true,
+          "comments": "This is the value that will be stored",
+          "example": "Example Value",
+          "key": "valueInput",
+          "type": "data",
+          "default": "",
+          "label": "Value"
+        }
+      ]
+    },
+    "decrementInstanceValue": {
+      "display": {
+        "label": "Flow - Decrement Value",
+        "description": "Decrement the stored integer value with the specified key by the specified amount"
+      },
+      "key": "decrementInstanceValue",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Amount",
+          "required": false,
+          "comments": "This is the amount that will be used for incrementing/decrementing",
+          "example": "1",
+          "key": "amountInput",
+          "type": "data",
+          "default": "1",
+          "label": "Amount"
+        }
+      ]
+    },
+    "getInstanceValue": {
+      "display": {
+        "label": "Flow - Get Value",
+        "description": "Get the value with the specified key, returning the specified default value if key not present"
+      },
+      "examplePayload": {
+        "data": "Example Saved Value"
+      },
+      "key": "getInstanceValue",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Default Value",
+          "required": false,
+          "comments": "This is the value that will be returned if there is no value present",
+          "example": "Example Default Value",
+          "key": "defaultValueInput",
+          "type": "data",
+          "default": "",
+          "label": "Default Value"
+        }
+      ]
+    },
+    "incrementInstanceValue": {
+      "display": {
+        "label": "Flow - Increment Value",
+        "description": "Increment the stored integer value with the specified key by the specified amount"
+      },
+      "key": "incrementInstanceValue",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Amount",
+          "required": false,
+          "comments": "This is the amount that will be used for incrementing/decrementing",
+          "example": "1",
+          "key": "amountInput",
+          "type": "data",
+          "default": "1",
+          "label": "Amount"
+        }
+      ]
+    },
+    "listInstanceKeys": {
+      "display": {
+        "label": "Flow - List Keys",
+        "description": "List all keys persisted at the flow level"
+      },
+      "key": "listInstanceKeys",
+      "inputs": []
+    },
+    "removeInstanceState": {
+      "display": {
+        "label": "Flow - Clear All State",
+        "description": "Delete all flow state stored for this instance"
+      },
+      "key": "removeInstanceState",
+      "inputs": []
+    },
+    "removeInstanceValue": {
+      "display": {
+        "label": "Flow - Remove Value",
+        "description": "Remove the value with the specified key"
+      },
+      "key": "removeInstanceValue",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        }
+      ]
+    },
+    "removeInstanceValueFromList": {
+      "display": {
+        "label": "Flow - Remove Value From List",
+        "description": "Remove the value from the list with the specified key"
+      },
+      "key": "removeInstanceValueFromList",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Value",
+          "required": true,
+          "comments": "This is the value that will be removed",
+          "example": "Example Value",
+          "key": "valueInput",
+          "type": "data",
+          "default": "",
+          "label": "Value"
+        }
+      ]
+    },
+    "removeInstanceValueFromSet": {
+      "display": {
+        "label": "Flow - Remove Value From Set",
+        "description": "Remove the value from the set with the specified key"
+      },
+      "key": "removeInstanceValueFromSet",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Value",
+          "required": true,
+          "comments": "This is the value that will be removed",
+          "example": "Example Value",
+          "key": "valueInput",
+          "type": "data",
+          "default": "",
+          "label": "Value"
+        }
+      ]
+    },
+    "saveInstanceCurrentTime": {
+      "display": {
+        "label": "Flow - Save Current Time",
+        "description": "Save the current time in UTC using the specified key"
+      },
+      "key": "saveInstanceCurrentTime",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        }
+      ]
+    },
+    "saveInstanceValue": {
+      "display": {
+        "label": "Flow - Save Value",
+        "description": "Save a value with the specified key for use at a later time"
+      },
+      "key": "saveInstanceValue",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Value",
+          "required": true,
+          "comments": "This is the value that will be stored",
+          "example": "Example Value",
+          "key": "valueInput",
+          "type": "data",
+          "default": "",
+          "label": "Value"
+        }
+      ]
+    },
+    "addIntegrationValueToSet": {
+      "display": {
+        "label": "Integration - Add Value To Set",
+        "description": "Add a value to the set with the specified key, creating the set as needed"
+      },
+      "key": "addIntegrationValueToSet",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Value",
+          "required": true,
+          "comments": "This is the value that will be stored",
+          "example": "Example Value",
+          "key": "valueInput",
+          "type": "data",
+          "default": "",
+          "label": "Value"
+        }
+      ]
+    },
+    "appendIntegrationValueToList": {
+      "display": {
+        "label": "Integration - Append Value To List",
+        "description": "Append a value to the list with the specified key, creating the list as needed"
+      },
+      "key": "appendIntegrationValueToList",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Value",
+          "required": true,
+          "comments": "This is the value that will be stored",
+          "example": "Example Value",
+          "key": "valueInput",
+          "type": "data",
+          "default": "",
+          "label": "Value"
+        }
+      ]
+    },
+    "decrementIntegrationValue": {
+      "display": {
+        "label": "Integration - Decrement Value",
+        "description": "Decrement the stored integer value with the specified key by the specified amount"
+      },
+      "key": "decrementIntegrationValue",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Amount",
+          "required": false,
+          "comments": "This is the amount that will be used for incrementing/decrementing",
+          "example": "1",
+          "key": "amountInput",
+          "type": "data",
+          "default": "1",
+          "label": "Amount"
+        }
+      ]
+    },
+    "getIntegrationValue": {
+      "display": {
+        "label": "Integration - Get Value",
+        "description": "Get the value with the specified key, returning the specified default value if key not present"
+      },
+      "examplePayload": {
+        "data": "Example Saved Value"
+      },
+      "key": "getIntegrationValue",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Default Value",
+          "required": false,
+          "comments": "This is the value that will be returned if there is no value present",
+          "example": "Example Default Value",
+          "key": "defaultValueInput",
+          "type": "data",
+          "default": "",
+          "label": "Default Value"
+        }
+      ]
+    },
+    "incrementIntegrationValue": {
+      "display": {
+        "label": "Integration - Increment Value",
+        "description": "Increment the stored integer value with the specified key by the specified amount"
+      },
+      "key": "incrementIntegrationValue",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Amount",
+          "required": false,
+          "comments": "This is the amount that will be used for incrementing/decrementing",
+          "example": "1",
+          "key": "amountInput",
+          "type": "data",
+          "default": "1",
+          "label": "Amount"
+        }
+      ]
+    },
+    "listIntegrationKeys": {
+      "display": {
+        "label": "Integration - List Keys",
+        "description": "List all keys persisted at the integration level"
+      },
+      "key": "listIntegrationKeys",
+      "inputs": []
+    },
+    "removeIntegrationState": {
+      "display": {
+        "label": "Integration - Clear All State",
+        "description": "Delete all integration state stored for all instances of this integration"
+      },
+      "key": "removeIntegrationState",
+      "inputs": []
+    },
+    "removeIntegrationValue": {
+      "display": {
+        "label": "Integration - Remove Value",
+        "description": "Remove the value with the specified key"
+      },
+      "key": "removeIntegrationValue",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        }
+      ]
+    },
+    "removeIntegrationValueFromList": {
+      "display": {
+        "label": "Integration - Remove Value From List",
+        "description": "Remove the value from the list with the specified key"
+      },
+      "key": "removeIntegrationValueFromList",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Value",
+          "required": true,
+          "comments": "This is the value that will be removed",
+          "example": "Example Value",
+          "key": "valueInput",
+          "type": "data",
+          "default": "",
+          "label": "Value"
+        }
+      ]
+    },
+    "removeIntegrationValueFromSet": {
+      "display": {
+        "label": "Integration - Remove Value From Set",
+        "description": "Remove the value from the set with the specified key"
+      },
+      "key": "removeIntegrationValueFromSet",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Value",
+          "required": true,
+          "comments": "This is the value that will be removed",
+          "example": "Example Value",
+          "key": "valueInput",
+          "type": "data",
+          "default": "",
+          "label": "Value"
+        }
+      ]
+    },
+    "saveIntegrationCurrentTime": {
+      "display": {
+        "label": "Integration - Save Current Time",
+        "description": "Save the current time in UTC using the specified key"
+      },
+      "key": "saveIntegrationCurrentTime",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        }
+      ]
+    },
+    "saveIntegrationValue": {
+      "display": {
+        "label": "Integration - Save Value",
+        "description": "Save a value with the specified key for use at a later time"
+      },
+      "key": "saveIntegrationValue",
+      "inputs": [
+        {
+          "placeholder": "Key",
+          "required": true,
+          "comments": "This is the key that will be used to refer to the stored value",
+          "example": "Example Key",
+          "key": "keyInput",
+          "type": "data",
+          "default": "",
+          "label": "Key"
+        },
+        {
+          "placeholder": "Value",
+          "required": true,
+          "comments": "This is the value that will be stored",
+          "example": "Example Value",
+          "key": "valueInput",
+          "type": "data",
+          "default": "",
+          "label": "Value"
+        }
+      ]
+    }
+  },
+  "triggers": {},
+  "dataSources": {},
+  "documentation": {
+    "description": "The **persist data** component provides functionality to persist small amounts of data for use during an integration execution or in subsequent integration executions.\nThis is helpful if you want to save a bit of data during an integration invocation for use in a later step, or in a subsequent execution.\n",
+    "dev": "For details on how to persist data between flow invocations, see the [building integrations](building-integrations.mdx#persisting-data-between-runs) article.\n\nData can be persisted in three ways:\n\n- For just the duration of the **execution**.\n  Data persists ephemerally for only as long as a flow runs.\n  You might use the `Execution -` actions, for example, as an accumulator in a loop.\n- Between executions of a **specific flow**.\n  Data persists between instance executions and is scoped for a specific flow.\n  One flow cannot access another flow's data.\n  The `Flow -` actions are handy for saving data from one flow's run, and referencing it in a subsequent run of that same flow.\n- Globally, for **all flows** in an instance.\n  Data persists between instance executions and is scoped for the entire instance.\n  The `Cross Flow -` actions let flows within an instance reference one another's persisted data.\n\n:::caution Persisted data implementation\nWhen an execution starts, it loads persisted data from storage.\nWhen the execution finishes, it writes out its state to storage if any state was changed.\n\nNote that if two executions run at the same time, the execution that finishes last will overwrite any state that the first execution wrote.\n:::\n"
+  },
+  "$version": 1
+}

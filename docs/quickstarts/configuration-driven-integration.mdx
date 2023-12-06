@@ -1,0 +1,124 @@
+---
+id: configuration-driven-integration
+title: Configuration-Driven Integration
+description: This quickstart highlights how to build configuration-driven integrations that can be deployed to customers with different setups
+---
+
+import Icon from "@mui/material/Icon";
+import InternalLink from "@site/src/components/internal-link";
+import Screenshot from "@site/src/components/screenshot";
+
+In this quickstart we'll look at how you can use several types of config variables and connections to drive logic in your integration.
+This helps to illustrate how your customers can have instances of the same integration deployed to them, with different configurations.
+
+## Basic config variables
+
+The most basic type of config variable is a simple string.
+A string config variable can have an optional default value, and you can add **Description** helper text to indicate to your end user what type of string the config variable expects.
+
+For example, we can create a config variable that prompts the user for their API endpoint:
+
+<Screenshot
+  filename="quickstarts/configuration-driven-integration/simple-string-config-var.png"
+  alt="Simple string config variable"
+/>
+
+When your user configures an instance of the integration, they're prompted for the string and they're provided the helper text you added:
+
+<Screenshot
+  filename="quickstarts/configuration-driven-integration/simple-string-prompt.png"
+  alt="Simple string prompt"
+  maxWidth="700px"
+/>
+
+You can use the string that your user entered as an input for one or more steps:
+
+<Screenshot
+  filename="quickstarts/configuration-driven-integration/simple-string-as-input.png"
+  alt="Simple string as input"
+  maxWidth="600px"
+/>
+
+Or, you can concatenate the string together with other static strings, config variables, and step results, to generate dynamic inputs for steps:
+
+<Screenshot
+  filename="quickstarts/configuration-driven-integration/simple-string-in-template.png"
+  alt="Simple string in template"
+  maxWidth="600px"
+/>
+
+## Creating dropdown menus and branching from options
+
+If you'd like to limit the options an end user can choose from, select **picklist** as your config variable data type.
+You can generate a list of options that your user can choose from:
+
+<Screenshot
+  filename="quickstarts/configuration-driven-integration/picklist-config-var.png"
+  alt="Picklist config variable"
+  maxWidth="500px"
+/>
+
+When deploying an instance of the integration, your user will see a dropdown menu with the options you created:
+
+<Screenshot
+  filename="quickstarts/configuration-driven-integration/picklist-config-wizard.png"
+  alt="Picklist input in the config wizard"
+  maxWidth="700px"
+/>
+
+These config variables can be used like you use string config variables (above).
+
+You can also drive branching logic from a picklist by adding a branch for each picklist option.
+
+<Screenshot
+  filename="quickstarts/configuration-driven-integration/branch-from-picklist.png"
+  alt="Create a branch from a picklist"
+  maxWidth="800px"
+/>
+
+## Prompting for lists of values
+
+Sometimes it's handy to have a user enter one or more values for a config variable (think "arrays" in JavaScript or "lists" in Python).
+Create a config variable, and select **List** as the **Config Var Type**.
+
+<Screenshot
+  filename="quickstarts/configuration-driven-integration/list-config-var.png"
+  alt="List of strings in a config variable"
+  maxWidth="700px"
+/>
+
+Users can enter one or more values for the config variable
+
+<Screenshot
+  filename="quickstarts/configuration-driven-integration/list-config-wizard.png"
+  alt="List config var in config wizard"
+  maxWidth="550px"
+/>
+
+If you reference that config variable in steps of your integration, the code backing your step will receive an array of strings rather than a single string.
+
+## Branching on boolean config variables
+
+You may want to prompt a user with a "yes/no" question, and drive some logic based on their answer.
+First, create a boolean input.
+
+<Screenshot
+  filename="quickstarts/configuration-driven-integration/boolean-config-var.png"
+  alt="Boolean type config variable"
+  maxWidth="600px"
+/>
+
+The end user will see a simple toggle in their configuration wizard.
+
+<Screenshot
+  filename="quickstarts/configuration-driven-integration/boolean-config-wizard.png"
+  alt="Boolean in the config wizard"
+  maxWidth="200px"
+/>
+
+Create a **Branch on Expression** step, and have one branch run if the value "is true" (otherwise, it'll follow the other branch)
+
+<Screenshot
+  filename="quickstarts/configuration-driven-integration/branch-on-boolean.png"
+  alt="Branch based on boolean config var value"
+/>

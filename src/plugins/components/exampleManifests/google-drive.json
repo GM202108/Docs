@@ -1,0 +1,1377 @@
+{
+  "key": "google-drive",
+  "documentationUrl": "https://prismatic.io/docs/components/google-drive/",
+  "public": true,
+  "display": {
+    "label": "Google Drive",
+    "category": "Data Platforms",
+    "description": "Manage files in Google Drive",
+    "iconPath": "icon.png",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "key": "oauth2",
+      "label": "OAuth2",
+      "comments": "OAuth2 Connection",
+      "oauth2Type": "authorization_code",
+      "iconPath": "oauth-button.png",
+      "inputs": [
+        {
+          "placeholder": "Authorization URL",
+          "required": true,
+          "shown": false,
+          "comments": "The Authorization URL for Google Drive.",
+          "key": "authorizeUrl",
+          "type": "string",
+          "default": "https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&prompt=consent",
+          "label": "Authorize URL"
+        },
+        {
+          "placeholder": "Token URL",
+          "required": true,
+          "shown": false,
+          "comments": "The Token URL for Google Drive.",
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "https://oauth2.googleapis.com/token",
+          "label": "Token URL"
+        },
+        {
+          "placeholder": "Scopes",
+          "required": true,
+          "comments": "Space delimited listing of scopes. https://developers.google.com/identity/protocols/oauth2/scopes#drive",
+          "key": "scopes",
+          "type": "string",
+          "default": "https://www.googleapis.com/auth/drive",
+          "label": "Scopes"
+        },
+        {
+          "placeholder": "Client Identifier",
+          "required": true,
+          "comments": "The Google Drive app's Client Identifier.",
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "Client ID"
+        },
+        {
+          "placeholder": "Client Secret",
+          "required": true,
+          "comments": "The Google Drive app's Client Secret.",
+          "key": "clientSecret",
+          "type": "password",
+          "default": "",
+          "label": "Client Secret"
+        }
+      ],
+      "documentation": {
+        "description": "The Google Drive component authenticates requests through the Google Cloud Platform (GCP) OAuth 2.0 service.\nYou'll need to create a GCP OAuth 2.0 app so your integration can authenticate and perform Google Drive tasks on your customers' behalf.\n\nTo create a Google Drive OAuth 2.0 app, first make sure you have a Google Developer account - you can sign up at [https://console.cloud.google.com/](https://console.cloud.google.com/).\nThen:\n\n1. Open up the Google Drive API console - [https://console.cloud.google.com/apis/api/drive.googleapis.com](https://console.cloud.google.com/apis/api/drive.googleapis.com)\n1. Click **CREATE PROJECT** if you would like to create a new GCP project, or select an existing project.\n1. You will be prompted to enable **Google Drive API** for your project. Click **ENABLE**.\n1. On the sidebar, select **Credentials**.\n1. An OAuth 2.0 app includes a \"Consent Screen\" (the page that asks \"Do you want to allow (Your Company) to access Google Drive on your behalf?\"). Click **CONFIGURE CONSENT SCREEN**.\n    1. Your app will be externally available to your customers, so choose a **User Type** of **External**.\n    1. Fill out the OAuth consent screen with an app name (your company or product's name), support email, app logo, domain, etc.\n    1. You can ignore domains for now.\n    1. On the next page, ignore scopes - this component knows what scopes it needs to run and will request the right scopes for you.\n    1. Enter some **test users** for your testing purposes.\n       Your app will only work for those testing users until it is \"verified\" by Google.\n       When you are ready for verification (they verify your privacy policy statement, etc), click **PUBLISH APP** on the **OAuth consent screen**.\n       That'll allow your customers to authorize your integration to access their Google Drive.\n1. Once your \"Consent Screen\" is configured open the **Credentials** page from the sidebar again.\n1. Click **+CREATE CREDENTIALS** and select **OAuth client ID**.\n    1. Under **Application type** select **Web application**.\n    1. Under **Authorized redirect URIs** enter Prismatic's OAuth 2.0 callback URL: `https://oauth2.prismatic.io/callback`\n    1. Click **CREATE**.\n1. Take note of the **Client ID** and **Client Secret** that are generated.\n\n:::info\nMake sure to **publish** your OAuth 2.0 app after you've tested it so users outside of your _test users_ can authorize your integration to interact with Google Drive on their behalf.\n:::\n\nNow that you have a **Client ID** and **Client Secret**, add Google Drive step to your integration in Prismatic.\nOpen the **Configuration Wizard Designer** by clicking **Configuration Wizard**, select your **Google Drive Connection** and enter your client ID and secret.\nYou will probably want to keep the default [Google Drive scope](https://developers.google.com/identity/protocols/oauth2/scopes#drive), `https://www.googleapis.com/auth/drive`.\n"
+      }
+    }
+  ],
+  "actions": {
+    "getAbout": {
+      "display": {
+        "label": "Get About",
+        "description": "Gets information about the user's Drive, and system capabilities "
+      },
+      "examplePayload": {
+        "data": {
+          "user": {
+            "displayName": "example",
+            "emailAddress": "example@email.com",
+            "kind": "example"
+          }
+        }
+      },
+      "key": "getAbout",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "Provide a comma separated list of values to be returned in the response.",
+          "example": "ParentFolder",
+          "key": "fields",
+          "type": "string",
+          "default": "*",
+          "label": "Fields"
+        }
+      ]
+    },
+    "getFile": {
+      "display": {
+        "label": "Get File",
+        "description": "Gets a file's metadata and content by ID."
+      },
+      "examplePayload": {
+        "data": {
+          "type": "Buffer",
+          "data": [
+            101,
+            120,
+            97,
+            109,
+            112,
+            108,
+            101
+          ]
+        },
+        "contentType": "application/octet"
+      },
+      "key": "getFile",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "File ID",
+          "required": true,
+          "example": "my-example-file-id",
+          "comments": "A unique opaque ID for each file. File IDs are stable throughout the life of the file, even if the file name changes.",
+          "key": "fileId",
+          "type": "string",
+          "default": "",
+          "label": "File ID"
+        },
+        {
+          "required": false,
+          "comments": "Provide the type of file you want to export as. If the value you provided is not compatible, we will attempt the first option available in the objects export types. This value is only required when exporting a non binary file.",
+          "example": "application/x-vnd.oasis.opendocument.spreadsheet",
+          "key": "exportType",
+          "type": "string",
+          "default": "",
+          "label": "Preferred Export Type"
+        }
+      ]
+    },
+    "createFile": {
+      "display": {
+        "label": "Create File",
+        "description": "Create a new file with content and metadata"
+      },
+      "examplePayload": {
+        "data": {
+          "kind": "drive#file",
+          "id": "id_example",
+          "name": "example",
+          "mimeType": "example",
+          "description": "example"
+        }
+      },
+      "key": "createFile",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Folder ID",
+          "required": false,
+          "example": "my-example-folder-id",
+          "comments": "A unique opaque ID for each folder.",
+          "key": "folderId",
+          "type": "string",
+          "default": "",
+          "label": "Parent Folder Id"
+        },
+        {
+          "placeholder": "File Content",
+          "required": true,
+          "example": "My Example File Contents",
+          "comments": "The binary or text body of the file. Some content examples you can store in Google Drive are images, videos, text, and PDF.",
+          "key": "fileContent",
+          "type": "string",
+          "default": "",
+          "label": "File Content"
+        },
+        {
+          "placeholder": "File Name",
+          "required": true,
+          "example": "myFile",
+          "comments": "Provide a string for the name of the new file.",
+          "key": "fileName",
+          "type": "string",
+          "default": "",
+          "label": "File Name"
+        },
+        {
+          "required": false,
+          "comments": "Provide a comma separated list of values to be returned in the response.",
+          "example": "ParentFolder",
+          "key": "fields",
+          "type": "string",
+          "default": "*",
+          "label": "Fields"
+        }
+      ]
+    },
+    "listFiles": {
+      "display": {
+        "label": "List Files",
+        "description": "Lists all available files and directories"
+      },
+      "examplePayload": {
+        "data": {
+          "files": [
+            {
+              "name": "example",
+              "description": "example"
+            }
+          ]
+        }
+      },
+      "key": "listFiles",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "The ID of a shared drive to search for the file in. If not provided, the search will be performed across all drives.",
+          "example": "0AAvGyortvuqEXAMPLE",
+          "key": "driveId",
+          "type": "string",
+          "default": "",
+          "label": "Drive ID"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 50.",
+          "example": "20",
+          "key": "pageSize",
+          "type": "string",
+          "default": "",
+          "label": "Page Size"
+        },
+        {
+          "required": false,
+          "comments": "Specify the pagination token that's returned by a previous request to retrieve the next page of results",
+          "example": "lslTXFcbLQKkb0vP9Kgh5hy0Y0OnC7Z9ZPHPwPmMnxSk3eiDRMkct7D8E",
+          "key": "pageToken",
+          "type": "string",
+          "default": "",
+          "label": "Page Token"
+        },
+        {
+          "required": false,
+          "comments": "Provide a comma separated list of values to be returned in the response.",
+          "example": "ParentFolder",
+          "key": "fields",
+          "type": "string",
+          "default": "*",
+          "label": "Fields"
+        },
+        {
+          "required": false,
+          "comments": "Provide a query to be used in the request. Refer to the Google documentation for examples: https://developers.google.com/drive/api/v3/search-files",
+          "example": "organizerCount = 0",
+          "key": "query",
+          "type": "string",
+          "default": "",
+          "label": "Query"
+        }
+      ]
+    },
+    "copyFile": {
+      "display": {
+        "label": "Copy File",
+        "description": "Copy a file by file id"
+      },
+      "examplePayload": {
+        "data": {
+          "name": "example",
+          "description": "example"
+        }
+      },
+      "key": "copyFile",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "File ID",
+          "required": true,
+          "example": "my-example-file-id",
+          "comments": "A unique opaque ID for each file. File IDs are stable throughout the life of the file, even if the file name changes.",
+          "key": "fileId",
+          "type": "string",
+          "default": "",
+          "label": "File ID"
+        },
+        {
+          "placeholder": "File Name",
+          "required": false,
+          "example": "myFile",
+          "comments": "Provide a string for the name of the new file.",
+          "key": "fileName",
+          "type": "string",
+          "default": "",
+          "label": "File Name"
+        },
+        {
+          "placeholder": "Folder ID",
+          "required": false,
+          "example": "my-example-folder-id",
+          "comments": "A unique opaque ID for each folder.",
+          "key": "folderId",
+          "type": "string",
+          "default": "",
+          "label": "Folder ID"
+        }
+      ]
+    },
+    "updateFile": {
+      "display": {
+        "label": "Update File",
+        "description": "Updates a file's content by file id"
+      },
+      "examplePayload": {
+        "data": {
+          "kind": "drive#file",
+          "id": "id_example",
+          "name": "example",
+          "mimeType": "example",
+          "description": "example"
+        }
+      },
+      "key": "updateFile",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "File ID",
+          "required": true,
+          "example": "my-example-file-id",
+          "comments": "A unique opaque ID for each file. File IDs are stable throughout the life of the file, even if the file name changes.",
+          "key": "fileId",
+          "type": "string",
+          "default": "",
+          "label": "File ID"
+        },
+        {
+          "placeholder": "File Content",
+          "required": false,
+          "example": "My Example File Contents",
+          "comments": "The binary or text body of the file. Some content examples you can store in Google Drive are images, videos, text, and PDF.",
+          "key": "fileContent",
+          "type": "string",
+          "default": "",
+          "label": "File Content"
+        },
+        {
+          "placeholder": "File Name",
+          "required": false,
+          "example": "myFile",
+          "comments": "Provide a string for the name of the new file.",
+          "key": "fileName",
+          "type": "string",
+          "default": "",
+          "label": "File Name"
+        },
+        {
+          "required": false,
+          "comments": "Provide a comma separated list of values to be returned in the response.",
+          "example": "ParentFolder",
+          "key": "fields",
+          "type": "string",
+          "default": "*",
+          "label": "Fields"
+        }
+      ]
+    },
+    "deleteFile": {
+      "display": {
+        "label": "Delete File",
+        "description": "Delete a file by file id"
+      },
+      "key": "deleteFile",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "File ID",
+          "required": true,
+          "example": "my-example-file-id",
+          "comments": "A unique opaque ID for each file. File IDs are stable throughout the life of the file, even if the file name changes.",
+          "key": "fileId",
+          "type": "string",
+          "default": "",
+          "label": "File ID"
+        },
+        {
+          "required": false,
+          "comments": "Provide a comma separated list of values to be returned in the response.",
+          "example": "ParentFolder",
+          "key": "fields",
+          "type": "string",
+          "default": "*",
+          "label": "Fields"
+        }
+      ]
+    },
+    "emptyTrash": {
+      "display": {
+        "label": "Empty Trash",
+        "description": "Empty the trash of deleted files"
+      },
+      "key": "emptyTrash",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "createFolder": {
+      "display": {
+        "label": "Create Folder",
+        "description": "Create a directory file"
+      },
+      "examplePayload": {
+        "data": {
+          "name": "example",
+          "description": "example"
+        }
+      },
+      "key": "createFolder",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Folder Name",
+          "required": true,
+          "example": "Pictures",
+          "comments": "Provide a string for the name of the new folder.",
+          "key": "folderName",
+          "type": "string",
+          "default": "",
+          "label": "Folder Name"
+        }
+      ]
+    },
+    "listFolders": {
+      "display": {
+        "label": "List Folders",
+        "description": "Lists all available directories"
+      },
+      "examplePayload": {
+        "data": {
+          "files": [
+            {
+              "name": "example",
+              "description": "example"
+            }
+          ]
+        }
+      },
+      "key": "listFolders",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "The ID of a shared drive to search for the file in. If not provided, the search will be performed across all drives.",
+          "example": "0AAvGyortvuqEXAMPLE",
+          "key": "driveId",
+          "type": "string",
+          "default": "",
+          "label": "Drive ID"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 50.",
+          "example": "20",
+          "key": "pageSize",
+          "type": "string",
+          "default": "",
+          "label": "Page Size"
+        },
+        {
+          "required": false,
+          "comments": "Specify the pagination token that's returned by a previous request to retrieve the next page of results",
+          "example": "lslTXFcbLQKkb0vP9Kgh5hy0Y0OnC7Z9ZPHPwPmMnxSk3eiDRMkct7D8E",
+          "key": "pageToken",
+          "type": "string",
+          "default": "",
+          "label": "Page Token"
+        },
+        {
+          "required": false,
+          "comments": "Provide a comma separated list of values to be returned in the response.",
+          "example": "ParentFolder",
+          "key": "fields",
+          "type": "string",
+          "default": "*",
+          "label": "Fields"
+        },
+        {
+          "placeholder": "Folder ID",
+          "required": false,
+          "example": "my-example-folder-id",
+          "comments": "A unique opaque ID for each folder.",
+          "key": "folderId",
+          "type": "string",
+          "default": "",
+          "label": "Folder ID"
+        }
+      ]
+    },
+    "rawRequest": {
+      "display": {
+        "label": "Raw Request",
+        "description": "Send a raw HTTP request to Google Drive API"
+      },
+      "key": "rawRequest",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "Input the path only (/files), The base URL is already included (https://www.googleapis.com/drive/v3). For example, to connect to https://www.googleapis.com/drive/v3/files, only /files is entered in this field.",
+          "example": "/files",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "The file name to apply to a file",
+          "required": false,
+          "comments": "File names to apply to the file data inputs. Keys must match the file data keys above.",
+          "key": "fileDataFileNames",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data File Names"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        }
+      ]
+    },
+    "searchFolders": {
+      "display": {
+        "label": "Search Folders",
+        "description": "Search for an existing directory by Name"
+      },
+      "examplePayload": {
+        "data": {
+          "files": [
+            {
+              "name": "example",
+              "description": "example"
+            }
+          ]
+        }
+      },
+      "key": "searchFolders",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string of text to perform a search with.",
+          "example": "Search for this string",
+          "key": "searchQuery",
+          "type": "string",
+          "default": "",
+          "label": "Search"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 50.",
+          "example": "20",
+          "key": "pageSize",
+          "type": "string",
+          "default": "",
+          "label": "Page Size"
+        },
+        {
+          "required": false,
+          "comments": "Specify the pagination token that's returned by a previous request to retrieve the next page of results",
+          "example": "lslTXFcbLQKkb0vP9Kgh5hy0Y0OnC7Z9ZPHPwPmMnxSk3eiDRMkct7D8E",
+          "key": "pageToken",
+          "type": "string",
+          "default": "",
+          "label": "Page Token"
+        },
+        {
+          "required": false,
+          "comments": "Provide a comma separated list of values to be returned in the response.",
+          "example": "ParentFolder",
+          "key": "fields",
+          "type": "string",
+          "default": "*",
+          "label": "Fields"
+        },
+        {
+          "placeholder": "Folder ID",
+          "required": false,
+          "example": "my-example-folder-id",
+          "comments": "A unique opaque ID for each folder.",
+          "key": "folderId",
+          "type": "string",
+          "default": "",
+          "label": "Parent Folder Id"
+        }
+      ]
+    },
+    "listExportTypes": {
+      "display": {
+        "label": "List File's Export Types",
+        "description": "List the available export types of a file by ID."
+      },
+      "examplePayload": {
+        "data": [
+          "application/x-vnd.oasis.opendocument.spreadsheet",
+          "text/tab-separated-values",
+          "application/pdf",
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "text/csv",
+          "application/zip",
+          "application/vnd.oasis.opendocument.spreadsheet"
+        ]
+      },
+      "key": "listExportTypes",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "File ID",
+          "required": true,
+          "example": "my-example-file-id",
+          "comments": "A unique opaque ID for each file. File IDs are stable throughout the life of the file, even if the file name changes.",
+          "key": "fileId",
+          "type": "string",
+          "default": "",
+          "label": "File ID"
+        }
+      ]
+    },
+    "searchFiles": {
+      "display": {
+        "label": "Search Files",
+        "description": "Search for an existing file by Name"
+      },
+      "key": "searchFiles",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "Provide a string of text to perform a search with.",
+          "example": "Search for this string",
+          "key": "searchQuery",
+          "type": "string",
+          "default": "",
+          "label": "Search"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 50.",
+          "example": "20",
+          "key": "pageSize",
+          "type": "string",
+          "default": "",
+          "label": "Page Size"
+        },
+        {
+          "required": false,
+          "comments": "Specify the pagination token that's returned by a previous request to retrieve the next page of results",
+          "example": "lslTXFcbLQKkb0vP9Kgh5hy0Y0OnC7Z9ZPHPwPmMnxSk3eiDRMkct7D8E",
+          "key": "pageToken",
+          "type": "string",
+          "default": "",
+          "label": "Page Token"
+        },
+        {
+          "required": false,
+          "comments": "Provide a comma separated list of values to be returned in the response.",
+          "example": "ParentFolder",
+          "key": "fields",
+          "type": "string",
+          "default": "*",
+          "label": "Fields"
+        },
+        {
+          "required": false,
+          "comments": "Provide a query to be used in the request. Refer to the Google documentation for examples: https://developers.google.com/drive/api/v3/search-files",
+          "example": "organizerCount = 0",
+          "key": "query",
+          "type": "string",
+          "default": "",
+          "label": "Query"
+        },
+        {
+          "placeholder": "Folder ID",
+          "required": false,
+          "example": "my-example-folder-id",
+          "comments": "A unique opaque ID for each folder.",
+          "key": "folderId",
+          "type": "string",
+          "default": "",
+          "label": "Parent Folder Id"
+        }
+      ]
+    },
+    "listDrives": {
+      "display": {
+        "label": "List Drives",
+        "description": "List all drives"
+      },
+      "key": "listDrives",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listChanges": {
+      "display": {
+        "label": "List Changes",
+        "description": "List changes made to files in your Google Drive since the last time this step ran (up to 1000)"
+      },
+      "examplePayload": {
+        "data": {
+          "kind": "drive#changeList",
+          "newStartPageToken": "247040",
+          "changes": [
+            {
+              "kind": "drive#change",
+              "removed": false,
+              "file": {
+                "kind": "drive#file",
+                "mimeType": "image/png",
+                "id": "14FSE_ESVGWta4XlzWGHVm0VultNS-1uO",
+                "name": "example.png"
+              },
+              "fileId": "14FSE_ESVGWta4XlzWGHVm0VultNS-1uO",
+              "time": "2022-09-20T21:36:23.687Z",
+              "type": "file",
+              "changeType": "file"
+            }
+          ]
+        },
+        "instanceState": {
+          "example-step-id": "example-new-page-token"
+        }
+      },
+      "key": "listChanges",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "The ID of a shared drive to search for the file in. If not provided, the search will be performed across all drives.",
+          "example": "0AAvGyortvuqEXAMPLE",
+          "key": "driveId",
+          "type": "string",
+          "default": "",
+          "label": "Drive ID"
+        }
+      ],
+      "documentation": {
+        "description": "The first time this action runs, it takes note of the current `pageToken` returned by Google, and returns no changes.\nSubsequent runs of this step use that `pageToken` to determine what has changed since the last time this step ran.\n"
+      }
+    },
+    "createDriveWebhook": {
+      "display": {
+        "label": "Create Webhook for Drive",
+        "description": "Create a webhook to receive notifications of changes with a Google Drive"
+      },
+      "key": "createDriveWebhook",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "The ID of a shared drive to search for the file in. If not provided, the search will be performed across all drives.",
+          "example": "0AAvGyortvuqEXAMPLE",
+          "key": "driveId",
+          "type": "string",
+          "default": "",
+          "label": "Drive ID"
+        },
+        {
+          "comments": "The URL to send notifications to",
+          "required": true,
+          "example": "https://hooks.prismatic.io/example",
+          "key": "endpoint",
+          "type": "string",
+          "default": "",
+          "label": "Endpoint"
+        },
+        {
+          "required": false,
+          "comments": "The time at which the webhook will expire as a UNIX timestamp in milliseconds. Defaults to 1 hour from now, and can be set to a maximum of 1 day from now.",
+          "example": "1426325213000",
+          "key": "expiration",
+          "type": "string",
+          "default": "",
+          "label": "Expiration Time"
+        }
+      ]
+    },
+    "createFileWebhook": {
+      "display": {
+        "label": "Create Webhook for File or Folder",
+        "description": "Create a webhook to receive notifications of changes for a file or folder"
+      },
+      "key": "createFileWebhook",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "ret08u3rv24htgh289g",
+          "key": "resourceId",
+          "type": "string",
+          "default": "",
+          "label": "File or Folder ID"
+        },
+        {
+          "comments": "The URL to send notifications to",
+          "required": true,
+          "example": "https://hooks.prismatic.io/example",
+          "key": "endpoint",
+          "type": "string",
+          "default": "",
+          "label": "Endpoint"
+        },
+        {
+          "required": false,
+          "comments": "The time at which the webhook will expire as a UNIX timestamp in milliseconds. Defaults to 1 hour from now, and can be set to a maximum of 1 day from now.",
+          "example": "1426325213000",
+          "key": "expiration",
+          "type": "string",
+          "default": "",
+          "label": "Expiration Time"
+        }
+      ]
+    },
+    "deleteWebhook": {
+      "display": {
+        "label": "Delete Webhook",
+        "description": "Stop a webhook channel from sending notifications"
+      },
+      "key": "deleteWebhook",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "00000000-0000-0000-0000-000000000000",
+          "comments": "Returned when you create a webhook",
+          "key": "webhookId",
+          "type": "string",
+          "default": "",
+          "label": "Webhook ID"
+        },
+        {
+          "required": true,
+          "example": "ret08u3rv24htgh289g",
+          "comments": "Returned when you create a webhook",
+          "key": "resourceId",
+          "type": "string",
+          "default": "",
+          "label": "Resource ID"
+        }
+      ]
+    },
+    "getCurrentUser": {
+      "display": {
+        "label": "Get Current User",
+        "description": "Get the information and metadata of the user that is currently logged in"
+      },
+      "examplePayload": {
+        "data": {
+          "kind": "drive#user",
+          "displayName": "Example User",
+          "photoLink": "https://lh3.googleusercontent.com/a/Example",
+          "me": true,
+          "permissionId": "12345678901234567890",
+          "emailAddress": "example@gmail.com"
+        }
+      },
+      "key": "getCurrentUser",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "moveFile": {
+      "display": {
+        "label": "Move File",
+        "description": "Move a file by file ID"
+      },
+      "examplePayload": {
+        "data": {
+          "name": "example",
+          "description": "example"
+        }
+      },
+      "key": "moveFile",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "File ID",
+          "required": true,
+          "example": "my-example-file-id",
+          "comments": "A unique opaque ID for each file. File IDs are stable throughout the life of the file, even if the file name changes.",
+          "key": "fileId",
+          "type": "string",
+          "default": "",
+          "label": "File ID"
+        },
+        {
+          "placeholder": "Folder ID",
+          "required": true,
+          "example": "my-example-folder-id",
+          "comments": "A unique opaque ID for each folder.",
+          "key": "folderId",
+          "type": "string",
+          "default": "",
+          "label": "Folder ID"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "pushNotificationWebhook": {
+      "display": {
+        "label": "Push Notification Webhook",
+        "description": "Trigger for handling Webhook Drive Push Notification"
+      },
+      "synchronousResponseSupport": "invalid",
+      "scheduleSupport": "invalid",
+      "examplePayload": {
+        "payload": {
+          "headers": {
+            "Accept": "*/*",
+            "Accept-Encoding": "gzip, deflate, br",
+            "Host": "hooks.prismatic.io",
+            "User-Agent": "APIs-Google; (+https://developers.google.com/webmasters/APIs-Google.html)",
+            "X-Amz-Cf-Id": "_K9KZtNN78sy1aygl3nJuQ4OoMh65STAsLFsPGENcnm_l68C112345==",
+            "X-Amzn-Trace-Id": "Root=1-64931762-5665c8324c471b204f212345",
+            "X-Goog-Channel-Expiration": "Wed, 21 Jun 2023 16:28:01 GMT",
+            "X-Goog-Channel-ID": "7f0419cf-5477-4bd5-bc86-2aa36af12345",
+            "X-Goog-Message-Number": "96035",
+            "X-Goog-Resource-ID": "jkkJZYhd8PPV6-Xto6QIo112345",
+            "X-Goog-Resource-State": "change",
+            "X-Goog-Resource-URI": "https://www.googleapis.com/drive/v3/changes?alt=json&pageToken=430&supportsAllDrives=true"
+          },
+          "queryParameters": null,
+          "rawBody": {
+            "data": null,
+            "contentType": "application/octet-stream"
+          },
+          "body": {
+            "data": null,
+            "contentType": "application/octet-stream"
+          },
+          "pathFragment": "",
+          "webhookUrls": {
+            "Flow 1": "https://hooks.prismatic.io/trigger/WEBHOOK_ID"
+          },
+          "webhookApiKeys": {
+            "Flow 1": [
+              "sample-api-key"
+            ]
+          },
+          "invokeUrl": "https://hooks.prismatic.io/trigger/WEBHOOK_ID",
+          "executionId": "SW5zdGFuY2VFeGVjdXRpb25SZXN1bHQ6MGRlZjk2ZjYtYzhhOS00MDgzLWJlOTUtZmIwZDMzNDQ12345",
+          "customer": {
+            "id": "testCustomerId",
+            "name": "Test Customer",
+            "externalId": "testCustomerExternalId"
+          },
+          "instance": {
+            "id": "testInstanceId",
+            "name": "Test Instance"
+          },
+          "user": {
+            "id": "testUserId",
+            "email": "testUserEmail@example.com",
+            "name": "Test User",
+            "externalId": "testUserExternalId"
+          }
+        }
+      },
+      "key": "pushNotificationWebhook",
+      "inputs": []
+    }
+  },
+  "dataSources": {
+    "selectDrive": {
+      "display": {
+        "label": "Select Drive",
+        "description": "Select a drive"
+      },
+      "dataSourceType": "picklist",
+      "key": "selectDrive",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "selectFolder": {
+      "display": {
+        "label": "List Folders",
+        "description": "Lists all available directories"
+      },
+      "dataSourceType": "picklist",
+      "key": "selectFolder",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "The ID of a shared drive to search for the file in. If not provided, the search will be performed across all drives.",
+          "example": "0AAvGyortvuqEXAMPLE",
+          "key": "driveId",
+          "type": "string",
+          "default": "",
+          "label": "Drive ID"
+        }
+      ]
+    },
+    "selectFiles": {
+      "display": {
+        "label": "List Files",
+        "description": "Lists all available files"
+      },
+      "dataSourceType": "picklist",
+      "key": "selectFiles",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "The ID of a shared drive to search for the file in. If not provided, the search will be performed across all drives.",
+          "example": "0AAvGyortvuqEXAMPLE",
+          "key": "driveId",
+          "type": "string",
+          "default": "",
+          "label": "Drive ID"
+        },
+        {
+          "required": false,
+          "comments": "Provide a query to be used in the request. Refer to the Google documentation for examples: https://developers.google.com/drive/api/v3/search-files",
+          "example": "organizerCount = 0",
+          "key": "query",
+          "type": "string",
+          "default": "",
+          "label": "Query"
+        },
+        {
+          "required": false,
+          "comments": "Provide an integer value for the maximum amount of results that will be returned. Provide a value from 1 to 50.",
+          "example": "20",
+          "key": "pageSize",
+          "type": "string",
+          "default": "",
+          "label": "Page Size"
+        }
+      ]
+    }
+  },
+  "documentation": {
+    "description": "[Google Drive](https://www.google.com/drive/) is Google's cloud storage for work and home.\nThis component allows you to create, copy, download, update, list, and delete files stored in a Google Drive Account.\n",
+    "dev": "Documentation for the Node.js client used in this component can be found at https://developers.google.com/drive/api/v3/quickstart/nodejs.\n\nA common integration pattern involves listing files in a file store, and performing a series of actions on the array of files that are returned.\nSee our [looping over files](quickstarts/looping-over-files.mdx) quickstart for information about how to create a loop over an array of files.\n\n### Tracking Changes in Google Drive\n\nTo track changes within Google Drive, use the [List Changes](#list-changes) action.\nYou can either run **List Changes** on a schedule with a [schedule trigger](components/schedule-triggers.mdx) (for example, check for changes every 5 minutes), or you can use Google Drive's [change API](https://developers.google.com/drive/api/guides/push) to receive notifications in real time when changes occur.\n\nFor an example of how to use webhooks with Google Drive, import this example integration available on [GitHub](https://github.com/prismatic-io/examples/blob/main/integrations/google-drive-webhooks.yml).\n"
+  },
+  "$version": 1
+}

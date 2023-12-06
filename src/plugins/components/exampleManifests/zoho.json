@@ -1,0 +1,3012 @@
+{
+  "key": "zoho",
+  "public": true,
+  "documentationUrl": "https://prismatic.io/docs/components/zoho/",
+  "display": {
+    "category": "Application Connectors",
+    "label": "Zoho",
+    "description": "Manage records, users, and more in your Zoho CRM and Books apps",
+    "iconPath": "icon.png",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "key": "oauth2",
+      "label": "Zoho OAuth 2.0",
+      "comments": "Zoho OAuth 2.0 Connection",
+      "oauth2Type": "authorization_code",
+      "inputs": [
+        {
+          "placeholder": "Authorize URL",
+          "required": true,
+          "shown": true,
+          "model": [
+            {
+              "label": "United States (https://accounts.zoho.com/oauth/v2/auth)",
+              "value": "https://accounts.zoho.com/oauth/v2/auth?access_type=offline"
+            },
+            {
+              "label": "Europe (https://accounts.zoho.eu/oauth/v2/auth)",
+              "value": "https://accounts.zoho.eu/oauth/v2/auth?access_type=offline"
+            },
+            {
+              "label": "India (https://accounts.zoho.in/oauth/v2/auth)",
+              "value": "https://accounts.zoho.in/oauth/v2/auth?access_type=offline"
+            },
+            {
+              "label": "Australia (https://accounts.zoho.com.au/oauth/v2/auth)",
+              "value": "https://accounts.zoho.com.au/oauth/v2/auth?access_type=offline"
+            },
+            {
+              "label": "Japan (https://accounts.zoho.jp/oauth/v2/auth)",
+              "value": "https://accounts.zoho.jp/oauth/v2/auth?access_type=offline"
+            }
+          ],
+          "key": "authorizeUrl",
+          "type": "string",
+          "default": "",
+          "label": "Authorize URL"
+        },
+        {
+          "placeholder": "Token URL",
+          "required": true,
+          "shown": true,
+          "model": [
+            {
+              "label": "United States (https://accounts.zoho.com/oauth/v2/token)",
+              "value": "https://accounts.zoho.com/oauth/v2/token"
+            },
+            {
+              "label": "Europe (https://accounts.zoho.eu/oauth/v2/token)",
+              "value": "https://accounts.zoho.eu/oauth/v2/token"
+            },
+            {
+              "label": "India (https://accounts.zoho.in/oauth/v2/token)",
+              "value": "https://accounts.zoho.in/oauth/v2/token"
+            },
+            {
+              "label": "Australia (https://accounts.zoho.com.au/oauth/v2/token)",
+              "value": "https://accounts.zoho.com.au/oauth/v2/token"
+            },
+            {
+              "label": "Japan (https://accounts.zoho.jp/oauth/v2/token)",
+              "value": "https://accounts.zoho.jp/oauth/v2/token"
+            }
+          ],
+          "comments": "Choose the region where your Zoho data center is located. Your authorize URL, token URL and revoke URL regions should all match.",
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "",
+          "label": "Token URL"
+        },
+        {
+          "placeholder": "Scopes",
+          "required": true,
+          "shown": true,
+          "comments": "Space separated OAuth 2.0 permission scopes for the Zoho API. Can combine Zoho CRM and Zoho Books scopes.",
+          "key": "scopes",
+          "type": "string",
+          "default": "ZohoCRM.coql.READ ZohoCRM.notifications.ALL ZohoCRM.users.ALL ZohoCRM.org.ALL ZohoCRM.settings.ALL ZohoCRM.modules.ALL ZohoCRM.bulk.ALL ZohoBooks.fullaccess.all",
+          "label": "Scopes"
+        },
+        {
+          "placeholder": "Revoke URL",
+          "required": false,
+          "shown": true,
+          "model": [
+            {
+              "label": "United States (https://accounts.zoho.com/oauth/v2/token/revoke)",
+              "value": "https://accounts.zoho.com/oauth/v2/token/revoke"
+            },
+            {
+              "label": "Europe (https://accounts.zoho.eu/oauth/v2/token/revoke)",
+              "value": "https://accounts.zoho.eu/oauth/v2/token/revoke"
+            },
+            {
+              "label": "India (https://accounts.zoho.in/oauth/v2/token/revoke)",
+              "value": "https://accounts.zoho.in/oauth/v2/token/revoke"
+            },
+            {
+              "label": "Australia (https://accounts.zoho.com.au/oauth/v2/token/revoke)",
+              "value": "https://accounts.zoho.com.au/oauth/v2/token/revoke"
+            },
+            {
+              "label": "Japan (https://accounts.zoho.jp/oauth/v2/token/revoke)",
+              "value": "https://accounts.zoho.jp/oauth/v2/token/revoke"
+            }
+          ],
+          "key": "revokeUrl",
+          "type": "string",
+          "default": "",
+          "label": "Refresh Token Revoke URL"
+        },
+        {
+          "placeholder": "Client ID",
+          "required": true,
+          "shown": true,
+          "comments": "Client Identifier of your app for the Zoho API",
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "Client ID"
+        },
+        {
+          "placeholder": "Client Secret",
+          "required": true,
+          "shown": true,
+          "comments": "Client Secret of your app for the Zoho API",
+          "key": "clientSecret",
+          "type": "password",
+          "default": "",
+          "label": "Client Secret"
+        }
+      ],
+      "documentation": {
+        "description": "To make API requests of Zoho CRM or Zoho Books on behalf of your customers you need to create a Client using the [Zoho Developer Console](https://api-console.zoho.com/).\n\n- Log in to the [Zoho Developer Console](https://api-console.zoho.com/)\n- Click **ADD CLIENT**\n- Choose `Server-based Applications` as the type of client\n- Fill out the Client Name and Homepage URL fields with the relevant details\n- Add `https://oauth2.prismatic.io/callback` under **Authorized Redirect URIs**\n- Note the Client ID and Client Secret values, as these will be important when using the Zoho Connection as part of your Integration\n\nFor more information please see the [Zoho documentation](https://www.zoho.com/crm/developer/docs/api/v3/register-client.html) for creating a new Client.\n\n### Zoho in Multiple Regions\n\nZoho has data centers in the United States, Europe, India, Australia and Japan.\nIf you develop an integration for users in a single region, you can set your authorize and token URLs to their specific region.\nIf you plan to deploy your integration to users in multiple regions, be sure that your app is set up to support multiple data centers.\nThen, configure your connection's **Authorize URL**, **Token URL** and and **Refresh Token Revoke URL** to be visible to customer deployers, so they can update those values to the region they use.\n\n<Screenshot\n  filename=\"components/zoho/visible-customer-deployer.png\"\n  maxWidth=\"500px\"\n/>\n"
+      }
+    }
+  ],
+  "actions": {
+    "crmRawRequest": {
+      "display": {
+        "label": "CRM - Raw Request",
+        "description": "Send Raw Request to Zoho CRM"
+      },
+      "key": "crmRawRequest",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "This is the URL to call.",
+          "example": "/Leads/1234567890/actions/convert",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        }
+      ]
+    },
+    "booksRawRequest": {
+      "display": {
+        "label": "Books - Raw Request",
+        "description": "Send Raw Request to Zoho Books"
+      },
+      "key": "booksRawRequest",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "This is the URL to call.",
+          "example": "/sobjects/Account",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        }
+      ]
+    },
+    "crmGetRecord": {
+      "display": {
+        "label": "CRM - Get Record",
+        "description": "Get a single Zoho CRM Record"
+      },
+      "key": "crmGetRecord",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Record Type",
+          "model": [
+            {
+              "label": "Accounts",
+              "value": "Accounts"
+            },
+            {
+              "label": "Calls",
+              "value": "Calls"
+            },
+            {
+              "label": "Campaigns",
+              "value": "Campaigns"
+            },
+            {
+              "label": "Cases",
+              "value": "Cases"
+            },
+            {
+              "label": "Contacts",
+              "value": "Contacts"
+            },
+            {
+              "label": "Deals",
+              "value": "Deals"
+            },
+            {
+              "label": "Events",
+              "value": "Events"
+            },
+            {
+              "label": "Invoices",
+              "value": "Invoices"
+            },
+            {
+              "label": "Leads",
+              "value": "Leads"
+            },
+            {
+              "label": "Price Books",
+              "value": "Price_Books"
+            },
+            {
+              "label": "Products",
+              "value": "Products"
+            },
+            {
+              "label": "Purchase Orders",
+              "value": "Purchase_Orders"
+            },
+            {
+              "label": "Quotes",
+              "value": "Quotes"
+            },
+            {
+              "label": "Sales Orders",
+              "value": "Sales_Orders"
+            },
+            {
+              "label": "Solutions",
+              "value": "Solutions"
+            },
+            {
+              "label": "Tasks",
+              "value": "Tasks"
+            },
+            {
+              "label": "Vendors",
+              "value": "Vendors"
+            }
+          ],
+          "required": true,
+          "comments": "The type of record to operate on",
+          "key": "recordType",
+          "type": "string",
+          "default": "",
+          "label": "Record Type"
+        },
+        {
+          "placeholder": "Record ID",
+          "required": true,
+          "comments": "ID that identifies a specific record",
+          "example": "5394166000000379001",
+          "key": "recordId",
+          "type": "string",
+          "default": "",
+          "label": "Record ID"
+        },
+        {
+          "placeholder": "Fields",
+          "required": false,
+          "comments": "The names of the fields to retrieve",
+          "key": "fields",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Fields"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        }
+      ]
+    },
+    "crmGetRecords": {
+      "display": {
+        "label": "CRM - Get Records",
+        "description": "Get a collection of Zoho CRM Records"
+      },
+      "key": "crmGetRecords",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Record Type",
+          "model": [
+            {
+              "label": "Accounts",
+              "value": "Accounts"
+            },
+            {
+              "label": "Calls",
+              "value": "Calls"
+            },
+            {
+              "label": "Campaigns",
+              "value": "Campaigns"
+            },
+            {
+              "label": "Cases",
+              "value": "Cases"
+            },
+            {
+              "label": "Contacts",
+              "value": "Contacts"
+            },
+            {
+              "label": "Deals",
+              "value": "Deals"
+            },
+            {
+              "label": "Events",
+              "value": "Events"
+            },
+            {
+              "label": "Invoices",
+              "value": "Invoices"
+            },
+            {
+              "label": "Leads",
+              "value": "Leads"
+            },
+            {
+              "label": "Price Books",
+              "value": "Price_Books"
+            },
+            {
+              "label": "Products",
+              "value": "Products"
+            },
+            {
+              "label": "Purchase Orders",
+              "value": "Purchase_Orders"
+            },
+            {
+              "label": "Quotes",
+              "value": "Quotes"
+            },
+            {
+              "label": "Sales Orders",
+              "value": "Sales_Orders"
+            },
+            {
+              "label": "Solutions",
+              "value": "Solutions"
+            },
+            {
+              "label": "Tasks",
+              "value": "Tasks"
+            },
+            {
+              "label": "Vendors",
+              "value": "Vendors"
+            }
+          ],
+          "required": true,
+          "comments": "The type of record to operate on",
+          "key": "recordType",
+          "type": "string",
+          "default": "",
+          "label": "Record Type"
+        },
+        {
+          "placeholder": "Fields",
+          "required": true,
+          "comments": "The names of the fields to retrieve",
+          "key": "fields",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Fields"
+        },
+        {
+          "placeholder": "Page",
+          "required": false,
+          "comments": "The page number to start at",
+          "example": "1",
+          "key": "page",
+          "type": "string",
+          "default": "",
+          "label": "Page"
+        },
+        {
+          "placeholder": "200",
+          "required": false,
+          "comments": "The records to fetch per page",
+          "example": "10",
+          "key": "per_page",
+          "type": "string",
+          "default": "200",
+          "label": "Per Page"
+        },
+        {
+          "placeholder": "Page Token",
+          "required": false,
+          "comments": "Token used for pagination",
+          "example": "187d2xxxxxxc50119e",
+          "key": "page_token",
+          "type": "string",
+          "default": "",
+          "label": "Page Token"
+        },
+        {
+          "placeholder": "Sort Order",
+          "required": false,
+          "model": [
+            {
+              "label": "Ascending",
+              "value": "asc"
+            },
+            {
+              "label": "Descending",
+              "value": "desc"
+            }
+          ],
+          "comments": "The order in which to sort the results",
+          "key": "sort_order",
+          "type": "string",
+          "default": "",
+          "label": "Sort Order"
+        },
+        {
+          "placeholder": "Sort By",
+          "required": false,
+          "model": [
+            {
+              "label": "Id",
+              "value": "id"
+            },
+            {
+              "label": "Created Time",
+              "value": "Created_Time"
+            },
+            {
+              "label": "Modified Time",
+              "value": "Modified_Time"
+            }
+          ],
+          "comments": "The field to sort by",
+          "key": "sort_by",
+          "type": "string",
+          "default": "",
+          "label": "Sort By"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        }
+      ]
+    },
+    "crmRemoveRecord": {
+      "display": {
+        "label": "CRM - Remove Record",
+        "description": "Remove a Zoho CRM Record"
+      },
+      "key": "crmRemoveRecord",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Record Type",
+          "model": [
+            {
+              "label": "Accounts",
+              "value": "Accounts"
+            },
+            {
+              "label": "Calls",
+              "value": "Calls"
+            },
+            {
+              "label": "Campaigns",
+              "value": "Campaigns"
+            },
+            {
+              "label": "Cases",
+              "value": "Cases"
+            },
+            {
+              "label": "Contacts",
+              "value": "Contacts"
+            },
+            {
+              "label": "Deals",
+              "value": "Deals"
+            },
+            {
+              "label": "Events",
+              "value": "Events"
+            },
+            {
+              "label": "Invoices",
+              "value": "Invoices"
+            },
+            {
+              "label": "Leads",
+              "value": "Leads"
+            },
+            {
+              "label": "Price Books",
+              "value": "Price_Books"
+            },
+            {
+              "label": "Products",
+              "value": "Products"
+            },
+            {
+              "label": "Purchase Orders",
+              "value": "Purchase_Orders"
+            },
+            {
+              "label": "Quotes",
+              "value": "Quotes"
+            },
+            {
+              "label": "Sales Orders",
+              "value": "Sales_Orders"
+            },
+            {
+              "label": "Solutions",
+              "value": "Solutions"
+            },
+            {
+              "label": "Tasks",
+              "value": "Tasks"
+            },
+            {
+              "label": "Vendors",
+              "value": "Vendors"
+            }
+          ],
+          "required": true,
+          "comments": "The type of record to operate on",
+          "key": "recordType",
+          "type": "string",
+          "default": "",
+          "label": "Record Type"
+        },
+        {
+          "placeholder": "Record ID",
+          "required": true,
+          "comments": "ID that identifies a specific record",
+          "example": "5394166000000379001",
+          "key": "recordId",
+          "type": "string",
+          "default": "",
+          "label": "Record ID"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        }
+      ]
+    },
+    "crmCreateRecord": {
+      "display": {
+        "label": "CRM - Create Record",
+        "description": "Create a Zoho CRM Record"
+      },
+      "key": "crmCreateRecord",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Record Type",
+          "model": [
+            {
+              "label": "Accounts",
+              "value": "Accounts"
+            },
+            {
+              "label": "Calls",
+              "value": "Calls"
+            },
+            {
+              "label": "Campaigns",
+              "value": "Campaigns"
+            },
+            {
+              "label": "Cases",
+              "value": "Cases"
+            },
+            {
+              "label": "Contacts",
+              "value": "Contacts"
+            },
+            {
+              "label": "Deals",
+              "value": "Deals"
+            },
+            {
+              "label": "Events",
+              "value": "Events"
+            },
+            {
+              "label": "Invoices",
+              "value": "Invoices"
+            },
+            {
+              "label": "Leads",
+              "value": "Leads"
+            },
+            {
+              "label": "Price Books",
+              "value": "Price_Books"
+            },
+            {
+              "label": "Products",
+              "value": "Products"
+            },
+            {
+              "label": "Purchase Orders",
+              "value": "Purchase_Orders"
+            },
+            {
+              "label": "Quotes",
+              "value": "Quotes"
+            },
+            {
+              "label": "Sales Orders",
+              "value": "Sales_Orders"
+            },
+            {
+              "label": "Solutions",
+              "value": "Solutions"
+            },
+            {
+              "label": "Tasks",
+              "value": "Tasks"
+            },
+            {
+              "label": "Vendors",
+              "value": "Vendors"
+            }
+          ],
+          "required": true,
+          "comments": "The type of record to operate on",
+          "key": "recordType",
+          "type": "string",
+          "default": "",
+          "label": "Record Type"
+        },
+        {
+          "required": false,
+          "comments": "A field for dynamic inputs that can be configured at deploy time with the use of a key/value config variable.",
+          "key": "dynamicValues",
+          "type": "data",
+          "default": "",
+          "label": "Dynamic Fields"
+        },
+        {
+          "placeholder": "Values",
+          "required": false,
+          "comments": "The names of the fields and their values to use when creating/updating a record",
+          "key": "fieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Values"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        }
+      ]
+    },
+    "crmUpdateRecord": {
+      "display": {
+        "label": "CRM - Update Record",
+        "description": "Update a Zoho CRM Record"
+      },
+      "key": "crmUpdateRecord",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Record Type",
+          "model": [
+            {
+              "label": "Accounts",
+              "value": "Accounts"
+            },
+            {
+              "label": "Calls",
+              "value": "Calls"
+            },
+            {
+              "label": "Campaigns",
+              "value": "Campaigns"
+            },
+            {
+              "label": "Cases",
+              "value": "Cases"
+            },
+            {
+              "label": "Contacts",
+              "value": "Contacts"
+            },
+            {
+              "label": "Deals",
+              "value": "Deals"
+            },
+            {
+              "label": "Events",
+              "value": "Events"
+            },
+            {
+              "label": "Invoices",
+              "value": "Invoices"
+            },
+            {
+              "label": "Leads",
+              "value": "Leads"
+            },
+            {
+              "label": "Price Books",
+              "value": "Price_Books"
+            },
+            {
+              "label": "Products",
+              "value": "Products"
+            },
+            {
+              "label": "Purchase Orders",
+              "value": "Purchase_Orders"
+            },
+            {
+              "label": "Quotes",
+              "value": "Quotes"
+            },
+            {
+              "label": "Sales Orders",
+              "value": "Sales_Orders"
+            },
+            {
+              "label": "Solutions",
+              "value": "Solutions"
+            },
+            {
+              "label": "Tasks",
+              "value": "Tasks"
+            },
+            {
+              "label": "Vendors",
+              "value": "Vendors"
+            }
+          ],
+          "required": true,
+          "comments": "The type of record to operate on",
+          "key": "recordType",
+          "type": "string",
+          "default": "",
+          "label": "Record Type"
+        },
+        {
+          "placeholder": "Record ID",
+          "required": true,
+          "comments": "ID that identifies a specific record",
+          "example": "5394166000000379001",
+          "key": "recordId",
+          "type": "string",
+          "default": "",
+          "label": "Record ID"
+        },
+        {
+          "required": false,
+          "comments": "A field for dynamic inputs that can be configured at deploy time with the use of a key/value config variable.",
+          "key": "dynamicValues",
+          "type": "data",
+          "default": "",
+          "label": "Dynamic Fields"
+        },
+        {
+          "placeholder": "Values",
+          "required": false,
+          "comments": "The names of the fields and their values to use when creating/updating a record",
+          "key": "fieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Values"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        }
+      ]
+    },
+    "crmRunQuery": {
+      "display": {
+        "label": "CRM - COQL Query",
+        "description": "Run a COQL Query for Zoho CRM"
+      },
+      "key": "crmRunQuery",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Query",
+          "required": true,
+          "comments": "COQL Query to execute",
+          "example": "select Last_Name from Contacts where Last_Name is not null",
+          "key": "query",
+          "type": "text",
+          "default": "",
+          "label": "Query"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        }
+      ]
+    },
+    "crmAddAttachment": {
+      "display": {
+        "label": "CRM - Add attachment",
+        "description": "Add an attachment to a Zoho CRM record (Lead, etc)."
+      },
+      "key": "crmAddAttachment",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Type of record to attach a file to",
+          "model": [
+            {
+              "label": "Accounts",
+              "value": "Accounts"
+            },
+            {
+              "label": "Campaigns",
+              "value": "Campaigns"
+            },
+            {
+              "label": "Cases",
+              "value": "Cases"
+            },
+            {
+              "label": "Contacts",
+              "value": "Contacts"
+            },
+            {
+              "label": "Custom",
+              "value": "Custom"
+            },
+            {
+              "label": "Deals",
+              "value": "Deals"
+            },
+            {
+              "label": "Events",
+              "value": "Events"
+            },
+            {
+              "label": "Invoices",
+              "value": "Invoices"
+            },
+            {
+              "label": "Leads",
+              "value": "Leads"
+            },
+            {
+              "label": "Notes",
+              "value": "Notes"
+            },
+            {
+              "label": "Price Books",
+              "value": "Price Books"
+            },
+            {
+              "label": "Products",
+              "value": "Products"
+            },
+            {
+              "label": "Purchase Orders",
+              "value": "Purchase Orders"
+            },
+            {
+              "label": "Quotes",
+              "value": "Quotes"
+            },
+            {
+              "label": "Sales Orders",
+              "value": "Sales Orders"
+            },
+            {
+              "label": "Solutions",
+              "value": "Solutions"
+            },
+            {
+              "label": "Tasks",
+              "value": "Tasks"
+            },
+            {
+              "label": "Vendors",
+              "value": "Vendors"
+            }
+          ],
+          "key": "recordType",
+          "type": "string",
+          "default": "Leads",
+          "label": "Record Type"
+        },
+        {
+          "placeholder": "Record ID",
+          "required": true,
+          "comments": "ID that identifies a specific record",
+          "example": "5394166000000379001",
+          "key": "recordId",
+          "type": "string",
+          "default": "",
+          "label": "Record ID"
+        },
+        {
+          "required": true,
+          "comments": "The file to upload - either string contents or a binary file",
+          "key": "file",
+          "type": "data",
+          "default": "",
+          "label": "File"
+        },
+        {
+          "required": true,
+          "comments": "The name of the file to upload",
+          "key": "fileName",
+          "type": "string",
+          "default": "",
+          "label": "File Name"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        }
+      ]
+    },
+    "booksGetRecord": {
+      "display": {
+        "label": "Books - Get Record",
+        "description": "Get a single Zoho Books Record"
+      },
+      "key": "booksGetRecord",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Record Type",
+          "model": [
+            {
+              "label": "Bank Accounts",
+              "value": "bankaccounts"
+            },
+            {
+              "label": "Bank Transactions",
+              "value": "banktransactions"
+            },
+            {
+              "label": "Bank Rules",
+              "value": "bankaccounts/rules"
+            },
+            {
+              "label": "Base Currency Adjustments",
+              "value": "basecurrencyadjustment"
+            },
+            {
+              "label": "Bills",
+              "value": "bills"
+            },
+            {
+              "label": "Chart Of Accounts",
+              "value": "chartofaccounts"
+            },
+            {
+              "label": "Contacts",
+              "value": "contacts"
+            },
+            {
+              "label": "Contact Persons",
+              "value": "contactpersons"
+            },
+            {
+              "label": "Credit Notes",
+              "value": "creditnotes"
+            },
+            {
+              "label": "Currency",
+              "value": "settings/currencies"
+            },
+            {
+              "label": "Customer Payments",
+              "value": "customerpayments"
+            },
+            {
+              "label": "Employees",
+              "value": "employees"
+            },
+            {
+              "label": "Estimates",
+              "value": "estimates"
+            },
+            {
+              "label": "Expenses",
+              "value": "expenses"
+            },
+            {
+              "label": "Invoices",
+              "value": "invoices"
+            },
+            {
+              "label": "Items",
+              "value": "items"
+            },
+            {
+              "label": "Journals",
+              "value": "journals"
+            },
+            {
+              "label": "Opening Balances",
+              "value": "settings/openingbalances"
+            },
+            {
+              "label": "Projects",
+              "value": "projects"
+            },
+            {
+              "label": "Purchase Orders",
+              "value": "purchaseorders"
+            },
+            {
+              "label": "Recurring Bills",
+              "value": "recurringbills"
+            },
+            {
+              "label": "Recurring Expenses",
+              "value": "recurringexpenses"
+            },
+            {
+              "label": "Recurring Invoices",
+              "value": "recurringinvoices"
+            },
+            {
+              "label": "Retainer Invoices",
+              "value": "retainerinvoices"
+            },
+            {
+              "label": "Sales Orders",
+              "value": "salesorders"
+            },
+            {
+              "label": "Tasks",
+              "value": "tasks"
+            },
+            {
+              "label": "Taxes",
+              "value": "settings/taxes"
+            },
+            {
+              "label": "Time Entries",
+              "value": "projects/timeentries"
+            },
+            {
+              "label": "Users",
+              "value": "users"
+            },
+            {
+              "label": "Vendor Credits",
+              "value": "vendorcredits"
+            },
+            {
+              "label": "Vendor Payments",
+              "value": "vendorpayments"
+            }
+          ],
+          "required": true,
+          "comments": "The type of record to operate on",
+          "key": "recordType",
+          "type": "string",
+          "default": "",
+          "label": "Record Type"
+        },
+        {
+          "placeholder": "Record ID",
+          "required": true,
+          "comments": "ID that identifies a specific record",
+          "example": "5394166000000379001",
+          "key": "recordId",
+          "type": "string",
+          "default": "",
+          "label": "Record ID"
+        },
+        {
+          "placeholder": "Parent Record Type",
+          "model": [
+            {
+              "label": "Bank Accounts",
+              "value": "bankaccounts"
+            },
+            {
+              "label": "Bank Transactions",
+              "value": "banktransactions"
+            },
+            {
+              "label": "Bank Rules",
+              "value": "bankaccounts/rules"
+            },
+            {
+              "label": "Base Currency Adjustments",
+              "value": "basecurrencyadjustment"
+            },
+            {
+              "label": "Bills",
+              "value": "bills"
+            },
+            {
+              "label": "Chart Of Accounts",
+              "value": "chartofaccounts"
+            },
+            {
+              "label": "Contacts",
+              "value": "contacts"
+            },
+            {
+              "label": "Contact Persons",
+              "value": "contactpersons"
+            },
+            {
+              "label": "Credit Notes",
+              "value": "creditnotes"
+            },
+            {
+              "label": "Currency",
+              "value": "settings/currencies"
+            },
+            {
+              "label": "Customer Payments",
+              "value": "customerpayments"
+            },
+            {
+              "label": "Employees",
+              "value": "employees"
+            },
+            {
+              "label": "Estimates",
+              "value": "estimates"
+            },
+            {
+              "label": "Expenses",
+              "value": "expenses"
+            },
+            {
+              "label": "Invoices",
+              "value": "invoices"
+            },
+            {
+              "label": "Items",
+              "value": "items"
+            },
+            {
+              "label": "Journals",
+              "value": "journals"
+            },
+            {
+              "label": "Opening Balances",
+              "value": "settings/openingbalances"
+            },
+            {
+              "label": "Projects",
+              "value": "projects"
+            },
+            {
+              "label": "Purchase Orders",
+              "value": "purchaseorders"
+            },
+            {
+              "label": "Recurring Bills",
+              "value": "recurringbills"
+            },
+            {
+              "label": "Recurring Expenses",
+              "value": "recurringexpenses"
+            },
+            {
+              "label": "Recurring Invoices",
+              "value": "recurringinvoices"
+            },
+            {
+              "label": "Retainer Invoices",
+              "value": "retainerinvoices"
+            },
+            {
+              "label": "Sales Orders",
+              "value": "salesorders"
+            },
+            {
+              "label": "Tasks",
+              "value": "tasks"
+            },
+            {
+              "label": "Taxes",
+              "value": "settings/taxes"
+            },
+            {
+              "label": "Time Entries",
+              "value": "projects/timeentries"
+            },
+            {
+              "label": "Users",
+              "value": "users"
+            },
+            {
+              "label": "Vendor Credits",
+              "value": "vendorcredits"
+            },
+            {
+              "label": "Vendor Payments",
+              "value": "vendorpayments"
+            }
+          ],
+          "required": false,
+          "comments": "The type of record to operate on",
+          "key": "parentRecordType",
+          "type": "string",
+          "default": "",
+          "label": "Parent Record Type"
+        },
+        {
+          "placeholder": "Parent Record Id",
+          "required": false,
+          "comments": "Id that identifies a specific parent record under which other records are grouped",
+          "example": "5394166000000379001",
+          "key": "parentRecordId",
+          "type": "string",
+          "default": "",
+          "label": "Parent Record Id"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        }
+      ]
+    },
+    "booksGetRecords": {
+      "display": {
+        "label": "Books - Get Records",
+        "description": "Get a collection of Zoho Books Records"
+      },
+      "key": "booksGetRecords",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Record Type",
+          "model": [
+            {
+              "label": "Bank Accounts",
+              "value": "bankaccounts"
+            },
+            {
+              "label": "Bank Transactions",
+              "value": "banktransactions"
+            },
+            {
+              "label": "Bank Rules",
+              "value": "bankaccounts/rules"
+            },
+            {
+              "label": "Base Currency Adjustments",
+              "value": "basecurrencyadjustment"
+            },
+            {
+              "label": "Bills",
+              "value": "bills"
+            },
+            {
+              "label": "Chart Of Accounts",
+              "value": "chartofaccounts"
+            },
+            {
+              "label": "Contacts",
+              "value": "contacts"
+            },
+            {
+              "label": "Contact Persons",
+              "value": "contactpersons"
+            },
+            {
+              "label": "Credit Notes",
+              "value": "creditnotes"
+            },
+            {
+              "label": "Currency",
+              "value": "settings/currencies"
+            },
+            {
+              "label": "Customer Payments",
+              "value": "customerpayments"
+            },
+            {
+              "label": "Employees",
+              "value": "employees"
+            },
+            {
+              "label": "Estimates",
+              "value": "estimates"
+            },
+            {
+              "label": "Expenses",
+              "value": "expenses"
+            },
+            {
+              "label": "Invoices",
+              "value": "invoices"
+            },
+            {
+              "label": "Items",
+              "value": "items"
+            },
+            {
+              "label": "Journals",
+              "value": "journals"
+            },
+            {
+              "label": "Opening Balances",
+              "value": "settings/openingbalances"
+            },
+            {
+              "label": "Projects",
+              "value": "projects"
+            },
+            {
+              "label": "Purchase Orders",
+              "value": "purchaseorders"
+            },
+            {
+              "label": "Recurring Bills",
+              "value": "recurringbills"
+            },
+            {
+              "label": "Recurring Expenses",
+              "value": "recurringexpenses"
+            },
+            {
+              "label": "Recurring Invoices",
+              "value": "recurringinvoices"
+            },
+            {
+              "label": "Retainer Invoices",
+              "value": "retainerinvoices"
+            },
+            {
+              "label": "Sales Orders",
+              "value": "salesorders"
+            },
+            {
+              "label": "Tasks",
+              "value": "tasks"
+            },
+            {
+              "label": "Taxes",
+              "value": "settings/taxes"
+            },
+            {
+              "label": "Time Entries",
+              "value": "projects/timeentries"
+            },
+            {
+              "label": "Users",
+              "value": "users"
+            },
+            {
+              "label": "Vendor Credits",
+              "value": "vendorcredits"
+            },
+            {
+              "label": "Vendor Payments",
+              "value": "vendorpayments"
+            }
+          ],
+          "required": true,
+          "comments": "The type of record to operate on",
+          "key": "recordType",
+          "type": "string",
+          "default": "",
+          "label": "Record Type"
+        },
+        {
+          "placeholder": "Parent Record Type",
+          "model": [
+            {
+              "label": "Bank Accounts",
+              "value": "bankaccounts"
+            },
+            {
+              "label": "Bank Transactions",
+              "value": "banktransactions"
+            },
+            {
+              "label": "Bank Rules",
+              "value": "bankaccounts/rules"
+            },
+            {
+              "label": "Base Currency Adjustments",
+              "value": "basecurrencyadjustment"
+            },
+            {
+              "label": "Bills",
+              "value": "bills"
+            },
+            {
+              "label": "Chart Of Accounts",
+              "value": "chartofaccounts"
+            },
+            {
+              "label": "Contacts",
+              "value": "contacts"
+            },
+            {
+              "label": "Contact Persons",
+              "value": "contactpersons"
+            },
+            {
+              "label": "Credit Notes",
+              "value": "creditnotes"
+            },
+            {
+              "label": "Currency",
+              "value": "settings/currencies"
+            },
+            {
+              "label": "Customer Payments",
+              "value": "customerpayments"
+            },
+            {
+              "label": "Employees",
+              "value": "employees"
+            },
+            {
+              "label": "Estimates",
+              "value": "estimates"
+            },
+            {
+              "label": "Expenses",
+              "value": "expenses"
+            },
+            {
+              "label": "Invoices",
+              "value": "invoices"
+            },
+            {
+              "label": "Items",
+              "value": "items"
+            },
+            {
+              "label": "Journals",
+              "value": "journals"
+            },
+            {
+              "label": "Opening Balances",
+              "value": "settings/openingbalances"
+            },
+            {
+              "label": "Projects",
+              "value": "projects"
+            },
+            {
+              "label": "Purchase Orders",
+              "value": "purchaseorders"
+            },
+            {
+              "label": "Recurring Bills",
+              "value": "recurringbills"
+            },
+            {
+              "label": "Recurring Expenses",
+              "value": "recurringexpenses"
+            },
+            {
+              "label": "Recurring Invoices",
+              "value": "recurringinvoices"
+            },
+            {
+              "label": "Retainer Invoices",
+              "value": "retainerinvoices"
+            },
+            {
+              "label": "Sales Orders",
+              "value": "salesorders"
+            },
+            {
+              "label": "Tasks",
+              "value": "tasks"
+            },
+            {
+              "label": "Taxes",
+              "value": "settings/taxes"
+            },
+            {
+              "label": "Time Entries",
+              "value": "projects/timeentries"
+            },
+            {
+              "label": "Users",
+              "value": "users"
+            },
+            {
+              "label": "Vendor Credits",
+              "value": "vendorcredits"
+            },
+            {
+              "label": "Vendor Payments",
+              "value": "vendorpayments"
+            }
+          ],
+          "required": false,
+          "comments": "The type of record to operate on",
+          "key": "parentRecordType",
+          "type": "string",
+          "default": "",
+          "label": "Parent Record Type"
+        },
+        {
+          "placeholder": "Parent Record Id",
+          "required": false,
+          "comments": "Id that identifies a specific parent record under which other records are grouped",
+          "example": "5394166000000379001",
+          "key": "parentRecordId",
+          "type": "string",
+          "default": "",
+          "label": "Parent Record Id"
+        },
+        {
+          "placeholder": "Search Fields",
+          "required": false,
+          "comments": "The names and values of the fields to use for searching",
+          "key": "searchFields",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Search Fields"
+        },
+        {
+          "placeholder": "Page",
+          "required": false,
+          "comments": "The page number to start at",
+          "example": "1",
+          "key": "page",
+          "type": "string",
+          "default": "",
+          "label": "Page"
+        },
+        {
+          "placeholder": "200",
+          "required": false,
+          "comments": "The records to fetch per page",
+          "example": "10",
+          "key": "per_page",
+          "type": "string",
+          "default": "200",
+          "label": "Per Page"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        }
+      ]
+    },
+    "booksRemoveRecord": {
+      "display": {
+        "label": "Books - Remove Record",
+        "description": "Remove a Zoho Books Record"
+      },
+      "key": "booksRemoveRecord",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Record Type",
+          "model": [
+            {
+              "label": "Bank Accounts",
+              "value": "bankaccounts"
+            },
+            {
+              "label": "Bank Transactions",
+              "value": "banktransactions"
+            },
+            {
+              "label": "Bank Rules",
+              "value": "bankaccounts/rules"
+            },
+            {
+              "label": "Base Currency Adjustments",
+              "value": "basecurrencyadjustment"
+            },
+            {
+              "label": "Bills",
+              "value": "bills"
+            },
+            {
+              "label": "Chart Of Accounts",
+              "value": "chartofaccounts"
+            },
+            {
+              "label": "Contacts",
+              "value": "contacts"
+            },
+            {
+              "label": "Contact Persons",
+              "value": "contactpersons"
+            },
+            {
+              "label": "Credit Notes",
+              "value": "creditnotes"
+            },
+            {
+              "label": "Currency",
+              "value": "settings/currencies"
+            },
+            {
+              "label": "Customer Payments",
+              "value": "customerpayments"
+            },
+            {
+              "label": "Employees",
+              "value": "employees"
+            },
+            {
+              "label": "Estimates",
+              "value": "estimates"
+            },
+            {
+              "label": "Expenses",
+              "value": "expenses"
+            },
+            {
+              "label": "Invoices",
+              "value": "invoices"
+            },
+            {
+              "label": "Items",
+              "value": "items"
+            },
+            {
+              "label": "Journals",
+              "value": "journals"
+            },
+            {
+              "label": "Opening Balances",
+              "value": "settings/openingbalances"
+            },
+            {
+              "label": "Projects",
+              "value": "projects"
+            },
+            {
+              "label": "Purchase Orders",
+              "value": "purchaseorders"
+            },
+            {
+              "label": "Recurring Bills",
+              "value": "recurringbills"
+            },
+            {
+              "label": "Recurring Expenses",
+              "value": "recurringexpenses"
+            },
+            {
+              "label": "Recurring Invoices",
+              "value": "recurringinvoices"
+            },
+            {
+              "label": "Retainer Invoices",
+              "value": "retainerinvoices"
+            },
+            {
+              "label": "Sales Orders",
+              "value": "salesorders"
+            },
+            {
+              "label": "Tasks",
+              "value": "tasks"
+            },
+            {
+              "label": "Taxes",
+              "value": "settings/taxes"
+            },
+            {
+              "label": "Time Entries",
+              "value": "projects/timeentries"
+            },
+            {
+              "label": "Users",
+              "value": "users"
+            },
+            {
+              "label": "Vendor Credits",
+              "value": "vendorcredits"
+            },
+            {
+              "label": "Vendor Payments",
+              "value": "vendorpayments"
+            }
+          ],
+          "required": true,
+          "comments": "The type of record to operate on",
+          "key": "recordType",
+          "type": "string",
+          "default": "",
+          "label": "Record Type"
+        },
+        {
+          "placeholder": "Record ID",
+          "required": true,
+          "comments": "ID that identifies a specific record",
+          "example": "5394166000000379001",
+          "key": "recordId",
+          "type": "string",
+          "default": "",
+          "label": "Record ID"
+        },
+        {
+          "placeholder": "Parent Record Type",
+          "model": [
+            {
+              "label": "Bank Accounts",
+              "value": "bankaccounts"
+            },
+            {
+              "label": "Bank Transactions",
+              "value": "banktransactions"
+            },
+            {
+              "label": "Bank Rules",
+              "value": "bankaccounts/rules"
+            },
+            {
+              "label": "Base Currency Adjustments",
+              "value": "basecurrencyadjustment"
+            },
+            {
+              "label": "Bills",
+              "value": "bills"
+            },
+            {
+              "label": "Chart Of Accounts",
+              "value": "chartofaccounts"
+            },
+            {
+              "label": "Contacts",
+              "value": "contacts"
+            },
+            {
+              "label": "Contact Persons",
+              "value": "contactpersons"
+            },
+            {
+              "label": "Credit Notes",
+              "value": "creditnotes"
+            },
+            {
+              "label": "Currency",
+              "value": "settings/currencies"
+            },
+            {
+              "label": "Customer Payments",
+              "value": "customerpayments"
+            },
+            {
+              "label": "Employees",
+              "value": "employees"
+            },
+            {
+              "label": "Estimates",
+              "value": "estimates"
+            },
+            {
+              "label": "Expenses",
+              "value": "expenses"
+            },
+            {
+              "label": "Invoices",
+              "value": "invoices"
+            },
+            {
+              "label": "Items",
+              "value": "items"
+            },
+            {
+              "label": "Journals",
+              "value": "journals"
+            },
+            {
+              "label": "Opening Balances",
+              "value": "settings/openingbalances"
+            },
+            {
+              "label": "Projects",
+              "value": "projects"
+            },
+            {
+              "label": "Purchase Orders",
+              "value": "purchaseorders"
+            },
+            {
+              "label": "Recurring Bills",
+              "value": "recurringbills"
+            },
+            {
+              "label": "Recurring Expenses",
+              "value": "recurringexpenses"
+            },
+            {
+              "label": "Recurring Invoices",
+              "value": "recurringinvoices"
+            },
+            {
+              "label": "Retainer Invoices",
+              "value": "retainerinvoices"
+            },
+            {
+              "label": "Sales Orders",
+              "value": "salesorders"
+            },
+            {
+              "label": "Tasks",
+              "value": "tasks"
+            },
+            {
+              "label": "Taxes",
+              "value": "settings/taxes"
+            },
+            {
+              "label": "Time Entries",
+              "value": "projects/timeentries"
+            },
+            {
+              "label": "Users",
+              "value": "users"
+            },
+            {
+              "label": "Vendor Credits",
+              "value": "vendorcredits"
+            },
+            {
+              "label": "Vendor Payments",
+              "value": "vendorpayments"
+            }
+          ],
+          "required": false,
+          "comments": "The type of record to operate on",
+          "key": "parentRecordType",
+          "type": "string",
+          "default": "",
+          "label": "Parent Record Type"
+        },
+        {
+          "placeholder": "Parent Record Id",
+          "required": false,
+          "comments": "Id that identifies a specific parent record under which other records are grouped",
+          "example": "5394166000000379001",
+          "key": "parentRecordId",
+          "type": "string",
+          "default": "",
+          "label": "Parent Record Id"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        }
+      ]
+    },
+    "booksCreateRecord": {
+      "display": {
+        "label": "Books - Create Record",
+        "description": "Create a Zoho Books Record"
+      },
+      "key": "booksCreateRecord",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Record Type",
+          "model": [
+            {
+              "label": "Bank Accounts",
+              "value": "bankaccounts"
+            },
+            {
+              "label": "Bank Transactions",
+              "value": "banktransactions"
+            },
+            {
+              "label": "Bank Rules",
+              "value": "bankaccounts/rules"
+            },
+            {
+              "label": "Base Currency Adjustments",
+              "value": "basecurrencyadjustment"
+            },
+            {
+              "label": "Bills",
+              "value": "bills"
+            },
+            {
+              "label": "Chart Of Accounts",
+              "value": "chartofaccounts"
+            },
+            {
+              "label": "Contacts",
+              "value": "contacts"
+            },
+            {
+              "label": "Contact Persons",
+              "value": "contactpersons"
+            },
+            {
+              "label": "Credit Notes",
+              "value": "creditnotes"
+            },
+            {
+              "label": "Currency",
+              "value": "settings/currencies"
+            },
+            {
+              "label": "Customer Payments",
+              "value": "customerpayments"
+            },
+            {
+              "label": "Employees",
+              "value": "employees"
+            },
+            {
+              "label": "Estimates",
+              "value": "estimates"
+            },
+            {
+              "label": "Expenses",
+              "value": "expenses"
+            },
+            {
+              "label": "Invoices",
+              "value": "invoices"
+            },
+            {
+              "label": "Items",
+              "value": "items"
+            },
+            {
+              "label": "Journals",
+              "value": "journals"
+            },
+            {
+              "label": "Opening Balances",
+              "value": "settings/openingbalances"
+            },
+            {
+              "label": "Projects",
+              "value": "projects"
+            },
+            {
+              "label": "Purchase Orders",
+              "value": "purchaseorders"
+            },
+            {
+              "label": "Recurring Bills",
+              "value": "recurringbills"
+            },
+            {
+              "label": "Recurring Expenses",
+              "value": "recurringexpenses"
+            },
+            {
+              "label": "Recurring Invoices",
+              "value": "recurringinvoices"
+            },
+            {
+              "label": "Retainer Invoices",
+              "value": "retainerinvoices"
+            },
+            {
+              "label": "Sales Orders",
+              "value": "salesorders"
+            },
+            {
+              "label": "Tasks",
+              "value": "tasks"
+            },
+            {
+              "label": "Taxes",
+              "value": "settings/taxes"
+            },
+            {
+              "label": "Time Entries",
+              "value": "projects/timeentries"
+            },
+            {
+              "label": "Users",
+              "value": "users"
+            },
+            {
+              "label": "Vendor Credits",
+              "value": "vendorcredits"
+            },
+            {
+              "label": "Vendor Payments",
+              "value": "vendorpayments"
+            }
+          ],
+          "required": true,
+          "comments": "The type of record to operate on",
+          "key": "recordType",
+          "type": "string",
+          "default": "",
+          "label": "Record Type"
+        },
+        {
+          "placeholder": "Parent Record Type",
+          "model": [
+            {
+              "label": "Bank Accounts",
+              "value": "bankaccounts"
+            },
+            {
+              "label": "Bank Transactions",
+              "value": "banktransactions"
+            },
+            {
+              "label": "Bank Rules",
+              "value": "bankaccounts/rules"
+            },
+            {
+              "label": "Base Currency Adjustments",
+              "value": "basecurrencyadjustment"
+            },
+            {
+              "label": "Bills",
+              "value": "bills"
+            },
+            {
+              "label": "Chart Of Accounts",
+              "value": "chartofaccounts"
+            },
+            {
+              "label": "Contacts",
+              "value": "contacts"
+            },
+            {
+              "label": "Contact Persons",
+              "value": "contactpersons"
+            },
+            {
+              "label": "Credit Notes",
+              "value": "creditnotes"
+            },
+            {
+              "label": "Currency",
+              "value": "settings/currencies"
+            },
+            {
+              "label": "Customer Payments",
+              "value": "customerpayments"
+            },
+            {
+              "label": "Employees",
+              "value": "employees"
+            },
+            {
+              "label": "Estimates",
+              "value": "estimates"
+            },
+            {
+              "label": "Expenses",
+              "value": "expenses"
+            },
+            {
+              "label": "Invoices",
+              "value": "invoices"
+            },
+            {
+              "label": "Items",
+              "value": "items"
+            },
+            {
+              "label": "Journals",
+              "value": "journals"
+            },
+            {
+              "label": "Opening Balances",
+              "value": "settings/openingbalances"
+            },
+            {
+              "label": "Projects",
+              "value": "projects"
+            },
+            {
+              "label": "Purchase Orders",
+              "value": "purchaseorders"
+            },
+            {
+              "label": "Recurring Bills",
+              "value": "recurringbills"
+            },
+            {
+              "label": "Recurring Expenses",
+              "value": "recurringexpenses"
+            },
+            {
+              "label": "Recurring Invoices",
+              "value": "recurringinvoices"
+            },
+            {
+              "label": "Retainer Invoices",
+              "value": "retainerinvoices"
+            },
+            {
+              "label": "Sales Orders",
+              "value": "salesorders"
+            },
+            {
+              "label": "Tasks",
+              "value": "tasks"
+            },
+            {
+              "label": "Taxes",
+              "value": "settings/taxes"
+            },
+            {
+              "label": "Time Entries",
+              "value": "projects/timeentries"
+            },
+            {
+              "label": "Users",
+              "value": "users"
+            },
+            {
+              "label": "Vendor Credits",
+              "value": "vendorcredits"
+            },
+            {
+              "label": "Vendor Payments",
+              "value": "vendorpayments"
+            }
+          ],
+          "required": false,
+          "comments": "The type of record to operate on",
+          "key": "parentRecordType",
+          "type": "string",
+          "default": "",
+          "label": "Parent Record Type"
+        },
+        {
+          "placeholder": "Parent Record Id",
+          "required": false,
+          "comments": "Id that identifies a specific parent record under which other records are grouped",
+          "example": "5394166000000379001",
+          "key": "parentRecordId",
+          "type": "string",
+          "default": "",
+          "label": "Parent Record Id"
+        },
+        {
+          "required": false,
+          "comments": "A field for dynamic inputs that can be configured at deploy time with the use of a key/value config variable.",
+          "key": "dynamicValues",
+          "type": "data",
+          "default": "",
+          "label": "Dynamic Fields"
+        },
+        {
+          "placeholder": "Values",
+          "required": false,
+          "comments": "The names of the fields and their values to use when creating/updating a record",
+          "key": "fieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Values"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        }
+      ]
+    },
+    "booksUpdateRecord": {
+      "display": {
+        "label": "Books - Update Record",
+        "description": "Update a Zoho Books Record"
+      },
+      "key": "booksUpdateRecord",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Record Type",
+          "model": [
+            {
+              "label": "Bank Accounts",
+              "value": "bankaccounts"
+            },
+            {
+              "label": "Bank Transactions",
+              "value": "banktransactions"
+            },
+            {
+              "label": "Bank Rules",
+              "value": "bankaccounts/rules"
+            },
+            {
+              "label": "Base Currency Adjustments",
+              "value": "basecurrencyadjustment"
+            },
+            {
+              "label": "Bills",
+              "value": "bills"
+            },
+            {
+              "label": "Chart Of Accounts",
+              "value": "chartofaccounts"
+            },
+            {
+              "label": "Contacts",
+              "value": "contacts"
+            },
+            {
+              "label": "Contact Persons",
+              "value": "contactpersons"
+            },
+            {
+              "label": "Credit Notes",
+              "value": "creditnotes"
+            },
+            {
+              "label": "Currency",
+              "value": "settings/currencies"
+            },
+            {
+              "label": "Customer Payments",
+              "value": "customerpayments"
+            },
+            {
+              "label": "Employees",
+              "value": "employees"
+            },
+            {
+              "label": "Estimates",
+              "value": "estimates"
+            },
+            {
+              "label": "Expenses",
+              "value": "expenses"
+            },
+            {
+              "label": "Invoices",
+              "value": "invoices"
+            },
+            {
+              "label": "Items",
+              "value": "items"
+            },
+            {
+              "label": "Journals",
+              "value": "journals"
+            },
+            {
+              "label": "Opening Balances",
+              "value": "settings/openingbalances"
+            },
+            {
+              "label": "Projects",
+              "value": "projects"
+            },
+            {
+              "label": "Purchase Orders",
+              "value": "purchaseorders"
+            },
+            {
+              "label": "Recurring Bills",
+              "value": "recurringbills"
+            },
+            {
+              "label": "Recurring Expenses",
+              "value": "recurringexpenses"
+            },
+            {
+              "label": "Recurring Invoices",
+              "value": "recurringinvoices"
+            },
+            {
+              "label": "Retainer Invoices",
+              "value": "retainerinvoices"
+            },
+            {
+              "label": "Sales Orders",
+              "value": "salesorders"
+            },
+            {
+              "label": "Tasks",
+              "value": "tasks"
+            },
+            {
+              "label": "Taxes",
+              "value": "settings/taxes"
+            },
+            {
+              "label": "Time Entries",
+              "value": "projects/timeentries"
+            },
+            {
+              "label": "Users",
+              "value": "users"
+            },
+            {
+              "label": "Vendor Credits",
+              "value": "vendorcredits"
+            },
+            {
+              "label": "Vendor Payments",
+              "value": "vendorpayments"
+            }
+          ],
+          "required": true,
+          "comments": "The type of record to operate on",
+          "key": "recordType",
+          "type": "string",
+          "default": "",
+          "label": "Record Type"
+        },
+        {
+          "placeholder": "Record ID",
+          "required": true,
+          "comments": "ID that identifies a specific record",
+          "example": "5394166000000379001",
+          "key": "recordId",
+          "type": "string",
+          "default": "",
+          "label": "Record ID"
+        },
+        {
+          "placeholder": "Parent Record Type",
+          "model": [
+            {
+              "label": "Bank Accounts",
+              "value": "bankaccounts"
+            },
+            {
+              "label": "Bank Transactions",
+              "value": "banktransactions"
+            },
+            {
+              "label": "Bank Rules",
+              "value": "bankaccounts/rules"
+            },
+            {
+              "label": "Base Currency Adjustments",
+              "value": "basecurrencyadjustment"
+            },
+            {
+              "label": "Bills",
+              "value": "bills"
+            },
+            {
+              "label": "Chart Of Accounts",
+              "value": "chartofaccounts"
+            },
+            {
+              "label": "Contacts",
+              "value": "contacts"
+            },
+            {
+              "label": "Contact Persons",
+              "value": "contactpersons"
+            },
+            {
+              "label": "Credit Notes",
+              "value": "creditnotes"
+            },
+            {
+              "label": "Currency",
+              "value": "settings/currencies"
+            },
+            {
+              "label": "Customer Payments",
+              "value": "customerpayments"
+            },
+            {
+              "label": "Employees",
+              "value": "employees"
+            },
+            {
+              "label": "Estimates",
+              "value": "estimates"
+            },
+            {
+              "label": "Expenses",
+              "value": "expenses"
+            },
+            {
+              "label": "Invoices",
+              "value": "invoices"
+            },
+            {
+              "label": "Items",
+              "value": "items"
+            },
+            {
+              "label": "Journals",
+              "value": "journals"
+            },
+            {
+              "label": "Opening Balances",
+              "value": "settings/openingbalances"
+            },
+            {
+              "label": "Projects",
+              "value": "projects"
+            },
+            {
+              "label": "Purchase Orders",
+              "value": "purchaseorders"
+            },
+            {
+              "label": "Recurring Bills",
+              "value": "recurringbills"
+            },
+            {
+              "label": "Recurring Expenses",
+              "value": "recurringexpenses"
+            },
+            {
+              "label": "Recurring Invoices",
+              "value": "recurringinvoices"
+            },
+            {
+              "label": "Retainer Invoices",
+              "value": "retainerinvoices"
+            },
+            {
+              "label": "Sales Orders",
+              "value": "salesorders"
+            },
+            {
+              "label": "Tasks",
+              "value": "tasks"
+            },
+            {
+              "label": "Taxes",
+              "value": "settings/taxes"
+            },
+            {
+              "label": "Time Entries",
+              "value": "projects/timeentries"
+            },
+            {
+              "label": "Users",
+              "value": "users"
+            },
+            {
+              "label": "Vendor Credits",
+              "value": "vendorcredits"
+            },
+            {
+              "label": "Vendor Payments",
+              "value": "vendorpayments"
+            }
+          ],
+          "required": false,
+          "comments": "The type of record to operate on",
+          "key": "parentRecordType",
+          "type": "string",
+          "default": "",
+          "label": "Parent Record Type"
+        },
+        {
+          "placeholder": "Parent Record Id",
+          "required": false,
+          "comments": "Id that identifies a specific parent record under which other records are grouped",
+          "example": "5394166000000379001",
+          "key": "parentRecordId",
+          "type": "string",
+          "default": "",
+          "label": "Parent Record Id"
+        },
+        {
+          "required": false,
+          "comments": "A field for dynamic inputs that can be configured at deploy time with the use of a key/value config variable.",
+          "key": "dynamicValues",
+          "type": "data",
+          "default": "",
+          "label": "Dynamic Fields"
+        },
+        {
+          "placeholder": "Values",
+          "required": false,
+          "comments": "The names of the fields and their values to use when creating/updating a record",
+          "key": "fieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Values"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        }
+      ]
+    }
+  },
+  "triggers": {},
+  "dataSources": {},
+  "documentation": {
+    "description": "[Zoho CRM](https://www.zoho.com/crm/) acts as a single repository to bring your sales, marketing, and customer support activities together, and streamline your process, policy, and people in one platform.\n[Zoho Books](https://www.zoho.com/books/) is your one-stop platform for managing your accounting tasks and organizing your transactions. It's a single secure location to keep up with your company's bills and invoices, reconcile your bank statements, control your spending, oversee projects, and eliminate sales tax compliance worries.\n"
+  },
+  "$version": 1
+}

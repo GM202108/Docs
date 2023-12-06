@@ -1,0 +1,11 @@
+---
+id: wrap-core-product-api-in-component
+title: Wrap Core Product API in Component
+description: Integrations with your core product are much easier if you've done the prep work of setting up the API and wrapping it with a component.
+---
+
+Doing something once and doing it well is usually the best approach. With that in mind, one of the most important things you can do is [build a component that wraps your API](/docs/quickstarts/wrapping-an-api-in-a-component/). Then, you'll be able to reuse this shared component for every import integration.
+
+Given the non-trivial amount of work required to build this component, the first integration will take a while. When it comes to your second and third import integration, you'll be able to largely reuse the component you built. Depending on what you need to import from the third-party app, you might need to do a bit of additional development, but it's likely to be minimal at that point. However, when you build your nth integration that uses this component, the time saved will more than offset that initial development.
+
+Once your devs have written this shared component and used it to build some integrations, the component should be ready for your technical non-developers to build many more import integrations – without bothering your dev team for further help or code.

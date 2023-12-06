@@ -1,0 +1,246 @@
+---
+id: build-first-integration
+title: "Build Your First Integration"
+description: Create your first Prismatic Integration, pulling down JSON from a REST API, and sending data to Slack
+---
+
+import Icon from "@mui/material/Icon";
+import Screenshot from "@site/src/components/screenshot";
+
+This tutorial will walk you through some basic concepts of integration development.
+You will:
+
+- Fetch data from a third-party "app"
+- Learn how data flows between steps of an integration
+- Use a loop to iterate over the data you fetch
+- Use logical branches to determine what to do with the data
+- Send the data conditionally to another third-party
+
+## Integration overview
+
+The integration you build here will fetch data (a list of to-do tasks) from an API, loops over the list, determine which tasks are marked "incomplete", and notify you via Slack of any "incomplete" tasks.
+[Placeholder data](https://my-json-server.typicode.com/-io/placeholder-data/todo) will stand in as a placeholder for the to-do list "API".
+
+<Screenshot
+  filename="getting-started/build-first-integration/completed-integration.png"
+  maxWidth="500px"
+  alt="Sample integration diagram in  app"
+/>
+
+You'll design this integration to be **configurable**, so the same integration can be deployed to multiple customers with unique API endpoints and Slack Webhook URLs.
+
+## Prerequisites
+
+To run this integration, you will need to have a Slack account (you can create one for free) and generate a [Slack webhook](components/slack.mdx#webhook-url).
+Take note of the webhook you generate.
+It should be of the form `https://hooks.slack.com/services/SOME/API/KEY`.
+
+## Create a new integration
+
+Click **Integrations** from the left-hand sidebar, and then click **+ Add integration** in the upper-right.
+
+<Screenshot
+  filename="getting-started/build-first-integration/add-integration.png"
+  maxWidth="800px"
+  alt="Integrations page in  app"
+/>
+
+Give the integration a name of "_My First Integration_".
+You can choose to give your integration an optional description, and can categorize the integration if you wish, though both fields can be left blank.
+
+After clicking **Next**, select an integration trigger.
+An integration's trigger determines what should cause the integration to run.
+For this integration, select a **Schedule** Trigger, which allows you to run the integration on a schedule (once a day, once an hour, etc).
+After selecting the trigger, you'll find yourself in the integration designer.
+
+### Configure the integration trigger
+
+First, let's determine what will cause this integration to run.
+
+Click on the integration trigger.
+This will open a configuration drawer on the left side of the screen.
+Then, click **Add a value** in the **Schedule** field.
+Configure the trigger to run once daily at a time of your choosing:
+
+<Screenshot
+  filename="getting-started/build-first-integration/configure-integration-trigger.png"
+  maxWidth="550px"
+  alt="Integration trigger in  app"
+/>
+
+### Pull down to-do data
+
+Your first step is responsible for fetching data from the to-do API.
+Add an **HTTP - GET Request** action by clicking the <Icon>add_circle</Icon> button below the trigger and searching for the **HTTP** component.
+
+<Screenshot
+  filename="getting-started/build-first-integration/add-http-action-1.png"
+  maxWidth="650px"
+  alt="HTTP Component selection in  app"
+/>
+
+Select the **HTTP** component, and then select the **Get Request** action.
+
+<Screenshot
+  filename="getting-started/build-first-integration/add-http-action-2.png"
+  maxWidth="650px"
+  alt="Get Request action selection for HTTP Component in  app"
+/>
+
+#### Make the URL configurable
+
+Now we need to tell the step where to look for the to-do API.
+We should make this configurable, so one customer could look at one endpoint, and another customer could look at another endpoint.
+
+Click the URL field in the left-hand side of your screen and open the **Config Variables** tab.
+Click <Icon>add_circle</Icon> next to the dropdown to create a new config variable.
+Within the dialogue that pops up name the new config variable **To-Do API Endpoint** and set this as its default value:
+
+`https://my-json-server.typicode.com/-io/placeholder-data/todo`
+
+Click **Accept** to save this config variable and use it as input to this step.
+
+The **Response Type** field should keep its default **JSON** value and you can leave all other input fields alone.
+
+<Screenshot
+  filename="getting-started/build-first-integration/configure-http-action.png"
+  maxWidth="800px"
+  alt="Configure HTTP action in  app"
+/>
+
+At this point you should test your single-step integration to verify your first step pulls to-do data from the to-do API successfully.
+
+Click **SAVE & RUN TEST** button to save and run your integration.
+This will open the **TEST RUNNER** drawer.
+If you open up the **Step Outputs** tab, you should see the data retrieved from the to-do API:
+
+<Screenshot
+  filename="getting-started/build-first-integration/test-http-action.png"
+  maxWidth="800px"
+  alt="Test HTTP action in  app"
+/>
+
+The important thing to note here is that those step results (the list of to-do items in this case) are available to use in subsequent steps.
+
+### Loop over to-do tasks
+
+Add another action by clicking the <Icon>add_circle</Icon> icon below the action you just added.
+This time choose the **Loop** component, **Loop Over Items** action.
+
+Let the step know what items to loop over by clicking the **Items** input, and from within the **Reference Search** box that comes up, enter `results`.
+
+<Screenshot
+  filename="getting-started/build-first-integration/configure-loop-action.png"
+  maxWidth="800px"
+  alt="Loop over items in  app"
+/>
+
+Click **SAVE & RUN TEST** again.
+In the **Step Outputs** tab, you'll now see the results of the loop step.
+Note that it has a `currentItem` value - this represents the to-do task that is currently being looped over.
+We'll use that value for the next step.
+
+<Screenshot
+  filename="getting-started/build-first-integration/test-loop-action.png"
+  maxWidth="800px"
+  alt="Test loop action in  app"
+/>
+
+### Check if a to-do task is completed
+
+Now you need to determine if each to-do task is complete or not, so you can send incomplete tasks as Slack messages.
+
+Within the loop, add a new step.
+This time select the **Branch** component, **Branch on Expression** action.
+
+Create a branch named "Completed".
+Under **Field** open the **Reference** tab and select your loop step as the **Reference Step**.
+Enter `currentItem.completed` as the **Reference Search**.
+Under the **Operator** drop down, select `is true` to check if the current to-do item's `completed` value is `true`.
+
+<Screenshot
+  filename="getting-started/build-first-integration/configure-branch-action.png"
+  maxWidth="800px"
+  alt="Configure branch action in  app"
+/>
+
+### Post the message to Slack
+
+We want to send a Slack message when a task is _not_ complete.
+So, add a **Slack** component, **Slack Message From Webhook** action under the **Else** branch.
+
+In the **Message** input field choose a **Reference**, select the **Loop Over To-Do Items** as your **Reference Step** and enter `currentItem.task` for the **Reference Search**:
+
+<Screenshot
+  filename="getting-started/build-first-integration/configure-slack-action.png"
+  maxWidth="800px"
+  alt="Configure Slack action in  app"
+/>
+
+This will instruct the Slack component to send the current tasks's description as a Slack message.
+
+#### Configure the Slack connection
+
+A **connection** is a config variable that contains the information necessary for a step in your integration to interact with an external app or service.
+Connections often contain endpoints, usernames, API keys, etc.
+In this case, we want to configure Slack to use a specific webhook URL (the one you created [above](#prerequisites)) to send messages.
+Note that the **Connection** input has already been populated with a connection config variable for you.
+
+Open up the **Configuration Wizard** from the button on the right side of the screen and open the **Slack Connection** config variable that was created for you.
+Under **Connection Type**, change it to a **Slack**, **Webhook URL**.
+
+Open up the connection's **Webhook URL** input and give it a default value of the Slack webhook URL you configured [above](#prerequisites):
+
+<Screenshot
+  filename="getting-started/build-first-integration/slack-default-webhook-url.png"
+  alt="Set Slack default webhook URL in  app"
+/>
+
+## Test the integration
+
+Now it's time to test your integration to verify it works properly.
+
+Click the **Save & Run Test** button once more.
+Then, open the **Test Runner** tab from the left-hand sidebar.
+You'll see output from your test run.
+By clicking through **Step Outputs** you can see the output that each step generated.
+You should see several "incomplete" to-do tasks appear in your Slack channel as the integration runs.
+
+<Screenshot
+  filename="getting-started/build-first-integration/test-integration.png"
+  alt="Test sample integration in  app"
+/>
+
+## Tidy up your integration
+
+Though it's not necessary, it's helpful to add descriptive names to each of your integration's steps so your team members know exactly what each one does.
+You can also add a step under the **Completed** branch to do something with completed to-do items if you'd like.
+
+<Screenshot
+  filename="getting-started/build-first-integration/completed-integration.png"
+  maxWidth="550px"
+  alt="Sample integration diagram in  app"
+/>
+
+## Publish the integration
+
+Now that you have a working integration, it's time to publish it so it can be deployed to customers.
+
+Open the **Version History** tab on the left-hand side.
+Enter a publication message so others know what you've changed, and then click the **Save & Publish** button.
+
+<Screenshot
+  filename="getting-started/build-first-integration/publish-integration.png"
+  maxWidth="450px"
+  alt="Publish the integration in  app"
+/>
+
+## Next steps
+
+Congratulations! You created your first integration! Here are a few things you should try next:
+
+- Alter the Slack message you're sending using [template inputs](building-integrations.mdx#template-inputs).
+- Swap out the HTTP GET action for a different data source component (perhaps pull from an [SFTP](components/sftp.mdx) server)?
+- Write your message out to a file in [Dropbox](components/dropbox.mdx) or [Amazon S3](components/aws-s3.mdx) instead of Slack.
+
+When you are ready, move on to the next tutorial to [deploy your integration](getting-started/first-integration/deploy-first-integration.mdx) to a customer.

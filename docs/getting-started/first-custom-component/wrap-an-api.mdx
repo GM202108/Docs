@@ -1,0 +1,296 @@
+---
+id: wrap-an-api
+title: Wrap an API
+description: Add actions to a custom component that wrap an API
+---
+
+import Screenshot from "@site/src/components/screenshot";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+At this point, you should have an [initialized component](getting-started/first-custom-component/hello-.mdx) with a "Hello " action.
+But, chances are, the majority of your actions are going to involve fetching data from your own or a third-party API.
+Let's walk through how to add actions that fetch data from a RESTful endpoint.
+
+For demonstration purposes, you'll use some mock API endpoints.
+
+- https://my-json-server.typicode.com/-io/placeholder-data/items returns a JSON list of items.
+- https://my-json-server.typicode.com/-io/placeholder-data/items/3 returns a specific item by ID.
+
+## Add actions that wrap API endpoints
+
+Let's add two actions that wrap the two endpoints above.
+First, you'll need a mechanism for contacting a RESTful endpoint.
+If you have a favorite NodeJS HTTP client library, you can add that to your project.
+If you don't, we recommend using the HTTP client that is built in to `@-io/spectral`.
+At the top of your `index.ts` file, add:
+
+```typescript
+import { createClient } from "@-io/spectral/dist/clients/http";
+
+const baseUrl =
+  "https://my-json-server.typicode.com/-io/placeholder-data";
+```
+
+Then, within `index.ts` add a couple of actions - one that fetches all items, and one that fetches a specific item by its ID:
+
+```typescript
+const listItems = action({
+  display: {
+    label: "List all items",
+    description: "List all items in the inventory",
+  },
+  inputs: {},
+  perform: async (context, params) => {
+    const client = createClient({ baseUrl });
+    const response = await client.get("/items");
+    return { data: response.data };
+  },
+});
+
+const getItem = action({
+  display: {
+    label: "Get Item",
+    description: "Get an item by ID",
+  },
+  inputs: {
+    itemId: input({ label: "Item ID", type: "string", required: true }),
+  },
+  perform: async (context, params) => {
+    const client = createClient({ baseUrl });
+    const response = await client.get(`/items/${params.itemId}`);
+    return { data: response.data };
+  },
+});
+```
+
+Finally, make your `component()` aware of the two new actions by adding them to the `actions:` line:
+
+```typescript
+  actions: { hello, listItems, getItem },
+```
+
+Now, run `npm run build` and `prism components:publish` to push your new changes to .
+Add your new actions to your integration, and run a test.
+You should see the data from the RESTful endpoints reflected in step outputs.
+
+<Screenshot
+  filename="getting-started/first-custom-component/list-all-items-test-results.png"
+  maxWidth="500px"
+  alt="Screenshot of the List All Items action step results"
+/>
+
+You can see additional API endpoints for DELETE and POST verbs in our [Wrapping an API in a Component](quickstarts/wrapping-an-api-in-a-component.mdx) quickstart.
+
+### Other common clients
+
+You used an [axios](https://axios-http.com/)-based built-in HTTP client for the example above.
+If you prefer node-fetch or another HTTP client, you can swap those in readily.
+
+- If you are interacting with a SOAP API, you can reach for the [soap](https://www.npmjs.com/package/soap) package from NPM.
+- If you are interacting with a GraphQL API, you can use the default HTTP client, but you probably want nice GraphQL template literals and built-in response parsing.
+  We recommend reaching for the [graphql-request](https://www.npmjs.com/package/graphql-request) library.
+- NPM generally has a library for less common API implementations ([xmlrpc](https://www.npmjs.com/package/xmlrpc) for XML-RPC APIs, [@grpc/grpc-js](https://www.npmjs.com/package/@grpc/grpc-js) for gRPC APIs, etc).
+  Most any package from NPM can be included in a custom component project.
+
+## Add authentication through connections
+
+The example above interacted with a RESTful endpoint, but is missing one critical piece of an API integration: **authentication**.
+Let's add authentication and clean up our code a bit.
+Replace your code with the code below, adding new files as needed:
+
+<Tabs>
+
+<TabItem value="index.ts" label="index.ts" default>
+
+Your `index.ts` file can be slimmed down to a `component()` declaration that references actions from `actions.ts`, and connections from `connections.ts`:
+
+```typescript
+import { component } from "@-io/spectral";
+import actions from "./actions";
+import connections from "./connections";
+
+export default component({
+  key: "myFirstComponent",
+  public: false,
+  display: {
+    label: "My First Component",
+    description: "Learning how to build and test a new component",
+    iconPath: "icon.png",
+  },
+  actions,
+  connections,
+});
+```
+
+</TabItem>
+
+<TabItem value="connections.ts" label="connections.ts" default>
+
+Your `connections.ts` file declares what things your component needs to know to connect to the third-party app, like an endpoint or API key.
+For this example, assume you need a **base URL** and an **API key**.
+
+```typescript
+import { connection } from "@-io/spectral";
+
+export const apiKeyConnection = connection({
+  key: "apiKey",
+  label: "Acme Connection",
+  comments: "Acme Connection",
+  inputs: {
+    baseUrl: {
+      label: "Item Endpoint URL",
+      placeholder: "Item Endpoint URL",
+      type: "string",
+      required: true,
+      default:
+        "https://my-json-server.typicode.com/-io/placeholder-data",
+    },
+    apiKey: {
+      label: "Acme API Key",
+      placeholder: "Acme API Key",
+      type: "password",
+      required: true,
+    },
+  },
+});
+
+export default [apiKeyConnection];
+```
+
+</TabItem>
+
+<TabItem value="client.ts" label="client.ts" default>
+
+Rather than setting an authorization header and base URL in each action, you can abstract that logic into a reusable function that creates an HTTP client with an authorization header.
+Note that the API key and base URL is sourced from the connection that is passed in.
+
+```typescript
+import { Connection, util } from "@-io/spectral";
+import { createClient } from "@-io/spectral/dist/clients/http";
+
+export const createHttpClient = (connection: Connection) => {
+  const baseUrl = util.types.toString(connection.fields.baseUrl);
+  const apiKey = util.types.toString(connection.fields.apiKey);
+
+  return createClient({
+    baseUrl,
+    headers: { Authorization: `Bearer ${apiKey}` },
+  });
+};
+```
+
+</TabItem>
+
+<TabItem value="inputs.ts" label="inputs.ts" default>
+
+Inputs can be declared inline in an `action()` definition.
+You often use the same inputs for multiple actions, though.
+To make them reusable, you can abstract them into reusable objects:
+
+```typescript
+import { input } from "@-io/spectral";
+
+export const firstNameInput = input({
+  label: "First Name",
+  type: "string",
+  required: true,
+});
+
+export const lastNameInput = input({
+  label: "Last Name",
+  type: "string",
+  required: true,
+});
+
+export const itemIdInput = input({
+  label: "Item ID",
+  type: "string",
+  required: true,
+});
+
+export const connectionInput = input({
+  label: "Connection",
+  type: "connection",
+  required: true,
+});
+```
+
+</TabItem>
+
+<TabItem value="actions.ts" label="actions.ts" default>
+
+Finally, you can update your actions to have a `connection` input.
+Your actions can then pass that connection in to the `createHttpClient` function from `client.ts`, giving them access to an authenticated HTTP client.
+
+```typescript
+import { action } from "@-io/spectral";
+import { createHttpClient } from "./client";
+import {
+  connectionInput,
+  firstNameInput,
+  itemIdInput,
+  lastNameInput,
+} from "./inputs";
+
+const hello = action({
+  display: {
+    label: "Hello ",
+    description: "Echos a greeting using your first and last name",
+  },
+  inputs: { firstName: firstNameInput, lastName: lastNameInput },
+  perform: async (context, params) => {
+    const myMessage = `Hello, ${params.firstName} ${params.lastName}`;
+    return Promise.resolve({ data: myMessage });
+  },
+});
+
+const listItems = action({
+  display: {
+    label: "List all items",
+    description: "List all items in the inventory",
+  },
+  inputs: { connection: connectionInput },
+  perform: async (context, params) => {
+    const client = createHttpClient(params.connection);
+    const response = await client.get("/items");
+    return { data: response.data };
+  },
+});
+
+const getItem = action({
+  display: {
+    label: "Get Item",
+    description: "Get an item by ID",
+  },
+  inputs: { connection: connectionInput, itemId: itemIdInput },
+  perform: async (context, params) => {
+    const client = createHttpClient(params.connection);
+    const response = await client.get(`/items/${params.itemId}`);
+    return { data: response.data };
+  },
+});
+
+export default { hello, listItems, getItem };
+```
+
+</TabItem>
+
+</Tabs>
+
+After building and publishing again, when you try to run a test of the integration you'll be prompted to run through the configuration wizard.
+You can access this test configuration wizard by opening on the **Test Runner** drawer on the left-hand side and then clicking **Save & Reconfigure Test Instance**, and you can customize what the wizard looks like by clicking **Configuration Wizard** from the right-hand side of the page.
+
+<Screenshot
+  filename="getting-started/first-custom-component/config-wizard.png"
+  maxWidth="700px"
+  alt="Screenshot of the List All Items action step results"
+/>
+
+## Next steps
+
+You now have a component that can fetch data from an API.
+A component that wraps your own API, or the API of a third-party you're integrating with, will follow a similar pattern.
+
+Next, we recommend that you try to wrap a few endpoints of your own API in a custom component.
+The [Writing Custom Components](custom-components/writing-custom-components.mdx) article, which goes into more detail about input types, handling binary data, building triggers and data sources, testing components through unit tests and from the CLI, etc.

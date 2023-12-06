@@ -1,0 +1,8 @@
+{
+  "verbosity": "error",
+  "concurrency": 15,
+  "timeout": 20000,
+  "recurse": true,
+  "retryErrors": false,
+  "skip": []
+}

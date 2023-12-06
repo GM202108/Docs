@@ -1,0 +1,1470 @@
+{
+  "key": "servicenow",
+  "documentationUrl": "https://prismatic.io/docs/components/servicenow/",
+  "public": true,
+  "display": {
+    "label": "ServiceNow",
+    "description": "Create records and incidents within ServiceNow",
+    "iconPath": "icon.png",
+    "category": "Application Connectors",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "key": "authorizationCode",
+      "label": "OAuth 2.0 Authorization Code",
+      "comments": "OAuth 2.0 Authorization Code flow",
+      "oauth2Type": "authorization_code",
+      "inputs": [
+        {
+          "placeholder": "Authorize URL",
+          "required": true,
+          "shown": true,
+          "comments": "The OAuth 2.0 Authorization URL for ServiceNow",
+          "key": "authorizeUrl",
+          "type": "string",
+          "default": "",
+          "label": "Authorize URL"
+        },
+        {
+          "placeholder": "Token URL",
+          "required": true,
+          "shown": true,
+          "comments": "The OAuth 2.0 Token URL for ServiceNow",
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "",
+          "label": "Token URL"
+        },
+        {
+          "placeholder": "Scopes",
+          "required": false,
+          "shown": true,
+          "comments": "Space separated OAuth 2.0 permission scopes for ServiceNow",
+          "key": "scopes",
+          "type": "string",
+          "default": "",
+          "label": "Scopes"
+        },
+        {
+          "placeholder": "Client ID",
+          "required": true,
+          "shown": true,
+          "comments": "Client Identifier of your app for ServiceNow",
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "Client ID"
+        },
+        {
+          "placeholder": "Client Secret",
+          "required": true,
+          "shown": true,
+          "comments": "Client Secret of your app for ServiceNow",
+          "key": "clientSecret",
+          "type": "password",
+          "default": "",
+          "label": "Client Secret"
+        }
+      ]
+    },
+    {
+      "key": "basic",
+      "label": "Basic Username/Password",
+      "comments": "Basic Username and Password connection",
+      "inputs": [
+        {
+          "placeholder": "Username",
+          "required": true,
+          "shown": true,
+          "comments": "Username",
+          "key": "username",
+          "type": "string",
+          "default": "",
+          "label": "Username"
+        },
+        {
+          "placeholder": "Password",
+          "required": true,
+          "shown": true,
+          "comments": "Password",
+          "key": "password",
+          "type": "password",
+          "default": "",
+          "label": "Password"
+        }
+      ]
+    }
+  ],
+  "actions": {
+    "createIncident": {
+      "display": {
+        "label": "Create Incident",
+        "description": "Creates an Incident with the specified field names and values"
+      },
+      "key": "createIncident",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Instance URL",
+          "required": true,
+          "comments": "The URL of the specific ServiceNow instance to use for API requests",
+          "example": "https://instance.service-now.com",
+          "key": "instanceUrlInput",
+          "type": "string",
+          "default": "",
+          "label": "Instance URL"
+        },
+        {
+          "placeholder": "API Version",
+          "required": true,
+          "comments": "The version of the ServiceNow API to use",
+          "model": [
+            {
+              "label": "Latest",
+              "value": "latest"
+            },
+            {
+              "label": "v2",
+              "value": "v2"
+            },
+            {
+              "label": "v1",
+              "value": "v1"
+            }
+          ],
+          "example": "v2",
+          "key": "apiVersionInput",
+          "type": "string",
+          "default": "",
+          "label": "API Version"
+        },
+        {
+          "placeholder": "Values",
+          "required": true,
+          "comments": "The names of the fields and their values to use when creating a record",
+          "key": "fieldValuesInput",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Values"
+        }
+      ]
+    },
+    "createTableRecord": {
+      "display": {
+        "label": "Create Table Record",
+        "description": "Creates a record in the specified table with the specified field names and values"
+      },
+      "key": "createTableRecord",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Instance URL",
+          "required": true,
+          "comments": "The URL of the specific ServiceNow instance to use for API requests",
+          "example": "https://instance.service-now.com",
+          "key": "instanceUrlInput",
+          "type": "string",
+          "default": "",
+          "label": "Instance URL"
+        },
+        {
+          "placeholder": "API Version",
+          "required": true,
+          "comments": "The version of the ServiceNow API to use",
+          "model": [
+            {
+              "label": "Latest",
+              "value": "latest"
+            },
+            {
+              "label": "v2",
+              "value": "v2"
+            },
+            {
+              "label": "v1",
+              "value": "v1"
+            }
+          ],
+          "example": "v2",
+          "key": "apiVersionInput",
+          "type": "string",
+          "default": "",
+          "label": "API Version"
+        },
+        {
+          "placeholder": "Table",
+          "required": true,
+          "comments": "The name of the ServiceNow table in which to create a record",
+          "example": "incident",
+          "key": "tableNameInput",
+          "type": "string",
+          "default": "",
+          "label": "Table"
+        },
+        {
+          "placeholder": "Values",
+          "required": true,
+          "comments": "The names of the fields and their values to use when creating a record",
+          "key": "fieldValuesInput",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Values"
+        }
+      ]
+    },
+    "createUser": {
+      "display": {
+        "label": "Create User",
+        "description": "Creates a User with the specified field names and values"
+      },
+      "key": "createUser",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Instance URL",
+          "required": true,
+          "comments": "The URL of the specific ServiceNow instance to use for API requests",
+          "example": "https://instance.service-now.com",
+          "key": "instanceUrlInput",
+          "type": "string",
+          "default": "",
+          "label": "Instance URL"
+        },
+        {
+          "placeholder": "API Version",
+          "required": true,
+          "comments": "The version of the ServiceNow API to use",
+          "model": [
+            {
+              "label": "Latest",
+              "value": "latest"
+            },
+            {
+              "label": "v2",
+              "value": "v2"
+            },
+            {
+              "label": "v1",
+              "value": "v1"
+            }
+          ],
+          "example": "v2",
+          "key": "apiVersionInput",
+          "type": "string",
+          "default": "",
+          "label": "API Version"
+        },
+        {
+          "placeholder": "Values",
+          "required": false,
+          "comments": "The names of the fields and their values to use when creating a record",
+          "key": "fieldValuesInputNonRequired",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Values"
+        },
+        {
+          "required": false,
+          "comments": "The User's First Name",
+          "key": "firstName",
+          "type": "string",
+          "default": "",
+          "label": "First Name"
+        },
+        {
+          "required": false,
+          "comments": "The User's Last Name",
+          "key": "lastName",
+          "type": "string",
+          "default": "",
+          "label": "Last Name"
+        },
+        {
+          "required": false,
+          "comments": "The Email of the User",
+          "key": "email",
+          "type": "string",
+          "default": "",
+          "label": "Email"
+        },
+        {
+          "required": false,
+          "comments": "The Username of the User",
+          "key": "userName",
+          "type": "string",
+          "default": "",
+          "label": "User Id"
+        }
+      ]
+    },
+    "deleteIncident": {
+      "display": {
+        "label": "Delete Incident",
+        "description": "Delete an Incident"
+      },
+      "key": "deleteIncident",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Instance URL",
+          "required": true,
+          "comments": "The URL of the specific ServiceNow instance to use for API requests",
+          "example": "https://instance.service-now.com",
+          "key": "instanceUrlInput",
+          "type": "string",
+          "default": "",
+          "label": "Instance URL"
+        },
+        {
+          "placeholder": "API Version",
+          "required": true,
+          "comments": "The version of the ServiceNow API to use",
+          "model": [
+            {
+              "label": "Latest",
+              "value": "latest"
+            },
+            {
+              "label": "v2",
+              "value": "v2"
+            },
+            {
+              "label": "v1",
+              "value": "v1"
+            }
+          ],
+          "example": "v2",
+          "key": "apiVersionInput",
+          "type": "string",
+          "default": "",
+          "label": "API Version"
+        },
+        {
+          "required": true,
+          "comments": "The Sys ID of the record being queried",
+          "key": "sysId",
+          "type": "string",
+          "default": "",
+          "label": "Sys ID"
+        }
+      ]
+    },
+    "deleteTableRecord": {
+      "display": {
+        "label": "Delete Table Record",
+        "description": "Delete a record for a given ID in the specified Table"
+      },
+      "key": "deleteTableRecord",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Instance URL",
+          "required": true,
+          "comments": "The URL of the specific ServiceNow instance to use for API requests",
+          "example": "https://instance.service-now.com",
+          "key": "instanceUrlInput",
+          "type": "string",
+          "default": "",
+          "label": "Instance URL"
+        },
+        {
+          "placeholder": "API Version",
+          "required": true,
+          "comments": "The version of the ServiceNow API to use",
+          "model": [
+            {
+              "label": "Latest",
+              "value": "latest"
+            },
+            {
+              "label": "v2",
+              "value": "v2"
+            },
+            {
+              "label": "v1",
+              "value": "v1"
+            }
+          ],
+          "example": "v2",
+          "key": "apiVersionInput",
+          "type": "string",
+          "default": "",
+          "label": "API Version"
+        },
+        {
+          "placeholder": "Table",
+          "required": true,
+          "comments": "The name of the ServiceNow table in which to create a record",
+          "example": "incident",
+          "key": "tableNameInput",
+          "type": "string",
+          "default": "",
+          "label": "Table"
+        },
+        {
+          "required": true,
+          "comments": "The Sys ID of the record being queried",
+          "key": "sysId",
+          "type": "string",
+          "default": "",
+          "label": "Sys ID"
+        }
+      ]
+    },
+    "deleteUser": {
+      "display": {
+        "label": "Delete User",
+        "description": "Deletes a User"
+      },
+      "key": "deleteUser",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Instance URL",
+          "required": true,
+          "comments": "The URL of the specific ServiceNow instance to use for API requests",
+          "example": "https://instance.service-now.com",
+          "key": "instanceUrlInput",
+          "type": "string",
+          "default": "",
+          "label": "Instance URL"
+        },
+        {
+          "placeholder": "API Version",
+          "required": true,
+          "comments": "The version of the ServiceNow API to use",
+          "model": [
+            {
+              "label": "Latest",
+              "value": "latest"
+            },
+            {
+              "label": "v2",
+              "value": "v2"
+            },
+            {
+              "label": "v1",
+              "value": "v1"
+            }
+          ],
+          "example": "v2",
+          "key": "apiVersionInput",
+          "type": "string",
+          "default": "",
+          "label": "API Version"
+        },
+        {
+          "required": true,
+          "comments": "The Sys ID of the record being queried",
+          "key": "sysId",
+          "type": "string",
+          "default": "",
+          "label": "Sys ID"
+        }
+      ]
+    },
+    "getIncident": {
+      "display": {
+        "label": "Get Incident",
+        "description": "Gets an Incident by ID"
+      },
+      "key": "getIncident",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Instance URL",
+          "required": true,
+          "comments": "The URL of the specific ServiceNow instance to use for API requests",
+          "example": "https://instance.service-now.com",
+          "key": "instanceUrlInput",
+          "type": "string",
+          "default": "",
+          "label": "Instance URL"
+        },
+        {
+          "placeholder": "API Version",
+          "required": true,
+          "comments": "The version of the ServiceNow API to use",
+          "model": [
+            {
+              "label": "Latest",
+              "value": "latest"
+            },
+            {
+              "label": "v2",
+              "value": "v2"
+            },
+            {
+              "label": "v1",
+              "value": "v1"
+            }
+          ],
+          "example": "v2",
+          "key": "apiVersionInput",
+          "type": "string",
+          "default": "",
+          "label": "API Version"
+        },
+        {
+          "required": true,
+          "comments": "The Sys ID of the record being queried",
+          "key": "sysId",
+          "type": "string",
+          "default": "",
+          "label": "Sys ID"
+        }
+      ]
+    },
+    "getTableRecord": {
+      "display": {
+        "label": "Get Table Record",
+        "description": "Get a record for a given ID in the specified Table"
+      },
+      "key": "getTableRecord",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Instance URL",
+          "required": true,
+          "comments": "The URL of the specific ServiceNow instance to use for API requests",
+          "example": "https://instance.service-now.com",
+          "key": "instanceUrlInput",
+          "type": "string",
+          "default": "",
+          "label": "Instance URL"
+        },
+        {
+          "placeholder": "API Version",
+          "required": true,
+          "comments": "The version of the ServiceNow API to use",
+          "model": [
+            {
+              "label": "Latest",
+              "value": "latest"
+            },
+            {
+              "label": "v2",
+              "value": "v2"
+            },
+            {
+              "label": "v1",
+              "value": "v1"
+            }
+          ],
+          "example": "v2",
+          "key": "apiVersionInput",
+          "type": "string",
+          "default": "",
+          "label": "API Version"
+        },
+        {
+          "placeholder": "Table",
+          "required": true,
+          "comments": "The name of the ServiceNow table in which to create a record",
+          "example": "incident",
+          "key": "tableNameInput",
+          "type": "string",
+          "default": "",
+          "label": "Table"
+        },
+        {
+          "required": true,
+          "comments": "The Sys ID of the record being queried",
+          "key": "sysId",
+          "type": "string",
+          "default": "",
+          "label": "Sys ID"
+        }
+      ]
+    },
+    "getUser": {
+      "display": {
+        "label": "Get User by Id",
+        "description": "Gets a User by their Id"
+      },
+      "key": "getUser",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Instance URL",
+          "required": true,
+          "comments": "The URL of the specific ServiceNow instance to use for API requests",
+          "example": "https://instance.service-now.com",
+          "key": "instanceUrlInput",
+          "type": "string",
+          "default": "",
+          "label": "Instance URL"
+        },
+        {
+          "placeholder": "API Version",
+          "required": true,
+          "comments": "The version of the ServiceNow API to use",
+          "model": [
+            {
+              "label": "Latest",
+              "value": "latest"
+            },
+            {
+              "label": "v2",
+              "value": "v2"
+            },
+            {
+              "label": "v1",
+              "value": "v1"
+            }
+          ],
+          "example": "v2",
+          "key": "apiVersionInput",
+          "type": "string",
+          "default": "",
+          "label": "API Version"
+        },
+        {
+          "required": true,
+          "comments": "The Sys ID of the record being queried",
+          "key": "sysId",
+          "type": "string",
+          "default": "",
+          "label": "Sys ID"
+        }
+      ]
+    },
+    "getUserByUsername": {
+      "display": {
+        "label": "Get User by Username",
+        "description": "Get a record for a given ID in the specified Table"
+      },
+      "key": "getUserByUsername",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Instance URL",
+          "required": true,
+          "comments": "The URL of the specific ServiceNow instance to use for API requests",
+          "example": "https://instance.service-now.com",
+          "key": "instanceUrlInput",
+          "type": "string",
+          "default": "",
+          "label": "Instance URL"
+        },
+        {
+          "placeholder": "API Version",
+          "required": true,
+          "comments": "The version of the ServiceNow API to use",
+          "model": [
+            {
+              "label": "Latest",
+              "value": "latest"
+            },
+            {
+              "label": "v2",
+              "value": "v2"
+            },
+            {
+              "label": "v1",
+              "value": "v1"
+            }
+          ],
+          "example": "v2",
+          "key": "apiVersionInput",
+          "type": "string",
+          "default": "",
+          "label": "API Version"
+        },
+        {
+          "required": false,
+          "comments": "The Username of the User",
+          "key": "userName",
+          "type": "string",
+          "default": "",
+          "label": "User Id"
+        }
+      ]
+    },
+    "listIncidents": {
+      "display": {
+        "label": "List Incidents",
+        "description": "Gets a list of all Incidents"
+      },
+      "key": "listIncidents",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Instance URL",
+          "required": true,
+          "comments": "The URL of the specific ServiceNow instance to use for API requests",
+          "example": "https://instance.service-now.com",
+          "key": "instanceUrlInput",
+          "type": "string",
+          "default": "",
+          "label": "Instance URL"
+        },
+        {
+          "placeholder": "API Version",
+          "required": true,
+          "comments": "The version of the ServiceNow API to use",
+          "model": [
+            {
+              "label": "Latest",
+              "value": "latest"
+            },
+            {
+              "label": "v2",
+              "value": "v2"
+            },
+            {
+              "label": "v1",
+              "value": "v1"
+            }
+          ],
+          "example": "v2",
+          "key": "apiVersionInput",
+          "type": "string",
+          "default": "",
+          "label": "API Version"
+        },
+        {
+          "required": false,
+          "comments": "Max number of records to return. Large values can impact performance. For pagination with large data sets include the Sysparm Offset",
+          "key": "sysparmLimit",
+          "type": "string",
+          "default": "",
+          "label": "Sysparm Limit"
+        },
+        {
+          "required": false,
+          "comments": "Starting record index for which to begin retrieving records. This functionality enables the retrieval of all records, regardless of the number of records, in small manageable chunks. For example, the first time you call this endpoint, sysparm_offset is set to '0'. To simply page through all available records, use sysparm_offset=sysparm_offset+sysparm_limit, until you reach the end of all records.",
+          "key": "sysparmOffset",
+          "type": "string",
+          "default": "",
+          "label": "Sysparm Offset"
+        },
+        {
+          "required": false,
+          "comments": "Encoded query used to filter the result set. Syntax: sysparm_query=<col_name><operator><value>.",
+          "example": "active=true^ORDERBYnumber^ORDERBYDESCcategory",
+          "key": "sysparmQuery",
+          "type": "string",
+          "default": "",
+          "label": "Sysparm Query"
+        }
+      ]
+    },
+    "listTableRecords": {
+      "display": {
+        "label": "List Table Records",
+        "description": "Lists records in the specified table"
+      },
+      "key": "listTableRecords",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Instance URL",
+          "required": true,
+          "comments": "The URL of the specific ServiceNow instance to use for API requests",
+          "example": "https://instance.service-now.com",
+          "key": "instanceUrlInput",
+          "type": "string",
+          "default": "",
+          "label": "Instance URL"
+        },
+        {
+          "placeholder": "API Version",
+          "required": true,
+          "comments": "The version of the ServiceNow API to use",
+          "model": [
+            {
+              "label": "Latest",
+              "value": "latest"
+            },
+            {
+              "label": "v2",
+              "value": "v2"
+            },
+            {
+              "label": "v1",
+              "value": "v1"
+            }
+          ],
+          "example": "v2",
+          "key": "apiVersionInput",
+          "type": "string",
+          "default": "",
+          "label": "API Version"
+        },
+        {
+          "placeholder": "Table",
+          "required": true,
+          "comments": "The name of the ServiceNow table in which to create a record",
+          "example": "incident",
+          "key": "tableNameInput",
+          "type": "string",
+          "default": "",
+          "label": "Table"
+        },
+        {
+          "required": false,
+          "comments": "Max number of records to return. Large values can impact performance. For pagination with large data sets include the Sysparm Offset",
+          "key": "sysparmLimit",
+          "type": "string",
+          "default": "",
+          "label": "Sysparm Limit"
+        },
+        {
+          "required": false,
+          "comments": "Starting record index for which to begin retrieving records. This functionality enables the retrieval of all records, regardless of the number of records, in small manageable chunks. For example, the first time you call this endpoint, sysparm_offset is set to '0'. To simply page through all available records, use sysparm_offset=sysparm_offset+sysparm_limit, until you reach the end of all records.",
+          "key": "sysparmOffset",
+          "type": "string",
+          "default": "",
+          "label": "Sysparm Offset"
+        },
+        {
+          "required": false,
+          "comments": "Encoded query used to filter the result set. Syntax: sysparm_query=<col_name><operator><value>.",
+          "example": "active=true^ORDERBYnumber^ORDERBYDESCcategory",
+          "key": "sysparmQuery",
+          "type": "string",
+          "default": "",
+          "label": "Sysparm Query"
+        }
+      ]
+    },
+    "listUsers": {
+      "display": {
+        "label": "List Users",
+        "description": "Gets a list of all Users"
+      },
+      "key": "listUsers",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Instance URL",
+          "required": true,
+          "comments": "The URL of the specific ServiceNow instance to use for API requests",
+          "example": "https://instance.service-now.com",
+          "key": "instanceUrlInput",
+          "type": "string",
+          "default": "",
+          "label": "Instance URL"
+        },
+        {
+          "placeholder": "API Version",
+          "required": true,
+          "comments": "The version of the ServiceNow API to use",
+          "model": [
+            {
+              "label": "Latest",
+              "value": "latest"
+            },
+            {
+              "label": "v2",
+              "value": "v2"
+            },
+            {
+              "label": "v1",
+              "value": "v1"
+            }
+          ],
+          "example": "v2",
+          "key": "apiVersionInput",
+          "type": "string",
+          "default": "",
+          "label": "API Version"
+        },
+        {
+          "required": false,
+          "comments": "Max number of records to return. Large values can impact performance. For pagination with large data sets include the Sysparm Offset",
+          "key": "sysparmLimit",
+          "type": "string",
+          "default": "",
+          "label": "Sysparm Limit"
+        },
+        {
+          "required": false,
+          "comments": "Starting record index for which to begin retrieving records. This functionality enables the retrieval of all records, regardless of the number of records, in small manageable chunks. For example, the first time you call this endpoint, sysparm_offset is set to '0'. To simply page through all available records, use sysparm_offset=sysparm_offset+sysparm_limit, until you reach the end of all records.",
+          "key": "sysparmOffset",
+          "type": "string",
+          "default": "",
+          "label": "Sysparm Offset"
+        },
+        {
+          "required": false,
+          "comments": "Encoded query used to filter the result set. Syntax: sysparm_query=<col_name><operator><value>.",
+          "example": "active=true^ORDERBYnumber^ORDERBYDESCcategory",
+          "key": "sysparmQuery",
+          "type": "string",
+          "default": "",
+          "label": "Sysparm Query"
+        }
+      ]
+    },
+    "updateIncident": {
+      "display": {
+        "label": "Update Incident",
+        "description": "Updates an Incident with the specified field names and values"
+      },
+      "key": "updateIncident",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Instance URL",
+          "required": true,
+          "comments": "The URL of the specific ServiceNow instance to use for API requests",
+          "example": "https://instance.service-now.com",
+          "key": "instanceUrlInput",
+          "type": "string",
+          "default": "",
+          "label": "Instance URL"
+        },
+        {
+          "placeholder": "API Version",
+          "required": true,
+          "comments": "The version of the ServiceNow API to use",
+          "model": [
+            {
+              "label": "Latest",
+              "value": "latest"
+            },
+            {
+              "label": "v2",
+              "value": "v2"
+            },
+            {
+              "label": "v1",
+              "value": "v1"
+            }
+          ],
+          "example": "v2",
+          "key": "apiVersionInput",
+          "type": "string",
+          "default": "",
+          "label": "API Version"
+        },
+        {
+          "required": true,
+          "comments": "The Sys ID of the record being queried",
+          "key": "sysId",
+          "type": "string",
+          "default": "",
+          "label": "Sys ID"
+        },
+        {
+          "placeholder": "Values",
+          "required": true,
+          "comments": "The names of the fields and their values to use when creating a record",
+          "key": "fieldValuesInput",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Values"
+        }
+      ]
+    },
+    "updateTableRecord": {
+      "display": {
+        "label": "Update Table Record",
+        "description": "Updates a record in the specified table with the specified field names and values"
+      },
+      "key": "updateTableRecord",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Instance URL",
+          "required": true,
+          "comments": "The URL of the specific ServiceNow instance to use for API requests",
+          "example": "https://instance.service-now.com",
+          "key": "instanceUrlInput",
+          "type": "string",
+          "default": "",
+          "label": "Instance URL"
+        },
+        {
+          "placeholder": "API Version",
+          "required": true,
+          "comments": "The version of the ServiceNow API to use",
+          "model": [
+            {
+              "label": "Latest",
+              "value": "latest"
+            },
+            {
+              "label": "v2",
+              "value": "v2"
+            },
+            {
+              "label": "v1",
+              "value": "v1"
+            }
+          ],
+          "example": "v2",
+          "key": "apiVersionInput",
+          "type": "string",
+          "default": "",
+          "label": "API Version"
+        },
+        {
+          "placeholder": "Table",
+          "required": true,
+          "comments": "The name of the ServiceNow table in which to create a record",
+          "example": "incident",
+          "key": "tableNameInput",
+          "type": "string",
+          "default": "",
+          "label": "Table"
+        },
+        {
+          "required": true,
+          "comments": "The Sys ID of the record being queried",
+          "key": "sysId",
+          "type": "string",
+          "default": "",
+          "label": "Sys ID"
+        },
+        {
+          "placeholder": "Values",
+          "required": true,
+          "comments": "The names of the fields and their values to use when creating a record",
+          "key": "fieldValuesInput",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Values"
+        }
+      ]
+    },
+    "updateUser": {
+      "display": {
+        "label": "Update User",
+        "description": "Updates a User with the specified field names and values"
+      },
+      "key": "updateUser",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Instance URL",
+          "required": true,
+          "comments": "The URL of the specific ServiceNow instance to use for API requests",
+          "example": "https://instance.service-now.com",
+          "key": "instanceUrlInput",
+          "type": "string",
+          "default": "",
+          "label": "Instance URL"
+        },
+        {
+          "placeholder": "API Version",
+          "required": true,
+          "comments": "The version of the ServiceNow API to use",
+          "model": [
+            {
+              "label": "Latest",
+              "value": "latest"
+            },
+            {
+              "label": "v2",
+              "value": "v2"
+            },
+            {
+              "label": "v1",
+              "value": "v1"
+            }
+          ],
+          "example": "v2",
+          "key": "apiVersionInput",
+          "type": "string",
+          "default": "",
+          "label": "API Version"
+        },
+        {
+          "required": true,
+          "comments": "The Sys ID of the record being queried",
+          "key": "sysId",
+          "type": "string",
+          "default": "",
+          "label": "Sys ID"
+        },
+        {
+          "placeholder": "Values",
+          "required": false,
+          "comments": "The names of the fields and their values to use when creating a record",
+          "key": "fieldValuesInputNonRequired",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Values"
+        },
+        {
+          "required": false,
+          "comments": "The Username of the User",
+          "key": "userName",
+          "type": "string",
+          "default": "",
+          "label": "User Id"
+        },
+        {
+          "required": false,
+          "comments": "The Email of the User",
+          "key": "email",
+          "type": "string",
+          "default": "",
+          "label": "Email"
+        },
+        {
+          "required": false,
+          "comments": "The User's First Name",
+          "key": "firstName",
+          "type": "string",
+          "default": "",
+          "label": "First Name"
+        },
+        {
+          "required": false,
+          "comments": "The User's Last Name",
+          "key": "lastName",
+          "type": "string",
+          "default": "",
+          "label": "Last Name"
+        }
+      ]
+    },
+    "rawRequest": {
+      "display": {
+        "label": "Raw Request",
+        "description": "Send Raw Request to Dropbox"
+      },
+      "key": "rawRequest",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Instance URL",
+          "required": true,
+          "comments": "The URL of the specific ServiceNow instance to use for API requests",
+          "example": "https://instance.service-now.com",
+          "key": "instanceUrlInput",
+          "type": "string",
+          "default": "",
+          "label": "Instance URL"
+        },
+        {
+          "placeholder": "API Version",
+          "required": true,
+          "comments": "The version of the ServiceNow API to use",
+          "model": [
+            {
+              "label": "Latest",
+              "value": "latest"
+            },
+            {
+              "label": "v2",
+              "value": "v2"
+            },
+            {
+              "label": "v1",
+              "value": "v1"
+            }
+          ],
+          "example": "v2",
+          "key": "apiVersionInput",
+          "type": "string",
+          "default": "",
+          "label": "API Version"
+        },
+        {
+          "placeholder": "Table",
+          "required": true,
+          "comments": "The name of the ServiceNow table in which to create a record",
+          "example": "incident",
+          "key": "tableNameInput",
+          "type": "string",
+          "default": "",
+          "label": "Table"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "The file name to apply to a file",
+          "required": false,
+          "comments": "File names to apply to the file data inputs. Keys must match the file data keys above.",
+          "key": "fileDataFileNames",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data File Names"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        }
+      ]
+    }
+  },
+  "triggers": {},
+  "dataSources": {},
+  "documentation": {
+    "description": "[ServiceNow](https://www.servicenow.com/) is platform that helps you manage digital workflows.\nThe ServiceNow component gives you the ability to insert table records and incidents on the platform.\n"
+  },
+  "$version": 1
+}

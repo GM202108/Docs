@@ -1,0 +1,18 @@
+---
+id: UpdateOrganizationInput
+title: UpdateOrganizationInput Input Object
+sidebar_label: UpdateOrganizationInput
+description: Learn how to use the UpdateOrganizationInput Input Object for Prismatic's API.
+---
+
+## Input fields
+
+| Argument           | Type                                       | Description                                                 |
+| ------------------ | ------------------------------------------ | ----------------------------------------------------------- |
+| `name`             | [`String`](api/schema/scalar/String.mdx)   | The unique name of the Organization.                        |
+| `marketplaceName`  | [`String`](api/schema/scalar/String.mdx)   | Display name of the Organization's Marketplace.             |
+| `featureFlags`     | [`String`](api/schema/scalar/String.mdx)   |                                                             |
+| `labels`           | [`[String]`](api/schema/scalar/String.mdx) | The labels that are associated with the object.             |
+| `avatarUrl`        | [`String`](api/schema/scalar/String.mdx)   | The URL for the avatar image.                               |
+| `id`               | [`ID`](api/schema/scalar/ID.mdx)           | The ID of the Organization to mutate.                       |
+| `clientMutationId` | [`String`](api/schema/scalar/String.mdx)   | A unique identifier for the client performing the mutation. |

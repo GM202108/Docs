@@ -1,0 +1,16 @@
+---
+id: UpdateAlertGroupInput
+title: UpdateAlertGroupInput Input Object
+sidebar_label: UpdateAlertGroupInput
+description: Learn how to use the UpdateAlertGroupInput Input Object for Prismatic's API.
+---
+
+## Input fields
+
+| Argument           | Type                                     | Description                                                 |
+| ------------------ | ---------------------------------------- | ----------------------------------------------------------- |
+| `name`             | [`String`](api/schema/scalar/String.mdx) | The name of the AlertGroup                                  |
+| `users`            | [`[ID]`](api/schema/scalar/ID.mdx)       | The users in the AlertGroup.                                |
+| `webhooks`         | [`[ID]`](api/schema/scalar/ID.mdx)       | The AlertWebhooks in the AlertGroup                         |
+| `id`               | [`ID`](api/schema/scalar/ID.mdx)         | The ID of the AlertGroup to mutate.                         |
+| `clientMutationId` | [`String`](api/schema/scalar/String.mdx) | A unique identifier for the client performing the mutation. |

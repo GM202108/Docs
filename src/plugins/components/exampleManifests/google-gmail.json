@@ -1,0 +1,874 @@
+{
+  "key": "google-gmail",
+  "documentationUrl": "https://prismatic.io/docs/components/google-gmail/",
+  "public": true,
+  "display": {
+    "label": "Gmail",
+    "category": "Application Connectors",
+    "description": "Manage Messages in Google's email service",
+    "iconPath": "icon.png",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "key": "oauth2",
+      "label": "OAuth2",
+      "comments": "OAuth2 Connection",
+      "oauth2Type": "authorization_code",
+      "iconPath": "oauth-button.png",
+      "inputs": [
+        {
+          "placeholder": "Authorization URL",
+          "required": true,
+          "shown": false,
+          "comments": "The Authorization URL for Gmail",
+          "key": "authorizeUrl",
+          "type": "string",
+          "default": "https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&prompt=consent",
+          "label": "Authorize URL"
+        },
+        {
+          "placeholder": "Token URL",
+          "required": true,
+          "shown": false,
+          "comments": "The Token URL for Gmail",
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "https://oauth2.googleapis.com/token",
+          "label": "Token URL"
+        },
+        {
+          "placeholder": "Scopes",
+          "required": true,
+          "comments": "Space delimited listing of scopes. See https://developers.google.com/gmail/api/auth/scopes",
+          "key": "scopes",
+          "type": "string",
+          "default": "https://mail.google.com/",
+          "label": "Scopes"
+        },
+        {
+          "placeholder": "Client ID",
+          "required": true,
+          "comments": "Your Gmail app's Client ID",
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "Client ID"
+        },
+        {
+          "placeholder": "Client Secret",
+          "required": true,
+          "comments": "Your Gmail app's Client Secret",
+          "key": "clientSecret",
+          "type": "password",
+          "default": "",
+          "label": "Client Secret"
+        }
+      ],
+      "documentation": {
+        "description": "The Gmail component authenticates requests through the Google Cloud Platform (GCP) OAuth 2.0 service.\nYou'll need to create a GCP OAuth 2.0 app so your integration can authenticate and perform Gmail tasks on your customers' behalf.\n\nTo create a Gmail OAuth 2.0 app, first make sure you have a Google Developer account - you can sign up at [https://console.cloud.google.com/](https://console.cloud.google.com/).\nThen:\n\n1. Open up the Gmail API console - [https://console.cloud.google.com/marketplace/product/google/gmail.googleapis.com](https://console.cloud.google.com/marketplace/product/google/gmail.googleapis.com)\n1. You will be prompted to enable **Gmail API** for your project. Click **ENABLE**.\n1. On the sidebar, select **APIs & Services** and then **Credentials**.\n1. An OAuth 2.0 app includes a \"Consent Screen\" (the page that asks \"Do you want to allow (Your Company) to access Gmail on your behalf?\"). Click **CONFIGURE CONSENT SCREEN**.\n    1. Your app will be externally available to your customers, so choose a **User Type** of **External**.\n    1. Fill out the OAuth consent screen with an app name (your company or product's name), support email, app logo, domain, etc.\n    1. You can ignore domains for now.\n    1. On the next page, ignore scopes - this component knows what scopes it needs to run and will request the right scopes for you.\n    1. Enter some **test users** for your testing purposes.\n       Your app will only work for those testing users until it is \"verified\" by Google.\n       When you are ready for verification (they verify your privacy policy statement, etc), click **PUBLISH APP** on the **OAuth consent screen**.\n       That'll allow your customers to authorize your integration to access their Gmail account.\n1. Once your \"Consent Screen\" is configured open the **Credentials** page from the sidebar again.\n1. Click **+CREATE CREDENTIALS** and select **OAuth Client ID**.\n    1. Under **Application type** select **Web application**.\n    1. Under **Authorized redirect URIs** enter Prismatic's OAuth 2.0 callback URL: `https://oauth2.prismatic.io/callback`\n    1. Click **CREATE**.\n1. Take note of the **Client ID** and **Client Secret** that are generated.\n\n:::info\nMake sure to **publish** your OAuth 2.0 app after you've tested it so users outside of your _test users_ can authorize your integration to interact with Gmail on their behalf.\n:::\n\nNow that you have a **Client ID** and **Client Secret**, add Gmail step to your integration in Prismatic.\nOpen the **Configuration Wizard Designer** by clicking **Configuration Wizard**, select your **Gmail Connection** and enter your client ID and secret.\n\n:::info A note on scopes\nYou can keep the default [Gmail scope](https://developers.google.com/gmail/api/auth/scopes), `https://mail.google.com/`.\nThis will grant you full permission over your users' Gmail accounts.\n\nIf you would like to limit permissions, you can select a subset of scopes, like `https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.send`.\n:::\n"
+      }
+    }
+  ],
+  "actions": {
+    "getLabelByName": {
+      "display": {
+        "label": "Get Label by Name",
+        "description": "Get a label (including ID) by its name"
+      },
+      "key": "getLabelByName",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "key": "labelName",
+          "type": "string",
+          "default": "",
+          "label": "Label Name"
+        },
+        {
+          "required": false,
+          "comments": "A user whose account to query (defaults to currently authenticated user)",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "Gmail User ID (optional)"
+        }
+      ]
+    },
+    "listLabels": {
+      "display": {
+        "label": "List Labels",
+        "description": "List all labels within this account"
+      },
+      "key": "listLabels",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "A user whose account to query (defaults to currently authenticated user)",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "Gmail User ID (optional)"
+        }
+      ]
+    },
+    "getMessageById": {
+      "display": {
+        "label": "Get Message",
+        "description": "Get a message by ID"
+      },
+      "examplePayload": {
+        "data": {
+          "id": "1234abcd",
+          "threadId": "5678efgh",
+          "labelIds": [
+            "IMPORTANT",
+            "SENT",
+            "INBOX"
+          ],
+          "message": {
+            "headers": {
+              "mime-version": "1.0",
+              "date": "2022-09-19T20:09:01.000Z",
+              "message-id": "<Test-message-id@mail.gmail.com>",
+              "subject": "Test Message",
+              "from": {
+                "value": [
+                  {
+                    "address": "example@gmail.com",
+                    "name": "Example Example"
+                  }
+                ],
+                "html": "<span class=\"mp_address_group\"><span class=\"mp_address_name\">Example Example</span> &lt;<a href=\"mailto:example@gmail.com\" class=\"mp_address_email\">example@gmail.com</a>&gt;</span>",
+                "text": "Example Example <example@gmail.com>"
+              },
+              "to": {
+                "value": [
+                  {
+                    "address": "example@gmail.com",
+                    "name": "Example Example"
+                  }
+                ],
+                "html": "<span class=\"mp_address_group\"><span class=\"mp_address_name\">Example Example</span> &lt;<a href=\"mailto:example@gmail.com\" class=\"mp_address_email\">example@gmail.com</a>&gt;</span>",
+                "text": "Example Example <example@gmail.com>"
+              },
+              "content-type": {
+                "value": "multipart/mixed",
+                "params": {
+                  "boundary": "000000000000680fa005e90d488f"
+                }
+              }
+            },
+            "attachments": [],
+            "text": "Example email body",
+            "html": "<div dir=\"ltr\">Example email body<div><br></div></div>\n"
+          }
+        }
+      },
+      "key": "getMessageById",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "1234abcd",
+          "key": "messageId",
+          "type": "string",
+          "default": "",
+          "label": "Message ID"
+        },
+        {
+          "required": false,
+          "comments": "A user whose account to query (defaults to currently authenticated user)",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "Gmail User ID (optional)"
+        }
+      ]
+    },
+    "listMessages": {
+      "display": {
+        "label": "List Messages",
+        "description": "Get a list of messages"
+      },
+      "examplePayload": {
+        "data": {
+          "messages": [
+            {
+              "id": "abcd1234",
+              "threadId": "efgh5678"
+            }
+          ]
+        }
+      },
+      "key": "listMessages",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "A user whose account to query (defaults to currently authenticated user)",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "Gmail User ID (optional)"
+        },
+        {
+          "required": false,
+          "comments": "If you're looping over pages of results, this is the page token from the result of the previous 'list messages' step.",
+          "key": "pageToken",
+          "type": "string",
+          "default": "",
+          "label": "Page Token"
+        },
+        {
+          "required": false,
+          "comments": "Only return messages matching the specified query. Supports the same query format as the Gmail search box.",
+          "example": "from:someuser@example.com rfc822msgid:<somemsgid@example.com> is:unread",
+          "key": "query",
+          "type": "string",
+          "default": "",
+          "label": "Query String"
+        },
+        {
+          "comments": "Show only messages with labels that match these label IDs",
+          "key": "labelIds",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Labels"
+        }
+      ]
+    },
+    "sendMessage": {
+      "display": {
+        "label": "Send Message",
+        "description": "Send a new message"
+      },
+      "key": "sendMessage",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "key": "to",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "To"
+        },
+        {
+          "required": false,
+          "key": "cc",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "CC"
+        },
+        {
+          "required": false,
+          "key": "bcc",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "BCC"
+        },
+        {
+          "required": true,
+          "key": "subject",
+          "type": "string",
+          "default": "",
+          "label": "Subject"
+        },
+        {
+          "comments": "For email clients that do not support HTML",
+          "key": "text",
+          "type": "string",
+          "default": "",
+          "label": "Plain text body"
+        },
+        {
+          "comments": "For email clients that support HTML",
+          "key": "html",
+          "type": "string",
+          "default": "",
+          "label": "HTML body"
+        },
+        {
+          "comments": "Specify a file name as the key (i.e. 'my-file.pdf'), and the file as the value",
+          "key": "attachments",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Attachments"
+        },
+        {
+          "required": false,
+          "comments": "A user whose account to query (defaults to currently authenticated user)",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "Gmail User ID (optional)"
+        }
+      ]
+    },
+    "trashMessageById": {
+      "display": {
+        "label": "Trash Message",
+        "description": "Send a message to the trash"
+      },
+      "key": "trashMessageById",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "1234abcd",
+          "key": "messageId",
+          "type": "string",
+          "default": "",
+          "label": "Message ID"
+        },
+        {
+          "required": false,
+          "comments": "A user whose account to query (defaults to currently authenticated user)",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "Gmail User ID (optional)"
+        }
+      ]
+    },
+    "unTrashMessageById": {
+      "display": {
+        "label": "Untrash Message",
+        "description": "Remove a message from the trash"
+      },
+      "key": "unTrashMessageById",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "1234abcd",
+          "key": "messageId",
+          "type": "string",
+          "default": "",
+          "label": "Message ID"
+        },
+        {
+          "required": false,
+          "comments": "A user whose account to query (defaults to currently authenticated user)",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "Gmail User ID (optional)"
+        }
+      ]
+    },
+    "updateLabels": {
+      "display": {
+        "label": "Update Message Labels",
+        "description": "Add or remove labels from a message"
+      },
+      "key": "updateLabels",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "1234abcd",
+          "key": "messageId",
+          "type": "string",
+          "default": "",
+          "label": "Message ID"
+        },
+        {
+          "required": false,
+          "comments": "A user whose account to query (defaults to currently authenticated user)",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "Gmail User ID (optional)"
+        },
+        {
+          "comments": "A list of labels to add (optional)",
+          "key": "addLabels",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Labels to Add"
+        },
+        {
+          "comments": "A list of labels to add (optional)",
+          "key": "removeLabels",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Labels to Remove"
+        }
+      ]
+    },
+    "getCurrentUser": {
+      "display": {
+        "label": "Get Current User",
+        "description": "Get metadata about the authenticated user"
+      },
+      "examplePayload": {
+        "data": {
+          "emailAddress": "example@gmail.com",
+          "historyId": "1234567",
+          "messagesTotal": 12345,
+          "threadsTotal": 12345
+        }
+      },
+      "key": "getCurrentUser",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "rawRequest": {
+      "display": {
+        "label": "Raw Request",
+        "description": "Send a raw HTTP request to Google Gmail API"
+      },
+      "key": "rawRequest",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "Input the path only (/v1/users/{userId}/messages), The base URL is already included (https://gmail.googleapis.com/gmail). For example, to connect to https://gmail.googleapis.com/gmail/v1/users/{userId}/messages, only /v1/users/{userId}/messages is entered in this field.",
+          "example": "/v1/users/{userId}/messages",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "The file name to apply to a file",
+          "required": false,
+          "comments": "File names to apply to the file data inputs. Keys must match the file data keys above.",
+          "key": "fileDataFileNames",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data File Names"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        }
+      ]
+    },
+    "createPushNotification": {
+      "display": {
+        "label": "Create Push Notification (Watch Request)",
+        "description": "Enables the ability to send update notifications like new messages received."
+      },
+      "key": "createPushNotification",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "A user whose account to query (defaults to currently authenticated user)",
+          "key": "userIdInput",
+          "type": "string",
+          "default": "",
+          "label": "Gmail User ID (optional)"
+        },
+        {
+          "required": true,
+          "example": "projects/prismatic-123456/topics/prismatic-gmail",
+          "key": "topicNameInput",
+          "type": "string",
+          "default": "",
+          "label": "Topic Name"
+        },
+        {
+          "comments": "System labels typically correspond to pre-defined elements in the Gmail web interface such as the inbox.",
+          "example": "INBOX",
+          "required": true,
+          "key": "labelIdsInput",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Label ID"
+        }
+      ]
+    },
+    "deletePushNotification": {
+      "display": {
+        "label": "Delete Push Notification (Stop Mailbox Updates)",
+        "description": "Calls a stop notification."
+      },
+      "key": "deletePushNotification",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "A user whose account to query (defaults to currently authenticated user)",
+          "key": "userIdInput",
+          "type": "string",
+          "default": "",
+          "label": "Gmail User ID (optional)"
+        }
+      ]
+    },
+    "getEventHistory": {
+      "display": {
+        "label": "Get Event History",
+        "description": "Fetch events that have occurred in the mailbox since the specified startHistoryId."
+      },
+      "key": "getEventHistory",
+      "inputs": [
+        {
+          "required": true,
+          "comments": "The Connection to use for authorization.",
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "comments": "A user whose account to query (defaults to currently authenticated user)",
+          "key": "userId",
+          "type": "string",
+          "default": "",
+          "label": "Gmail User ID (optional)"
+        },
+        {
+          "required": true,
+          "comments": "The history ID to start history from.",
+          "key": "historyId",
+          "type": "string",
+          "default": "",
+          "label": "History ID"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "pushNotificationWebhook": {
+      "display": {
+        "label": "Push Notification Webhook",
+        "description": "Trigger for handling Webhook Gmail Push Notification"
+      },
+      "synchronousResponseSupport": "invalid",
+      "scheduleSupport": "invalid",
+      "examplePayload": {
+        "payload": {
+          "headers": {
+            "Accept": "application/json",
+            "Accept-Encoding": "gzip, deflate, br",
+            "Content-Type": "application/json",
+            "From": "noreply@google.com",
+            "Host": "hooks.prismatic.io",
+            "User-Agent": "APIs-Google; (+https://developers.google.com/webmasters/APIs-Google.html)",
+            "X-Amz-Cf-Id": "IfJGfd1Y6gtJX9BTs37_GnMRnliiMaMCxQ6EMM6dD1rqE7hMK12345==",
+            "X-Amzn-Trace-Id": "Root=1-648cba10-7ea5bdfd45f98ad327612345"
+          },
+          "queryParameters": null,
+          "rawBody": "<data (N bytes)>",
+          "body": {
+            "data": {
+              "message": {
+                "data": "<Base64 encoded data>",
+                "decodedData": {
+                  "emailAddress": "",
+                  "historyId": "123456"
+                },
+                "messageId": "8406082761012345",
+                "message_id": "8406082761012345",
+                "publishTime": "2023-06-16T19:37:52.276Z",
+                "publish_time": "2023-06-16T19:37:52.276Z"
+              },
+              "subscription": "projects/projectname-123456/subscriptions/SubscriptionName"
+            },
+            "contentType": "application/json"
+          },
+          "pathFragment": "",
+          "webhookUrls": {
+            "Flow 1": "https://hooks.prismatic.io/trigger/WEBHOOK_ID"
+          },
+          "webhookApiKeys": {
+            "Flow 1": [
+              "sample-api-key"
+            ]
+          },
+          "invokeUrl": "https://hooks.prismatic.io/trigger/WEBHOOK_ID",
+          "executionId": "EXECUTION_ID",
+          "customer": {
+            "id": "testCustomerId",
+            "name": "Test Customer",
+            "externalId": "testCustomerExternalId"
+          },
+          "instance": {
+            "id": "testInstanceId",
+            "name": "Test Instance"
+          },
+          "user": {
+            "id": "testUserId",
+            "email": "testUserEmail@example.com",
+            "name": "Test User",
+            "externalId": "testUserExternalId"
+          }
+        }
+      },
+      "key": "pushNotificationWebhook",
+      "inputs": []
+    }
+  },
+  "dataSources": {},
+  "documentation": {
+    "description": "[Gmail](https://gmail.com/) is Google's email service.\nThis component allows you to fetch and filter and manage messages, and send new messages from a Google Gmail account.\n",
+    "dev": "Documentation for the Node.js client used in this component can be found at https://googleapis.dev/nodejs/googleapis/latest/gmail/index.html\n\nMost actions in this component have a **Gmail User ID** input.\nYou can safely leave this input blank, and the default value, `me` will be used, indicating that the user who authenticated is the user whose Gmail account your integration will use.\n\n:::tip Use labels to organize messages\nGmail uses **labels** in place of folders to organize messages.\nMessages in a user's inbox have a label of `INBOX`.\nYou can apply custom labels to a message (so, you can loop only over messages with a particular label, etc).\n:::\n\n## Receiving notifications from Gmail\n\nGmail supports [push notifications](https://developers.google.com/gmail/api/guides/push) to let you know when a new message arrives in a user's inbox.\nBehind the scenes, this uses [Google Cloud Pub/Sub](https://cloud.google.com/pubsub/docs/overview) to deliver the notifications.\nIn order to revieve notifications when new messages are received, you will need to set up a Pub/Sub topic and subscription, and then configure Gmail to send notifications to that topic.\nThe steps below will walk you through this process.\n\n1. Create a Google Cloud IAM service account from https://console.cloud.google.com/iam-admin/serviceaccounts and grant the service account the `Pub/Sub Admin` role. Ensure that this IAM role exists in the same project as your Gmail OAuth app (see [OAuth 2.0](#oauth2) connection below).\n2. Generate a new key for the service account, and download the JSON file. Take note of the `private_key`, `project_id` and `client_email` values in the JSON file - these will be used for creating the Pub/Sub topic and subscription.\n3. Create a new Pub/Sub topic using the Google Cloud Pub/Sub component's [Create Topic](components/google-cloud-pub-sub.mdx/#create-topic) action.\n4. Create a new Pub/Sub subscription using the Google Cloud Pub/Sub component's [Create Webhook Subscription](components/google-cloud-pub-sub.mdx/#create-webhook-subscription) action. Use the topic created in the previous step as the `Topic Name` input. For the webhook URL, choose a sibling flow of the webhook creation flow. The sibling flow will receive the webhook notifications.\n5. Use this component's [Create Push Notification](#create-push-notification-watch-request) action. This will instruct Gmail to send notifications to the Pub/Sub topic created in step 3.\n\nSome notes about the above steps:\n\n- Subscription and topic names need to be unique. You can use the current instance's ID (available from the trigger payload) as a unique identifier for the topic and subscription names.\n- The Pub/Sub topic and subscription must be created in the same project as the Gmail OAuth app.\n- Push notification watch requests expire after 7 days. You'll need to periodically refresh the watch request. You can do that by calling the setup flow from another flow on a schedule.\n\nThe examples repo has an [example integration](https://github.com/prismatic-io/examples/blob/main/integrations/gmail-with-webhooks.yml) that you can import that demonstrates how to set up Gmail push notifications.\n"
+  },
+  "$version": 1
+}

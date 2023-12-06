@@ -1,0 +1,1707 @@
+{
+  "key": "bamboohr",
+  "public": true,
+  "documentationUrl": "https://prismatic.io/docs/components/bamboohr/",
+  "display": {
+    "label": "BambooHR",
+    "description": "Manage Employees in BambooHR",
+    "iconPath": "icon.png",
+    "category": "Application Connectors",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "key": "apiKey",
+      "label": "Bamboo API Key",
+      "comments": "Bamboo API Key",
+      "inputs": [
+        {
+          "placeholder": "API Key",
+          "required": true,
+          "shown": true,
+          "comments": "Bamboo API Key",
+          "key": "apiKey",
+          "type": "password",
+          "default": "",
+          "label": "API Key"
+        },
+        {
+          "required": true,
+          "shown": true,
+          "comments": "The MYCOMPANY portion of your https://MYCOMPANY.bamboohr.com instance",
+          "key": "companyDomain",
+          "type": "string",
+          "default": "",
+          "label": "Company Domain"
+        }
+      ],
+      "documentation": {
+        "description": "Bamboo HR API keys can be used for testing an integration, but for production integrations, please use OAuth 2.0.\n\nTo generate an API key, log in to Bamboo HR, click your user profile image on the upper-right and then click **API Keys**.\nClick **Add New Key**, and take note of the API key that is generated - it will be a ~40 character alphanumeric string.\n"
+      }
+    }
+  ],
+  "actions": {
+    "addCompanyFileCategory": {
+      "display": {
+        "label": "Create Company File Category",
+        "description": "Create a new company file category (folder)"
+      },
+      "key": "addCompanyFileCategory",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "A new category",
+          "key": "categoryName",
+          "type": "string",
+          "default": "",
+          "label": "Category Name"
+        }
+      ]
+    },
+    "deleteCompanyFile": {
+      "display": {
+        "label": "Delete Company File",
+        "description": "Delete an company file"
+      },
+      "key": "deleteCompanyFile",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "key": "fileId",
+          "type": "string",
+          "default": "",
+          "label": "File ID"
+        }
+      ]
+    },
+    "getCompanyFile": {
+      "display": {
+        "label": "Get Company File",
+        "description": "Get an company file"
+      },
+      "key": "getCompanyFile",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "key": "fileId",
+          "type": "string",
+          "default": "",
+          "label": "File ID"
+        }
+      ]
+    },
+    "listCompanyFiles": {
+      "display": {
+        "label": "List Company Files",
+        "description": "List all company categories and files"
+      },
+      "examplePayload": {
+        "data": {
+          "categories": [
+            {
+              "id": 179,
+              "canUploadFiles": "yes",
+              "name": "BambooHR",
+              "files": [
+                {
+                  "id": 220,
+                  "name": "4 Ways the BambooHR ATS Improves the Hiring Process",
+                  "originalFileName": "4 Ways the BambooHR ATS Improves the Hiring Process.pdf",
+                  "size": "855128",
+                  "dateCreated": "2022-10-22T22:30:07+0000",
+                  "createdBy": "Prismatic Developer",
+                  "shareWithEmployees": "no",
+                  "canRenameFile": "yes",
+                  "canDeleteFile": "yes"
+                },
+                {
+                  "id": 223,
+                  "name": "5 Payroll Pain Points Solved by TRAXPayroll",
+                  "originalFileName": "5 Payroll Pain Points.pdf",
+                  "size": "523971",
+                  "dateCreated": "2022-10-22T22:50:24+0000",
+                  "createdBy": "Prismatic Developer",
+                  "shareWithEmployees": "no",
+                  "canRenameFile": "yes",
+                  "canDeleteFile": "yes"
+                }
+              ]
+            },
+            {
+              "id": 175,
+              "canUploadFiles": "yes",
+              "name": "New Hire Forms",
+              "files": [
+                {
+                  "id": 164,
+                  "name": "Australia Standard Choice Form.pdf",
+                  "originalFileName": "Australia Standard Choice Form.pdf",
+                  "size": "323487",
+                  "dateCreated": "2022-07-01T15:15:33+0000",
+                  "createdBy": null,
+                  "shareWithEmployees": "no",
+                  "canRenameFile": "yes",
+                  "canDeleteFile": "yes"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "key": "listCompanyFiles",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "uploadCompanyFile": {
+      "display": {
+        "label": "Upload Company File",
+        "description": "Upload a new company file"
+      },
+      "key": "uploadCompanyFile",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "20",
+          "key": "categoryId",
+          "type": "string",
+          "default": "",
+          "label": "Category ID"
+        },
+        {
+          "required": true,
+          "example": "example.pdf",
+          "key": "fileName",
+          "type": "string",
+          "default": "",
+          "label": "File Name"
+        },
+        {
+          "key": "share",
+          "type": "boolean",
+          "default": "false",
+          "label": "Share?"
+        },
+        {
+          "required": true,
+          "key": "file",
+          "type": "string",
+          "default": "",
+          "label": "File contents"
+        }
+      ]
+    },
+    "addEmployee": {
+      "display": {
+        "label": "Add Employee",
+        "description": "Add a new employee"
+      },
+      "key": "addEmployee",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "key": "firstName",
+          "type": "string",
+          "default": "",
+          "label": "First Name"
+        },
+        {
+          "required": true,
+          "key": "lastName",
+          "type": "string",
+          "default": "",
+          "label": "Last Name"
+        },
+        {
+          "required": false,
+          "comments": "The names of the fields and their values to use when creating/updating a record. Possible fields are: address1, address2, age, bestEmail, birthday, city, country, dateOfBirth, department, division, employeeNumber, employmentHistoryStatus, ethnicity, exempt, firstName, fullName1, fullName2, fullName3, fullName4, fullName5, displayName, gender, hireDate, originalHireDate, id, jobTitle, lastChanged, lastName, location, maritalStatus, middleName, mobilePhone, nationality, payGroup, payRate, payRateEffectiveDate, payType, paidPer, paySchedule, payFrequency, includeInPayroll, timeTrackingEnabled, ssn, sin, standardHoursPerWeek, state, stateCode, status, supervisor, supervisorEmail, terminationDate, workEmail, workPhone, zipcode",
+          "key": "employeeFieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Employee Fields"
+        }
+      ]
+    },
+    "getEmployee": {
+      "display": {
+        "label": "Get Employee",
+        "description": "Get an Employee"
+      },
+      "examplePayload": {
+        "data": {
+          "id": "5",
+          "address1": "335 S 560 W",
+          "address2": null,
+          "age": "41",
+          "bestEmail": "aadams@efficientoffice.com",
+          "birthday": "07-28",
+          "city": "Lindon",
+          "country": "United States",
+          "dateOfBirth": "1981-07-28",
+          "department": "Human Resources",
+          "division": "Europe",
+          "employeeNumber": "2",
+          "employmentHistoryStatus": "Full-Time",
+          "ethnicity": "Two or More Races",
+          "exempt": "Exempt",
+          "firstName": "Ashley",
+          "fullName1": "Ashley Adams",
+          "fullName2": "Adams, Ashley",
+          "fullName3": "Adams, Ashley",
+          "fullName4": "Adams, Ashley",
+          "fullName5": "Ashley Adams",
+          "displayName": "Ashley Adams",
+          "gender": "Female",
+          "hireDate": "2022-02-20",
+          "originalHireDate": "0000-00-00",
+          "jobTitle": "HR Administrator",
+          "lastChanged": "2022-08-17T20:35:30+00:00",
+          "lastName": "Adams",
+          "location": "London, UK",
+          "maritalStatus": "Married",
+          "middleName": null,
+          "mobilePhone": "+44 207 555 6671",
+          "payRate": "50000.00 GBP",
+          "payRateEffectiveDate": "2022-02-20",
+          "payType": "Salary",
+          "paidPer": "Year",
+          "paySchedule": "Twice a month",
+          "payFrequency": "Twice a month",
+          "ssn": "545-66-7890",
+          "state": "UT",
+          "stateCode": "UT",
+          "status": "Active",
+          "supervisor": "Caldwell, Jennifer",
+          "supervisorEmail": "jcaldwell@efficientoffice.com",
+          "terminationDate": "0000-00-00",
+          "workEmail": "aadams@efficientoffice.com",
+          "workPhone": "+44 207 555 4730",
+          "zipcode": "84042"
+        }
+      },
+      "key": "getEmployee",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "42",
+          "key": "employeeId",
+          "type": "string",
+          "default": "",
+          "label": "Employee ID"
+        }
+      ]
+    },
+    "getEmployeeDirectory": {
+      "display": {
+        "label": "List Employees",
+        "description": "Get the employee directory"
+      },
+      "examplePayload": {
+        "data": {
+          "fields": [
+            {
+              "id": "displayName",
+              "type": "text",
+              "name": "Display Name"
+            },
+            {
+              "id": "firstName",
+              "type": "text",
+              "name": "First Name"
+            },
+            {
+              "id": "lastName",
+              "type": "text",
+              "name": "Last Name"
+            },
+            {
+              "id": "gender",
+              "type": "text",
+              "name": "Gender"
+            },
+            {
+              "id": "jobTitle",
+              "type": "list",
+              "name": "Job Title"
+            },
+            {
+              "id": "workPhone",
+              "type": "text",
+              "name": "Work Phone"
+            },
+            {
+              "id": "workPhoneExtension",
+              "type": "text",
+              "name": "Work Extension"
+            },
+            {
+              "id": "skypeUsername",
+              "type": "text",
+              "name": "Skype Username"
+            },
+            {
+              "id": "facebook",
+              "type": "text",
+              "name": "Facebook URL"
+            }
+          ],
+          "employees": [
+            {
+              "id": 123,
+              "displayName": "John Doe",
+              "firstName": "John",
+              "lastName": "Doe",
+              "gender": "Male",
+              "jobTitle": "Customer Service Representative",
+              "workPhone": "555-555-5555",
+              "workPhoneExtension": null,
+              "skypeUsername": "JohnDoe",
+              "facebook": "JohnDoeFacebook"
+            }
+          ]
+        }
+      },
+      "key": "getEmployeeDirectory",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "updateEmployee": {
+      "display": {
+        "label": "Update Employee",
+        "description": "Update an existing employee"
+      },
+      "key": "updateEmployee",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "42",
+          "key": "employeeId",
+          "type": "string",
+          "default": "",
+          "label": "Employee ID"
+        },
+        {
+          "required": false,
+          "comments": "The names of the fields and their values to use when creating/updating a record. Possible fields are: address1, address2, age, bestEmail, birthday, city, country, dateOfBirth, department, division, employeeNumber, employmentHistoryStatus, ethnicity, exempt, firstName, fullName1, fullName2, fullName3, fullName4, fullName5, displayName, gender, hireDate, originalHireDate, id, jobTitle, lastChanged, lastName, location, maritalStatus, middleName, mobilePhone, nationality, payGroup, payRate, payRateEffectiveDate, payType, paidPer, paySchedule, payFrequency, includeInPayroll, timeTrackingEnabled, ssn, sin, standardHoursPerWeek, state, stateCode, status, supervisor, supervisorEmail, terminationDate, workEmail, workPhone, zipcode",
+          "key": "employeeFieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Employee Fields"
+        }
+      ]
+    },
+    "addEmployeeFileCategory": {
+      "display": {
+        "label": "Create Employee File Category",
+        "description": "Create a new employee file category (folder)"
+      },
+      "key": "addEmployeeFileCategory",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "A new category",
+          "key": "categoryName",
+          "type": "string",
+          "default": "",
+          "label": "Category Name"
+        }
+      ]
+    },
+    "deleteEmployeeFile": {
+      "display": {
+        "label": "Delete Employee File",
+        "description": "Delete an employee file"
+      },
+      "key": "deleteEmployeeFile",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "42",
+          "key": "employeeId",
+          "type": "string",
+          "default": "",
+          "label": "Employee ID"
+        },
+        {
+          "required": true,
+          "key": "fileId",
+          "type": "string",
+          "default": "",
+          "label": "File ID"
+        }
+      ]
+    },
+    "getEmployeeFile": {
+      "display": {
+        "label": "Get Employee File",
+        "description": "Get an employee file"
+      },
+      "key": "getEmployeeFile",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "42",
+          "key": "employeeId",
+          "type": "string",
+          "default": "",
+          "label": "Employee ID"
+        },
+        {
+          "required": true,
+          "key": "fileId",
+          "type": "string",
+          "default": "",
+          "label": "File ID"
+        }
+      ]
+    },
+    "listEmployeeFiles": {
+      "display": {
+        "label": "List Employee Files",
+        "description": "List all employee categories and files"
+      },
+      "examplePayload": {
+        "data": {
+          "employee": {
+            "id": 4
+          },
+          "categories": [
+            {
+              "id": 12,
+              "name": "Signed Documents",
+              "canRenameCategory": "yes",
+              "canDeleteCategory": "yes",
+              "canUploadFiles": "yes",
+              "displayIfEmpty": "yes",
+              "files": [
+                {
+                  "id": 4,
+                  "name": "Company Handbook.pdf",
+                  "originalFileName": "Company Handbook.pdf",
+                  "size": 2807480,
+                  "dateCreated": "2022-07-04T20:45:51+0000",
+                  "createdBy": "Charlotte Abbott",
+                  "shareWithEmployee": "yes",
+                  "canRenameFile": "yes",
+                  "canDeleteFile": "yes",
+                  "canChangeShareWithEmployeeFieldValue": "yes"
+                },
+                {
+                  "id": 10,
+                  "name": "I-9 (2017).pdf",
+                  "originalFileName": "I-9 (2017).pdf",
+                  "size": 2750869,
+                  "dateCreated": "2022-07-04T21:25:11+0000",
+                  "createdBy": "Charlotte Abbott",
+                  "shareWithEmployee": "yes",
+                  "canRenameFile": "yes",
+                  "canDeleteFile": "yes",
+                  "canChangeShareWithEmployeeFieldValue": "yes"
+                }
+              ]
+            },
+            {
+              "id": 10,
+              "name": "Workflow Attachments",
+              "canRenameCategory": "yes",
+              "canDeleteCategory": "yes",
+              "canUploadFiles": "yes",
+              "displayIfEmpty": "yes",
+              "files": []
+            }
+          ]
+        }
+      },
+      "key": "listEmployeeFiles",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "42",
+          "key": "employeeId",
+          "type": "string",
+          "default": "",
+          "label": "Employee ID"
+        }
+      ]
+    },
+    "uploadEmployeeFile": {
+      "display": {
+        "label": "Upload Employee File",
+        "description": "Upload a new employee file"
+      },
+      "key": "uploadEmployeeFile",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "42",
+          "key": "employeeId",
+          "type": "string",
+          "default": "",
+          "label": "Employee ID"
+        },
+        {
+          "required": true,
+          "example": "20",
+          "key": "categoryId",
+          "type": "string",
+          "default": "",
+          "label": "Category ID"
+        },
+        {
+          "required": true,
+          "example": "example.pdf",
+          "key": "fileName",
+          "type": "string",
+          "default": "",
+          "label": "File Name"
+        },
+        {
+          "key": "share",
+          "type": "boolean",
+          "default": "false",
+          "label": "Share?"
+        },
+        {
+          "required": true,
+          "key": "file",
+          "type": "string",
+          "default": "",
+          "label": "File contents"
+        }
+      ]
+    },
+    "rawRequest": {
+      "display": {
+        "label": "Raw Request",
+        "description": "Send a raw HTTP request to Bamboohr's API"
+      },
+      "key": "rawRequest",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "Input the path only (/v1/employees/directory), The base URL is already included (https://api.bamboohr.com/api/gateway.php/COMPANY_DOMAIN). For example, to connect to https://api.bamboohr.com/api/gateway.php/COMPANY_DOMAIN/v1/employees/directory, only /v1/employees/directory is entered in this field.",
+          "example": "/v1/employees/directory",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        }
+      ]
+    },
+    "addEmployeeTableRow": {
+      "display": {
+        "label": "Add Table Row",
+        "description": "Adds a row to the specified table for an employee"
+      },
+      "key": "addEmployeeTableRow",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "42",
+          "key": "employeeId",
+          "type": "string",
+          "default": "",
+          "label": "Employee ID"
+        },
+        {
+          "required": true,
+          "example": "jobInfo",
+          "key": "tableName",
+          "type": "string",
+          "default": "",
+          "label": "Table Name (Alias)"
+        },
+        {
+          "required": false,
+          "comments": "The names of the fields and their values to use when creating/updating a row in a table. Use the \"List Tabular Fields (Tables)\" action to list possible field names for a table.",
+          "key": "tableFieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Table Fields"
+        }
+      ]
+    },
+    "getEmployeeTable": {
+      "display": {
+        "label": "Get an Employee's Table",
+        "description": "Get a specific table associated with an employee"
+      },
+      "key": "getEmployeeTable",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "42",
+          "key": "employeeId",
+          "type": "string",
+          "default": "",
+          "label": "Employee ID"
+        },
+        {
+          "required": true,
+          "example": "jobInfo",
+          "key": "tableName",
+          "type": "string",
+          "default": "",
+          "label": "Table Name (Alias)"
+        }
+      ]
+    },
+    "getTabularFields": {
+      "display": {
+        "label": "List Tabular Fields (Tables)",
+        "description": "List all tables and their fields in the account"
+      },
+      "examplePayload": {
+        "data": [
+          {
+            "alias": "jobInfo",
+            "fields": [
+              {
+                "id": 4028,
+                "name": "Job Information: Date",
+                "alias": "date",
+                "type": "date"
+              },
+              {
+                "id": 18,
+                "name": "Location",
+                "alias": "location",
+                "type": "list"
+              },
+              {
+                "id": 4,
+                "name": "Department",
+                "alias": "department",
+                "type": "list"
+              },
+              {
+                "id": 1355,
+                "name": "Division",
+                "alias": "division",
+                "type": "list"
+              },
+              {
+                "id": 17,
+                "name": "Job Title",
+                "alias": "jobTitle",
+                "type": "list"
+              },
+              {
+                "id": 91,
+                "name": "Reporting to",
+                "alias": "reportsTo",
+                "type": "employee"
+              }
+            ]
+          }
+        ]
+      },
+      "key": "getTabularFields",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "updateEmployeeTableRow": {
+      "display": {
+        "label": "Update Employee Table Row",
+        "description": "Updates a specific row in an Employee Table"
+      },
+      "key": "updateEmployeeTableRow",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "example": "42",
+          "key": "employeeId",
+          "type": "string",
+          "default": "",
+          "label": "Employee ID"
+        },
+        {
+          "required": true,
+          "example": "jobInfo",
+          "key": "tableName",
+          "type": "string",
+          "default": "",
+          "label": "Table Name (Alias)"
+        },
+        {
+          "required": true,
+          "key": "rowId",
+          "type": "string",
+          "default": "",
+          "label": "Row ID"
+        },
+        {
+          "required": false,
+          "comments": "The names of the fields and their values to use when creating/updating a row in a table. Use the \"List Tabular Fields (Tables)\" action to list possible field names for a table.",
+          "key": "tableFieldValues",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Table Fields"
+        }
+      ]
+    },
+    "getTimeOffRequests": {
+      "display": {
+        "label": "Get Time Off Requests",
+        "description": "Gets Employee Time Off Requests for a given date range."
+      },
+      "examplePayload": {
+        "data": [
+          {
+            "id": "1342",
+            "employeeId": "4",
+            "status": {
+              "lastChanged": "2022-04-10",
+              "lastChangedByUserId": "2369",
+              "status": "approved"
+            },
+            "name": "Charlotte Abbott",
+            "start": "2021-12-26",
+            "end": "2021-12-28",
+            "created": "2022-04-09",
+            "type": {
+              "id": "78",
+              "name": "Vacation",
+              "icon": "palm-trees"
+            },
+            "amount": {
+              "unit": "hours",
+              "amount": "24"
+            },
+            "actions": {
+              "view": true,
+              "edit": true,
+              "cancel": false,
+              "approve": false,
+              "deny": false,
+              "bypass": false
+            },
+            "dates": {
+              "2021-12-26": "24"
+            },
+            "notes": {
+              "manager": "Home sick with the flu."
+            }
+          }
+        ]
+      },
+      "key": "getTimeOffRequests",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "example": "42",
+          "key": "timeOffRecordId",
+          "type": "string",
+          "default": "",
+          "label": "Time Off Record ID"
+        },
+        {
+          "required": false,
+          "example": "42",
+          "key": "employeeId",
+          "type": "string",
+          "default": "",
+          "label": "Employee ID"
+        },
+        {
+          "required": true,
+          "example": "YYYY-MM-DD",
+          "key": "startDate",
+          "type": "string",
+          "default": "",
+          "label": "Start Date"
+        },
+        {
+          "required": true,
+          "example": "YYYY-MM-DD",
+          "key": "endDate",
+          "type": "string",
+          "default": "",
+          "label": "End Date"
+        },
+        {
+          "required": false,
+          "model": [
+            {
+              "label": "Approved",
+              "value": "approved"
+            },
+            {
+              "label": "Denied",
+              "value": "denied"
+            },
+            {
+              "label": "Superceded",
+              "value": "superceded"
+            },
+            {
+              "label": "Canceled",
+              "value": "canceled"
+            },
+            {
+              "label": "Requested",
+              "value": "requested"
+            }
+          ],
+          "key": "timeOffStatus",
+          "type": "string",
+          "default": "",
+          "label": "Status"
+        }
+      ]
+    },
+    "whosOut": {
+      "display": {
+        "label": "List Who's Out",
+        "description": "Get a list of all employees currently taking time off"
+      },
+      "examplePayload": {
+        "data": [
+          {
+            "id": 1493,
+            "type": "timeOff",
+            "employeeId": 17,
+            "name": "Dorothy Chou",
+            "start": "2022-08-17",
+            "end": "2022-08-18"
+          }
+        ]
+      },
+      "key": "whosOut",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": false,
+          "example": "YYYY-MM-DD",
+          "comments": "Defaults to today's date if omitted",
+          "key": "startDate",
+          "type": "string",
+          "default": "",
+          "label": "Start Date"
+        },
+        {
+          "required": false,
+          "example": "YYYY-MM-DD",
+          "comments": "Defaults to 14 days from start date if omitted",
+          "key": "endDate",
+          "type": "string",
+          "default": "",
+          "label": "End Date"
+        }
+      ]
+    },
+    "createWebhook": {
+      "display": {
+        "label": "Create Webhook",
+        "description": "Create a new webhook"
+      },
+      "key": "createWebhook",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "key": "name",
+          "type": "string",
+          "default": "",
+          "label": "Webhook Name"
+        },
+        {
+          "required": true,
+          "comments": "Where the data should be sent",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "Callback URL"
+        },
+        {
+          "required": true,
+          "comments": "Select one or more fields to trigger this webhook on. This can be any of the following: firstName, lastName, hireDate, department, middleName, dateOfBirth, ssn, address1, address2, city, state, zipcode, mobilePhone, homePhone, workEmail, jobTitle, location, gender, maritalStatus, payType, eeo, status, workPhone, workPhoneExtension, employeeNumber, ethnicity, division, homeEmail, preferredName, employeeStatusDate, country, payChangeReason, payRateEffectiveDate, exempt, twitterFeed, facebook, linkedIn, pinterest, acaStatus, payPer, originalHireDate, paySchedule, instagram, allergies, dietaryRestrictions, hoursPerPayCycle",
+          "model": [
+            {
+              "label": "firstName",
+              "value": "firstName"
+            },
+            {
+              "label": "lastName",
+              "value": "lastName"
+            },
+            {
+              "label": "hireDate",
+              "value": "hireDate"
+            },
+            {
+              "label": "department",
+              "value": "department"
+            },
+            {
+              "label": "middleName",
+              "value": "middleName"
+            },
+            {
+              "label": "dateOfBirth",
+              "value": "dateOfBirth"
+            },
+            {
+              "label": "ssn",
+              "value": "ssn"
+            },
+            {
+              "label": "address1",
+              "value": "address1"
+            },
+            {
+              "label": "address2",
+              "value": "address2"
+            },
+            {
+              "label": "city",
+              "value": "city"
+            },
+            {
+              "label": "state",
+              "value": "state"
+            },
+            {
+              "label": "zipcode",
+              "value": "zipcode"
+            },
+            {
+              "label": "mobilePhone",
+              "value": "mobilePhone"
+            },
+            {
+              "label": "homePhone",
+              "value": "homePhone"
+            },
+            {
+              "label": "workEmail",
+              "value": "workEmail"
+            },
+            {
+              "label": "jobTitle",
+              "value": "jobTitle"
+            },
+            {
+              "label": "location",
+              "value": "location"
+            },
+            {
+              "label": "gender",
+              "value": "gender"
+            },
+            {
+              "label": "maritalStatus",
+              "value": "maritalStatus"
+            },
+            {
+              "label": "payType",
+              "value": "payType"
+            },
+            {
+              "label": "eeo",
+              "value": "eeo"
+            },
+            {
+              "label": "status",
+              "value": "status"
+            },
+            {
+              "label": "workPhone",
+              "value": "workPhone"
+            },
+            {
+              "label": "workPhoneExtension",
+              "value": "workPhoneExtension"
+            },
+            {
+              "label": "employeeNumber",
+              "value": "employeeNumber"
+            },
+            {
+              "label": "ethnicity",
+              "value": "ethnicity"
+            },
+            {
+              "label": "division",
+              "value": "division"
+            },
+            {
+              "label": "homeEmail",
+              "value": "homeEmail"
+            },
+            {
+              "label": "preferredName",
+              "value": "preferredName"
+            },
+            {
+              "label": "employeeStatusDate",
+              "value": "employeeStatusDate"
+            },
+            {
+              "label": "country",
+              "value": "country"
+            },
+            {
+              "label": "payChangeReason",
+              "value": "payChangeReason"
+            },
+            {
+              "label": "payRateEffectiveDate",
+              "value": "payRateEffectiveDate"
+            },
+            {
+              "label": "exempt",
+              "value": "exempt"
+            },
+            {
+              "label": "twitterFeed",
+              "value": "twitterFeed"
+            },
+            {
+              "label": "facebook",
+              "value": "facebook"
+            },
+            {
+              "label": "linkedIn",
+              "value": "linkedIn"
+            },
+            {
+              "label": "pinterest",
+              "value": "pinterest"
+            },
+            {
+              "label": "acaStatus",
+              "value": "acaStatus"
+            },
+            {
+              "label": "payPer",
+              "value": "payPer"
+            },
+            {
+              "label": "originalHireDate",
+              "value": "originalHireDate"
+            },
+            {
+              "label": "paySchedule",
+              "value": "paySchedule"
+            },
+            {
+              "label": "instagram",
+              "value": "instagram"
+            },
+            {
+              "label": "allergies",
+              "value": "allergies"
+            },
+            {
+              "label": "dietaryRestrictions",
+              "value": "dietaryRestrictions"
+            },
+            {
+              "label": "hoursPerPayCycle",
+              "value": "hoursPerPayCycle"
+            }
+          ],
+          "key": "monitorFields",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Fields to Monitor"
+        },
+        {
+          "required": true,
+          "comments": "A list of fields to post to the webhook url. This can be any of the following: firstName, lastName, hireDate, department, middleName, dateOfBirth, ssn, address1, address2, city, state, zipcode, mobilePhone, homePhone, workEmail, jobTitle, location, gender, maritalStatus, payType, eeo, status, workPhone, workPhoneExtension, employeeNumber, ethnicity, division, homeEmail, preferredName, employeeStatusDate, country, payChangeReason, payRateEffectiveDate, exempt, twitterFeed, facebook, linkedIn, pinterest, acaStatus, payPer, originalHireDate, paySchedule, instagram, allergies, dietaryRestrictions, hoursPerPayCycle",
+          "model": [
+            {
+              "label": "firstName",
+              "value": "firstName"
+            },
+            {
+              "label": "lastName",
+              "value": "lastName"
+            },
+            {
+              "label": "hireDate",
+              "value": "hireDate"
+            },
+            {
+              "label": "department",
+              "value": "department"
+            },
+            {
+              "label": "middleName",
+              "value": "middleName"
+            },
+            {
+              "label": "dateOfBirth",
+              "value": "dateOfBirth"
+            },
+            {
+              "label": "ssn",
+              "value": "ssn"
+            },
+            {
+              "label": "address1",
+              "value": "address1"
+            },
+            {
+              "label": "address2",
+              "value": "address2"
+            },
+            {
+              "label": "city",
+              "value": "city"
+            },
+            {
+              "label": "state",
+              "value": "state"
+            },
+            {
+              "label": "zipcode",
+              "value": "zipcode"
+            },
+            {
+              "label": "mobilePhone",
+              "value": "mobilePhone"
+            },
+            {
+              "label": "homePhone",
+              "value": "homePhone"
+            },
+            {
+              "label": "workEmail",
+              "value": "workEmail"
+            },
+            {
+              "label": "jobTitle",
+              "value": "jobTitle"
+            },
+            {
+              "label": "location",
+              "value": "location"
+            },
+            {
+              "label": "gender",
+              "value": "gender"
+            },
+            {
+              "label": "maritalStatus",
+              "value": "maritalStatus"
+            },
+            {
+              "label": "payType",
+              "value": "payType"
+            },
+            {
+              "label": "eeo",
+              "value": "eeo"
+            },
+            {
+              "label": "status",
+              "value": "status"
+            },
+            {
+              "label": "workPhone",
+              "value": "workPhone"
+            },
+            {
+              "label": "workPhoneExtension",
+              "value": "workPhoneExtension"
+            },
+            {
+              "label": "employeeNumber",
+              "value": "employeeNumber"
+            },
+            {
+              "label": "ethnicity",
+              "value": "ethnicity"
+            },
+            {
+              "label": "division",
+              "value": "division"
+            },
+            {
+              "label": "homeEmail",
+              "value": "homeEmail"
+            },
+            {
+              "label": "preferredName",
+              "value": "preferredName"
+            },
+            {
+              "label": "employeeStatusDate",
+              "value": "employeeStatusDate"
+            },
+            {
+              "label": "country",
+              "value": "country"
+            },
+            {
+              "label": "payChangeReason",
+              "value": "payChangeReason"
+            },
+            {
+              "label": "payRateEffectiveDate",
+              "value": "payRateEffectiveDate"
+            },
+            {
+              "label": "exempt",
+              "value": "exempt"
+            },
+            {
+              "label": "twitterFeed",
+              "value": "twitterFeed"
+            },
+            {
+              "label": "facebook",
+              "value": "facebook"
+            },
+            {
+              "label": "linkedIn",
+              "value": "linkedIn"
+            },
+            {
+              "label": "pinterest",
+              "value": "pinterest"
+            },
+            {
+              "label": "acaStatus",
+              "value": "acaStatus"
+            },
+            {
+              "label": "payPer",
+              "value": "payPer"
+            },
+            {
+              "label": "originalHireDate",
+              "value": "originalHireDate"
+            },
+            {
+              "label": "paySchedule",
+              "value": "paySchedule"
+            },
+            {
+              "label": "instagram",
+              "value": "instagram"
+            },
+            {
+              "label": "allergies",
+              "value": "allergies"
+            },
+            {
+              "label": "dietaryRestrictions",
+              "value": "dietaryRestrictions"
+            },
+            {
+              "label": "hoursPerPayCycle",
+              "value": "hoursPerPayCycle"
+            }
+          ],
+          "key": "postFields",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Fields to send to Webhook"
+        },
+        {
+          "comments": "By default this action checks if a webhook with this callback and sheet ID already exists. If it does, this action does not configure a new webhook. Toggle this to true to allow the creation of duplicate webhooks.",
+          "key": "allowDuplicates",
+          "type": "boolean",
+          "default": "false",
+          "label": "Allow Duplicates?"
+        }
+      ]
+    },
+    "deleteInstanceWebhooks": {
+      "display": {
+        "label": "Delete Instance Webhooks",
+        "description": "Delete all BambooHR webhooks that point to a flow in this instance"
+      },
+      "key": "deleteInstanceWebhooks",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "deleteWebhookById": {
+      "display": {
+        "label": "Delete Webhook",
+        "description": "Delete a webhook by ID"
+      },
+      "key": "deleteWebhookById",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "key": "webhookId",
+          "type": "string",
+          "default": "",
+          "label": "Webhook ID"
+        }
+      ]
+    },
+    "listWebhooks": {
+      "display": {
+        "label": "List Webhooks",
+        "description": "Get a list of existing webhooks"
+      },
+      "key": "listWebhooks",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Show only webhooks that point to this instance",
+          "key": "showOnlyInstanceWebhooks",
+          "type": "boolean",
+          "default": "true",
+          "label": "Show only instance webhooks"
+        }
+      ]
+    }
+  },
+  "triggers": {
+    "bamboohrTrigger": {
+      "display": {
+        "label": "BambooHR Webhook",
+        "description": "Handle and validate webhook requests from BambooHR"
+      },
+      "synchronousResponseSupport": "invalid",
+      "scheduleSupport": "invalid",
+      "key": "bamboohrTrigger",
+      "inputs": []
+    }
+  },
+  "dataSources": {},
+  "documentation": {
+    "description": "BambooHR produces human resources software.\nBambooHR's services include an applicant tracking system and an employee benefits tracker.\n"
+  },
+  "$version": 1
+}

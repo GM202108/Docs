@@ -1,0 +1,715 @@
+{
+  "key": "google-ads",
+  "documentationUrl": "https://prismatic.io/docs/components/google-ads/",
+  "public": true,
+  "display": {
+    "label": "Google Ads",
+    "description": "Manage Google Ad campaigns",
+    "iconPath": "icon.png",
+    "category": "Application Connectors",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "key": "oauth",
+      "label": "OAuth 2.0",
+      "comments": "OAuth 2.0 connection",
+      "oauth2Type": "authorization_code",
+      "iconPath": "oauth-button.png",
+      "inputs": [
+        {
+          "placeholder": "Authorize URL",
+          "required": true,
+          "shown": false,
+          "comments": "The OAuth 2.0 Authorization URL for the API",
+          "key": "authorizeUrl",
+          "type": "string",
+          "default": "https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&prompt=consent",
+          "label": "Authorize URL"
+        },
+        {
+          "placeholder": "Token URL",
+          "required": true,
+          "shown": false,
+          "comments": "The OAuth 2.0 Token URL for the API",
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "https://oauth2.googleapis.com/token",
+          "label": "Token URL"
+        },
+        {
+          "placeholder": "Scopes",
+          "required": true,
+          "shown": false,
+          "comments": "Space separated OAuth 2.0 permission scopes for the API",
+          "key": "scopes",
+          "type": "string",
+          "default": "https://www.googleapis.com/auth/adwords",
+          "label": "Scopes"
+        },
+        {
+          "placeholder": "Client ID",
+          "required": true,
+          "shown": true,
+          "comments": "Client Identifier of your app for the API",
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "Client ID"
+        },
+        {
+          "placeholder": "Client Secret",
+          "required": true,
+          "shown": true,
+          "comments": "Client Secret of your app for the API",
+          "key": "clientSecret",
+          "type": "password",
+          "default": "",
+          "label": "Client Secret"
+        },
+        {
+          "placeholder": "Developer Token",
+          "required": true,
+          "shown": true,
+          "comments": "Developer token of your Account Manager account",
+          "key": "developerToken",
+          "type": "password",
+          "default": "",
+          "label": "Developer Token"
+        }
+      ],
+      "documentation": {
+        "description": "This component uses OAuth 2.0 to connect to the Google Ads API.\nTo begin working with Google Ads you will need a [Developer Token](https://developers.google.com/google-ads/api/docs/first-call/dev-token).\nYou will also need to make note of the Customer ID of the Ads Manager account (the hyphenated number in the top-left corner of the Ads app).\n\nNext, you will need to create a GCP OAuth 2.0 app. To create one you will need to ensure you have a [Google Developer account](https://console.cloud.google.com/).\nThen:\n\n1. Access the project selector in the top-left and select an existing project or create a new one.\n1. Select **APIs & Services** -> **Enabled APIs & services** from the left hand menu\n1. Click **Enable APIs and Services** towards the top of the screen\n1. Search for \"google ads api\" and select **Google Ads API** in the results (avoid selecting AdWords as that is deprecated)\n1. Click the **Enable** button to add the API to your project\n1. On the sidebar, select **Credentials**.\n1. An OAuth 2.0 app includes a \"Consent Screen\" (the page that asks \"Do you want to allow (Your Company) to access Google Drive on your behalf?\"). Click **CONFIGURE CONSENT SCREEN**.\n    1. Your app will be externally available to your customers, so choose a **User Type** of **External**.\n    1. Fill out the OAuth consent screen with an app name (your company or product's name), support email, app logo, domain, etc.\n    1. You can ignore domains for now.\n    1. On the next page, ignore scopes - this component knows what scopes it needs to run and will request the right scopes for you.\n    1. Enter some **test users** for your testing purposes.\n       Your app will only work for those testing users until it is \"verified\" by Google.\n       When you are ready for verification (they verify your privacy policy statement, etc), click **PUBLISH APP** on the **OAuth consent screen**.\n       That'll allow your customers to authorize your integration to access their Google Drive.\n1. Once your \"Consent Screen\" is configured open the **Credentials** page from the sidebar again.\n1. Click **+CREATE CREDENTIALS** and select **OAuth client ID**.\n    1. Under **Application type** select **Web application**.\n    1. Under **Authorized redirect URIs** enter Prismatic's OAuth 2.0 callback URL: `https://oauth2.prismatic.io/callback`\n    1. Click **CREATE**.\n1. Take note of the **Client ID** and **Client Secret** that are generated.\n\n:::info\nMake sure to **publish** your OAuth 2.0 app after you've tested it so users outside of your _test users_ can authorize your integration to interact with Google Drive on their behalf.\n:::\n\nNow that you have a **Client ID** and **Client Secret**, add Google Ads step to your integration in Prismatic.\nOpen the **Configuration Wizard Designer** by clicking **Configuration Wizard**, select your **Google Ads Connection** and enter your client ID and secret.\n"
+      }
+    }
+  ],
+  "actions": {
+    "manualConversions": {
+      "display": {
+        "label": "Manual Conversions",
+        "description": "Manual Conversions"
+      },
+      "key": "manualConversions",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Customer ID",
+          "required": true,
+          "comments": "Customer ID of the Google Ads Client account; accepts hyphenated or number forms.",
+          "example": "111-222-4444",
+          "key": "customerId",
+          "type": "string",
+          "default": "",
+          "label": "Customer ID"
+        },
+        {
+          "required": true,
+          "comments": "Google Click ID (gclid) of the conversion.",
+          "key": "clickId",
+          "type": "string",
+          "default": "",
+          "label": "Click ID"
+        },
+        {
+          "required": true,
+          "example": "customers/1234567890/conversionActions/1234567890",
+          "comments": "Resource name of the conversion action associated with this conversion.",
+          "key": "conversionName",
+          "type": "string",
+          "default": "",
+          "label": "Conversion Name"
+        },
+        {
+          "required": true,
+          "example": "2019-01-01 12:32:45-08:00",
+          "comments": "The date time at which the conversion occurred. The timezone must be specified. The format is \"yyyy-mm-dd hh:mm:ss+|-hh:mm\"",
+          "key": "conversionTime",
+          "type": "string",
+          "default": "",
+          "label": "Conversion Time"
+        },
+        {
+          "required": true,
+          "example": "1",
+          "comments": "The value of the conversion for the advertiser.",
+          "key": "conversionValue",
+          "type": "string",
+          "default": "",
+          "label": "Conversion Value"
+        },
+        {
+          "required": true,
+          "example": "USD",
+          "comments": "Currency associated with the conversion value. This is the ISO 4217 3-character currency code. For example: USD, EUR.",
+          "key": "conversionCurrency",
+          "type": "string",
+          "default": "",
+          "label": "Conversion Currency"
+        }
+      ]
+    },
+    "getCustomer": {
+      "display": {
+        "label": "Get Customer",
+        "description": "Get Customer"
+      },
+      "key": "getCustomer",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Customer ID",
+          "required": true,
+          "comments": "Customer ID of the Google Ads Client account; accepts hyphenated or number forms.",
+          "example": "111-222-4444",
+          "key": "customerId",
+          "type": "string",
+          "default": "",
+          "label": "Customer ID"
+        },
+        {
+          "required": true,
+          "example": "20",
+          "comments": "Numerical value indicating desired page size of paginated results.",
+          "key": "pageSize",
+          "type": "string",
+          "default": "20",
+          "label": "Page Size"
+        },
+        {
+          "required": false,
+          "example": "CJL5XLT2PWDmIpGNGciABRnu",
+          "comments": "Identifier of which page of results to return. This is returned with paginated results.",
+          "key": "pageToken",
+          "type": "string",
+          "default": "",
+          "label": "Page Token"
+        }
+      ]
+    },
+    "getConversionAction": {
+      "display": {
+        "label": "Get Conversion Action",
+        "description": "Get Conversion Action"
+      },
+      "key": "getConversionAction",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Customer ID",
+          "required": true,
+          "comments": "Customer ID of the Google Ads Client account; accepts hyphenated or number forms.",
+          "example": "111-222-4444",
+          "key": "customerId",
+          "type": "string",
+          "default": "",
+          "label": "Customer ID"
+        },
+        {
+          "required": true,
+          "example": "20",
+          "comments": "Numerical value indicating desired page size of paginated results.",
+          "key": "pageSize",
+          "type": "string",
+          "default": "20",
+          "label": "Page Size"
+        },
+        {
+          "required": false,
+          "example": "CJL5XLT2PWDmIpGNGciABRnu",
+          "comments": "Identifier of which page of results to return. This is returned with paginated results.",
+          "key": "pageToken",
+          "type": "string",
+          "default": "",
+          "label": "Page Token"
+        }
+      ]
+    },
+    "createClientLink": {
+      "display": {
+        "label": "Create Client Link",
+        "description": "Create an invitation to link a client account to a manager account"
+      },
+      "examplePayload": {
+        "data": {
+          "resourceName": "customers/1111111111/customerClientLinks/2222222222~3333333333",
+          "managerCustomerId": "1111111111",
+          "clientCustomerId": "2222222222",
+          "managerLinkId": "3333333333"
+        }
+      },
+      "key": "createClientLink",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Customer ID of the Google Ads Client account; accepts hyphenated or number forms.",
+          "example": "123-456-7890",
+          "key": "managerCustomerId",
+          "type": "string",
+          "default": "",
+          "label": "Manager Customer ID"
+        },
+        {
+          "placeholder": "Customer ID",
+          "required": true,
+          "comments": "Customer ID of the Google Ads Client account; accepts hyphenated or number forms.",
+          "example": "111-222-4444",
+          "key": "customerId",
+          "type": "string",
+          "default": "",
+          "label": "Customer ID"
+        }
+      ]
+    },
+    "confirmClientLink": {
+      "display": {
+        "label": "Confirm Client Link",
+        "description": "Confirm a pending customer client link"
+      },
+      "key": "confirmClientLink",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Customer ID of the Google Ads Client account; accepts hyphenated or number forms.",
+          "example": "123-456-7890",
+          "key": "managerCustomerId",
+          "type": "string",
+          "default": "",
+          "label": "Manager Customer ID"
+        },
+        {
+          "placeholder": "Customer ID",
+          "required": true,
+          "comments": "Customer ID of the Google Ads Client account; accepts hyphenated or number forms.",
+          "example": "111-222-4444",
+          "key": "customerId",
+          "type": "string",
+          "default": "",
+          "label": "Customer ID"
+        },
+        {
+          "required": true,
+          "key": "managerLinkId",
+          "type": "string",
+          "default": "",
+          "label": "Manager Link ID"
+        }
+      ]
+    },
+    "listAccessibleCustomers": {
+      "display": {
+        "label": "List Accessible Customers",
+        "description": "Get a list of customers accessible to the logged in user"
+      },
+      "examplePayload": {
+        "data": {
+          "resourceNames": [
+            "customers/1234567890",
+            "customers/5555555555"
+          ]
+        }
+      },
+      "key": "listAccessibleCustomers",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "listCustomers": {
+      "display": {
+        "label": "List Manager's Customers",
+        "description": "List all customers under a manager account"
+      },
+      "examplePayload": {
+        "data": {
+          "results": {
+            "results": [
+              {
+                "customerClient": {
+                  "resourceName": "customers/1234567890/customerClients/1234567890",
+                  "clientCustomer": "customers/1234567890",
+                  "id": "1234567890",
+                  "hidden": false,
+                  "level": "1"
+                }
+              },
+              {
+                "customerClient": {
+                  "resourceName": "customers/1234567890/customerClients/1234567890",
+                  "clientCustomer": "customers/1234567890",
+                  "id": "1234567890",
+                  "hidden": false,
+                  "level": "1"
+                }
+              }
+            ],
+            "nextPageToken": "CJL5XLT2PWDmIpGNGciABRnu",
+            "fieldMask": "customerClient.resourceName,customerClient.clientCustomer,customerClient.id,customerClient.level,customerClient.hidden,customerClient.level"
+          }
+        }
+      },
+      "key": "listCustomers",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Customer ID of the Google Ads Client account; accepts hyphenated or number forms.",
+          "example": "123-456-7890",
+          "key": "managerCustomerId",
+          "type": "string",
+          "default": "",
+          "label": "Manager Customer ID"
+        },
+        {
+          "required": true,
+          "example": "20",
+          "comments": "Numerical value indicating desired page size of paginated results.",
+          "key": "pageSize",
+          "type": "string",
+          "default": "20",
+          "label": "Page Size"
+        },
+        {
+          "required": false,
+          "example": "CJL5XLT2PWDmIpGNGciABRnu",
+          "comments": "Identifier of which page of results to return. This is returned with paginated results.",
+          "key": "pageToken",
+          "type": "string",
+          "default": "",
+          "label": "Page Token"
+        }
+      ]
+    },
+    "rawRequest": {
+      "display": {
+        "label": "Raw Request",
+        "description": "Send a raw HTTP request to Google Ads API"
+      },
+      "key": "rawRequest",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "Input the path only (/v13/customers:listAccessibleCustomers), The base URL is already included (https://googleads.googleapis.com). For example, to connect to https://googleads.googleapis.com/v13/customers:listAccessibleCustomers, only /v13/customers:listAccessibleCustomers is entered in this field.",
+          "example": "/v13/customers:listAccessibleCustomers",
+          "key": "url",
+          "type": "string",
+          "default": "/v13/",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        }
+      ]
+    },
+    "inviteUser": {
+      "display": {
+        "label": "Invite User",
+        "description": "Invite a user by email to a customer"
+      },
+      "key": "inviteUser",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "Customer ID",
+          "required": true,
+          "comments": "Customer ID of the Google Ads Client account; accepts hyphenated or number forms.",
+          "example": "111-222-4444",
+          "key": "customerId",
+          "type": "string",
+          "default": "",
+          "label": "Customer ID"
+        },
+        {
+          "required": true,
+          "comments": "The email address to invite to the customer",
+          "key": "emailAddress",
+          "type": "string",
+          "default": "",
+          "label": "Email Address"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "ADMIN",
+              "value": "ADMIN"
+            },
+            {
+              "label": "STANDARD",
+              "value": "STANDARD"
+            },
+            {
+              "label": "READ_ONLY",
+              "value": "READ_ONLY"
+            },
+            {
+              "label": "EMAIL_ONLY",
+              "value": "EMAIL_ONLY"
+            }
+          ],
+          "key": "accessRole",
+          "type": "string",
+          "default": "",
+          "label": "Access Role"
+        }
+      ]
+    }
+  },
+  "triggers": {},
+  "dataSources": {
+    "listAccessibleCustomersDataSource": {
+      "display": {
+        "label": "List Accessible Customers",
+        "description": "Get a list of accessible customers for the logged in user"
+      },
+      "dataSourceType": "picklist",
+      "examplePayload": {
+        "result": [
+          {
+            "label": "123-456-7890",
+            "key": "1234567890"
+          }
+        ]
+      },
+      "key": "listAccessibleCustomersDataSource",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    }
+  },
+  "documentation": {
+    "description": "[Google Ads](https://ads.google.com/) (formerly Google AdWords and Google AdWords Express) is an online advertising solution that businesses use to promote their products and services on Google Search, YouTube, and other sites across the web. Google Ads also allows advertisers to choose specific goals for their ads, like driving phone calls or website visits. With a Google Ads account, advertisers can customize their budgets and targeting, and start or stop their ads at any time.\n\nThis component allows you to add external conversions to Ads campaigns.\n",
+    "dev": "Google documents many [common errors](https://developers.google.com/google-ads/api/docs/best-practices/common-errors) that will aid in troubleshooting.\n"
+  },
+  "$version": 1
+}

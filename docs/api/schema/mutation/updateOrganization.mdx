@@ -1,0 +1,30 @@
+---
+id: updateOrganization
+title: updateOrganization Mutation
+sidebar_label: updateOrganization
+description: Learn how to use the updateOrganization Mutation for Prismatic's API.
+---
+
+    Updates the specified Organization object.
+
+Access is permitted when any of the following condition(s) are met: 1. The signed-in User has any of the following permissions for the object: [org_admin_users].
+
+## Input fields ([UpdateOrganizationInput!](api/schema/input_object/UpdateOrganizationInput.mdx))
+
+| Argument           | Type                                       | Description                                                 |
+| ------------------ | ------------------------------------------ | ----------------------------------------------------------- |
+| `name`             | [`String`](api/schema/scalar/String.mdx)   | The unique name of the Organization.                        |
+| `marketplaceName`  | [`String`](api/schema/scalar/String.mdx)   | Display name of the Organization's Marketplace.             |
+| `featureFlags`     | [`String`](api/schema/scalar/String.mdx)   |                                                             |
+| `labels`           | [`[String]`](api/schema/scalar/String.mdx) | The labels that are associated with the object.             |
+| `avatarUrl`        | [`String`](api/schema/scalar/String.mdx)   | The URL for the avatar image.                               |
+| `id`               | [`ID`](api/schema/scalar/ID.mdx)           | The ID of the Organization to mutate.                       |
+| `clientMutationId` | [`String`](api/schema/scalar/String.mdx)   | A unique identifier for the client performing the mutation. |
+
+## Return fields ([UpdateOrganizationPayload](api/schema/object/UpdateOrganizationPayload.mdx))
+
+###### <b>clientMutationId</b> ([String](api/schema/scalar/String.mdx))
+
+###### <b>errors</b> ([[ErrorType!]!](api/schema/object/ErrorType.mdx))
+
+###### <b>organization</b> ([Organization](api/schema/object/Organization.mdx))

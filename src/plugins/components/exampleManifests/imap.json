@@ -1,0 +1,657 @@
+{
+  "key": "imap",
+  "public": true,
+  "documentationUrl": "https://prismatic.io/docs/components/imap/",
+  "display": {
+    "category": "Application Connectors",
+    "label": "IMAP",
+    "description": "Interact with your IMAP email account",
+    "iconPath": "icon.png",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "key": "imap",
+      "label": "IMAP Connection",
+      "comments": "Provide the details of your IMAP server.",
+      "inputs": [
+        {
+          "placeholder": "Host",
+          "required": true,
+          "shown": true,
+          "comments": "Provide the host address for the desired IMAP server.",
+          "example": "imap.example.com",
+          "key": "host",
+          "type": "string",
+          "default": "",
+          "label": "Host"
+        },
+        {
+          "placeholder": "Port",
+          "required": true,
+          "shown": true,
+          "comments": "Provide the port for the desired IMAP server.",
+          "example": "993",
+          "key": "port",
+          "type": "string",
+          "default": "993",
+          "label": "Port"
+        },
+        {
+          "placeholder": "Secure",
+          "required": true,
+          "shown": true,
+          "comments": "Determines if the connection is secure.",
+          "key": "secure",
+          "type": "boolean",
+          "default": true,
+          "label": "Secure"
+        },
+        {
+          "placeholder": "Username",
+          "required": true,
+          "shown": true,
+          "comments": "Provide a valid username or email.",
+          "example": "someone@example.com",
+          "key": "user",
+          "type": "string",
+          "default": "",
+          "label": "Username"
+        },
+        {
+          "placeholder": "Password",
+          "required": false,
+          "shown": true,
+          "comments": "Provide the password for the given user. This value is required if secured is set to true.",
+          "example": "examplePassword",
+          "key": "pass",
+          "type": "password",
+          "default": "",
+          "label": "Password"
+        },
+        {
+          "required": true,
+          "shown": true,
+          "comments": "Provide a valid TLS version to be used in the connection.",
+          "example": "TLSv1.1",
+          "model": [
+            {
+              "label": "TLSv1.1",
+              "value": "TLSv1.1"
+            },
+            {
+              "label": "TLSv1.2",
+              "value": "TLSv1.2"
+            },
+            {
+              "label": "TLSv1.3",
+              "value": "TLSv1.3"
+            }
+          ],
+          "key": "minVersion",
+          "type": "string",
+          "default": "TLSv1.1",
+          "label": "Minimum TLS Version"
+        },
+        {
+          "required": true,
+          "shown": true,
+          "comments": "Provide a valid TLS version to be used in the connection.",
+          "example": "TLSv1.3",
+          "model": [
+            {
+              "label": "TLSv1.1",
+              "value": "TLSv1.1"
+            },
+            {
+              "label": "TLSv1.2",
+              "value": "TLSv1.2"
+            },
+            {
+              "label": "TLSv1.3",
+              "value": "TLSv1.3"
+            }
+          ],
+          "key": "maxVersion",
+          "type": "string",
+          "default": "TLSv1.3",
+          "label": "Maximum TLS Version"
+        },
+        {
+          "required": true,
+          "shown": true,
+          "comments": "Minimum size of bits to accept in a TLS connection",
+          "example": "512",
+          "key": "minDHSize",
+          "type": "string",
+          "default": "1024",
+          "label": "Min DH Size"
+        }
+      ],
+      "documentation": {
+        "description": "To configure a connection to an IMAP server you will need a few properties:\n\n-   The host and port of your IMAP server\n-   A set of login credentials for a user that exists on the IMAP server\n-   The version of encryption the IMAP server is compatible with.\n\nThe setup can vary widely depending on the email service you are using.\nWe have provided a bit of context around some popular services to get you started.\n\n#### Connecting to Gmail\n\nTo set up an IMAP connection to your Gmail account, you need to create a [Google App Password](https://support.google.com/accounts/answer/185833?hl=en).\nGo to your [Google Account](https://myaccount.google.com/) and select 'Security'.\nUnder \"Signing in to Google,\" select App Passwords. You may need to sign in.\n\nIf you don't have this option, it might be because:\n\n-   2 Step Verification is not set up for your account.\n-   2 Step Verification is only set up for security keys.\n-   Your account is through work, school, or other organization.\n-   You turned on Advanced Protection.\n\nAt the bottom, click **Select App** and choose **Mail**, and then click **Select device** and choose **Other (Custom name)**.\nThen, click **GENERATE**.\nYou'll be given a 16-character code, which is your **app password**.\nCopy that somewhere safe.\n\nFinally, create a connection in Prismatic and provide these values:\n\n-   Enter `imap.gmail.com` for the host\n-   The default values for port and security are fine\n-   Enter the username or email of your Gmail account\n-   Enter the **app password** you created earlier\n\nIf you run into authentication problems, ensure that your account has [IMAP enabled](https://support.google.com/mail/answer/7126229).\n\n#### Connecting to Microsoft Office 365\n\nIf your Office 365 domain does not use multi-factor authentication (this is rare), then you can use your username and password to authenticate.\n\nIf MFA is enabled, you will need to create an **app password** to authenticate.\nTo create an app password, log in to the [Microsoft Security Center](https://mysignins.microsoft.com/security-info) and open the **Security info** tab.\nClick **+Add method** and choose **App password**.\n\nIf you don't have an **app password** option, you'll need to contact your Office 365 administrator and have them [enable it](https://support.microsoft.com/en-us/account-billing/manage-app-passwords-for-two-step-verification-d6dc8c6d-4bf7-4851-ad95-6d07799387e9).\n\nGive your app password a name, and copy the password that is generated.\n\nNow, create a connection in Prismatic and provide these values:\n\n-   Enter `outlook.office365.com` for the host\n-   The default values for port and security are fine\n-   Enter the username or email of your Outlook account\n-   Enter your password or the app password you generated\n"
+      }
+    }
+  ],
+  "actions": {
+    "listMailboxes": {
+      "display": {
+        "label": "List Mailboxes",
+        "description": "Returns a list of available mailboxes"
+      },
+      "examplePayload": {
+        "data": [
+          {
+            "path": "Drafts",
+            "pathAsListed": "Drafts",
+            "flags": {},
+            "delimiter": "/",
+            "listed": true,
+            "parentPath": "",
+            "parent": [],
+            "name": "Drafts",
+            "subscribed": true
+          },
+          {
+            "path": "INBOX",
+            "pathAsListed": "INBOX",
+            "flags": {},
+            "delimiter": "/",
+            "listed": true,
+            "specialUse": "\\Inbox",
+            "parentPath": "",
+            "parent": [],
+            "name": "INBOX",
+            "subscribed": true
+          },
+          {
+            "path": "Sent",
+            "pathAsListed": "Sent",
+            "flags": {},
+            "delimiter": "/",
+            "listed": true,
+            "parentPath": "",
+            "parent": [],
+            "name": "Sent",
+            "subscribed": true
+          }
+        ]
+      },
+      "key": "listMailboxes",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    },
+    "getStatus": {
+      "display": {
+        "label": "Get Mailbox Status",
+        "description": "Returns the status of a mailbox's properties"
+      },
+      "examplePayload": {
+        "data": {
+          "path": "INBOX",
+          "highestModseq": "10914782",
+          "messages": 61,
+          "recent": 0,
+          "uidNext": 76791,
+          "uidValidity": "596391842",
+          "unseen": 41
+        }
+      },
+      "key": "getStatus",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the name of the mailbox",
+          "example": "INBOX",
+          "key": "mailbox",
+          "type": "string",
+          "default": "",
+          "label": "Mailbox"
+        }
+      ]
+    },
+    "addFlags": {
+      "display": {
+        "label": "Add Flags",
+        "description": "Add new flags to an existing message"
+      },
+      "key": "addFlags",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the name of the mailbox",
+          "example": "INBOX",
+          "key": "mailbox",
+          "type": "string",
+          "default": "",
+          "label": "Mailbox"
+        },
+        {
+          "required": true,
+          "comments": "Provide a range of messages. Alternatively you can specify * to get the latest message",
+          "example": "1,2,4:6",
+          "key": "range",
+          "type": "string",
+          "default": "",
+          "label": "Range"
+        },
+        {
+          "required": true,
+          "comments": "For each item, provide a string value to be added to an existing message.",
+          "example": "exampleFlag",
+          "key": "flags",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Flags"
+        }
+      ]
+    },
+    "appendMessage": {
+      "display": {
+        "label": "Append Message",
+        "description": "Appends a new message to an existing mailbox"
+      },
+      "key": "appendMessage",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the name of the mailbox",
+          "example": "INBOX",
+          "key": "mailbox",
+          "type": "string",
+          "default": "",
+          "label": "Mailbox"
+        },
+        {
+          "required": true,
+          "comments": "Mailbox path to upload the message to",
+          "example": "INBOX",
+          "key": "path",
+          "type": "string",
+          "default": "",
+          "label": "Path"
+        },
+        {
+          "required": true,
+          "comments": "Mailbox path to upload the message to",
+          "example": "\n  From: someone@<yourcompany>.com\n  Subject: A basic RFC 850 formatted message\n  Newsgroups: comp.<yourcompany>.test\n\n  The body of this message is plain text. Note the blank line\n  between the header information and the body of the message.\n  ",
+          "key": "content",
+          "type": "string",
+          "default": "",
+          "label": "Message Content"
+        }
+      ]
+    },
+    "copyMessage": {
+      "display": {
+        "label": "Copy Message",
+        "description": "Copies a message from one mailbox to another."
+      },
+      "examplePayload": {
+        "data": {
+          "path": "My-Source-Mailbox",
+          "destination": "My-Destination-Mailbox",
+          "uidValidity": "596391920",
+          "uidMap": []
+        }
+      },
+      "key": "copyMessage",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the name of the mailbox",
+          "example": "INBOX",
+          "key": "mailbox",
+          "type": "string",
+          "default": "",
+          "label": "Mailbox"
+        },
+        {
+          "required": true,
+          "comments": "Provide a range of messages. Alternatively you can specify * to get the latest message",
+          "example": "1,2,4:6",
+          "key": "range",
+          "type": "string",
+          "default": "",
+          "label": "Range"
+        },
+        {
+          "required": true,
+          "comments": "Mailbox path to upload the message to",
+          "example": "INBOX",
+          "key": "path",
+          "type": "string",
+          "default": "",
+          "label": "New Path"
+        }
+      ]
+    },
+    "createMailbox": {
+      "display": {
+        "label": "Create Mailbox",
+        "description": "Creates a new mailbox folder and sets up subscription for the created mailbox"
+      },
+      "key": "createMailbox",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Mailbox path to upload the message to",
+          "example": "INBOX",
+          "key": "path",
+          "type": "string",
+          "default": "",
+          "label": "Path"
+        }
+      ]
+    },
+    "deleteMessage": {
+      "display": {
+        "label": "Delete Message",
+        "description": "Delete an existing message"
+      },
+      "examplePayload": {
+        "data": true
+      },
+      "key": "deleteMessage",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the name of the mailbox",
+          "example": "INBOX",
+          "key": "mailbox",
+          "type": "string",
+          "default": "",
+          "label": "Mailbox"
+        },
+        {
+          "example": "5",
+          "comments": "The UID of the message.",
+          "key": "messageIndex",
+          "type": "string",
+          "default": "",
+          "label": "Message UID"
+        }
+      ]
+    },
+    "downloadMessage": {
+      "display": {
+        "label": "Download Message",
+        "description": "Download either full RFC-822 formatted message or a specific body structure part"
+      },
+      "key": "downloadMessage",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the name of the mailbox",
+          "example": "INBOX",
+          "key": "mailbox",
+          "type": "string",
+          "default": "",
+          "label": "Mailbox"
+        },
+        {
+          "example": "5",
+          "comments": "The index of the message you would like to download (1 for the oldest message, 2 for second oldest, etc), or the ID of the message.",
+          "key": "messageIndex",
+          "type": "string",
+          "default": "",
+          "label": "Message Index or ID"
+        }
+      ]
+    },
+    "removeFlags": {
+      "display": {
+        "label": "Remove Flags From Message",
+        "description": "Remove existing flags from an existing message"
+      },
+      "key": "removeFlags",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the name of the mailbox",
+          "example": "INBOX",
+          "key": "mailbox",
+          "type": "string",
+          "default": "",
+          "label": "Mailbox"
+        },
+        {
+          "required": true,
+          "comments": "Provide a range of messages. Alternatively you can specify * to get the latest message",
+          "example": "1,2,4:6",
+          "key": "range",
+          "type": "string",
+          "default": "",
+          "label": "Range"
+        },
+        {
+          "required": true,
+          "comments": "For each item, provide a string value to be added to an existing message.",
+          "example": "exampleFlag",
+          "key": "flags",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Flags"
+        }
+      ]
+    },
+    "renameMailbox": {
+      "display": {
+        "label": "Rename Mailbox",
+        "description": "Change the name of an existing mailbox"
+      },
+      "key": "renameMailbox",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Mailbox path to upload the message to",
+          "example": "INBOX",
+          "key": "path",
+          "type": "string",
+          "default": "",
+          "label": "Path"
+        },
+        {
+          "required": true,
+          "comments": "Mailbox path to upload the message to",
+          "example": "INBOX",
+          "key": "newPath",
+          "type": "string",
+          "default": "",
+          "label": "New Path"
+        }
+      ]
+    },
+    "searchMailbox": {
+      "display": {
+        "label": "Search / List Mailbox Messages",
+        "description": "Returns all messages in the given mailbox"
+      },
+      "key": "searchMailbox",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the name of the mailbox",
+          "example": "INBOX",
+          "key": "mailbox",
+          "type": "string",
+          "default": "",
+          "label": "Mailbox"
+        },
+        {
+          "required": false,
+          "comments": "Filter email messages by sender",
+          "example": "someone@example.com",
+          "key": "from",
+          "type": "string",
+          "default": "",
+          "label": "From"
+        },
+        {
+          "required": false,
+          "comments": "Filter email messages by recipient",
+          "example": "someone@example.com",
+          "key": "to",
+          "type": "string",
+          "default": "",
+          "label": "To"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "Show all messages",
+              "value": "all"
+            },
+            {
+              "label": "Show only unread messages",
+              "value": "unread"
+            },
+            {
+              "label": "Show only read messages",
+              "value": "read"
+            }
+          ],
+          "key": "readUnread",
+          "type": "string",
+          "default": "all",
+          "label": "Read / Unread Filter"
+        }
+      ]
+    },
+    "setFlags": {
+      "display": {
+        "label": "Set Flags",
+        "description": "Set a value for an existing message flag"
+      },
+      "key": "setFlags",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "comments": "Provide a string value for the name of the mailbox",
+          "example": "INBOX",
+          "key": "mailbox",
+          "type": "string",
+          "default": "",
+          "label": "Mailbox"
+        },
+        {
+          "required": true,
+          "comments": "Provide a range of messages. Alternatively you can specify * to get the latest message",
+          "example": "1,2,4:6",
+          "key": "range",
+          "type": "string",
+          "default": "",
+          "label": "Range"
+        },
+        {
+          "required": true,
+          "comments": "For each item, provide a string value to be added to an existing message.",
+          "example": "exampleFlag",
+          "key": "flags",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Flags"
+        }
+      ]
+    }
+  },
+  "triggers": {},
+  "dataSources": {
+    "listMailboxes": {
+      "display": {
+        "label": "List Mailboxes",
+        "description": "Returns a picklist of available mailboxes that users can choose from"
+      },
+      "dataSourceType": "picklist",
+      "key": "listMailboxes",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        }
+      ]
+    }
+  },
+  "documentation": {
+    "description": "[IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) or Internet Message Access Protocol is an Internet standard protocol used by email clients to retrieve email messages from a mail server over a TCP/IP connection.\nThis component allows you to interact with mailboxes and messages on any IMAP server.\n\nFurther information can be found in the [underlying Node library's documentation](https://imapflow.com/module-imapflow-ImapFlow.html#getMailboxLock).\n"
+  },
+  "$version": 1
+}

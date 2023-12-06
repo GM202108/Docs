@@ -1,0 +1,1333 @@
+{
+  "key": "netsuite",
+  "public": true,
+  "documentationUrl": "https://prismatic.io/docs/components/netsuite/",
+  "display": {
+    "label": "NetSuite",
+    "description": "Manage NetSuite records",
+    "iconPath": "icon.png",
+    "category": "Application Connectors",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "key": "oauth",
+      "oauth2Type": "authorization_code",
+      "label": "NetSuite OAuth 2.0",
+      "comments": "NetSuite OAuth 2.0 Connection",
+      "inputs": [
+        {
+          "required": true,
+          "shown": false,
+          "comments": "The OAuth 2.0 Authorization URL for NetSuite.",
+          "key": "authorizeUrl",
+          "type": "string",
+          "default": "https://system.netsuite.com/app/login/oauth2/authorize.nl",
+          "label": "Authorize URL"
+        },
+        {
+          "required": true,
+          "shown": true,
+          "comments": "The OAuth 2.0 Token URL for NetSuite. Replace <ACCOUNT_ID> with your account ID, which can be found in your browser's URL bar when you log in to NetSuite - https://<ACCOUNT_ID>.app.netsuite.com/",
+          "example": "https://example-abc123.suitetalk.api.netsuite.com/services/rest/auth/oauth2/v1/token",
+          "key": "tokenUrl",
+          "type": "string",
+          "default": "https://<ACCOUNT_ID>.suitetalk.api.netsuite.com/services/rest/auth/oauth2/v1/token",
+          "label": "Token URL"
+        },
+        {
+          "required": true,
+          "shown": false,
+          "comments": "A space-delimited set of one or more scopes. This will always be rest_webservices",
+          "key": "scopes",
+          "type": "string",
+          "default": "rest_webservices",
+          "label": "Scopes"
+        },
+        {
+          "comments": "Generate a consumer key when you create your OAuth 2.0 app in NetSuite",
+          "required": true,
+          "shown": true,
+          "example": "example0000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "key": "clientId",
+          "type": "string",
+          "default": "",
+          "label": "Consumer Key (Client ID)"
+        },
+        {
+          "comments": "Generate a consumer secret when you create your OAuth 2.0 app in NetSuite",
+          "required": true,
+          "shown": true,
+          "example": "example0000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "key": "clientSecret",
+          "type": "password",
+          "default": "",
+          "label": "Consumer Secret (Client Secret)"
+        }
+      ],
+      "documentation": {
+        "description": "To make API requests to NetSuite on behalf of your customers, your customer will need to create an OAuth 2.0 app.\n[NetSuite's OAuth 2.0](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/chapter_157769826287.html) documentation details the steps that need to be taken.\n\nAs an administrator, your customer will need to:\n\n1. Enable SuiteTalk\n\n    - Click **Setup** -> **Company** -> **Enable Features**\n    - Under the **Suite Cloud** tab, ensure **REST WEB SERVICES** and **OAUTH 2.0** are both checked\n\n1. Create an OAuth 2.0 app\n\n    - Click **Setup** -> **Integration** -> **Manage Integrations** -> **New**\n    - Give your integration a name and description\n    - Un-check **TOKEN-BASED AUTHENTICATION** and **TBA: AUTHORIZATION FLOW** under **Token-based Authentication**\n    - Ensure **AUTHORIZATION CODE GRANT**\" and **REST WEB SERVICES** are checked under **OAuth 2.0**\n    - Enable **REST WEB SERVICES** under **SCOPE**\n    - Enter https<!---->://oauth2.prismatic.io/callback as your **REDIRECT URI**\n    - Take note of your **CONSUMER KEY** and **CONSUMER SECRET**\n\n1. Create OAuth 2.0 Roles\n    - Ensure that any user who wishes to log in via OAuth has been assigned a [proper role](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_157771510070.html).\n\nAs an integration developer, you will need to mark **Consumer Key**, **Consumer Secret**, and **Token URL** organization- and customer-visible, as your end user will need to edit them with their own values.\n"
+      }
+    }
+  ],
+  "actions": {
+    "listRecord": {
+      "display": {
+        "label": "List Records",
+        "description": "List records of specified type"
+      },
+      "key": "listRecord",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "Assembly Item",
+              "value": "assemblyItem"
+            },
+            {
+              "label": "Billing Account",
+              "value": "billingAccount"
+            },
+            {
+              "label": "Calendar Event",
+              "value": "calendarEvent"
+            },
+            {
+              "label": "Cash Sale",
+              "value": "cashSale"
+            },
+            {
+              "label": "Charge",
+              "value": "charge"
+            },
+            {
+              "label": "Contact",
+              "value": "contact"
+            },
+            {
+              "label": "Contact Category",
+              "value": "contactCategory"
+            },
+            {
+              "label": "Contact Role",
+              "value": "contactRole"
+            },
+            {
+              "label": "Credit Memo",
+              "value": "creditMemo"
+            },
+            {
+              "label": "Customer",
+              "value": "customer"
+            },
+            {
+              "label": "Customer Subsidiary Relationship",
+              "value": "customerSubsidiaryRelationship"
+            },
+            {
+              "label": "Email Template",
+              "value": "emailTemplate"
+            },
+            {
+              "label": "Employee",
+              "value": "employee"
+            },
+            {
+              "label": "Inventory Item",
+              "value": "inventoryItem"
+            },
+            {
+              "label": "Invoice",
+              "value": "invoice"
+            },
+            {
+              "label": "Item Fulfillment",
+              "value": "itemFulfillment"
+            },
+            {
+              "label": "Journal Entry",
+              "value": "journalEntry"
+            },
+            {
+              "label": "Message",
+              "value": "message"
+            },
+            {
+              "label": "Non-Inventory Sale Item",
+              "value": "nonInventorySaleItem"
+            },
+            {
+              "label": "Phone Call",
+              "value": "phoneCall"
+            },
+            {
+              "label": "Price Book",
+              "value": "priceBook"
+            },
+            {
+              "label": "Price Plan",
+              "value": "pricePlan"
+            },
+            {
+              "label": "Purchase Order",
+              "value": "purchaseOrder"
+            },
+            {
+              "label": "Sales Order",
+              "value": "salesOrder"
+            },
+            {
+              "label": "Subscription",
+              "value": "subscription"
+            },
+            {
+              "label": "Subscription Change Order",
+              "value": "subscriptionChangeOrder"
+            },
+            {
+              "label": "Subscription Line",
+              "value": "subscriptionLine"
+            },
+            {
+              "label": "Subscription Plan",
+              "value": "subscriptionPlan"
+            },
+            {
+              "label": "Subscription Term",
+              "value": "subscriptionTerm"
+            },
+            {
+              "label": "Subsidiary",
+              "value": "subsidiary"
+            },
+            {
+              "label": "Task",
+              "value": "task"
+            },
+            {
+              "label": "Time Bill",
+              "value": "timeBill"
+            },
+            {
+              "label": "Usage",
+              "value": "usage"
+            },
+            {
+              "label": "Vendor",
+              "value": "vendor"
+            },
+            {
+              "label": "Vendor Bill",
+              "value": "vendorBill"
+            },
+            {
+              "label": "Vendor Subsidiary Relationship",
+              "value": "vendorSubsidiaryRelationship"
+            }
+          ],
+          "comments": "Record type to perform the action against.",
+          "key": "recordType",
+          "type": "string",
+          "default": "",
+          "label": "Record Type"
+        },
+        {
+          "required": false,
+          "comments": "Query to filter records by. See https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1545222128.html for details.",
+          "key": "query",
+          "type": "string",
+          "default": "",
+          "label": "Query"
+        },
+        {
+          "comments": "Fetch only this many records at a time.",
+          "example": "10",
+          "required": true,
+          "key": "limit",
+          "type": "string",
+          "default": "1000",
+          "label": "Pagination Limit"
+        },
+        {
+          "comments": "Fetch records offset by this value.",
+          "example": "20",
+          "required": false,
+          "key": "offset",
+          "type": "string",
+          "default": "",
+          "label": "Pagination Offset"
+        },
+        {
+          "required": false,
+          "comments": "Enable for additional logging information.",
+          "key": "debugInput",
+          "type": "boolean",
+          "default": false,
+          "label": "Debug"
+        }
+      ]
+    },
+    "getRecord": {
+      "display": {
+        "label": "Get Record",
+        "description": "Get record of specified type"
+      },
+      "key": "getRecord",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "Assembly Item",
+              "value": "assemblyItem"
+            },
+            {
+              "label": "Billing Account",
+              "value": "billingAccount"
+            },
+            {
+              "label": "Calendar Event",
+              "value": "calendarEvent"
+            },
+            {
+              "label": "Cash Sale",
+              "value": "cashSale"
+            },
+            {
+              "label": "Charge",
+              "value": "charge"
+            },
+            {
+              "label": "Contact",
+              "value": "contact"
+            },
+            {
+              "label": "Contact Category",
+              "value": "contactCategory"
+            },
+            {
+              "label": "Contact Role",
+              "value": "contactRole"
+            },
+            {
+              "label": "Credit Memo",
+              "value": "creditMemo"
+            },
+            {
+              "label": "Customer",
+              "value": "customer"
+            },
+            {
+              "label": "Customer Subsidiary Relationship",
+              "value": "customerSubsidiaryRelationship"
+            },
+            {
+              "label": "Email Template",
+              "value": "emailTemplate"
+            },
+            {
+              "label": "Employee",
+              "value": "employee"
+            },
+            {
+              "label": "Inventory Item",
+              "value": "inventoryItem"
+            },
+            {
+              "label": "Invoice",
+              "value": "invoice"
+            },
+            {
+              "label": "Item Fulfillment",
+              "value": "itemFulfillment"
+            },
+            {
+              "label": "Journal Entry",
+              "value": "journalEntry"
+            },
+            {
+              "label": "Message",
+              "value": "message"
+            },
+            {
+              "label": "Non-Inventory Sale Item",
+              "value": "nonInventorySaleItem"
+            },
+            {
+              "label": "Phone Call",
+              "value": "phoneCall"
+            },
+            {
+              "label": "Price Book",
+              "value": "priceBook"
+            },
+            {
+              "label": "Price Plan",
+              "value": "pricePlan"
+            },
+            {
+              "label": "Purchase Order",
+              "value": "purchaseOrder"
+            },
+            {
+              "label": "Sales Order",
+              "value": "salesOrder"
+            },
+            {
+              "label": "Subscription",
+              "value": "subscription"
+            },
+            {
+              "label": "Subscription Change Order",
+              "value": "subscriptionChangeOrder"
+            },
+            {
+              "label": "Subscription Line",
+              "value": "subscriptionLine"
+            },
+            {
+              "label": "Subscription Plan",
+              "value": "subscriptionPlan"
+            },
+            {
+              "label": "Subscription Term",
+              "value": "subscriptionTerm"
+            },
+            {
+              "label": "Subsidiary",
+              "value": "subsidiary"
+            },
+            {
+              "label": "Task",
+              "value": "task"
+            },
+            {
+              "label": "Time Bill",
+              "value": "timeBill"
+            },
+            {
+              "label": "Usage",
+              "value": "usage"
+            },
+            {
+              "label": "Vendor",
+              "value": "vendor"
+            },
+            {
+              "label": "Vendor Bill",
+              "value": "vendorBill"
+            },
+            {
+              "label": "Vendor Subsidiary Relationship",
+              "value": "vendorSubsidiaryRelationship"
+            }
+          ],
+          "comments": "Record type to perform the action against.",
+          "key": "recordType",
+          "type": "string",
+          "default": "",
+          "label": "Record Type"
+        },
+        {
+          "required": true,
+          "comments": "The ID of the record you want.",
+          "key": "id",
+          "type": "string",
+          "default": "",
+          "label": "Record ID"
+        },
+        {
+          "required": false,
+          "comments": "Enable to automatically expand all sublists, sublist lines, and subrecords on this record.",
+          "key": "expandSubResources",
+          "type": "boolean",
+          "default": "false",
+          "label": "Expand Sub-Resources"
+        },
+        {
+          "required": false,
+          "comments": "Enable to return enumeration values in a format that only shows the internal ID value.",
+          "key": "simpleEnumFormat",
+          "type": "boolean",
+          "default": "false",
+          "label": "Simple Enum Format"
+        },
+        {
+          "required": false,
+          "comments": "Specific fields and sublists to return in the request. If unspecified, the full record is returned.",
+          "key": "fields",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Fields to Return"
+        },
+        {
+          "required": false,
+          "comments": "Enable for additional logging information.",
+          "key": "debugInput",
+          "type": "boolean",
+          "default": false,
+          "label": "Debug"
+        }
+      ]
+    },
+    "createRecord": {
+      "display": {
+        "label": "Create Record",
+        "description": "Create record of specified type"
+      },
+      "key": "createRecord",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "Assembly Item",
+              "value": "assemblyItem"
+            },
+            {
+              "label": "Billing Account",
+              "value": "billingAccount"
+            },
+            {
+              "label": "Calendar Event",
+              "value": "calendarEvent"
+            },
+            {
+              "label": "Cash Sale",
+              "value": "cashSale"
+            },
+            {
+              "label": "Charge",
+              "value": "charge"
+            },
+            {
+              "label": "Contact",
+              "value": "contact"
+            },
+            {
+              "label": "Contact Category",
+              "value": "contactCategory"
+            },
+            {
+              "label": "Contact Role",
+              "value": "contactRole"
+            },
+            {
+              "label": "Credit Memo",
+              "value": "creditMemo"
+            },
+            {
+              "label": "Customer",
+              "value": "customer"
+            },
+            {
+              "label": "Customer Subsidiary Relationship",
+              "value": "customerSubsidiaryRelationship"
+            },
+            {
+              "label": "Email Template",
+              "value": "emailTemplate"
+            },
+            {
+              "label": "Employee",
+              "value": "employee"
+            },
+            {
+              "label": "Inventory Item",
+              "value": "inventoryItem"
+            },
+            {
+              "label": "Invoice",
+              "value": "invoice"
+            },
+            {
+              "label": "Item Fulfillment",
+              "value": "itemFulfillment"
+            },
+            {
+              "label": "Journal Entry",
+              "value": "journalEntry"
+            },
+            {
+              "label": "Message",
+              "value": "message"
+            },
+            {
+              "label": "Non-Inventory Sale Item",
+              "value": "nonInventorySaleItem"
+            },
+            {
+              "label": "Phone Call",
+              "value": "phoneCall"
+            },
+            {
+              "label": "Price Book",
+              "value": "priceBook"
+            },
+            {
+              "label": "Price Plan",
+              "value": "pricePlan"
+            },
+            {
+              "label": "Purchase Order",
+              "value": "purchaseOrder"
+            },
+            {
+              "label": "Sales Order",
+              "value": "salesOrder"
+            },
+            {
+              "label": "Subscription",
+              "value": "subscription"
+            },
+            {
+              "label": "Subscription Change Order",
+              "value": "subscriptionChangeOrder"
+            },
+            {
+              "label": "Subscription Line",
+              "value": "subscriptionLine"
+            },
+            {
+              "label": "Subscription Plan",
+              "value": "subscriptionPlan"
+            },
+            {
+              "label": "Subscription Term",
+              "value": "subscriptionTerm"
+            },
+            {
+              "label": "Subsidiary",
+              "value": "subsidiary"
+            },
+            {
+              "label": "Task",
+              "value": "task"
+            },
+            {
+              "label": "Time Bill",
+              "value": "timeBill"
+            },
+            {
+              "label": "Usage",
+              "value": "usage"
+            },
+            {
+              "label": "Vendor",
+              "value": "vendor"
+            },
+            {
+              "label": "Vendor Bill",
+              "value": "vendorBill"
+            },
+            {
+              "label": "Vendor Subsidiary Relationship",
+              "value": "vendorSubsidiaryRelationship"
+            }
+          ],
+          "comments": "Record type to perform the action against.",
+          "key": "recordType",
+          "type": "string",
+          "default": "",
+          "label": "Record Type"
+        },
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Data payload to send in the action request. See https://system.netsuite.com/help/helpcenter/en_US/APIs/REST_API_Browser/record/v1/2022.1/index.html for details.",
+          "key": "payload",
+          "type": "code",
+          "default": "{\n  \"entityid\": \"New Customer\",\n  \"companyname\": \"My Company\",\n  \"subsidiary\": {\n    \"id\": \"1\"\n  }\n}",
+          "label": "Payload"
+        },
+        {
+          "required": false,
+          "comments": "Enable for additional logging information.",
+          "key": "debugInput",
+          "type": "boolean",
+          "default": false,
+          "label": "Debug"
+        }
+      ]
+    },
+    "updateRecord": {
+      "display": {
+        "label": "Update Record",
+        "description": "Update record of the specified type"
+      },
+      "key": "updateRecord",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "Assembly Item",
+              "value": "assemblyItem"
+            },
+            {
+              "label": "Billing Account",
+              "value": "billingAccount"
+            },
+            {
+              "label": "Calendar Event",
+              "value": "calendarEvent"
+            },
+            {
+              "label": "Cash Sale",
+              "value": "cashSale"
+            },
+            {
+              "label": "Charge",
+              "value": "charge"
+            },
+            {
+              "label": "Contact",
+              "value": "contact"
+            },
+            {
+              "label": "Contact Category",
+              "value": "contactCategory"
+            },
+            {
+              "label": "Contact Role",
+              "value": "contactRole"
+            },
+            {
+              "label": "Credit Memo",
+              "value": "creditMemo"
+            },
+            {
+              "label": "Customer",
+              "value": "customer"
+            },
+            {
+              "label": "Customer Subsidiary Relationship",
+              "value": "customerSubsidiaryRelationship"
+            },
+            {
+              "label": "Email Template",
+              "value": "emailTemplate"
+            },
+            {
+              "label": "Employee",
+              "value": "employee"
+            },
+            {
+              "label": "Inventory Item",
+              "value": "inventoryItem"
+            },
+            {
+              "label": "Invoice",
+              "value": "invoice"
+            },
+            {
+              "label": "Item Fulfillment",
+              "value": "itemFulfillment"
+            },
+            {
+              "label": "Journal Entry",
+              "value": "journalEntry"
+            },
+            {
+              "label": "Message",
+              "value": "message"
+            },
+            {
+              "label": "Non-Inventory Sale Item",
+              "value": "nonInventorySaleItem"
+            },
+            {
+              "label": "Phone Call",
+              "value": "phoneCall"
+            },
+            {
+              "label": "Price Book",
+              "value": "priceBook"
+            },
+            {
+              "label": "Price Plan",
+              "value": "pricePlan"
+            },
+            {
+              "label": "Purchase Order",
+              "value": "purchaseOrder"
+            },
+            {
+              "label": "Sales Order",
+              "value": "salesOrder"
+            },
+            {
+              "label": "Subscription",
+              "value": "subscription"
+            },
+            {
+              "label": "Subscription Change Order",
+              "value": "subscriptionChangeOrder"
+            },
+            {
+              "label": "Subscription Line",
+              "value": "subscriptionLine"
+            },
+            {
+              "label": "Subscription Plan",
+              "value": "subscriptionPlan"
+            },
+            {
+              "label": "Subscription Term",
+              "value": "subscriptionTerm"
+            },
+            {
+              "label": "Subsidiary",
+              "value": "subsidiary"
+            },
+            {
+              "label": "Task",
+              "value": "task"
+            },
+            {
+              "label": "Time Bill",
+              "value": "timeBill"
+            },
+            {
+              "label": "Usage",
+              "value": "usage"
+            },
+            {
+              "label": "Vendor",
+              "value": "vendor"
+            },
+            {
+              "label": "Vendor Bill",
+              "value": "vendorBill"
+            },
+            {
+              "label": "Vendor Subsidiary Relationship",
+              "value": "vendorSubsidiaryRelationship"
+            }
+          ],
+          "comments": "Record type to perform the action against.",
+          "key": "recordType",
+          "type": "string",
+          "default": "",
+          "label": "Record Type"
+        },
+        {
+          "required": true,
+          "comments": "The ID of the record you want.",
+          "key": "id",
+          "type": "string",
+          "default": "",
+          "label": "Record ID"
+        },
+        {
+          "language": "json",
+          "required": true,
+          "comments": "Data payload to send in the action request. See https://system.netsuite.com/help/helpcenter/en_US/APIs/REST_API_Browser/record/v1/2022.1/index.html for details.",
+          "key": "payload",
+          "type": "code",
+          "default": "{\n  \"entityid\": \"New Customer\",\n  \"companyname\": \"My Company\",\n  \"subsidiary\": {\n    \"id\": \"1\"\n  }\n}",
+          "label": "Payload"
+        },
+        {
+          "required": false,
+          "comments": "Names of sublists on this record. All specified sublists will be replaced instead of added to.",
+          "key": "replace",
+          "type": "string",
+          "default": "",
+          "collection": "valuelist",
+          "label": "Replace"
+        },
+        {
+          "required": false,
+          "comments": "If enabled, delete all fields, including body fields, specified in the Replace input.",
+          "key": "replaceSelectedFields",
+          "type": "boolean",
+          "default": "false",
+          "label": "Replace Selected Fields"
+        },
+        {
+          "required": false,
+          "comments": "Enable for additional logging information.",
+          "key": "debugInput",
+          "type": "boolean",
+          "default": false,
+          "label": "Debug"
+        }
+      ]
+    },
+    "deleteRecord": {
+      "display": {
+        "label": "Delete Record",
+        "description": "Delete record of the specified type"
+      },
+      "key": "deleteRecord",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "Assembly Item",
+              "value": "assemblyItem"
+            },
+            {
+              "label": "Billing Account",
+              "value": "billingAccount"
+            },
+            {
+              "label": "Calendar Event",
+              "value": "calendarEvent"
+            },
+            {
+              "label": "Cash Sale",
+              "value": "cashSale"
+            },
+            {
+              "label": "Charge",
+              "value": "charge"
+            },
+            {
+              "label": "Contact",
+              "value": "contact"
+            },
+            {
+              "label": "Contact Category",
+              "value": "contactCategory"
+            },
+            {
+              "label": "Contact Role",
+              "value": "contactRole"
+            },
+            {
+              "label": "Credit Memo",
+              "value": "creditMemo"
+            },
+            {
+              "label": "Customer",
+              "value": "customer"
+            },
+            {
+              "label": "Customer Subsidiary Relationship",
+              "value": "customerSubsidiaryRelationship"
+            },
+            {
+              "label": "Email Template",
+              "value": "emailTemplate"
+            },
+            {
+              "label": "Employee",
+              "value": "employee"
+            },
+            {
+              "label": "Inventory Item",
+              "value": "inventoryItem"
+            },
+            {
+              "label": "Invoice",
+              "value": "invoice"
+            },
+            {
+              "label": "Item Fulfillment",
+              "value": "itemFulfillment"
+            },
+            {
+              "label": "Journal Entry",
+              "value": "journalEntry"
+            },
+            {
+              "label": "Message",
+              "value": "message"
+            },
+            {
+              "label": "Non-Inventory Sale Item",
+              "value": "nonInventorySaleItem"
+            },
+            {
+              "label": "Phone Call",
+              "value": "phoneCall"
+            },
+            {
+              "label": "Price Book",
+              "value": "priceBook"
+            },
+            {
+              "label": "Price Plan",
+              "value": "pricePlan"
+            },
+            {
+              "label": "Purchase Order",
+              "value": "purchaseOrder"
+            },
+            {
+              "label": "Sales Order",
+              "value": "salesOrder"
+            },
+            {
+              "label": "Subscription",
+              "value": "subscription"
+            },
+            {
+              "label": "Subscription Change Order",
+              "value": "subscriptionChangeOrder"
+            },
+            {
+              "label": "Subscription Line",
+              "value": "subscriptionLine"
+            },
+            {
+              "label": "Subscription Plan",
+              "value": "subscriptionPlan"
+            },
+            {
+              "label": "Subscription Term",
+              "value": "subscriptionTerm"
+            },
+            {
+              "label": "Subsidiary",
+              "value": "subsidiary"
+            },
+            {
+              "label": "Task",
+              "value": "task"
+            },
+            {
+              "label": "Time Bill",
+              "value": "timeBill"
+            },
+            {
+              "label": "Usage",
+              "value": "usage"
+            },
+            {
+              "label": "Vendor",
+              "value": "vendor"
+            },
+            {
+              "label": "Vendor Bill",
+              "value": "vendorBill"
+            },
+            {
+              "label": "Vendor Subsidiary Relationship",
+              "value": "vendorSubsidiaryRelationship"
+            }
+          ],
+          "comments": "Record type to perform the action against.",
+          "key": "recordType",
+          "type": "string",
+          "default": "",
+          "label": "Record Type"
+        },
+        {
+          "required": true,
+          "comments": "The ID of the record you want.",
+          "key": "id",
+          "type": "string",
+          "default": "",
+          "label": "Record ID"
+        },
+        {
+          "required": false,
+          "comments": "Enable for additional logging information.",
+          "key": "debugInput",
+          "type": "boolean",
+          "default": false,
+          "label": "Debug"
+        }
+      ]
+    },
+    "suiteQLQuery": {
+      "display": {
+        "label": "SuiteQL Query",
+        "description": "Execute a SuiteQL Query through Netsuite's REST Web Service"
+      },
+      "key": "suiteQLQuery",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "comments": "Fetch only this many records at a time.",
+          "example": "10",
+          "required": true,
+          "key": "limitInput",
+          "type": "string",
+          "default": "1000",
+          "label": "Pagination Limit"
+        },
+        {
+          "comments": "Fetch records offset by this value.",
+          "example": "20",
+          "required": false,
+          "key": "offsetInput",
+          "type": "string",
+          "default": "",
+          "label": "Pagination Offset"
+        },
+        {
+          "language": "plaintext",
+          "required": true,
+          "comments": "Data payload to send in the action request. See https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_157909186990.html for details.",
+          "key": "suiteQLInput",
+          "type": "code",
+          "default": "SELECT email, COUNT(*) as count FROM transaction GROUP BY email",
+          "label": "SuiteQL Payload"
+        },
+        {
+          "required": false,
+          "comments": "Enable for additional logging information.",
+          "key": "debugInput",
+          "type": "boolean",
+          "default": false,
+          "label": "Debug"
+        }
+      ]
+    },
+    "rawRequest": {
+      "display": {
+        "label": "Raw Request",
+        "description": "Send a raw HTTP request to NetSuite API"
+      },
+      "key": "rawRequest",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "Input the path only (/contact), The base URL is already included (https://${accountId}.suitetalk.api.netsuite.com/services/rest/${restAPIServiceType}/v1). For example, to connect to https://${accountId}.suitetalk.api.netsuite.com/services/rest/${restAPIServiceType}/v1/contact, only /contact is entered in this field.",
+          "example": "/contact",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        }
+      ]
+    }
+  },
+  "triggers": {},
+  "dataSources": {},
+  "documentation": {
+    "description": "[Oracle NetSuite](https://www.netsuite.com/) is a unified business management suite, encompassing ERP/Financials, CRM and ecommerce.\n",
+    "dev": "For more details refer to [NetSuite's API documentation](https://system.netsuite.com/help/helpcenter/en_US/APIs/REST_API_Browser/record/v1/2022.1/index.html).\n"
+  },
+  "$version": 1
+}

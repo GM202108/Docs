@@ -1,0 +1,149 @@
+---
+id: first-custom-component
+title: Writing Your First Custom Component
+description: Create your first custom Prismatic component with the Spectral component SDK
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
+In this tutorial we will create a Slack component from scratch to illustrate how readily you can write custom code for an integration.
+
+## Initialize your project
+
+Suppose 's [Slack component](components/slack.mdx) did not exist. How would one go about creating a component that sends notifications to Slack?
+
+To start your integration, use the `prism components:init` subcommand to create a new TypeScript project.
+
+```bash
+# Initialize the project
+prism components:init myslack
+
+Creating component directory for "myslack"...
+? Description of Component: My Slack Component
+? Type of Connection: Basic Connection
+   create package.json
+   create assets/icon.png
+   create src/index.ts
+   create src/index.test.ts
+   create src/client.ts
+   create jest.config.js
+   create tsconfig.json
+   create webpack.config.js
+   create src/actions.ts
+   create src/triggers.ts
+   create src/connections.ts
+
+# Move to the newly created directory
+cd myslack
+
+# Pull down the Slack icon for use by the component
+curl 'https://.io/docs/img/slack.png' > assets/icon.png
+
+# Remove all boilerplate code; we'll write this component from scratch
+rm src/*.ts
+```
+
+This will create a NodeJS project with TypeScript support, complete with required dependencies, like Webpack and 's custom component library, [spectral](https://www.npmjs.com/package/@-io/spectral).
+
+## Add dependencies
+
+Most of the dependencies you require have been added for you, but because you're building a [Slack](https://slack.com/) component, you will want to take advantage of the Slack webhook npm package.
+
+```bash
+npm install @slack/webhook
+```
+
+Add the following to the top of a new file, `src/index.ts`:
+
+```js title="src/index.ts"
+import { action, component, input, util } from "@-io/spectral";
+import { IncomingWebhook } from "@slack/webhook";
+```
+
+## Create some input fields
+
+What information will you need to send a Slack message? At minimum, we'll need two things:
+
+1. A Slack webhook URL to send messages to
+1. A message to send.
+
+To create those input fields for your component, you will create two new `input`s in `src/index.ts`.
+The `label` and `placeholder` will appear within the  web app when a user utilizes this action. `type` and `required` are self-explanatory.
+
+Each input has a `clean` function, which helps with type hinting - the `util.types.toString` function will guarantee that the value of `webhookUrl` and `message` is cast to a string.
+
+```js title="src/index.ts"
+const webhookUrl = input({
+  label: "Webhook URL",
+  placeholder: "Slack Webhook URL",
+  type: "string",
+  required: true,
+  clean: util.types.toString,
+});
+const message = input({
+  label: "Message",
+  placeholder: "Message to send",
+  type: "string",
+  required: true,
+  clean: util.types.toString,
+});
+```
+
+## Create a component action
+
+Now it's time to create an `action` that our component can take.
+You need to provide the action with a `label` and `description` to display in the web app, a set of `input`s that you created above, and some code to `perform` when the action is invoked.
+You can take advantage of the Slack API in our `perform` function.
+
+```js title="src/index.ts"
+const postSlackMessage = action({
+  display: {
+    label: "Slack Message",
+    description: "Post a message to a Slack channel",
+  },
+  perform: async (context, params) => {
+    const webhook = new IncomingWebhook(params.webhookUrl);
+    const result = await webhook.send({ text: params.message });
+    return { data: result };
+  },
+  inputs: { webhookUrl, message },
+});
+```
+
+## Export your component
+
+Lastly, we need to export a `component` object that has a unique `key` to identify it in , contains a `label` and `description` to display in the web app, and an object containing the `actions` that are associated with the component.
+
+```js title="src/index.ts"
+export default component({
+  key: "newSlack",
+  public: false,
+  display: {
+    label: "New Slack",
+    description: "Post messages to Slack",
+    iconPath: "icon.png",
+  },
+  actions: { postSlackMessage },
+});
+```
+
+## Build and deploy your component
+
+At this point you're ready to compile your component, and then deploy it.
+The `build` script leverages [webpack](https://webpack.js.org/) to compile and minify your TypeScript:
+
+```bash
+npm run build
+```
+
+Your build exists in `dist/`.
+Now, you can use `prism` to deploy your component.
+
+```bash
+prism components:publish
+```
+
+## Test your new component
+
+Congratulations! You've published your first custom component!
+Try modifying your [first integration](getting-started/first-integration/build-first-integration.mdx) to use your new component, and verify that it posts to Slack like the official  Slack component does!

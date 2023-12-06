@@ -1,0 +1,261 @@
+{
+  "key": "arena-plm",
+  "public": true,
+  "documentationUrl": "https://prismatic.io/docs/components/arena-plm/",
+  "display": {
+    "label": "Arena PLM",
+    "description": "Interact with items and resources in Arena PLM",
+    "iconPath": "icon.png",
+    "category": "Application Connectors",
+    "iconBase64": "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"
+  },
+  "connections": [
+    {
+      "label": "Arena PLM Basic Auth",
+      "key": "arenaPlmBasicAuth",
+      "inputs": [
+        {
+          "required": true,
+          "example": "user@example.com",
+          "key": "email",
+          "type": "string",
+          "default": "",
+          "label": "Email Address"
+        },
+        {
+          "required": true,
+          "example": "P@ssW0Rd",
+          "key": "password",
+          "type": "password",
+          "default": "",
+          "label": "Password"
+        },
+        {
+          "required": true,
+          "example": "123456789",
+          "key": "workspaceId",
+          "type": "string",
+          "default": "",
+          "label": "Arena PLM Workspace ID"
+        }
+      ],
+      "documentation": {
+        "description": "Arena's API relies on basic authentication.\nThey recommend that you create a user dedicated to integrations with an email address and password.\nIn addition to email address and password, your customer will also need to know their **workspace ID**, which is a 9-digit number that they can find within Arena PLM.\n"
+      }
+    }
+  ],
+  "actions": {
+    "rawRequest": {
+      "display": {
+        "label": "Raw Request",
+        "description": "Send a raw HTTP request to  Arena PLM API"
+      },
+      "key": "rawRequest",
+      "inputs": [
+        {
+          "required": true,
+          "key": "connection",
+          "type": "connection",
+          "label": "Connection"
+        },
+        {
+          "placeholder": "URL to call",
+          "required": true,
+          "comments": "Input the path only (/v1/items), The base URL is already included (https://api.arenasolutions.com). For example, to connect to https://api.arenasolutions.com/v1/items, only /v1/items is entered in this field.",
+          "example": "/v1/items",
+          "key": "url",
+          "type": "string",
+          "default": "",
+          "label": "URL"
+        },
+        {
+          "required": true,
+          "model": [
+            {
+              "label": "DELETE",
+              "value": "DELETE"
+            },
+            {
+              "label": "GET",
+              "value": "GET"
+            },
+            {
+              "label": "HEAD",
+              "value": "HEAD"
+            },
+            {
+              "label": "LINK",
+              "value": "LINK"
+            },
+            {
+              "label": "OPTIONS",
+              "value": "OPTIONS"
+            },
+            {
+              "label": "PATCH",
+              "value": "PATCH"
+            },
+            {
+              "label": "POST",
+              "value": "POST"
+            },
+            {
+              "label": "PURGE",
+              "value": "PURGE"
+            },
+            {
+              "label": "PUT",
+              "value": "PUT"
+            },
+            {
+              "label": "UNLINK",
+              "value": "UNLINK"
+            }
+          ],
+          "comments": "The HTTP method to use.",
+          "key": "method",
+          "type": "string",
+          "default": "",
+          "label": "Method"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The HTTP body payload to send to the URL.",
+          "example": "{\"exampleKey\": \"Example Data\"}",
+          "key": "data",
+          "type": "string",
+          "default": "",
+          "label": "Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "The Form Data to be sent as a multipart form upload.",
+          "example": "[{\"key\": \"Example Key\", \"value\": new Buffer(\"Hello World\")}]",
+          "key": "formData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Form Data"
+        },
+        {
+          "placeholder": "Data to send",
+          "required": false,
+          "comments": "File Data to be sent as a multipart form upload.",
+          "example": "[{key: \"example.txt\", value: \"My File Contents\"}]",
+          "key": "fileData",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "File Data"
+        },
+        {
+          "placeholder": "Query Parameter",
+          "required": false,
+          "comments": "A list of query parameters to send with the request. This is the portion at the end of the URL similar to ?key1=value1&key2=value2.",
+          "key": "queryParams",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Query Parameter"
+        },
+        {
+          "placeholder": "Header",
+          "required": false,
+          "comments": "A list of headers to send with the request.",
+          "example": "User-Agent: curl/7.64.1",
+          "key": "headers",
+          "type": "string",
+          "default": "",
+          "collection": "keyvaluelist",
+          "label": "Header"
+        },
+        {
+          "placeholder": "Response Type",
+          "required": true,
+          "comments": "The type of data you expect in the response. You can request json, text, or binary data.",
+          "model": [
+            {
+              "label": "arraybuffer",
+              "value": "arraybuffer"
+            },
+            {
+              "label": "document",
+              "value": "document"
+            },
+            {
+              "label": "json",
+              "value": "json"
+            },
+            {
+              "label": "text",
+              "value": "text"
+            }
+          ],
+          "key": "responseType",
+          "type": "string",
+          "default": "json",
+          "label": "Response Type"
+        },
+        {
+          "required": false,
+          "comments": "The maximum time that a client will await a response to its request",
+          "example": "2000",
+          "key": "timeout",
+          "type": "string",
+          "default": "",
+          "label": "Timeout"
+        },
+        {
+          "required": false,
+          "comments": "Enabling this flag will log out the current request.",
+          "key": "debugRequest",
+          "type": "boolean",
+          "default": "false",
+          "label": "Debug Request"
+        },
+        {
+          "placeholder": "Retry Delay",
+          "required": false,
+          "comments": "The delay in milliseconds between retries.",
+          "key": "retryDelayMS",
+          "type": "string",
+          "default": "0",
+          "label": "Retry Delay (ms)"
+        },
+        {
+          "required": false,
+          "comments": "If true, retries on all erroneous responses regardless of type.",
+          "key": "retryAllErrors",
+          "type": "boolean",
+          "default": "false",
+          "label": "Retry On All Errors"
+        },
+        {
+          "placeholder": "Max Retries",
+          "required": false,
+          "comments": "The maximum number of retries to attempt.",
+          "key": "maxRetries",
+          "type": "string",
+          "default": "0",
+          "label": "Max Retry Count"
+        },
+        {
+          "required": false,
+          "comments": "Specifies whether to use a pre-defined exponential backoff strategy for retries.",
+          "key": "useExponentialBackoff",
+          "type": "boolean",
+          "default": "false",
+          "label": "Use Exponential Backoff"
+        }
+      ]
+    }
+  },
+  "triggers": {},
+  "dataSources": {},
+  "documentation": {
+    "description": "Arena PLM (Product Lifecycle Management) software brings product information, people, and processes together into a single enterprise platform to speed product design and development.\n"
+  },
+  "$version": 1
+}
