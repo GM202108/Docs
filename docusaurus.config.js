@@ -20,11 +20,11 @@ const config = {
   trailingSlash: true,
   themeConfig: {
     navbar: {
-      title: "Prismatic Docs",
-      logo: {
+      /*title: "Prismatic Docs",
+        logo: {
         alt: "Logo",
         src: "img/logo-primary-purple.png",
-      },
+      },*/
       items: [
         {
           position: "right",
@@ -169,7 +169,7 @@ const config = {
               to: "api/api-overview",
             },
             {
-              label: "Prismatic CLI",
+              label: "CLI",
               to: "cli/cli-usage",
             },
           ],
