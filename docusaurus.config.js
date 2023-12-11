@@ -10,11 +10,11 @@ const {
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Prismatic Docs",
+  title: "Docs",
   tagline: "Documentation",
   url: rootUrl,
   baseUrl: "/docs/",
-  favicon: "img/favicon.ico",
+  favicon: "img/logo-fourier.jpg",
   onBrokenLinks: "ignore",
   onBrokenMarkdownLinks: "warn",
   trailingSlash: true,
