@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
+    "build-dev": "docusaurus build --out-dir build/docs",
     "docusaurus": "docusaurus",
     "start": "docusaurus start --host 127.0.0.1 --port 3057",
     "build": "npm run format && npm run lint && docusaurus build --out-dir build/docs 2>&1 && cp ./redirect.html build/index.html",
