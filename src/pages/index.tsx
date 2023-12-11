@@ -196,7 +196,7 @@ const HomePage = () => {
                     avatarColor="var(--blue-iris)"
                     description="Learn to sync customers from an external system to using our GraphQL API."
                     to="quickstarts/syncing-customers-to-prismatic/"
-                    title="Syncing Customers to Prismatic"
+                    title="Syncing Customers"
                     categories={["Prismatic API"]}
                   />
                   <FeatureCard

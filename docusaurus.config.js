@@ -238,7 +238,7 @@ const config = {
           ],
         },
       ],
-      copyright: `© ${new Date().getFullYear()} Prismatic LLC. All rights reserved.`,
+      copyright: `© ${new Date().getFullYear()} LLC. All rights reserved.`,
     },
     algolia: {
       appId: "BEWKIBOAL9",
