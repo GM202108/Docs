@@ -36,7 +36,7 @@ const Logo = (props): JSX.Element => {
 
   return (
     <div {...propsRest}>
-      <LogoTooltip title="Prismatic Home" arrow>
+      <LogoTooltip title="Fourier Analytics" arrow>
         <a className="brand-logo-symbol" href="/">
           {logoImageUrl != null && (
             <img
