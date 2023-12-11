@@ -20,11 +20,11 @@ const config = {
   trailingSlash: true,
   themeConfig: {
     navbar: {
-      /*title: "Prismatic Docs",
+      title: "Docs",
         logo: {
         alt: "Logo",
-        src: "img/logo-primary-purple.png",
-      },*/
+        src: "img/logo-fourier.jpg",/*Logo Menu */
+      },
       items: [
         {
           position: "right",
