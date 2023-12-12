@@ -4,7 +4,7 @@ title: Integration Runner Environment and Limits
 description: Instances of integrations run in isolated NodeJS environments. This page details those environments along with execution limits.
 ---
 
-## The  runner environment
+## The runner environment
 
 Instances of integrations (and test runs of integrations) execute in isolated NodeJS containers with distinct filesystems and memory.
 Two instances of the same integration run in distinct isolated environments.
@@ -14,7 +14,7 @@ Integrations currently run using NodeJS version 18.x.
 
 ### Memory allocation
 
-The  integration runner is allocated 1GB of RAM for execution.
+The integration runner is allocated 1GB of RAM for execution.
 
 ### Execution time limitations
 
@@ -33,7 +33,7 @@ Your integration can use the metadata to fetch the file for processing.
 ### Synchronous webhook response size limitations
 
 When a webhook is invoked synchronously, the response contains the results of the last step of the flow (so, if the last step returned a PDF file, the webhook response would be a PDF file).
- writes response to a file in Amazon S3, and responds with an HTTP 303 (Redirect) to the object in S3.
+writes response to a file in Amazon S3, and responds with an HTTP 303 (Redirect) to the object in S3.
 
 Step results have a maximum size of 500MB.
 If the results that you generate exceed 500MB, consider writing the file to a file storage system (Dropbox, your own Amazon S3 bucket, etc) and returning metadata about the file instead.
@@ -50,18 +50,18 @@ Webhook requests to [synchronous triggers](integration-triggers.mdx/#synchronous
 By default an organization can run 250 concurrent executions.
 If your organization is already running 250 executions and an additional request is received, the requester will receive a 429 "too many requests" response.
 
-##  IP allowlist (whitelist)
+## IP allowlist (whitelist)
 
 If your integration connects to an external app or service that allows connections based on IP, you can add the following relevant IPs to your allowlist.
 
-| Stack                | App URL                         |             IP Addresses             |
-| -------------------- | ------------------------------- | :----------------------------------: |
+| Stack                | App URL                |             IP Addresses             |
+| -------------------- | ---------------------- | :----------------------------------: |
 | US Commercial (Ohio) | app..io                | `3.132.205.204`<br />`3.139.185.169` |
 | US GovCloud          | app.us-gov-west-1..io  | `15.200.86.230`<br />`15.205.78.158` |
 | Europe (Ireland)     | app.eu-west-1..io      |  `54.78.26.19`<br />`54.246.201.85`  |
 | Australia (Sydney)   | app.ap-southeast-2..io | `52.65.181.77`<br />`54.252.173.54`  |
 
-If your integrations are hosted in a private cloud, please contact  support for an allowlist.
+If your integrations are hosted in a private cloud, please contact support for an allowlist.
 
-**Note**: Integrations in  **send** data to third-party apps and services from those IP addresses.
-Invoking integrations in  is name-based (e.g. hooks..io) and IPs are subject to change.
+**Note**: Integrations in **send** data to third-party apps and services from those IP addresses.
+Invoking integrations in is name-based (e.g. hooks..io) and IPs are subject to change.

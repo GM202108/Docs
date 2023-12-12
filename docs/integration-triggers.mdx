@@ -65,7 +65,7 @@ When your integration deployment team later deploys an instance of your integrat
 
 Webhook triggers allow you to run a particular instance or [flow](building-integrations.mdx#flows-in-integrations) of an instance by making an HTTP POST, PUT, PATCH, DELETE or GET request to the webhook's URL.
 This is useful if you would like an outside application to invoke an integration when something within the outside application occurs.
-The outside application can assemble some data, and send that data to a  webhook URL via an HTTP request.
+The outside application can assemble some data, and send that data to a webhook URL via an HTTP request.
 
 For example, third-party software could invoke an instance with a JSON payload whenever a job in the third-party application is complete, like this:
 
@@ -94,7 +94,7 @@ The GET verb was introduced because some applications send a GET request when a 
 ### Webhook trigger responses
 
 By default, webhook triggers provide an HTTP code 200 ("OK") response to callers of the webhook.
-The response body contains an execution ID, which can be used later to get logs and step results from the  API.
+The response body contains an execution ID, which can be used later to get logs and step results from the API.
 The response looks like this:
 
 ```bash
@@ -121,7 +121,7 @@ You may encounter other responses to your webhook trigger request.
 #### HTTP 303 See Other / Redirect to S3 Results Bucket
 
 When your webhook trigger is invoked [synchronously](#synchronous-and-asynchronous-integrations), your HTTP client sends a request and waits for the integration to finish running before closing the request.
- responds to the request with an HTTP 303 redirect, redirecting your HTTP client to an object in an Amazon S3 bucket that contains the results of the last step of your integration.
+responds to the request with an HTTP 303 redirect, redirecting your HTTP client to an object in an Amazon S3 bucket that contains the results of the last step of your integration.
 
 Ensure that your HTTP client follows redirects (for `curl`, you add a `--location` flag).
 
@@ -330,7 +330,7 @@ The binary file can be accessed by subsequent steps by referencing `integrationT
 
 ### Posting multipart data with webhook triggers
 
-It's useful to be able to post a combination of binary and text data to a  webhook.
+It's useful to be able to post a combination of binary and text data to a webhook.
 For example, you might want to post information about a person, as well as an avatar image of the person, to be processed by an integration.
 To do that, use a content type of `multipart/form-data` with your webhook invocation:
 
@@ -396,7 +396,7 @@ To generate a hash, you need three things:
 1. A request's **body** to hash.
    The body can be any format (JSON, XML, CSV, etc).
    For our example, let's say we have a JSON message that reads `{"item":"widget","quantity":5,"customer":"abc-123"}`.
-1. A **secret key** that only the third-party and  knows.
+1. A **secret key** that only the third-party and knows.
    For our example, we'll generate a random UUID string - `"AC49CB66-511F-4085-9119-360B1B142F4B"`
 1. A **hash function** to use (like MD5, SHA1, etc.).
    The industry standard (which APIs like Dropbox, Shopify, Slack, etc. all use) is `SHA256` - we'll use that for our example, too.
@@ -476,7 +476,7 @@ func main() {
 </Tabs>
 
 Regardless of which language you use to generate the HMAC hash, you get the same result for our example - `dc838d5b2ee53f55b5bcd77271505f52cd4c6c5123a867d9088fb70ac580f5bf`.
-You can then pass the hash as an HTTP header to our  webhook URL.
+You can then pass the hash as an HTTP header to our webhook URL.
 
 ```bash
 curl https://hooks..io/example-uuid \
@@ -668,7 +668,7 @@ curl 'https://hooks..io/trigger/EXAMPLE==' \
 {"executionId":"SW5zdGFuY2VFeGVjdXRpb25SZXN1bHQ6OTdiNWQxYmEtZGUyZi00ZDY4LWIyMTgtMDFlZGMwMTQxNTM5"}
 ```
 
-That execution ID can be exchanged later with the  API for logs and step results using the [executionResult](api/schema/query/executionResult.mdx) GraphQL mutation.
+That execution ID can be exchanged later with the API for logs and step results using the [executionResult](api/schema/query/executionResult.mdx) GraphQL mutation.
 
 ## Ensuring webhook ordering with a FIFO queue
 

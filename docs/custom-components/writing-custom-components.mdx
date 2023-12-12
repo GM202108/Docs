@@ -1,15 +1,15 @@
 ---
 id: writing-custom-components
 title: Writing Custom Components
-description:  allows dev users to write custom API connectors and other components for their integrations. Learn more about creating custom components with .
+description: allows dev users to write custom API connectors and other components for their integrations. Learn more about creating custom components with .
 ---
 
 import Screenshot from "@site/src/components/screenshot";
 import Vimeo from "@site/src/components/vimeo";
 import SlugifyBox from "@site/src/components/slugify-box";
 
- is extensible and allows for developer users to develop their own custom components.
-Components that  users develop are proprietary to their [organization](organization.mdx), and are private.
+is extensible and allows for developer users to develop their own custom components.
+Components that users develop are proprietary to their [organization](organization.mdx), and are private.
 
 [Sample component code](https://github.com/-io/examples/tree/main/components) is referenced throughout this page.
 
@@ -19,7 +19,7 @@ For a sample component that wraps an HTTP-based API, see our quickstart on [Wrap
 
 [![Spectral NPM version](https://badge.fury.io/js/@-io%2Fspectral.svg)](https://www.npmjs.com/package/@-io/spectral)
 
- provides a NodeJS package, [@-io/spectral](https://www.npmjs.com/package/@-io/spectral), which provides TypeScript typing and some utility functions.
+provides a NodeJS package, [@-io/spectral](https://www.npmjs.com/package/@-io/spectral), which provides TypeScript typing and some utility functions.
 Source code for Spectral is available on [github](https://github.com/-io/spectral).
 
 For information on Spectral's utility functions and types, see our [custom component library](spectral/custom-component-library.mdx) docs.
@@ -190,7 +190,7 @@ const ipAddressInput = input({
 
 ### Action input types
 
-An input can take a number of types, which affects how the input renders in the  web app:
+An input can take a number of types, which affects how the input renders in the web app:
 
 - **string** will allow users to input or reference a string of characters.
   <Screenshot
@@ -553,7 +553,7 @@ If an input cannot be coerced into the type you've chosen - for example, suppose
 
 #### Writing your own type checking functions
 
- provides a variety of type check and type coercion functions for common types (number, integer, string, boolean, etc).
+provides a variety of type check and type coercion functions for common types (number, integer, string, boolean, etc).
 If you require a uniquely shaped object, you can create your own type check and coercion functions to ensure that inputs your custom component receives have the proper shape that the libraries you rely on expect.
 
 You can import an `interface` or `type` (or write one yourself) and write a function that converts inputs into an expected shape.
@@ -820,7 +820,7 @@ export const getAcmeData = action({
 ### Throwing connection errors
 
 It's valuable to know if a connection is valid or not, and to track errors if and when a connection fails to connect.
-Within your custom component you can throw a `ConnectionError` in order to signal to  that there is something wrong with the connection (unable to connect to endpoint, invalid credentials, etc).
+Within your custom component you can throw a `ConnectionError` in order to signal to that there is something wrong with the connection (unable to connect to endpoint, invalid credentials, etc).
 
 For example, if you know the API you integrate with returns a 401 "Unauthorized" when credentials are invalid, you could throw a `ConnectionError` if your HTTP client returns a status code 401:
 
@@ -1224,10 +1224,7 @@ Many actions require a connection to interact with third-party services.
 You can create a connection object the `createConnection` function from `@-io/spectral/dist/testing`:
 
 ```typescript
-import {
-  createConnection,
-  createHarness,
-} from "@-io/spectral/dist/testing";
+import { createConnection, createHarness } from "@-io/spectral/dist/testing";
 import component from ".";
 import { myConnection } from "./connections";
 
@@ -1274,13 +1271,13 @@ More info is in our [prism docs](cli/prism.mdx#componentsdevrun).
 The [`prism` CLI tool](cli/cli-usage.mdx) provides two commands for testing custom components:
 
 - `prism components:dev:run` fetches an integration's active connection and saves the fields as an environment variable so you can run [unit tests](#unit-tests-for-custom-components) and other commands locally.
-  This is helpful, since many unit tests require an access token from a validated OAuth 2.0 connection - this provides a way of fetching the token from a connection you've already authenticated in the  integration designer.
+  This is helpful, since many unit tests require an access token from a validated OAuth 2.0 connection - this provides a way of fetching the token from a connection you've already authenticated in the integration designer.
 - `prism components:dev:test` publishes your component under a temporary name, and runs a single-action test integration for you that tests the action.
-  This is helpful for quickly testing an action in the real  integration runner environment.
+  This is helpful for quickly testing an action in the real integration runner environment.
 
 ### Access connections for local testing
 
-The `prism components:dev:run` command fetches an active connection from the  integration designer, so you can use the connection's fields for unit testing.
+The `prism components:dev:run` command fetches an active connection from the integration designer, so you can use the connection's fields for unit testing.
 The connection's values are set to an environment variable named `_CONNECTION_VALUE`, which can be used by a subsequent command.
 
 In this example, we use `printenv` to print the environment variable, and pipe the result into [jq](https://stedolan.github.io/jq/) for pretty printing:
@@ -1376,7 +1373,7 @@ CLIENT_SECRET=4yexample
 ## Writing triggers
 
 Integrations are usually triggered [on a schedule](integration-triggers.mdx#scheduled-triggers) (meaning instances of the integration run every X minutes, or at a particular time of day) or [via webhook](integration-triggers.mdx#webhook-triggers) (meaning some outside system sends JSON data to a unique URL and an instance processes the data that was sent).
-The vast majority of integrations built in  start with a schedule trigger or webhook trigger.
+The vast majority of integrations built in start with a schedule trigger or webhook trigger.
 There are situations, though, where neither the schedule nor the standard webhook trigger are suitable for one reason or another.
 That's where writing your own triggers come in handy.
 
@@ -1717,7 +1714,7 @@ An example of a data source that generates a picklist is available in the [Slack
 A JSON Form can contain any number of string, boolean, number, date, time, datetime or enum (dropdown menu) inputs, and you have some control over how the input elements are rendered (in tabs, grouped, vertical or horizontal layout, etc).
 
 Full documentation on JSON Forms is available on their [documentation page](https://jsonforms.io/examples), including several examples.
- offers a <a href='/jsonforms/playground/'>JSON Forms playground</a> where you can create new forms and see how they would be rendered in .
+offers a <a href='/jsonforms/playground/'>JSON Forms playground</a> where you can create new forms and see how they would be rendered in .
 
 A JSON Form config data source must return two properties (and one optional property):
 
@@ -1951,7 +1948,7 @@ The branch name that matches the `branch` return value will be followed.
 
 ## Handling binary files in custom components
 
-Integrations in  generally process serialized JSON, XML or other simple strings and pass deserialized JavaScript objects between steps.
+Integrations in generally process serialized JSON, XML or other simple strings and pass deserialized JavaScript objects between steps.
 But, there are situations when you may want to process and pass binary data between steps.
 By "binary data", we mean files that are not plain text - PDF files, images, MP3 audio, etc.
 

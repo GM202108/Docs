@@ -61,7 +61,7 @@ You don't enter your Google or Facebook credentials into the website.
 Instead, you enter your credentials on a Google, Facebook, etc. page and the OAuth provider generates a unique code that grants the website a set of your permissions.
 
 In the integration world, it's common to use OAuth to authenticate third-party services.
-You set up an "OAuth 2.0 App" in a third-party service, like Salesforce, Quickbooks, Jira or Dropbox, and your customers can then click a button, enter their credentials in the OAuth provider, and your  integration is granted the necessary access to perform actions in the third-party service on the customer's behalf.
+You set up an "OAuth 2.0 App" in a third-party service, like Salesforce, Quickbooks, Jira or Dropbox, and your customers can then click a button, enter their credentials in the OAuth provider, and your integration is granted the necessary access to perform actions in the third-party service on the customer's behalf.
 
 ### How does OAuth 2.0 work?
 
@@ -95,13 +95,13 @@ When you configure your OAuth app, you'll likely need to set up an authorized **
 That's the URL that the app is allowed to send a special code to when a user authenticates with them.
 The callback URL depends on the region you use:
 
-| Region                  | Callback URL                                          |
-| ----------------------- | ----------------------------------------------------- |
-| US Commercial (default) | `https://oauth2..io/callback`                |
-| US GovCloud             | `https://oauth2.us-gov-west-1..io/callback`  |
-| Europe                  | `https://oauth2.eu-west-1..io/callback`      |
-| Australia               | `https://oauth2.ap-southeast-2..io/callback` |
-| Custom Domain           | `https://oauth2.<your-custom-domain>/callback`        |
+| Region                  | Callback URL                                   |
+| ----------------------- | ---------------------------------------------- |
+| US Commercial (default) | `https://oauth2..io/callback`                  |
+| US GovCloud             | `https://oauth2.us-gov-west-1..io/callback`    |
+| Europe                  | `https://oauth2.eu-west-1..io/callback`        |
+| Australia               | `https://oauth2.ap-southeast-2..io/callback`   |
+| Custom Domain           | `https://oauth2.<your-custom-domain>/callback` |
 
 <Screenshot
   filename="connections/dropbox-configure-app.png"
@@ -111,7 +111,7 @@ The callback URL depends on the region you use:
 
 Also take note of the OAuth app's **client ID** and **client secret**.
 These are sometimes called "App ID", "App Key" or something similar.
-You'll use those to configure your  integration's connection.
+You'll use those to configure your integration's connection.
 
 Within the OAuth app you may also need to configure permissions that can be granted.
 For example, you can say the an app gives integrations the ability to list files and read files, but not write files, or the ability to generate invoices on behalf of your customer.
@@ -125,13 +125,13 @@ The third-party may require you to provide a privacy policy, terms of service, a
 
 ### Adding an OAuth 2.0 connection to an integration
 
-Once you have an OAuth 2.0 App configured in a third-party service, add a new connection in your  integration for the third-party you're integrating with.
+Once you have an OAuth 2.0 App configured in a third-party service, add a new connection in your integration for the third-party you're integrating with.
 You can do that by either adding a step for the third-party (add a Salesforce step to automatically create a Salesforce connection, etc.), or open the **Configuration Wizard Designer** by clicking **Configuration Wizard** and create a new config variable of type **Connection**.
 
 Enter the **client ID** and **client secret** that you noted in the previous step.
 You may need to enter an **Auth URL** or **Token URL** if those are different for different tenants.
 You can find those in the third-party apps' docs.
-There's a good chance the URLs are the same for everyone, so are hidden in the  UI.
+There's a good chance the URLs are the same for everyone, so are hidden in the UI.
 Mark fields that you don't want your customers to see "hidden" by clicking the <Visibility /> icon.
 You probably want to hide your client ID and client secret.
 
@@ -189,9 +189,9 @@ When you **disconnect** an OAuth 2.0 connection, two things (and one optional th
 
 1.  stops periodically refreshing the access token
 1.  deletes the access and refresh tokens from its database, so steps can't reference it
-1. [Optional] It's not common, but some OAuth 2.0 providers allow you to _revoke_ a token.
-   [Quickbooks](components/quickbooks.mdx) is a prominent example of an API that supports revocation.
-   If a _revocation endpoint_ is present in a component's connection,  reaches out to that endpoint to revoke the token with the third-party's API.
+1.  [Optional] It's not common, but some OAuth 2.0 providers allow you to _revoke_ a token.
+    [Quickbooks](components/quickbooks.mdx) is a prominent example of an API that supports revocation.
+    If a _revocation endpoint_ is present in a component's connection, reaches out to that endpoint to revoke the token with the third-party's API.
 
 To disconnect an active OAuth 2.0 connection, click the **DISCONNECT** button under the config variable name:
 

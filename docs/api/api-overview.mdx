@@ -9,10 +9,10 @@ import TabItem from "@theme/TabItem";
 import Screenshot from "@site/src/components/screenshot";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
- provides a [GraphQL](https://graphql.org/)-based API for you to build, deploy, and support your integrations programmatically.
-While we recommend that new users use the web app or [ CLI tool](cli/cli-usage.mdx) to manage  resources, developer users will likely want to use the API to script out integration management.
+provides a [GraphQL](https://graphql.org/)-based API for you to build, deploy, and support your integrations programmatically.
+While we recommend that new users use the web app or [ CLI tool](cli/cli-usage.mdx) to manage resources, developer users will likely want to use the API to script out integration management.
 
-If you're currently logged in, you can [explore](/explorer) the  API with the GraphiQL explorer.
+If you're currently logged in, you can [explore](/explorer) the API with the GraphiQL explorer.
 
 ## What is GraphQL?
 
@@ -30,19 +30,19 @@ GraphQL allows you to:
 - **Reference an API specification** to sculpt your queries.
   GraphQL APIs offer a [schema](#s-graphql-schema), so you know what fields are available for what resources, and how the resources are interrelated.
 
-## Why  Chose GraphQL
+## Why Chose GraphQL
 
- chose to use GraphQL because of its power and flexibility.
+chose to use GraphQL because of its power and flexibility.
 You can query the API however you like, and define exactly what data you want with a single query.
 GraphQL is language-agnostic, so if you're a Python-based platform, you can use Python.
 If you're more familiar with Go, NodeJS, .NET, etc., you can use any language you choose - most modern languages have a [GraphQL client library](https://graphql.org/code/#graphql-clients).
 
-GraphQL allows  backend developers and API consumers to work independently of one another.
+GraphQL allows backend developers and API consumers to work independently of one another.
 If you need a new field, simply add the field to your query - there's no waiting for backend developers to modify REST endpoints.
 
 ## Querying 's API with the GraphiQL Explorer
 
-'s <a href={useBaseUrl('explorer')}>GraphiQL explorer</a> lets you test queries against the  API.
+'s <a href={useBaseUrl('explorer')}>GraphiQL explorer</a> lets you test queries against the API.
 If you are logged in to the web app, you can perform authenticated queries against 's GraphQL API using the GraphiQL explorer.
 
 <Screenshot
@@ -100,13 +100,13 @@ query {
 
 ## How Do I Get an API Authorization Token?
 
-You will probably want to query the  API with tools outside of the GraphiQL explorer.
+You will probably want to query the API with tools outside of the GraphiQL explorer.
 To do that, you'll need an API token.
-When you authenticate against  through the web app or  CLI tool, your web browser or CLI tool receives a [JWT](https://jwt.io/) that can be used to query the API.
+When you authenticate against through the web app or CLI tool, your web browser or CLI tool receives a [JWT](https://jwt.io/) that can be used to query the API.
 
 To view your token in the web browser, visit [https://app..io/get_auth_token/](https://app..io/get_auth_token/) while logged in.
 
-If you are using the  CLI tool, you can use the subcommand `me:token`.
+If you are using the CLI tool, you can use the subcommand `me:token`.
 
 ```bash
 prism me:token
@@ -132,7 +132,7 @@ For API endpoint, enter `https://app..io/api`.
 Most modern programming languages implement [GraphQL client libraries](https://graphql.org/code/#graphql-clients).
 You can also `curl -X POST` queries against the GraphQL API.
 
-In the example below we query the API for all  [components](components.mdx) and their labels, descriptions, keys, and whether authorization is required.
+In the example below we query the API for all [components](components.mdx) and their labels, descriptions, keys, and whether authorization is required.
 
 <Tabs
   defaultValue='curl'
@@ -245,8 +245,8 @@ fetch(apiEndpoint, {
 
 ### Refreshing an Authorization Token on a Headless System
 
-If you would like to set up a CI/CD pipeline or any other headless system to periodically query the  API, you will need to provide that system with a **refresh token**.
-Your system will then exchange the **refresh token** for an **access token** that it can use to query the  API.
+If you would like to set up a CI/CD pipeline or any other headless system to periodically query the API, you will need to provide that system with a **refresh token**.
+Your system will then exchange the **refresh token** for an **access token** that it can use to query the API.
 
 To get a refresh token initially, use `prism`.
 You'll just need to do this once:
@@ -304,9 +304,9 @@ If you have any scripts that use a refresh token that is tied to your user (for 
 
 If you believe your team members' refresh token has been compromised, please have them log in and revoke their refresh token, or have an organization administrator remove their account if they are unavailable (their account can be re-added later).
 
-##  API rate limit
+## API rate limit
 
-You can query the  API **20 times per second**.
+You can query the API **20 times per second**.
 After 20 requests within a second, you will receive a `429` response code.
 Just wait a moment, and try again.
 Most HTTP clients can be configured to automatically wait and retry on a `429` response code.

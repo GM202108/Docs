@@ -33,7 +33,7 @@ Event-driven integrations are further broken down into the following, which we'l
 
 We've touched on events, but we also need to cover webhooks and payloads. A **webhook** is an event-triggered request to an app. This is the third-party app, for an import integration, or your app, for an export integration. The **payload** is the data sent by the webhook.
 
-While  commonly uses the term webhook, some companies use different terms. For example, Salesforce refers to these as [Outbound Messages](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_om_outboundmessaging_understanding.htm), and Slack calls them [Events](https://api.slack.com/apis/connections/events-api).
+While commonly uses the term webhook, some companies use different terms. For example, Salesforce refers to these as [Outbound Messages](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_om_outboundmessaging_understanding.htm), and Slack calls them [Events](https://api.slack.com/apis/connections/events-api).
 
 The bottom line is that _something_ changes in the source system, which causes the source system to send data outside the system.
 
@@ -99,7 +99,7 @@ If the third-party app supports it, you could create a separate webhook for each
 
 #### Third-party app component for import
 
-If you are integrating with a common app for which  already has a component, you shouldn't need to write any custom code.
+If you are integrating with a common app for which already has a component, you shouldn't need to write any custom code.
 If you need to integrate with an niche app in your industry, building that [custom component](/custom-components/writing-custom-components/) should be straightforward. In many cases, this component consists of a couple of actions that create, list, and remove webhook URLs.
 
 You might also have a scenario where the third-party app returns a subset of needed data (maybe IDs of records that have changed but not the actual records themselves). In this scenario, you may need to wrap a bit of the third-party API with your component to get the records associated with the IDs before sending the entire payload to the next step in the integration.
@@ -122,7 +122,7 @@ Now that we've looked at the one-way event-driven import integration, let's flip
 
 #### Your app
 
-You'll want to write the core product functionality for the export one time, so you don't have to keep building additional functionality. The best approach is to set up your app with an API that includes events, webhooks, and the corresponding payload definitions. Doing this saves considerable time for your developers since they won't need to keep defining new export functionality for the API. Instead, you'll be able to use  to create integrations that subscribe to your webhooks, filter/transform the resulting payloads, and send the data to the third-party app.
+You'll want to write the core product functionality for the export one time, so you don't have to keep building additional functionality. The best approach is to set up your app with an API that includes events, webhooks, and the corresponding payload definitions. Doing this saves considerable time for your developers since they won't need to keep defining new export functionality for the API. Instead, you'll be able to use to create integrations that subscribe to your webhooks, filter/transform the resulting payloads, and send the data to the third-party app.
 
 If your app does not have an API, you'll probably need to use [scheduled integrations](#scheduled-integrations) instead of event-driven ones.
 
@@ -132,7 +132,7 @@ In a one-way export, the component to handle the export from your app tends to b
 
 #### Third-party app component for export
 
-If a standard component is available on  to access the third-party API, you will want to use that. But, if you need to build a custom component, you'll want to [wrap the third-party API](/quickstarts/wrapping-an-api-in-a-component/) so you can re-use this component any time you have an integration that requires you to export data to this third-party system. We discussed this same approach to wrap your API in a component when importing data into your app.
+If a standard component is available on to access the third-party API, you will want to use that. But, if you need to build a custom component, you'll want to [wrap the third-party API](/quickstarts/wrapping-an-api-in-a-component/) so you can re-use this component any time you have an integration that requires you to export data to this third-party system. We discussed this same approach to wrap your API in a component when importing data into your app.
 
 ### Two-way event-driven integration
 
@@ -172,7 +172,7 @@ You'll use a scheduled integration to import when you have a third-party API tha
 
 #### Your reusable custom component for import
 
-In the event-driven import section, we talked about how you'll want to build a custom component for your app that can accept any data you need to import. The good news is that once you've built that component, you can also use it here within a scheduled import integration. It doesn't care how the data was sourced; all it cares about is taking the payload from  and providing it to your API.
+In the event-driven import section, we talked about how you'll want to build a custom component for your app that can accept any data you need to import. The good news is that once you've built that component, you can also use it here within a scheduled import integration. It doesn't care how the data was sourced; all it cares about is taking the payload from and providing it to your API.
 
 ### Scheduled file import integrations
 
@@ -192,9 +192,9 @@ We tend to see this type of integration where you generate a regular report for 
 
 Once the data has been returned, your integration generates a file with the data in the necessary format (PDF, XML, CSV, etc.) Finally, this file is packaged up and sent off to its destination (which could range from a filesystem to email or SMS).
 
-You should be able to use a built-in  component to handle the part where the file is placed into a filesystem, sent via email, etc.
+You should be able to use a built-in component to handle the part where the file is placed into a filesystem, sent via email, etc.
 
-Some of the common data platforms for which  has built-in components are [Dropbox](/components/dropbox/), [Amazon S3](/components/aws-s3), [Google Drive](/components/google-drive/), and [Azure Files](/components/azure-files/).
+Some of the common data platforms for which has built-in components are [Dropbox](/components/dropbox/), [Amazon S3](/components/aws-s3), [Google Drive](/components/google-drive/), and [Azure Files](/components/azure-files/).
 
 <Screenshot
   filename="best-practices/scheduled-export-file-diagram.png"

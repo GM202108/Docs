@@ -9,18 +9,18 @@ import Screenshot from "@site/src/components/screenshot";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-The embedded SDK allows you to embed the marketplace and the integration designer into your app. But, you may want to query for and display other data from the  API. By querying the  API, you can map data from the API into custom UI elements in your app, and you can completely customize your customers' experience as they manage and deploy integrations.
+The embedded SDK allows you to embed the marketplace and the integration designer into your app. But, you may want to query for and display other data from the API. By querying the API, you can map data from the API into custom UI elements in your app, and you can completely customize your customers' experience as they manage and deploy integrations.
 
-This article outlines how to fetch data from the  API using the embedded SDK.
+This article outlines how to fetch data from the API using the embedded SDK.
 For information on how to install the embedded SDK and authenticate customer users, see [Installing Embedded SDK](installing-embedded.mdx).
 
-For an example of querying the  API to generate a custom marketplace UI, see [GitHub](https://github.com/-io/embedded/blob/main/example-embedded-app/pages/examples/custom-ui-elements.tsx).
+For an example of querying the API to generate a custom marketplace UI, see [GitHub](https://github.com/-io/embedded/blob/main/example-embedded-app/pages/examples/custom-ui-elements.tsx).
 
-## The  GraphQL API
+## The GraphQL API
 
 's API is GraphQL-based.
 Full documentation on the API is available in the [API docs](api/api-overview.mdx), including several [example queries and mutations](api/using--api.mdx).
-You can try out the  API using our [GraphiQL explorer tool](/explorer/).
+You can try out the API using our [GraphiQL explorer tool](/explorer/).
 
 ## Embedded user scope and API permissions
 
@@ -48,7 +48,7 @@ They can, for example, use this query to fetch the instances that are deployed t
 Here are a few examples of what you can do through embedded API requests.
 All examples use `.graphqlRequest`, which takes two parameters:
 
-- `query` is a string that represents the query or mutation to send to the  API.
+- `query` is a string that represents the query or mutation to send to the API.
 - `variables` is a key-value object of variables to send with the query or mutation.
 
 ### Listing deployed instances

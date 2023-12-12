@@ -1,7 +1,7 @@
 ---
 id: version-your-components-integrations
 title: Version Your Components and Integrations
-description:  supports versioning of both the components and the integrations. Here's how that works and what you can do with versioning.
+description: supports versioning of both the components and the integrations. Here's how that works and what you can do with versioning.
 ---
 
 import Screenshot from "@site/src/components/screenshot";
@@ -10,13 +10,13 @@ In a perfect world, you wouldn't need to version anything for integrations. Your
 
 We have largely built best-practices for versioning into the platform, to ensure that it is easy for your to determine what versions of components and integrations are available but also to know which ones are currently deployed. In addition, there are some steps you can take to make best use of the versioning functionality and we call those out in the following sections.
 
-## How components are versioned in 
+## How components are versioned in
 
-Integrations in  are largely built by stringing components together. Built-in components (like [SFTP](/docs/components/sftp/)) can be used in any number of integrations, but so can each of your custom components.
+Integrations in are largely built by stringing components together. Built-in components (like [SFTP](/docs/components/sftp/)) can be used in any number of integrations, but so can each of your custom components.
 
 The drawback of using the same component in different integrations is that someone might add new functionality or otherwise modify component code to fix/do something they need for their integration, but in doing so may inadvertently break another integration. That's not good.
 
-The good thing is that all the components (whether built-in or custom) are versioned. Each time you run `prism components:publish` on one of your custom components,  publishes a new version of the component as V2, V3, etc.
+The good thing is that all the components (whether built-in or custom) are versioned. Each time you run `prism components:publish` on one of your custom components, publishes a new version of the component as V2, V3, etc.
 
 When a new version of a component is available, you'll see a notification in the integration designer.
 
@@ -34,7 +34,7 @@ At this point, you may click the notification to see what components have newer 
   alt="Integration designer with component version selection"
 />
 
-Built-in components work the same way.  regularly adds new actions and otherwise modifies components to improve functionality, but you determine if you want to stay with the component version you are currently using, or update a given integration to use a newer version.
+Built-in components work the same way. regularly adds new actions and otherwise modifies components to improve functionality, but you determine if you want to stay with the component version you are currently using, or update a given integration to use a newer version.
 
 ### What you can do with component versioning
 
@@ -42,7 +42,7 @@ Use `prism components:publish --comment "Whatever the comment is"` to add a desc
 
 It's important to note that integrations are _not_ automatically updated to use the latest version of your component. This ensures that a member of your team won't update a custom component and break an integration that you (or someone else) is using. Instead, you can choose to update integrations to newer versions of components and test those versions when it is convenient for you.
 
-## How integrations are versioned in 
+## How integrations are versioned in
 
 Integrations, like components, may also be versioned. When you've created/modified and then tested an integration and you click "Save & Publish," the system increments the version by 1. An original integration will have V1, followed by V2, etc.
 

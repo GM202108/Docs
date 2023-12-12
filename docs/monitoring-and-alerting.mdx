@@ -16,7 +16,7 @@ Your team should be able to proactively, or at least quickly reactively, respond
 
 With properly configured monitoring and alerting you can put your mind at ease - no news is good news!
 
- alert monitors are configurable.
+alert monitors are configurable.
 You can choose from a variety of alert triggers, including triggering on elevated log levels, long execution times, failed executions, etc., and you can notify your integration team via email and SMS, or via Slack, Pager Duty, OpsGenie, or any other notification system you choose by using webhooks.
 
 <Vimeo
@@ -241,7 +241,7 @@ When an alert monitor using this alert webhook fires, an incident is created in 
 <Vimeo video="500205967" title="How to Send Alerts to Slack" />
 
 Many operations teams use Slack to notify themselves of production issues.
- alert webhooks can be configured to send messages to a Slack channel.
+alert webhooks can be configured to send messages to a Slack channel.
 
 To send alerts as messages to Slack, first generate a new Slack webhook:
 
@@ -251,7 +251,7 @@ To send alerts as messages to Slack, first generate a new Slack webhook:
 1. **Activate Incoming Webhooks** and then **Add New Webhook to Workspace**
 1. Take note of the Webhook URL. It should be of the form `https://hooks.slack.com/services/foo/bar/baz`
 
-Use the Slack webhook URL that you generated in a  alert webhook, and configure the payload template to read similar to this:
+Use the Slack webhook URL that you generated in a alert webhook, and configure the payload template to read similar to this:
 
 ```json
 {

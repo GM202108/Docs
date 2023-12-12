@@ -6,15 +6,15 @@ description: Examples of how to use API to manage customers and instances
 
 import GraphqlExample from "@site/src/components/graphql-example";
 
-As you incorporate  into your development ecosystem, it's handy to be able to wrap 's GraphQL-based API so you can programmatically manage users, customers, instances, monitors, alerting and more.
-On this page you will find examples of how to wrap common  GraphQL queries and and mutations.
+As you incorporate into your development ecosystem, it's handy to be able to wrap 's GraphQL-based API so you can programmatically manage users, customers, instances, monitors, alerting and more.
+On this page you will find examples of how to wrap common GraphQL queries and and mutations.
 
-This page doesn't cover every query or mutation that  supports, but should give you a good idea of how to do standard CRUD (create, read, update, delete) operations using the  API.
+This page doesn't cover every query or mutation that supports, but should give you a good idea of how to do standard CRUD (create, read, update, delete) operations using the API.
 
 Before you begin, please read through our [Intro to 's API](api/api-overview.mdx) article and generate an [API token](api/api-overview.mdx#how-do-i-get-an-api-authorization-token) for yourself, so you can make API calls.
 
 :::tip Reference the prism CLI tool's source code
-'s CLI tool, [prism](cli/cli-usage.mdx) is open-source and wraps the  API.
+'s CLI tool, [prism](cli/cli-usage.mdx) is open-source and wraps the API.
 Reference its source code on [GitHub](https://github.com/-io/prism) to see examples of interacting with customers, integrations, components, etc. programmatically.
 :::
 
@@ -259,7 +259,7 @@ In this example, we set a string value for a config variable named `My String`, 
 
 ### Importing an OAuth 2.0 Connection
 
-If you are migrating to  from your own service or another integration platform, you may want to import your customers' OAuth 2.0 access and refresh tokens so that they do not need to re-authenticate.
+If you are migrating to from your own service or another integration platform, you may want to import your customers' OAuth 2.0 access and refresh tokens so that they do not need to re-authenticate.
 To do that, you'll need to first [deploy an instance](#deploying-new-instances-through-the-api) of an integration.
 Then, [get an instance's config variables](#updating-config-variables-with-updateinstance).
 Identify the `id` of the config variable that represents an OAuth 2.0 connection.
@@ -301,7 +301,7 @@ Step results are written out to Amazon S3, and the `resultsUrl` returns a short-
 :::tip Unpacking Step Results
 A step can return anything.
 They often return javascript objects or JSON, but some steps return binary files like PDFs or MP3s or a JavaScript `Buffer`.
-To account for the variety of things that a step can return,  uses [msgpack](https://msgpack.org/) to package up step results.
+To account for the variety of things that a step can return, uses [msgpack](https://msgpack.org/) to package up step results.
 The step result file you download from S3 will appear encoded, but after "unpacking" the contents, it'll look like normal JSON (or the type of data your step yielded).
 
 To "unpack" step results, use `msgpack.decode()` in NodeJS (or a similar function in a language of your choosing - `msgpack` supports many languages).

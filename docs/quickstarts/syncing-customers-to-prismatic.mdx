@@ -5,7 +5,7 @@ description: Learn to sync customers from an external system to  using our Graph
 ---
 
 As a B2B software company you likely rely on a customer or user management system like Salesforce or some in-house system to keep track of your customers.
-In this tutorial, we'll cover how to sync customers from an external system to  using 's [GraphQL API](api/api-overview.mdx).
+In this tutorial, we'll cover how to sync customers from an external system to using 's [GraphQL API](api/api-overview.mdx).
 We'll highlight **External IDs**, which are a way to assign a unique external identifier to a customer.
 
 ## Setting up
@@ -62,7 +62,7 @@ You mutate data by creating new records, or updating or deleting existing record
 
 ## List all customers
 
-First, let's write a function that gets a list of all of our customers, including their `name`, `description`,  `id`, and `externalId`:
+First, let's write a function that gets a list of all of our customers, including their `name`, `description`, `id`, and `externalId`:
 
 ```python
 def getCustomers():
@@ -83,7 +83,7 @@ def getCustomers():
 ```
 
 This function runs a [customers](api/schema/query/customers.mdx) query against 's API.
-We specify `isSystem: false` because your  tenant has a set of "system" customers that are used behind-the-scenes for running test integrations as you build them.
+We specify `isSystem: false` because your tenant has a set of "system" customers that are used behind-the-scenes for running test integrations as you build them.
 This will filter out those "system" customers, and return only your "real" customers.
 
 The query returns an object with a `customers` key, which has (in GraphQL lingo) has a series of **nodes** (customers).
@@ -112,12 +112,12 @@ print(json.dumps(getCustomers()))
 ]
 ```
 
-We could use the output of this function to figure out which customers have not been synced _into_ , or to sync  customers back to an outside system.
+We could use the output of this function to figure out which customers have not been synced _into_ , or to sync customers back to an outside system.
 
 ### GraphQL pagination
 
 Before moving on, I want to address pagination.
-By default, the  API returns the first 100 results for a query.
+By default, the API returns the first 100 results for a query.
 So, the [customers](api/schema/query/customers.mdx) query only returns 100 customers, even if we have more than 100 in the system.
 
 If we want to download **all** customers, we'll need to update our `getCustomers()` function a bit.
@@ -239,8 +239,8 @@ def createCustomer(name, description="", externalId=""):
     return result["createCustomer"]["customer"]
 ```
 
-The `createCustomer` mutation will return `errors` if the `name` or `externalId` you specified is already in the  system.
-If the mutation does not throw an error, it will return a customer object containing the new customer's `name`, `description`, `externalId` and generated  `id`.
+The `createCustomer` mutation will return `errors` if the `name` or `externalId` you specified is already in the system.
+If the mutation does not throw an error, it will return a customer object containing the new customer's `name`, `description`, `externalId` and generated `id`.
 Let's try it out:
 
 ```python
@@ -267,7 +267,7 @@ print(
 For the last customer-related function, let's delete a customer given their external ID.
 To do that, we'll use the [deleteCustomer](api/schema/mutation/deleteCustomer.mdx) mutation.
 First, we'll look up the customer we would like to delete using the [getCustomerByExternalId](#fetch-a-specific-customer-by-external-id) function we wrote previously.
-Then, we'll feed the  ID that we get into the `deleteCustomer` mutation:
+Then, we'll feed the ID that we get into the `deleteCustomer` mutation:
 
 ```python
 def deleteCustomer(externalId):

@@ -30,12 +30,7 @@ If we know that we can expect XML from Salesforce, so it's cleaner to take care 
 We'll use [fast-xml-parser](https://www.npmjs.com/package/fast-xml-parser) to deserialize the XML, and we'll save the object that's created from deserialization into the trigger payload's `body.data`:
 
 ```typescript
-import {
-  trigger,
-  TriggerPayload,
-  HttpResponse,
-  util,
-} from "@-io/spectral";
+import { trigger, TriggerPayload, HttpResponse, util } from "@-io/spectral";
 import { parse } from "fast-xml-parser";
 
 export const salesforceTrigger = trigger({

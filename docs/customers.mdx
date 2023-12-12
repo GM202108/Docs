@@ -21,7 +21,7 @@ You can create [users](users.mdx#customer-users) for your customers and assign t
   alt="Simple diagram of an org and customers"
 />
 
-Like all  resources, customers can be managed via 's CLI tool, [prism](cli/cli-usage.mdx), or through the web app by clicking the **Customers** link on the left-hand sidebar.
+Like all resources, customers can be managed via 's CLI tool, [prism](cli/cli-usage.mdx), or through the web app by clicking the **Customers** link on the left-hand sidebar.
 
 <Screenshot
   filename="customers/customers-page.png"
@@ -405,7 +405,7 @@ mutation (
 
 ## Accessing customer logs
 
-At  we believe verbose and searchable logs are critical to any software ecosystem.
+At we believe verbose and searchable logs are critical to any software ecosystem.
 Logs of all instance invocations are stored for all customers, and are searchable and filterable.
 
 To access logs of instances for a specific customer, open the customer's page and select the **Logs** tab.
@@ -674,10 +674,10 @@ mutation {
 ## Customer external IDs
 
 A customer can be assigned an **External ID** - a unique identifier from an external system.
-So, if you know "Smith Rocket Company" as a customer with an ID of `abc-123` in another system you use, you can assign "Smith Rocket Company" in  the `externalId` of `abc-123`.
-This is helpful if you need to quickly look up or associate customers in  with customers in your external system.
+So, if you know "Smith Rocket Company" as a customer with an ID of `abc-123` in another system you use, you can assign "Smith Rocket Company" in the `externalId` of `abc-123`.
+This is helpful if you need to quickly look up or associate customers in with customers in your external system.
 
-External IDs can be set programmatically (see the next section), or can be edited within the  we app by clicking the **Customers** link on the left-hand sidebar, selecting a customer, and then clicking on the **Details** tab.
+External IDs can be set programmatically (see the next section), or can be edited within the we app by clicking the **Customers** link on the left-hand sidebar, selecting a customer, and then clicking on the **Details** tab.
 
 <Screenshot
   filename="customers/external-id.png"
@@ -691,6 +691,6 @@ External IDs are required if you want to route webhook requests to instances dep
 
 If you use a customer management tool to keep track of your customers, like Salesforce or another tool specific to your company or industry, you can use 's API to programmatically sync customers from your external tool to .
 
-In addition at a **name** and **description**, a customer created through the [createCustomer](api/schema/mutation/createCustomer.mdx) mutation can be assigned an `externalId`, so that you can match customers in  to customers saved in other systems.
+In addition at a **name** and **description**, a customer created through the [createCustomer](api/schema/mutation/createCustomer.mdx) mutation can be assigned an `externalId`, so that you can match customers in to customers saved in other systems.
 
-See our [Syncing Customers to ](quickstarts/syncing-customers-to-.mdx) quickstart guide for an example of how to sync customers to  using our API.
+See our [Syncing Customers to ](quickstarts/syncing-customers-to-.mdx) quickstart guide for an example of how to sync customers to using our API.

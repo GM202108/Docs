@@ -254,9 +254,7 @@ import { MessageEvent } from "@-io/embedded";
 
 window.addEventListener("message", (event) => {
   // Check if the message event is of type INSTANCE_CONFIGURATION_OPENED
-  if (
-    event.data.event === MessageEvent.INSTANCE_CONFIGURATION_OPENED
-  ) {
+  if (event.data.event === MessageEvent.INSTANCE_CONFIGURATION_OPENED) {
     // Grab some data
     const { customerName, integrationName } = event.data.data;
     // Log out the customer and integration name. You can replace this with whatever data or helper functions you want
@@ -588,8 +586,8 @@ Your embedded themes will be reflected in your embedded application:
 
 Under **Theme Mode** you have four options:
 
-- **Light** and **Dark** determine what the  app itself looks like when you use "dark" or "light" mode.
-  Each of your team members can configure dark or light mode settings from their [profile settings page](users.mdx#setting-light-or-dark-mode), or they can choose to have  follow their operating system's dark/light mode theme.
+- **Light** and **Dark** determine what the app itself looks like when you use "dark" or "light" mode.
+  Each of your team members can configure dark or light mode settings from their [profile settings page](users.mdx#setting-light-or-dark-mode), or they can choose to have follow their operating system's dark/light mode theme.
 
   _Note_: Your customers will not see **Light** or **Dark** themes unless you create customer users for them and they log directly in to .
 

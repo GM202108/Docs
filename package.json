@@ -4,7 +4,7 @@
   "homepage":"http:/GM202108.github.io/docs",
   "version": "0.0.1",
   "scripts": {
-    "predeploy":"npm run build",
+    "build-dev": "docusaurus build --out-dir build/docs",
     "deploy":"gh-pages -d build",
     "docusaurus": "docusaurus",
     "start": "docusaurus start --host 127.0.0.1 --port 3057",
@@ -21,14 +21,14 @@
     "check:md": "prettier --check 'docs/**/*.{md,mdx}'",
     "check:yaml": "prettier --check '**/*.yaml'",
     "format": "npm run lint-fix && npm run format:md && npm run format:js && npm run format:yaml && npm run format:dictionary",
-    "format-changed": "prettier --loglevel error --write $(git status -s | grep -v '^\\sD' | cut -c4- | grep '.md' | xargs)",
+    "format-changed": "prettier --loglevel error --write $(git status -s | grep -v '^\\sD' | cut -c4- | grep '\\.md\\|\\.mdx' | xargs)",
     "format:dictionary": "awk '{ print tolower($0) }' .spelling | sed '/^$/d' | LC_ALL=C sort --unique --output .spelling",
     "format:js": "prettier --loglevel error --write 'src/**/*.{js,jsx,ts,tsx}' 'static/**/*{.json,js}' 'sidebars/**/*.{js,json}' './*.{js,json}'",
     "format:md": "prettier --loglevel error --write 'docs/**/*.{md,mdx}'",
     "format:yaml": "prettier --loglevel error --write '**/*.yaml'",
     "typecheck": "tsc",
     "generate:components": "docusaurus components-to-docs && npm run format:md",
-    "check:links": "npm run build && linkinator build/. --config linkinator.config.json"
+    "check:links": "linkinator build/ --config linkinator.config.json"
   },
   "dependencies": {
     "@docusaurus/core": "2.4.1",

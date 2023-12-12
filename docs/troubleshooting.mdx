@@ -16,7 +16,7 @@ Reduce the size of your step result if possible.
 ### P10002: Result contains non-serializable functions
 
 You may see this error if your step result contains JavaScript functions.
- serializes step results using [MessagePack](https://msgpack.org/index.html).
+serializes step results using [MessagePack](https://msgpack.org/index.html).
 JavaScript functions are non-serializable.
 So, you cannot `return { data: { foo: () => "" } }`, for example.
 
@@ -37,6 +37,6 @@ return { data: sanitizedResults }; // Returns {foo: 123, bar: "Hello, World"}
 ### P10003: Error serializing step results
 
 An unknown error occurred when serializing your step results.
- serializes step results using [MessagePack](https://msgpack.org/index.html).
+serializes step results using [MessagePack](https://msgpack.org/index.html).
 MessagePack supports a number of complex and primitive types (numbers, strings, objects, arrays, Buffers, null, etc).
 Ensure that the data you are returning is included in the [MessagePack spec](https://github.com/msgpack/msgpack/blob/master/spec.md).
