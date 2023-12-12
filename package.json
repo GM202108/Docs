@@ -2,10 +2,7 @@
   "name": "@prismatic-io/docs",
   "private": true,
   "version": "0.0.1",
-  "homepage": "http://GM202108.github.io/docs",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "build-dev": "docusaurus build --out-dir build/docs",
     "docusaurus": "docusaurus",
     "start": "docusaurus start --host 127.0.0.1 --port 3057",
