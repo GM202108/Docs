@@ -30,18 +30,18 @@ export default function FooterCopyright({ copyright }: Props): JSX.Element {
       <div className="footer__social">
         <SocialMediaLink
           Icon={GitHub}
-          href="https://github.com/prismatic-io/"
-          title="Prismatic.io Github"
+          href="#"
+          title="Github"
         />
         <SocialMediaLink
           Icon={Twitter}
-          href="https://twitter.com/prismatic_io"
-          title="@prismatic_io Twitter"
+          href="https://twitter.com/Fourieringint"
+          title="@fourieringint"
         />
         <SocialMediaLink
           Icon={LinkedIn}
-          href="https://www.linkedin.com/company/prismatic-io/"
-          title="Prismatic LinkedIn"
+          href="https://www.linkedin.com/company/fourier-analytics/"
+          title="Fourier Analytics LinkedIn"
         />
       </div>
       <div
@@ -53,9 +53,9 @@ export default function FooterCopyright({ copyright }: Props): JSX.Element {
         }}
       />
       <div className="footer__auxiliary">
-        <BottomLink href="/legal/terms/">Terms</BottomLink>
-        <BottomLink href="/legal/privacy/">Privacy</BottomLink>
-        <BottomLink href="https://status.prismatic.io">Status</BottomLink>
+        <BottomLink href="#">Terms</BottomLink>
+        <BottomLink href="#">Privacy</BottomLink>
+        <BottomLink href="#">Status</BottomLink>
       </div>
     </div>
   );

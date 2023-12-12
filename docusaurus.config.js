@@ -23,7 +23,7 @@ const config = {
       title: "Docs",
         logo: {
         alt: "Logo",
-        src: "img/logo-fourier.jpg",/*Logo Menu */
+        src: "img/logo-fourier.svg",/*Logo Menu */
       },
       items: [
         {
@@ -115,32 +115,32 @@ const config = {
           items: [
             {
               label: "Intuitive Integration Designer",
-              to: "../platform/integration-designer/",
+              to: "#",
               target: "_parent",
             },
             {
               label: "Embedded Integration Marketplace",
-              to: "../platform/embedded-integration-marketplace/",
+              to: "#",
               target: "_parent",
             },
             {
               label: "Integration Deployment & Support",
-              to: "../platform/integration-deployment-support/",
+              to: "#",
               target: "_parent",
             },
             {
               label: "Purpose-Built Infrastructure",
-              to: "../platform/purpose-built-infrastructure/",
+              to: "#",
               target: "_parent",
             },
             {
               label: "Built In A Way Devs Love",
-              to: "../platform/built-in-a-way-devs-love/",
+              to: "#",
               target: "_parent",
             },
             {
               label: "Connectors",
-              to: "../components/",
+              to: "#",
               target: "_parent",
             },
           ],
@@ -179,32 +179,32 @@ const config = {
           items: [
             {
               label: "About Us",
-              to: "../about/",
+              to: "#",
               target: "_parent",
             },
             {
               label: "Pricing",
-              to: "../pricing/",
+              to: "#",
               target: "_parent",
             },
             {
               label: "Guides",
-              to: "../resources/",
+              to: "#",
               target: "_parent",
             },
             {
               label: "Blog",
-              to: "../blog/",
+              to: "#",
               target: "_parent",
             },
             {
               label: "Legal",
-              to: "../legal/terms/",
+              to: "#",
               target: "_parent",
             },
             {
               label: "Careers",
-              to: "../careers/",
+              to: "#",
               target: "_parent",
             },
           ],
@@ -214,26 +214,26 @@ const config = {
           items: [
             {
               label: "Contact Us",
-              to: "../contact/",
+              to: "#",
               target: "_parent",
             },
             {
-              label: "5013 S Louise Ave #122\nSioux Falls, SD 57108",
-              href: "https://www.google.com/maps/place/5013+S+Louise+Ave,+Sioux+Falls,+SD+57108/@43.4997057,-96.7749949,17z/data=!3m1!4b1!4m5!3m4!1s0x878ec9936333b29b:0x141d63a9b6ec2aa7!8m2!3d43.4997018!4d-96.7728009",
+              label: "Vertical Coworking Carrera 48 # 37 - 27 Medellín,Colombia",
+              href: "https://www.waze.com/en/live-map/directions?to=ll.6.23834337%2C-75.57165742",
               target: "_self",
               className: "footer__link-item footer-address",
             },
             {
-              label: "(888) 305-5453",
-              href: "tel:888-305-5453",
+              label: "(604) 501-1714",
+              href: "tel:604-501-1714",
             },
             {
-              label: "info@prismatic.io",
-              href: "mailto:info@prismatic.io",
+              label: "Hello@fouriering.com",
+              href: "mailto:Hello@fouriering.com",
             },
             {
               label: "Support",
-              href: "mailto:support@prismatic.io",
+              href: "mailto:Hello@fouriering.com",
             },
           ],
         },
