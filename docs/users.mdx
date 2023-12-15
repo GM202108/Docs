@@ -10,7 +10,7 @@ import TabItem from "@theme/TabItem";
 import Screenshot from "@site/src/components/screenshot";
 import Vimeo from "@site/src/components/vimeo";
 
-Two types of users can log into  systems:
+Two types of users can log into systems:
 
 - **Organization users** are team members who work at your company.
   They are responsible for building, deploying, and supporting integrations for your customers.
@@ -295,7 +295,7 @@ From here, you can grant the user access to specific **integrations**, **compone
 ### Integration access
 
 The most common use case for third-party users is to allow a third-party vendor to view, and possibly edit and test an integration.
-That way, they can test invoking an integration in  from their third-party service and can verify that the data the integration receives is in the format you agreed upon.
+That way, they can test invoking an integration in from their third-party service and can verify that the data the integration receives is in the format you agreed upon.
 
 Giving integration access to a third-party vendor also allows you to see what sort of attempts are being made on their end to make sure the integration works.
 You can view logs of each test a third-party vendor performs to give you a sense of how their side of the integration development is progressing, and if and when you jump on calls with your mutual customer and the third party, you can test and debug issues quickly (rather than relying on email chains that drag on for weeks).
@@ -334,7 +334,7 @@ If you give a third-party user access to an integration that uses custom compone
 ### Component access
 
 Similar to integrations, you can grant third-party users access to specific custom components.
-By default, third-party users have access to  built-in public components, but you may not want third-party vendors to see all of the custom components you've published (especially if you integrate with several competing vendors).
+By default, third-party users have access to built-in public components, but you may not want third-party vendors to see all of the custom components you've published (especially if you integrate with several competing vendors).
 
 To grant a third-party user access to a custom component, select **Component** after opening the **+ Add permission** dialog, and then search for and select the component you would like to grant access to.
 
@@ -440,7 +440,7 @@ You can also filter by email address by clicking the **Filter** link to the righ
 </TabItem>
 <TabItem value='cli'>
 
-To list users with the  CLI tool, use the `prism customers:users:list` subcommand.
+To list users with the CLI tool, use the `prism customers:users:list` subcommand.
 
 ```bash title="List all users of customer 'FTL Rockets'"
 # Get your customer's ID
@@ -674,9 +674,9 @@ If you would like to override the light/dark mode setting, click your avatar at 
 
 Light / dark mode settings follow your user, so if you set a preference on one computer, that preference will be remembered if you log in from another computer.
 
-## Syncing customer users to  programmatically
+## Syncing customer users to programmatically
 
-Similar to [syncing customers programmatically](customers.mdx#sync-customers-from-an-external-system-programmatically), if you manage customer users in an external system you can sync those users to  programmatically.
+Similar to [syncing customers programmatically](customers.mdx#sync-customers-from-an-external-system-programmatically), if you manage customer users in an external system you can sync those users to programmatically.
 Though this tutorial is about syncing customers to , the concepts are similar for syncing users: [Syncing Customers to ](quickstarts/syncing-customers-to-.mdx).
 
 To list customer users, use the [users](api/schema/query/users.mdx) query, and give it the argument `customer_Isnull: false` to indicate that you want _customer_ users:
@@ -695,6 +695,6 @@ users(customer_Isnull: false) {
 ```
 
 To create new users, look up a customer's ID and the **role** that you want the user to have, and then invoke the [createCustomerUser](api/schema/mutation/createCustomerUser.mdx) mutation along with the user's `email`, `name`, and optional `phone` number.
-You can also specify an `externalId` if you would like users in  to easily correspond to users in an external system.
+You can also specify an `externalId` if you would like users in to easily correspond to users in an external system.
 
 To update customer users, use the [updateUser](api/schema/mutation/updateUser.mdx) mutation, and to delete a user use the [deleteUser](api/schema/mutation/deleteUser.mdx) mutation.

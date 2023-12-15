@@ -69,7 +69,7 @@ export default ComponentListView;
 ```
 
 To show details about a specific component, use the `showComponent()` function and provide the function with the ID of a component.
-You will need to query for the ID of the component using `.graphqlRequest` function, which you can use to query the  API:
+You will need to query for the ID of the component using `.graphqlRequest` function, which you can use to query the API:
 
 ```ts title="Showing a specific component"
 import  from "@-io/embedded";
@@ -110,7 +110,7 @@ function DropboxComponent() {
 export default DropboxComponent;
 ```
 
-Additional documentation on querying the  API as a customer user from the embedded SDK is available on the [Embedded API Requests](embedded-api-requests.mdx) article.
+Additional documentation on querying the API as a customer user from the embedded SDK is available on the [Embedded API Requests](embedded-api-requests.mdx) article.
 
 For an example of embedding the integration designer, including a check if the current user has integration designer permissions, see [GitHub](https://github.com/-io/embedded/blob/main/example-embedded-app/pages/examples/embedded-designer.tsx).
 
@@ -163,7 +163,7 @@ To do that, open the integration, select the **Details** tab on the top of the s
 ## Opening the integration designer directly
 
 If you know the ID of an integration that you would like to open, you can open an integration directly using `.showDesigner`.
-You will need to query for the ID of the component using `.graphqlRequest` function, which you can use to query the  API:
+You will need to query for the ID of the component using `.graphqlRequest` function, which you can use to query the API:
 
 ```ts title="Open an integration designer directly"
 import  from "@-io/embedded";
@@ -327,9 +327,9 @@ This is helpful if your customer needs to build a custom component that is speci
 The building of customer-scoped custom components is done in the same way as it is for organization-wide custom components.
 For information on building custom components, see the [Building Custom Components](custom-components/writing-custom-components.mdx) article or the custom component [getting started guide](getting-started/first-custom-component/set-up-environment.mdx).
 
-:::info Customer users must be able to log in to 
+:::info Customer users must be able to log in to
 In order for a customer user to publish a custom component, you must [create a customer user account](users.mdx/#customer-users) and assign them the "Admin" role.
-The customer user needs to be able to log in to  in order to authenticate the Prism CLI tool to publish custom components.
+The customer user needs to be able to log in to in order to authenticate the Prism CLI tool to publish custom components.
 A customer user cannot use a signed JWT to publish custom components.
 :::
 

@@ -12,7 +12,7 @@ import TabItem from "@theme/TabItem";
 
 ## Installing 's SDK
 
-To embed  in your app, you must include some  JavaScript code with your client application.
+To embed in your app, you must include some JavaScript code with your client application.
 You have two choices for how to incorporate that code: you can add the [@-io/embedded](https://www.npmjs.com/package/@-io/embedded) NPM package to your web app Node.js project, or you can build the package from source and include it in your app through a `<script>` tag.
 We strongly recommend installing the SDK via NPM so that you have intellisense and TypeScript support.
 
@@ -23,7 +23,7 @@ You can view the source code for the Embedded NPM package on [GitHub](https://gi
 [![Embedded NPM version](https://badge.fury.io/js/@-io%2Fembedded.svg)](https://www.npmjs.com/package/@-io/embedded)
 
 If your web application is written in Node.js, you can include 's JavaScript code as a Node.js import.
-Install the  Embedded Node.js package from NPM with `npm` or `yarn`:
+Install the Embedded Node.js package from NPM with `npm` or `yarn`:
 
 ```bash
 npm install @-io/embedded
@@ -46,7 +46,7 @@ Installing Embedded through the script tag is great for prototyping and testing,
 The TypeScript NPM package gives you advanced features, like code completion and type safety.
 :::
 
-To install the  SDK through a script tag, you will first need to build the `@-io/embedded` package.
+To install the SDK through a script tag, you will first need to build the `@-io/embedded` package.
 You will need [Node.js](https://nodejs.org/) installed on your machine.
 
 ```bash title="Clone and build the  SDK"
@@ -72,11 +72,11 @@ Once the script has loaded, `.*` functions (described below) are available for y
 
 You can also pull down the built `index.js` file from a JavaScript CDN like UNKPG: [unpkg.com/browse/@-io/embedded/](https://unpkg.com/browse/@-io/embedded/).
 
-## Initialize the  client
+## Initialize the client
 
-When  is embedded in your app, it's presented in an [iframe](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe) that by default points to 's application URL (https://app..io).
+When is embedded in your app, it's presented in an [iframe](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe) that by default points to 's application URL (https://app..io).
 
-To initialize the  client, run the `init` function:
+To initialize the client, run the `init` function:
 
 ```javascript
 .init();
@@ -93,16 +93,16 @@ To do that, add this snippet of code:
 
 ## Authenticating users
 
-One big advantage of embedding the  marketplace or integration designer is that users don't need to be assigned an additional set of credentials to remember.
-They can log in to your application, and you can provide them with an authentication token that allows them to deploy  integrations.
+One big advantage of embedding the marketplace or integration designer is that users don't need to be assigned an additional set of credentials to remember.
+They can log in to your application, and you can provide them with an authentication token that allows them to deploy integrations.
 You do this by generating a JSON Web Token (JWT) that is signed by a unique private key that you get from .
 The JWT contains information about the user from your system.
-When  is presented a signed JWT, the JWT signature is verified and the user is granted a [customer role](users.mdx#customer-user-roles) of **Marketplace**, which allows them to deploy integrations for their specific customer in .
+When is presented a signed JWT, the JWT signature is verified and the user is granted a [customer role](users.mdx#customer-user-roles) of **Marketplace**, which allows them to deploy integrations for their specific customer in .
 
 ### JWT signing keys
 
 Before you can generate a JWT, you will need a valid **signing key** from .
-Within  click on your organization name on the bottom of the left-hand sidebar, and then open the **Embedded** tab.
+Within click on your organization name on the bottom of the left-hand sidebar, and then open the **Embedded** tab.
 Click the **+ Add signing Key** button.
 _Note_: You must be an [owner or admin](users.mdx#organization-team-member-roles) to create a signing key.
 
@@ -115,8 +115,8 @@ Store this key somewhere safe - it's the key you'll use to validate that users a
   alt="Get signing key in  app"
 />
 
-:::note Private keys are not stored in 
- does not store the private signing key that is generated, and only saves the last 8 characters so you can easily match up a private key you have with one in our system.
+:::note Private keys are not stored in
+does not store the private signing key that is generated, and only saves the last 8 characters so you can easily match up a private key you have with one in our system.
 Instead, we store the corresponding public key to verify signatures of JWTs you send.
 Save the private key that you generate somewhere safe.
 If it's ever compromised, or you lose it, you can deactivate old keys and generate a new one.
@@ -203,7 +203,7 @@ The JWT that you generate for a user should have the following properties:
 The `sub` (subject) within the JWT identifies the user who is logged in to your system.
 The `sub` value can be any unique identifier - a UUID, email address, etc.
 
-A customer user with that identifier will be created in  if it doesn't already exist, and will be granted permissions to configure and deploy instances to the customer they're assigned to (you assign the user to a customer in the examples below).
+A customer user with that identifier will be created in if it doesn't already exist, and will be granted permissions to configure and deploy instances to the customer they're assigned to (you assign the user to a customer in the examples below).
 :::
 
 Here are a couple of code snippets for JavaScript and Python that would create a valid JWT to authenticate a user in :
@@ -329,7 +329,7 @@ An example NextJS implementation of JWT generation is available in [GitHub](http
 
 ### Use the JWT to authenticate the user
 
-Now that a user in your application has a signed JWT from the backend, you can authenticate them with the  library using the `.authenticate()` function in your frontend application:
+Now that a user in your application has a signed JWT from the backend, you can authenticate them with the library using the `.authenticate()` function in your frontend application:
 
 ```javascript
 // Some function that fetches the JWT from your API:

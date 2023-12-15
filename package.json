@@ -1,6 +1,7 @@
 {
   "name": "@prismatic-io/docs",
   "private": true,
+  "homepage": "http:/GM202108.github.io/docs",
   "version": "0.0.1",
   "scripts": {
     "docusaurus": "docusaurus",
@@ -18,18 +19,18 @@
     "check:md": "prettier --check 'docs/**/*.{md,mdx}'",
     "check:yaml": "prettier --check '**/*.yaml'",
     "format": "npm run lint-fix && npm run format:md && npm run format:js && npm run format:yaml && npm run format:dictionary",
-    "format-changed": "prettier --loglevel error --write $(git status -s | grep -v '^\\sD' | cut -c4- | grep '.md' | xargs)",
+    "format-changed": "prettier --loglevel error --write $(git status -s | grep -v '^\\sD' | cut -c4- | grep '\\.md\\|\\.mdx' | xargs)",
     "format:dictionary": "awk '{ print tolower($0) }' .spelling | sed '/^$/d' | LC_ALL=C sort --unique --output .spelling",
     "format:js": "prettier --loglevel error --write 'src/**/*.{js,jsx,ts,tsx}' 'static/**/*{.json,js}' 'sidebars/**/*.{js,json}' './*.{js,json}'",
-    "format:md": "prettier --loglevel error --write 'docs/**/*.{md,mdx}'",
+    "format:md": "prettier --loglevel error --write './docs/**/*.{md,mdx}'",
     "format:yaml": "prettier --loglevel error --write '**/*.yaml'",
     "typecheck": "tsc",
     "generate:components": "docusaurus components-to-docs && npm run format:md",
-    "check:links": "npm run build && linkinator build/. --config linkinator.config.json"
+    "check:links": "linkinator build/ --config linkinator.config.json"
   },
   "dependencies": {
-    "@docusaurus/core": "2.4.1",
-    "@docusaurus/preset-classic": "2.4.1",
+    "@docusaurus/core": "^3.0.1",
+    "@docusaurus/preset-classic": "^3.0.1",
     "@emotion/react": "11.11.1",
     "@emotion/styled": "11.11.0",
     "@mdx-js/react": "^1.6.22",
@@ -43,14 +44,14 @@
     "gh-pages": "^6.1.0",
     "prism-react-renderer": "^1.3.5",
     "querystring": "^0.2.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "react-modal-image": "^2.6.0",
     "react-super-responsive-table": "^5.2.1"
   },
   "devDependencies": {
-    "@docusaurus/eslint-plugin": "^2.4.1",
-    "@docusaurus/module-type-aliases": "2.4.1",
+    "@docusaurus/eslint-plugin": "^3.0.1",
+    "@docusaurus/module-type-aliases": "^3.0.1",
     "@tsconfig/docusaurus": "^2.0.0",
     "@types/fs-extra": "11.0.1",
     "@types/lodash": "4.14.195",

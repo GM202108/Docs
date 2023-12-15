@@ -377,10 +377,10 @@ To configure an integration to retry its execution, click your trigger, and then
   alt="Set integration to retry in  app"
 />
 
-**Retry Attempts** indicates the maximum number of times (up to 5) that  will run the same instance invocation in the event of failure.
+**Retry Attempts** indicates the maximum number of times (up to 5) that will run the same instance invocation in the event of failure.
 If an instance has failed more than **Retry Attempts** number of times, the run will be marked as _execution failed_ and relevant [alert monitors](monitoring-and-alerting.mdx), if configured, will fire.
 
-**Minutes Between Attempts** indicates the number of minutes that  should wait before trying to run an instance again.
+**Minutes Between Attempts** indicates the number of minutes that should wait before trying to run an instance again.
 If, for example, you specify **4** minutes, and the first instance invocation failed at 10:24, then the instance will attempt to run again at 10:28, 10:32, 10:36, 10:40 and 10:44 if it repeatedly fails to complete.
 
 _Note:_ Due to the nature of scheduled AWS Lambda functions, scheduled retries are precise to the minute (as opposed to to the second).
@@ -425,7 +425,7 @@ For many integrations it's handy to be able to loop over an array of items, or t
 If your integration processes files on an SFTP server, for example, you might want to loop over an array of files on the server.
 If your integration sends alerts to users, you might want to loop over an array of users.
 
- provides the [loop component](components/loop.mdx) to allow you to loop over an array of items, or you can loop a predetermined number of times.
+provides the [loop component](components/loop.mdx) to allow you to loop over an array of items, or you can loop a predetermined number of times.
 After adding a **loop** step to your integration, you can then add steps within the loop that will execute over and over again.
 
 The **loop** components takes one input: a **items**.
@@ -797,7 +797,7 @@ Once a branch has executed, the integration will continue with the next step lis
 
 This presents a problem: how do steps below the convergence reference steps in branches that may or may not have executed (depending on which branch was followed)?
 In your integration you may want to say "if branch _foo_ was executed, get the results from _step A_, and if branch _bar_ was executed, get the results instead from _step B_."
- provides the [Select Executed Step Result](components/branch.mdx#select-executed-step-result) to handle that scenario.
+provides the [Select Executed Step Result](components/branch.mdx#select-executed-step-result) to handle that scenario.
 
 Imagine that you have two branches - one for incoming invoices, and one for outgoing invoices, with different logic contained in each.
 Regardless of which branch was executed, you'd like to insert the resulting data into an ERP.
@@ -815,7 +815,7 @@ Within the component configuration drawer, select the step(s) whose results you 
 ## Persisting data between runs
 
 Sometimes it's helpful to save data from one execution of an integration so it can be used in a subsequent execution.
- provides components that allow you to save some state from one run for use in a future run.
+provides components that allow you to save some state from one run for use in a future run.
 
 Why is this important or helpful?
 Imagine you have an integration that pulls down and processes data from a data source.
@@ -877,4 +877,4 @@ For More Information:
 ## Interacting with SOAP APIs
 
 A **Simple Object Access Protocol** (SOAP) API defines how a client should interact with the API through XML and a schema called a WSDL.
-To interact with a SOAP-based API, you can either use the built-in generic [SOAP component](components/soap.mdx) to fetch and interpret the WSDL and make requests to the API, or you can write your own custom component leveraging the  SDK's [SOAP utility functions](custom-components/writing-custom-components.mdx#soap-utility-functions).
+To interact with a SOAP-based API, you can either use the built-in generic [SOAP component](components/soap.mdx) to fetch and interpret the WSDL and make requests to the API, or you can write your own custom component leveraging the SDK's [SOAP utility functions](custom-components/writing-custom-components.mdx#soap-utility-functions).

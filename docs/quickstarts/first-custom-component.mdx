@@ -68,7 +68,7 @@ What information will you need to send a Slack message? At minimum, we'll need t
 1. A message to send.
 
 To create those input fields for your component, you will create two new `input`s in `src/index.ts`.
-The `label` and `placeholder` will appear within the  web app when a user utilizes this action. `type` and `required` are self-explanatory.
+The `label` and `placeholder` will appear within the web app when a user utilizes this action. `type` and `required` are self-explanatory.
 
 Each input has a `clean` function, which helps with type hinting - the `util.types.toString` function will guarantee that the value of `webhookUrl` and `message` is cast to a string.
 
@@ -146,4 +146,4 @@ prism components:publish
 ## Test your new component
 
 Congratulations! You've published your first custom component!
-Try modifying your [first integration](getting-started/first-integration/build-first-integration.mdx) to use your new component, and verify that it posts to Slack like the official  Slack component does!
+Try modifying your [first integration](getting-started/first-integration/build-first-integration.mdx) to use your new component, and verify that it posts to Slack like the official Slack component does!

@@ -86,7 +86,7 @@ I'll also remove `src/index.test.ts`, as I'll implement unit testing later.
 Our component needs to reach out to a variable endpoint, and needs to accept an API Key.
 So, our connections will need to contain both endpoint and credential information
 To handle those things, let's create a function that takes a connection, and returns an HTTP client pointed at that endpoint.
-At  we really like [Axios](https://axios-http.com/), but you can use another HTTP client library if you like one better.
+At we really like [Axios](https://axios-http.com/), but you can use another HTTP client library if you like one better.
 
 ```bash title="Add Axios to our project"
 $ yarn add axios
@@ -123,8 +123,7 @@ export const apiKeyConnection = connection({
       type: "string",
       required: true,
       comments: "Acme API Endpoint URL",
-      default:
-        "https://my-json-server.typicode.com/-io/placeholder-data",
+      default: "https://my-json-server.typicode.com/-io/placeholder-data",
       example: "https://my-company.api.acme.com/",
     },
     apiKey: {

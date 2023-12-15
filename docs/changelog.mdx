@@ -24,7 +24,7 @@ Read more about customer-scoped custom components on the [Embedded Designer](emb
 
 ### New Components - September, 1 2023
 
-We are pleased to announce the following components have been recently added to the  library:
+We are pleased to announce the following components have been recently added to the library:
 
 - [BigCommerce](components/bigcommerce.mdx) - Manage your Products, Brands, Categories and more.
 - [Domo](components/domo.mdx) - Manage your Projects, Streams and various other actions within your business's data sets.
@@ -345,8 +345,8 @@ See the [Persist Data](components/persist-data.mdx) docs, or write your own comp
 
 Source code for the `@-io/prism` CLI tool and the embedded marketplace library, `@-io/marketplace`, have been added to public repositories on GitHub.
 
-`prism` wraps the [ API](api/api-overview.mdx) and provides users a way to perform CRUD (create, read, update, delete) operations on a variety of  resources (components, integrations, instances, customers, etc.) from the command line.
-Having it publicly available provides a great reference for developers looking to wrap the  API themselves.
+`prism` wraps the [ API](api/api-overview.mdx) and provides users a way to perform CRUD (create, read, update, delete) operations on a variety of resources (components, integrations, instances, customers, etc.) from the command line.
+Having it publicly available provides a great reference for developers looking to wrap the API themselves.
 
 The two projects join the custom component SDK, `@-io/spectral`, which was already publicly available:
 
@@ -403,7 +403,7 @@ Read more about the configuration wizard designer on the [Building Integrations]
 
 ### UI Redesign
 
-You've probably noticed that the  UI has gotten a facelift!
+You've probably noticed that the UI has gotten a facelift!
 Based on everything we've learned over the last couple of years, we've improved the UI to feel better and be more intuitive.
 
 <Screenshot
@@ -479,13 +479,13 @@ Bump your `@-io/marketplace` version to `3.1.0`, and add a `screenConfiguration`
 
 ### New Components - May 2022
 
-We have five new components this month (including a component to  itself - how meta!).
+We have five new components this month (including a component to itself - how meta!).
 
 - [IMAP](components/imap.mdx) - Fetch and manage email via IMAP
 - [Intercom](components/intercom.mdx) - Manage companies, contacts and tags on the Intercom platform
 - [Microsoft Sharepoint](components/ms-sharepoint.mdx) - Interact with sites, drives, and items within Microsoft Sharepoint
 - [Pretty Good Privacy (PGP)](components/pgp.mdx) - Create and translate encrypted messages
-- [](components/.mdx) - Interact with the  API to manage customers, integrations, instances, etc.
+- [](components/.mdx) - Interact with the API to manage customers, integrations, instances, etc.
 
 A full catalog is available [here](components/component-catalog.mdx).
 
@@ -652,7 +652,7 @@ To get started with filtering your embedded marketplace, update your [@-io/marke
 ### Labels for Customers, Integrations and Instances
 
 You can now assign labels to your [customers](customers.mdx#customer-labels), [integrations](integrations.mdx#integration-labels) and [instances](instances.mdx#creating-instances).
-This helps you keep your  account organized so you can find what you need quickly.
+This helps you keep your account organized so you can find what you need quickly.
 
 <Screenshot
   filename="changelog/labels.png"
@@ -895,14 +895,14 @@ For more information, check out our [webhook docs](/integration-triggers.mdx#web
 
 ### Granular Permissions for Third Parties
 
-You can now invite third-party vendors to log in to  with limited access to your integrations, custom components, and customers.
+You can now invite third-party vendors to log in to with limited access to your integrations, custom components, and customers.
 This is helpful if you need to collaborate on a new integration with a third-party vendor.
 You can grant them **view** or **edit** access to a particular integration or set of custom components, which allows them to test the integration against their app or service.
 You can debug and iterate faster on integration and custom component development, and can have one central place to view logs and test runs.
 You can also view logs of each test a third-party vendor performs to give you a sense of how their side of the integration development is progressing.
 
 Permissions are granular - third-party users only see what they've been given permissions to see.
-So, if you're integrating with two competing companies, or even with one of your competitors, they are not given insight into the other integrations, custom components, or customers you have in your  account.
+So, if you're integrating with two competing companies, or even with one of your competitors, they are not given insight into the other integrations, custom components, or customers you have in your account.
 
 Read more about the third-party user role in our [docs](users.mdx#third-party-users).
 
@@ -935,7 +935,7 @@ Check out our docs on [categorizing integrations](integrations.mdx#categorizing-
 
 ### Multi-Flow Integrations
 
- now provides full support for multi-flow integrations!
+now provides full support for multi-flow integrations!
 
 Integrations can now include multiple **flows**. (A flow is a trigger and a series of steps.) This enables you to provide your customers with a complex third-party integration that performs multiple related tasks, but is packaged and deployed as a single integration.
 
@@ -1087,7 +1087,7 @@ For more information on customer user roles and permissions, see the [users arti
 
 ### Custom Theming
 
-Organizations with an enterprise plan can now create a custom theme for the  web application.
+Organizations with an enterprise plan can now create a custom theme for the web application.
 This takes ’s white-label capabilities to the next level by allowing you to customize the color scheme and other UI elements to match your branding.
 Once you apply a custom theme, it will be displayed for both your team members and customers.
 
@@ -1139,7 +1139,7 @@ Read more about setting up config variables on our [integrations](building-integ
 Small amounts of data (state) can now be stored between instance executions.
 This is handy if you want to save some information about one instance execution to use later in a subsequent execution.
 
- handles several common state persistence scenarios for you through the new [Persist Data](components/persist-data.mdx) and [Process Data](components/process-data.mdx) components.
+handles several common state persistence scenarios for you through the new [Persist Data](components/persist-data.mdx) and [Process Data](components/process-data.mdx) components.
 Check out the [Integrations](building-integrations.mdx#persisting-data-between-runs) article to learn how to leverage state persistence in your integrations, or read the [Writing Custom Components](custom-components/writing-custom-components.mdx#execution-instance-and-cross-flow-state) article to incorporate state persistence into your custom components.
 
 </ChangeLogEntry>
@@ -1148,9 +1148,9 @@ Check out the [Integrations](building-integrations.mdx#persisting-data-between-r
 
 ### Terraform Provider
 
-You can now publish  integrations and custom components using the  Terraform Provider.
+You can now publish integrations and custom components using the Terraform Provider.
 
-This helps you incorporate  into your existing CI/CD pipeline, and push changes to integrations and custom components automatically when pull requests are approved.
+This helps you incorporate into your existing CI/CD pipeline, and push changes to integrations and custom components automatically when pull requests are approved.
 
 </ChangeLogEntry>
 

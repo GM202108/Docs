@@ -11,7 +11,7 @@ Be sure that you've [set up your environment](getting-started/first-custom-compo
 
 ## Initialize your component
 
-The  CLI tool, `prism`, has a variety of commands, one of which initializes a new custom component project.
+The CLI tool, `prism`, has a variety of commands, one of which initializes a new custom component project.
 Run `prism components:init my-first-component`. You can give your component a description of "My First Component", and for **Type of Connection** select **Basic Connection**.
 
 ```bash title="Initialize a new component"
@@ -134,7 +134,7 @@ prism components:publish
 
 ## Test your component
 
-Log in to  and create a new integration.
+Log in to and create a new integration.
 Add an action and search for "My First Component".
 Select your component and action.
 
@@ -166,6 +166,6 @@ Open up the **Step Results** tab in the test drawer, and verify that your **Hell
 Developers learn best by trying things out in code.
 Try to add a middle name input, but only print the middle initial, or add a title input that presents a [dropdown menu](custom-components/writing-custom-components.mdx#dropdown-menu-inputs), so users can select "Mr.", "Mrs.", "Dr.", etc.
 
-Make sure to `npm run build` and `prism components:publish` to publish new component changes to , and within the  integration designer, you'll need to click **Component Versions** and bump your component version to the latest version.
+Make sure to `npm run build` and `prism components:publish` to publish new component changes to , and within the integration designer, you'll need to click **Component Versions** and bump your component version to the latest version.
 
 Once you're ready, head to the next step where we'll cover making API calls from a custom component.

@@ -10,7 +10,7 @@ import Icon from "@mui/material/Icon";
 
 Access to logs is critical for building, deploying, and supporting integrations.
 If an [alert monitor](monitoring-and-alerting.mdx) alerts your team to an instance behaving unexpectedly, your team needs to know precisely when an instance ran, the status of the instance's steps as they finished, and what happened if a step failed to run as expected.
- provides access to logs of all instance invocations and tests.
+provides access to logs of all instance invocations and tests.
 
 You can also elect to [stream logs](#external-log-streaming) to an external logging system.
 
@@ -112,7 +112,7 @@ In addition to logs issuing from components, you will see the following types of
 
 ## Log levels
 
-Log levels in  include `debug`, `info`, `warn`, and `error`.
+Log levels in include `debug`, `info`, `warn`, and `error`.
 `debug` and `info` lines are presented in the web app with a green dot <Icon sx={{ color: "rgb(46, 206, 149)"}}>lens</Icon> next to them.
 `warn` messages are accompanied by yellow dots <Icon sx={{ color: "rgb(220, 173, 5)"}}>lens</Icon>, and `error` by red dots <Icon sx={{ color: "rgb(244, 67, 54)"}}>lens</Icon>.
 
@@ -124,9 +124,9 @@ Log levels in  include `debug`, `info`, `warn`, and `error`.
 
 ## External log streaming
 
-Organizations on an [enterprise plan](organization.mdx#managing-billing) can configure  logs to stream to an external logging service (like [DataDog](https://www.datadoghq.com/) or [New Relic](https://newrelic.com/)), or to your own proprietary logging system.
+Organizations on an [enterprise plan](organization.mdx#managing-billing) can configure logs to stream to an external logging service (like [DataDog](https://www.datadoghq.com/) or [New Relic](https://newrelic.com/)), or to your own proprietary logging system.
 Logging services generally have robust APIs that accept HTTP POST requests with JSON payloads containing log messages.
-All you need to configure in  is where to send the logs, what format the log data should take, and specify any headers that your logging service requires (like an authorization header or API key).
+All you need to configure in is where to send the logs, what format the log data should take, and specify any headers that your logging service requires (like an authorization header or API key).
 
 To configure log streaming to an external service, open **Settings** on the left-hand sidebar, and then select the **Log Streams** tab.
 Create a new log stream by clicking **+ Log stream**.

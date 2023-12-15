@@ -28,8 +28,7 @@ At the top of your `index.ts` file, add:
 ```typescript
 import { createClient } from "@-io/spectral/dist/clients/http";
 
-const baseUrl =
-  "https://my-json-server.typicode.com/-io/placeholder-data";
+const baseUrl = "https://my-json-server.typicode.com/-io/placeholder-data";
 ```
 
 Then, within `index.ts` add a couple of actions - one that fetches all items, and one that fetches a specific item by its ID:
@@ -143,8 +142,7 @@ export const apiKeyConnection = connection({
       placeholder: "Item Endpoint URL",
       type: "string",
       required: true,
-      default:
-        "https://my-json-server.typicode.com/-io/placeholder-data",
+      default: "https://my-json-server.typicode.com/-io/placeholder-data",
     },
     apiKey: {
       label: "Acme API Key",
