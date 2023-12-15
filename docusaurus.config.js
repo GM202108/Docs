@@ -110,7 +110,7 @@ const config = {
     footer: {
       style: "dark",
       links: [
-        {
+        /*{
           title: "Platform",
           items: [
             {
@@ -144,7 +144,7 @@ const config = {
               target: "_parent",
             },
           ],
-        },
+        },*/
         {
           title: "Developers",
           items: [
@@ -174,7 +174,7 @@ const config = {
             },
           ],
         },
-        {
+        /*{
           title: "Company",
           items: [
             {
@@ -208,7 +208,7 @@ const config = {
               target: "_parent",
             },
           ],
-        },
+        },*/
         {
           title: "Contact",
           items: [
