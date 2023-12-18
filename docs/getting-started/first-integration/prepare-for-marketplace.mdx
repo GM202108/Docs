@@ -1,22 +1,23 @@
 ---
 id: prepare-for-marketplace
-title: "Prepare Your Integration for Marketplace"
+title: "Prepare su integración para el mercado"
 sidebar_label: "Prepare for Marketplace"
-description: Prepare your integration for the integration marketplace
+description: Prepare su integración para el mercado de integración
 ---
 
 import Screenshot from "@site/src/components/screenshot";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
-In this step you'll prepare the [integration you created](getting-started/first-integration/build-first-integration.mdx) for the [integration marketplace](integration-marketplace.mdx).
-Once the integration has been added to your integration marketplace, your customers can activate it for themselves.
-The can do that by logging in to using [customer users](users.mdx#customer-users), or if you [embed the marketplace](embedding-marketplace.mdx) in your app, they can activate the integration without leaving your app.
+En este paso, prepararás la [integración que creaste](getting-started/first-integration/build-first-integration.mdx) para el [mercado de integraciones](integration-marketplace.mdx).
+Una vez que la integración se haya añadido a tu mercado de integraciones, tus clientes podrán activarla por sí mismos.
+Pueden hacerlo iniciando sesión con [usuarios de clientes](users.mdx#customer-users), o si [incrustas el mercado](embedding-marketplace.mdx) en tu aplicación, podrán activar la integración sin salir de tu aplicación.
 
-## Adding a logo
+## Agregar un logotipo
 
-Integrations in the marketplace look best with a logo.
-Since this is a Slack integration, it makes sense to use the Slack logo.
-Right-click this image and click "Save As" to save a copy locally:
+Las integraciones en el mercado se ven mejor con un logotipo.
+Dado que esta es una integración de Slack, tiene sentido usar el logotipo de Slack.
+Haz clic derecho en esta imagen y selecciona "Guardar como" para guardar una copia localmente:
+
 
 <Screenshot
   filename="getting-started/prepare-for-integration-marketplace/slack-icon.png"
@@ -25,8 +26,8 @@ Right-click this image and click "Save As" to save a copy locally:
   appFrame={false}
 />
 
-Next, open your integration back up and click the image icon to the left of your integration's name.
-Select the Slack icon you just downloaded to make that the icon for this integration.
+A continuación, abre de nuevo tu integración y haz clic en el icono de imagen a la izquierda del nombre de tu integración.
+Selecciona el icono de Slack que acabas de descargar para que sea el icono de esta integración.
 
 <Screenshot
   filename="getting-started/prepare-for-integration-marketplace/add-icon.png"
@@ -34,12 +35,12 @@ Select the Slack icon you just downloaded to make that the icon for this integra
   alt="Add icon to integration in  app"
 />
 
-## Give your integration a category
+## Asigna una categoría a tu integración
 
-Click the **Description** button at the top of your integration and give your integration a category and description.
-This will help your customers filter and find your integration easier.
+Haz clic en el botón **Description** en la parte superior de tu integración y asigna una categoría y descripción a tu integración.
+Esto ayudará a tus clientes a filtrar y encontrar tu integración más fácilmente.
 
-Since this is a Slack integration, a category of "communication" makes sense, but you can choose whatever category you want.
+Dado que esta es una integración de Slack, tiene sentido utilizar la categoría "comunicación", pero puedes elegir la categoría que desees.
 
 <Screenshot
   filename="getting-started/prepare-for-integration-marketplace/add-category.png"
@@ -47,13 +48,14 @@ Since this is a Slack integration, a category of "communication" makes sense, bu
   alt="Add category to integration in  app"
 />
 
-## Clean up config variables
+## Limpiar las variables de configuración
 
-For integrations with few config variables, this may not be necessary, but it's nice to organize required config variables with headers.
-Click the **Config Page** button within your integration again to open the Config Wizard.
-Add two headers by clicking the **+ Text/Image** button - one for reading "Slack Info" and another reading "Todo App Info". Drag the headers and config variables to rearrange them.
+Para integraciones con pocas variables de configuración, esto puede no ser necesario, pero es bueno organizar las variables de configuración requeridas con encabezados.
+Haz clic nuevamente en el botón **Config Page** dentro de tu integración para abrir el Asistente de Configuración.
+Añade dos encabezados haciendo clic en el botón **+ Text/Image** - uno que diga "Slack Info" y otro que diga "Todo App Info". Arrastra los encabezados y las variables de configuración para reorganizarlos.
 
-That'll give your customers a more polished configuration experience when they deploy this integration:
+Esto proporcionará a tus clientes una experiencia de configuración más pulida cuando desplieguen esta integración:
+
 
 <Screenshot
   filename="getting-started/prepare-for-integration-marketplace/clean-up-config-variables.png"
@@ -61,11 +63,13 @@ That'll give your customers a more polished configuration experience when they d
   alt="Clean up config variables in  app"
 />
 
-While you're in the configuration wizard designer, open each config variable by clicking the pencil icon, and remove the default value from each - that will require your customers to enter their own values for each config variable.
+## Limpiar las variables de configuración
 
-## Re-publish your integration
+Mientras estás en el diseñador del asistente de configuración, abre cada variable de configuración haciendo clic en el ícono de lápiz y elimina el valor predeterminado de cada una, lo que requerirá que tus clientes ingresen sus propios valores para cada variable de configuración.
 
-Open the **Version History** drawer and **Save & Publish** a new version of this integration that includes your config variable and icon changes.
+## Vuelve a publicar tu integración
+
+Abre el cajón de **Version History** y **Save & Publish** una nueva versión de esta integración que incluya tus cambios en las variables de configuración e icono.
 
 <Screenshot
   filename="getting-started/prepare-for-integration-marketplace/republish.png"
@@ -73,9 +77,10 @@ Open the **Version History** drawer and **Save & Publish** a new version of this
   alt="Republish integration in  app"
 />
 
-## Add your integration to the integration marketplace
+## Agregar tu integración al mercado de integraciones
 
-Click **Marketplace** on the left-hand sidebar and select **+ Add integration** from the top right.
+Haz clic en **Marketplace** en la barra lateral izquierda y selecciona **+ Agregar integración** en la parte superior derecha.
+
 
 <Screenshot
   filename="getting-started/prepare-for-integration-marketplace/add-integration-to-marketplace.png"
@@ -83,7 +88,8 @@ Click **Marketplace** on the left-hand sidebar and select **+ Add integration** 
   alt="Add integration to integration marketplace vis  app"
 />
 
-Select your published integration from this list, click **Reconfigure**, and then give your marketplace offering an **Overview**:
+Selecciona tu integración publicada de esta lista, haz clic en **Reconfigurar**, y luego proporciona una **Descripción general** para tu oferta en el mercado:
+
 
 <Screenshot
   filename="getting-started/prepare-for-integration-marketplace/configure-integration-marketplace.png"
@@ -91,13 +97,14 @@ Select your published integration from this list, click **Reconfigure**, and the
   alt="Configur integration overview for integration marketplace via  app"
 />
 
-Click **Update** when you are done.
+Haz clic en **Actualizar** cuando hayas terminado.
 
-## Let customers activate this integration
+## Permite que los clientes activen esta integración
 
-Now, you can either [add customer users](users.mdx#customer-users) to and let them activate this integration, or you can [embed marketplace](embedding-marketplace.mdx) in your own app so users can seamlessly activate integrations without having to leave your app.
+Ahora bien, puedes [añadir usuarios del cliente](users.mdx#customer-users) y permitirles activar esta integración, o puedes [incrustar el mercado](embedding-marketplace.mdx) en tu propia aplicación para que los usuarios puedan activar las integraciones sin salir de tu aplicación.
 
-Your integration within an embedded marketplace would look like this:
+Tu integración dentro de un mercado incrustado se vería así:
+
 
 <Screenshot
   filename="getting-started/prepare-for-integration-marketplace/embedded-marketplace-list.png"
@@ -105,7 +112,8 @@ Your integration within an embedded marketplace would look like this:
   alt="Sample list of integrations in embedded marketplace"
 />
 
-Clicking on the integration brings customers to a screen with the description and overview you set:
+Al hacer clic en la integración, los clientes serán llevados a una pantalla con la descripción y la descripción general que has establecido:
+
 
 <Screenshot
   filename="getting-started/prepare-for-integration-marketplace/embedded-marketplace-overview.png"
@@ -113,7 +121,7 @@ Clicking on the integration brings customers to a screen with the description an
   alt="Activate integration from embedded marketplace"
 />
 
-If a customer chooses to activate this integration, their configuration experience looks clean and straight-forward, thanks to the changes you made to the configuration experience (above):
+Si un cliente elige activar esta integración, su experiencia de configuración se verá limpia y sencilla, gracias a los cambios que realizaste en la experiencia de configuración (arriba):
 
 <Screenshot
   filename="getting-started/prepare-for-integration-marketplace/embedded-marketplace-configure.png"
@@ -121,11 +129,10 @@ If a customer chooses to activate this integration, their configuration experien
   alt="Configure integration from embedded marketplace"
 />
 
-## Next steps
+## Siguientes pasos
 
-You are now ready to create your own integrations.
-Here are a few things we recommend you try next:
+Ahora estás listo para crear tus propias integraciones. Aquí hay algunas cosas que te recomendamos probar a continuación:
 
-- Modify your integration to use [additional components](components/component-catalog.mdx).
-- Write [your own component](custom-components/code-vs-custom-components.mdx) to accomplish industry-specific business logic for your company.
-<!-- - Continue with the next few getting started guides, which cover more advanced topics like webhooks and custom component development. -->
+- Modifica tu integración para usar [componentes adicionales](components/component-catalog.mdx).
+- Escribe [tu propio componente](custom-components/code-vs-custom-components.mdx) para realizar lógica empresarial específica de la industria para tu empresa.
+<!-- - Continúa con las siguientes guías de inicio, que cubren temas más avanzados como webhooks y desarrollo de componentes personalizados. -->

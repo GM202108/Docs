@@ -1,25 +1,28 @@
 ---
 id: build-first-integration
-title: "Build Your First Integration"
-description: Create your first  Integration, pulling down JSON from a REST API, and sending data to Slack
+title: "Construya su primera integración"
+description: Cree su primera integración, extrayendo JSON de una API REST y enviando datos a Slack.
 ---
 
 import Icon from "@mui/material/Icon";
 import Screenshot from "@site/src/components/screenshot";
 
-This tutorial will walk you through some basic concepts of integration development.
-You will:
+Este tutorial te guiará a través de algunos conceptos básicos del desarrollo de integraciones.
 
-- Fetch data from a third-party "app"
-- Learn how data flows between steps of an integration
-- Use a loop to iterate over the data you fetch
-- Use logical branches to determine what to do with the data
-- Send the data conditionally to another third-party
+Aprenderás:
 
-## Integration overview
+- Obtener datos de una "aplicación" de terceros
+- Comprender cómo fluyen los datos entre los pasos de una integración
+- Utilizar un bucle para iterar sobre los datos obtenidos
+- Emplear ramificaciones lógicas para determinar qué hacer con los datos
+- Enviar los datos condicionalmente a otro servicio de terceros
 
-The integration you build here will fetch data (a list of to-do tasks) from an API, loops over the list, determine which tasks are marked "incomplete", and notify you via Slack of any "incomplete" tasks.
-[Placeholder data](https://my-json-server.typicode.com/-io/placeholder-data/todo) will stand in as a placeholder for the to-do list "API".
+## Resumen de la integración
+
+La integración que construirás aquí obtendrá datos (una lista de tareas pendientes) de una API, recorrerá la lista, determinará qué tareas están marcadas como "incompletas" y te notificará a través de Slack sobre cualquier tarea "incompleta".
+
+[Datos de ejemplo](https://my-json-server.typicode.com/-io/placeholder-data/todo) servirán como un marcador de posición para la "API" de la lista de tareas pendientes.
+
 
 <Screenshot
   filename="getting-started/build-first-integration/completed-integration.png"
@@ -27,17 +30,18 @@ The integration you build here will fetch data (a list of to-do tasks) from an A
   alt="Sample integration diagram in  app"
 />
 
-You'll design this integration to be **configurable**, so the same integration can be deployed to multiple customers with unique API endpoints and Slack Webhook URLs.
+Diseñarás esta integración para que sea **configurable**, de modo que la misma integración se pueda implementar en múltiples clientes con puntos finales de API y URLs de webhook de Slack únicos.
 
-## Prerequisites
+## Requisitos previos
 
-To run this integration, you will need to have a Slack account (you can create one for free) and generate a [Slack webhook](components/slack.mdx#webhook-url).
-Take note of the webhook you generate.
-It should be of the form `https://hooks.slack.com/services/SOME/API/KEY`.
+Para ejecutar esta integración, necesitarás tener una cuenta de Slack (puedes crear una de forma gratuita) y generar un [webhook de Slack](components/slack.mdx#webhook-url).
+Toma nota del webhook que generes.
+Debería tener el formato `https://hooks.slack.com/services/SOME/API/KEY`.
 
-## Create a new integration
+## Crear una nueva integración
 
-Click **Integrations** from the left-hand sidebar, and then click **+ Add integration** in the upper-right.
+Haz clic en **Integraciones** en la barra lateral izquierda y luego haz clic en **+ Agregar integración** en la esquina superior derecha.
+
 
 <Screenshot
   filename="getting-started/build-first-integration/add-integration.png"
@@ -45,22 +49,23 @@ Click **Integrations** from the left-hand sidebar, and then click **+ Add integr
   alt="Integrations page in  app"
 />
 
-Give the integration a name of "_My First Integration_".
-You can choose to give your integration an optional description, and can categorize the integration if you wish, though both fields can be left blank.
+Dale a la integración un nombre de "_My First Integration_".
+Puedes optar por darle a tu integración una descripción opcional y categorizar la integración si lo deseas, aunque ambos campos se pueden dejar en blanco.
 
-After clicking **Next**, select an integration trigger.
-An integration's trigger determines what should cause the integration to run.
-For this integration, select a **Schedule** Trigger, which allows you to run the integration on a schedule (once a day, once an hour, etc).
-After selecting the trigger, you'll find yourself in the integration designer.
+Después de hacer clic en **Siguiente**, selecciona un desencadenador de integración.
+El desencadenador de una integración determina qué debería hacer que la integración se ejecute.
+Para esta integración, selecciona un Desencadenador de **Programación**, que te permite ejecutar la integración en un horario (una vez al día, una vez por hora, etc.).
+Después de seleccionar el desencadenador, te encontrarás en el diseñador de integración.
 
-### Configure the integration trigger
+### Configurar el desencadenador de integración
 
-First, let's determine what will cause this integration to run.
+Primero, determinemos qué hará que esta integración se ejecute.
 
-Click on the integration trigger.
-This will open a configuration drawer on the left side of the screen.
-Then, click **Add a value** in the **Schedule** field.
-Configure the trigger to run once daily at a time of your choosing:
+Haz clic en el desencadenador de integración.
+Esto abrirá un panel de configuración en el lado izquierdo de la pantalla.
+Luego, haz clic en **Agregar un valor** en el campo **Programación**.
+Configura el desencadenador para que se ejecute una vez al día a la hora que elijas:
+
 
 <Screenshot
   filename="getting-started/build-first-integration/configure-integration-trigger.png"
@@ -68,10 +73,11 @@ Configure the trigger to run once daily at a time of your choosing:
   alt="Integration trigger in  app"
 />
 
-### Pull down to-do data
+### Obtener datos de las tareas pendientes
 
-Your first step is responsible for fetching data from the to-do API.
-Add an **HTTP - GET Request** action by clicking the <Icon>add_circle</Icon> button below the trigger and searching for the **HTTP** component.
+Tu primer paso es responsable de obtener datos de la API de tareas pendientes.
+Añade una acción **HTTP - Petición GET** haciendo clic en el botón <Icon>add_circle</Icon> debajo del desencadenador y buscando el componente **HTTP**.
+
 
 <Screenshot
   filename="getting-started/build-first-integration/add-http-action-1.png"
@@ -79,7 +85,7 @@ Add an **HTTP - GET Request** action by clicking the <Icon>add_circle</Icon> but
   alt="HTTP Component selection in  app"
 />
 
-Select the **HTTP** component, and then select the **Get Request** action.
+Selecciona el componente **HTTP** y luego elige la acción **Petición GET**.
 
 <Screenshot
   filename="getting-started/build-first-integration/add-http-action-2.png"
@@ -87,20 +93,21 @@ Select the **HTTP** component, and then select the **Get Request** action.
   alt="Get Request action selection for HTTP Component in  app"
 />
 
-#### Make the URL configurable
+#### Hacer la URL configurable
 
-Now we need to tell the step where to look for the to-do API.
-We should make this configurable, so one customer could look at one endpoint, and another customer could look at another endpoint.
+Ahora necesitamos decirle al paso dónde buscar la API de tareas pendientes.
+Deberíamos hacer esto configurable, para que un cliente pueda mirar un punto final, y otro cliente pueda mirar otro punto final.
 
-Click the URL field in the left-hand side of your screen and open the **Config Variables** tab.
-Click <Icon>add_circle</Icon> next to the dropdown to create a new config variable.
-Within the dialogue that pops up name the new config variable **To-Do API Endpoint** and set this as its default value:
+Haz clic en el campo de URL en el lado izquierdo de tu pantalla y abre la pestaña **Variables de Configuración**.
+Haz clic en <Icon>add_circle</Icon> junto al menú desplegable para crear una nueva variable de configuración.
+Dentro del diálogo que aparece, nombra la nueva variable de configuración **To-Do API Endpoint** y establece esto como su valor predeterminado:
 
 `https://my-json-server.typicode.com/-io/placeholder-data/todo`
 
-Click **Accept** to save this config variable and use it as input to this step.
+Haz clic en **Aceptar** para guardar esta variable de configuración y usarla como entrada para este paso.
 
-The **Response Type** field should keep its default **JSON** value and you can leave all other input fields alone.
+El campo **Tipo de Respuesta** debe mantener su valor predeterminado de **JSON** y puedes dejar en blanco todos los demás campos de entrada.
+
 
 <Screenshot
   filename="getting-started/build-first-integration/configure-http-action.png"
@@ -108,11 +115,12 @@ The **Response Type** field should keep its default **JSON** value and you can l
   alt="Configure HTTP action in  app"
 />
 
-At this point you should test your single-step integration to verify your first step pulls to-do data from the to-do API successfully.
+En este punto, deberías probar tu integración de un solo paso para verificar que tu primer paso obtiene datos de la API de tareas pendientes correctamente.
 
-Click **SAVE & RUN TEST** button to save and run your integration.
-This will open the **TEST RUNNER** drawer.
-If you open up the **Step Outputs** tab, you should see the data retrieved from the to-do API:
+Haz clic en el botón **GUARDAR Y EJECUTAR PRUEBA** para guardar y ejecutar tu integración.
+Esto abrirá el cajón de **EJECUTOR DE PRUEBAS**.
+Si abres la pestaña **Salidas del Paso**, deberías ver los datos recuperados de la API de tareas pendientes:
+
 
 <Screenshot
   filename="getting-started/build-first-integration/test-http-action.png"
@@ -120,14 +128,15 @@ If you open up the **Step Outputs** tab, you should see the data retrieved from 
   alt="Test HTTP action in  app"
 />
 
-The important thing to note here is that those step results (the list of to-do items in this case) are available to use in subsequent steps.
+Lo importante aquí es tener en cuenta que esos resultados del paso (la lista de tareas pendientes en este caso) están disponibles para su uso en pasos posteriores.
 
-### Loop over to-do tasks
+### Iterar sobre las tareas pendientes
 
-Add another action by clicking the <Icon>add_circle</Icon> icon below the action you just added.
-This time choose the **Loop** component, **Loop Over Items** action.
+Agrega otra acción haciendo clic en el icono <Icon>add_circle</Icon> debajo de la acción que acabas de agregar.
+Esta vez elige el componente **Loop**, la acción **Loop Over Items**.
 
-Let the step know what items to loop over by clicking the **Items** input, and from within the **Reference Search** box that comes up, enter `results`.
+Haz que el paso sepa sobre qué elementos iterar haciendo clic en la entrada **Items**, y dentro del cuadro de búsqueda de referencias que aparece, ingresa `results`.
+
 
 <Screenshot
   filename="getting-started/build-first-integration/configure-loop-action.png"
@@ -135,10 +144,10 @@ Let the step know what items to loop over by clicking the **Items** input, and f
   alt="Loop over items in  app"
 />
 
-Click **SAVE & RUN TEST** again.
-In the **Step Outputs** tab, you'll now see the results of the loop step.
-Note that it has a `currentItem` value - this represents the to-do task that is currently being looped over.
-We'll use that value for the next step.
+Haz clic en **SAVE & RUN TEST** nuevamente.
+En la pestaña **Step Outputs**, ahora verás los resultados del paso de bucle.
+Ten en cuenta que tiene un valor `currentItem`; esto representa la tarea pendiente que se está iterando actualmente.
+Utilizaremos ese valor para el próximo paso.
 
 <Screenshot
   filename="getting-started/build-first-integration/test-loop-action.png"
@@ -146,17 +155,18 @@ We'll use that value for the next step.
   alt="Test loop action in  app"
 />
 
-### Check if a to-do task is completed
+### Verificar si una tarea pendiente está completada
 
-Now you need to determine if each to-do task is complete or not, so you can send incomplete tasks as Slack messages.
+Ahora necesitas determinar si cada tarea pendiente está completa o no, para que puedas enviar mensajes de Slack sobre las tareas incompletas.
 
-Within the loop, add a new step.
-This time select the **Branch** component, **Branch on Expression** action.
+Dentro del bucle, agrega un nuevo paso.
+Esta vez, selecciona el componente **Branch**, acción **Branch on Expression**.
 
-Create a branch named "Completed".
-Under **Field** open the **Reference** tab and select your loop step as the **Reference Step**.
-Enter `currentItem.completed` as the **Reference Search**.
-Under the **Operator** drop down, select `is true` to check if the current to-do item's `completed` value is `true`.
+Crea una rama llamada "Completada".
+Bajo **Field**, abre la pestaña **Reference** y selecciona tu paso de bucle como **Reference Step**.
+Ingresa `currentItem.completed` en **Reference Search**.
+En el menú desplegable **Operator**, selecciona `is true` para verificar si el valor `completed` de la tarea pendiente actual es `true`.
+
 
 <Screenshot
   filename="getting-started/build-first-integration/configure-branch-action.png"
@@ -164,12 +174,13 @@ Under the **Operator** drop down, select `is true` to check if the current to-do
   alt="Configure branch action in  app"
 />
 
-### Post the message to Slack
+### Enviar el mensaje a Slack
 
-We want to send a Slack message when a task is _not_ complete.
-So, add a **Slack** component, **Slack Message From Webhook** action under the **Else** branch.
+Queremos enviar un mensaje a Slack cuando una tarea _no_ está completa.
+Así que agrega un componente **Slack**, acción **Slack Message From Webhook** debajo de la rama **Else**.
 
-In the **Message** input field choose a **Reference**, select the **Loop Over To-Do Items** as your **Reference Step** and enter `currentItem.task` for the **Reference Search**:
+En el campo de entrada **Message**, elige una **Reference**, selecciona **Loop Over To-Do Items** como tu **Reference Step** e ingresa `currentItem.task` en **Reference Search**:
+
 
 <Screenshot
   filename="getting-started/build-first-integration/configure-slack-action.png"
@@ -177,44 +188,45 @@ In the **Message** input field choose a **Reference**, select the **Loop Over To
   alt="Configure Slack action in  app"
 />
 
-This will instruct the Slack component to send the current tasks's description as a Slack message.
+#### Configurar la conexión con Slack
 
-#### Configure the Slack connection
+Una **conexión** es una variable de configuración que contiene la información necesaria para que un paso en tu integración interactúe con una aplicación o servicio externo.
+Las conexiones a menudo contienen puntos finales, nombres de usuario, claves de API, etc.
+En este caso, queremos configurar Slack para usar una URL específica de webhook (la que creaste [anteriormente](#prerequisites)) para enviar mensajes.
+Ten en cuenta que la entrada **Connection** ya se ha rellenado con una variable de configuración de conexión para ti.
 
-A **connection** is a config variable that contains the information necessary for a step in your integration to interact with an external app or service.
-Connections often contain endpoints, usernames, API keys, etc.
-In this case, we want to configure Slack to use a specific webhook URL (the one you created [above](#prerequisites)) to send messages.
-Note that the **Connection** input has already been populated with a connection config variable for you.
+Abre el **Configuration Wizard** desde el botón en el lado derecho de la pantalla y abre la variable de configuración de conexión **Slack Connection** que se creó para ti.
+Bajo **Connection Type**, cámbialo a **Slack**, **Webhook URL**.
 
-Open up the **Configuration Wizard** from the button on the right side of the screen and open the **Slack Connection** config variable that was created for you.
-Under **Connection Type**, change it to a **Slack**, **Webhook URL**.
+Abre la entrada **Webhook URL** de la conexión y dale un valor predeterminado con la URL del webhook de Slack que configuraste [anteriormente](#prerequisites):
 
-Open up the connection's **Webhook URL** input and give it a default value of the Slack webhook URL you configured [above](#prerequisites):
 
 <Screenshot
   filename="getting-started/build-first-integration/slack-default-webhook-url.png"
   alt="Set Slack default webhook URL in  app"
 />
 
-## Test the integration
+## Probar la integración
 
-Now it's time to test your integration to verify it works properly.
+Ahora es el momento de probar tu integración para verificar que funcione correctamente.
 
-Click the **Save & Run Test** button once more.
-Then, open the **Test Runner** tab from the left-hand sidebar.
-You'll see output from your test run.
-By clicking through **Step Outputs** you can see the output that each step generated.
-You should see several "incomplete" to-do tasks appear in your Slack channel as the integration runs.
+Haz clic en el botón **Save & Run Test** una vez más.
+Luego, abre la pestaña **Test Runner** en la barra lateral izquierda.
+Verás la salida de tu prueba.
+Al hacer clic en **Step Outputs**, podrás ver la salida que generó cada paso.
+Deberías ver varios elementos de la lista de tareas "incompletas" aparecer en tu canal de Slack a medida que se ejecuta la integración.
+
 
 <Screenshot
   filename="getting-started/build-first-integration/test-integration.png"
   alt="Test sample integration in  app"
 />
 
-## Tidy up your integration
+## Organizar tu integración
 
-Though it's not necessary, it's helpful to add descriptive names to each of your integration's steps so your team members know exactly what each one does.
-You can also add a step under the **Completed** branch to do something with completed to-do items if you'd like.
+Aunque no es necesario, es útil agregar nombres descriptivos a cada uno de los pasos de tu integración para que los miembros de tu equipo sepan exactamente qué hace cada uno.
+También puedes agregar un paso bajo la rama **Completado** para hacer algo con las tareas de la lista que están completadas, si lo deseas.
+
 
 <Screenshot
   filename="getting-started/build-first-integration/completed-integration.png"
@@ -222,12 +234,13 @@ You can also add a step under the **Completed** branch to do something with comp
   alt="Sample integration diagram in  app"
 />
 
-## Publish the integration
+## Publicar la integración
 
-Now that you have a working integration, it's time to publish it so it can be deployed to customers.
+Ahora que tienes una integración funcional, es hora de publicarla para que pueda implementarse en clientes.
 
-Open the **Version History** tab on the left-hand side.
-Enter a publication message so others know what you've changed, and then click the **Save & Publish** button.
+Abre la pestaña **Historial de versiones** en el lado izquierdo.
+Ingresa un mensaje de publicación para que otros sepan qué cambios has realizado y luego haz clic en el botón **Guardar y publicar**.
+
 
 <Screenshot
   filename="getting-started/build-first-integration/publish-integration.png"
@@ -235,12 +248,12 @@ Enter a publication message so others know what you've changed, and then click t
   alt="Publish the integration in  app"
 />
 
-## Next steps
+## Siguientes pasos
 
-Congratulations! You created your first integration! Here are a few things you should try next:
+¡Felicidades! ¡Has creado tu primera integración! Aquí tienes algunas cosas que podrías intentar a continuación:
 
-- Alter the Slack message you're sending using [template inputs](building-integrations.mdx#template-inputs).
-- Swap out the HTTP GET action for a different data source component (perhaps pull from an [SFTP](components/sftp.mdx) server)?
-- Write your message out to a file in [Dropbox](components/dropbox.mdx) or [Amazon S3](components/aws-s3.mdx) instead of Slack.
+- Modifica el mensaje de Slack que estás enviando utilizando [entradas de plantilla](building-integrations.mdx#template-inputs).
+- Cambia la acción HTTP GET por un componente de origen de datos diferente (¿quizás extraer datos de un servidor [SFTP](components/sftp.mdx))?
+- Escribe tu mensaje en un archivo en [Dropbox](components/dropbox.mdx) o [Amazon S3](components/aws-s3.mdx) en lugar de Slack.
 
-When you are ready, move on to the next tutorial to [deploy your integration](getting-started/first-integration/deploy-first-integration.mdx) to a customer.
+Cuando estés listo, pasa al siguiente tutorial para [implementar tu integración](getting-started/first-integration/deploy-first-integration.mdx) en un cliente.

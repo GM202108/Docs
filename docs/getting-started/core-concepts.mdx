@@ -1,44 +1,44 @@
 ---
 id: core-concepts
-title: Core Concepts
-description: introduction and terminology
+title: Conceptos básicos
+description: Introducción y terminología
 ---
 
 import Screenshot from "@site/src/components/screenshot";
 
-## Organizations, customers, and users
+## Organizaciones, clientes y usuarios
 
-writes software for other software companies who have their own customers, so it's important to disambiguate terms like [organization](organization.mdx) and [customer](customers.mdx).
+Escribe software para otras empresas de software que tienen sus propios clientes, por lo que es importante desambiguar términos como [organización](organization.mdx) y [cliente](customers.mdx).
 
-When your company signs up with , you create an [organization](organization.mdx) (sometimes referred to as an "account" or "tenant").
-Your organization has multiple [customers](customers.mdx) whom you can manage - those are _your_ customers.
-[Users](users.mdx) can be created for both your organization and your customers, with organization users having broader, company-wide roles and permissions, and customer users having permissions limited in scope to their company.
-To keep things separate, we often refer to organization users as "team members" in docs and the web app.
+Cuando tu empresa se registra con , creas una [organización](organization.mdx) (a veces denominada "cuenta" o "inquilino").
+Tu organización tiene varios [clientes](customers.mdx) a los que puedes gestionar; esos son _tus_ clientes.
+[Usuarios](users.mdx) pueden crearse tanto para tu organización como para tus clientes, siendo los usuarios de la organización los que tienen roles y permisos más amplios en toda la empresa, y los usuarios de los clientes tienen permisos limitados a su empresa.
+Para mantener las cosas separadas, a menudo nos referimos a los usuarios de la organización como "miembros del equipo" en la documentación y la aplicación web.
 
 <Screenshot
   filename="getting-started/introduction/organization_and_customers.png"
   maxWidth="500px"
-  alt="Diagram of an organization with customers"
+  alt="Diagrama de una organización con clientes"
 />
 
-## Integrations and instances
+## Integraciones e instancias
 
-Within your [organization](organization.mdx) you can assemble an [integration](integrations.mdx) by tying together multiple [component](components.mdx)'s actions.
-That integration can be tested using our [integration designer](testing-integrations.mdx).
-Once you are satisfied with your integration, it can be [published](integrations.mdx#publishing-an-integration), and [instances](instances.mdx) of the integration can be configured and deployed to one or many of your [customers](customers.mdx).
+Dentro de tu [organización](organization.mdx), puedes ensamblar una [integración](integrations.mdx) al vincular las acciones de varios [componentes](components.mdx).
+Esa integración puede probarse mediante nuestro [diseñador de integraciones](testing-integrations.mdx).
+Una vez que estés satisfecho con tu integración, puede ser [publicada](integrations.mdx#publishing-an-integration), y las [instancias](instances.mdx) de la integración pueden configurarse e implementarse en uno o varios de tus [clientes](customers.mdx).
 
-Instances deployed to customers can be configured using customer-specific [config variables](building-integrations.mdx#config-variables-in-integrations), so one integration can be uniquely deployed to multiple customers with different setups.
+Las instancias implementadas en clientes pueden configurarse mediante [variables de configuración](building-integrations.mdx#config-variables-in-integrations), de modo que una integración pueda implementarse de manera única en varios clientes con configuraciones diferentes.
 
 <Screenshot
   filename="shared/acmeerp-integration.png"
   maxWidth="800px"
-  alt="AcmeERP Fuel Integration in  app"
+  alt="Integración de AcmeERP Fuel en la aplicación"
 />
 
-## Logging, monitoring, and alerting
+## Registro, monitoreo y alertas
 
-When an integration behaves unexpectedly (takes too long to run, or fails to run to completion), you want your team to be notified.
-'s [alert monitors](monitoring-and-alerting.mdx) can be configured to monitor your instances, and notify your team in the event of an issue.
-[Logs](logging.mdx) of all instance runs are retained, so you can debug production issues and rapidly resolve problems.
+Cuando una integración se comporta de manera inesperada (tarda demasiado en ejecutarse o no se ejecuta completamente), deseas que tu equipo sea notificado.
+[Los monitores de alerta](monitoring-and-alerting.mdx) de  pueden configurarse para monitorear tus instancias y notificar a tu equipo en caso de un problema.
+[Los registros](logging.mdx) de todas las ejecuciones de instancias se conservan, para que puedas solucionar rápidamente problemas y depurar problemas en producción.
 
-Not all alerts indicate bad things happened - alert monitors can be configured to run when an instance is enabled (so your project management team can mark implementations as complete), or can be configured to alert a customer via Slack or Email that an integration that runs daily ran successfully.
+No todas las alertas indican que ocurrieron cosas malas: los monitores de alerta pueden configurarse para ejecutarse cuando una instancia está habilitada (para que tu equipo de gestión de proyectos pueda marcar las implementaciones como completas) o para alertar a un cliente a través de Slack o correo electrónico que una integración que se ejecuta diariamente se ejecutó con éxito.

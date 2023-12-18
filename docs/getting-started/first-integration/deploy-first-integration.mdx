@@ -1,23 +1,25 @@
 ---
 id: deploy-first-integration
-title: "Deploy Your First Integration"
-description: Deploy your first integration to a customer
+title: "Implante su primera integración"
+description: Implante su primera integración en un cliente
 ---
 
 import Icon from "@mui/material/Icon";
 import Screenshot from "@site/src/components/screenshot";
 
-Now that you've [built your first integration](getting-started/first-integration/build-first-integration.mdx), let's deploy the integration to a customer.
-We use the term **instance** to describe a copy of an integration that has been configured for a specific customer, using some customer-specific configuration variables.
+## Implementar la integración en un cliente
 
-## Create a customer
+Ahora que has [construido tu primera integración](getting-started/first-integration/build-first-integration.mdx), vamos a implementar la integración en un cliente.
+Utilizamos el término **instancia** para describir una copia de una integración que se ha configurado para un cliente específico, utilizando algunas variables de configuración específicas del cliente.
 
-Your software company has [customers](customers.mdx).
+## Crear un cliente
 
-For this example we will create a customer - "FTL Rockets".
-You can choose another name if you would like.
+Tu empresa de software tiene [clientes](customers.mdx).
 
-Navigate to the customers screen by clicking **Customers** on the left-hand sidebar, and then click the **+ Add customer** button in the upper right.
+Para este ejemplo, crearemos un cliente llamado "FTL Rockets".
+Puedes elegir otro nombre si lo prefieres.
+
+Ve a la pantalla de clientes haciendo clic en **Clientes** en la barra lateral izquierda, y luego haz clic en el botón **+ Agregar cliente** en la esquina superior derecha.
 
 <Screenshot
   filename="getting-started/deploy-first-integration/customers-page.png"
@@ -25,7 +27,7 @@ Navigate to the customers screen by clicking **Customers** on the left-hand side
   alt="Customers page in  app"
 />
 
-Give your customer the name "FTL Rockets", and a description of your choice. Click the **Add** button.
+Dale a tu cliente el nombre "FTL Rockets" y una descripción de tu elección. Haz clic en el botón **Agregar**.
 
 <Screenshot
   filename="getting-started/deploy-first-integration/add-customer.png"
@@ -33,10 +35,11 @@ Give your customer the name "FTL Rockets", and a description of your choice. Cli
   alt="Add Customer page in  app"
 />
 
-## Deploy an instance
+## Desplegar una instancia
 
-Open the customer you created and then open the **Summary** tab.
-Click the **+ Add instance** link in the Instances card.
+Abre el cliente que creaste y luego abre la pestaña **Resumen**.
+Haz clic en el enlace **+ Agregar instancia** en la tarjeta de Instancias.
+
 
 <Screenshot
   filename="getting-started/deploy-first-integration/create-instance-1.png"
@@ -44,7 +47,7 @@ Click the **+ Add instance** link in the Instances card.
   alt="Create an instance in  app"
 />
 
-Select the integration you created and published from the menu, and give the instance a name and description of your choice.
+Selecciona la integración que creaste y publicaste en el menú, y da a la instancia un nombre y descripción de tu elección.
 
 <Screenshot
   filename="getting-started/deploy-first-integration/create-instance-2.png"
@@ -52,10 +55,10 @@ Select the integration you created and published from the menu, and give the ins
   alt="Name an instance in  app"
 />
 
-Once your instance has been created, you will be brought to the instance's **Summary** tab. From here you can click the **Reconfigure** button in the top right to open the Config Wizard.
+Una vez creada tu instancia, serás llevado a la pestaña **Resumen** de la instancia. Desde aquí, puedes hacer clic en el botón **Reconfigurar** en la esquina superior derecha para abrir el Asistente de Configuración.
 
-On the Config Wizard, you can customize **Slack Webhook URL** and **Todo API URL** for this customer (or leave the defaults).
-Once you are satisfied with the configuration, click the **Finish** button at the bottom right.
+En el Asistente de Configuración, puedes personalizar **Slack Webhook URL** y **Todo API URL** para este cliente (o dejar los valores predeterminados).
+Cuando estés satisfecho con la configuración, haz clic en el botón **Finalizar** en la parte inferior derecha.
 
 <Screenshot
   filename="getting-started/deploy-first-integration/configure-and-deploy.png"
@@ -63,15 +66,16 @@ Once you are satisfied with the configuration, click the **Finish** button at th
   alt="Configure and deploy an instance in  app"
 />
 
-You can now test the instance by clicking into the **Test** tab and clicking **Save and Run Test**.
-You should get a Slack message, as you did before.
+Ahora puedes probar la instancia haciendo clic en la pestaña **Prueba** y haciendo clic en **Guardar y Ejecutar Prueba**.
+Deberías recibir un mensaje en Slack, como lo hiciste anteriormente.
 
-## Delete your deployed instance
+## Elimina tu instancia desplegada
 
-Since charges per deployed instance, and free accounts have a limit of 4 deployed instances, you probably want to delete this instance.
-When you're ready, click the **Delete instance** button on the bottom of the **Summary** tab.
+Dado que hay cargos por cada instancia desplegada, y las cuentas gratuitas tienen un límite de 4 instancias desplegadas, probablemente quieras eliminar esta instancia.
+Cuando estés listo, haz clic en el botón **Eliminar instancia** en la parte inferior de la pestaña **Resumen**.
 
-## Next steps
+## Próximos pasos
 
-Your first integration has been deployed to one customer, but can be deployed to multiple customers now (each with their own API endpoint and Slack webhook URL).
-In the next page you'll learn how to productize your integration and [prepare it for marketplace](getting-started/first-integration/prepare-for-marketplace.mdx).
+Tu primera integración se ha implementado en un cliente, pero ahora se puede implementar en varios clientes (cada uno con su propio punto final de API y URL de webhook de Slack).
+En la siguiente página, aprenderás cómo convertir tu integración en un producto y [prepararlo para el mercado](getting-started/first-integration/prepare-for-marketplace.mdx).
+
