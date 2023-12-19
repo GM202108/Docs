@@ -1,29 +1,29 @@
 ---
 id: wrap-an-api
-title: Wrap an API
-description: Add actions to a custom component that wrap an API
+title: Envolver una API
+description: Añadir acciones a un componente personalizado que envuelven una API
 ---
 
 import Screenshot from "@site/src/components/screenshot";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-At this point, you should have an [initialized component](getting-started/first-custom-component/hello-.mdx) with a "Hello " action.
-But, chances are, the majority of your actions are going to involve fetching data from your own or a third-party API.
-Let's walk through how to add actions that fetch data from a RESTful endpoint.
+En este punto, deberías tener un [componente inicializado](getting-started/first-custom-component/hello-.mdx) con una acción "Hola ".
+Pero, lo más probable es que la mayoría de tus acciones impliquen la obtención de datos de tu propia API o de una API de terceros.
+Vamos a ver cómo agregar acciones que obtienen datos de un endpoint RESTful.
 
-For demonstration purposes, you'll use some mock API endpoints.
+Con fines de demostración, usarás algunos endpoints de API ficticios.
 
-- https://my-json-server.typicode.com/-io/placeholder-data/items returns a JSON list of items.
-- https://my-json-server.typicode.com/-io/placeholder-data/items/3 returns a specific item by ID.
+- https://my-json-server.typicode.com/-io/placeholder-data/items devuelve una lista JSON de elementos.
+- https://my-json-server.typicode.com/-io/placeholder-data/items/3 devuelve un elemento específico por ID.
 
-## Add actions that wrap API endpoints
+## Agregar acciones que envuelven los endpoints de la API
 
-Let's add two actions that wrap the two endpoints above.
-First, you'll need a mechanism for contacting a RESTful endpoint.
-If you have a favorite NodeJS HTTP client library, you can add that to your project.
-If you don't, we recommend using the HTTP client that is built in to `@-io/spectral`.
-At the top of your `index.ts` file, add:
+Agreguemos dos acciones que envuelvan los dos endpoints mencionados anteriormente.
+Primero, necesitarás un mecanismo para contactar un endpoint RESTful.
+Si tienes una biblioteca favorita de cliente HTTP para NodeJS, puedes agregarla a tu proyecto.
+Si no tienes una preferida, te recomendamos usar el cliente HTTP que está incorporado en `@-io/spectral`.
+En la parte superior de tu archivo `index.ts`, agrega:
 
 ```typescript
 import { createClient } from "@-io/spectral/dist/clients/http";
@@ -31,13 +31,13 @@ import { createClient } from "@-io/spectral/dist/clients/http";
 const baseUrl = "https://my-json-server.typicode.com/-io/placeholder-data";
 ```
 
-Then, within `index.ts` add a couple of actions - one that fetches all items, and one that fetches a specific item by its ID:
+Entonces, dentro de `index.ts` Añade un par de acciones: una que busque todos los artículos y otra que busque un artículo concreto por su ID:
 
 ```typescript
 const listItems = action({
   display: {
     label: "List all items",
-    description: "List all items in the inventory",
+    description: "Enumerar todos los artículos del inventario",
   },
   inputs: {},
   perform: async (context, params) => {
@@ -63,46 +63,47 @@ const getItem = action({
 });
 ```
 
-Finally, make your `component()` aware of the two new actions by adding them to the `actions:` line:
+Por último, haga su `component()` consciente de las dos nuevas acciones añadiéndolas a la carpeta `actions:` línea:
 
 ```typescript
   actions: { hello, listItems, getItem },
 ```
 
-Now, run `npm run build` and `prism components:publish` to push your new changes to .
-Add your new actions to your integration, and run a test.
-You should see the data from the RESTful endpoints reflected in step outputs.
+Ahora, ejecuta `npm run build` y `prism components:publish` para enviar los nuevos cambios.
+Añada las nuevas acciones a su integración y ejecute una prueba.
+Debería ver los datos de los puntos finales RESTful reflejados en las salidas de los pasos.
 
 <Screenshot
   filename="getting-started/first-custom-component/list-all-items-test-results.png"
   maxWidth="500px"
-  alt="Screenshot of the List All Items action step results"
+  alt="Captura de pantalla de los resultados del paso de acción Listar todos los elementos"
 />
 
-You can see additional API endpoints for DELETE and POST verbs in our [Wrapping an API in a Component](quickstarts/wrapping-an-api-in-a-component.mdx) quickstart.
+Puedes ver endpoints adicionales para verbos DELETE y POST en nuestra [Guía Rápida: Envolver una API en un Componente](quickstarts/wrapping-an-api-in-a-component.mdx).
 
-### Other common clients
+### Otros clientes comunes
 
-You used an [axios](https://axios-http.com/)-based built-in HTTP client for the example above.
-If you prefer node-fetch or another HTTP client, you can swap those in readily.
+En el ejemplo anterior, utilizaste un cliente HTTP incorporado basado en [axios](https://axios-http.com/).
+Si prefieres node-fetch u otro cliente HTTP, puedes intercambiarlos fácilmente.
 
-- If you are interacting with a SOAP API, you can reach for the [soap](https://www.npmjs.com/package/soap) package from NPM.
-- If you are interacting with a GraphQL API, you can use the default HTTP client, but you probably want nice GraphQL template literals and built-in response parsing.
-  We recommend reaching for the [graphql-request](https://www.npmjs.com/package/graphql-request) library.
-- NPM generally has a library for less common API implementations ([xmlrpc](https://www.npmjs.com/package/xmlrpc) for XML-RPC APIs, [@grpc/grpc-js](https://www.npmjs.com/package/@grpc/grpc-js) for gRPC APIs, etc).
-  Most any package from NPM can be included in a custom component project.
+- Si estás interactuando con una API SOAP, puedes usar el paquete [soap](https://www.npmjs.com/package/soap) de NPM.
+- Si estás interactuando con una API GraphQL, puedes usar el cliente HTTP por defecto, pero probablemente desees plantillas literales GraphQL agradables e interpretación de respuestas incorporada.
+  Recomendamos utilizar la biblioteca [graphql-request](https://www.npmjs.com/package/graphql-request).
+- En general, NPM tiene una biblioteca para implementaciones de API menos comunes ([xmlrpc](https://www.npmjs.com/package/xmlrpc) para APIs XML-RPC, [@grpc/grpc-js](https://www.npmjs.com/package/@grpc/grpc-js) para APIs gRPC, etc).
+  Casi cualquier paquete de NPM se puede incluir en un proyecto de componente personalizado.
 
-## Add authentication through connections
+## Agregar autenticación a través de conexiones
 
-The example above interacted with a RESTful endpoint, but is missing one critical piece of an API integration: **authentication**.
-Let's add authentication and clean up our code a bit.
-Replace your code with the code below, adding new files as needed:
+
+El ejemplo anterior interactuó con un endpoint RESTful, pero falta una parte fundamental de una integración de API: **autenticación**.
+Agreguemos autenticación y limpiemos un poco nuestro código.
+Reemplaza tu código con el siguiente, agregando nuevos archivos según sea necesario:
 
 <Tabs>
 
 <TabItem value="index.ts" label="index.ts" default>
 
-Your `index.ts` file can be slimmed down to a `component()` declaration that references actions from `actions.ts`, and connections from `connections.ts`:
+Tu archivo `index.ts` puede simplificarse a una declaración `component()` que haga referencia a acciones de `actions.ts` y conexiones de `connections.ts`:
 
 ```typescript
 import { component } from "@-io/spectral";
@@ -114,7 +115,7 @@ export default component({
   public: false,
   display: {
     label: "My First Component",
-    description: "Learning how to build and test a new component",
+    description: "Aprender a construir y probar un nuevo componente",
     iconPath: "icon.png",
   },
   actions,
@@ -126,8 +127,8 @@ export default component({
 
 <TabItem value="connections.ts" label="connections.ts" default>
 
-Your `connections.ts` file declares what things your component needs to know to connect to the third-party app, like an endpoint or API key.
-For this example, assume you need a **base URL** and an **API key**.
+Tu archivo `connections.ts` declara qué información necesita saber tu componente para conectarse a la aplicación de terceros, como un punto final o una clave API.
+Para este ejemplo, asumamos que necesitas una **URL base** y una **clave API**.
 
 ```typescript
 import { connection } from "@-io/spectral";
@@ -160,8 +161,8 @@ export default [apiKeyConnection];
 
 <TabItem value="client.ts" label="client.ts" default>
 
-Rather than setting an authorization header and base URL in each action, you can abstract that logic into a reusable function that creates an HTTP client with an authorization header.
-Note that the API key and base URL is sourced from the connection that is passed in.
+En lugar de establecer una cabecera de autorización y una URL base en cada acción, puedes abstraer esa lógica en una función reutilizable que cree un cliente HTTP con una cabecera de autorización.
+Ten en cuenta que la clave API y la URL base se obtienen de la conexión que se pasa.
 
 ```typescript
 import { Connection, util } from "@-io/spectral";
@@ -182,9 +183,9 @@ export const createHttpClient = (connection: Connection) => {
 
 <TabItem value="inputs.ts" label="inputs.ts" default>
 
-Inputs can be declared inline in an `action()` definition.
-You often use the same inputs for multiple actions, though.
-To make them reusable, you can abstract them into reusable objects:
+Las entradas se pueden declarar en línea en una definición `action()`.
+Sin embargo, a menudo se utilizan las mismas entradas para varias acciones.
+Para hacerlas reutilizables, puedes abstraerlas en objetos reutilizables:
 
 ```typescript
 import { input } from "@-io/spectral";
@@ -218,8 +219,8 @@ export const connectionInput = input({
 
 <TabItem value="actions.ts" label="actions.ts" default>
 
-Finally, you can update your actions to have a `connection` input.
-Your actions can then pass that connection in to the `createHttpClient` function from `client.ts`, giving them access to an authenticated HTTP client.
+Finalmente, puedes actualizar tus acciones para tener una entrada `connection`.
+Tus acciones pueden luego pasar esa conexión a la función `createHttpClient` de `client.ts`, dándoles acceso a un cliente HTTP autenticado.
 
 ```typescript
 import { action } from "@-io/spectral";
@@ -276,19 +277,20 @@ export default { hello, listItems, getItem };
 
 </Tabs>
 
-After building and publishing again, when you try to run a test of the integration you'll be prompted to run through the configuration wizard.
-You can access this test configuration wizard by opening on the **Test Runner** drawer on the left-hand side and then clicking **Save & Reconfigure Test Instance**, and you can customize what the wizard looks like by clicking **Configuration Wizard** from the right-hand side of the page.
+Después de construir y publicar de nuevo, al intentar ejecutar una prueba de la integración, se te pedirá que pases por el asistente de configuración.
+Puedes acceder a este asistente de configuración de prueba abriendo el cajón **Test Runner** en el lado izquierdo y luego haciendo clic en **Save & Reconfigure Test Instance**, y puedes personalizar cómo se ve el asistente haciendo clic en **Configuration Wizard** en el lado derecho de la página.
+
 
 <Screenshot
   filename="getting-started/first-custom-component/config-wizard.png"
   maxWidth="700px"
-  alt="Screenshot of the List All Items action step results"
+  alt="Captura de pantalla de los resultados del paso de acción Listar todos los elementos"
 />
 
-## Next steps
+## Próximos pasos
 
-You now have a component that can fetch data from an API.
-A component that wraps your own API, or the API of a third-party you're integrating with, will follow a similar pattern.
+Ahora tienes un componente que puede obtener datos de una API.
+Un componente que envuelve tu propia API o la API de un tercero con el que estás integrando seguirá un patrón similar.
 
-Next, we recommend that you try to wrap a few endpoints of your own API in a custom component.
-The [Writing Custom Components](custom-components/writing-custom-components.mdx) article, which goes into more detail about input types, handling binary data, building triggers and data sources, testing components through unit tests and from the CLI, etc.
+A continuación, te recomendamos que intentes envolver algunos puntos finales de tu propia API en un componente personalizado.
+El artículo [Creación de componentes personalizados](custom-components/writing-custom-components.mdx), que detalla más sobre tipos de entrada, manejo de datos binarios, construcción de desencadenantes y fuentes de datos, prueba de componentes a través de pruebas unitarias y desde la CLI, etc.

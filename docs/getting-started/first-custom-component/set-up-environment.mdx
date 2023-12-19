@@ -1,50 +1,46 @@
 ---
 id: set-up-environment
-title: Set Up Environment
-description: Set up your development environment for custom component development
+title: Configurar el entorno
+description: Configure su entorno de desarrollo para desarrollar componentes personalizados
 ---
 
-In this section you'll learn how to set up your environment for custom component development.
+## Consideraciones del sistema operativo
 
-## Operating system considerations
+Puedes desarrollar componentes personalizados en cualquier sistema operativo que admita NodeJS (Windows, Linux, MacOS, etc.). Si usas Windows, recomendamos instalar [WSL](https://learn.microsoft.com/en-us/windows/wsl/install).
 
-You can develop custom components on any operating system that supports NodeJS (Windows, Linux, MacOS, etc).
-If you use Windows, we recommend installing [WSL](https://learn.microsoft.com/en-us/windows/wsl/install).
+## Instalar NodeJS
 
-## Install NodeJS
+Los componentes personalizados están escritos en NodeJS (con TypeScript superpuesto). Aunque muchas versiones de NodeJS se pueden utilizar para construir componentes personalizados, recomendamos usar la última versión LTS disponible en [NodeJS.org](https://nodejs.org/).
 
-Custom components are written in NodeJS (with TypeScript layered on top).
-While many version of NodeJS can be used to build custom components, we recommend using the latest LTS version available on [NodeJS.org](https://nodejs.org/).
+Una vez que hayas instalado NodeJS, asegúrate de poder ejecutar tanto `node --version` como `npm --version`.
 
-Once you install NodeJS, ensure that you can run both `node --version` and `npm --version`.
+## Instalar un entorno de desarrollo integrado (IDE)
 
-## Install an IDE
+Si tienes un editor de código favorito, úsalo. Hemos descubierto que [VS Code](https://code.visualstudio.com/) funciona muy bien para el desarrollo de componentes personalizados, pero algunos de nuestros desarrolladores prefieren [Sublime](https://www.sublimetext.com/) o [neovim](https://neovim.io/).
 
-If you have a favorite code editor, use that.
-We've found that [VS Code](https://code.visualstudio.com/) works great for custom component development, but some of our developers prefer [Sublime](https://www.sublimetext.com/) or [neovim](https://neovim.io/).
+No es necesario, pero si usas VS Code, encontramos útiles las siguientes extensiones:
 
-It's not necessary, but if you use VS Code we've found the following extensions helpful:
+- [ES Lint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) para linting de código
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) para el formato de código
+- [Version Lens](https://marketplace.visualstudio.com/items?itemName=pflannery.vscode-versionlens) para mostrar la última versión de cada paquete en package.json
 
-- [ES Lint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) for code linting
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) for code formatting
-- [Version Lens](https://marketplace.visualstudio.com/items?itemName=pflannery.vscode-versionlens) for showing the latest version for each package in package.json
+VS Code tiene IntelliSense (autocompletado) TypeScript incorporado, pero si quieres utilizar lo último y mejor, también puedes instalar la [extensión TypeScript Nightly build](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-next).
 
-VS Code has built-in TypeScript IntelliSense (auto-complete), but if you want to use the latest-and-greatest, you can also install the [TypeScript Nightly build extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-next).
 
-## Install the CLI tool
+## Instalar la herramienta de línea de comandos (CLI)
 
-The CLI tool, `prism` is used for initializing and publishing custom components.
-You can install it after installing NodeJS and `npm` with this command:
+La herramienta de línea de comandos, `prism`, se utiliza para inicializar y publicar componentes personalizados.
+Puedes instalarla después de instalar NodeJS y `npm` con el siguiente comando:
 
 ```bash title="Install prism"
 npm install --global @-io/prism
 ```
 
-Once you've installed `prism`, log in by typing `prism login`.
-You'll be prompted to enter your credentials, and then to authorize `prism` to access your account.
-Click **Accept**.
+Una vez que hayas instalado `prism`, inicia sesión escribiendo `prism login`.
+Se te pedirá que ingreses tus credenciales y luego que autorices a `prism` para acceder a tu cuenta.
+Haz clic en **Aceptar**.
 
-Once you've logged in, run `prism me` to verify that you are logged in.
+Después de iniciar sesión, ejecuta `prism me` para verificar que estás conectado. 
 
 ```bash
 $ prism me
@@ -53,5 +49,4 @@ Email: john.doe@example.com
 Organization: Example Corp - US Region
 Endpoint URL: https://app..io
 ```
-
 ##

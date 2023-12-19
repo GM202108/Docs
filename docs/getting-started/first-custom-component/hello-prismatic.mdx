@@ -1,25 +1,26 @@
 ---
 id: hello-prismatic
 title: Hello
-description: Initialize and Publish Your First Integration
+description: Inicialice y publique su primera integración
 ---
 
 import Screenshot from "@site/src/components/screenshot";
 
-Here, we'll walk through initializing, modifying, publishing and testing a new component.
-Be sure that you've [set up your environment](getting-started/first-custom-component/set-up-environment.mdx) first.
+Aquí, vamos a caminar a través de la inicialización, modificación, publicación y prueba de un nuevo componente.
+Asegúrate de que has [configurado tu entorno](getting-started/first-custom-component/set-up-environment.mdx) primero.
 
-## Initialize your component
+## Inicializa tu componente
 
-The CLI tool, `prism`, has a variety of commands, one of which initializes a new custom component project.
-Run `prism components:init my-first-component`. You can give your component a description of "My First Component", and for **Type of Connection** select **Basic Connection**.
+La herramienta de línea de comandos, `prism`, tiene una variedad de comandos, uno de los cuales inicializa un nuevo proyecto de componente personalizado.
+Ejecuta `prism components:init my-first-component`. Puedes darle a tu componente una descripción como "My First Component", y para **Tipo de Conexión** selecciona **Conexión Básica**.
 
-```bash title="Initialize a new component"
+
+```bash title="Inicializar un nuevo componente"
 $ prism components:init my-first-component
 
-Creating component directory for "my-first-component"...
-? Description of Component My First Component
-? Type of Connection Basic Connection
+Creación del directorio de componentes para "my-first-component"...
+? Descripción del componente My first component
+? Tipo de conexión Conexión básica
    create package.json
    create assets/icon.png
    create src/index.ts
@@ -33,41 +34,41 @@ Creating component directory for "my-first-component"...
    create src/dataSources.ts
    create src/connections.ts
 
-Running npm install for you to install the required dependencies.
+Ejecutar npm install para que instale las dependencias necesarias.
 
-added 798 packages, and audited 799 packages in 41s
+añadido 798 paquetes, y auditado 799 paquetes en 41s
 
-found 0 vulnerabilities
+encontró 0 vulnerabilidades
 
-"my-first-component" is ready for development.
-To install dependencies, run either "npm install" or "yarn install"
-To test the component, run "npm run test" or "yarn test"
-To build the component, run "npm run build" or "yarn build"
-To publish the component, run "prism components:publish"
+"my-first-component" está listo para su desarrollo.
+Para instalar las dependencias, ejecute "npm install" o "yarn install"
+Para probar el componente, ejecute "npm run test" o "yarn test"
+Para crear el componente, ejecute "npm run build" o "yarn build"
+Para publicar el componente, ejecute "prism components:publish"
 
-For documentation on writing custom components, visit https://.io/docs/custom-components/writing-custom-components/
+Para obtener documentación sobre cómo escribir componentes personalizados, visit https://.io/docs/custom-components/writing-custom-components/
 ```
 
-This will create a new directory called `my-first-component` in your current directory.
-Open that directory in your code editor.
+Esto creará un nuevo directorio llamado `my-first-component` en su directorio actual.
+Abra ese directorio en su editor de código.
 
-## Edit your component
+## Edita tu componente
 
-The boilerplate component code that is generated contains custom triggers, data sources, connections, and more.
-These are all things that are covered fully in the [Writing Custom Components](custom-components/writing-custom-components.mdx) article, but we can safely remove them for now.
-Open the component directory that you just created in your code editor, and remove all files from the `my-first-component/src/` directory _except_ for `index.ts`.
-Then, replace the contents of `index.ts` with this:
+El código del componente de plantilla que se genera contiene disparadores personalizados, fuentes de datos, conexiones y más.
+Todas estas cosas están cubiertas completamente en el artículo [Escritura de Componentes Personalizados](custom-components/writing-custom-components.mdx), pero podemos quitarlas de forma segura por ahora.
+Abre el directorio del componente que acabas de crear en tu editor de código y elimina todos los archivos del directorio `my-first-component/src/` _excepto_ por `index.ts`.
+Luego, reemplaza el contenido de `index.ts` con esto:
 
 ```typescript title="index.ts"
 import { action, component, input } from "@-io/spectral";
 
 const hello = action({
-  // This is what the action should look like in the integration designer
+  // Este es el aspecto que debería tener la acción en el diseñador de integración
   display: {
-    label: "Hello ",
-    description: "Echos a greeting using your first and last name",
+    label: "Hello",
+    description: "Recibe un saludo con tu nombre y apellidos",
   },
-  // This action should have these inputs
+  // Esta acción debe tener estas entradas
   inputs: {
     firstName: input({
       label: "First Name",
@@ -80,10 +81,10 @@ const hello = action({
       required: true,
     }),
   },
-  // When run, this action should execute this function
+  // Cuando se ejecuta, esta acción debe ejecutar esta función
   perform: async (context, params) => {
     const myMessage = `Hello, ${params.firstName} ${params.lastName}`;
-    // Promise.resolve because perform functions are async
+    // Promise.resolve porque las funciones de ejecución son asíncronas
     return Promise.resolve({ data: myMessage });
   },
 });
@@ -91,13 +92,13 @@ const hello = action({
 export default component({
   key: "myFirstComponent",
   public: false,
-  // This is what the component should look like in the integration designer
+  // Este es el aspecto que debe tener el componente en el diseñador de integración
   display: {
     label: "My First Component",
-    description: "Learning how to build and test a new component",
+    description: "Aprender a construir y probar un nuevo componente",
     iconPath: "icon.png",
   },
-  // The component includes these actions
+  // El componente incluye estas acciones
   actions: { hello },
 });
 ```
@@ -106,20 +107,20 @@ export default component({
   filename="getting-started/first-custom-component/vscode-index-ts.png"
   maxWidth="700px"
   alt="Screenshot of VS Code editor and a  custom component"
-  caption="Initialize your custom component"
+  caption="Inicialice su componente personalizado"
 />
 
-## Build your component
+## Compila tu componente
 
-The boilerplate default component code uses [webpack](https://webpack.js.org/) to compile TypeScript code into minified JavaScript.
-To invoke webpack, run the build command from your `my-first-component` directory:
+El código de componente predeterminado de la plantilla utiliza [webpack](https://webpack.js.org/) para compilar el código TypeScript a JavaScript minificado.
+Para invocar webpack, ejecuta el comando de compilación desde tu directorio `my-first-component`:
 
 ```bash
 npm run build
 ```
 
-That will create a `dist/` directory that contains an `icon.png` file for your component (you can swap that out by replacing `assets/icon.png`), and an `index.js` file - the compiled JavaScript code for your component.
-Next, run the publish command from your `my-first-component/` directory:
+Eso creará un directorio `dist/` que contiene un archivo `icon.png` para tu componente (puedes cambiarlo reemplazando `assets/icon.png`) y un archivo `index.js` - el código JavaScript compilado para tu componente.
+A continuación, ejecuta el comando de publicación desde tu directorio `my-first-component/`:
 
 ```bash
 prism components:publish
@@ -129,43 +130,46 @@ prism components:publish
   filename="getting-started/first-custom-component/vscode-build-publish.png"
   maxWidth="700px"
   alt="Screenshot of VS Code editor building and publishing a custom  component"
-  caption="Publish your component to your  organization"
+  caption="Publique su componente en su organización"
 />
 
-## Test your component
+## Prueba tu componente
 
-Log in to and create a new integration.
-Add an action and search for "My First Component".
-Select your component and action.
+Inicia sesión y crea una nueva integración.
+Añade una acción y busca "My First Component".
+Selecciona tu componente y acción.
+
 
 <Screenshot
   filename="getting-started/first-custom-component/add-hello-step.png"
   maxWidth="740px"
-  alt="Screenshot of adding the Hello  step to an integration"
+  alt="Captura de pantalla de la adición del paso Hello a una integración"
 />
 
-Fill in the **First Name** and **Last Name** inputs of the action
+Completa los campos de **Nombre** y **Apellido** en la acción.
+
 
 <Screenshot
   filename="getting-started/first-custom-component/configure-hello-step.png"
   maxWidth="740px"
-  alt="Screenshot of configuring the Hello  step to an integration"
+  alt="Captura de pantalla de la configuración del paso Hola a una integración"
 />
 
-Then, click **Save & Run Test** to run a test of your integration.
-Open up the **Step Results** tab in the test drawer, and verify that your **Hello ** step returned a string that concatenates your first and last name together.
+Después, haz clic en **Guardar y Ejecutar Prueba** para ejecutar una prueba de tu integración.
+Abre la pestaña de **Resultados del Paso** en el panel de pruebas y verifica que el paso **Hola** haya devuelto una cadena que concatena tu nombre y apellido.
+
 
 <Screenshot
   filename="getting-started/first-custom-component/hello-test-results.png"
   maxWidth="740px"
-  alt="Screenshot of the Hello  step results"
+  alt="Captura de pantalla de los resultados del paso Hello"
 />
 
-## Next steps
+## Siguientes pasos
 
-Developers learn best by trying things out in code.
-Try to add a middle name input, but only print the middle initial, or add a title input that presents a [dropdown menu](custom-components/writing-custom-components.mdx#dropdown-menu-inputs), so users can select "Mr.", "Mrs.", "Dr.", etc.
+Los desarrolladores aprenden mejor probando cosas en código.
+Intenta agregar un campo de nombre intermedio, pero solo imprime la inicial, o agrega un campo de título que presente un [menú desplegable](custom-components/writing-custom-components.mdx#menú-desplegable), para que los usuarios puedan seleccionar "Sr.", "Sra.", "Dr.", etc.
 
-Make sure to `npm run build` and `prism components:publish` to publish new component changes to , and within the integration designer, you'll need to click **Component Versions** and bump your component version to the latest version.
+Asegúrate de ejecutar `npm run build` y `prism components:publish` para publicar los nuevos cambios del componente en , y dentro del diseñador de integraciones, deberás hacer clic en **Versiones del Componente** y aumentar la versión de tu componente a la última versión.
 
-Once you're ready, head to the next step where we'll cover making API calls from a custom component.
+Cuando estés listo, dirígete al siguiente paso donde cubriremos cómo realizar llamadas a la API desde un componente personalizado.

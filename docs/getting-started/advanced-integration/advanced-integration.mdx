@@ -1,54 +1,56 @@
 ---
 id: advanced-integration
-title: Advanced Integration
-description: Examine an advanced integration that syncs data between Zendesk and GitHub
+title: Integración avanzada
+description: Examinar una integración avanzada que sincroniza datos entre Zendesk y GitHub
 ---
 
 import Screenshot from "@site/src/components/screenshot";
 
-The guide for [Your First Integration](getting-started/first-integration/build-first-integration.mdx) walked you through basic concepts in , like fetching data from an API, passing data between steps of an integration, and using built-in connectors to send data to a third-party app.
-In this tutorial, we'll look at a sample integration that expands on those ideas and uses webhooks to sync data between two systems.
+La guía [Tu Primera Integración](getting-started/first-integration/build-first-integration.mdx) te llevó a través de conceptos básicos en , como obtener datos de una API, pasar datos entre pasos de una integración y usar conectores integrados para enviar datos a una aplicación de terceros.
+En este tutorial, veremos una integración de ejemplo que amplía esas ideas y utiliza webhooks para sincronizar datos entre dos sistemas.
 
-## The GitHub - Zendesk integration overview
+### Visión general de la integración GitHub - Zendesk
 
-For this example, pretend that we are engineers at [Zendesk](https://www.zendesk.com/).
-Our customers maintain public [GitHub](https://github.com/) repositories, and have asked for an integration that syncs GitHub repository **issues** with Zendesk **tickets**.
+Para este ejemplo, pretendamos que somos ingenieros en [Zendesk](https://www.zendesk.com/).
+Nuestros clientes mantienen repositorios públicos en [GitHub](https://github.com/) y nos han solicitado una integración que sincronice los **issues** de los repositorios de GitHub con los **tickets** de Zendesk.
 
-So, our product team provided us with this spec for an integration:
+Así que nuestro equipo de productos nos proporcionó esta especificación para la integración:
 
-- When a customer enables this integration, they should use OAuth 2.0 to connect their GitHub account.
-- After authenticating, the customer should be able to select their GitHub repository from a dropdown menu.
-- If someone creates an **issue** in their chosen GitHub repository, a corresponding Zendesk **ticket** should be created.
-- If someone comments on the GitHub issue, that comment should be added to the same Zendesk ticket.
-- If a support person comments on the Zendesk ticket, that comment should be added to the GitHub issue.
-- If someone closes the GitHub issue, the Zendesk ticket be automatically closed.
+- Cuando un cliente habilite esta integración, debería usar OAuth 2.0 para conectar su cuenta de GitHub.
+- Después de autenticarse, el cliente debería poder seleccionar su repositorio de GitHub desde un menú desplegable.
+- Si alguien crea un **issue** en su repositorio de GitHub seleccionado, se debería crear un ticket correspondiente en Zendesk.
+- Si alguien comenta en el issue de GitHub, ese comentario debería agregarse al mismo ticket de Zendesk.
+- Si una persona de soporte comenta en el ticket de Zendesk, ese comentario debería agregarse al issue de GitHub.
+- Si alguien cierra el issue de GitHub, el ticket de Zendesk se cerrará automáticamente.
+
 
 <Screenshot
   filename="getting-started/advanced-integration/github-zendesk-sync.png"
   alt="Screenshot of the GitHub-Zendesk integration in action"
-  caption="The desired result - GitHub issues syncing with Zendesk tickets"
+  caption="El resultado deseado: sincronización de los problemas de GitHub con los tickets de Zendesk"
 />
 
-### Setting up
+### Configuración
 
-Behind the scenes, integrations are represented in YAML.
-If you would like to import, test and modify this example integration, download its YAML definition from our [GitHub examples repo](https://github.com/-io/examples/blob/main/integrations/github.yml).
-Then,
+Detrás de escena, las integraciones están representadas en YAML.
+Si deseas importar, probar y modificar esta integración de ejemplo, descarga su definición YAML desde nuestro [repositorio de ejemplos en GitHub](https://github.com/-io/examples/blob/main/integrations/github.yml).
+Luego,
 
-- Create a [new integration](integrations.mdx#creating-a-new-integration)
-- [Import](integrations.mdx#importing-an-integration) the integration's YAML definition
+- Crea una [nueva integración](integrations.mdx#creating-a-new-integration)
+- [Importa](integrations.mdx#importing-an-integration) la definición YAML de la integración
 
-In order to run the integration, you will need to sign up and create OAuth 2.0 apps for both [GitHub](components/github.mdx#oauth-20) and [Zendesk](components/zendesk.mdx#zendesk-connection) (developers can sign up for both for free).
+Para ejecutar la integración, necesitarás registrarte y crear aplicaciones OAuth 2.0 tanto para [GitHub](components/github.mdx#oauth-20) como para [Zendesk](components/zendesk.mdx#zendesk-connection) (los desarrolladores pueden registrarse de forma gratuita en ambas plataformas).
 
-## Creating the configuration wizard experience
+## Creación de la experiencia del asistente de configuración
 
-We want our users to have a good experience when they deploy our GitHub integration.
-Per our product spec:
+Queremos que nuestros usuarios tengan una buena experiencia al implementar nuestra integración de GitHub.
+Según nuestra especificación de producto:
 
-1. When a customer enables this integration, they should use OAuth 2.0 to connect their GitHub account.
-1. After authenticating, the customer should be able to select one of their GitHub repositories from a dropdown menu.
+1. Cuando un cliente habilite esta integración, debería usar OAuth 2.0 para conectar su cuenta de GitHub.
+1. Después de autenticarse, el cliente debería poder seleccionar uno de sus repositorios de GitHub desde un menú desplegable.
 
-To address the first item, we can configure a GitHub [OAuth 2.0 connection](connections.mdx#oauth-20-in-integrations) for our app using a client ID and client secret that we've generated.
+Para abordar el primer punto, podemos configurar una [conexión GitHub OAuth 2.0](connections.mdx#oauth-20-in-integrations) para nuestra aplicación utilizando un ID de cliente y un secreto de cliente que hayamos generado.
+
 
 <Screenshot
   filename="getting-started/advanced-integration/github-configure-connection.png"
@@ -56,7 +58,8 @@ To address the first item, we can configure a GitHub [OAuth 2.0 connection](conn
   maxWidth="850px"
 />
 
-When an end user configures our integration, they'll be presented a simple button that they can click to begin an OAuth 2.0 authentication flow.
+Cuando un usuario final configura nuestra integración, se le presentará un botón sencillo que puede hacer clic para comenzar un flujo de autenticación OAuth 2.0.
+
 
 <Screenshot
   filename="getting-started/advanced-integration/github-complete-connection.png"
@@ -64,10 +67,11 @@ When an end user configures our integration, they'll be presented a simple butto
   maxWidth="300px"
 />
 
-For the sake of this example, we set up an OAuth 2.0 connection for Zendesk, as well
-(though if we were actually Zendesk engineers, we could [dynamically set](embedding-marketplace.mdx#dynamically-setting-config-variables-in-marketplace) Zendesk credentials for our users so they didn't have to).
+Por el bien de este ejemplo, configuramos también una conexión OAuth 2.0 para Zendesk
+(aunque si fuéramos ingenieros de Zendesk, podríamos [configurar dinámicamente](embedding-marketplace.mdx#dynamically-setting-config-variables-in-marketplace) las credenciales de Zendesk para nuestros usuarios para que no tuvieran que hacerlo).
 
-To address the second item (a repository dropdown), we can reach for the GitHub component's [List Repos](components/github.mdx#list-repos) data source.
+Para abordar el segundo ítem (un menú desplegable de repositorios), podemos recurrir al origen de datos [List Repos](components/github.mdx#list-repos) del componente GitHub.
+
 
 <Screenshot
   filename="getting-started/advanced-integration/github-configure-dropdown.png"
@@ -75,7 +79,7 @@ To address the second item (a repository dropdown), we can reach for the GitHub 
   maxWidth="850px"
 />
 
-The data source will use the end user's OAuth 2.0 credentials to fetch a list of repositories that the user has access to, and it will present the repositories as a dropdown picklist menu.
+El origen de datos utilizará las credenciales OAuth 2.0 del usuario final para obtener una lista de repositorios a los que el usuario tiene acceso y presentará los repositorios como un menú desplegable.
 
 <Screenshot
   filename="getting-started/advanced-integration/github-dropdown-menu.png"
@@ -83,40 +87,37 @@ The data source will use the end user's OAuth 2.0 credentials to fetch a list of
   maxWidth="750px"
 />
 
-In addition, we'll prompt the end user for two string config variables - one to represent a webhook secret (we'll address that later), and one to prompt the user for an email address to attach to GitHub-generated tickets.
+Además, solicitaremos al usuario final dos variables de configuración de cadena: una para representar un secreto de webhook (nos ocuparemos de eso más adelante) y otra para solicitar al usuario una dirección de correo electrónico para adjuntar a los tickets generados por GitHub.
 
-## Multiple flows
+## Flujos múltiples
 
-The integration we built in [Your First Integration](getting-started/first-integration/build-first-integration.mdx) had a single flow.
-For this example, we'll split our logic into four purpose-built flows:
+La integración que construimos en [Your First Integration](getting-started/first-integration/build-first-integration.mdx) tenía un solo flujo.
+Para este ejemplo, dividiremos nuestra lógica en cuatro flujos diseñados con un propósito específico:
 
-1. Our first flow will run when an instance is deployed, and will configure [webhooks](#webhooks) in Zendesk and GitHub.
-2. Our second flow will run if the instance is deleted, and will remove the webhooks from Zendesk and GitHub.
-3. Our third flow will accept webhook requests from GitHub when an issue is created or commented on, and will forward that issue/comment to Zendesk.
-4. Our fourth flow will accept webhook requests from Zendesk when a ticket is commented on, and will forward that comment to GitHub.
+1. Nuestro primer flujo se ejecutará cuando se implemente una instancia y configurará [webhooks](#webhooks) en Zendesk y GitHub.
+2. Nuestro segundo flujo se ejecutará si se elimina la instancia y eliminará los webhooks de Zendesk y GitHub.
+3. Nuestro tercer flujo aceptará solicitudes de webhook de GitHub cuando se cree o comente un problema y reenviará ese problema o comentario a Zendesk.
+4. Nuestro cuarto flujo aceptará solicitudes de webhook de Zendesk cuando se comente un ticket y reenviará ese comentario a GitHub.
 
 ## Webhooks
 
-We want our integration to be event-driven.
-That is, when something happens in one app (like a comment being made on a GitHub issue), we want our integration to be alerted to the change so it can make a corresponding change in Zendesk.
-We want our data sync to be as real-time as possible, so we should avoid checking for new data on a schedule (which could be slow).
+Queremos que nuestra integración sea impulsada por eventos. Es decir, cuando sucede algo en una aplicación (como hacer un comentario en un problema de GitHub), queremos que nuestra integración sea alertada sobre el cambio para que pueda realizar un cambio correspondiente en Zendesk. Queremos que nuestra sincronización de datos sea lo más en tiempo real posible, así que debemos evitar buscar nuevos datos según un cronograma (lo que podría ser lento).
 
-Luckily, both Zendesk and GitHub support webhooks.
+Afortunadamente, tanto Zendesk como GitHub admiten webhooks.
 
-### Creating webhooks on instance deployment
+### Creación de webhooks en la implementación de la instancia
 
-We'll create one flow that is dedicated to configuring webhooks in Zendesk and GitHub when an instance of our integration is deployed.
-In order to make this flow execute when the instance is deployed, we'll start the flow with an [Instance Deploy](components/management-triggers.mdx#instance-deploy) trigger.
+Crearemos un flujo dedicado a configurar webhooks en Zendesk y GitHub cuando se implementa una instancia de nuestra integración. Para hacer que este flujo se ejecute cuando se implementa la instancia, comenzaremos el flujo con un [Instance Deploy](components/management-triggers.mdx#instance-deploy) trigger.
 
-A GitHub repo config variable is presented as a string of `{OWNER}/{REPO NAME}`, so we'll split the string on the `/` character, and then feed in the owner and repository name into a GitHub [Repos Create Webhook](components/github.mdx#repos-create-webhook) action.
+La variable de configuración de un repositorio de GitHub se presenta como una cadena de `{OWNER}/{NOMBRE DEL REPO}`, por lo que dividiremos la cadena en el carácter `/` y luego alimentaremos el propietario y el nombre del repositorio en una acción [Repos Create Webhook](components/github.mdx#repos-create-webhook) de GitHub.
 
-Creating a Zendesk webhook is a two-step process.
-We need to:
+Crear un webhook de Zendesk es un proceso de dos pasos. Necesitamos:
 
-1. Create the webhook with a [Create Webhook](components/zendesk.mdx#create-webhook) action
-2. Instruct Zendesk to send ticket events via the webhook using a [Create Webhook Trigger](components/zendesk.mdx#create-webhook-trigger) action
+1. Crear el webhook con una acción [Create Webhook](components/zendesk.mdx#create-webhook)
+2. Instruir a Zendesk para que envíe eventos de ticket a través del webhook mediante una acción [Create Webhook Trigger](components/zendesk.mdx#create-webhook-trigger)
 
-Our completed deploy flow is a 5-step (a trigger and 4 actions) flow.
+Nuestro flujo de implementación completo es un flujo de 5 pasos (un trigger y 4 acciones).
+
 
 <Screenshot
   filename="getting-started/advanced-integration/deploy-flow.png"
@@ -124,14 +125,16 @@ Our completed deploy flow is a 5-step (a trigger and 4 actions) flow.
   maxWidth="800px"
 />
 
-### Removing webhooks on instance removal
+### Eliminación de webhooks al quitar la instancia
 
-We also want to remove webhooks that we've created if someone removes an instance of the integration.
-To do that, we'll begin another flow with an [Instance Remove](components/management-triggers.mdx#instance-remove) trigger, which executes when someone deletes an instance.
+También queremos eliminar los webhooks que hemos creado si alguien elimina una instancia de la integración. Para hacer esto, comenzaremos otro flujo con un [Desencadenador de eliminación de instancia](components/management-triggers.mdx#instance-remove), que se ejecuta cuando alguien elimina una instancia.
 
-We can leverage GitHub and Zendesk's respective **Delete Instance Webhooks** actions.
-These actions are aware of the current instance's webhook URLs, and remove only webhooks in GitHub and Zendesk that target those URLs.
-The clean-up flow consists of a trigger and three steps:
+Podemos aprovechar las acciones respectivas de GitHub y Zendesk, **Eliminar webhooks de instancia**, que son conscientes de las URL de los webhooks de la instancia actual y eliminan solo los webhooks en GitHub y Zendesk que apuntan a esas URL. El flujo de limpieza consta de un desencadenador y tres pasos:
+```markdown
+- **Desencadenador: Eliminación de instancia**
+  - [GitHub - Eliminar webhooks de instancia](components/github.mdx#delete-instance-webhooks)
+  - [Zendesk - Eliminar webhooks de instancia](components/zendesk.mdx#delete-instance-webhooks)
+
 
 <Screenshot
   filename="getting-started/advanced-integration/instance-remove-flow.png"
@@ -139,79 +142,79 @@ The clean-up flow consists of a trigger and three steps:
   maxWidth="720px"
 />
 
-:::caution Don't delete other apps' webhooks!
-It's easy to make the mistake of listing webhooks and removing all of them.
-Use caution when listing and removing webhooks – some of your customer's webhooks may be configured for other apps and completely unrelated to your integration.
-Most built-in components that support webhooks have a **Delete Instance Webhooks** action that removes only webhooks for your instance.
+:::caution ¡No elimines los webhooks de otras aplicaciones!
+Es fácil cometer el error de listar los webhooks y eliminar todos ellos. Ten cuidado al listar y eliminar webhooks; algunos webhooks de tus clientes pueden estar configurados para otras aplicaciones y ser completamente no relacionados con tu integración. La mayoría de los componentes integrados que admiten webhooks tienen una acción **Eliminar webhooks de instancia** que elimina solo los webhooks de tu instancia.
 :::
 
-### Validating HMAC signatures
+### Validación de firmas HMAC
 
-We want to ensure that messages received from GitHub and Zendesk originated from GitHub and Zendesk (rather than from some mischievous party).
-It's common practice with webhooks to **sign** a message using **Hash-Based Message Authentication Codes** (HMAC).
-We have an entire [article on HMAC](best-practices/secure-webhook-endpoints-hmac.mdx), but the quick summary is that you and the third party (GitHub or Zendesk) know some secret, and the third-party uses that secret to generate a unique hash of the message they sent.
-By verifying the HMAC signature of a webhook request, you can be sure that the message originated from the correct party, since no one else knows your HMAC signing secret.
+Queremos asegurarnos de que los mensajes recibidos de GitHub y Zendesk hayan originado en GitHub y Zendesk (en lugar de algún partido malicioso).
+Es práctica común con webhooks **firmar** un mensaje usando **Códigos de Autenticación de Mensajes Basados en Hash (HMAC)**.
+Tenemos un [artículo completo sobre HMAC](best-practices/secure-webhook-endpoints-hmac.mdx), pero el resumen rápido es que tú y el tercero (GitHub o Zendesk) conocen algún secreto, y el tercero utiliza ese secreto para generar un hash único del mensaje que enviaron.
+Al verificar la firma HMAC de una solicitud de webhook, puedes estar seguro de que el mensaje se originó en la parte correcta, ya que nadie más conoce tu secreto de firma HMAC.
 
-Different apps implement HMAC in different ways:
+Las diferentes aplicaciones implementan HMAC de diferentes maneras:
 
-- When Zendesk sends a webhook request, it includes an HMAC signature header and a webhook ID header.
-  The Zendesk trigger, then, uses the Zendesk connection to fetch the webhook's signing secret and verifies the HMAC signature.
-- GitHub lets you optionally set an HMAC signing secret when you create the webhook.
-  We use a config variable that users set at deployment time as the HMAC signing secret.
-  The GitHub trigger references that config variable to verify webhook HMAC signature headers.
+- Cuando Zendesk envía una solicitud de webhook, incluye una firma HMAC y una identificación de webhook en la cabecera.
+  El desencadenador de Zendesk, entonces, utiliza la conexión de Zendesk para recuperar el secreto de firma del webhook y verifica la firma HMAC.
+- GitHub te permite establecer opcionalmente un secreto de firma HMAC cuando creas el webhook.
+  Utilizamos una variable de configuración que los usuarios establecen al implementar como el secreto de firma HMAC.
+  El desencadenador de GitHub hace referencia a esa variable de configuración para verificar las firmas HMAC de los encabezados del webhook.
 
-For both apps, their respective triggers throw an error and immediately stop an execution if HMAC signatures are not correct.
+Para ambas aplicaciones, sus respectivos desencadenadores lanzan un error y detienen inmediatamente una ejecución si las firmas HMAC no son correctas.
 
-## Syncing data from Github to Zendesk
+## Sincronización de datos desde Github hasta Zendesk
 
-Now, let's process GitHub webhook requests and send data to Zendesk.
-We'll start with a few checks to see whether or not the data that came in is something we want to process.
-Then, we'll determine what kind of data came in and process it accordingly.
+Ahora, procesemos las solicitudes de webhook de GitHub y enviemos datos a Zendesk.
+Comenzaremos con algunas verificaciones para ver si los datos que llegaron son algo que queremos procesar.
+Luego, determinaremos qué tipo de datos llegaron y los procesaremos en consecuencia.
+
 
 <Screenshot
   filename="getting-started/advanced-integration/github-zendesk-flow.png"
   alt="GitHub to Zendesk flow"
 />
 
-### Avoiding infinite loops with branching
+### Evitar bucles infinitos con ramificación
 
-The first thing to notice about the GitHub-to-Zendesk flow is the branching logic at the beginning.
-It would be very easy to get into an infinite loop with this integration:
+Lo primero que hay que notar sobre el flujo de GitHub a Zendesk es la lógica de ramificación al principio.
+Sería muy fácil caer en un bucle infinito con esta integración:
 
-- A comment is added to a GitHub issue
-  - This causes a GitHub webhook to fire
-- A corresponding Zendesk comment is added
-  - This causes a Zendesk webhook to fire
-- A corresponding GitHub comment is added
-- GOTO 10
+- Se agrega un comentario a un problema de GitHub
+  - Esto provoca que se active un webhook de GitHub
+- Se agrega un comentario correspondiente en Zendesk
+  - Esto provoca que se active un webhook de Zendesk
+- Se agrega un comentario correspondiente en GitHub
+- IR A 10
 
-We avoid this simply by prepending messages from the integration with `[From GitHub]` or `[From Zendesk]`.
-Then, when we get a webhook request from GitHub or Zendesk we check if the message contains those strings.
-If the message does, we stop and don't process the webhook request.
-There are likely more elegant ways of tracking messages that have been passed, but for illustration purposes this is sufficient.
+Evitamos esto simplemente agregando mensajes de la integración con `[De GitHub]` o `[De Zendesk]`.
+Luego, cuando recibimos una solicitud de webhook de GitHub o Zendesk, verificamos si el mensaje contiene esas cadenas.
+Si lo hace, nos detenemos y no procesamos la solicitud de webhook.
+Es probable que haya formas más elegantes de realizar un seguimiento de los mensajes que se han pasado, pero con fines ilustrativos, esto es suficiente.
 
-### Handling different webhook events
+### Manejo de diferentes eventos de webhook
 
-GitHub could send one of three events:
+GitHub podría enviar uno de tres eventos:
 
-- A new issue is created
-- A comment is added to an existing issue
-- An issue is closed
+- Se crea un nuevo problema
+- Se agrega un comentario a un problema existente
+- Se cierra un problema
 
-We leverage a [Branch on Expression](components/branch.mdx#branch-on-expression) action to handle these different events.
+Aprovechamos una acción [Branch on Expression](components/branch.mdx#branch-on-expression) para manejar estos diferentes eventos.
 
-- If a new issue is created, we create a new Zendesk ticket.
-- If a comment is added, we fetch the existing Zendesk ticket and append the comment.
-- If an issue is closed, we fetch the existing Zendesk ticket and close the ticket.
+- Si se crea un nuevo problema, creamos un nuevo ticket en Zendesk.
+- Si se agrega un comentario, obtenemos el ticket existente de Zendesk y agregamos el comentario.
+- Si se cierra un problema, obtenemos el ticket existente de Zendesk y cerramos el ticket.
 
-### Leveraging external IDs
+### Aprovechamiento de identificadores externos
 
-In order to map data from one app to another, it's common to leverage **external IDs**.
-In our case, we use GitHub's **issue number** as a Zendesk ticket's external ID.
-The Zendesk ticket is assigned an external ID like `github:1234`.
+Para mapear datos de una aplicación a otra, es común aprovechar los **identificadores externos**.
+En nuestro caso, usamos el **número del problema** de GitHub como identificador externo de un ticket de Zendesk.
+El ticket de Zendesk se asigna un identificador externo como `github:1234`.
 
-External IDs allow you to easily look up matching records.
-When a comment is added to a GitHub issue, we can look up the corresponding Zendesk ticket by fetching `github:1234` and append a comment to the ticket we looked up.
+Los identificadores externos permiten buscar fácilmente registros coincidentes.
+Cuando se agrega un comentario a un problema de GitHub, podemos buscar el ticket de Zendesk correspondiente obteniendo `github:1234` y agregamos un comentario al ticket que encontramos.
+
 
 <Screenshot
   filename="getting-started/advanced-integration/leverage-external-ids.png"
@@ -219,13 +222,13 @@ When a comment is added to a GitHub issue, we can look up the corresponding Zend
   maxWidth="500px"
 />
 
-## Syncing data from Zendesk to GitHub
+## Sincronización de datos desde Zendesk hasta GitHub
 
-The Zendesk to GitHub flow works in a very similar way.
-Webhooks from Zendesk are received, avoiding infinite loops as necessary.
-This flow is simpler because we only handle comment creation in Zendesk, though it could be extended to handle creating and closing tickets on the Zendesk side.
+El flujo de Zendesk a GitHub funciona de una manera muy similar.
+Se reciben webhooks de Zendesk, evitando bucles infinitos según sea necesario.
+Este flujo es más simple porque solo manejamos la creación de comentarios en Zendesk, aunque se podría ampliar para manejar la creación y cierre de tickets en el lado de Zendesk.
 
-Once again, external IDs are leveraged, this time to map Zendesk tickets to GitHub issues:
+Una vez más, se aprovechan los identificadores externos, esta vez para asignar tickets de Zendesk a problemas de GitHub:
 
 <Screenshot
   filename="getting-started/advanced-integration/zendesk-github-flow.png"
@@ -233,9 +236,10 @@ Once again, external IDs are leveraged, this time to map Zendesk tickets to GitH
   maxWidth="800px"
 />
 
-## Conclusion
+## Conclusión
 
-This example integration modeled what a bi-directional, event-driven integration could look like.
-We used Zendesk and GitHub for illustration purposes, but you can build similar integrations between your app and a [variety](components/component-catalog.mdx) of other third-party apps.
+Esta integración de ejemplo modeló cómo podría ser una integración bidireccional y basada en eventos.
+Usamos Zendesk y GitHub con fines ilustrativos, pero puedes construir integraciones similares entre tu aplicación y una [variedad](components/component-catalog.mdx) de otras aplicaciones de terceros.
 
-In the next guide, [Your First Custom Component](getting-started/first-custom-component/set-up-environment.mdx), you'll walk through how to use NodeJS to build a custom component for your app.
+En la siguiente guía, [Tu Primer Componente Personalizado](getting-started/first-custom-component/set-up-environment.mdx), aprenderás cómo utilizar NodeJS para construir un componente personalizado para tu aplicación.
+
