@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://fontawesome.com/v4/icon/flag" sizes="any">
+
+    <!-- Agregar los archivos de Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- Agregar íconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        h2.list-group-item {
+            background-color: #007bff;
+            color: #ffffff;
+            margin-top: 20px;
+        }
+
+        .list-group-item {
+            border-color: #007bff;
+            margin-bottom: 5px;
+        }
+
+        .list-group-item a {
+            color: #333;
+        }
+
+        .list-group-item a:hover {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .btn {
+            color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn:hover {
+            color: #007bff;
+            background-color: #f8f9fa;
+            border-color: #007bff;
+        }
+
+        #searchInput {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        #searchText {
+            flex: 1;
+            color: #007bff;
+            border-color: #007bff;
+            border-radius: 5px 0 0 5px;
+        }
+
+        #searchButton {
+            border-radius: 0 5px 5px 0;
+            color: #ffffff;
+        }
+
+        #searchButton:hover {
+            border-radius: 0 5px 5px 0;
+            color: #007bff;
+            background-color: #f8f9fa;
+        }
+
+        #searchResult {
+            color: #007bff;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <!-- Encabezado -->
+        <h1 class="display-4">Guía de Documentación <i class="fas fa-book"></i></h1>
+
+        <!-- Agregar un botón de búsqueda -->
+        <div class="input-group mb-3" id="searchInput">
+            <input type="text" class="form-control" placeholder="Buscar en la guía" id="searchText">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button" id="searchButton"><i class="fas fa-search"></i> Buscar</button>
+            </div>
+        </div>
+
+        <!-- Resultado de la búsqueda -->
+        <p id="searchResult"></p>
+
+        <!-- Primeros pasos -->
+        <ul class="list-group">
+            <h2 class="list-group-item list-group-item-info"><i class="fas fa-flag"></i> Primeros pasos</h2>
+            <!-- Documentos -->
+            <li class="list-group-item"><a href="/docs/getting-started/docs-overview.mdx"><i class="far fa-file-alt"></i> Documentos</a></li>
+            <!-- Conceptos básicos -->
+            <li class="list-group-item"><a href="/docs/getting-started/core-concepts.mdx"><i class="far fa-file-alt"></i> Conceptos básicos</a></li>
+            <!-- Construya su primera integración -->
+            <li class="list-group-item"><a href="/docs/getting-started/first-integration/build-first-integration.mdx"><i class="far fa-file-alt"></i> Construya su primera integración</a></li>
+            <!-- Implante su primera integración -->
+            <li class="list-group-item"><a href="/docs/getting-started/first-integration/deploy-first-integration.mdx"><i class="far fa-file-alt"></i> Implante su primera integración</a></li>
+            <!-- Prepárese para el mercado -->
+            <li class="list-group-item"><a href="/docs/getting-started/first-integration/prepare-for-marketplace.mdx"><i class="far fa-file-alt"></i> Prepárese para el mercado</a></li>
+            <!-- Integración Avanzada -->
+            <li class="list-group-item"><a href="/docs/getting-started/advanced-integration/advanced-integration.mdx"><i class="far fa-file-alt"></i> Integración Avanzada</a></li>
+            <!-- Configurar el entorno -->
+            <li class="list-group-item"><a href="/docs/getting-started/first-custom-component/set-up-environment.mdx"><i class="far fa-file-alt"></i> Configurar el entorno</a></li>
+            <!-- Hello -->
+            <li class="list-group-item"><a href="/docs/getting-started/first-custom-component/hello-prismatic.mdx"><i class="far fa-file-alt"></i> Hello</a></li>
+            <!-- Envolver una API -->
+            <li class="list-group-item"><a href="/docs/getting-started/first-custom-component/wrap-an-api.mdx"><i class="far fa-file-alt"></i> Envolver una API</a></li>
+        </ul>
+
+        <!-- Articulos -->
+        <ul class="list-group">
+            <h2 class="list-group-item list-group-item-info"><i class="fas fa-flag"></i> Articulos</h2>
+            <!-- Documentos -->
+            <li class="list-group-item"><a href="/docs/getting-started/docs-overview.mdx"><i class="far fa-file-alt"></i> Documentos</a></li>
+            <!-- Conceptos básicos -->
+            <li class="list-group-item"><a href="/docs/getting-started/core-concepts.mdx"><i class="far fa-file-alt"></i> Conceptos básicos</a></li>
+            <!-- Construya su primera integración -->
+            <li class="list-group-item"><a href="/docs/getting-started/first-integration/build-first-integration.mdx"><i class="far fa-file-alt"></i> Construya su primera integración</a></li>
+            <!-- Implante su primera integración -->
+            <li class="list-group-item"><a href="/docs/getting-started/first-integration/deploy-first-integration.mdx"><i class="far fa-file-alt"></i> Implante su primera integración</a></li>
+            <!-- Prepárese para el mercado -->
+            <li class="list-group-item"><a href="/docs/getting-started/first-integration/prepare-for-marketplace.mdx"><i class="far fa-file-alt"></i> Prepárese para el mercado</a></li>
+            <!-- Integración Avanzada -->
+            <li class="list-group-item"><a href="/docs/getting-started/advanced-integration/advanced-integration.mdx"><i class="far fa-file-alt"></i> Integración Avanzada</a></li>
+            <!-- Configurar el entorno -->
+            <li class="list-group-item"><a href="/docs/getting-started/first-custom-component/set-up-environment.mdx"><i class="far fa-file-alt"></i> Configurar el entorno</a></li>
+            <!-- Hello -->
+            <li class="list-group-item"><a href="/docs/getting-started/first-custom-component/hello-prismatic.mdx"><i class="far fa-file-alt"></i> Hello</a></li>
+            <!-- Envolver una API -->
+            <li class="list-group-item"><a href="/docs/getting-started/first-custom-component/wrap-an-api.mdx"><i class="far fa-file-alt"></i> Paco</a></li>
+        </ul>
+    </div>
+
+    <!-- Agregar los archivos de Bootstrap JS y Popper.js (opcional) si los necesitas -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Script para la búsqueda -->
+    <script>
+        $(document).ready(function () {
+            function performSearch() {
+                var searchText = $("#searchText").val().toLowerCase();
+
+                $(".list-group-item").each(function () {
+                    var sectionTitle = $(this).hasClass("list-group-item-info")
+                        ? $(this).text().toLowerCase() // Si es un título, usar el texto directamente
+                        : $(this).find("a").text().toLowerCase(); // Si es un enlace, usar el texto del enlace
+
+                    var sectionContent = $(this).find("ul");
+                    var firstItem = sectionContent.find("li:first");
+
+                    if (sectionTitle.includes(searchText)) {
+                        // Mostrar título de la sección y primer documento
+                        $(this).show();
+                        firstItem.show();
+                        sectionContent.find("a:contains(" + searchText + ")").show();
+                        sectionContent.find("a:not(:contains(" + searchText + "))").hide();
+
+                        // Mostrar resultado de la búsqueda
+                        $("#searchResult").text(/*"Sección: " + sectionTitle +*/ "Documento buscado: " + searchText);
+                    } else {
+                        // Ocultar toda la sección
+                        $(this).hide();
+                    }
+                });
+            }
+
+            $("#searchButton").click(function () {
+                performSearch();
+            });
+
+            $("#searchText").on("input", function () {
+                // Verificar si el campo de búsqueda está vacío
+                if ($(this).val().trim() === "") {
+                    // Mostrar todas las secciones y el primer documento de cada sección
+                    $(".list-group-item").show();
+                    $(".list-group-item ul li:first").show();
+                    $(".list-group-item ul a").hide();
+                    $("#searchResult").empty(); // Limpiar el resultado de búsqueda
+                } else {
+                    performSearch();
+                }
+            });
+
+            $("#searchText").keypress(function (event) {
+                // Verificar si la tecla presionada es Enter
+                if (event.which === 13) {
+                    performSearch();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
