@@ -1,7 +1,7 @@
 ---
 id: customers
-title: Customers
-description: Create and manage  customers
+title: Clientes
+description: Crear y gestionar clientes
 ---
 
 import Icon from "@mui/material/Icon";
@@ -10,42 +10,44 @@ import TabItem from "@theme/TabItem";
 import Screenshot from "@site/src/components/screenshot";
 import Vimeo from "@site/src/components/vimeo";
 
-When we reference customers, we're talking about _your_ customers.
-Your [organization](organization.mdx) creates customers and [integrations](integrations.mdx) in .
-Then, your customers can either enable instances of your integrations themselves through your [integration marketplace](integration-marketplace.mdx), or your team members can deploy [instances](instances.mdx) to them.
-You can create [users](users.mdx#customer-users) for your customers and assign them [roles](users.mdx#customer-user-roles) so that they can manage and have insight into the instances that are deployed to them.
+Cuando nos referimos a los clientes, hablamos de _tus_ clientes.
+Tu [organización](organization.mdx) crea clientes e [integraciones](integrations.mdx).
+Luego, tus clientes pueden habilitar instancias de tus integraciones por sí mismos a través de tu [marketplace de integraciones](integration-marketplace.mdx), o tus miembros del equipo pueden implementar [instancias](instances.mdx) para ellos.
+Puedes crear [usuarios](users.mdx#customer-users) para tus clientes y asignarles [roles](users.mdx#customer-user-roles) para que puedan gestionar e obtener información sobre las instancias que se implementan para ellos.
+
 
 <Screenshot
   filename="getting-started/introduction/organization_and_customers.png"
   maxWidth="600px"
-  alt="Simple diagram of an org and customers"
+  alt="Diagrama simple de una organización y sus clientes"
 />
 
-Like all resources, customers can be managed via 's CLI tool, [prism](cli/cli-usage.mdx), or through the web app by clicking the **Customers** link on the left-hand sidebar.
+Al igual que todos los recursos, los clientes se pueden gestionar mediante la herramienta de línea de comandos de , [prism](cli/cli-usage.mdx), o a través de la aplicación web haciendo clic en el enlace **Clientes** en la barra lateral izquierda.
+
 
 <Screenshot
   filename="customers/customers-page.png"
-  alt="List of customers in  app"
+  alt="Lista de clientes en la aplicación"
 />
 
-## Creating new customers
+## Crear nuevos clientes
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-After clicking on the **Customers** link on the left-hand sidebar, click the **+ Add Customer** button on the upper-right.
-Enter an appropriate name and description for your customer.
+Después de hacer clic en el enlace **Clientes** en la barra lateral izquierda, haz clic en el botón **+ Agregar Cliente** en la esquina superior derecha.
+Ingresa un nombre y una descripción apropiados para tu cliente.
 
 <Screenshot
   filename="customers/add-customer.png"
   maxWidth="600px"
-  alt="Add customer in  app"
+  alt="Añadir cliente en la aplicación"
 />
 
 </TabItem>
 <TabItem value='cli'>
 
-To create new customers, use the `prism customers:create` subcommand.
+Para crear nuevos clientes, utilice la función `prism customers:create` subcomando.
 
 ```bash
 prism customers:create \
@@ -56,7 +58,7 @@ prism customers:create \
 </TabItem>
 <TabItem value='api'>
 
-Create a new customer using the [createCustomer](api/schema/mutation/createCustomer.mdx) mutation:
+Cree un nuevo cliente utilizando la función [createCustomer](api/schema/mutation/createCustomer.mdx) mutation:
 
 ```graphql
 mutation {
@@ -73,24 +75,25 @@ mutation {
 </TabItem>
 </ExampleTabs>
 
-## Searching customers
+## Búsqueda de clientes
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-After clicking the **Customers** link on the left-hand sidebar, you can enter a portion of a customer's name into the search bar to filter customers by name.
-To filter customers by **description**, **[external ID](#customer-external-ids)**, or **[label](#customer-labels)** instead, click the **Filter** button to the right of the search bar.
+Después de hacer clic en el enlace **Clientes** en la barra lateral izquierda, puedes ingresar una parte del nombre de un cliente en la barra de búsqueda para filtrar clientes por nombre.
+Para filtrar clientes por **descripción**, **[ID externo](#customer-external-ids)** o **[etiqueta](#customer-labels)**, haz clic en el botón **Filtrar** a la derecha de la barra de búsqueda.
+
 
 <Screenshot
   filename="customers/search-customers.png"
   maxWidth="600px"
-  alt="Search customer in  app"
+  alt="Buscar clientes en la aplicación"
 />
 
 </TabItem>
 <TabItem value='cli'>
 
-You can list customers using `prism customers:list`, and can `--filter` or `--sort` the results:
+Puede hacer una lista de clientes utilizando `prism customers:list`, y puede `--filter` o `--sort` los resultados:
 
 ```bash
 prism customers:list --filter "Name=Smith Rocket Company"
@@ -99,7 +102,7 @@ prism customers:list --filter "Name=Smith Rocket Company"
 </TabItem>
 <TabItem value='api'>
 
-Query [customers](api/schema/query/customers.mdx) for a list of customers:
+Consulta [customers](api/schema/query/customers.mdx) para una lista de clientes:
 
 ```graphql
 query {
@@ -116,33 +119,35 @@ query {
 </TabItem>
 </ExampleTabs>
 
-## Modifying customers
+## Modificando clientes
 
-After clicking the **Customers** link on the left-hand sidebar, you will be presented with a list of your customers.
+Después de hacer clic en el enlace **Clientes** en la barra lateral izquierda, se mostrará una lista de tus clientes.
 
-Clicking the name of any customer will bring you to the customer's page.
-This page contains a menu with options to manage instances assigned to the customer, alert monitors, logs, customer users, and file attachments.
+Al hacer clic en el nombre de cualquier cliente, serás llevado a la página del cliente.
+Esta página contiene un menú con opciones para gestionar instancias asignadas al cliente, monitores de alerta, registros, usuarios del cliente y archivos adjuntos.
 
-### Editing customer name, description and logo
+### Editar nombre, descripción y logotipo del cliente
+
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-From the customer's page, click into the **Details** tab on the top of the page to change the customer's name or modify the longer customer description.
-To modify the customer's avatar icon, click the _Upload a photo_ link on the **Details** tab.
-The avatar icon you upload will be resized and cropped to 500 x 500 pixels.
-Transparent PNG images tend to look the best.
+Desde la página del cliente, haz clic en la pestaña **Detalles** en la parte superior de la página para cambiar el nombre del cliente o modificar la descripción más larga del cliente.
+Para modificar el ícono de avatar del cliente, haz clic en el enlace _Subir una foto_ en la pestaña **Detalles**.
+El ícono de avatar que subas se redimensionará y recortará a 500 x 500 píxeles.
+Las imágenes PNG transparentes suelen verse mejor.
+
 
 <Screenshot
   filename="customers/details.png"
   maxWidth="600px"
-  alt="Edit customer details in  app"
+  alt="Editar los datos del cliente en la aplicación"
 />
 
 </TabItem>
 <TabItem value='cli'>
 
-Update the customer name or description from the command line using the `prism customers:update` subcommand with the customer's ID:
+Actualice el nombre o la descripción del cliente desde la línea de comandos mediante la opción `prism customers:update` subcomando con el ID del cliente:
 
 ```bash
 prism customers:update \
@@ -154,7 +159,7 @@ prism customers:update \
 </TabItem>
 <TabItem value='api'>
 
-Use the [updateCustomer](api/schema/mutation/updateCustomer.mdx) mutation to update a customer:
+Utiliza el [updateCustomer](api/schema/mutation/updateCustomer.mdx) mutation para actualizar un cliente:
 
 ```graphql
 mutation {
@@ -175,46 +180,49 @@ mutation {
 </TabItem>
 </ExampleTabs>
 
-### Customer labels
+### Etiquetas del Cliente
 
-Labels help you keep your customers organized.
-You can assign any number of labels to a customer from the customer's **summary** tab, and can then [search](#searching-customers) for customers by label.
-_Note_: for consistency, labels are always lower-cased.
+Las etiquetas te ayudan a organizar a tus clientes.
+Puedes asignar cualquier cantidad de etiquetas a un cliente desde la pestaña **Resumen** del cliente y luego [buscar](#searching-customers) clientes por etiqueta.
+_Nota_: para mantener la consistencia, las etiquetas siempre están en minúsculas.
+
 
 <Screenshot
   filename="customers/search-by-label.png"
   maxWidth="800px"
-  alt="Search customers by label in  app"
+  alt="Buscar clientes por etiqueta en la aplicación"
 />
 
-## Deploying instances to a customer
+## Implementación de instancias para un cliente
 
-An **instance** of an integration is a versioned copy of an integration that is configured and deployed to a specific customer.
-Config variables that are unique to the customer can be applied to an instance.
+Una **instancia** de una integración es una copia versionada de una integración que está configurada e implementada en un cliente específico.
+Se pueden aplicar variables de configuración únicas para el cliente a una instancia.
 
-For more information on attaching config variables, see the [instances](instances.mdx) page.
+Para obtener más información sobre cómo adjuntar variables de configuración, consulta la página [instancias](instances.mdx).
+
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-From the customer's page select the **Instances** tab.
-There, you will see any instances currently deployed to your customer, with information on when they were last run, what versions are deployed, etc.
+Desde la página del cliente, selecciona la pestaña **Instancias**.
+Allí verás cualquier instancia actualmente implementada en tu cliente, con información sobre cuándo se ejecutaron por última vez, qué versiones están implementadas, etc.
 
-To deploy a new instance, click the **+ Add instance** button on the top-right corner.
-Select the integration you wish to deploy, and give the instance an appropriate name and description.
+Para implementar una nueva instancia, haz clic en el botón **+ Agregar instancia** en la esquina superior derecha.
+Selecciona la integración que deseas implementar y asigna un nombre y una descripción apropiados a la instancia.
+
 
 <Screenshot
   filename="shared/add-instance.png"
   maxWidth="600px"
-  alt="Deploy instance to a customer in  app"
+  alt="Desplegar instancia a un cliente en app"
 />
 
-Once the instance is created, you will be prompted to configure any config variables required by the integration.
+Una vez creada la instancia, se le pedirá que configure las variables de configuración necesarias para la integración.
 
 </TabItem>
 <TabItem value='cli'>
 
-To deploy an instance to a customer, use the `prism instances:create` subcommand.
+Para desplegar una instancia en un cliente, utilice el comando `prism instances:create` subcomando.
 
 ```bash
 # Get the Customer ID
@@ -242,7 +250,7 @@ prism instances:create \
 </TabItem>
 <TabItem value='api'>
 
-Use the [createInstance](api/schema/mutation/createInstance.mdx) mutation to deploy an instance to a customer:
+Utiliza el [createInstance](api/schema/mutation/createInstance.mdx) mutation desplegar una instancia a un cliente:
 
 ```graphql
 mutation {
@@ -264,50 +272,54 @@ mutation {
 </TabItem>
 </ExampleTabs>
 
-**For More Information**:
-[Instances](instances.mdx) and
-[Configuration-Driven Integration Quickstart](quickstarts/configuration-driven-integration.mdx#deploy-your-integration-to-customers)
+**Para obtener más información:**
+[Instancias](instances.mdx) y
+[Inicio Rápido de Integración Guiada por Configuración](quickstarts/configuration-driven-integration.mdx#deploy-your-integration-to-customers)
 
-## Managing alert monitors
+## Gestión de monitores de alerta
 
-**Alert monitors** allow you to send alerts to your team when an [alert trigger](monitoring-and-alerting.mdx#alert-triggers) fires on an instance.
+Los **monitores de alerta** te permiten enviar alertas a tu equipo cuando se activa un [desencadenador de alerta](monitoring-and-alerting.mdx#alert-triggers) en una instancia.
 
-For example, you may want to your DevOps team to be alerted via text message when an instance fails to run,
-or you may want your project management team to be emailed when an instance is enabled.
+Por ejemplo, es posible que desees que tu equipo de DevOps reciba una alerta por mensaje de texto cuando una instancia no se ejecute correctamente,
+o que tu equipo de gestión de proyectos reciba un correo electrónico cuando se habilite una instancia.
+
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-From the customer's page select the **Monitors** tab.
-There, you will see any monitors currently deployed to your customer, with information on if/when it was last triggered, which instance it is associated with, and what triggers the monitor.
+Desde la página del cliente, selecciona la pestaña **Monitores**.
+Allí, verás los monitores actualmente implementados para tu cliente, con información sobre si/cuándo se activaron por última vez, con qué instancia están asociados y qué desencadena el monitor.
+
 
 <Screenshot
   filename="customers/alert-monitor-list.png"
-  alt="Alert monitors list for customer in  app"
+  alt="Lista de monitores de alerta para el cliente en la aplicación"
 />
 
-To deploy a new monitor, click the **+ Add alert monitor** button on the top-right corner.
-Give the monitor a name and and select the trigger that will activate this alert. The alert will be linked to the current instance.
+Para implementar un nuevo monitor, haz clic en el botón **+ Agregar monitor de alertas** en la esquina superior derecha.
+Asigna un nombre al monitor y selecciona el desencadenador que activará esta alerta. La alerta estará vinculada a la instancia actual.
+
 
 <Screenshot
   filename="customers/add-alert-monitor.png"
   maxWidth="800px"
-  alt="Add alert monitor in  app"
+  alt="Añadir monitor de alertas en la aplicación"
 />
 
-After creating the new monitor, select the users to alert or webhooks to invoke when the monitor is triggered from the **Details** tab.
-You can add additional triggers that will trigger an alert.
-When you are finished editing the alert, be sure to click **Save** to save your changes.
+Después de crear el nuevo monitor, selecciona los usuarios a los que se les enviará una alerta o los webhooks que se invocarán cuando se active el monitor desde la pestaña **Detalles**.
+Puedes agregar desencadenadores adicionales que activarán una alerta.
+Cuando hayas terminado de editar la alerta, asegúrate de hacer clic en **Guardar** para guardar tus cambios.
+
 
 <Screenshot
   filename="customers/alert-notifications.png"
-  alt="Alert monitors for an instance in  app"
+  alt="Monitores de alerta para una instancia en la aplicación"
 />
 
 </TabItem>
 <TabItem value='cli'>
 
-To create an alert monitor on an instance, identify the alert trigger ID, instance ID, and groups, users, or webhooks you want to alert.
+Para crear un monitor de alertas en una instancia, identifique el ID del activador de alertas, el ID de la instancia y los grupos, usuarios o webhooks a los que desea alertar.
 
 ```bash
 # Get a User ID
@@ -317,7 +329,7 @@ USER_ID=$(prism customers:users:list
             --no-header \
             --filter 'Email=alexander.cooper@progix.io')
 
-# List available alert triggers
+# Lista de activadores de alerta disponibles
 prism alerts:triggers:list --extended
 
  Id                                                                   Name
@@ -333,7 +345,7 @@ prism alerts:triggers:list --extended
  QWxlcnRUcmlnZ2VyOjQ1YzQyYjI0LWI5YjItNDU2OC1iOTE1LTBjNzkwYTAwMDI1OQ== Instance Enabled
  QWxlcnRUcmlnZ2VyOmVjYTlkMGRmLTRlZWYtNDgwZC04MTE3LTYxZjQyMzBmMWZjZA== Instance Removed
 
-# Create an alert monitor for Alex if the "Fabricate 3D Model" instance fails
+# Crear un monitor de alertas para Alex si falla la instancia "Fabricate 3D Model".
 prism alerts:monitors:create \
     --users "[\"${USER_ID}\"]" \
     --name 'Alert Alex on Execution Failure' \
@@ -344,7 +356,8 @@ prism alerts:monitors:create \
 </TabItem>
 <TabItem value='api'>
 
-To create an alert monitor for an instance, you will need to query [alertTriggers](api/schema/query/alertTriggers.mdx) and select which types of triggers should result in an alert:
+Para crear un monitor de alerta para una instancia, deberás consultar [alertTriggers](api/schema/query/alertTriggers.mdx) y seleccionar qué tipos de desencadenadores deberían generar una alerta:
+
 
 ```graphql
 query listTriggers {
@@ -357,8 +370,8 @@ query listTriggers {
 }
 ```
 
-You will also need the ID of the instance you want to attach the alert to, and the IDs of any users or groups who should be notified.
-Then, use the [createAlertMonitor](api/schema/mutation/createAlertMonitor.mdx) mutation to create the alert monitor:
+También necesitarás el ID de la instancia a la que deseas adjuntar la alerta y los IDs de los usuarios o grupos que deben ser notificados. Luego, utiliza la mutación [createAlertMonitor](api/schema/mutation/createAlertMonitor.mdx) para crear el monitor de alerta:
+
 
 ```graphql
 mutation (
@@ -400,139 +413,142 @@ mutation (
 </TabItem>
 </ExampleTabs>
 
-**For More Information**:
+**Para más información**:
 [Alert Monitors](monitoring-and-alerting.mdx)
 
-## Accessing customer logs
+En , creemos que los registros detallados y buscables son fundamentales para cualquier ecosistema de software. Los registros de todas las invocaciones de instancias se almacenan para todos los clientes y se pueden buscar y filtrar.
 
-At we believe verbose and searchable logs are critical to any software ecosystem.
-Logs of all instance invocations are stored for all customers, and are searchable and filterable.
-
-To access logs of instances for a specific customer, open the customer's page and select the **Logs** tab.
+Para acceder a los registros de las instancias de un cliente específico, abre la página del cliente y selecciona la pestaña **Logs**.
 
 <Screenshot
   filename="customers/logs-list.png"
-  alt="Access customer instance logs in  app"
+  alt="Acceder a los registros de la instancia del cliente en la aplicación"
 />
 
-You can search log messages using the search bar on the top of the page.
+Puede buscar mensajes de registro utilizando la barra de búsqueda situada en la parte superior de la página.
 
 <Screenshot
   filename="shared/search-customer-logs.png"
-  alt="Search customer instance logs in  app"
+  alt="Buscar registros de instancias de clientes en la aplicación"
 />
 
-Logs can be filtered by clicking the **Filter** button to the right of the search bar.
-You can filter logs by:
+Los registros se pueden filtrar haciendo clic en el botón **Filter** a la derecha de la barra de búsqueda.
+Puedes filtrar los registros por:
 
-- Log Type
-- Log Severity
-- Date/Time Range
-- Integration
-- Version
-- Instance
+- Tipo de registro
+- Severidad del registro
+- Rango de fecha/hora
+- Integración
+- Versión
+- Instancia
+
 
 <Screenshot
   filename="shared/filter-customer-logs.png"
-  alt="Filter customer instance logs in  app"
+  alt="Filtrar registros de instancias de clientes en la aplicación"
 />
 
-Clicking on a log line will open a pane with the full message of the log.
+Al hacer clic en una línea de registro se abrirá un panel con el mensaje completo del registro.
 
 <Screenshot
   filename="shared/log-line-more-info.png"
-  alt="Customer instance log entry details in  app"
+  alt="Detalles del registro de la instancia del cliente en la aplicación"
 />
 
-**For More Information**:
-[Logging](logging.mdx),
-[Log Retention](logging.mdx#log-retention),
-[Logging from Custom Components](custom-components/writing-custom-components.mdx#logger-object)
+**Para obtener más información**:
+[Registro](logging.mdx),
+[Retención de registros](logging.mdx#retención-de-registros),
+[Registro desde componentes personalizados](custom-components/writing-custom-components.mdx#objeto-de-registro)
 
-## Viewing instance execution results
+## Visualización de resultados de ejecución de instancias
 
-It's useful for debugging purposes to be able to see execution results of instance invocations.
-Click the **Executions** tab from a customer's page to see the logs and step outputs of all instances deployed to that customer.
+Es útil para fines de depuración poder ver los resultados de ejecución de las instancias.
+Haz clic en la pestaña **Ejecuciones** desde la página de un cliente para ver los registros y salidas de paso de todas las instancias implementadas en ese cliente.
+
 
 <Screenshot
   filename="customers/execution-results.png"
-  alt="Logs and step outputs for customer instances in  app"
+  alt="Registros y salidas de pasos para instancias de clientes en la aplicación"
 />
 
-## Managing customer users
+## Gestión de usuarios de clientes
 
-Customer users are users at _your_ customer locations who have access to instances deployed to them.
-Depending on the [role](users.mdx#customer-user-roles) you assign to the user, the user might have read or write access to their instances.
-That means that you can grant permission to your customers to update instances that are deployed to them, so they can do things like update config variables to third-party APIs without needing you to intervene.
+Los usuarios de clientes son usuarios en las ubicaciones de _tus_ clientes que tienen acceso a las instancias implementadas para ellos.
+Según el [rol](users.mdx#roles-de-usuario-de-cliente) que asignes al usuario, este podría tener acceso de lectura o escritura a sus instancias.
+Esto significa que puedes otorgar permisos a tus clientes para actualizar instancias implementadas para ellos, de modo que puedan hacer cosas como actualizar variables de configuración para API de terceros sin necesidad de que intervengas.
 
-Customer users' accounts are limited in scope. They cannot view instances belonging to your other customers, nor see organization-level resources.
+Las cuentas de los usuarios de clientes tienen un alcance limitado. No pueden ver instancias pertenecientes a tus otros clientes ni ver recursos a nivel de organización.
+
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-Users for your customers are managed by opening a customer's page and selecting the **Users** tab.
+Los usuarios de sus clientes se gestionan abriendo la página de un cliente y seleccionando la pestaña **Usuarios**.
 
 <Screenshot
   filename="shared/list-customer-users.png"
   maxWidth="800px"
-  alt="Manage customer users in  app"
+  alt="Gestionar los usuarios clientes en la aplicación"
 />
 
-New users can be added by clicking the **+ Add user** button.
-Enter the user's name and email address and give the user an appropriate role.
-More information about customer user roles can be found on the [users](users.mdx#customer-user-roles) page.
+## Agregar usuarios nuevos
+
+Los nuevos usuarios se pueden agregar haciendo clic en el botón **+ Agregar usuario**.
+Ingresa el nombre y la dirección de correo electrónico del usuario y asigna un rol adecuado al usuario.
+Puedes encontrar más información sobre los roles de usuarios de clientes en la página de [usuarios](users.mdx#roles-de-usuario-de-cliente).
+
 
 <Screenshot
   filename="shared/add-customer-user.png"
   maxWidth="800px"
-  alt="Add customer user in  app"
+  alt="Añadir usuario cliente en app"
 />
 
-When users are added, they receive an email confirmation that will prompt them to log in and set their password and optional phone number.
+Cuando se añaden usuarios, reciben un correo electrónico de confirmación que les pedirá que inicien sesión y establezcan su contraseña y número de teléfono opcional.
 
 <Screenshot
   filename="shared/edit-customer-user.png"
-  alt="Edit customer user in  app"
+  alt="Editar usuario cliente en app"
 />
 
-To delete a user, select the user from the **Users** tab.
-Click the **Delete user** on the bottom of the page.
+Para eliminar un usuario, selecciónelo en la pestaña **Usuarios**.
+Haga clic en **Eliminar usuario** en la parte inferior de la página.
 
 </TabItem>
 <TabItem value='cli'>
 
-To list users with the `prism` CLI tool, use the `prism customers:users:list` subcommand.
+Para listar usuarios con la herramienta `prism` CLI, utiliza el subcomando `prism customers:users:list`.
 
 ```bash
-# Get your customer's ID
+# Obtenga la identificación de su cliente
 CUSTOMER_ID=$(
     prism customers:list \
         --columns=id \
         --filter 'Name=^FTL Rockets$' \
         --no-header)
 
-# List that customer's users
+# Lista de usuarios de ese cliente
 prism customers:users:list ${CUSTOMER_ID}
 ```
 
-To add a new customer, use the `prism customers:users:create` subcommand.
-More information about user roles can be found on the [users](users.mdx#customer-user-roles) page.
+Para agregar un nuevo usuario, utiliza el subcomando `prism customers:users:create`.
+Puedes encontrar más información sobre roles de usuario en la [página de usuarios](users.mdx#customer-user-roles).
 
 ```bash
-# Get your customer's ID
+# Obtenga la identificación de su cliente
 CUSTOMER_ID=$(
     prism customers:list \
         --columns=id \
         --filter 'Name=^FTL Rockets$' \
         --no-header)
 
-# Get the ID of the "Admin" role
+# Obtener el ID del rol "Admin
 ROLE_ID=$(prism customers:users:roles \
             --columns id \
             --no-header \
             --filter 'name=^Admin$')
 
-# Create a user "Lisa Nguyen" that has the "Admin" role
+# Crear un usuario "Lisa Nguyen" que tenga el rol "Admin".
 prism customers:users:create \
     --email 'lisa.nguyen@ftl-rockets.com' \
     --name 'Lisa Nguyen' \
@@ -543,7 +559,8 @@ prism customers:users:create \
 </TabItem>
 <TabItem value='api'>
 
-To list all customers query [customers](api/schema/query/customers.mdx), or query [customer](api/schema/query/customer.mdx) for a specific customer's users:
+Para listar todos los clientes, realiza una consulta a [customers](api/schema/query/customers.mdx).
+También puedes realizar una consulta a [customer](api/schema/query/customer.mdx) para obtener los usuarios de un cliente específico:
 
 ```graphql
 query {
@@ -561,8 +578,8 @@ query {
 }
 ```
 
-To create a new customer user, use the [createCustomerUser](api/schema/mutation/createCustomerUser.mdx) mutation.
-You will need to know the ID of the role you want to assign the user, as well as the ID of the customer:
+Para crear un nuevo usuario de cliente, utiliza la mutación [createCustomerUser](api/schema/mutation/createCustomerUser.mdx).
+Necesitarás conocer el ID del rol que deseas asignar al usuario, así como el ID del cliente:
 
 ```graphql
 mutation {
@@ -581,7 +598,7 @@ mutation {
 }
 ```
 
-Delete a user using the [deleteUser](api/schema/mutation/deleteUser.mdx) mutation:
+Borrar un usuario mediante la opción [deleteUser](api/schema/mutation/deleteUser.mdx) mutation:
 
 ```graphql
 mutation {
@@ -598,49 +615,50 @@ mutation {
 </TabItem>
 </ExampleTabs>
 
-**For More Information**:
+**Para más información**:
 [Users](users.mdx)
 
-## Using customer attachments
+## Uso de archivos adjuntos de clientes
 
-Attachments are a place to store documents that both customers and your team members can reference.
-After opening a customer's page select the **Attachments** tab.
+Los archivos adjuntos son un lugar para almacenar documentos a los que tanto los clientes como los miembros de tu equipo pueden hacer referencia.
+Después de abrir la página de un cliente, selecciona la pestaña **Archivos adjuntos**.
 
-Documents can be added using the **+Add attachment** button, and deleted by clicking the <Icon>delete</Icon> icon.
+Los documentos se pueden agregar con el botón **+Agregar archivo adjunto** y eliminar haciendo clic en el icono <Icon>eliminar</Icon>.
+
 
 <Screenshot
   filename="customers/attachments.png"
-  alt="Add attachments to customers in  app"
+  alt="Añadir archivos adjuntos a los clientes en la aplicación"
 />
 
-## Deleting customers
+## Borrar clientes
 
-:::warning Deleting a Customer is Permanent
-When a customer is deleted, all associated users, and instances are also deleted.
-Use caution when deleting customers.
+:::warning La eliminación de un cliente es permanente
+Cuando se elimina un cliente, también se eliminan todos los usuarios e instancias asociados.
+Tenga cuidado al borrar clientes.
 :::
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-After clicking on the **Customers** link on the left-hand sidebar, click the name of the customer you would like to delete, and then select the **Details** tab.
+Después de hacer clic en el enlace **Clientes** en la barra lateral izquierda, haz clic en el nombre del cliente que deseas eliminar y luego selecciona la pestaña **Detalles**.
 
-Verify that the name shown matches the customer you wish to delete, and click the **Delete customer** button.
-Confirm your choice by typing the customer name exactly, and then click **Remove customer**.
+Verifica que el nombre mostrado coincida con el cliente que deseas eliminar y haz clic en el botón **Eliminar cliente**.
+Confirma tu elección escribiendo el nombre del cliente exactamente y luego haz clic en **Eliminar cliente**.
 
 <Screenshot
   filename="customers/delete-customer.png"
   maxWidth="400px"
-  alt="Delete customer in  app"
+  alt="Borrar cliente en app"
 />
 
 </TabItem>
 <TabItem value='cli'>
 
-To delete a customer, use the `prism customers:delete` subcommand.
+Para eliminar un cliente, utilice el botón `prism customers:delete` subcommando.
 
 ```bash
-# Get the customer's ID
+# Obtener el ID del cliente
 CUSTOMER_ID=$(prism customers:list \
                 --columns id \
                 --filter 'Name=^FTL Rockets$' \
@@ -652,7 +670,7 @@ prism customers:delete ${CUSTOMER_ID}
 </TabItem>
 <TabItem value='api'>
 
-Delete a customer using the [deleteCustomer](api/schema/mutation/deleteCustomer.mdx) mutation:
+Borrar un cliente mediante el botón [deleteCustomer](api/schema/mutation/deleteCustomer.mdx) mutation:
 
 ```graphql
 mutation {
@@ -671,26 +689,25 @@ mutation {
 </TabItem>
 </ExampleTabs>
 
-## Customer external IDs
+## Identificadores externos de clientes
 
-A customer can be assigned an **External ID** - a unique identifier from an external system.
-So, if you know "Smith Rocket Company" as a customer with an ID of `abc-123` in another system you use, you can assign "Smith Rocket Company" in the `externalId` of `abc-123`.
-This is helpful if you need to quickly look up or associate customers in with customers in your external system.
+A un cliente se le puede asignar un **ID externo**, que es un identificador único de un sistema externo. Por ejemplo, si conoces a "Smith Rocket Company" como un cliente con un ID de `abc-123` en otro sistema que utilizas, puedes asignar "Smith Rocket Company" en el `externalId` de `abc-123`. Esto es útil si necesitas buscar rápidamente o asociar clientes en  con clientes en tu sistema externo.
 
-External IDs can be set programmatically (see the next section), or can be edited within the we app by clicking the **Customers** link on the left-hand sidebar, selecting a customer, and then clicking on the **Details** tab.
+Los IDs externos se pueden establecer programáticamente (ver la siguiente sección) o se pueden editar dentro de la aplicación web haciendo clic en el enlace **Clientes** en la barra lateral izquierda, seleccionando un cliente y luego haciendo clic en la pestaña **Detalles**.
+
 
 <Screenshot
   filename="customers/external-id.png"
   maxWidth="700px"
-  alt="Set customer external IDs in  app"
+  alt="Establecer ID externos de cliente en la aplicación"
 />
 
-External IDs are required if you want to route webhook requests to instances deployed to specific customers using [shared](integration-triggers.mdx#webhook-endpoint-configuration) webhook triggers.
+Los IDs externos son necesarios si deseas dirigir las solicitudes de webhook a instancias implementadas en clientes específicos mediante [triggers compartidos](integration-triggers.mdx#webhook-endpoint-configuration).
 
-### Sync customers from an external system programmatically
+### Sincronizar clientes desde un sistema externo de manera programática
 
-If you use a customer management tool to keep track of your customers, like Salesforce or another tool specific to your company or industry, you can use 's API to programmatically sync customers from your external tool to .
+Si utilizas una herramienta de gestión de clientes para realizar un seguimiento de tus clientes, como Salesforce u otra herramienta específica de tu empresa o industria, puedes utilizar la API de  para sincronizar clientes de manera programática desde tu herramienta externa a .
 
-In addition at a **name** and **description**, a customer created through the [createCustomer](api/schema/mutation/createCustomer.mdx) mutation can be assigned an `externalId`, so that you can match customers in to customers saved in other systems.
+Además del **nombre** y la **descripción**, a un cliente creado mediante la mutación [crearCliente](api/schema/mutation/createCustomer.mdx) se le puede asignar un `externalId`, para que puedas hacer coincidir clientes en  con clientes almacenados en otros sistemas.
 
-See our [Syncing Customers to ](quickstarts/syncing-customers-to-.mdx) quickstart guide for an example of how to sync customers to using our API.
+Consulta nuestra guía de inicio rápido [Sincronización de clientes con ](quickstarts/syncing-customers-to-.mdx) para obtener un ejemplo de cómo sincronizar clientes con  utilizando nuestra API.

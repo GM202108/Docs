@@ -1,7 +1,7 @@
 ---
 id: organization
-title: Organization
-description: Create and manage your  organization
+title: Organización
+description: Cree y gestione su organización
 ---
 
 import Icon from "@mui/material/Icon";
@@ -10,45 +10,50 @@ import ExampleTabs from "@site/src/components/example-tabs";
 import InternalLink from "@site/src/components/internal-link";
 import TabItem from "@theme/TabItem";
 
-In order to disambiguate who 's customers are, and who your customers are, we refer to 's customers as **organizations** and your customers as **customers**.
-For example, if you work for a company that develops project management software for rocket companies, your organization may be "Progix Software" with customers like "Rockets, Inc" and "Eastern Spaceflight".
+## Creación de tu organización
 
-Your organization can contain integrations for all of your products, and team members from multiple departments within your company can access the integrations you create.
-Your team members can be assigned [roles](users.mdx#organization-team-member-roles), so your DevOps team members might have administrator access, while your support team might have permission to review integration logs.
+Con el fin de desambiguar quiénes son los clientes de , y quiénes son tus clientes, nos referimos a los clientes de  como **organizaciones** y a tus clientes como **clientes**.
+Por ejemplo, si trabajas para una empresa que desarrolla software de gestión de proyectos para empresas de cohetes, tu organización puede ser "Progix Software" con clientes como "Rockets, Inc" y "Eastern Spaceflight".
 
-## Creating your organization
+Tu organización puede contener integraciones para todos tus productos, y los miembros del equipo de varios departamentos dentro de tu empresa pueden acceder a las integraciones que creas.
+A tus miembros del equipo se les pueden asignar [roles](users.mdx#organization-team-member-roles), por lo que los miembros del equipo de DevOps pueden tener acceso de administrador, mientras que el equipo de soporte puede tener permisos para revisar los registros de integración.
 
-To create an organization within , first <InternalLink href="/sign-up/">sign up</InternalLink>.
+## Crear tu organización
 
-For large organizations with multiple distinct divisions, consider creating an organization per division.
+Para crear una organización en , primero <InternalLink href="/sign-up/">regístrate</InternalLink>.
+
+Para organizaciones grandes con varias divisiones distintas, considera crear una organización por división.
+
 
 :::note
-If your company has already created an organization, ask your organization's administrator to create a user account for you instead.
-Registering with again will create a second organization.
+Si tu empresa ya ha creado una organización, pídele al administrador de la organización que cree una cuenta de usuario para ti en su lugar.
+Registrarte nuevamente creará una segunda organización.
 :::
 
-## Editing your organization
+
+## Editar su organización
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-To edit any settings of your organization, click the **Settings** link on the left-hand sidebar.
-From this screen you can manage team members, alerting, and your subscription settings.
-You can also view your organization's utilization of resources.
+Para editar cualquier configuración de tu organización, haz clic en el enlace **Configuración** en la barra lateral izquierda.
+Desde esta pantalla, puedes gestionar a los miembros del equipo, las alertas y la configuración de tu suscripción.
+También puedes ver la utilización de recursos de tu organización.
 
-Your organization's logo can be changed from the **Theme** tab.
-Logos are cropped and resized to 512 x 512 pixels, and must be an image.
-Transparent square PNG images tend to look the best.
+El logotipo de tu organización se puede cambiar desde la pestaña **Tema**.
+Los logotipos se recortan y redimensionan a 512 x 512 píxeles y deben ser imágenes.
+Las imágenes PNG cuadradas y transparentes suelen verse mejor.
+
 
 <Screenshot
   filename="organization/change-org-name.png"
-  alt="Change logo for org in  app"
+  alt="Cambiar el logotipo de la organización en la aplicación"
 />
 
 </TabItem>
 <TabItem value='cli'>
 
-To rename your organization, use the `prism organization:update` subcommand:
+Para cambiar el nombre de su organización, utilice el botón `prism organization:update` subcomando:
 
 ```bash
 prism organization:update --name "New Organization Name"
@@ -57,7 +62,7 @@ prism organization:update --name "New Organization Name"
 </TabItem>
 <TabItem value='api'>
 
-To update your organization's name programmatically, use the [updateOrganization](api/schema/mutation/updateOrganization.mdx) mutation:
+Para actualizar el nombre de su organización mediante programación, utilice la función [updateOrganization](api/schema/mutation/updateOrganization.mdx) mutation:
 
 ```graphql
 mutation {
@@ -72,125 +77,133 @@ mutation {
 </TabItem>
 </ExampleTabs>
 
-## Managing organization users
+## Gestión de usuarios en la organización
 
-After creating your organization, you can create [accounts](users.mdx#organization-users) for your team members so that they can create and maintain integrations for your customers.
-Click the **Settings** link on the left-hand sidebar, and select the **Team Members** tab.
-Click the **+ Add team member** button to create a new user.
-Select an appropriate [role](users.mdx#organization-team-member-roles) for your team member, and enter their name and email address.
-Once you create your team member's account, they will receive a confirmation email and registration link to set their password and personal information.
+Después de crear tu organización, puedes crear [cuentas](users.mdx#organization-users) para los miembros de tu equipo para que puedan crear y mantener integraciones para tus clientes.
+Haz clic en el enlace **Configuración** en la barra lateral izquierda y selecciona la pestaña **Miembros del equipo**.
+Haz clic en el botón **+ Agregar miembro del equipo** para crear un nuevo usuario.
+Selecciona un [rol](users.mdx#organization-team-member-roles) apropiado para el miembro de tu equipo e introduce su nombre y dirección de correo electrónico.
+Una vez que crees la cuenta del miembro de tu equipo, recibirán un correo electrónico de confirmación y un enlace de registro para establecer su contraseña e información personal.
+
 
 <Screenshot
   filename="shared/list-org-users.png"
-  alt="List of org users in  app"
+  alt="Lista de usuarios org en app"
 />
 
-**For More Information**: [Users](users.mdx)
+**Para obtener más información**: [Usuarios](users.mdx)
 
-## Organization single sign-On (SSO)
+## Inicio de sesión único (SSO) de la organización
 
-As an organization with an <InternalLink href="/pricing/">Enterprise plan</InternalLink> you can elect to authenticate your team members through your existing identity provider.
-If your team members sign in to other applications through Active Directory, Active Directory Federation Services (ADFS), or Lightweight Directory Access Protocol (LDAP), then we can configure your organization to sign in to the same way.
+Como una organización con un <InternalLink href="/pricing/">plan Enterprise</InternalLink>, puedes optar por autenticar a los miembros de tu equipo a través de tu proveedor de identidad existente.
+Si los miembros de tu equipo inician sesión en otras aplicaciones a través de Active Directory, Active Directory Federation Services (ADFS) o Lightweight Directory Access Protocol (LDAP), entonces podemos configurar tu organización para que inicie sesión de la misma manera.
 
-If you use **single sign-on** (SSO), your team members will be redirected to your identity provider from the login screen if they enter an email address that matches your domain.
-Otherwise, they will be prompted for a password like usual.
+Si usas **inicio de sesión único** (SSO), los miembros de tu equipo serán redirigidos a tu proveedor de identidad desde la pantalla de inicio de sesión si ingresan una dirección de correo electrónico que coincida con tu dominio.
+De lo contrario, se les pedirá una contraseña como de costumbre.
+
 
 <Screenshot
   filename="organization/sso-diagram.png"
   maxWidth="800px"
-  alt="Diagram showing paths and logic for SSO (single sign on)"
+  alt="Diagrama que muestra las rutas y la lógica del SSO (inicio de sesión único)"
 />
 
-If you are interested in using Single Sign-On for , please reach out to our [support](mailto:support@.io) team to get SSO configured and enabled for your organization.
+Si estás interesado en utilizar el inicio de sesión único para , por favor, ponte en contacto con nuestro equipo de [soporte](mailto:support@.io) para configurar y habilitar SSO para tu organización.
 
-## Creating alert groups
+## Creación de grupos de alerta
 
-When instances of integrations behave unexpectedly, you likely want to be notified.
-For example, you may want your DevOps team to be alerted when an instance fails to run to completion.
-An [alert group](monitoring-and-alerting.mdx#alert-groups) is a set of users to notify and webhooks to invoke when an [alert trigger](monitoring-and-alerting.mdx#alert-triggers) fires.
+Cuando las instancias de las integraciones se comportan de manera inesperada, seguramente querrás recibir notificaciones.
+Por ejemplo, es posible que desees que tu equipo de DevOps sea alertado cuando una instancia no se ejecute hasta su finalización.
+Un [grupo de alerta](monitoring-and-alerting.mdx#alert-groups) es un conjunto de usuarios a notificar y webhooks a invocar cuando se dispara una [alerta](monitoring-and-alerting.mdx#alert-triggers).
 
-To create or modify an alert group, click the **Settings** link on the left-hand sidebar, and then select the **Alert Groups** tab.
-Click the **+ Add alert group** button to create a new alert group, and enter users to notify and webhooks to invoke in the event of an alert trigger.
+Para crear o modificar un grupo de alerta, haz clic en el enlace **Configuración** en la barra lateral izquierda y selecciona la pestaña **Grupos de alerta**.
+Haz clic en el botón **+ Agregar grupo de alerta** para crear un nuevo grupo de alerta e ingresa los usuarios a notificar y los webhooks a invocar en caso de que se dispare una alerta.
+
 
 <Screenshot
   filename="organization/alert-groups.png"
-  alt="Create alert groups in  app"
+  alt="Crear grupos de alerta en la aplicación"
 />
 
-**For More Information**: [Monitoring and Alerting](monitoring-and-alerting.mdx)
+**Para obtener más información**: [Monitoreo y alertas](monitoring-and-alerting.mdx)
 
-## Using alert webhooks
+## Uso de webhooks de alerta
 
-In addition to email and text alerts, you can configure alert monitors to invoke a webhook with a payload of your choice.
-To create or modify a webhook URL, click into the **Settings** page and select the **Alert Webhooks** tab.
-Click the **+Alert Webhook** button, enter an appropriate name for your alert webhook, and enter URL, header, and payload information for your webhook.
+Además de las alertas por correo electrónico y mensajes de texto, puedes configurar monitores de alerta para invocar un webhook con un payload de tu elección.
+Para crear o modificar una URL de webhook, haz clic en la página **Configuración** y selecciona la pestaña **Webhooks de alerta**.
+Haz clic en el botón **+ Webhook de alerta**, ingresa un nombre apropiado para tu webhook de alerta y proporciona la información de URL, encabezados y payload para tu webhook.
 
-Alert webhooks can be used to invoke the [PagerDuty API](https://developer.pagerduty.com/docs/events-api-v2/overview/), your own DevOps alert endpoint, or any other alerting service with an HTTP-based API.
+Los webhooks de alerta se pueden utilizar para invocar la [API de PagerDuty](https://developer.pagerduty.com/docs/events-api-v2/overview/), tu propio punto de alerta de DevOps o cualquier otro servicio de alerta con una API basada en HTTP.
+
 
 <Screenshot
   filename="shared/alert-webhook.png"
   maxWidth="500px"
-  alt="Add alert webhook in  app"
+  alt="Añadir webhook de alerta en la aplicación"
 />
 
-**For More Information**: [Monitoring and Alerting](monitoring-and-alerting.mdx)
+**Para obtener más información**: [Monitoreo y alertas](monitoring-and-alerting.mdx)
 
-## Custom themes
+## Temas personalizados
 
-See the [Embedding Marketplace](embedding-marketplace.mdx#theming-embedded-marketplace) article for information on custom theming.
+Consulta el artículo [Integración del Marketplace](embedding-marketplace.mdx#theming-embedded-marketplace) para obtener información sobre la personalización de temas.
 
-## Tracking service utilization
+## Seguimiento de la utilización del servicio
 
-You can track metrics about your organization's usage of services from the **Utilization** tab of the **Settings** page.
-On this page, you can view details about:
+Puedes realizar un seguimiento de las métricas sobre el uso de los servicios de tu organización desde la pestaña **Utilización** de la página **Configuración**.
+En esta página, puedes ver detalles sobre:
 
-- Instance and integration counts
-- Blob storage usage
-- Instance execution count
-- Customer and user counts
-- Step Execution counts
-- Execution speed
+- Conteos de instancias e integraciones
+- Uso de almacenamiento de blobs
+- Conteo de ejecuciones de instancias
+- Conteos de clientes y usuarios
+- Conteos de ejecuciones de pasos
+- Velocidad de ejecución
 
-Additionally, you can view metrics from this week and last week to help identify changes and anomalies.
+Además, puedes ver métricas de esta semana y la semana pasada para ayudar a identificar cambios y anomalías.
+
 
 <Screenshot
   filename="organization/utilization.png"
-  alt="Track organization usage of services in  app"
+  alt="Seguimiento del uso de los servicios de la organización en la aplicación"
 />
 
-## Managing billing
+## Administración de facturación
 
-When you first sign up for , you are entered into the "free plan" so you can try assembling and deploying a few integrations before paying for it.
-To view information on pricing, see our <InternalLink href="/pricing/">pricing page</InternalLink>.
+Cuando te registras por primera vez en , accedes al "plan gratuito" para que puedas probar la creación y implementación de algunas integraciones antes de pagar por el servicio.
+Para obtener información sobre precios, consulta nuestra <InternalLink href="/pricing/">página de precios</InternalLink>.
 
-To manage billing within the web app, click **Settings** on the left-hand sidebar, and then open the **Subscription** tab.
-From there you can manage your subscription type, and update credit card and other billing information.
+Para gestionar la facturación dentro de la aplicación web, haz clic en **Configuración** en la barra lateral izquierda y luego abre la pestaña **Suscripción**.
+Desde allí, puedes gestionar tu tipo de suscripción y actualizar la información de la tarjeta de crédito y otros datos de facturación.
+
 
 <Screenshot
   filename="organization/subscription.png"
-  alt="Manage organization billing in  app"
+  alt="Gestionar la facturación de la organización en la aplicación"
 />
 
-Please <InternalLink href="/contact/">reach out</InternalLink> with any questions about billing.
+## Preguntas sobre facturación
 
-## Deleting your organization
+Si tienes alguna pregunta sobre la facturación, por favor <InternalLink href="/contact/">contáctanos</InternalLink>.
 
-You can delete your organization from the **Subscription** tab shown above.
-Note that deleting your organization is permanent.
+## Eliminar tu organización
 
-## Custom domains
+Puedes eliminar tu organización desde la pestaña **Suscripción** que se muestra arriba.
+Ten en cuenta que eliminar tu organización es permanente.
 
-As an organization with an <InternalLink href="/pricing/">Enterprise plan</InternalLink>, you can choose to interact with the platform through a custom domain that you control.
-For example, you might want to white-label so your team members and customers access **https<!---->://integrations.your-company.com** instead of [https://app..io](https://app..io/).
+## Dominios personalizados
 
-To configure a custom domain, please reach out to our [support team](mailto:support@.io), and let us know what subdomain (like https<!---->://integrations.your-company.com) you would like to use.
-We'll create an [SOA record](https://www.cloudflare.com/learning/dns/dns-records/dns-soa-record/) for that subdomain along with a few A and CNAME records for things like web app access, webhook invocation, and OAuth 2.0 callbacks:
+Como organización con un <InternalLink href="/pricing/">plan Enterprise</InternalLink>, puedes optar por interactuar con la plataforma a través de un dominio personalizado que controles.
+Por ejemplo, es posible que desees personalizar para que los miembros de tu equipo y los clientes accedan a **https<!---->://integrations.tu-empresa.com** en lugar de [https://app..io](https://app..io/).
 
-- https<!---->://**integrations**.your-company.com
-- https<!---->://**hooks.integrations**.your-company.com
-- https<!---->://**oauth2.integrations**.your-company.com
+Para configurar un dominio personalizado, comunícate con nuestro [equipo de soporte](mailto:support@.io) y avísanos qué subdominio (como https<!---->://integrations.tu-empresa.com) te gustaría utilizar.
+Crearemos un [registro SOA](https://www.cloudflare.com/learning/dns/dns-records/dns-soa-record/) para ese subdominio junto con algunos registros A y CNAME para cosas como el acceso a la aplicación web, la invocación de webhooks y las devoluciones de llamada de OAuth 2.0:
 
-Once we have those records ready, you'll just need to create an [NS record](https://www.cloudflare.com/learning/dns/dns-records/dns-ns-record/) to point to a list of nameservers we'll provide you.
-_Note:_ some DNS providers represent a list of NS servers as separate NS records (one server per record), and others have single NS records with a list of values.
+- https<!---->://**integrations**.tu-empresa.com
+- https<!---->://**hooks.integrations**.tu-empresa.com
+- https<!---->://**oauth2.integrations**.tu-empresa.com
 
-Once your domain is white-labeled, your OAuth2 apps can use https<!---->://**oauth2.integrations**.your-company.com/callback as a callback URL.
+Una vez que tengamos esos registros listos, solo necesitarás crear un [registro NS](https://www.cloudflare.com/learning/dns/dns-records/dns-ns-record/) para apuntar a una lista de servidores de nombres que te proporcionaremos.
+_Nota:_ algunos proveedores de DNS representan una lista de servidores de nombres como registros NS separados (un servidor por registro), y otros tienen registros NS individuales con una lista de valores.
+
+Una vez que tu dominio esté personalizado, tus aplicaciones OAuth2 pueden utilizar https<!---->://**oauth2.integrations**.tu-empresa.com/callback como URL de devolución de llamada.
