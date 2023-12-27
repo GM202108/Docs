@@ -1,7 +1,7 @@
 ---
 id: components
-title: Components
-description: components, actions, inputs, and outputs
+title: Componentes
+description: componentes, acciones, entradas y salidas.
 ---
 
 import ExampleTabs from "@site/src/components/example-tabs";
@@ -11,22 +11,20 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 import Link from "@docusaurus/Link";
 import Icon from "@mui/material/Icon";
 
-A **component** is a portion of reusable code that accomplishes a specific task, or connects with an outside service.
-For example, the [SFTP component](components/sftp.mdx) allows integrations to download and modify files on an SFTP server.
-The [Slack component](components/slack.mdx) posts messages to Slack channels.
+Un **componente** es una porción de código reutilizable que realiza una tarea específica o se conecta con un servicio externo. Por ejemplo, el [componente SFTP](components/sftp.mdx) permite a las integraciones descargar y modificar archivos en un servidor SFTP. El [componente Slack](components/slack.mdx) publica mensajes en canales de Slack.
 
-Several components are strung together to form an [integration](integrations.mdx).
-A very simple integration might use the Amazon S3 component to pull down a file from S3, and post the contents of the file to a Slack channel using the Slack component.
+Varios componentes se ensamblan para formar una [integración](integrations.mdx). Una integración muy simple podría usar el componente de Amazon S3 para descargar un archivo de S3 y luego publicar el contenido del archivo en un canal de Slack utilizando el componente Slack.
+
 
 <Screenshot
   filename="components/simple-sample-integration.png"
   maxWidth="300px"
-  alt="Simple integration in  app"
+  alt="Integración sencilla en la aplicación"
 />
 
-Complex integrations might be comprised of dozens of actions.
+Las integraciones complejas pueden constar de docenas de acciones.
 
-### -provided components
+### Componentes suministrados
 
 offers a wide array of components to accomplish a variety of things, like serializing data formats, invoking REST endpoints, or interacting with commonly-used SaaS platforms like AWS, Slack, or Dropbox - see our [component catalog](components/component-catalog.mdx) for a full list of components.
 Source code for some -provided components is available on [GitHub](https://github.com/-io/examples/tree/main/components).

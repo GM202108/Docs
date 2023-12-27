@@ -1,7 +1,7 @@
 ---
 id: users
-title: Users
-description: Manage  organization and customer users
+title: Usuarios
+description: Gestionar los usuarios de la organización y de los clientes
 ---
 
 import Icon from "@mui/material/Icon";
@@ -10,46 +10,46 @@ import TabItem from "@theme/TabItem";
 import Screenshot from "@site/src/components/screenshot";
 import Vimeo from "@site/src/components/vimeo";
 
-Two types of users can log into systems:
+Existen dos tipos de usuarios que pueden iniciar sesión en los sistemas:
 
-- **Organization users** are team members who work at your company.
-  They are responsible for building, deploying, and supporting integrations for your customers.
-  They might include your developers, devops engineers, project managers, support technicians, etc.
+- **Usuarios de la organización** son miembros del equipo que trabajan en tu empresa.
+  Son responsables de construir, implementar y brindar soporte a integraciones para tus clientes.
+  Pueden incluir a tus desarrolladores, ingenieros de DevOps, gerentes de proyectos, técnicos de soporte, entre otros.
 
-  Organization users have permission to view information about your customers and their users, instances, and alert monitors.
-  Depending on their role, some organization users have permission to manage customer resources, as well.
+  Los usuarios de la organización tienen permisos para ver información sobre tus clientes y sus usuarios, instancias y monitores de alerta.
+  Dependiendo de su rol, algunos usuarios de la organización tienen permisos para gestionar recursos de clientes también.
 
-  A full list of [organization team member permissions](#organization-team-member-roles) can be found below.
+  Puedes encontrar una lista completa de [permisos para miembros del equipo de la organización](#organization-team-member-roles) a continuación.
 
-- **Customer users** are users at your customers' sites.
-  Customer users' permissions are limited in scope.
-  They can view and manage users and the instances of integrations that have been deployed to them, but they cannot view your other customers' resources.
+- **Usuarios del cliente** son usuarios en los sitios de tus clientes.
+  Los permisos de los usuarios del cliente son limitados.
+  Pueden ver y gestionar usuarios y las instancias de integraciones que se han implementado para ellos, pero no pueden ver los recursos de tus otros clientes.
 
-  Customer users can be granted permission to update instance configuration, so they can modify config variables and credentials tied to an instance on their own without requiring your direct support.
+  A los usuarios del cliente se les puede otorgar permisos para actualizar la configuración de la instancia, lo que les permite modificar variables de configuración y credenciales vinculadas a una instancia por sí mismos sin necesidad de tu soporte directo.
 
-## Organization users
+## Usuarios de la organización
 
-Organization users are team members who work at _your_ company.
-They are responsible for building, deploying, and supporting integrations for your customers,
-and can be granted a set of permissions based on the role they are assigned.
+Los usuarios de la organización son miembros del equipo que trabajan en _tu_ empresa.
+Son responsables de construir, implementar y brindar soporte a integraciones para tus clientes.
 
-## Organization team member roles
+## Funciones de los miembros del equipo de organización
 
-<Vimeo title="What are Team Member Roles?" video="502283103" />
+<Vimeo title="¿Qué funciones desempeñan los miembros del equipo?" video="502283103" />
 
-Organization users can be granted a variety of _roles_:
+Los usuarios de la organización pueden recibir varios _roles_:
 
-- An organization **owner** is a super-user, and can manage all aspects of an organization (users, customers, integrations, billing, etc.).
-- An organization **admin** has all the permissions of an owner, except the ability to make changes to the organization and manage billing.
-  This role is generally granted to user management teams (like your IT team).
-- An organization **integrator** can manage customers, integrations, and instances.
-  Most developers, DevOps, implementation technicians, etc., will have this role.
-- An organization **guest** is a read-only user who can view information about customer instances, but cannot modify anything.
-  This is a good role for a support technician who needs to view logs, but shouldn't necessarily be able to modify instance configuration.
-- An organization **customer manager** has limited permissions and can manage customers, but cannot view or manage their instances.
-  This is a good role for a support user who should not have access to customers' instance configuration.
-- An organization **third-party** user is used when you are integrating with a third-party app or service and would like to grant limited access to a user from that third-party to specific integrations, components, or customers.
-  The **third-party** role is described in more detail [below](#third-party-users).
+- Un **propietario** de la organización es un superusuario y puede gestionar todos los aspectos de una organización (usuarios, clientes, integraciones, facturación, etc.).
+- Un **administrador** de la organización tiene todos los permisos de un propietario, excepto la capacidad de realizar cambios en la organización y gestionar la facturación.
+  Este rol generalmente se otorga a equipos de gestión de usuarios (como tu equipo de TI).
+- Un **integrador** de la organización puede gestionar clientes, integraciones e instancias.
+  La mayoría de los desarrolladores, DevOps, técnicos de implementación, etc., tendrán este rol.
+- Un **invitado** de la organización es un usuario de solo lectura que puede ver información sobre las instancias de los clientes, pero no puede modificar nada.
+  Este es un buen rol para un técnico de soporte que necesita ver registros, pero no necesariamente puede modificar la configuración de la instancia.
+- Un **gerente de clientes** de la organización tiene permisos limitados y puede gestionar clientes, pero no puede ver ni gestionar sus instancias.
+  Este es un buen rol para un usuario de soporte que no debe tener acceso a la configuración de instancias de los clientes.
+- Un usuario de **terceros** de la organización se utiliza cuando estás integrando con una aplicación o servicio de terceros y deseas otorgar acceso limitado a un usuario de ese tercero a integraciones específicas, componentes o clientes.
+  El rol de **terceros** se describe con más detalle [abajo](#third-party-users).
+
 
 |                           | Owner | Admin | Integrator | Guest | Customer Manager | Third-Party |
 | ------------------------- | :---: | :---: | :--------: | :---: | :--------------: | :---------: |
@@ -69,32 +69,34 @@ Organization users can be granted a variety of _roles_:
 | Manage Organization       |   x   |       |            |       |                  |             |
 | Manage Billing            |   x   |       |            |       |                  |             |
 
-## Managing organization users
+## Gestión de usuarios de la organización
 
-Only organization users with **admin** or **owner** roles can manage organization users.
+Solo los usuarios de la organización con roles de **admin** u **owner** pueden gestionar usuarios de la organización.
 
-To manage organization users in the web app, click **Settings** on the left-hand sidebar, and select the **Team Members** tab.
+Para gestionar usuarios de la organización en la aplicación web, haz clic en **Configuración** en la barra lateral izquierda y selecciona la pestaña **Miembros del equipo**.
 
-### Listing organization users
+### Listado de usuarios de la organización
+
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-Organization users are listed under the **Team Members** tab.
-You can filter what users are shown by typing the name of a user into the search bar on the top of the page.
-You can also filter by email address by clicking the **Filter** link to the right of the search bar.
+Los usuarios de la organización se encuentran en la pestaña **Miembros del equipo**.
+Puedes filtrar los usuarios que se muestran escribiendo el nombre de un usuario en la barra de búsqueda en la parte superior de la página.
+También puedes filtrar por dirección de correo electrónico haciendo clic en el enlace **Filtrar** a la derecha de la barra de búsqueda.
+
 
 <Screenshot
   filename="shared/list-org-users.png"
-  alt="List of org users in  app"
+  alt="Lista de usuarios org en app"
 />
 
 </TabItem>
 <TabItem value='cli'>
 
-Users can be listed via CLI through the `organization:users:list` subcommand.
+Los usuarios pueden ser listados vía CLI a través del `organization:users:list` subcommando.
 
-```bash title="List all organization users"
+```bash title="Lista de todos los usuarios de la organización"
 prism organization:users:list
 
  Name             Email
@@ -109,7 +111,8 @@ prism organization:users:list
 </TabItem>
 <TabItem value='api'>
 
-List users by querying the `users` field on [organization](api/schema/query/organization.mdx):
+Lista de usuarios consultando el campo `users` en [organización](api/schema/query/organization.mdx):
+
 
 ```graphql
 query {
@@ -128,27 +131,29 @@ query {
 </TabItem>
 </ExampleTabs>
 
-### Adding organization users
+### Añadir usuarios de la organización
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-From the **Team Members** tab, click the **+ Add team member** button in the upper-right.
-Select an appropriate role for the new user (see above for permissions), and provide a name and email address for the user.
+Desde la pestaña **Miembros del equipo**, haz clic en el botón **+ Agregar miembro del equipo** en la esquina superior derecha.
+Selecciona un rol apropiado para el nuevo usuario (ver arriba para los permisos) y proporciona un nombre y dirección de correo electrónico para el usuario.
+
 
 <Screenshot
   filename="users/add-org-user.png"
   maxWidth="500px"
-  alt="Add team member in  app"
+  alt="Añadir un miembro al equipo en la aplicación"
 />
 
 </TabItem>
 <TabItem value='cli'>
 
-Management of organization users is done through the `prism organization:users` subcommands.
-You can find role ID's of roles that you are allowed to grant through `organization:users:roles`.
+La gestión de usuarios de la organización se realiza a través de los subcomandos `prism organization:users`.
+Puedes encontrar los ID de roles de los roles que tienes permitido otorgar mediante `organization:users:roles`.
 
-```bash title="Add 'Susan Smith' as a new 'integrator'"
+
+```bash title="Añadir 'Susan Smith' como un nuevo 'integrator'"
 ROLE_ID=$(prism organization:users:roles \
             --columns id \
             --no-header \
@@ -163,7 +168,7 @@ prism organization:users:create \
 </TabItem>
 <TabItem value='api'>
 
-To create an organization user you will need to know the ID of the role you want to assign the user:
+Para crear un usuario de organización necesitará conocer el ID del rol que desea asignar al usuario:
 
 ```graphql
 query listOrganizationRoles {
@@ -177,7 +182,8 @@ query listOrganizationRoles {
 }
 ```
 
-Once you have that role ID, use the [createOrganizationUser](api/schema/mutation/createOrganizationUser.mdx) mutation to create a new organization user:
+Una vez que tengas ese ID de rol, utiliza la mutación [createOrganizationUser](api/schema/mutation/createOrganizationUser.mdx) para crear un nuevo usuario de la organización:
+
 
 ```graphql
 mutation {
@@ -198,28 +204,30 @@ mutation {
 </TabItem>
 </ExampleTabs>
 
-After creating the new user, they will receive a confirmation email with a link to set up their profile and set their password.
+Después de crear el nuevo usuario, recibirán un correo de confirmación con un enlace para configurar su perfil y establecer su contraseña.
 
-### Changing an organization user's role, name, avatar picture or phone number
+### Cambiar el rol, el nombre, la imagen de avatar o el número de teléfono de un usuario de la organización
 
-From the **Team Members** tab, click the name of a user.
-You can change the role of the user, or the user's name, phone number or avatar picture under the **Details** tab.
-After modifying a team member be sure to click **Save** to save your changes.
+Desde la pestaña **Team Members**, haz clic en el nombre de un usuario.
+Puedes cambiar el rol del usuario, o el nombre, número de teléfono o imagen de avatar del usuario en la pestaña **Details**.
+Después de modificar un miembro del equipo, asegúrate de hacer clic en **Guardar** para guardar tus cambios.
+
 
 <Screenshot
   filename="users/edit-org-user.png"
   maxWidth="600px"
-  alt="Edit team member in  app"
+  alt="Editar miembro del equipo en la aplicación"
 />
 
-### Deleting organization users
+### Eliminación de usuarios de la organización
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-From the **Team Members** tab, click the name of a user.
-Select the **Details** tab within that user's page and click the **Delete user** button on the bottom of the page.
-Enter the **Confirmation text** and click the **Remove user** button to confirm the removal.
+Desde la pestaña **Team Members**, haz clic en el nombre de un usuario.
+Selecciona la pestaña **Details** dentro de la página de ese usuario y haz clic en el botón **Eliminar usuario** en la parte inferior de la página.
+Ingresa el **Texto de confirmación** y haz clic en el botón **Eliminar usuario** para confirmar la eliminación.
+
 
 </TabItem>
 <TabItem value='cli'>
@@ -236,7 +244,7 @@ prism organization:users:delete ${USER_ID}
 </TabItem>
 <TabItem value='api'>
 
-To delete an organization team member, use the [deleteUser](api/schema/mutation/deleteUser.mdx) mutation:
+Para eliminar a un miembro del equipo de una organización, utilice el botón [deleteUser](api/schema/mutation/deleteUser.mdx) mutation:
 
 ```graphql
 mutation {
@@ -253,156 +261,171 @@ mutation {
 </TabItem>
 </ExampleTabs>
 
-## Third-party users
+## Usuarios de terceros
 
-It's often helpful and necessary to get people from third-party vendors involved as you build, test, and debug your integrations with them.
-Granting third-party vendors the ability to view and test specific integrations and components allows you to develop your integrations much faster and lets you, them, and your customers stay "on the same page" with regards to development progress and the flow of data between your systems.
+A menudo es útil y necesario involucrar a personas de proveedores externos mientras construyes, pruebas y depuras tus integraciones con ellos.
+Conceder a los proveedores externos la capacidad de ver y probar integraciones y componentes específicos te permite desarrollar tus integraciones mucho más rápido y permite que tú, ellos y tus clientes se mantengan "en la misma página" con respecto al progreso del desarrollo y al flujo de datos entre tus sistemas.
 
-### Creating third-party users
+### Crear usuarios de terceros
 
-Organization users with **admin** or **owner** permissions can create new organization-level users with the **third-party** role.
-This role is very limited in scope - by default **third-party** users can only edit their own profile information and view built-in components.
-They cannot view information about your custom components, integrations, or customers.
-Once the user is created, they can be granted additional permissions to interact with specific resources.
+Los usuarios de la organización con permisos de **admin** u **owner** pueden crear nuevos usuarios de nivel de organización con el rol de **third-party**.
+Este rol tiene un alcance muy limitado: por defecto, los usuarios de **third-party** solo pueden editar su propia información de perfil y ver componentes integrados.
+No pueden ver información sobre tus componentes personalizados, integraciones o clientes.
+Una vez que se crea el usuario, se le pueden otorgar permisos adicionales para interactuar con recursos específicos.
 
-You can create a third-party user as you would any other organization-level user, by clicking **Settings** on the left-hand sidebar and then clicking **+ Add team member**.
-Give the new user a role of **Third-Party**.
+Puedes crear un usuario de terceros como lo harías con cualquier otro usuario de nivel de organización, haciendo clic en **Settings** en la barra lateral izquierda y luego haciendo clic en **+ Add team member**.
+Asigna al nuevo usuario el rol de **Tercero**.
+
 
 <Screenshot
   filename="users/add-third-party-user.png"
   maxWidth="450px"
-  alt="Add third-party team member in  app"
+  alt="Añadir miembros de equipos de terceros en la aplicación"
 />
 
-### Granular access for third-party users
+### Acceso detallado para usuarios de terceros
 
-To grant access to specific resources, like integrations, custom components or customers, click **Settings** on the left-hand sidebar and then **Team Members**.
-Select the third-party user you would like to grant access to, and click into the **Granular Access** tab.
+Para otorgar acceso a recursos específicos, como integraciones, componentes personalizados o clientes, haz clic en **Settings** en la barra lateral izquierda y luego en **Team Members**.
+Selecciona al usuario de terceros al que le gustaría otorgar acceso y haz clic en la pestaña **Granular Access**.
+
 
 <Screenshot
   filename="users/granular-access-tab.png"
-  alt="Set granular access for third-party team member in  app"
+  alt="Establecer acceso granular para miembros de equipos de terceros en la aplicación"
 />
 
-From here, you can grant the user access to specific **integrations**, **components**, or **customers** by clicking the **+ Add permission** button on the top-right.
+Desde aquí, puedes otorgarle al usuario acceso a integraciones, componentes específicos o clientes haciendo clic en el botón **+ Add permission** en la esquina superior derecha.
+
 
 <Screenshot
   filename="users/third-party-add-permission-dialogue.png"
   maxWidth="450px"
-  alt="Add specific permissions to third-party team member in  app"
+  alt="Añadir permisos específicos a miembros de equipos de terceros en la aplicación"
 />
 
-### Integration access
+### Acceso a integraciones
 
-The most common use case for third-party users is to allow a third-party vendor to view, and possibly edit and test an integration.
-That way, they can test invoking an integration in from their third-party service and can verify that the data the integration receives is in the format you agreed upon.
+El caso de uso más común para usuarios de terceros es permitir que un proveedor de terceros vea, y posiblemente edite y pruebe una integración.
+De esta manera, pueden probar la invocación de una integración desde su servicio de terceros y verificar que los datos que recibe la integración están en el formato acordado.
 
-Giving integration access to a third-party vendor also allows you to see what sort of attempts are being made on their end to make sure the integration works.
-You can view logs of each test a third-party vendor performs to give you a sense of how their side of the integration development is progressing, and if and when you jump on calls with your mutual customer and the third party, you can test and debug issues quickly (rather than relying on email chains that drag on for weeks).
+Dar acceso a la integración a un proveedor de terceros también te permite ver qué tipo de intentos se están realizando en su extremo para asegurarte de que la integración funcione.
+Puedes ver registros de cada prueba que realiza un proveedor de terceros para tener una idea de cómo está progresando el desarrollo de su parte de la integración y, si y cuando participas en llamadas con tu cliente mutuo y el tercero, puedes probar y solucionar problemas rápidamente (en lugar de depender de cadenas de correos electrónicos que se prolongan durante semanas).
 
-To grant a third-party vendor access to a specific integration, select **Integration** from the **+ Add permission** dialog, then search for and select the integration you want to give permissions for.
+Para otorgar acceso a un proveedor de terceros a una integración específica, selecciona **Integration** en el cuadro de diálogo **+ Add permission**, luego busca y selecciona la integración a la que deseas otorgar permisos.
 
 <Screenshot
   filename="users/third-party-select-integration.png"
   maxWidth="450px"
-  alt="Select integration for third-party permissions in  app"
+  alt="Seleccionar integración para permisos de terceros en la aplicación"
 />
 
-On the next screen select the types of permissions you would like to grant for that integration.
-If you would like to give read-only access to your integration, select **View Integration**.
-If you would like the third-party user to be able to edit the integration, select **Edit Integration**.
+En la siguiente pantalla, selecciona los tipos de permisos que deseas otorgar para esa integración.
+Si deseas otorgar acceso de solo lectura a tu integración, selecciona **View Integration**.
+Si deseas que el usuario de terceros pueda editar la integración, selecciona **Edit Integration**.
+
 
 <Screenshot
   filename="users/third-party-select-integration-permissions.png"
   maxWidth="450px"
-  alt="Choose integration permissions for third-party team member in  app"
+  alt="Elija los permisos de integración para el miembro del equipo de terceros en la aplicación"
 />
 
-The third party user will then be able to see the integration that they've been granted permission to see, but all other integrations will remain hidden from them.
-This is handy if you are integrating with multiple competing vendors - the third-party vendors cannot see one another's integrations (or even know they exist).
+El usuario de terceros podrá ver la integración a la que se le haya concedido permiso, pero todas las demás integraciones seguirán ocultas para ellos.
+Esto es útil si estás integrando con múltiples proveedores competidores: los proveedores de terceros no pueden ver las integraciones entre sí (ni siquiera saber que existen).
+
 
 <Screenshot
   filename="users/third-party-only-one-integration.png"
   maxWidth="800px"
-  alt="Single integration in  app"
+  alt="Integración única en la aplicación"
 />
 
-:::info You must also grant access to relevant custom components
-If you give a third-party user access to an integration that uses custom components, you must also grant them access to those custom components.
+:::info También debe conceder acceso a los componentes personalizados pertinentes
+Si concede a un usuario externo acceso a una integración que utiliza componentes personalizados, también debe concederle acceso a esos componentes personalizados.
 :::
 
-### Component access
+### Acceso a Componentes
 
-Similar to integrations, you can grant third-party users access to specific custom components.
-By default, third-party users have access to built-in public components, but you may not want third-party vendors to see all of the custom components you've published (especially if you integrate with several competing vendors).
+Al igual que con las integraciones, puedes otorgar acceso a usuarios de terceros a componentes personalizados específicos.
+Por defecto, los usuarios de terceros tienen acceso a los componentes públicos integrados, pero es posible que no desees que los proveedores de terceros vean todos los componentes personalizados que has publicado (especialmente si te integras con varios proveedores competidores).
 
-To grant a third-party user access to a custom component, select **Component** after opening the **+ Add permission** dialog, and then search for and select the component you would like to grant access to.
+Para otorgar a un usuario de terceros acceso a un componente personalizado, selecciona **Componente** después de abrir el cuadro de diálogo **+ Agregar permiso**, y luego busca y selecciona el componente al que deseas otorgar acceso.
+
 
 <Screenshot
   filename="users/third-party-select-component.png"
   maxWidth="450px"
-  alt="Select component for third-party permissions in  app"
+  alt="Seleccionar componente para permisos de terceros en la aplicación"
 />
 
-You can grant a variety of component-related permissions to a third-party user.
-If they are assisting in the development of the custom component, they will need the **Edit Component** permission.
-Otherwise, to use the component in an integration they will just need the **View Component** permission.
+Puedes otorgar una variedad de permisos relacionados con los componentes a un usuario de terceros.
+Si están ayudando en el desarrollo del componente personalizado, necesitarán el permiso **Editar Componente**.
+De lo contrario, para utilizar el componente en una integración, solo necesitarán el permiso **Ver Componente**.
+
 
 <Screenshot
   filename="users/third-party-select-component-permissions.png"
   maxWidth="450px"
-  alt="Choose component permissions for third-party team member in  app"
+  alt="Elegir permisos de componentes para miembros de equipos de terceros en la aplicación"
 />
 
-Custom components that are not granted to a user are not visible.
-This is once again handy if you are integrating with several competing companies, or your own competitors - their users will not be able to see what other custom components you've published.
+Los componentes personalizados que no se les otorgan a un usuario no son visibles.
+Nuevamente, esto es útil si te estás integrando con varias empresas competidoras, o tus propios competidores; los usuarios de ellos no podrán ver qué otros componentes personalizados has publicado.
 
-### Customer access
+### Acceso al cliente
 
-You can grant a third-party user access to a specific customer.
-This is handy if you and another vendor share a customer in common, and are working on an integration together for that customer.
+Puedes otorgar a un usuario de terceros acceso a un cliente específico.
+Esto es útil si tú y otro proveedor comparten un cliente en común y están trabajando en una integración juntos para ese cliente.
 
-To grant permissions to a specific customer, select **Customer** after clicking **+ PERMISSION** and then select the customer you'd like to grant permissions for.
+Para otorgar permisos a un cliente específico, selecciona **Cliente** después de hacer clic en **+ PERMISO** y luego selecciona el cliente para el cual deseas otorgar permisos.
+
 
 <Screenshot
   filename="users/third-party-select-customer.png"
   maxWidth="450px"
-  alt="Select customer for third-party permissions in  app"
+  alt="Seleccionar cliente para permisos de terceros en la aplicación"
 />
 
-Next, select the permissions on this customer you would like to grant.
-There are a variety of options, each with a description below them.
-You can elect to let the third-party user view or manage the customer, the customer's users, and the instances deployed to the customer.
+A continuación, selecciona los permisos en este cliente que deseas otorgar.
+Hay diversas opciones, cada una con una descripción debajo de ellas.
+Puedes optar por permitir que el usuario de terceros vea o administre el cliente, los usuarios del cliente y las instancias implementadas en el cliente.
 
-:::caution read-only access grants viewing of customer credentials
-Note that if you grant the **View Customer** permission on a customer to a third-party user, that user can view the customer's saved credentials.
+
+:::caution el acceso de sólo lectura permite ver las credenciales de los clientes
+Ten en cuenta que si otorgas el permiso **Ver cliente** en un cliente a un usuario de terceros, ese usuario podrá ver las credenciales guardadas del cliente.
 :::
 
 <Screenshot
   filename="users/third-party-select-customer-permissions.png"
   maxWidth="450px"
-  alt="Choose component permissions for third-party team member in  app"
+  alt="Elegir permisos de componentes para miembros de equipos de terceros en la aplicación"
 />
 
-Permissions are scoped to a specific customer.
-That way, if you are developing an integration with a competing software vendor they will not be able to view information about the other customers in your system.
+Los permisos se limitan a un cliente específico.
+De este modo, si está desarrollando una integración con un proveedor de software de la competencia, éste no podrá ver información sobre los demás clientes de su sistema.
 
 ## Customer users
 
 Customer users are users who work for your customers.
 They are granted permissions to manage only the users and instances of integrations that have been deployed to them.
 
-## Customer user roles
+## Usuarios de clientes
 
-Customer users can be granted one of two roles:
+Los usuarios de clientes son aquellos que trabajan para tus clientes.
+Se les otorgan permisos para gestionar solo a los usuarios e instancias de integraciones que se han implementado para ellos.
 
-- A customer **admin** can manage their users and the instances that have been deployed to them.
-  Grant a customer user this role if you would like them to be able to deploy, modify, enable or disable instances of integrations deployed to them.
-- A customer **member** is a read-only account that can view information about users and instances that have been deployed to them.
-  This is a good role for customer users who should be able to view logs, but who shouldn't be permitted to modify instances.
-- A customer that is created through an [Embedded Marketplace](embedding-marketplace.mdx) is automatically assigned the **marketplace admin** role, and is permitted to deploy and manage integrations that are deployed to them.
-  A **marketplace user** only has the ability to configure their own [User level configuration](user-level-configuration.mdx) for an instance.
-  Note: **marketplace** users are not assigned credentials and cannot log in to , except through the embedded integration marketplace.
+## Roles de usuarios de clientes
+
+Los usuarios de clientes pueden recibir uno de dos roles:
+
+- Un **administrador de clientes** puede gestionar a sus usuarios y las instancias que se han implementado para ellos.
+  Otorga a un usuario de cliente este rol si deseas que pueda implementar, modificar, habilitar o deshabilitar instancias de integraciones implementadas para ellos.
+- Un **miembro de cliente** es una cuenta de solo lectura que puede ver información sobre los usuarios e instancias que se han implementado para ellos.
+  Este es un buen rol para los usuarios de clientes que deben poder ver registros, pero que no deben tener permiso para modificar instancias.
+- Un cliente que se crea a través de un [Embedded Marketplace](embedding-marketplace.mdx) se asigna automáticamente el rol de **administrador del marketplace** y tiene permiso para implementar y gestionar integraciones que se implementan para ellos.
+  Un **usuario del marketplace** solo tiene la capacidad de configurar su propia [configuración a nivel de usuario](user-level-configuration.mdx) para una instancia.
+  Nota: Los usuarios del **marketplace** no reciben credenciales y no pueden iniciar sesión en , excepto a través del mercado de integración incrustado.
+
 
 |                       | Admin | Member | Marketplace Admin | Marketplace User |
 | --------------------- | :---: | :----: | :---------------: | :--------------: |
@@ -414,42 +437,44 @@ Customer users can be granted one of two roles:
 | Test Instances        |   x   |        |         x         |                  |
 | Configure ULC         |       |        |         x         |        x         |
 
-## Managing customer users
+## Gestión de usuarios de clientes
 
-Only customer users with the **admin** role or organization users with **integrator**, **admin**, or **owner** roles can manage customer users.
+Solo los usuarios de clientes con el rol de **administrador** o los usuarios de la organización con los roles de **integrador**, **administrador** u **owner** pueden gestionar usuarios de clientes.
 
-To manage customers users in the web app, click **Customers** on the left-hand sidebar, select a customer from that list and open the customer's **Users** tab.
+Para gestionar usuarios de clientes en la aplicación web, haz clic en **Clientes** en la barra lateral izquierda, selecciona un cliente de esa lista y abre la pestaña **Usuarios** del cliente.
 
-If you are a customer user with the **admin** role, click the **Team Members** link on the left-hand sidebar to manage your users.
+Si eres un usuario de cliente con el rol de **administrador**, haz clic en el enlace **Miembros del equipo** en la barra lateral izquierda para gestionar a tus usuarios.
 
-### Listing customer users
+
+### Listado de usuarios clientes
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-Users for a specific customer are listed on the main customer's **Users** tab.
-You can filter what users are shown by typing the name of a user into the search bar on the top of the page.
-You can also filter by email address by clicking the **Filter** link to the right of the search bar.
+Los usuarios de un cliente específico se enumeran en la pestaña principal **Usuarios** del cliente.
+Puedes filtrar los usuarios que se muestran escribiendo el nombre de un usuario en la barra de búsqueda en la parte superior de la página.
+También puedes filtrar por dirección de correo electrónico haciendo clic en el enlace **Filtrar** a la derecha de la barra de búsqueda.
+
 
 <Screenshot
   filename="shared/list-customer-users.png"
   maxWidth="800px"
-  alt="Filter customer users in  app"
+  alt="Filtrar usuarios clientes en app"
 />
 
 </TabItem>
 <TabItem value='cli'>
 
-To list users with the CLI tool, use the `prism customers:users:list` subcommand.
+Para listar usuarios con la herramienta CLI, utilice el comando `prism customers:users:list` subcommando.
 
-```bash title="List all users of customer 'FTL Rockets'"
-# Get your customer's ID
+```bash title="Listar todos los usuarios del cliente 'FTL Rockets'"
+# Obtenga la identificación de su cliente
 CUSTOMER_ID=$(prism customers:list \
                 --columns=id \
                 --filter 'Name=^FTL Rockets$' \
                 --no-header)
 
-# List that customer's users
+# Lista de usuarios de ese cliente
 prism customers:users:list --customer ${CUSTOMER_ID}
 
  Name        Email
@@ -461,7 +486,8 @@ prism customers:users:list --customer ${CUSTOMER_ID}
 </TabItem>
 <TabItem value='api'>
 
-To list all customers query [customers](api/schema/query/customers.mdx), or query [customer](api/schema/query/customer.mdx) for a specific customer's users:
+Para listar todos los clientes, consulta [customers](api/schema/query/customers.mdx), o consulta [customer](api/schema/query/customer.mdx) para los usuarios específicos de un cliente en particular:
+
 
 ```graphql
 query {
@@ -482,40 +508,41 @@ query {
 </TabItem>
 </ExampleTabs>
 
-### Adding a customer user
+### Añadir un usuario cliente
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-From the customer's **Users** tab, click the **+ User** button in the upper-right.
-Select an appropriate role for the new user (see above for permissions), and provide a name and email address for the user.
+Desde la pestaña **Usuarios** del cliente, haz clic en el botón **+ Usuario** en la esquina superior derecha.
+Selecciona un rol apropiado para el nuevo usuario (ver arriba para permisos) y proporciona un nombre y una dirección de correo electrónico para el usuario.
 
 <Screenshot
   filename="shared/add-customer-user.png"
   maxWidth="450px"
-  alt="Add customer user in  app"
+  alt="Añadir usuario cliente en app"
 />
 
 </TabItem>
 <TabItem value='cli'>
 
-To add a new customer, use the `customers:users:create` subcommand.
-You can use `customers:list` to get a customer's ID, and `customers:users:roles` to get a desired role ID.
+Para agregar un nuevo usuario del cliente, utiliza el subcomando `customers:users:create`.
+Puedes usar `customers:list` para obtener el ID del cliente y `customers:users:roles` para obtener el ID del rol deseado.
 
-```bash title="Add a new 'Admin' user for customer 'FTL Rockets'"
-# Get your customer's ID
+
+```bash title="Añadir un nuevo usuario 'Admin' para el cliente 'FTL Rockets'"
+# Obtenga la identificación de su cliente
 CUSTOMER_ID=$(prism customers:list \
                 --columns=id \
                 --filter 'Name=^FTL Rockets$' \
                 --no-header)
 
-# Get the ID of the "Admin" role
+# Obtener el ID del rol "Admin
 ROLE_ID=$(prism customers:users:roles \
             --columns id \
             --no-header \
             --filter 'name=Admin')
 
-# Create a user "Lisa Nguyen" that has the "Admin" role
+# Crear un usuario "Lisa Nguyen" que tenga el rol "Admin".
 prism customers:users:create \
     --email 'lisa.nguyen@ftl-rockets.com' \
     --name 'Lisa Nguyen' \
@@ -526,8 +553,9 @@ prism customers:users:create \
 </TabItem>
 <TabItem value='api'>
 
-To create a new customer user, use the [createCustomerUser](api/schema/mutation/createCustomerUser.mdx) mutation.
-You will need to know the ID of the role you want to assign the user, as well as the ID of the customer:
+Para crear un nuevo usuario del cliente, utiliza la mutación [createCustomerUser](api/schema/mutation/createCustomerUser.mdx).
+Necesitarás conocer el ID del rol que deseas asignarle al usuario, así como el ID del cliente:
+
 
 ```graphql
 mutation {
@@ -549,39 +577,42 @@ mutation {
 </TabItem>
 </ExampleTabs>
 
-### Changing a customer user's role, name, avatar picture or phone number
+### Cambiar el rol, nombre, imagen de avatar o número de teléfono de un usuario del cliente
 
-From the customer's **Users** tab, click the name of a user.
-Like organization users, you can change the role of a customer user under the **Details** tab.
-You can also change the user's name, avatar picture, or phone number under the **Details** tab.
+Desde la pestaña **Usuarios** del cliente, haz clic en el nombre de un usuario.
+Al igual que con los usuarios de la organización, puedes cambiar el rol de un usuario del cliente en la pestaña **Detalles**.
+También puedes cambiar el nombre del usuario, la imagen de avatar o el número de teléfono en la pestaña **Detalles**.
+
 
 <Screenshot
   filename="shared/edit-customer-user.png"
   maxWidth="600px"
-  alt="Edit customer user in  app"
+  alt="Editar usuario cliente en app"
 />
 
-### Deleting a customer user
+### Eliminar un usuario cliente
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-From the specific customer's **Users** tab, click the name of a user.
-Open the **Details** tab, and click the **Delete user** button on the bottom of the page.
-Enter the **Confirmation text** and click the **Remove user** button to confirm the removal.
+Desde la pestaña **Usuarios** específica del cliente, haz clic en el nombre de un usuario.
+Abre la pestaña **Detalles** y haz clic en el botón **Eliminar usuario** en la parte inferior de la página.
+Ingresa el **Texto de confirmación** y haz clic en el botón **Eliminar usuario** para confirmar la eliminación.
+
 
 <Screenshot
   filename="users/delete-customer-user.png"
   maxWidth="450px"
-  alt="Delete customer user in  app"
+  alt="Borrar usuario cliente en app"
 />
 
 </TabItem>
 <TabItem value='cli'>
 
-You can find the ID of the user to delete through the `customers:users:list` subcommand, and can delete the user with the `customers:users:delete` subcommand.
+Puedes encontrar el ID del usuario a eliminar mediante el subcomando `customers:users:list`, y puedes eliminar al usuario con el subcomando `customers:users:delete`.
 
-```bash title="Delete customer user 'Lisa Nguyen'"
+
+```bash title="Borrar usuario cliente 'Lisa Nguyen'"
 USER_ID=$(prism customers:users:list \
             --customer EXAMPLEtZXI6NTRlNDQyMDgtNTJiNi00ZGVhLTgyODYtOWRkNDU4MTA2ZTYw \
             --columns id \
@@ -609,77 +640,82 @@ mutation {
 </TabItem>
 </ExampleTabs>
 
-### Searching all customer users
+### Buscar todos los usuarios clientes
 
-You can search for users on a per-customer basis from the customer's **Users** tab.
-To search users of all customers, click the **Users** link on the left-hand sidebar.
-To search for a user by name, enter their name in the search bar on the top of the page.
-To search for a user by email, click the **Filter** link on the top of the page.
+Puedes buscar usuarios en función de cada cliente desde la pestaña **Usuarios** del cliente.
+Para buscar usuarios de todos los clientes, haz clic en el enlace **Usuarios** en la barra lateral izquierda.
+Para buscar un usuario por nombre, introduce su nombre en la barra de búsqueda en la parte superior de la página.
+Para buscar un usuario por correo electrónico, haz clic en el enlace **Filtrar** en la parte superior de la página.
+
 
 <Screenshot
   filename="users/search-customer-users.png"
   maxWidth="800px"
-  alt="Search all customer users in  app"
+  alt="Buscar todos los usuarios clientes en la aplicación"
 />
 
-## Managing your own user profile
+## Gestión de tu propio perfil de usuario
 
-You can update your name, password, phone number, avatar image, and light/dark mode preferences.
-Start by clicking your user avatar at the top-right side of the screen and then the **User settings** link.
-All user profile preferences are available in the **Password** and **Details** tabs.
+Puedes actualizar tu nombre, contraseña, número de teléfono, imagen de avatar y preferencias de modo claro/oscuro.
+Comienza haciendo clic en tu avatar de usuario en la parte superior derecha de la pantalla y luego en el enlace **Configuración de usuario**.
+Todas las preferencias del perfil de usuario están disponibles en las pestañas **Contraseña** y **Detalles**.
 
-### Updating your password
+### Actualización de tu contraseña
 
-After clicking your avatar at the top-right side of the screen and selecting **User settings**, open the **Password** tab.
-Enter your current password, and then select a new password.
-Your password must have:
+Después de hacer clic en tu avatar en la parte superior derecha de la pantalla y seleccionar **Configuración de usuario**, abre la pestaña **Contraseña**.
+Introduce tu contraseña actual y luego selecciona una nueva contraseña.
+Tu contraseña debe tener:
 
-- At least 8 characters
-- At least one upper case letter
-- At least one lower case letter
-- At least one number
+
+- Al menos 8 caracteres
+- Al menos una letra mayúscula
+- Al menos una letra minúscula
+- Al menos un número
 
 <Screenshot
   filename="users/change-own-password.png"
   maxWidth="600px"
-  alt="Change own password in  app"
+  alt="Cambiar la propia contraseña en la aplicación"
 />
 
-### Resetting a forgotten password
+### Restablecimiento de una contraseña olvidada
 
-If you have forgotten your password, navigate to https://app..io.
-If you are not logged out, do so by clicking your avatar at the top-right of the screen and selecting **Logout**.
+Si has olvidado tu contraseña, ve a https://app..io.
+Si no has cerrado sesión, haz clic en tu avatar en la parte superior derecha de la pantalla y selecciona **Cerrar sesión**.
 
-Enter your email address, and then click **Continue**. Click the **Forgot password?** button and then click **Continue** again.
-You will be emailed a password reset link where you can create a new password.
+Ingresa tu dirección de correo electrónico y luego haz clic en **Continuar**. Haz clic en el botón **¿Olvidaste tu contraseña?** y luego haz clic en **Continuar** nuevamente.
+Se te enviará un enlace de restablecimiento de contraseña por correo electrónico, donde podrás crear una nueva contraseña.
 
-### Updating your name, avatar picture, or phone number
+### Actualización de tu nombre, imagen de avatar o número de teléfono
 
-After clicking your avatar at the top-right of the screen, select the **Details** tab.
-You can alter your name or phone number from this screen.
-If you provide a phone number, it can be used by your team members for monitoring and alerting purposes.
-If you alter your avatar image, the image you upload will be resized and cropped to 500 x 500 pixels.
-Transparent PNG avatar images tend to look the best.
+Después de hacer clic en tu avatar en la parte superior derecha de la pantalla, selecciona la pestaña **Detalles**.
+Puedes cambiar tu nombre o número de teléfono desde esta pantalla.
+Si proporcionas un número de teléfono, tus compañeros de equipo podrán utilizarlo con fines de monitoreo y alerta.
+Si cambias tu imagen de avatar, la imagen que cargues se redimensionará y recortará a 500 x 500 píxeles.
+Las imágenes de avatar PNG transparentes tienden a lucir mejor.
 
-### Setting light or dark mode
+### Configuración del modo claro u oscuro
 
-By default, the web app will present light or dark mode so that it matches your operating system settings.
-If you would like to override the light/dark mode setting, click your avatar at the top-right of the screen, and click the **Light** or **Dark** button as needed.
+Por defecto, la aplicación web presentará el modo claro u oscuro para que coincida con la configuración de tu sistema operativo.
+Si deseas anular la configuración de modo claro/oscuro, haz clic en tu avatar en la parte superior derecha de la pantalla y haz clic en el botón **Claro** u **Oscuro** según sea necesario.
+
 
 <Screenshot
   filename="users/dark-mode.png"
   maxWidth="600px"
-  alt="Set light/dark mode in  app"
+  alt="Configura el modo de luz/oscuridad en la aplicación"
 />
 
-Light / dark mode settings follow your user, so if you set a preference on one computer, that preference will be remembered if you log in from another computer.
+La configuración del modo claro/oscuro sigue a tu usuario, por lo que si estableces una preferencia en una computadora, esa preferencia se recordará si inicias sesión desde otra computadora.
 
-## Syncing customer users to programmatically
+## Sincronización de usuarios de clientes de forma programática
 
-Similar to [syncing customers programmatically](customers.mdx#sync-customers-from-an-external-system-programmatically), if you manage customer users in an external system you can sync those users to programmatically.
-Though this tutorial is about syncing customers to , the concepts are similar for syncing users: [Syncing Customers to ](quickstarts/syncing-customers-to-.mdx).
+Similar a [sincronizar clientes de forma programática](customers.mdx#sync-customers-from-an-external-system-programmatically), si administras usuarios de clientes en un sistema externo, puedes sincronizar esos usuarios con de forma programática.
+Aunque este tutorial trata sobre la sincronización de clientes con , los conceptos son similares para la sincronización de usuarios: [Sincronización de clientes con ](quickstarts/syncing-customers-to-.mdx).
 
-To list customer users, use the [users](api/schema/query/users.mdx) query, and give it the argument `customer_Isnull: false` to indicate that you want _customer_ users:
+
+Para listar usuarios de clientes, utiliza la consulta [users](api/schema/query/users.mdx) y proporciónale el argumento `customer_Isnull: false` para indicar que deseas obtener usuarios de _clientes_:
+
 
 ```graphql
 users(customer_Isnull: false) {
@@ -694,7 +730,7 @@ users(customer_Isnull: false) {
 }
 ```
 
-To create new users, look up a customer's ID and the **role** that you want the user to have, and then invoke the [createCustomerUser](api/schema/mutation/createCustomerUser.mdx) mutation along with the user's `email`, `name`, and optional `phone` number.
-You can also specify an `externalId` if you would like users in to easily correspond to users in an external system.
+Para crear nuevos usuarios, busca el ID de un cliente y el **rol** que deseas asignarle al usuario, luego invoca la mutation [createCustomerUser](api/schema/mutation/createCustomerUser.mdx) junto con el `email`, `nombre` y, opcionalmente, el número de teléfono (`phone`) del usuario. También puedes especificar un `externalId` si deseas que los usuarios en correspondan fácilmente a usuarios en un sistema externo.
 
-To update customer users, use the [updateUser](api/schema/mutation/updateUser.mdx) mutation, and to delete a user use the [deleteUser](api/schema/mutation/deleteUser.mdx) mutation.
+Para actualizar usuarios de clientes, utiliza la mutation [updateUser](api/schema/mutation/updateUser.mdx) y, para eliminar un usuario, utiliza la mutation [deleteUser](api/schema/mutation/deleteUser.mdx).
+
