@@ -1,48 +1,50 @@
 ---
 id: code-vs-custom-components
-title: Code vs Custom Components
-description: General information on writing custom  components and using code components
+title: Código vs componentes personalizados
+description: Información general sobre la escritura de componentes personalizados y el uso de componentes de código.
 ---
 
-offers a wide array of built-in [components](components/component-catalog.mdx) to accomplish a variety of things, like serializing data formats, invoking REST endpoints, or interacting with commonly-used SaaS platforms like AWS, Slack, or Dropbox. The majority of your integrations can likely be developed using these standard components.
+Ofrece una amplia variedad de [componentes](components/component-catalog.mdx) integrados para realizar diversas tareas, como la serialización de formatos de datos, la invocación de puntos finales REST o la interacción con plataformas SaaS comúnmente utilizadas como AWS, Slack o Dropbox. La mayoría de tus integraciones probablemente se pueden desarrollar utilizando estos componentes estándar.
 
-For the portions of your integrations that are specific to your industry or product, we provide the ability to run custom code as part of your integration.
-You can deploy your own code in the form of reusable custom components or short [code](components/code.mdx) component steps.
+Para las partes de tus integraciones que son específicas de tu industria o producto, proporcionamos la capacidad de ejecutar código personalizado como parte de tu integración.
+Puedes implementar tu propio código en forma de componentes personalizados reutilizables o pasos de código corto [code](components/code.mdx).
 
-## Custom components
+## Componentes personalizados
 
-Custom components are reusable portions of related code that can be utilized by several of your integrations.
-A custom component is developed as a [node](https://nodejs.org/) package, and is comprised of one or more **actions** that can be added to an integration.
+Los componentes personalizados son porciones reutilizables de código relacionado que pueden ser utilizadas por varias de tus integraciones.
+Un componente personalizado se desarrolla como un paquete de [node](https://nodejs.org/) y está compuesto por una o más **acciones** que se pueden agregar a una integración.
 
-For example, Progix Software might support a proprietary data format, `.rocket`, for rocket schematics.
-Progix might create a custom component with two actions:
+Por ejemplo, Progix Software podría admitir un formato de datos propietario, `.rocket`, para planos de cohetes.
 
-1. Serialize a `.rocket` file to JSON
-1. Deserialize a JSON file to `.rocket`
+Progix podría crear un componente personalizado con dos acciones:
 
-To create a custom component, we recommend working through the [Your First Custom Component](quickstarts/first-custom-component.mdx) tutorial to observe how the [Slack](components/slack.mdx) component functions.
-Then, reference [Writing Custom Components](custom-components/writing-custom-components.mdx) to write your own custom component.
+1. Serializar un `.rocket` archivo a JSON
+1. Deserializar un JSON archivo a `.rocket`
 
-For advanced topics, like handling connections or binary data, read [Advanced Custom Components](quickstarts/building-the-s3-component.mdx) to see how the [Amazon S3](components/aws-s3.mdx) built-in component addresses advanced component concepts.
+Para crear un componente personalizado, te recomendamos seguir el tutorial [Your First Custom Component](quickstarts/first-custom-component.mdx) para observar cómo funciona el componente [Slack](components/slack.mdx).
+Luego, consulta [Writing Custom Components](custom-components/writing-custom-components.mdx) para escribir tu propio componente personalizado.
 
-## The code component
+Para temas avanzados, como el manejo de conexiones o datos binarios, lee [Advanced Custom Components](quickstarts/building-the-s3-component.mdx) para ver cómo el componente incorporado de [Amazon S3](components/aws-s3.mdx) aborda conceptos avanzados de componentes.
 
-The [code](components/code.mdx) component is used for smaller, integration-specific proprietary code.
-If a problem cannot be solved with built-in components, but can be solved with a few lines of JavaScript, the code component is a good choice for you.
+## El componente de código
 
-To see usage and a few use cases for the code component, see [Code Component Usage](code-component-usage.mdx).
+El componente [code](components/code.mdx) se utiliza para código propietario más pequeño y específico de la integración.
+Si un problema no se puede resolver con componentes integrados, pero se puede resolver con unas pocas líneas de JavaScript, el componente de código es una buena elección.
 
-## When should I use a custom component vs a code component?
+Para ver el uso y algunos casos de uso del componente de código, consulta [Code Component Usage](code-component-usage.mdx).
 
-Most platform-specific problems can be solved either way: with custom components or with the code component.
-When choosing which is right for your situation, consider two things: reusability and complexity.
+## ¿Cuándo debo usar un componente personalizado frente a un componente de código?
 
-- **Reusability**: If you are writing code that could be reused in multiple integrations, you should write a custom component.
-- **Complexity**: If your code is sufficiently complex that you would benefit from unit testing, strongly typed variables, etc., you should write a custom component.
+La mayoría de los problemas específicos de la plataforma se pueden resolver de ambas maneras: con componentes personalizados o con el componente de código.
+Al elegir cuál es el adecuado para tu situación, considera dos cosas: reutilización y complejidad.
 
-If your code is integration-specific, not terribly complex, and not dependent on 's credential store, a code component will be sufficient for you.
 
-## The custom component library
+- **Reusabilidad**: Si estás escribiendo código que podría reutilizarse en varias integraciones, deberías escribir un componente personalizado.
+- **Complejidad**: Si tu código es lo suficientemente complejo como para beneficiarse de las pruebas unitarias, variables fuertemente tipadas, etc., deberías escribir un componente personalizado.
 
-The custom component library, which we refer to as [Spectral](spectral/custom-component-library.mdx), provides TypeScript type definitions for use in custom component development.
-Documentation on Spectral is available [here](spectral/custom-component-library.mdx).
+Si tu código es específico de la integración, no es muy complejo y no depende del almacén de credenciales de , un componente de código será suficiente para ti.
+
+## La biblioteca de componentes personalizados
+
+La biblioteca de componentes personalizados, que llamamos [Spectral](spectral/custom-component-library.mdx), proporciona definiciones de tipo TypeScript para su uso en el desarrollo de componentes personalizados.
+La documentación sobre Spectral está disponible [aquí](spectral/custom-component-library.mdx).

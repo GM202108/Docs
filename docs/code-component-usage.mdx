@@ -1,44 +1,47 @@
 ---
 id: code-component-usage
-title: Build Custom Functions with the Code Component
-description: The code component allows you to execute product or industry-specific code within an integration. Learn when and how to use a code component.
+title: Crear funciones personalizadas con el componente de código
+description: El componente de código le permite ejecutar código específico de un producto o sector dentro de una integración. Aprenda cuándo y cómo utilizar un componente de código.
 ---
 
 import Screenshot from "@site/src/components/screenshot";
 import SlugifyBox from "@site/src/components/slugify-box";
 import Vimeo from "@site/src/components/vimeo";
 
-The [code component](components/code.mdx) allows you to execute product or industry-specific code within an integration.
-This page outlines when and how to use a code component.
+El [componente de código](components/code.mdx) te permite ejecutar código específico del producto o la industria dentro de una integración.
+Esta página describe cuándo y cómo utilizar un componente de código.
+
 
 <!-- <Vimeo
   video="500210809"
-  title="How to Transform Data with the Code Component"
+  title="Cómo transformar datos con el componente de código"
 /> -->
 
-## Why use the code component?
+## ¿Por qué usar el componente de código?
 
-You will likely have integration logic that can't be solved using the [standard components](components/component-catalog.mdx) provides.
-The portion of your integrations that are specific to your product or industry can be accomplished using code component steps, or [custom components](custom-components/writing-custom-components.mdx).
+Es probable que tengas lógica de integración que no se pueda resolver utilizando los [componentes estándar](components/component-catalog.mdx) proporcionados.
+La parte de tus integraciones que es específica de tu producto o industria se puede realizar mediante pasos de componente de código o [componentes personalizados](custom-components/writing-custom-components.mdx).
 
-## When to build a custom component instead
+## Cuándo construir un componente personalizado en su lugar
 
-Code component steps should be succinct and integration-specific.
-If the code you write could be reused in other integrations, or if the code is complex enough that it would benefit from unit tests, etc., you should build a custom component instead.
+Los pasos de componente de código deben ser concisos y específicos de la integración.
+Si el código que escribes podría reutilizarse en otras integraciones, o si el código es lo suficientemente complejo como para beneficiarse de pruebas unitarias, etc., debes construir un componente personalizado en su lugar.
 
-## Adding a code step to an integration
+## Agregar un paso de código a una integración
 
-Within the integration designer, [add a step](building-integrations.mdx#adding-steps-to-integrations) to your integration.
-Select the **Code** component, **Code Block** action.
+Dentro del diseñador de integraciones, [agrega un paso](building-integrations.mdx#adding-steps-to-integrations) a tu integración.
+Selecciona el componente **Code**, acción **Code Block**.
 
-You will be presented with a new code step in your integration, and you can click the "Edit" button to open the code editor:
 
-<Screenshot filename="code/code-step.png" alt="Code editor in  app" />
+Se presentará un nuevo paso de código en tu integración, y puedes hacer clic en el botón "Editar" para abrir el editor de código:
 
-## Code structure
 
-The code component provides a stub function by default.
-Let's examine the structure of the code:
+<Screenshot filename="code/code-step.png" alt="Editor de código en la aplicación" />
+
+## Estructura del código
+
+El componente de código proporciona una función de boceto de forma predeterminada. Examinemos la estructura del código:
+
 
 ```javascript
 module.exports = async ({ logger, configVars }, stepResults) => {
@@ -46,35 +49,34 @@ module.exports = async ({ logger, configVars }, stepResults) => {
 };
 ```
 
-The code component requires you to export an asynchronous function.
-The default code uses [arrow function notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) to create an `async` function to return.
+El componente de código requiere que exportes una función asíncrona. El código predeterminado utiliza la [notación de función de flecha](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Functions/Arrow_functions) para crear una función `async` que devuelve.
 
-## Code component parameters
+## Parámetros del componente de código
 
-This function is provided a few parameters:
+Esta función recibe algunos parámetros:
 
-1. The first positional parameter, is comprised of several properties:
-   - `logger` allows you to write out log lines.
-   - `configVars` lets you access config variables (including connections).
-   - `instanceState`, `crossFlowState`, `integrationState` and `executionState` gives you access to [persisted state](custom-components/writing-custom-components.mdx#execution-instance-and-cross-flow-state).
-   - `stepId` is the ID of the current step being executed.
-   - `executionId` is the ID of the current execution.
-   - `webhookUrls` contains the URLs of the running instance's sibling flows.
-   - `webhookApiKeys` contains the API keys of the running instance's sibling flows.
-   - `invokeUrl` was the URL used to invoke the integration.
-   - `customer` is an object containing an `id`, `name`, and `externalId` of the customer the instance is assigned to.
-   - `user` is an object containing an `id`, `name`, `email` (their ID) and `externalId` of the customer user whose user-level config was used for this execution.
-     This only applies to instances with [User Level Configuration](user-level-configuration.mdx).
-   - `integration` is an object containing an `id`, `name`, and `versionSequenceId` of the integration the instance was created from.
-   - `instance` is an object containing an `id` and `name` of the running instance.
-   - `flow` is an object containing the `id` and `name` of the running flow.
-1. The second positional parameter, `stepResults`, is an object that contains output from previous steps of the integration.
+1. El primer parámetro posicional se compone de varias propiedades:
+   - `logger` te permite escribir líneas de registro.
+   - `configVars` te permite acceder a variables de configuración (incluidas las conexiones).
+   - `instanceState`, `crossFlowState`, `integrationState` y `executionState` te dan acceso al [estado persistente](custom-components/writing-custom-components.mdx#execution-instance-and-cross-flow-state).
+   - `stepId` es el ID del paso actual que se está ejecutando.
+   - `executionId` es el ID de la ejecución actual.
+   - `webhookUrls` contiene las URL de los flujos secundarios en ejecución de la instancia.
+   - `webhookApiKeys` contiene las claves API de los flujos secundarios en ejecución de la instancia.
+   - `invokeUrl` fue la URL utilizada para invocar la integración.
+   - `customer` es un objeto que contiene un `id`, `name` y `externalId` del cliente al que se asigna la instancia.
+   - `user` es un objeto que contiene un `id`, `name`, `email` (su ID) y `externalId` del usuario del cliente cuya configuración a nivel de usuario se utilizó para esta ejecución.
+     Esto solo se aplica a las instancias con [Configuración a Nivel de Usuario](user-level-configuration.mdx).
+   - `integration` es un objeto que contiene un `id`, `name` y `versionSequenceId` de la integración de la que se creó la instancia.
+   - `instance` es un objeto que contiene un `id` y `name` de la instancia en ejecución.
+   - `flow` es un objeto que contiene el `id` y `name` del flujo en ejecución.
+1. El segundo parámetro posicional, `stepResults`, es un objeto que contiene la salida de los pasos anteriores de la integración.
 
-### Logging
 
-`context.logger` is an object that can be used for logging and debugging.
-`context.logger` has four functions: `debug`, `info`, `warn`, and `error`.
-For example:
+### Registro
+
+`context.logger` es un objeto que se puede utilizar para registrar y depurar. `context.logger` tiene cuatro funciones: `debug`, `info`, `warn` y `error`. Por ejemplo:
+
 
 ```javascript
 module.exports = async (context, stepResults) => {
@@ -82,21 +84,21 @@ module.exports = async (context, stepResults) => {
   context.logger.warn("Now less great...");
 };
 
-// or
+// o
 
 module.exports = async ({ logger }, stepResults) => {
   logger.info("Hello World");
 };
 ```
 
-**Note**: Log lines are truncated after 4096 characters.
-If you need longer log lines, consider [streaming logs](logging.mdx#external-log-streaming) to an external log service.
+**Nota**: Las líneas de registro se truncarán después de 4096 caracteres. Si necesitas líneas de registro más largas, considera [transmitir registros](logging.mdx#external-log-streaming) a un servicio de registro externo.
 
-### Config variables
+### Variables de configuración
 
-`context.configVars` provides the [Code Component](components/code.mdx) with access to all [config variables](building-integrations.mdx#config-variables-in-integrations), including connections, associated with the integration.
+`context.configVars` proporciona al [Componente de código](components/code.mdx) acceso a todas las [variables de configuración](building-integrations.mdx#config-variables-in-integrations), incluidas las conexiones, asociadas con la integración.
 
-If you have a config variable named `Acme ERP Base URL`, for example, you could reference that config variable in a code step with `context.configVars["Config Variable Name"]` syntax:
+Si tienes una variable de configuración llamada `Acme ERP Base URL`, por ejemplo, podrías hacer referencia a esa variable de configuración en un paso de código con la sintaxis `context.configVars["Nombre de la Variable de Configuración"]`:
+
 
 ```javascript
 module.exports = async ({ configVars }, stepResults) => {
@@ -105,11 +107,12 @@ module.exports = async ({ configVars }, stepResults) => {
 };
 ```
 
-### Connections
+### Conexiones
 
-[Connections](connections.mdx) are a special type of config variable.
-You can access the contents of a connection the same way that you would any other config variable.
-In this example, suppose you have a connection config variable named `Acme ERP Connection` that contains two fields, `tenantId` and `apiKey`:
+[Conexiones](connections.mdx) son un tipo especial de variable de configuración.
+Puedes acceder al contenido de una conexión de la misma manera que lo harías con cualquier otra variable de configuración.
+En este ejemplo, supongamos que tienes una variable de configuración de conexión llamada `Conexión Acme ERP` que contiene dos campos, `tenantId` y `apiKey`:
+
 
 ```javascript title="Destructuring a connection config variable"
 module.exports = async ({ logger, configVars }, stepResults) => {
@@ -121,16 +124,17 @@ module.exports = async ({ logger, configVars }, stepResults) => {
 };
 ```
 
-## Referencing previous step outputs
+## Referenciando salidas de pasos anteriores
 
-Most steps of an integration return some sort of value.
-An **HTTP - GET** action, for example, might return a JSON payload from a REST API.
-An **Amazon S3 - Get Object** will return a binary file pulled from S3.
+La mayoría de los pasos de una integración devuelven algún tipo de valor.
+Una acción **HTTP - GET**, por ejemplo, podría devolver un conjunto de datos JSON desde una API REST.
+Un **Amazon S3 - Obtener objeto** devolverá un archivo binario extraído de S3.
 
-The code component can reference those outputs through the `stepResults` parameter.
-`stepResults` is an object that contains results from all previous steps.
+El componente de código puede hacer referencia a esas salidas a través del parámetro `stepResults`.
+`stepResults` es un objeto que contiene los resultados de todos los pasos anteriores.
 
-For example, if you have an **HTTP - GET** step named **Fetch Users List** that pulls down an array of users from https://jsonplaceholder.typicode.com/users, you can generate an array of email addresses with this code:
+Por ejemplo, si tienes un paso **HTTP - GET** llamado **Obtener Lista de Usuarios** que recupera un array de usuarios desde https://jsonplaceholder.typicode.com/users, puedes generar un array de direcciones de correo electrónico con este código:
+
 
 ```javascript
 module.exports = async (context, stepResults) => {
@@ -140,32 +144,36 @@ module.exports = async (context, stepResults) => {
 };
 ```
 
-:::tip Step results are often objects
-Many components return objects that have multiple keys.
-So, you can reference `stepResults.myStepName.results.someKey`.
-It's rare for a component to return serialized JSON, so there's rarely need to `JSON.parse()` results from a previous step.
+:::tip Los resultados de los pasos son a menudo objetos
+Muchos componentes devuelven objetos que tienen múltiples claves.
+Entonces, puedes hacer referencia a `stepResults.myStepName.results.algunaClave`.
+Es raro que un componente devuelva JSON serializado, por lo que rara vez es necesario hacer `JSON.parse()` a los resultados de un paso anterior.
+
 :::
 
-### Previous steps names as variables
+### Nombres de pasos anteriores como variables
 
-Since names of steps can include spaces and non-JavaScript-friendly characters, alphanumeric characters of step names are converted to camelCase.
-So, a step named **Download JSON from API** would be converted to **downloadJsonFromApi**.
-You can test out step name -> referenceable name conversions here:
+Dado que los nombres de los pasos pueden incluir espacios y caracteres que no son amigables con JavaScript, los caracteres alfanuméricos de los nombres de los pasos se convierten a camelCase.
+Entonces, un paso llamado **Download JSON from API** se convertiría en **downloadJsonFromApi**.
+Puedes probar las conversiones de nombre de paso a nombre referenciable aquí:
 
-<SlugifyBox defaultStepName="Download JSON from API" />
 
-### Referencing integration trigger payload data
+<SlugifyBox defaultStepName="Descargar JSON de la API" />
 
-The integration trigger is simply another step that can have a unique name.
-Suppose an integration is triggered by a webhook, the trigger is named `My Integration Trigger`, and the webhook is provided a payload `body.data` of `{"exampleKey": "exampleValue"}`.
+### Referenciar datos del desencadenador de la integración
+
+El desencadenador de la integración es simplemente otro paso que puede tener un nombre único.
+Supongamos que una integración se desencadena mediante un webhook, el desencadenador se llama `My Integration Trigger` y el webhook proporciona un payload `body.data` de `{"exampleKey": "exampleValue"}`.
+
 
 <Screenshot
   filename="code/trigger-payload.png"
   maxWidth="650px"
-  alt="Reference integration trigger payload in  app"
+  alt="Carga útil de activación de integración de referencia en la aplicación"
 />
 
-That `exampleKey` would be accessible using `stepResults.myIntegrationTrigger` like so:
+Ese `exampleKey` sería accesible utilizando `stepResults.myIntegrationTrigger` de la siguiente manera:
+
 
 ```javascript
 module.exports = async ({ logger }, stepResults) => {
@@ -175,7 +183,7 @@ module.exports = async ({ logger }, stepResults) => {
 };
 ```
 
-Using JavaScript destructuring, you can instead write this:
+Utilizando la desestructuración de JavaScript, puede escribir lo siguiente:
 
 ```javascript
 module.exports = async (
@@ -194,22 +202,23 @@ module.exports = async (
 };
 ```
 
-Notice the logged message in the testing pane
+Observe el mensaje registrado en el panel de pruebas
 
 <Screenshot
   filename="code/using-stepresults.png"
   maxWidth="650px"
-  alt="Test runner step results in  app"
+  alt="Resultados de los pasos del corredor de pruebas en la aplicación"
 />
 
-## Code component return values
+## Valores de retorno del componente de código
 
-The code component can optionally return a value for use by a subsequent step.
-The return value can be an object, string, integer, etc., and will retain its type as the value is passed to the next step.
+El componente de código puede opcionalmente devolver un valor para ser utilizado por un paso posterior.
+El valor de retorno puede ser un objeto, una cadena, un entero, etc., y mantendrá su tipo a medida que se pasa al siguiente paso.
 
-The return value is specified using the `data` key in the return object.
+El valor de retorno se especifica utilizando la clave `data` en el objeto de retorno.
 
-In this example we return a string with value `"https://ipinfo.io/ip"`:
+En este ejemplo, devolvemos una cadena con el valor `"https://ipinfo.io/ip"`:
+
 
 ```javascript
 module.exports = async (context, stepResults) => {
@@ -217,24 +226,26 @@ module.exports = async (context, stepResults) => {
 };
 ```
 
-The output can be used as input for the next step by referencing `codeComponentStepName.results`.
+La salida se puede utilizar como entrada para el siguiente paso haciendo referencia a `nombreDelPasoDelComponenteDeCódigo.resultados`.
+
 
 <Screenshot
   filename="code/return-values.png"
-  alt="Use output for prior step for input to new step in  app"
+  alt="Utilizar el resultado del paso anterior como entrada para el nuevo paso de la aplicación"
 />
 
-To see an example of returning more complex data structures, and a good example use case for a code component, see the [Using a Code Component to Transform Data](quickstarts/code-component-to-transform-data.mdx) quickstart.
+Para ver un ejemplo de cómo devolver estructuras de datos más complejas y un buen caso de uso para un componente de código, consulta la guía [Usar un componente de código para transformar datos](quickstarts/code-component-to-transform-data.mdx).
 
-### Returning binary data from a code step
+### Devolver datos binarios desde un paso de código
+
 
 <!-- <Vimeo
-  title="How to Handle Binary Files with the Code Component"
+  title="Cómo manejar archivos binarios con el componente Code"
   video="502750058"
 /> -->
 
-Sometimes you'll want your code component to return binary data (like a rendered image or PDF).
-To do that, return an object with a `data` property of type `Buffer` (a file buffer), and a `contentType` property of type `String` that contains the file's [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types):
+En ocasiones, es posible que desees que tu componente de código devuelva datos binarios (como una imagen o PDF renderizado). Para hacerlo, devuelve un objeto con una propiedad `data` de tipo `Buffer` (un búfer de archivo) y una propiedad `contentType` de tipo `String` que contenga el [tipo MIME](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) del archivo:
+
 
 ```javascript
 module.exports = async (context, stepResults) => {
@@ -247,17 +258,18 @@ module.exports = async (context, stepResults) => {
 };
 ```
 
-To see an example use case for returning binary data from a code component, check out our [Generate a PDF with a Code Component](quickstarts/generating-a-pdf-with-a-code-component.mdx).
+Para ver un ejemplo de caso de uso para devolver datos binarios desde un componente de código, consulta nuestra [Generación de un PDF con un componente de código](quickstarts/generating-a-pdf-with-a-code-component.mdx).
 
-**For More Information**:
-[Using a Code Component to Transform Data](quickstarts/code-component-to-transform-data.mdx)
+**Para obtener más información**:
+[Utilizar un componente de código para transformar datos](quickstarts/code-component-to-transform-data.mdx)
 
-## Making HTTP calls from a code step
+## Realizar llamadas HTTP desde un paso de código
 
-The [fetch](https://developer.mozilla.org/en-US/docs/Web/API/fetch) API is baked into the code component.
-To make an HTTP call to an API, you can use the `fetch` function:
+La API [fetch](https://developer.mozilla.org/en-US/docs/Web/API/fetch) está integrada en el componente de código.
+Para realizar una llamada HTTP a una API, puedes utilizar la función `fetch`:
 
-```javascript {11} title="Make an HTTP POST request from a code step"
+
+```javascript {11} title="Realizar una petición HTTP POST desde un paso de código"
 module.exports = async (context, stepResults) => {
   const options = {
     method: "POST",
@@ -274,10 +286,11 @@ module.exports = async (context, stepResults) => {
 };
 ```
 
-## Adding dependencies to a code step
+## Agregar dependencias a un paso de código
 
-If your code component depends on node modules from `npm`, dependencies will be dynamically imported from the [UNPKG CDN](https://unpkg.com/).
-For example, if your code component reads:
+Si tu componente de código depende de módulos de nodo de `npm`, las dependencias se importarán dinámicamente desde el [CDN de UNPKG](https://unpkg.com/).
+Por ejemplo, si tu componente de código tiene el siguiente código:
+
 
 ```javascript {1} title="Import lodash as a dependency"
 const lodash = require("lodash@4.17.21/lodash.js");
@@ -293,37 +306,40 @@ module.exports = async (context, stepResults) => {
 };
 ```
 
-Then [lodash](https://unpkg.com/browse/lodash@4.17.21/lodash.js) version 4.17.21 will be imported as a dependency.
+Entonces, [lodash](https://unpkg.com/browse/lodash@4.17.21/lodash.js) versión 4.17.21 se importará como una dependencia.
 
-You should specify specific known working versions of `npm` packages for your code component:
+Debes especificar versiones específicas y conocidas de los paquetes de `npm` para tu componente de código:
+
 
 ```javascript
 const lodash = require("lodash@2.4.2");
 const { PDFDocument } = require("pdf-lib@1.17.1/dist/pdf-lib.js");
 ```
 
-You can require any file from `npm` using `package[@version][/file]` syntax.
-Note that with the `lodash` import above, no file was specified.
-If no file is specified, the `main` file defined in the `npm` package's `package.json` is imported.
-An explicit path was called out for the `pdf-lib` import because the `pdf-lib` package defaults to importing an index file that itself requires other files, and `dist/pdf-lib.js` is a completely independent file that can be imported on its own..
+Puedes requerir cualquier archivo de `npm` utilizando la sintaxis `paquete[@versión][/archivo]`.
+Ten en cuenta que con la importación de `lodash` anterior, no se especificó ningún archivo.
+Si no se especifica ningún archivo, se importa el archivo `main` definido en el `package.json` del paquete de `npm`.
+Se especificó un camino explícito para la importación de `pdf-lib` porque el paquete `pdf-lib` se configura por defecto para importar un archivo de índice que a su vez requiere otros archivos, y `dist/pdf-lib.js` es un archivo completamente independiente que se puede importar por sí mismo.
 
-:::warning CDN outages and downstream dependencies
-Dynamic imports may or may not work, depending on how the dependency maintainer compiled their package.
-All JavaScript code must be compiled into a single file to be dynamically imported.
-If the package has its own dependencies that are not compiled in, or if the file you reference has its own `require()` statements, you may see errors in your code.
 
-You might also see errors if the UNPKG CDN is unavailable for any amount of time.
+:::warning Problemas con el CDN y dependencias descendentes
 
-If you need external dependencies, we strongly recommend using a code step for prototyping, but building a [custom component](custom-components/writing-custom-components.mdx) for production use.
-Custom components have their dependencies compiled in, and are not dependent on the uptime of an external CDN.
+Las importaciones dinámicas pueden o no funcionar, dependiendo de cómo el mantenedor de la dependencia compiló su paquete.
+Todo el código JavaScript debe compilarse en un solo archivo para ser importado dinámicamente.
+Si el paquete tiene sus propias dependencias que no están compiladas, o si el archivo al que haces referencia tiene sus propias declaraciones `require()`, es posible que veas errores en tu código.
+
+También puedes ver errores si el CDN de UNPKG no está disponible durante algún tiempo.
+
+Si necesitas dependencias externas, te recomendamos encarecidamente utilizar un paso de código para prototipar, pero construir un [componente personalizado](custom-components/writing-custom-components.mdx) para su uso en producción.
+Los componentes personalizados tienen sus dependencias compiladas y no dependen del tiempo de actividad de un CDN externo.
 :::
 
-## Using spectral utility functions in a code step
+## Utilización de funciones espectrales de utilidad en un paso de código
 
-'s SDK, [@-io/spectral](https://www.npmjs.com/package/@-io/spectral) is automatically imported into each code block as `spectral`.
-You can reference any utility functions that Spectral declares.
+SDK, [@-io/spectral](https://www.npmjs.com/package/@-io/spectral) se importa automáticamente en cada bloque de código como `spectral`.
+Puede hacer referencia a cualquier función de utilidad que declare Spectral.
 
-For example, if you need to cast a truthy `"NO"` string to a boolean, you can do this:
+Por ejemplo, si necesita lanzar un truthy `"NO"` a un booleano, puede hacer esto:
 
 ```javascript
 module.exports = async ({ configVars }, stepResults) => {
@@ -336,4 +352,5 @@ module.exports = async ({ configVars }, stepResults) => {
 };
 ```
 
-A list of all util type functions is available in the [Spectral SDK docs](spectral/modules/_util_.md).
+Una lista de todas las funciones de tipo util está disponible en la [documentación del SDK Spectral](spectral/modules/_util_.md).
+

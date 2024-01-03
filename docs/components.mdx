@@ -26,61 +26,59 @@ Las integraciones complejas pueden constar de docenas de acciones.
 
 ### Componentes suministrados
 
-offers a wide array of components to accomplish a variety of things, like serializing data formats, invoking REST endpoints, or interacting with commonly-used SaaS platforms like AWS, Slack, or Dropbox - see our [component catalog](components/component-catalog.mdx) for a full list of components.
-Source code for some -provided components is available on [GitHub](https://github.com/-io/examples/tree/main/components).
+Ofrece una amplia variedad de componentes para realizar diversas tareas, como serializar formatos de datos, invocar puntos finales REST o interactuar con plataformas SaaS comúnmente utilizadas, como AWS, Slack o Dropbox. Consulta nuestro [catálogo de componentes](components/component-catalog.mdx) para obtener una lista completa de componentes.
+El código fuente de algunos componentes proporcionados está disponible en [GitHub](https://github.com/-io/examples/tree/main/components).
 
-You can read about components within the web app by clicking the **Components** link on the left-hand sidebar.
-For more detail about a particular component, click the **Component >** link of the component you want to know more about.
+Puedes obtener información sobre los componentes dentro de la aplicación web haciendo clic en el enlace **Componentes** en la barra lateral izquierda. Para obtener más detalles sobre un componente en particular, haz clic en el enlace **Componente >** del componente sobre el que deseas obtener más información.
+
 
 <Screenshot
   filename="components/list-components.png"
-  alt="List of components in  app"
+  alt="Lista de componentes de la aplicación"
 />
 
-### Custom components
+### Componentes personalizados
 
-The majority of your integrations can likely be developed using -provided components.
-For the portions of your integrations that are specific to your industry or product, provides the ability to run your own code as part of your integration.
-You can deploy your own code in the form of reusable [custom components](custom-components/code-vs-custom-components.mdx) or short [code component](components/code.mdx) steps.
+La mayoría de tus integraciones probablemente se puedan desarrollar utilizando los componentes proporcionados por . Para las partes de tus integraciones que son específicas de tu industria o producto, ofrece la capacidad de ejecutar tu propio código como parte de tu integración. Puedes implementar tu propio código en forma de [componentes personalizados](custom-components/code-vs-custom-components.mdx) reutilizables o pasos cortos de [componente de código](components/code.mdx).
 
-**For More Information**:
-[When Should I Use a Custom Component vs a Code Component?](custom-components/code-vs-custom-components.mdx#when-should-i-use-a-custom-component-vs-a-code-component)
+**Para obtener más información**:
+[Cuándo debería usar un componente personalizado en lugar de un componente de código](custom-components/code-vs-custom-components.mdx#cuando-deberia-usar-un-componente-personalizado-en-lugar-de-un-componente-de-codigo)
 
-## Component actions
+## Acciones de componentes
 
-Components contain one or more **actions** that can be invoked.
-For example, the [Amazon S3 component](components/aws-s3.mdx) contains actions to copy S3 objects, delete objects, get an object's contents, etc.
+Los componentes contienen una o más **acciones** que se pueden invocar. Por ejemplo, el [componente de Amazon S3](components/aws-s3.mdx) contiene acciones para copiar objetos de S3, eliminar objetos, obtener el contenido de un objeto, etc.
+
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-You can view the actions of a component by clicking **Components** on the left-hand sidebar of the web app, and then clicking into a component.
-You will see the actions a component contains, required credentials to execute those actions, and inputs the actions take.
+Puedes ver las acciones de un componente haciendo clic en **Componentes** en la barra lateral izquierda de la aplicación web, y luego haciendo clic en un componente. Verás las acciones que contiene un componente, las credenciales necesarias para ejecutar esas acciones y las entradas que toman las acciones.
+
 
 <Screenshot
   filename="components/component-actions.png"
-  alt="Component actions in  app"
+  alt="Acciones de los componentes en la aplicación"
 />
 
 </TabItem>
 <TabItem value='cli'>
 
-The `components:actions:list` CLI subcommand lists all component actions.
-The `--filter` flag allows you to filter results.
-The expression you pass to `--filter` uses [regex](https://regexr.com/) pattern matching (hence the `^` and `$`)
+El subcomando de CLI `components:actions:list` enumera todas las acciones de los componentes. La bandera `--filter` te permite filtrar los resultados. La expresión que proporcionas a `--filter` utiliza coincidencia de patrones [regex](https://regexr.com/) (de ahí el `^` y `$`).
 
-```bash title="List actions of the Amazon S3 component whose keys start with 'delete'"
+
+```bash title="Lista de acciones del componente Amazon S3 cuyas claves comienzan por 'delete'"
 prism components:actions:list aws-s3 --filter 'Key=^delete'
 
  Label         Description
  ───────────── ────────────────────────────────────
- Delete Object Delete an Object within an S3 Bucket
+ Borrar Objeto Borrar un Objeto dentro de un Bucket S3
 ```
 
 </TabItem>
 <TabItem value='api'>
 
-In this query we list the `label` of each of component, and the `label` and `description` of each of their respective actions.
+En esta consulta, enumeramos la `etiqueta` de cada componente y la `etiqueta` y `descripción` de cada una de sus acciones respectivas.
+
 
 ```graphql
 query {
@@ -101,56 +99,59 @@ query {
 </TabItem>
 </ExampleTabs>
 
-**For More Information**:
-[Custom Component Actions](custom-components/writing-custom-components.mdx#writing-actions)
+**Para obtener más información**:
+[Acciones de componentes personalizados](custom-components/writing-custom-components.mdx#writing-actions)
 
-## Component authorization methods
+## Métodos de autorización de componentes
 
-Some components require credentials to interact with a SaaS provider, REST endpoint, etc.
-Those credentials might be username/password sets, API keys, OAuth2 tokens, etc.
+Algunos componentes requieren credenciales para interactuar con un proveedor de servicios SaaS, un punto de conexión REST, etc.
+Esas credenciales pueden ser conjuntos de nombre de usuario/contraseña, claves de API, tokens OAuth2, etc.
 
-To see what authorization methods a component can use, click the **Components** link on the left-hand sidebar and select a component.
-Authorization methods will be listed in the component description page.
+Para ver qué métodos de autorización puede usar un componente, haga clic en el enlace **Componentes** en la barra lateral izquierda y seleccione un componente.
+Los métodos de autorización se enumerarán en la página de descripción del componente.
+
 
 <Screenshot
   filename="components/component-auth-methods.png"
-  alt="Component auth methods in  app"
+  alt="Métodos de autenticación de componentes en la aplicación"
 />
 
-## Component connections
+## Conexiones de componentes
 
-A **connection** is the mechanism by which a component authenticates with a third-party app or service.
-A connection is an input and might contain a username/password set, API key, OAuth 2.0 token, or some other proprietary authentication type.
+Una **conexión** es el mecanismo mediante el cual un componente se autentica con una aplicación o servicio de terceros.
+Una conexión es una entrada y puede contener un conjunto de nombre de usuario/contraseña, clave de API, token OAuth 2.0 u otro tipo de autenticación propietaria.
 
-Component developers define the fields that make up a connection.
-For example, a connection for one component might require a tenant ID and API key.
-The single config variable representing that connection would be made up of two fields: one for tenant ID and one for API key.
+Los desarrolladores de componentes definen los campos que componen una conexión.
+Por ejemplo, una conexión para un componente puede requerir un ID de inquilino y una clave de API.
+La variable de configuración única que representa esa conexión estaría compuesta por dos campos: uno para el ID de inquilino y otro para la clave de API.
 
-**For More Information**:
-[Configuration-Driven Integration Quickstart](quickstarts/configuration-driven-integration.mdx)
+**Para obtener más información**:
+[Inicio rápido de integración impulsada por configuración](quickstarts/configuration-driven-integration.mdx)
 
-## Component versioning
+## Versionado de componentes
 
-Components are versioned.
-The first time a component is published it is given version "1".
-Thereafter, each time the component is republished its version number increments by one.
+Los componentes tienen versiones.
+La primera vez que se publica un componente, se le asigna la versión "1".
+Después, cada vez que el componente se vuelve a publicar, su número de versión aumenta en uno.
 
-Within the integration designer, you can choose which version of a component to use.
-Components marked in grey are using the latest version, and components marked with yellow have newer versions available.
+Dentro del diseñador de integraciones, puedes elegir qué versión de un componente utilizar.
+Los componentes marcados en gris están utilizando la última versión, y los componentes marcados en amarillo tienen nuevas versiones disponibles.
+
 
 <Screenshot
   filename="shared/component-version-drawer.png"
   maxWidth="500px"
-  alt="Component version drawer in  app"
+  alt="Cajón de versiones de componentes en la aplicación"
 />
 
-In most cases, you'll will want to use the latest version of each component.
-For the sake of stability and consistency, though, versions of components used in integrations are not bumped to the latest version automatically.
-This prevents unintended issues in your integration if your team member were to publish a broken custom component.
-You can keep an integration pinned to component "version 6" for example, while your team members experiment with a newer "version 7" of a custom component for another integration.
+En la mayoría de los casos, querrás utilizar la última versión de cada componente.
+Por motivos de estabilidad y consistencia, sin embargo, las versiones de los componentes utilizados en las integraciones no se actualizan automáticamente a la última versión.
+Esto evita problemas no deseados en tu integración si un miembro de tu equipo publicara un componente personalizado defectuoso.
+Puedes mantener una integración anclada a la "versión 6" de un componente, por ejemplo, mientras tus compañeros de equipo experimentan con una "versión 7" más reciente de un componente personalizado para otra integración.
 
-When your team publishes a new version of a custom component, or when publishes a new version of a built-in component, you will see an notification in the integration designer on the **Component Versions** button indicating that some components are outdated.
-To upgrade those components, click the **Component Versions** button and select **CHANGE VERSION** for the component whose version you want to change.
+Cuando tu equipo publica una nueva versión de un componente personalizado o cuando publica una nueva versión de un componente integrado, verás una notificación en el diseñador de integraciones en el botón **Component Versions** que indica que algunos componentes están desactualizados.
+Para actualizar esos componentes, haz clic en el botón **Component Versions** y selecciona **CAMBIAR VERSIÓN** para el componente cuya versión deseas cambiar.
 
-**For More Information**:
-[Choosing Component Versions](building-integrations.mdx#choosing-component-versions)
+
+**Para más información**:
+[Elección de versiones de componentes](building-integrations.mdx#choosing-component-versions)
