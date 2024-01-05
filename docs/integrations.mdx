@@ -1,7 +1,7 @@
 ---
 id: integrations
-title: An Overview of Using Integrations
-description: An integration is a series of steps (actions) that execute one after another in series. Use  to create, version, publish, and support integrations.
+title: Visión general del uso de las integraciones
+description: Una integración es una serie de pasos (acciones) que se ejecutan uno tras otro en serie. Se utiliza para crear, versionar, publicar y dar soporte a integraciones.
 ---
 
 import ExampleTabs from "@site/src/components/example-tabs";
@@ -10,72 +10,78 @@ import Screenshot from "@site/src/components/screenshot";
 import Icon from "@mui/material/Icon";
 import Vimeo from "@site/src/components/vimeo";
 
-An **integration** is a series of **steps** that execute one after another in series.
-Each step runs an [action](components.mdx#component-actions) - a small bit of code designed to perform a specific task.
-Actions can be things like "HTTP - GET" to fetch the contents of a webpage from the internet, or "Amazon S3 - Put Object" to save a file to Amazon S3.
-You can use a combination of actions from common [built-in components](components/component-catalog.mdx) and your own [custom components](custom-components/writing-custom-components.mdx) to build an integration.
+Una **integración** es una serie de **pasos** que se ejecutan uno tras otro en serie.
+Cada paso ejecuta una [acción](components.mdx#component-actions) - un pequeño fragmento de código diseñado para realizar una tarea específica.
+Las acciones pueden ser cosas como "HTTP - GET" para obtener el contenido de una página web de Internet o "Amazon S3 - Put Object" para guardar un archivo en Amazon S3.
+Puedes usar una combinación de acciones de [componentes integrados comunes](components/component-catalog.mdx) y tus propios [componentes personalizados](custom-components/writing-custom-components.mdx) para construir una integración.
 
-An integration is started when its **trigger** fires.
-Triggers can either follow a [schedule](integration-triggers.mdx#scheduled-triggers), or can be invoked via a [webhook URL](integration-triggers.mdx#webhook-triggers).
+Una integración se inicia cuando su **desencadenador** se activa.
+Los desencadenadores pueden seguir un [programa](integration-triggers.mdx#scheduled-triggers) o pueden ser invocados mediante una [URL de webhook](integration-triggers.mdx#webhook-triggers).
 
-Integrations should be developed to be **configuration-driven**, so they can be deployed to multiple customers with potentially different configurations.
-That is accomplished by leveraging [config variables](building-integrations.mdx#config-variables-in-integrations), and have configuring steps to reference those variables.
+Las integraciones deben desarrollarse de manera que sean **impulsadas por la configuración**, para que puedan implementarse en múltiples clientes con configuraciones potencialmente diferentes.
+Esto se logra aprovechando las [variables de configuración](building-integrations.mdx#config-variables-in-integrations) y configurando pasos para hacer referencia a esas variables.
 
-Many integrations have a single **flow**.
-That is, they have a single trigger that fires, and a single set of steps that are executed one after another.
-also supports grouping multiple related flows together into a single deployable integration.
-For example, if you have a third-party service (Acme ERP) that sends data via a variety of webhooks to your integrations, it probably makes sense to have a single Acme Corp integration that you or your customers deploy that is made up of several logical flows.
-Each flow has its own trigger, though they all share config variables.
+Muchas integraciones tienen un único **flujo**.
+Es decir, tienen un solo desencadenador que se activa y un solo conjunto de pasos que se ejecutan uno tras otro.
+además admite agrupar varios flujos relacionados en una sola integración desplegable.
+Por ejemplo, si tienes un servicio de terceros (Acme ERP) que envía datos a través de varios webhooks a tus integraciones, probablemente tenga sentido tener una única integración de Acme Corp que tú o tus clientes desplieguen y que esté compuesta por varios flujos lógicos.
+Cada flujo tiene su propio desencadenador, aunque todos comparten variables de configuración.
 
-When an integration is completed, it can be [published](#publishing-an-integration).
-[Customers](customers.mdx) can then enable the integration for themselves through the [integration marketplace](integration-marketplace.mdx), or your team members can deploy an [instance](instances.mdx) of the integration on the customer's behalf.
-Regardless of who enables an instance of the integration - your team member or your customer - the person deploying the instance configures the instance with customer-specific config variables.
+Cuando una integración está completa, puede ser [publicada](#publishing-an-integration).
+[Los clientes](customers.mdx) pueden habilitar la integración por sí mismos a través del [mercado de integraciones](integration-marketplace.mdx), o los miembros de tu equipo pueden implementar una [instancia](instances.mdx) de la integración en nombre del cliente.
+Independientemente de quién habilite una instancia de la integración, ya sea tu miembro del equipo o tu cliente, la persona que implementa la instancia configura la instancia con variables de configuración específicas del cliente.
 
-We recommend that you follow our [Getting Started](getting-started/docs-overview.mdx) tutorials to first acquaint yourself with integration development and deployment.
 
-<!-- <Vimeo title="How to Create Your First Integration" video="533250150" /> -->
+Te recomendamos que sigas nuestros tutoriales de [Inicio rápido](getting-started/docs-overview.mdx) para familiarizarte primero con el desarrollo e implementación de integraciones.
 
-## Creating a new integration
+
+<!-- <Vimeo title="Cómo crear su primera integración" video="533250150" /> -->
+
+## Crear una nueva integración
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-To create a new integration in the web app, click **Integrations** from the left-side menu, and then click the **+ Add Integration** button in the upper-right.
+Para crear una nueva integración en la aplicación web, haz clic en **Integraciones** en el menú de la izquierda y luego haz clic en el botón **+ Agregar integración** en la esquina superior derecha.
 
-When you create a new integration you have a few options:
+Al crear una nueva integración, tienes algunas opciones:
 
-- You can create a **blank** integration from scratch.
-- You can start from an existing [template](#integration-templates) that you or someone else created.
-- Behind the scenes, integrations are saved as [YAML definitions](#yaml-definition).
-  You can load a YAML file from your clipboard or from a file.
+- Puedes crear una integración en blanco desde cero.
+- Puedes comenzar desde una [plantilla](#integration-templates) existente que tú o alguien más haya creado.
+- En la práctica, las integraciones se guardan como [definiciones YAML](#yaml-definition).
+  Puedes cargar un archivo YAML desde tu portapapeles o desde un archivo.
+
 
 <Screenshot
   filename="integrations/configure-new-integration.png"
-  alt="Configure a new integration"
+  alt="Configurar una nueva integración"
   maxWidth="600px"
 />
 
-You will be prompted to give your integration a **name** and **description**, and can optionally [categorize](#categorizing-integrations) your integration and assign it [labels](#integration-labels).
+Se te pedirá que le des un **nombre** y una **descripción** a tu integración, y opcionalmente puedes [categorizar](#categorizing-integrations) tu integración y asignarle [etiquetas](#integration-labels).
+
 
 <Screenshot
   filename="integrations/new-integration-name.png"
-  alt="Add integration in  app"
+  alt="Añadir integración en la aplicación"
   maxWidth="620px"
 />
 
-Next, you'll be asked to select a [trigger](integration-triggers.mdx) for your integration.
-This is what will cause your integration to run, and you can change your trigger at any time.
+A continuación, se te pedirá que selecciones un [desencadenador (trigger)](integration-triggers.mdx) para tu integración.
+Esto es lo que hará que tu integración se ejecute, y puedes cambiar tu desencadenador en cualquier momento.
+
 
 <Screenshot
   filename="integrations/new-integration-trigger.png"
-  alt="Select integration trigger in  app"
+  alt="Seleccione el activador de integración en la aplicación"
   maxWidth="600px"
 />
 
 </TabItem>
 <TabItem value='cli'>
 
-To create a new integration from the command line, use the `integrations:create` subcommand.
+Para crear una nueva integración desde la línea de comandos, utiliza el subcomando `integrations:create`.
+
 
 ```bash
 prism integrations:create \
@@ -86,7 +92,8 @@ prism integrations:create \
 </TabItem>
 <TabItem value='api'>
 
-Use the [createIntegration](api/schema/mutation/createIntegration.mdx) mutation to create a new integration:
+Utiliza la mutación [createIntegration](api/schema/mutation/createIntegration.mdx) para crear una nueva integración:
+
 
 ```graphql
 mutation {
@@ -106,95 +113,103 @@ mutation {
 </TabItem>
 </ExampleTabs>
 
-For more information:
-[Building Integrations](building-integrations.mdx),
-[Testing Integrations](testing-integrations.mdx)
+Para obtener más información:
+- [Construcción de integraciones](building-integrations.mdx)
+- [Pruebas de integraciones](testing-integrations.mdx)
 
-## Integration templates
 
-Some of your integrations will look similar to one another.
-For example, if you are importing opportunities and accounts from a dozen CRM vendors, the steps that fetch data will be unique, but the steps that send data to your app will always look the same.
-Rather than developing those common steps over and over, it saves time to create an integration template that you and your team can start from when you build additional similar integrations.
+## Plantillas de integración
 
-To turn your integration into a template, first [publish](#publishing-an-integration) a version of your integration.
-Then, open the **Details** dropdown and select **Available as Template**.
+Algunas de tus integraciones se verán similares entre sí.
+Por ejemplo, si estás importando oportunidades y cuentas de una docena de proveedores de CRM, los pasos para obtener datos serán únicos, pero los pasos para enviar datos a tu aplicación siempre serán iguales.
+En lugar de desarrollar esos pasos comunes una y otra vez, ahorra tiempo creando una plantilla de integración que tú y tu equipo puedan utilizar como punto de partida al construir integraciones adicionales similares.
+
+Para convertir tu integración en una plantilla, primero [publica](#publicar-una-integracion) una versión de tu integración.
+Luego, abre el desplegable de **Detalles** y selecciona **Disponible como Plantilla**.
+
 
 <Screenshot
   filename="integrations/available-as-template.png"
-  alt="Create a new template of an integration"
+  alt="Crear una nueva plantilla de una integración"
   maxWidth="650px"
 />
 
-You can choose if the template is just for org users, or if you offer [embedded designer](embedded-designer.mdx) you can make the template available to customer integration builders.
+Puedes elegir si la plantilla es solo para usuarios de la organización, o si ofreces [diseñador incrustado](embedded-designer.mdx), puedes hacer que la plantilla esté disponible para los constructores de integraciones del cliente.
 
-## Assigning an icon to an integration
 
-Integrations can be assigned icons, to make them more presentable in the [integration marketplace](integration-marketplace.mdx).
-To assign an icon to an integration from the integration designer by clicking the icon to the left of your integration's name:
+## Asignar un icono a una integración
+
+Las integraciones pueden tener iconos asignados para que sean más presentables en el [mercado de integraciones](integration-marketplace.mdx).
+Para asignar un ícono a una integración desde el diseñador de integraciones, haz clic en el ícono a la izquierda del nombre de tu integración:
+
 
 <Screenshot
   filename="integrations/add-icon.png"
   maxWidth="400px"
-  alt="Add icon to integration in  app"
+  alt="Añadir icono a la integración en la aplicación"
 />
 
-Square PNG images that are at least 400 pixels wide look best as integration icons.
+Las imágenes PNG cuadradas de al menos 400 píxeles de ancho quedan mejor como iconos de integración.
 
-## Integration labels
+## Etiquetas de integración
 
-Labels help you keep your integrations organized.
-You can assign any number of labels to an integration from within the integration designer by opening the **DETAILS** menu:
+Las etiquetas te ayudan a mantener organizadas tus integraciones.
+Puedes asignar cualquier cantidad de etiquetas a una integración desde el diseñador de integraciones abriendo el menú **DETALLES**:
+
 
 <Screenshot
   filename="integrations/labels.png"
   maxWidth="550px"
-  alt="Assign labels to integration in  app"
+  alt="Asignar etiquetas a la integración en la aplicación"
 />
 
-You can [search](#listing-and-searching-integrations) for integrations by label.
-_Note_: for consistency, labels are always lower-cased.
+Puedes [buscar](#listing-and-searching-integrations) integraciones por etiqueta.
+_Nota_: para consistencia, las etiquetas siempre están en minúsculas.
 
-If you would like to update labels on previously published versions of your integration, open the **VERSION HISTORY** drawer and select a previously published version of your integration.
-Add labels from the **DETAILS** menu, and click **Save**.
+Si deseas actualizar las etiquetas en versiones previamente publicadas de tu integración, abre el cajón **HISTORIAL DE VERSIONES** y selecciona una versión previamente publicada de tu integración.
+Añade etiquetas desde el menú **DETALLES** y haz clic en **Guardar**.
+
 
 <Screenshot
   filename="integrations/label-versions.png"
   maxWidth="650px"
-  alt="Update labels for prior published versions of integration in  app"
+  alt="Actualizar las etiquetas de las versiones anteriores publicadas de la integración en la aplicación"
 />
 
-Labels applied to published integration versions appear in the version dropdown menu on an instance configuration page.
+Las etiquetas aplicadas a las versiones de integración publicadas aparecen en el menú desplegable de versiones de la página de configuración de una instancia.
 
 <Screenshot
   filename="integrations/label-versions-instance.png"
   maxWidth="700px"
-  alt="Versions and labels for instance configuration in  app"
+  alt="Versiones y etiquetas para la configuración de instancias en la aplicación"
 />
 
-## Listing and searching integrations
+## Integración de listados y búsquedas
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-To view all of the integrations your organization has created, click the **Integrations** link on the left-hand sidebar.
+Para ver todas las integraciones que ha creado su organización, haga clic en el enlace **Integraciones** de la barra lateral izquierda.
 
 <Screenshot
   filename="integrations/list-integrations.png"
-  alt="All integrations for organization in  app"
+  alt="Todas las integraciones para la organización en la aplicación"
 />
 
-You can search for specific integrations by name by typing a part of the name in the upper search bar, or you can search by **description**, **[category](#categorizing-integrations)**, **[labels](#integration-labels)** or **marketplace availability** by clicking the **Filter** button to the right of the search bar.
+Puedes buscar integraciones específicas por nombre escribiendo una parte del nombre en la barra de búsqueda superior, o puedes buscar por **descripción**, **[categoría](#categorizing-integrations)**, **[etiquetas](#integration-labels)** o **disponibilidad en el marketplace** haciendo clic en el botón **Filtrar** a la derecha de la barra de búsqueda.
+
 
 <Screenshot
   filename="integrations/search-integrations.png"
-  alt="Filter integrations in  app"
+  alt="Integración de filtros en la aplicación"
   maxWidth="800px"
 />
 
 </TabItem>
 <TabItem value='cli'>
 
-To list all integrations your organization has created, use the `prism integrations:list` subcommand.
+Para listar todas las integraciones que tu organización ha creado, utiliza el subcomando `prism integrations:list`.
+
 
 ```bash
 prism integrations:list
@@ -226,7 +241,8 @@ prism integrations:list --filter 'Name=Fabricate 3D Model' --output json --exten
 </TabItem>
 <TabItem value='api'>
 
-List integrations by querying [integrations](api/schema/query/integrations.mdx):
+Lista las integraciones consultando [integrations](api/schema/query/integrations.mdx):
+
 
 ```graphql
 query {
@@ -243,56 +259,60 @@ query {
 </TabItem>
 </ExampleTabs>
 
-## Categorizing integrations
+## Categorizando integraciones
 
-Integrations can be assigned a "category" for easy sorting and filtering.
-For example, you might have a dozen "ERP" integrations, a few "Inventory Management" integrations, etc.
-Assigning each integration a category allows your team, as well as your customers in the [integration marketplace](integration-marketplace.mdx) to view integrations sorted by category.
+Las integraciones pueden ser asignadas a una "categoría" para facilitar su clasificación y filtrado.
+Por ejemplo, puedes tener una docena de integraciones de "ERP", algunas integraciones de "Gestión de Inventario", etc.
+Asignar a cada integración una categoría permite que tu equipo, así como tus clientes en el [mercado de integraciones](integration-marketplace.mdx), vean las integraciones ordenadas por categoría.
 
-You can set a category for an integration by clicking the **DETAILS** dropdown button on the top-left of the integration designer:
+
+Puede establecer una categoría para una integración haciendo clic en el botón desplegable **DETALLES** situado en la parte superior izquierda del diseñador de integraciones:
 
 <Screenshot
   filename="integrations/edit-name-description.png"
   maxWidth="700px"
-  alt="Set category for integration in  app"
+  alt="Establezca la categoría para la integración en la aplicación"
 />
 
-## Publishing an integration
+## Publicación de una integración
 
-By **publishing** an integration, you mark it ready for deployment to customers.
+Al **publicar** una integración, la marca como lista para su despliegue a los clientes.
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-To publish an integration, first open the **VERSION HISTORY** tab on the left side of the page.
-If you have unpublished changes you'll see an **Unpublished Draft** listed among the integration's versions.
-Type a note about the changes you made to the integration, and then click **SAVE & PUBLISH** to release a new version of your integration:
+Para publicar una integración, primero abre la pestaña **HISTORIAL DE VERSIONES** en el lado izquierdo de la página.
+Si tienes cambios sin publicar, verás un **Borrador no publicado** listado entre las versiones de la integración.
+Escribe una nota sobre los cambios que realizaste en la integración y luego haz clic en **GUARDAR Y PUBLICAR** para lanzar una nueva versión de tu integración:
 
 <Screenshot
   filename="integrations/version-history.png"
   maxWidth="600px"
-  alt="Publish integration in  app"
+  alt="Integración de la publicación en la aplicación"
 />
 
-Integration versions can be marked **Available** or **Unavailable** by toggling the blue toggles to the right of integration versions.
-Marking an integration version **Unavailable** prevents that version from being deployed as an [instance](instances.mdx#deploying-instances) to a customer.
+Las versiones de la integración se pueden marcar como **Disponible** o **No disponible** al activar o desactivar los interruptores azules a la derecha de las versiones de la integración.
+Marcar una versión de integración como **No disponible** evita que esa versión se implemente como una [instancia](instances.mdx#deploying-instances) para un cliente.
+
 
 </TabItem>
 <TabItem value='cli'>
 
-Within the CLI tool, you can publish an integration using the `integrations:publish` subcommand.
-You can add an optional description detailing how this publication changed.
+Dentro de la herramienta CLI, puedes publicar una integración utilizando el subcomando `integrations:publish`.
+Puedes agregar una descripción opcional detallando cómo ha cambiado esta publicación.
+
 
 ```bash
 prism integrations:publish \
   ${INTEGRATION_ID} \
-  --comment "Updated XML output format to exclude SSN and other PII fields."
+  --comment "Se ha actualizado el formato de salida XML para excluir el SSN y otros campos PII."
 ```
 
 </TabItem>
 <TabItem value='api'>
 
-To publish an integration, use the [publishIntegration](api/schema/mutation/publishIntegration.mdx) mutation:
+Para publicar una integración, utiliza la mutación [publishIntegration](api/schema/mutation/publishIntegration.mdx):
+
 
 ```graphql
 mutation {
@@ -312,44 +332,46 @@ mutation {
 </TabItem>
 </ExampleTabs>
 
-## Deploying an integration
+## Despliegue de una integración
 
-Once an integration has been [published](#publishing-an-integration), an instance of the integration can be configured and deployed to a customer.
-See the [instances](instances.mdx) article for information on deploying instances of integrations.
+Una vez que una integración ha sido [publicada](#publicar-una-integración), una instancia de la integración puede ser configurada e implementada para un cliente. Consulta el artículo [instances](instances.mdx) para obtener información sobre la implementación de instancias de integraciones.
 
-You can also enable your customers to deploy integrations themselves, using 's [integration marketplace](integration-marketplace.mdx).
 
-## Viewing deployed instances
+También puedes permitir que tus clientes implementen integraciones por sí mismos utilizando el [marketplace de integraciones](integration-marketplace.mdx) de .
 
-To view all instances that have been deployed, click the **Instances** tab from the integration designer screen.
-This screen will display customers to which this integration has been deployed.
+## Ver instancias implementadas
+
+Para ver todas las instancias que se han implementado, haz clic en la pestaña **Instances** desde la pantalla del diseñador de integraciones. Esta pantalla mostrará a qué clientes se ha implementado esta integración.
+
 
 <Screenshot
   filename="integrations/list-instances.png"
-  alt="List of deployed instances in  app"
+  alt="Lista de instancias desplegadas en la aplicación"
   maxWidth="550px"
 />
 
-The version of this integration that is deployed to each customer is shown within this drawer.
+La versión de esta integración que se despliega a cada cliente se muestra dentro de este cajón.
 
-## Forking an integration
+## Bifurcación de una integración
 
-<Vimeo video="500063783" title="How to Make a Copy of an Integration" />
+<Vimeo video="500063783" title="Cómo hacer una copia de una integración" />
 
-Sometimes you will want to make a copy of an integration and modify the copy.
-This is called _forking_ an integration.
+A veces querrás hacer una copia de una integración y modificar la copia.
+Esto se llama _forking_ de una integración.
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-From the integration designer, click the <Icon>settings</Icon> icon on the bottom left of the page.
-Then, click **Fork Integrations**.
-Give your forked integration a new name and description and then click **ADD**.
+Desde el diseñador de integraciones, haz clic en el icono <Icon>settings</Icon> en la parte inferior izquierda de la página.
+Luego, haz clic en **Fork Integrations**.
+Dale un nuevo nombre y descripción a tu integración bifurcada y luego haz clic en **ADD**.
+
 
 </TabItem>
 <TabItem value='cli'>
 
-To fork an integration, use the `prism integrations:fork` subcommand and pass in the ID of the integration you want to fork:
+Para bifurcar una integración, utiliza el subcomando `prism integrations:fork` y proporciona el ID de la integración que deseas bifurcar:
+
 
 ```bash
 prism integrations:fork ${INTEGRATION_ID} \
@@ -360,8 +382,9 @@ prism integrations:fork ${INTEGRATION_ID} \
 </TabItem>
 <TabItem value='api'>
 
-Fork an integration using the [forkIntegration](api/schema/mutation/forkIntegration.mdx) mutation.
-The `parent` is the ID of the integration you want to fork:
+Bifurca una integración utilizando la mutación [forkIntegration](api/schema/mutation/forkIntegration.mdx).
+El `parent` es el ID de la integración que deseas bifurcar:
+
 
 ```graphql
 mutation {
@@ -382,34 +405,37 @@ mutation {
 </TabItem>
 </ExampleTabs>
 
-## Deleting an integration
+## Eliminar una integración
 
-:::note Deleting an integration will delete all instances of that integration
-Use caution when deleting an integration.
-Deletion of an integration also deletes all deployed instances of that integration.
+:::note Eliminar una integración eliminará todas las instancias de esa integración.
+Ten precaución al eliminar una integración.
+La eliminación de una integración también elimina todas las instancias implementadas de esa integración.
+
 :::
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-From the integration designer, click the <Icon>settings</Icon> icon on the bottom left of the page.
-Click the **Delete Integration** button on the bottom of the page and confirm by clicking **REMOVE INTEGRATION**.
+Desde el diseñador de integraciones, haz clic en el icono <Icon>settings</Icon> en la parte inferior izquierda de la página.
+Haz clic en el botón **Eliminar Integración** en la parte inferior de la página y confirma haciendo clic en **ELIMINAR INTEGRACIÓN**.
+
 
 </TabItem>
 <TabItem value='cli'>
 
 ```bash
-# Fetch the integration's ID
+# Obtener el ID de la integración
 INTEGRATION_ID=$(prism integrations:list --filter 'Name=Deploy Model to Manufacturer' --columns id --no-header)
 
-# Delete the integration
+# Eliminar la integración
 prism integrations:delete ${INTEGRATION_ID}
 ```
 
 </TabItem>
 <TabItem value='api'>
 
-Delete an integration using the [deleteIntegration](api/schema/mutation/deleteIntegration.mdx) mutation:
+Para eliminar una integración, utiliza la mutación [deleteIntegration](api/schema/mutation/deleteIntegration.mdx):
+
 
 ```graphql
 mutation {
@@ -428,70 +454,70 @@ mutation {
 </TabItem>
 </ExampleTabs>
 
-## Integration attachments
+## Anexos de integración
 
-Your team can save and share integration-related documents alongside an integration by clicking on the **Attachments** tab from the integration designer page.
+Tu equipo puede guardar y compartir documentos relacionados con la integración junto a una integración haciendo clic en la pestaña **Attachments** desde la página del diseñador de integraciones.
+
 
 <Screenshot
   filename="integrations/attachments.png"
-  alt="Add attachments to integration in  app"
+  alt="Añadir archivos adjuntos a la integración en la aplicación"
   maxWidth="550px"
 />
 
-## Internal integration documentation
+## Documentación de integración interna
 
-It's helpful to share documentation, specs and notes about an integration with your team members.
-You can add internal (non-customer-facing) notes and documentation to an integration by clicking the **Integration Documentation** button on the right-hand side of the integration designer.
-This will open up a drawer on the right-hand side of the designer.
+Es útil compartir documentación, especificaciones y notas sobre una integración con los miembros de tu equipo. Puedes agregar notas y documentación internas (no visibles para los clientes) a una integración haciendo clic en el botón **Integration Documentation** en el lado derecho del diseñador de integraciones. Esto abrirá un panel en el lado derecho del diseñador.
 
-The drawer has two tabs: **Edit** and **Preview**.
+El panel tiene dos pestañas: **Edit** y **Preview**.
 
-In the **Edit** tab you can type [Markdown syntax](https://www.markdownguide.org/basic-syntax/), including external links, code snippets and externally-hosted images:
+
+En la pestaña **Edit**, puedes escribir en [sintaxis Markdown](https://www.markdownguide.org/basic-syntax/), incluyendo enlaces externos, fragmentos de código e imágenes alojadas externamente:
+
 
 <Screenshot
   filename="integrations/documentation-markdown.png"
   maxWidth="750px"
-  alt="Add internal integration documentation in  app"
+  alt="Añadir documentación de integración interna en la aplicación"
 />
 
-In the **Preview** tab you can view the rendered markdown:
+En la pestaña **Previsualizar** puede ver el texto renderizado:
 
 <Screenshot
   filename="integrations/documentation-rendered.png"
   maxWidth="750px"
-  alt="Preview internal integration documentation in  app"
+  alt="Vista previa de la documentación de integración interna en la aplicación"
 />
 
-## YAML definition
+## Definición de YAML
 
-Behind the scenes, integrations are represented in YAML.
-You can view the YAML that defines your integration's flows, steps, inputs, connections and config variables by clicking **Manage** at the bottom-left of the integration designer, and selecting **Save/Load**.
+Detrás de escena, las integraciones se representan en YAML.
+Puedes ver el YAML que define las flujos, pasos, entradas, conexiones y variables de configuración de tu integración haciendo clic en **Manage** en la parte inferior izquierda del diseñador de integraciones y seleccionando **Save/Load**.
+
 
 <Screenshot
   filename="integrations/yaml-definition.png"
   maxWidth="550px"
-  alt="YAML for integration in  app"
+  alt="YAML para integración en app"
 />
 
-If you are exporting the integration and importing it in a different region (US -> EU, for example), make sure you click a **latest component versions** button, as component versions may not match between regions.
+Si estás exportando la integración e importándola en una región diferente (por ejemplo, de EE. UU. a la UE), asegúrate de hacer clic en el botón **latest component versions**, ya que las versiones de los componentes pueden no coincidir entre regiones.
 
-:::tip Tip: Spot changes to integrations
-The YAML present in this drawer corresponds to the integration that is currently being displayed.
-You can view the YAML of a previous version of the integration by first opening the **VERSION HISTORY** drawer and selecting an older integration version.
+:::tip Consejo: Identificar cambios en integraciones
+El YAML presente en este cajón corresponde a la integración que se está mostrando actualmente. Puedes ver el YAML de una versión anterior de la integración abriendo primero el cajón **VERSION HISTORY** y seleccionando una versión más antigua de la integración.
 
-If you want to spot differences between an older version of your integration and the current version, you can compare the YAML definition of the older version with the YAML definition of the current version using your favorite diff tool (VSCode has a great built-in [diff tool](https://vscode.one/diff-vscode/)).
+Si deseas identificar las diferencias entre una versión anterior de tu integración y la versión actual, puedes comparar la definición YAML de la versión antigua con la definición YAML de la versión actual utilizando tu herramienta de diferenciación favorita (VSCode tiene una excelente [herramienta de diferenciación integrada](https://vscode.one/diff-vscode/)).
+
 :::
 
-### Exporting an integration
+### Exportar una integración
 
-Once you've opened the **Save/Load** drawer in the integration designer, you can click **Copy to clipboard** to copy the integration's YAML definition into your clipboard, so you can paste it into an editor of your choice.
-You can also click **Save to file** to download a copy of your integration.
+Una vez que hayas abierto el cajón **Guardar/Cargar** en el diseñador de integraciones, puedes hacer clic en **Copiar al portapapeles** para copiar la definición YAML de la integración en tu portapapeles, para que puedas pegarla en un editor de tu elección. También puedes hacer clic en **Guardar en archivo** para descargar una copia de tu integración.
 
-If you are using 's command line tool, `prism`, you can use the [`integrations:export`](cli/prism.mdx#integrationsexport) subcommand to similarly export the YAML definition of your integration.
+Si estás utilizando la herramienta de línea de comandos de 's, `prism`, puedes usar el subcomando [`integrations:export`](cli/prism.mdx#integrationsexport) para exportar de manera similar la definición YAML de tu integración.
 
-### Importing an integration
+### Importar una integración
 
-If you have a YAML definition of your integration saved in your clipboard, you can click **Load from clipboard** to replace your current integration with the definition that you have copied.
-Or, you can save a modified YAML file to your computer, and load the YAML definition by clicking **Load from file** and selecting the file you saved.
+Si tienes una definición YAML de tu integración guardada en tu portapapeles, puedes hacer clic en **Cargar desde portapapeles** para reemplazar tu integración actual con la definición que has copiado. O bien, puedes guardar un archivo YAML modificado en tu computadora y cargar la definición YAML haciendo clic en **Cargar desde archivo** y seleccionando el archivo que guardaste.
 
-If you are using `prism`, you can use the [`integrations:import`](cli/prism.mdx#integrationsimport) subcommand to import a YAML definition of your integration.
+Si estás utilizando `prism`, puedes utilizar el subcomando [`integrations:import`](cli/prism.mdx#integrationsimport) para importar una definición YAML de tu integración.
