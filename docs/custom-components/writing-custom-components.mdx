@@ -1,45 +1,47 @@
 ---
 id: writing-custom-components
-title: Writing Custom Components
-description: allows dev users to write custom API connectors and other components for their integrations. Learn more about creating custom components with .
+title: Creación de componentes personalizados
+description: permite a los usuarios desarrolladores escribir conectores API personalizados y otros componentes para sus integraciones.
 ---
 
 import Screenshot from "@site/src/components/screenshot";
 import Vimeo from "@site/src/components/vimeo";
 import SlugifyBox from "@site/src/components/slugify-box";
 
-is extensible and allows for developer users to develop their own custom components.
-Components that users develop are proprietary to their [organization](organization.mdx), and are private.
+Es extensible y permite a los desarrolladores crear sus propios componentes personalizados.
+Los componentes desarrollados por los usuarios son de propiedad exclusiva de su [organización](organization.mdx) y son privados.
 
-[Sample component code](https://github.com/-io/examples/tree/main/components) is referenced throughout this page.
+[Fragmento de código del componente de muestra](https://github.com/-io/examples/tree/main/components) se hace referencia en toda esta página.
 
-For a sample component that wraps an HTTP-based API, see our quickstart on [Wrapping an API in a Component](quickstarts/wrapping-an-api-in-a-component.mdx).
+Para obtener un componente de muestra que envuelve una API basada en HTTP, consulta nuestra guía rápida sobre [Cómo envolver una API en un componente](quickstarts/wrapping-an-api-in-a-component.mdx).
 
-## Custom component library
+## Biblioteca de componentes personalizados
 
-[![Spectral NPM version](https://badge.fury.io/js/@-io%2Fspectral.svg)](https://www.npmjs.com/package/@-io/spectral)
+[![Versión de NPM de Spectral](https://badge.fury.io/js/@-io%2Fspectral.svg)](https://www.npmjs.com/package/@-io/spectral)
 
-provides a NodeJS package, [@-io/spectral](https://www.npmjs.com/package/@-io/spectral), which provides TypeScript typing and some utility functions.
-Source code for Spectral is available on [github](https://github.com/-io/spectral).
+proporciona un paquete NodeJS, [@-io/spectral](https://www.npmjs.com/package/@-io/spectral), que ofrece tipos TypeScript y algunas funciones de utilidad.
+El código fuente de Spectral está disponible en [GitHub](https://github.com/-io/spectral).
 
-For information on Spectral's utility functions and types, see our [custom component library](spectral/custom-component-library.mdx) docs.
+Para obtener información sobre las funciones de utilidad y los tipos de Spectral, consulta nuestra documentación sobre [biblioteca de componentes personalizados](spectral/custom-component-library.mdx).
 
-**NodeJS Version Support**: While many versions of NodeJS may work for component development, we recommend using the latest LTS (long-term support) version of NodeJS.
-You can find the latest LTS version on the [NodeJS download page](https://nodejs.org/en/download/).
+**Compatibilidad con versiones de NodeJS**: Aunque muchas versiones de NodeJS pueden funcionar para el desarrollo de componentes, recomendamos utilizar la última versión LTS (soporte a largo plazo) de NodeJS.
+Puedes encontrar la última versión LTS en la [página de descargas de NodeJS](https://nodejs.org/en/download/).
 
-## Initializing a new component
+## Inicializar un nuevo componente
 
-To initialize a new project, run `prism components:init {{ COMPONENT NAME }}`.
-If you do not have 's CLI tool, `prism`, installed, please take a moment to look through the [Prism overview page](cli/cli-usage.mdx).
+Para inicializar un nuevo proyecto, ejecuta `prism components:init {{ NOMBRE DEL COMPONENTE }}`.
+Si no tienes instalada la herramienta de línea de comandos de 's, `prism`, tómate un momento para revisar la [página de descripción general de Prism](cli/cli-usage.mdx).
+
 
 ```bash
 prism components:init format-name
 ```
 
-Your component name must be comprised of alphanumeric characters, hyphens, and underscores, and start and end with alphanumeric characters.
-You will be prompted with a couple of questions - to give a description for your component and to determine what connection authorization type should be templated (you can edit those later).
+El nombre de tu componente debe estar compuesto por caracteres alfanuméricos, guiones y guiones bajos, y debe comenzar y terminar con caracteres alfanuméricos.
+Se te solicitará que respondas algunas preguntas, como proporcionar una descripción para tu componente y determinar qué tipo de autorización de conexión se debe plantillar (puedes editar esto más tarde).
 
-This will create a directory structure that looks like this:
+
+Esto creará una estructura de directorios como la siguiente:
 
 ```
 format-name
@@ -58,68 +60,81 @@ format-name
 └── webpack.config.js
 ```
 
-- `assets/icon.png` is the icon that will be displayed next to your component.
-  Square transparent PNGs at least 128 x 128 pixels in size look best, and will be scaled by the web app appropriately.
-- `jest.config.js` contains configuration for the [Jest](https://jestjs.io/) testing framework.
-- `package.json` is a standard node package definition file.
-- `src/actions.ts` contains your component's actions. This can be broken out in to distinct files as your code grows.
-- `src/client.ts` contains a shared "client". This is handy for actions that share a mechanism for connecting to an API. The "client" will probably be an authenticated HTTP client that's configured to make requests of a particular endpoint.
-- `src/connections.ts` contains the connections that your component uses to authenticate with third-party APIs.
-- `src/index.test.ts` contains tests for component's actions.
-  See [Unit Testing Custom Components](quickstarts/unit-testing-custom-components.mdx).
-- `src/index.ts` contains your component definition.
-- `src/triggers.ts` contains custom triggers.
-- `tsconfig.json` contains configuration for [TypeScript](https://www.typescriptlang.org/).
-- `webpack.config.js` contains configuration for [Webpack](https://webpack.js.org/).
+- `assets/icon.png` es el icono que se mostrará junto a tu componente. Los archivos PNG cuadrados y transparentes, con al menos 128 x 128 píxeles, son los más adecuados y serán escalados adecuadamente por la aplicación web.
 
-### Custom components from WSDLs or OpenAPI specs
+- `jest.config.js` contiene la configuración para el marco de pruebas [Jest](https://jestjs.io/).
 
-Third-party apps and services often provide APIs with hundreds of RESTful endpoints.
-It would be tedious to manually write actions for each individual endpoint.
-Luckily, many companies also provide an API specification - commonly a [Web Service Definition Language (WSDL)](https://www.w3.org/TR/2001/NOTE-wsdl-20010315) file, or an [OpenAPI (Swagger)](https://swagger.io/specification/) specification.
+- `package.json` es un archivo de definición estándar del paquete de Node.
 
-You can generate a custom component from a WSDL file with `prism` by passing the `--wsdl-path` flag to the `components:init` subcommand:
+- `src/actions.ts` contiene las acciones de tu componente. Esto puede dividirse en archivos distintos a medida que tu código crece.
+
+- `src/client.ts` contiene un "cliente" compartido. Esto es útil para acciones que comparten un mecanismo para conectarse a una API. El "cliente" probablemente será un cliente HTTP autenticado configurado para hacer solicitudes a un endpoint específico.
+
+- `src/connections.ts` contiene las conexiones que tu componente utiliza para autenticarse con APIs de terceros.
+
+- `src/index.test.ts` contiene pruebas para las acciones del componente. Consulta [Pruebas unitarias de componentes personalizados](quickstarts/unit-testing-custom-components.mdx).
+
+- `src/index.ts` contiene la definición de tu componente.
+
+- `src/triggers.ts` contiene disparadores personalizados.
+
+- `tsconfig.json` contiene la configuración para [TypeScript](https://www.typescriptlang.org/).
+
+- `webpack.config.js` contiene la configuración para [Webpack](https://webpack.js.org/).
+
+### Componentes personalizados a partir de WSDLs o especificaciones OpenAPI
+
+Las aplicaciones y servicios de terceros a menudo proporcionan APIs con cientos de puntos finales RESTful. Sería tedioso escribir manualmente acciones para cada punto final individual. Afortunadamente, muchas empresas también proporcionan una especificación de API, comúnmente un archivo [Web Service Definition Language (WSDL)](https://www.w3.org/TR/2001/NOTE-wsdl-20010315) o una especificación [OpenAPI (Swagger)](https://swagger.io/specification/).
+
+
+Puedes generar un componente personalizado a partir de un archivo WSDL con `prism` pasando la bandera `--wsdl-path` al subcomando `components:init`:
+
 
 ```bash
 prism components:init myThirdPartyComponent --wsdl-path ./thirdPartySpec.wsdl
 ```
 
-You can generate a custom component from an OpenAPI definition (you can use a YAML or JSON file - both work fine) with `prism` by passing the `--open-api-path` flag to the `components:init` subcommand:
+Puedes generar un componente personalizado a partir de una definición OpenAPI (puedes usar un archivo YAML o JSON, ambos funcionan bien) con `prism` al pasar la bandera `--open-api-path` al subcomando `components:init`:
+
 
 ```bash
 prism components:init myThirdPartyComponent --open-api-path ./third-party-openapi-spec.json
 ```
 
-The custom component code that is generated may require some tweaking - some APIs have undocumented required headers, or irregular authentication schemes (so you may need to touch up `src/client.ts` or `src/connection.ts`).
-But, this does give you a great jumping-off point when building a custom component for a third-party app.
+El código del componente personalizado que se genera puede requerir algunos ajustes; algunas APIs tienen encabezados requeridos no documentados o esquemas de autenticación irregulares (por lo que es posible que debas modificar `src/client.ts` o `src/connection.ts`).
+Pero esto te proporciona un excelente punto de partida al construir un componente personalizado para una aplicación de terceros.
 
-## Writing actions
+## Escribir acciones
 
-A component is comprised of zero, one or many [actions](components.mdx#component-actions).
-For example, the [HTTP component](components/http.mdx) contains actions to [GET](components/http.mdx#httpget) (`httpGet`), [POST](components/http.mdx#post-request) (`httpPost`), etc.
+Un componente está compuesto por cero, una o muchas [acciones](components.mdx#component-actions).
+Por ejemplo, el [componente HTTP](components/http.mdx) contiene acciones como [GET](components/http.mdx#httpget) (`httpGet`), [POST](components/http.mdx#post-request) (`httpPost`), etc.
 
-An `action` has three required properties and one optional one:
 
-1. Information on how the web app `display` the action
-1. A function to `perform`
-1. A series of `input` fields
+Una `action` tiene tres propiedades obligatorias y una opcional:
+
+
+1. Información sobre cómo la aplicación web `display` la acción
+2. Una función para `perform`
+3. Una serie de campos `input`
+
 
 ```typescript
 const myAction = action({
   display: {
     label: "Brief Description",
-    description: "Longer description to display in web app UI",
+    description: "Descripción más larga para mostrar en la interfaz de usuario de la aplicación web",
   },
   perform: async (context, params) => {},
   inputs: { inputFieldOne, inputFieldTwo },
 });
 ```
 
-### Adding inputs
+### Agregar entradas
 
-Components can take [`inputs`](components.mdx#inputs). Each `input` is comprised of a required `label`, and `type` and optional `placeholder`, `default`, `comments`, `required` and `model`.
+Los componentes pueden tener [`entradas`](components.mdx#entradas). Cada `entrada` está compuesta por un `etiqueta` obligatoria, y `tipo` y opciones opcionales como `espacio reservado`, `predeterminado`, `comentarios`, `obligatorio` y `modelo`.
 
-Consider this example input:
+
+Considere este ejemplo de entrada:
 
 ```typescript
 const middleName = input({
@@ -128,34 +143,36 @@ const middleName = input({
   type: "string",
   required: false,
   default: "",
-  comments: "Leave blank if the user has no middle name",
+  comments: "Dejar en blanco si el usuario no tiene segundo nombre",
 });
 ```
 
-This contributes to an input prompt that looks like this:
+Esto contribuye a un mensaje de entrada que se parece a esto:
 
 <Screenshot
   filename="custom-components/writing-custom-components/inputs.png"
-  alt="Step Config - Properly Format Name in  app"
+  alt="Paso Configurar - Formatear correctamente el nombre en la aplicación"
 />
 
-Note where the `label` and `placeholder` text appeared in the web app, and note that First Name and Last Name are required - indicated with a `*`, but Middle Name is not.
+Ten en cuenta dónde apareció el texto de `label` y `placeholder` en la aplicación web, y observa que Nombre y Apellido son obligatorios, indicados con un `*`, pero el Segundo Nombre no lo es.
 
-### Cleaning inputs
 
-An input of an action can be anything - a number, string, boolean, JavaScript Buffer, a complex object with lots of properties, etc.
-If you reuse an input for multiple actions, it's handy to do some preprocessing and type conversion on the input.
-That's where a `clean` function on an input comes in.
+### Limpiar las entradas
 
-For example, suppose you expect an input to be a number.
-But, inputs by default are presented to `perform` functions as strings.
-You can leverage the [`util.types.toNumber()`](spectral/modules/_util_.md/#const-tonumber) utility function and `clean` property to ensure that the input is presented to the `perform` function as a number:
+Una entrada de una acción puede ser cualquier cosa: un número, una cadena, un booleano, un búfer de JavaScript, un objeto complejo con muchas propiedades, etc.
+Si reutilizas una entrada para varias acciones, es útil realizar algún procesamiento previo y conversión de tipo en la entrada.
+Aquí es donde entra en juego una función de `limpieza` en una entrada.
 
-```typescript title="Ensure input is a number"
+Por ejemplo, supongamos que esperas que una entrada sea un número.
+Sin embargo, las entradas por defecto se presentan a las funciones `perform` como cadenas.
+Puedes aprovechar la función de utilidad [`util.types.toNumber()`](spectral/modules/_util_.md/#const-tonumber) y la propiedad `clean` para asegurarte de que la entrada se presente a la función `perform` como un número:
+
+
+```typescript title="Asegúrese de que la entrada es un número"
 const serverPortInput = input({
   label: "Server Port",
-  placeholder: "The port of the API server",
-  comments: "Look for the number after the colon (my-server.com:3000)"
+  placeholder: "El puerto del servidor API",
+  comments: "Busque el número después de los dos puntos (my-server.com:3000)"
   type: "string",
   default: "3000",
   required: true,
@@ -164,10 +181,10 @@ const serverPortInput = input({
 });
 ```
 
-You can also add validation to the input.
-For example, if you want to validate that the input is an IPv4 IP address, you can build a more complex `clean` function:
+También puedes agregar validación al input. Por ejemplo, si deseas validar que el input sea una dirección IP IPv4, puedes construir una función `clean` más compleja:
 
-```typescript {1-8,16} title="Validate that an input is an IP address"
+
+```typescript {1-8,16} title="Validar que una entrada es una dirección IP"
 const validateIpAddress = (value: unknown) => {
   const ipAddressRegex =
     /^(?:(?:2(?:[0-4][0-9]|5[0-5])|[0-1]?[0-9]?[0-9])\.){3}(?:(?:2([0-4][0-9]|5[0-5])|[0-1]?[0-9]?[0-9]))$/;
@@ -188,65 +205,78 @@ const ipAddressInput = input({
 });
 ```
 
-### Action input types
+### Tipos de entrada de acción
 
-An input can take a number of types, which affects how the input renders in the web app:
+Un input puede tener varios tipos, lo cual afecta cómo se muestra el input en la aplicación web:
 
-- **string** will allow users to input or reference a string of characters.
+- **string** permitirá a los usuarios ingresar o hacer referencia a una cadena de caracteres.
+
   <Screenshot
     filename="custom-components/writing-custom-components/input-types/string.png"
     maxWidth="500px"
-    alt="String input in  app"
+    alt="Entrada de cadenas en la aplicación"
   />
-- **password** will allow users to input or reference a string of characters, and the string will be obfuscated in the UI.
+
+- **password** permitirá a los usuarios ingresar o hacer referencia a una cadena de caracteres, y la cadena se ocultará en la interfaz de usuario.
+
   <Screenshot
     filename="custom-components/writing-custom-components/input-types/password.png"
     maxWidth="500px"
-    alt="Password input in  app"
+    alt="Introducción de contraseña en la aplicación"
   />
-- **text** is similar to **string**, but allows for multi-line input.
+
+- **text** es similar a **string**, pero permite la entrada en varias líneas.
+
   <Screenshot
     filename="custom-components/writing-custom-components/input-types/text.png"
     maxWidth="500px"
-    alt="Text input in  app"
+    alt="Introducción de texto en la aplicación"
   />
-- **boolean** allows users to enter one of two values: true or false.
+
+- **boolean** permite a los usuarios ingresar uno de dos valores: true o false.
+
   <Screenshot
     filename="custom-components/writing-custom-components/input-types/boolean.png"
     maxWidth="350px"
-    alt="Boolean input in  app"
+    alt="Entrada booleana en la aplicación"
   />
-- **code** opens a code editor so users can enter XML, HTML, JSON, etc.
-  Syntax highlighting can be added to a **code** input's definition and can reference any language supported by [PrismJS](https://prismjs.com/#supported-languages).
+
+- **code** abre un editor de código para que los usuarios puedan ingresar XML, HTML, JSON, etc.
+  La resaltación de sintaxis se puede agregar a la definición de una entrada **code** y puede hacer referencia a cualquier lenguaje admitido por [PrismJS](https://prismjs.com/#supported-languages).
+
   (e.g. `input({ label: "My Code", type: "code", language: "json" })`)
   <Screenshot
     filename="custom-components/writing-custom-components/input-types/code.png"
     maxWidth="480px"
-    alt="Code editor in  app"
+    alt="Editor de código en la aplicación"
   />
-- **conditional** allows users to enter a series of logical conditionals.
-  This is most notably used in the [branch](components/branch.mdx) component.
+
+- **conditional** permite a los usuarios ingresar una serie de condicionales lógicos.
+  Esto se utiliza principalmente en el componente [branch](components/branch.mdx).
+
   <Screenshot
     filename="custom-components/writing-custom-components/input-types/conditional.png"
     maxWidth="500px"
-    alt="Conditional input in  app"
+    alt="Entrada condicional en la aplicación"
   />
 
-You can also create **connection** inputs for actions.
-Read more about connections [below](#adding-actions).
+También puedes crear entradas de tipo **connection** para acciones.
+Lee más sobre las conexiones [abajo](#agregar-acciones).
 
-### Dropdown menu inputs
+### Entradas de menú desplegable
 
-Rather than allowing integration builders to enter values for an input, you might want to have users choose a value from a list of possible values.
-You can do that by making your input into a dropdown menu.
+En lugar de permitir a los creadores de integraciones ingresar valores para una entrada, es posible que desees que los usuarios elijan un valor de una lista de posibles valores.
+Puedes lograrlo convirtiendo tu entrada en un menú desplegable.
+
 
 <Screenshot
   filename="custom-components/writing-custom-components/dropdown-input.png"
   maxWidth="500px"
-  alt="Dropdown menu in  app"
+  alt="Menú desplegable en la aplicación"
 />
 
-To create an input with a dropdown menu, add a `model` property to your input:
+Para crear una entrada con un menú desplegable, agrega una propiedad `model` a tu entrada:
+
 
 ```ts
 export const acmeEnvironment = input({
@@ -271,20 +301,21 @@ export const acmeEnvironment = input({
 });
 ```
 
-The `model` property should be an array of objects, with each object containing a `label` and a `value`.
-The `label` is shown in the dropdown menu.
-The `value` is passed in as the input's value to the custom component.
+La propiedad `model` debe ser un array de objetos, donde cada objeto contiene una `label` y un `value`.
+La `label` se muestra en el menú desplegable.
+El `value` se pasa como el valor de la entrada al componente personalizado.
 
-### Collection inputs
+### Entradas de colección
 
-Most inputs represent single strings.
-A **collection** input, on the other hand, represents an array of values or key-value pairs.
-Collections are handy when you don't know how many items a component user might need.
+La mayoría de las entradas representan cadenas individuales.
+Una entrada de **colección**, por otro lado, representa un array de valores o pares clave-valor.
+Las colecciones son útiles cuando no sabes cuántos elementos podría necesitar un usuario del componente.
 
-#### Value list collection
+#### Colección de lista de valores
 
-For example, your component might require an array of record to query, but you might not know how many record IDs a component user will enter.
-You can create a `valuelist` collection in code like this:
+Por ejemplo, tu componente podría requerir un array de registros para realizar una consulta, pero es posible que no sepas cuántos IDs de registros ingresará un usuario del componente.
+Puedes crear una colección `valuelist` de la siguiente manera:
+
 
 ```typescript {4} title="Value List Collection Example"
 const recordIdsInputField = input({
@@ -295,20 +326,21 @@ const recordIdsInputField = input({
 });
 ```
 
-The corresponding UI in the integration designer would then prompt a user for any number of record IDs that they would like to enter:
+La interfaz de usuario correspondiente en el diseñador de integración solicitará al usuario el número de ID de registro que desee introducir:
 
 <Screenshot
   filename="custom-components/writing-custom-components/input-types/value-list-collection.png"
   maxWidth="500px"
-  alt="Value List collection in  app"
+  alt="Colección de listas de valores en la aplicación"
 />
 
-When the input is received by an action's [perform function](#writing-perform-functions), the input is a `string[]`.
+Cuando la entrada se recibe en la [función perform](#writing-perform-functions) de una acción, la entrada es un `string[]`.
 
-#### Key value list collection
+#### Colección de lista de clave-valor
 
-If you would like users to enter a number of key-value pairs as an input, you can use a `keyvaluelist` collection.
-The _Header_ input on the [HTTP component](components/http.mdx#get-request) actions is an example of a `keyvaluelist` collection, and is defined in code like this:
+Si deseas que los usuarios ingresen una serie de pares clave-valor como entrada, puedes usar una colección `keyvaluelist`.
+La entrada de _Header_ en las acciones del [componente HTTP](components/http.mdx#get-request) es un ejemplo de una colección `keyvaluelist` y se define en el código de la siguiente manera:
+
 
 ```typescript {4} title="Key Value List Input"
 export const headersInputField = input({
@@ -321,15 +353,17 @@ export const headersInputField = input({
 });
 ```
 
-The "Header" input, then, appears like this in the integration designer:
+El campo "Header", entonces, aparecerá así en el diseñador de integraciones:
+
 
 <Screenshot
   filename="custom-components/writing-custom-components/input-types/key-value-list-collection.png"
   maxWidth="500px"
-  alt="Key Value List Collection in  app"
+  alt="Colección de listas de valores clave en la aplicación"
 />
 
-When the input is received by an action's [perform function](#writing-perform-functions), the input is an array of objects of the form:
+Cuando la entrada es recibida por la función [perform](#writing-perform-functions) de una acción, la entrada es un array de objetos en la forma:
+
 
 ```typescript
 [
@@ -344,7 +378,8 @@ When the input is received by an action's [perform function](#writing-perform-fu
 ];
 ```
 
-If you would like to convert the input to a key-value pair object, you can use the built-in Spectral function, [keyValPairListToObject](spectral/modules/_util_.md#const-keyvalpairlisttoobject):
+Si deseas convertir la entrada a un objeto de pares clave-valor, puedes utilizar la función integrada de Spectral, [keyValPairListToObject](spectral/modules/_util_.md#const-keyvalpairlisttoobject):
+
 
 ```typescript
 import { util } from "@-io/spectral";
@@ -352,10 +387,10 @@ const myObject = util.types.keyValPairListToObject(myInput);
 // { foo: "bar", baz: 5 }
 ```
 
-### Writing `perform` functions
+### Escribiendo funciones `perform`
 
-Each action contains one `perform` function, which is an async function with two parameters that may or may not have a return value.
-In this example `firstName`, `middleName`, and `lastName`, are input parameters for this `perform` function:
+Cada acción contiene una función `perform`, que es una función asíncrona con dos parámetros que pueden o no tener un valor de retorno. En este ejemplo, `firstName`, `middleName` y `lastName` son parámetros de entrada para esta función `perform`:
+
 
 ```typescript {7-15}
 export const properFormatName = action({
@@ -376,9 +411,9 @@ export const properFormatName = action({
 });
 ```
 
-### `perform` Function Parameters
+### Parámetros de la función `perform`
 
-The `perform` function takes two parameters, `context` and `params`, that can be destructured into their respective properties:
+La función `perform` toma dos parámetros, `context` y `params`, que pueden desestructurarse en sus propiedades respectivas:
 
 ```typescript
 perform: async (context, params) => {},
@@ -389,34 +424,35 @@ perform: async (
 ) => {},
 ```
 
-### The `context` Parameter
+### Parámetro `context`
 
-The `context` parameter is an object that contains the following attributes:
+El parámetro `context` es un objeto que contiene los siguientes atributos:
 
-- `logger` allows you to write out log lines.
-- `instanceState`, `crossFlowState`, `integrationState` and `executionState` gives you access to [persisted state](custom-components/writing-custom-components.mdx#execution-instance-and-cross-flow-state).
-- `stepId` is the ID of the current step being executed.
-- `executionId` is the ID of the current execution.
-- `webhookUrls` contains the URLs of the running instance's sibling flows.
-- `webhookApiKeys` contains the API keys of the running instance's sibling flows.
-- `invokeUrl` was the URL used to invoke the integration.
-- `customer` is an object containing an `id`, `name`, and `externalId` of the customer the instance is assigned to.
-- `user` is an object containing an `id`, `name`, `email` (their ID) and `externalId` of the customer user whose user-level config was used for this execution.
-  This only applies to instances with [User Level Configuration](user-level-configuration.mdx).
-- `integration` is an object containing an `id`, `name`, and `versionSequenceId` of the integration the instance was created from.
-- `instance` is an object containing an `id` and `name` of the running instance.
-- `flow` is an object containing the `id` and `name` of the running flow.
+- `logger` te permite escribir líneas de registro.
+- `instanceState`, `crossFlowState`, `integrationState` y `executionState` te brindan acceso a [estado persistente](custom-components/writing-custom-components.mdx#execution-instance-and-cross-flow-state).
+- `stepId` es el ID del paso actual que se está ejecutando.
+- `executionId` es el ID de la ejecución actual.
+- `webhookUrls` contiene las URL de las instancias en ejecución de flujos hermanos.
+- `webhookApiKeys` contiene las claves API de las instancias en ejecución de flujos hermanos.
+- `invokeUrl` fue la URL utilizada para invocar la integración.
+- `customer` es un objeto que contiene un `id`, `name`, y `externalId` del cliente al que se asigna la instancia.
+- `user` es un objeto que contiene un `id`, `name`, `email` (su ID) y `externalId` del usuario del cliente cuya configuración a nivel de usuario se utilizó para esta ejecución.
+  Esto solo se aplica a las instancias con [Configuración a Nivel de Usuario](user-level-configuration.mdx).
+- `integration` es un objeto que contiene un `id`, `name`, y `versionSequenceId` de la integración de la cual se creó la instancia.
+- `instance` es un objeto que contiene un `id` y `name` de la instancia en ejecución.
+- `flow` es un objeto que contiene el `id` y `name` del flujo en ejecución.
 
-#### Step ID
+#### ID del Paso
 
-`context.stepId` contains the unique identifier (UUID) of the step.
-It is used by the [Process Data - DeDuplicate](components/process-data.mdx#deduplicate) action to track what items in a array have or have not been previously seen.
-You can use it similarly in a custom component to persist step-specific data.
+`context.stepId` contiene el identificador único (UUID) del paso.
+Se utiliza en la acción [Procesar Datos - Eliminar Duplicados](components/process-data.mdx#deduplicate) para rastrear qué elementos en un array se han visto previamente o no.
+Puedes usarlo de manera similar en un componente personalizado para persistir datos específicos del paso.
 
-#### Webhook URLs
+#### URL de Webhook
 
-You can reference an instance's webhook URLs through the `context.webhookUrls` object.
-This is useful when writing actions to configure and delete webhooks in a third-party app.
+Puedes hacer referencia a las URL de webhook de una instancia a través del objeto `context.webhookUrls`.
+Esto es útil al escribir acciones para configurar y eliminar webhooks en una aplicación de terceros.
+
 
 ```typescript
 perform: async (context, params) => {
@@ -424,7 +460,8 @@ perform: async (context, params) => {
 };
 ```
 
-You can reference `context.flow.name` to fetch the current flow's webhook URL:
+Puedes hacer referencia a `context.flow.name` para obtener la URL del webhook del flujo actual:
+
 
 ```typescript
 perform: async (context, params) => {
@@ -432,9 +469,10 @@ perform: async (context, params) => {
 };
 ```
 
-### Logger object
+### Objeto de registro
 
-`context.logger` is a logging object and can be helpful to debug components.
+`context.logger` es un objeto de registro y puede ser útil para depurar componentes.
+
 
 ```typescript
 perform: async ({ logger }, params) => {
@@ -443,30 +481,32 @@ perform: async ({ logger }, params) => {
 };
 ```
 
-Available log functions in increasing order of severity include `logger.debug`, `logger.info`, `logger.warn` and `logger.error`.
+Funciones de registro disponibles en orden creciente de gravedad: `logger.debug`, `logger.info`, `logger.warn` y `logger.error`.
 
-You can also execute `logger.metric` on an object, which helps when [streaming logs and metrics](logging.mdx#external-log-streaming) to an external logging service.
+También puedes ejecutar `logger.metric` en un objeto, lo cual es útil cuando [transmites registros y métricas](logging.mdx#external-log-streaming) a un servicio de registro externo.
 
-**Note**: Log lines are truncated after 4096 characters.
-If you need longer log lines, consider [streaming logs](logging.mdx#external-log-streaming) to an external log service.
+**Nota**: Las líneas de registro se truncarán después de 4096 caracteres.
+Si necesitas líneas de registro más largas, considera [transmitir registros](logging.mdx#external-log-streaming) a un servicio de registro externo.
 
-### Execution, instance, and cross-flow state
 
-`context.executionState`, `context.instanceState`, `context.integrationState` and `context.crossFlowState` are key/value stores that may be used to store small amounts of data for future use:
+### Estado de ejecución, instancia y flujo cruzado
 
-- `context.executionState` stores state for the duration of the execution, and is often used as an accumulator for loops.
-- `context.instanceState` stores state that is persisted between executions. This state is scoped to a specific flow. The flow may persist data, and reference it in a subsequent execution.
-  :::note _Shouldn't `instanceState` be called `flowState` or something?_
-  Great question! We developed state storage prior to multi-flow, and the name `instanceState` was retained for historical reasons.
+`context.executionState`, `context.instanceState`, `context.integrationState` y `context.crossFlowState` son almacenes de clave/valor que se pueden utilizar para almacenar pequeñas cantidades de datos para uso futuro:
+
+- `context.executionState` almacena el estado durante la ejecución y se utiliza a menudo como acumulador para bucles.
+- `context.instanceState` almacena el estado que persiste entre ejecuciones. Este estado está vinculado a un flujo específico. El flujo puede persistir datos y hacer referencia a ellos en una ejecución posterior.
+  :::note _¿No debería llamarse `flowState` o algo así en lugar de `instanceState`?_
+  ¡Buena pregunta! Desarrollamos el almacenamiento de estado antes de la existencia de flujos múltiples, y el nombre `instanceState` se mantuvo por razones históricas.
   :::
-- `context.crossFlowState` also stores state that is persisted between executions. This state is scoped to the instance, and flows may reference one another's stored state.
-- `context.integrationState` stores state between flows in instances of the same integration. Customer A's flow 1 can share data with Customer B's flow 2.
+- `context.crossFlowState` también almacena el estado que persiste entre ejecuciones. Este estado está vinculado a la instancia, y los flujos pueden hacer referencia al estado almacenado de otros flujos.
+- `context.integrationState` almacena el estado entre flujos en instancias de la misma integración. El flujo 1 del Cliente A puede compartir datos con el flujo 2 del Cliente B.
 
-State is most notably used by the [Persist Data](components/persist-data.mdx) and [Process Data](components/process-data.mdx) components, but you can use it in your custom components, too.
+El estado se utiliza principalmente en los componentes [Persistir datos](components/persist-data.mdx) y [Procesar datos](components/process-data.mdx), pero también puedes usarlo en tus componentes personalizados.
 
-If, for example, a previous flow's run saved a state key of `sampleKey`, you can reference `context.instanceState['sampleKey']` to access that key's value.
+Si, por ejemplo, una ejecución anterior del flujo guardó una clave de estado llamada `sampleKey`, puedes hacer referencia a `context.instanceState['sampleKey']` para acceder al valor de esa clave.
 
-To do the reverse, and save data to a flow's state storage for subsequent runs, add an `instanceState` property to your perform function's return value:
+Para hacer lo contrario y guardar datos en el almacenamiento de estado de un flujo para ejecuciones posteriores, agrega una propiedad `instanceState` al valor de retorno de la función `perform`:
+
 
 ```typescript
 return {
@@ -475,7 +515,8 @@ return {
 };
 ```
 
-**Note**: To remove a key from persisted state, set it to `null`:
+**Nota**: Para eliminar una clave del estado persistido, establece su valor en `null`:
+
 
 ```typescript title="Remove a key from crossFlowState"
 return {
@@ -484,16 +525,17 @@ return {
 };
 ```
 
-### Input parameters
+### Parámetros de entrada
 
-The `params` parameter is an object that has attributes for each input field the action supports.
-For example, for the perform action [defined above](#writing-perform-functions), `params` has `params.firstName`, `params.middleName`, and `params.lastName`.
+El parámetro `params` es un objeto que tiene atributos para cada campo de entrada que la acción admite.
+Por ejemplo, para la acción de ejecución [definida anteriormente](#writing-perform-functions), `params` tiene `params.firstName`, `params.middleName` y `params.lastName`.
 
-`firstName`, `middleName`, and `lastName` are based off of the input objects that are provided to the action as `inputs`.
+`firstName`, `middleName` y `lastName` se basan en los objetos de entrada que se proporcionan a la acción como `inputs`.
 
-:::note Shorthand property names
-You can use [shorthand property names](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer) for inputs.
-If your input object variables have different names - say you have a `const myFirstNameInput = input ({...})`, you can structure your action's input property like this:
+:::note Nombres de propiedades abreviados
+Puedes utilizar [nombres de propiedades abreviados](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer) para las entradas.
+Si las variables de objeto de entrada tienen nombres diferentes, por ejemplo, si tienes un `const myFirstNameInput = input({...})`, puedes estructurar la propiedad de entrada de tu acción de la siguiente manera:
+
 
 ```typescript
 inputs: {
@@ -503,13 +545,15 @@ inputs: {
 }
 ```
 
-and the `params` object passed into `perform` will have keys `firstName`, `middleName`, and `lastName`.
+Y el objeto `params` pasado a `perform` tendrá claves `firstName`, `middleName` y `lastName`.
 
-Using non-shorthand property names is preferable to some developers to avoid [variable shadowing](https://en.wikipedia.org/wiki/Variable_shadowing).
+Para algunos desarrolladores, es preferible utilizar nombres de propiedades no abreviados para evitar [sombreado de variables](https://en.wikipedia.org/wiki/Variable_shadowing).
 :::
 
-The function is written with a destructured `params` parameter.
-It could be rewritten without being destructured.
+
+La función está escrita con un parámetro `params` desestructurado.
+Podría ser reescrito sin desestructuración.
+
 
 ```typescript {1-3,6}
 perform: async (context, params) => {
@@ -523,15 +567,16 @@ perform: async (context, params) => {
 },
 ```
 
-### Coercing input types
+### Coerción de tipos de entrada
 
-TypeScript-based Node libraries often have strict rules about the type of variables that are passed into their functions, but inputs to `perform` functions are of type `unknown` since it's not known ahead of time what types of values users of components are going to pass in.
-For example, you might expect one of your inputs to be a `number`, but a user might pass in a `string` instead.
-That's obviously a problem since `"2" + 3` is `"23"`, while `2 + 3` is `5` in JavaScript.
+Las bibliotecas de Node basadas en TypeScript a menudo tienen reglas estrictas sobre el tipo de variables que se pasan a sus funciones, pero las entradas a las funciones `perform` son de tipo `unknown` ya que no se sabe de antemano qué tipos de valores los usuarios de los componentes van a pasar.
+Por ejemplo, podrías esperar que una de tus entradas sea un `number`, pero un usuario podría pasar un `string` en su lugar.
+Eso obviamente es un problema, ya que `"2" + 3` es `"23"`, mientras que `2 + 3` es `5` en JavaScript.
 
-The Spectral package includes several [utility functions](spectral/modules/_util_.md) for coercing input to be the type of variable that you need.
-Looking at the number/string example, suppose you have some input - `quantity` - that you need turned into a number (even if someone passes in `"123.45"` as a string), and you have another input - `itemName` - that you'd like to be a string.
-You can use `util.types.toNumber()` and `util.types.toString()` to ensure that the input has been converted to a number and string respectively:
+El paquete Spectral incluye varias [funciones de utilidad](spectral/modules/_util_.md) para forzar que la entrada sea del tipo de variable que necesitas.
+Mirando el ejemplo de número/cadena, supongamos que tienes una entrada, `quantity`, que necesitas convertir en un número (incluso si alguien pasa `"123.45"` como cadena), y tienes otra entrada, `itemName`, que te gustaría que sea una cadena.
+Puedes usar `util.types.toNumber()` y `util.types.toString()` para asegurarte de que la entrada se haya convertido a un número y una cadena respectivamente:
+
 
 ```typescript
 import { action, util } from "@-io/spectral";
@@ -549,15 +594,16 @@ action({
 });
 ```
 
-If an input cannot be coerced into the type you've chosen - for example, suppose you pass `"Hello World"` into `util.toNumber()` - an error will be thrown indicating that `"Hello World"` cannot be coerced into a number.
+Si una entrada no se puede coercer al tipo que has elegido, por ejemplo, supongamos que pasas `"Hola Mundo"` a `util.toNumber()`, se lanzará un error indicando que `"Hola Mundo"` no se puede convertir en un número.
 
-#### Writing your own type checking functions
+#### Escribir tus propias funciones de verificación de tipo
 
-provides a variety of type check and type coercion functions for common types (number, integer, string, boolean, etc).
-If you require a uniquely shaped object, you can create your own type check and coercion functions to ensure that inputs your custom component receives have the proper shape that the libraries you rely on expect.
+proporciona una variedad de funciones de verificación y coerción de tipo para tipos comunes (número, entero, cadena, booleano, etc).
+Si necesitas un objeto con una forma única, puedes crear tus propias funciones de verificación y coerción de tipo para asegurarte de que las entradas que recibe tu componente personalizado tengan la forma adecuada que esperan las bibliotecas en las que confías.
 
-You can import an `interface` or `type` (or write one yourself) and write a function that converts inputs into an expected shape.
-For example, the SendGrid SDK expects an object that has this form:
+Puedes importar una `interface` o `type` (o escribir uno tú mismo) y escribir una función que convierta las entradas en una forma esperada.
+Por ejemplo, el SDK de SendGrid espera un objeto con esta forma:
+
 
 ```javascript
 {
@@ -569,7 +615,8 @@ For example, the SendGrid SDK expects an object that has this form:
 }
 ```
 
-We can pull in that defined type, `MailDataRequired`, from the SendGrid SDK, and write a function that takes inputs and converts them to an object containing a series of strings:
+Podemos importar ese tipo definido, `MailDataRequired`, del SDK de SendGrid, y escribir una función que tome entradas y las convierta en un objeto que contenga una serie de cadenas:
+
 
 ```typescript
 import { MailDataRequired } from "@sendgrid/mail";
@@ -593,10 +640,11 @@ export const createEmailPayload = ({
 });
 ```
 
-### Action Results
+### Resultados de la Acción
 
-An action can return a variety of data types.
-To return a simple string, number, boolean, array, or object your return block can read:
+Una acción puede devolver varios tipos de datos.
+Para devolver una cadena simple, un número, un booleano, un array o un objeto, tu bloque de retorno puede ser así:
+
 
 ```typescript
 // return a string:
@@ -624,19 +672,21 @@ return {
 };
 ```
 
-Those values can be used as inputs in subsequent steps by referencing this step's `results`:
+Esos valores se pueden usar como entradas en pasos subsecuentes haciendo referencia a los `resultados` de este paso:
+
 
 <Screenshot
   filename="custom-components/writing-custom-components/step-results.png"
   maxWidth="600px"
-  alt="Step results from an action in  app"
+  alt="Paso resultados de una acción en app"
 />
 
-### Setting synchronous HTTP status codes
+### Configuración de códigos de estado HTTP sincrónicos
 
-If you invoke your instances [synchronously](integration-triggers.mdx#http-status-codes-for-synchronous-integrations) and would like to return an HTTP status code other than `200 - OK`, you can configure the final step of your integration to be a custom component that returns any HTTP status code you want.
+Si invocas tus instancias de manera [sincrónica](integration-triggers.mdx#http-status-codes-for-synchronous-integrations) y deseas devolver un código de estado HTTP diferente a `200 - OK`, puedes configurar el último paso de tu integración como un componente personalizado que devuelva cualquier código de estado HTTP que desees.
 
-To return an HTTP status code other than 200, return a `statusCode` attribute in the object you return from your custom component instead of a `data` attribute:
+Para devolver un código de estado HTTP distinto de 200, incluye un atributo `statusCode` en el objeto que devuelves desde tu componente personalizado en lugar de un atributo `data`:
+
 
 ```typescript
 return {
@@ -644,17 +694,18 @@ return {
 };
 ```
 
-If this custom component is the last step of an integration, then the integration will return an HTTP status code of 415 if invoked synchronously.
+Si este componente personalizado es el último paso de una integración, la integración devolverá un código de estado HTTP de 415 si se invoca de manera síncrona.
 
-Note: When an integration is invoked synchronously, the integration redirects the caller to a URL containing the output results of the final step of the integration.
-If the final step of the integration is a [Stop Execution](components/stop-execution.mdx) action, or any custom component action that returns a `statusCode`, the redirect does not occur and the caller receives a `null` response body instead.
-You should not return both `data` and `statusCode` attributes in a custom component.
+Nota: Cuando se invoca una integración de manera síncrona, la integración redirige al solicitante a una URL que contiene los resultados de salida del último paso de la integración.
+Si el último paso de la integración es una acción de [Detener ejecución](components/stop-execution.mdx) o cualquier acción de componente personalizado que devuelva un `statusCode`, el redireccionamiento no ocurre y el solicitante recibe un cuerpo de respuesta `null` en su lugar.
+No debes devolver tanto atributos `data` como `statusCode` en un componente personalizado.
 
-### Example action payloads
+### Ejemplo de cargas útiles de acciones
 
-As noted above, actions return results for subsequent steps to consume.
-It's often handy for an integration builder to have access to the shape of the results prior to a test being run.
-Your action can provide an `examplePayload` that can be referenced before test data is available:
+Como se mencionó anteriormente, las acciones devuelven resultados para que los pasos posteriores los consuman.
+A menudo, es útil que el creador de la integración tenga acceso a la forma de los resultados antes de que se ejecute una prueba.
+Tu acción puede proporcionar un `examplePayload` que se puede consultar antes de que los datos de prueba estén disponibles:
+
 
 ```typescript
 {
@@ -672,40 +723,43 @@ Your action can provide an `examplePayload` that can be referenced before test d
 }
 ```
 
-In the integration designer, this example payload can be referenced as an input.
+En el diseñador de integraciones, este ejemplo de carga útil se puede referenciar como una entrada.
 
-**Note:** your `examplePayload` must match the exact TypeScript type of the return value of your `perform` function.
-If your `perform` function's return value does not match the type of the example payload, TypeScript will generate a helpful error message:
+**Nota:** tu `examplePayload` debe coincidir exactamente con el tipo TypeScript del valor de retorno de tu función `perform`.
+Si el valor de retorno de la función `perform` no coincide con el tipo de la carga útil de ejemplo, TypeScript generará un mensaje de error útil:
+
 
 <Screenshot
   filename="custom-components/writing-custom-components/example-result-data-type-mismatch.png"
   maxWidth="600px"
-  alt="Example Result Data Type Mismatch in Typescript"
+  alt="Ejemplo Resultado Desajuste de tipo de datos en Typescript"
 />
 
-## SOAP utility functions
+## Funciones utilitarias SOAP
 
-If you are integrating with a SOAP-based API, you can use Spectral's [SOAP client utility functions](spectral/modules/_clients_soap_utils_.md) to accomplish common SOAP-related tasks.
-For example, you can fetch a WSDL, produce a JavaScript object containing the authentication or methods that the WSDL defines, generate SOAP headers (for things like authentication) or make requests to a SOAP-based API using its defined methods.
+Si estás integrando con una API basada en SOAP, puedes utilizar las [funciones utilitarias del cliente SOAP](spectral/modules/_clients_soap_utils_.md) de Spectral para realizar tareas comunes relacionadas con SOAP.
+Por ejemplo, puedes obtener un WSDL, producir un objeto JavaScript que contenga la autenticación o los métodos que define el WSDL, generar encabezados SOAP (para cosas como autenticación) o realizar solicitudes a una API basada en SOAP utilizando sus métodos definidos.
 
-Please see our [examples repo](https://github.com/-io/examples/tree/main/components/soap-salesforce) for an example component that wraps the SOAP-based Salesforce API.
+Consulta nuestro [repositorio de ejemplos](https://github.com/-io/examples/tree/main/components/soap-salesforce) para ver un componente de ejemplo que envuelve la API basada en SOAP de Salesforce.
 
-## Adding connections
+## Agregar conexiones
 
-A **connection** is a special type of input for an action that contains information on how to connect to an external app or service.
-A connection can consist of one or many inputs that can represent things like API endpoints, keys, passwords, OAuth 2.0 fields, etc.
-The inputs contained within a connection use the same structure as other inputs, described [above](#adding-inputs).
+Una **conexión** es un tipo especial de entrada para una acción que contiene información sobre cómo conectarse a una aplicación o servicio externo.
+Una conexión puede constar de una o muchas entradas que pueden representar cosas como puntos finales de API, claves, contraseñas, campos OAuth 2.0, etc.
+Las entradas contenidas en una conexión utilizan la misma estructura que otras entradas, descritas [anteriormente](#adding-inputs).
 
-For example, suppose you're writing a component for an API that can take a username and password combination or an API key.
-You would write two connections - one for username/password authentication, and one for api key authentication.
+Por ejemplo, supongamos que estás escribiendo un componente para una API que puede recibir una combinación de nombre de usuario y contraseña o una clave de API.
+Escribirías dos conexiones: una para la autenticación de nombre de usuario/contraseña y otra para la autenticación de la clave de API.
 
-You also want your customers to be able to point to a sandbox or production environment - each connection should also include an input to represent the endpoint.
-Your connections could look like this:
+
+También deseas que tus clientes puedan apuntar a un entorno de sandbox o producción; cada conexión también debe incluir una entrada para representar el punto de conexión.
+Tus conexiones podrían verse así:
+
 
 ```typescript
 import { connection } from "@-io/spectral";
 
-// Declare this once, so we don't repeat ourselves for the two connections
+// Declara esto una vez, así no nos repetimos para las dos conexiones
 const acmeEnvironment = input({
   label: "Acme Inc Environment to Use",
   placeholder: "ACME Environment",
@@ -758,9 +812,10 @@ const apiKey = connection({
 });
 ```
 
-Once connections have been defined, be sure to include them in your `component` definition.
-That will allow users to fill in connection information once, and that information can be fed into actions that require that connection.
-This also makes connections available to all inputs of type "connection" in your component:
+Una vez que se hayan definido las conexiones, asegúrate de incluirlas en la definición de tu `component`.
+Esto permitirá a los usuarios completar la información de la conexión una vez, y esa información se puede utilizar en acciones que requieren esa conexión.
+Esto también pone a disposición las conexiones para todas las entradas de tipo "connection" en tu componente:
+
 
 ```typescript {15}
 import { component } from "@-io/spectral";
@@ -781,19 +836,21 @@ export default component({
 });
 ```
 
-:::note Connection ordering
-The **first** connection listed in the `connections:` array will be the default connection.
-In the above example, `basicAuth` would be the default connection for this component.
-The default connection is the one that is recommended to users when they add an action from your component to their integration, but the other connection types can be selected as well.
+:::note Pedidos de conexión
+La **primera** conexión enumerada en el array `connections:` será la conexión predeterminada.
+En el ejemplo anterior, `basicAuth` sería la conexión predeterminada para este componente.
+La conexión predeterminada es la que se recomienda a los usuarios cuando agregan una acción de tu componente a su integración, pero también se pueden seleccionar otros tipos de conexión.
+
 :::
 
-### Referencing connections as inputs in actions
+### Haciendo referencia a conexiones como inputs en acciones
 
-Actions can reference connections like they do any other input.
+Las acciones pueden hacer referencia a conexiones como lo hacen con cualquier otro input.
 
-To give users the ability to assign a connection to an action, create an `input` of type `connection` and add it as an input to your action:
+Para dar a los usuarios la capacidad de asignar una conexión a una acción, crea un `input` de tipo `connection` y agrégalo como un input a tu acción:
 
-```typescript {3,10-11,14,16} title="Reference a connection input from an action"
+
+```typescript {3,10-11,14,16} title="Hacer referencia a una entrada de conexión de una acción"
 import { action, input } from "@-io/spectral";
 
 const connectionInput = input({ label: "Connection", type: "connection" });
@@ -817,12 +874,13 @@ export const getAcmeData = action({
 });
 ```
 
-### Throwing connection errors
+### Lanzando errores de conexión
 
-It's valuable to know if a connection is valid or not, and to track errors if and when a connection fails to connect.
-Within your custom component you can throw a `ConnectionError` in order to signal to that there is something wrong with the connection (unable to connect to endpoint, invalid credentials, etc).
+Es valioso saber si una conexión es válida o no, y realizar un seguimiento de los errores cuando una conexión no puede establecerse.
+Dentro de tu componente personalizado, puedes lanzar un `ConnectionError` para señalar que hay algo mal con la conexión (incapaz de conectarse al punto final, credenciales no válidas, etc).
 
-For example, if you know the API you integrate with returns a 401 "Unauthorized" when credentials are invalid, you could throw a `ConnectionError` if your HTTP client returns a status code 401:
+Por ejemplo, si sabes que la API con la que integras devuelve un código 401 "No autorizado" cuando las credenciales no son válidas, podrías lanzar un `ConnectionError` si tu cliente HTTP devuelve un código de estado 401:
+
 
 ```typescript {1,13-18} title="Throw a connection error"
 import { action, ConnectionError, util } from "@-io/spectral";
@@ -854,29 +912,28 @@ const getItem = action({
 });
 ```
 
-The thrown error, then, will be indicated by a red mark to the right of customers' connections on an instance and messages will appear in logs.
+### Escritura de conexiones OAuth 2.0
 
-### Writing OAuth 2.0 connections
+Una conexión de código de autorización OAuth 2.0 sigue el protocolo [OAuth 2.0](https://oauth.net/2/) y consta de cinco entradas requeridas:
 
-An OAuth 2.0 authorization code connection follows the [OAuth 2.0](https://oauth.net/2/) protocol and consists of five required inputs:
+- `authorizeUrl` - La URL que un usuario visita para autorizar una conexión OAuth 2.0.
+- `tokenUrl` - La URL donde un código de autorización se puede intercambiar por una clave de API y una clave de actualización opcional, y donde una clave de actualización se puede usar para actualizar una clave de API.
+- `scopes` - Una lista de alcances (permisos) delimitados por espacios que necesita tu aplicación.
+- `clientId` - El identificador de cliente de tu aplicación OAuth 2.0.
+- `clientSecret` - El secreto de cliente de tu aplicación OAuth 2.0.
 
-- `authorizeUrl` - The URL a user visits to authorize an OAuth 2.0 connection.
-- `tokenUrl` - The URL where an authorization code can be exchanged for an API key and optional refresh key, and where a refresh key can be used to refresh an API key.
-- `scopes` - A space-delimited list of scopes (permissions) that your application needs.
-- `clientId` - Your OAuth 2.0 application's client ID.
-- `clientSecret` - Your OAuth 2.0 application's client secret.
+Los tres primeros campos generalmente se pueden encontrar en la documentación de la API con la que estás integrando.
+El ID de cliente y el secreto de cliente se crean al crear una aplicación en la aplicación de terceros.
 
-The first three fields can generally be found in the documentation of the API that you're integrating with.
-Client ID and secret are created when you create an application in the third-party application.
+Puedes optar por dar a los creadores de integraciones la capacidad de editar cualquiera de estos campos.
+O puedes marcar los campos como `shown: false`, en cuyo caso siempre se usará el valor predeterminado y los desarrolladores de integración nunca verán el valor.
 
-You can elect to give integration builders the ability to edit any of these fields.
-Or, you can mark the fields as `shown: false`, in which case the default value will always be used and integration developers will never see the value.
+Por ejemplo, si estás escribiendo una conexión OAuth 2.0 para Google Drive, las URL de `authorizeUrl` y `tokenUrl` nunca cambian.
+Entonces, se les pueden asignar valores predeterminados y se pueden marcar como `shown: false`.
+Los desarrolladores de integración querrán poder ajustar los alcances, el ID de cliente y el secreto de cliente (aunque es posible que ya sepas qué alcances necesitas), así que podemos escribir una conexión como esta:
 
-For example, if you're writing a OAuth 2.0 connection to google drive, the `authorizeUrl` and `tokenUrl` never change.
-So, those can be given default values and can be marked as `shown: false`.
-Integration developers will want to be able to adjust scopes, client ID and client secret (though, you may already know what scopes you need), so we can write a connection like this:
 
-```typescript {8,16,18,25,27} title="Example OAuth 2.0 Connection with Google Drive"
+```typescript {8,16,18,25,27} title="Ejemplo de conexión OAuth 2.0 con Google Drive"
 import { oauth2Connection, OAuth2Type } from "@-io/spectral";
 
 export const oauth2 = oauth2Connection({
@@ -932,13 +989,15 @@ export const oauth2 = oauth2Connection({
 });
 ```
 
-:::tip Use `oauth2Connection` for OAuth Connections
-Note that we used `oauth2Connection()` rather than `connection()` to define this OAuth connection.
-That's because the `oauth2Connection` helper function gives us additional TypeScript hinting about what fields are required.
+:::tip Utiliza `oauth2Connection` para conexiones OAuth
+
+Ten en cuenta que utilizamos `oauth2Connection()` en lugar de `connection()` para definir esta conexión OAuth.
+Esto se debe a que la función auxiliar `oauth2Connection` nos proporciona sugerencias adicionales de TypeScript sobre qué campos son obligatorios.
 :::
 
-An `oauth2Connection` can be assigned to a component and referenced as an input just like a `connection`.
-The input that is received by a `perform` function will have the form:
+Una `oauth2Connection` se puede asignar a un componente y referenciar como una entrada al igual que una `connection`.
+La entrada que recibe una función `perform` tendrá la siguiente forma:
+
 
 ```json example contents of an oauth 2.0 connection input object
 {
@@ -968,27 +1027,31 @@ The input that is received by a `perform` function will have the form:
 }
 ```
 
-You will likely want to reference `myConnection.token.access_token`.
+Es probable que desees hacer referencia a `myConnection.token.access_token`.
 
-:::tip Add a custom button to your OAuth 2.0 Connection
-You can specify what the OAuth 2.0 button looks like in the instance configuration page by specifying an optional `iconPath` (see the above example).
-An icon must be a PNG file, and we recommend that it be wider than it is tall with text indicating what it does:
+
+:::tip Añadir un botón personalizado a tu Conexión OAuth 2.0
+Puedes especificar cómo se ve el botón OAuth 2.0 en la página de configuración de la instancia mediante la especificación opcional de `iconPath` (ver el ejemplo anterior).
+Un ícono debe ser un archivo PNG, y recomendamos que sea más ancho que alto, con texto que indique su función:
+
 
 <Screenshot
   filename="custom-components/writing-custom-components/oauth-buttons.png"
   maxWidth="200px"
-  alt="OAuth buttons including Dropbox, Facebook, GitHub, Google, Tumblr, and Twitter"
+  alt="Botones OAuth, incluidos Dropbox, Facebook, GitHub, Google, Tumblr y Twitter"
 />
 
-Without an `iconPath`, a simple button that says **CONNECT** will be placed in the configuration page.
+Sin un `iconPath`, se colocará un botón simple que dice **CONECTAR** en la página de configuración.
+
 :::
 
-### Supporting PKCE with OAuth 2.0
+### Admitir PKCE con OAuth 2.0
 
-If the application that you are integrating with supports [Proof Key for Code Exchange](https://oauth.net/2/pkce/) (PKCE), you can add PKCE to your OAuth 2.0 connection by adding a `oauth2PkceMethod` property.
-You can specify either the `plain` or `S256` method, or omit the property to specify "no PKCE".
+Si la aplicación con la que estás integrando admite [Proof Key for Code Exchange](https://oauth.net/2/pkce/) (PKCE), puedes agregar PKCE a tu conexión OAuth 2.0 añadiendo una propiedad `oauth2PkceMethod`.
+Puedes especificar el método `plain` o `S256`, o omitir la propiedad para especificar "sin PKCE".
 
-```ts title="Example PKCE declaration" {3}
+
+```ts title="Ejemplo de declaración PKCE" {3}
 export const oauth = oauth2Connection({
   oauth2Type: OAuth2Type.AuthorizationCode,
   oauth2PkceMethod: OAuth2PkceMethod.S256,
@@ -1000,34 +1063,36 @@ export const oauth = oauth2Connection({
 });
 ```
 
-### Using connections with HTTP clients
+### Uso de conexiones con clientes HTTP
 
-While the majority of APIs you'll interact with are HTTP based, and most present a RESTful interface, not all are the same.
-Some APIs (like 's!) use GraphQL.
-Others use remote procedure calls (RPCs), like gRPC, XML RPC, or SOAP.
+Aunque la mayoría de las APIs con las que interactuarás están basadas en HTTP y presentan una interfaz RESTful, no todas son iguales.
+Algunas APIs (como 's!) utilizan GraphQL.
+Otras utilizan llamadas a procedimientos remotos (RPC), como gRPC, XML RPC o SOAP.
 
-Luckily, there is an [NPM](https://www.npmjs.com/) package for almost any protocol.
+Afortunadamente, hay un paquete [NPM](https://www.npmjs.com/) para casi cualquier protocolo.
 
-- If you are working with an HTTP-based **REST API**, we recommend using Spectral's built-in [createClient](spectral/modules/_clients_http_index_.md#const-createclient) function, which creates an [Axios](https://axios-http.com/docs/intro) HTTP client behind the scenes with some useful settings preconfigured (see [example](#using-the-built-in-createclient-http-client) below).
-  If your team is more comfortable with vanilla Axios or [node-fetch](https://www.npmjs.com/package/node-fetch), you can certainly use those, too.
-- For **GraphQL APIs**, we recommend using [graphql-request](https://www.npmjs.com/package/graphql-request).
-  You can use a generic HTTP client, but `graphql-request` provides a handy `gql` string literal tag.
-- For **XML RPC APIs**, you can import [xmlrpc](https://www.npmjs.com/package/xmlrpc) into your component project, or you can reach for [soap](https://www.npmjs.com/package/soap) if it's a **SOAP API**.
-- It's far less common for HTTP API integrations, but [@grpc/grpc-js](https://www.npmjs.com/package/@grpc/grpc-js) can be used for **gRPC APIs**.
+- Si estás trabajando con una API **REST basada en HTTP**, recomendamos utilizar la función integrada de Spectral [createClient](spectral/modules/_clients_http_index_.md#const-createclient), que crea un cliente HTTP [Axios](https://axios-http.com/docs/intro) detrás de escena con algunas configuraciones útiles preconfiguradas (ver [ejemplo](#usando-el-cliente-http-createclient-integrado) a continuación).
+  Si tu equipo se siente más cómodo con Axios o [node-fetch](https://www.npmjs.com/package/node-fetch), también puedes utilizarlos.
+- Para APIs **GraphQL**, recomendamos usar [graphql-request](https://www.npmjs.com/package/graphql-request).
+  Puedes usar un cliente HTTP genérico, pero `graphql-request` proporciona una práctica etiqueta literal de cadena `gql`.
+- Para APIs **XML RPC**, puedes importar [xmlrpc](https://www.npmjs.com/package/xmlrpc) en tu proyecto de componente, o puedes optar por [soap](https://www.npmjs.com/package/soap) si es una **API SOAP**.
+- Es mucho menos común para integraciones de API HTTP, pero [@grpc/grpc-js](https://www.npmjs.com/package/@grpc/grpc-js) se puede utilizar para **APIs gRPC**.
 
-Regardless of which client you use, you will likely need to set some HTTP headers for authentication, content type, etc.
+Independientemente del cliente que utilices, es probable que necesites configurar algunas cabeceras HTTP para la autenticación, el tipo de contenido, etc.
 
-### Using the built-in createClient HTTP client
+### Usando el cliente HTTP createClient integrado
 
-Spectral comes with a built-in HTTP client for integrating with REST APIs.
-Behind the scenes, `createClient` creates an Axios-based HTTP client with some timeout, retry, and debug logic built on top of it.
-You can see the source code for `createClient` in Spectral's [GitHub repo](https://github.com/-io/spectral/blob/main/packages/spectral/src/clients/http/index.ts).
+Spectral viene con un cliente HTTP integrado para integrarse con APIs REST.
+Detrás de escena, `createClient` crea un cliente HTTP basado en Axios con ciática de tiempo de espera, reintentos y lógica de depuración incorporada.
+Puedes ver el código fuente de `createClient` en el repositorio de GitHub de Spectral [aquí](https://github.com/-io/spectral/blob/main/packages/spectral/src/clients/http/index.ts).
 
-To create an HTTP client, feed the client a base URL for your API along with the header information you need for authentication.
-You can fetch authentication values from a connection.
-It may look something like this:
 
-```typescript title="Example createClient usage"
+Para crear un cliente HTTP, proporciona al cliente una URL base para tu API junto con la información de encabezado que necesitas para la autenticación.
+Puedes obtener los valores de autenticación de una conexión.
+Podría parecer algo así:
+
+
+```typescript title="Ejemplo de uso de createClient"
 import { createClient } from "@-io/spectral/dist/clients/http";
 
 action({
@@ -1043,33 +1108,35 @@ action({
       responseType: "json",
     });
 
-    // Use the HTTP client to POST data to the API
+    // Utilizar el cliente HTTP para enviar datos POST a la API
     const response = await myClient.post("/items", {
       sku: "12345",
       quantity: 3,
       price: 20.25,
     });
 
-    // Return the response as the action's result
+    // Devolver la respuesta como resultado de la acción
     return { data: response.data };
   },
 });
 ```
 
-:::tip Debugging an HTTP Connection
-If you would like to see the full contents of the HTTP request and response, set `debug: true`.
-You will see all endpoints, headers, response codes, etc. in the integration logs.
+:::tip Depuración de una conexión HTTP
+Si deseas ver el contenido completo de la solicitud y la respuesta HTTP, establece `debug: true`.
+Verás todos los puntos finales, encabezados, códigos de respuesta, etc. en los registros de integración.
 
-Just remember to turn off debugging for production!
+¡Recuerda apagar la depuración para producción!
+
 :::
 
-## Global error handlers
+## Manejadores globales de errores
 
-The actions in your component might all wrap API endpoints using an HTTP client, and that client might throw certain errors.
-You could handle those errors within each action, but you'd end up writing the same error handlers over and over.
+Las acciones en tu componente pueden envolver todos los puntos finales de la API utilizando un cliente HTTP, y ese cliente puede lanzar ciertos errores.
+Podrías manejar esos errores dentro de cada acción, pero terminarías escribiendo los mismos manejadores de errores una y otra vez.
 
-You can now specify an error handler function to run whenever any of your actions throws an error.
-To specify an error handler, add a `handlers` block to your `component({})` function definition:
+Ahora puedes especificar una función de manejador de errores que se ejecutará cada vez que cualquiera de tus acciones lance un error.
+Para especificar un manejador de errores, agrega un bloque `handlers` a la definición de tu función `component({})`:
+
 
 ```typescript
 components({
@@ -1080,15 +1147,17 @@ components({
 });
 ```
 
-For example, the popular HTTP client [axios](https://www.npmjs.com/package/axios) throws an error whenever it receives a status code that's [_not_ between 200-299](https://github.com/axios/axios/blob/1f13dd7e26124a27c373c83eff0a8614acc1a04f/lib/defaults/index.js#L127-L129).
-If your HTTP client receives a status code in the 4xx or 5xx range, an error is thrown with a minimal message.
-If you would like additional information, like the status code or full response to the HTTP request, you can inspect the error being thrown and return a more detailed error message, as illustrated in Spectral [here](https://github.com/-io/spectral/blob/v6.5.0/packages/spectral/src/clients/http/index.ts#L53-L62).
+Por ejemplo, el popular cliente HTTP [axios](https://www.npmjs.com/package/axios) lanza un error cada vez que recibe un código de estado que _no_ está entre 200 y 299 ([fuente](https://github.com/axios/axios/blob/1f13dd7e26124a27c373c83eff0a8614acc1a04f/lib/defaults/index.js#L127-L129)).
+Si tu cliente HTTP recibe un código de estado en el rango 4xx o 5xx, se lanza un error con un mensaje mínimo.
+Si deseas obtener información adicional, como el código de estado o la respuesta completa de la solicitud HTTP, puedes inspeccionar el error que se está lanzando y devolver un mensaje de error más detallado, como se ilustra en Spectral [aquí](https://github.com/-io/spectral/blob/v6.5.0/packages/spectral/src/clients/http/index.ts#L53-L62).
 
-## Exporting a component
+## Exportar un componente
 
-Component code contains a default export of `component` type.
-A `component` contains a `key` that uniquely identifies it, whether or not it's `public`, some information about how the web app should `display` it, an object containing the `actions` that the component is comprised of, and if your custom component has its own [triggers](#writing-triggers), an object containing the `triggers` that the component contains.
-For the "proper and improper" names example component, the export can look like this:
+El código del componente contiene una exportación predeterminada del tipo `component`.
+Un `componente` contiene una `clave` que lo identifica de manera única, si es o no `público`, información sobre cómo la aplicación web debe `mostrarlo`, un objeto que contiene las `acciones` de las que consta el componente y, si tu componente personalizado tiene sus propios [disparadores](#writing-triggers), un objeto que contiene los `triggers` que contiene el componente.
+
+Para el ejemplo del componente "nombres correctos e incorrectos", la exportación puede verse así:
+
 
 ```typescript
 export default component({
@@ -1096,7 +1165,7 @@ export default component({
   public: false,
   display: {
     label: "Format Name",
-    description: "Format a person's name given a first, middle, and last name",
+    description: "Formatear el nombre de una persona a partir de su nombre, segundo nombre y apellidos",
     iconPath: "icon.png",
   },
   actions: {
@@ -1107,31 +1176,27 @@ export default component({
 });
 ```
 
-## Unit tests for custom components
+## Pruebas unitarias para componentes personalizados
 
-It's important to have good unit tests for software - custom components are no exception.
-You want to catch errors or breaking changes before they wreak havoc on your customers' integrations.
-'s Spectral library provides some utility functions to make writing unit tests easier.
+Es importante tener buenas pruebas unitarias para el software, y los componentes personalizados no son una excepción. Quieres detectar errores o cambios que rompan el código antes de que causen estragos en las integraciones de tus clientes. La biblioteca Spectral de 's proporciona algunas funciones de utilidad para facilitar la escritura de pruebas unitarias.
 
-In the examples below, we assume that you use the [Jest](https://jestjs.io/) testing framework which is installed by default when you run `prism components:init`.
-You can swap Jest out for another testing framework if you like.
+En los ejemplos a continuación, asumimos que estás utilizando el marco de pruebas [Jest](https://jestjs.io/), que se instala por defecto al ejecutar `prism components:init`. Puedes cambiar Jest por otro marco de pruebas si lo prefieres.
 
-### Test file naming conventions
+### Convenciones de nomenclatura de archivos de pruebas
 
-To create a unit test file, create a new file alongside your code that has the extension `test.ts` (rather than `.ts`).
-For example, if your code lives in `index.ts`, create a file named `index.test.ts`.
-If you separate out your component actions into `actions.ts`, create a corresponding `actions.test.ts`.
+Para crear un archivo de prueba unitaria, crea un nuevo archivo junto con tu código que tenga la extensión `test.ts` (en lugar de `.ts`). Por ejemplo, si tu código está en `index.ts`, crea un archivo llamado `index.test.ts`. Si separas las acciones de tu componente en `actions.ts`, crea un archivo correspondiente llamado `actions.test.ts`.
 
-### Testing component actions
+### Pruebas de acciones del componente
 
-As described [above](#perform-function-parameters) a component action's `perform` function takes two arguments:
+Como se describe [arriba](#perform-function-parameters), la función `perform` de una acción del componente toma dos argumentos:
 
-- `context` is an object that contains a `logger`, `executionId`, `instanceState`, and `stepId`.
-- `params` is an object that contains input parameters as key-value pairs.
+- `context` es un objeto que contiene un `logger`, `executionId`, `instanceState` y `stepId`.
+- `params` es un objeto que contiene parámetros de entrada como pares clave-valor.
 
-Test `context` parameters are described below.
-Let's ignore them for now and look at the `params` object.
-Consider the example "Format Proper Name" action described previously:
+Los parámetros de prueba `context` se describen a continuación. Ignoremos por ahora y veamos el objeto `params`.
+
+Considere la acción de ejemplo "Formatear nombre adecuado" descrita anteriormente:
+
 
 ```typescript
 export const properFormatName = action({
@@ -1152,15 +1217,16 @@ export const properFormatName = action({
 });
 ```
 
-You can use the [`ComponentTestHarness`](spectral/classes/_testing_.componenttestharness.md) class and [`createHarness`](spectral/modules/_testing_.md#const-createharness) helper function to test your actions.
+Puede utilizar la clase [`ComponentTestHarness`](spectral/classes/_testing_.componenttestharness.md) y la función auxiliar [`createHarness`](spectral/modules/_testing_.md#const-createharness) para probar sus acciones.
 
-The test harness's `action` function takes two required and one optional parameters:
+La función `action` del arnés de prueba toma dos parámetros obligatorios y uno opcional:
 
-- The action's key (i.e. `properFormatName`)
-- An object containing input parameters
-- An optional `context` object containing `logger`, `executionId`, `instanceState`, and `stepId`
+- La clave de la acción (por ejemplo, `properFormatName`)
+- Un objeto que contiene los parámetros de entrada
+- Un objeto `context` opcional que contiene `logger`, `executionId`, `instanceState` y `stepId`
 
-A Jest test file, then, could look like this:
+Entonces, un archivo de prueba de Jest podría verse así:
+
 
 ```typescript
 import component from ".";
@@ -1192,14 +1258,14 @@ describe("Test the Proper Name formatter", () => {
 });
 ```
 
-You can then run `yarn run jest`, and Jest will run each test, returning an error code if a test failed.
+Luego puede ejecutar `yarn run jest`, y Jest ejecutará cada prueba, devolviendo un código de error si una prueba falla.
 
-### Verifying correct logging in action tests
+### Verificación de registros correctos en pruebas de acciones
 
-You may want to verify that your action generates some logs of particular severities in certain situations.
-In addition to step results, the test utility's [`invoke`](spectral/modules/_testing_.md#const-invoke) function returns an object, `loggerMock`, with information on what was logged during the action invocation.
+Es posible que desee verificar que su acción genere algunos registros de gravedades particulares en ciertas situaciones.
+Además de los resultados de los pasos, la función [`invoke`](spectral/modules/_testing_.md#const-invoke) de la utilidad de prueba devuelve un objeto `loggerMock` con información sobre lo que se registró durante la invocación de la acción.
 
-You can use Jest to verify that certain lines were logged like this:
+Puede utilizar Jest para verificar que se registraron ciertas líneas de la siguiente manera:
 
 ```typescript
 import { myExampleAction } from "./actions";
@@ -1216,12 +1282,12 @@ test("Ensure that an error is logged", async () => {
 });
 ```
 
-In the above example, the test would pass if an `error` log line of `Error code 42 occurred.` were generated, and would fail otherwise.
+En el ejemplo anterior, la prueba pasaría si se generara una línea de registro de `error` que dijera `Ocurrió el error código 42`, y fallaría en caso contrario.
 
-### Providing test connection inputs to an action test
+### Proporcionar entradas de conexión de prueba para una prueba de acción
 
-Many actions require a connection to interact with third-party services.
-You can create a connection object the `createConnection` function from `@-io/spectral/dist/testing`:
+Muchas acciones requieren una conexión para interactuar con servicios de terceros.
+Puede crear un objeto de conexión con la función `createConnection` de `@-io/spectral/dist/testing`:
 
 ```typescript
 import { createConnection, createHarness } from "@-io/spectral/dist/testing";
@@ -1246,8 +1312,9 @@ describe("test my action", () => {
 });
 ```
 
-It's not good practice to hard-code authorization secrets.
-Please use best practices, like setting environment variables to store secrets in your CI/CD environment:
+No es una buena práctica codificar secretos de autorización directamente.
+Por favor, utiliza buenas prácticas, como establecer variables de entorno para almacenar secretos en tu entorno de CI/CD:
+
 
 ```typescript
 import { createConnection } from "@-io/spectral/dist/testing";
@@ -1259,28 +1326,31 @@ const myBasicAuthTestConnection = createConnection(myConnection, {
 });
 ```
 
-:::tip Use an Existing Integration's Connections for Testing
-If you would like to fetch an access key from an existing OAuth 2.0 connection in an integration (or username / password, API key, etc.), leverage the `prism components:dev:run` command to fetch the connection's fields and tokens.
-You can then reference the `_CONNECTION_VALUE` environment variable in your Jest tests.
+:::tip Utiliza las Conexiones Existentes de una Integración para Pruebas
+Si deseas obtener una clave de acceso de una conexión OAuth 2.0 existente en una integración (o nombre de usuario/contraseña, clave API, etc.), aprovecha el comando `prism components:dev:run` para obtener los campos y tokens de la conexión.
+Luego, puedes hacer referencia a la variable de entorno `_CONNECTION_VALUE` en tus pruebas Jest.
 
-More info is in our [prism docs](cli/prism.mdx#componentsdevrun).
+Más información en nuestra [documentación de prism](cli/prism.mdx#componentsdevrun).
+
 :::
 
-## Testing components from the CLI
+## Pruebas de componentes desde la CLI
 
-The [`prism` CLI tool](cli/cli-usage.mdx) provides two commands for testing custom components:
+La herramienta de línea de comandos [`prism`](cli/cli-usage.mdx) proporciona dos comandos para probar componentes personalizados:
 
-- `prism components:dev:run` fetches an integration's active connection and saves the fields as an environment variable so you can run [unit tests](#unit-tests-for-custom-components) and other commands locally.
-  This is helpful, since many unit tests require an access token from a validated OAuth 2.0 connection - this provides a way of fetching the token from a connection you've already authenticated in the integration designer.
-- `prism components:dev:test` publishes your component under a temporary name, and runs a single-action test integration for you that tests the action.
-  This is helpful for quickly testing an action in the real integration runner environment.
+- `prism components:dev:run` obtiene una conexión activa de una integración y guarda los campos como una variable de entorno para que puedas ejecutar [pruebas unitarias](#unit-tests-for-custom-components) y otros comandos localmente.
+  Esto es útil, ya que muchas pruebas unitarias requieren un token de acceso de una conexión OAuth 2.0 validada; esto proporciona una forma de obtener el token de una conexión que ya has autenticado en el diseñador de integraciones.
+- `prism components:dev:test` publica tu componente bajo un nombre temporal y ejecuta una integración de prueba de acción única que prueba la acción.
+  Esto es útil para probar rápidamente una acción en el entorno real del ejecutor de integraciones.
 
-### Access connections for local testing
+### Acceder a conexiones para pruebas locales
 
-The `prism components:dev:run` command fetches an active connection from the integration designer, so you can use the connection's fields for unit testing.
-The connection's values are set to an environment variable named `_CONNECTION_VALUE`, which can be used by a subsequent command.
+El comando `prism components:dev:run` obtiene una conexión activa del diseñador de integraciones, para que puedas utilizar los campos de la conexión en las pruebas unitarias.
+Los valores de la conexión se establecen en una variable de entorno llamada `_CONNECTION_VALUE`, que puede ser utilizada por un comando posterior.
 
-In this example, we use `printenv` to print the environment variable, and pipe the result into [jq](https://stedolan.github.io/jq/) for pretty printing:
+
+En este ejemplo, usamos `printenv` para imprimir la variable de entorno y dirigimos el resultado a [jq](https://stedolan.github.io/jq/) para una presentación más ordenada:
+
 
 ```bash
 prism components:dev:run \
@@ -1306,19 +1376,20 @@ prism components:dev:run \
 }
 ```
 
-Note that the command you want to run with the environment variable should follow a `--`.
+Tenga en cuenta que el comando que desea ejecutar con la variable de entorno debe seguir a un `--`.
 
-Within your unit test code, you can use `harness.connectionValue()`, which pulls in the `_CONNECTION_VALUE` environment variable into a connection that you can use for tests:
+Dentro de tu código de prueba unitaria, puedes usar `harness.connectionValue()`, que extrae la variable de entorno `_CONNECTION_VALUE` en una conexión que puedes utilizar para las pruebas:
 
-```typescript title="Use _CONNECTION_VALUE for a Jest test"
+
+```typescript title="Utilice _CONNECTION_VALUE para una prueba Jest"
 import { createHarness } from "@-io/spectral/dist/testing";
 import { oauthConnection } from "./connections";
 import component from ".";
 
-// Initialize a testing harness
+// Inicializar un arnés de pruebas
 const harness = createHarness(component);
 
-// Parse the OAuth 2.0 connection from the _CONNECTION_VALUE environment variable
+// Analizar la conexión OAuth 2.0 a partir de la variable de entorno _CONNECTION_VALUE
 const parsedConnection = harness.connectionValue(oauthConnection);
 
 describe("listFolder", () => {
@@ -1336,7 +1407,7 @@ describe("listFolder", () => {
 });
 ```
 
-From your component, you can then run:
+A continuación, desde su componente, puede ejecutar:
 
 ```bash
 prism components:dev:run \
@@ -1344,25 +1415,25 @@ prism components:dev:run \
   --connectionKey "Dropbox Connection" -- npm run jest
 ```
 
-### Run a test of an action from the command line
+### Ejecutar una prueba de una acción desde la línea de comandos
 
-The `prism components:dev:test` command allows you to test an action quickly from the command line in the real integration runner environment.
+El comando `prism components:dev:test` te permite probar una acción rápidamente desde la línea de comandos en el entorno real de ejecución de integraciones.
 
-- Run `prism components:dev:test` from your component's root directory.
-- You will be prompted to select an action to test. Select one.
-- For each input of the action, supply a value
-- If your action requires a connection, you will be prompted for values for that connection (username, password, client_id, etc).
-  - If your action requires an OAuth 2.0 connection, a web browser will open to handle the OAuth flow.
+- Ejecuta `prism components:dev:test` desde el directorio raíz de tu componente.
+- Se te pedirá que selecciones una acción para probar. Selecciona una.
+- Para cada entrada de la acción, proporciona un valor.
+- Si tu acción requiere una conexión, se te pedirá los valores para esa conexión (nombre de usuario, contraseña, client_id, etc.).
+  - Si tu acción requiere una conexión OAuth 2.0, se abrirá un navegador web para manejar el flujo OAuth.
 
-Once all inputs are entered, your action will run in the integration runner, and you will see logs from your action.
+Una vez que se introduzcan todas las entradas, tu acción se ejecutará en el entorno de ejecución de integraciones, y verás los registros de tu acción.
 
-#### Test run environment files
+#### Archivos de entorno para ejecuciones de prueba
 
-You do not need to enter the same inputs each time you want to run a test of your action.
-To set some values for your test inputs, create a new file called `.env` in the same directory where you're invoking `prism` and enter your inputs and values as key/value pairs.
-For example, if you plan to leave `cursor` and `limit` inputs blank, set `path` to `/`, and you have an OAuth client ID and secret that you want to use each time, your `.env` file can look like this:
+No es necesario introducir las mismas entradas cada vez que quieras ejecutar una prueba de tu acción.
+Para establecer algunos valores para tus entradas de prueba, crea un nuevo archivo llamado `.env` en el mismo directorio desde donde estás invocando `prism` e introduce tus entradas y valores como pares clave/valor.
+Por ejemplo, si planeas dejar en blanco las entradas `cursor` y `limit`, establecer `path` en `/`, y tienes un ID de cliente y un secreto de cliente OAuth que deseas utilizar cada vez, tu archivo `.env` puede verse así:
 
-```text tile="Example .env file for testing actions from the command line"
+```text tile="Ejemplo de archivo .env para probar acciones desde la línea de comandos"
 CURSOR=
 LIMIT=
 PATH=/
