@@ -1,119 +1,128 @@
 ---
 id: configuration-wizard
-title: Configuration Wizard
-description: Give your customers a simple way to configure your integrations
+title: Asistente de configuración
+description: Ofrezca a sus clientes una forma sencilla de configurar sus integraciones
 ---
 
 import Screenshot from "@site/src/components/screenshot";
 
-The integrations that you build in the [integration designer](building-integrations.mdx) are meant to be reusable, and deployable across your hetrogenous customer base.
-To make this possible, you need to provide a way for your customers to configure your integrations to work with their specific environment.
+Las integraciones que construyes en el [diseñador de integraciones](building-integrations.mdx) están destinadas a ser reutilizables y desplegables en tu base de clientes heterogénea.
+Para hacer esto posible, necesitas proporcionar una forma para que tus clientes configuren tus integraciones para que funcionen con su entorno específico.
 
-When your customer configures and activates an instance of your integration, they'll walk through a configuration wizard where they'll authenticate with the third-party apps you're integrating with, and provide any other information that's needed to make the integration work.
-Some integrations have simple configuration wizards and might only require authentication to a third-party app, while others might involve multiple pages of configuration with dynamically generated dropdown menus, toggles, text fields and more.
+Cuando tu cliente configura y activa una instancia de tu integración, pasarán por un asistente de configuración donde se autenticarán con las aplicaciones de terceros con las que estás integrando, y proporcionarán cualquier otra información que sea necesaria para que la integración funcione.
+Algunas integraciones tienen asistentes de configuración simples y solo pueden requerir autenticación en una aplicación de terceros, mientras que otras pueden involucrar múltiples páginas de configuración con menús desplegables generados dinámicamente, interruptores, campos de texto y más.
 
-This article covers how to build a configuration wizard for your integration that gives your customers a pleasent deployment experience.
+Este artículo cubre cómo construir un asistente de configuración para tu integración que brinde a tus clientes una experiencia agradable durante el despliegue.
 
-### Configuration wizard designer
 
-Customers enable and configure an instance of an integration through a **Configuration Wizard**.
-They work through **Configuration Pages**, authenticating with third-party apps and setting config variables.
+### Diseñador del asistente de configuración
 
-**Configuration pages** can contain config variables of various types and helper text and images to prompt the user where to look.
-If your integration requires manual configuration of webhooks, the config wizard can also display the instance's webhook endpoints and API keys (see [Endpoint API keys in the config wizard](endpoint-configuration.mdx/#endpoint-api-keys-in-the-config-wizard)).
+Los clientes habilitan y configuran una instancia de una integración a través de un **Asistente de Configuración**.
+Avanzan a través de **Páginas de Configuración**, autenticándose con aplicaciones de terceros y configurando variables de configuración.
+
+Las **páginas de configuración** pueden contener variables de configuración de varios tipos y texto e imágenes de ayuda para indicar al usuario dónde buscar.
+Si tu integración requiere una configuración manual de webhooks, el asistente de configuración también puede mostrar los puntos finales de webhook y las claves API de la instancia (ver [Claves API de punto final en el asistente de configuración](endpoint-configuration.mdx/#endpoint-api-keys-in-the-config-wizard)).
+
 
 <Screenshot
   filename="integrations/configuration-wizard-designer.png"
-  alt="Screenshot of the configuration wizard designer"
+  alt="Captura de pantalla del diseñador del asistente de configuración"
 />
 
-To add **helper text**, including headings (H1 - H6) or paragraphs, click the **+ Text/Image** button and select the type of text you'd like to add.
+Para agregar **texto de ayuda**, incluyendo encabezados (H1 - H6) o párrafos, haz clic en el botón **+ Texto/Imagen** y selecciona el tipo de texto que deseas agregar.
 
-To add an **image**, your image will need to be publicly accessible online.
-Enter the public URL of the image you'd like shown on your config page.
+Para agregar una **imagen**, tu imagen deberá ser accesible públicamente en línea.
+Ingresa la URL pública de la imagen que te gustaría mostrar en tu página de configuración.
 
-For further customization, you can choose to add **Raw HTML** to your config page.
+Para una personalización adicional, puedes optar por agregar **HTML sin procesar** a tu página de configuración.
 
-You an add a configuration page by clicking **+ Config Page**, and you can rename a config page or add a short description to the page by clicking the pencil icon beside the page.
+Puedes agregar una página de configuración haciendo clic en **+ Página de Configuración**, y puedes cambiar el nombre de una página de configuración o agregar una breve descripción a la página haciendo clic en el icono de lápiz junto a la página.
 
-### Adding configuration variables
 
-You can define names, descriptions, variable types, and optional default values of config variables to your configuration wizard, and you'll reference the values that customers set for each in your integration.
+### Agregar variables de configuración
+
+Puedes definir nombres, descripciones, tipos de variables y valores predeterminados opcionales de variables de configuración en tu asistente de configuración, y harás referencia a los valores que los clientes establezcan para cada uno en tu integración.
+
 
 <Screenshot
   filename="integrations/integration-config-vars.png"
   maxWidth="500px"
-  alt="Config variables drawer in  app"
+  alt="Cajón de variables de configuración en la aplicación"
 />
 
-When it comes time for your customer-facing teams to deploy your integration, they can enter or select configuration options and tailor the integration for a particular customer without the involvement of integration builders.
+Cuando llega el momento de implementar su integración por parte de los equipos orientados al cliente, pueden ingresar o seleccionar opciones de configuración y adaptar la integración para un cliente en particular sin la participación de los constructores de integración.
 
-Config variables that you define in the config variable drawer can be used within your integration as inputs or steps, or through the [Branch](components/branch.mdx) component to drive branching logic.
+Las variables de configuración que define en el cajón de variables de configuración se pueden utilizar dentro de su integración como entradas o pasos, o a través del componente [Branch](components/branch.mdx) para impulsar la lógica de ramificación.
 
-### Config variable data types
 
-There are several types of configuration variables:
+### Configurar tipos de datos variables
 
-- **String** is a standard string of characters
-- **Date** follows the form `mm/dd/yyyy`, and presents end users a calender widget to choose a date
-- **Timestamp** follows the form `mm/dd/yyy, HH:MM [AM/PM]`, and presents end users a calendar and time widget to choose a date and time
-- **Picklist** allows you to define a series of options that your end user can choose from.
-  Picklists are presented to end users as a dropdown menu of options.
-  A picklist value can be up to 64 characters in length.
-- **Code** lets your end user enter JSON, XML, or other formatted code blocks.
-  This is handy if customers have unique formats for recurring reports, or other formatted documents that differ from customer to customer.
-  Choose a Code Language when you create the config variable for syntax highlighting.
-- **Boolean** allows your end user to choose either true or false.
-- **Number** allows your end user to enter a number (integer or decimal).
-- **Object Selection** allows your end user to select zero or more objects from a list.
-  This config variable type always sources data from a [data source](#config-variable-data-sources).
-- **Object Field Map** allows your end user to map a series of fields.
-  This config variable type always sources data from a [data source](#config-variable-data-sources).
-- **JSON Form** allows you to leverage [JSON Forms](https://jsonforms.io/) to build your users' configuration experience.
-  The code backing JSON Form config variables are developed in [custom components](custom-components/writing-custom-components.mdx) and return objects that are made up of key/value pairs.
-- **Connection** is made up of multiple fields that determine how a component should connect to an external API.
-  It might include a username, password, API key, endpoint URL, or several other things.
-  Note that connection config variables can only be added to the first config page, as subsequent pages my use the connection to dynamically generate other config variables.
+Existen varios tipos de variables de configuración:
 
-:::tip Inputs are sent to actions as strings
-The type of config variable you choose affects the UI that the end user interacts with (they get toggles for booleans, date pickers for timestamps, an editor with syntax highlighting for code, etc).
-Regardless of what type of config variable you choose, though, all values are presented to actions as strings.
+- **String** es una cadena estándar de caracteres.
+- **Date** sigue la forma `mm/dd/yyyy` y presenta a los usuarios finales un widget de calendario para elegir una fecha.
+- **Timestamp** sigue la forma `mm/dd/yyyy, HH:MM [AM/PM]` y presenta a los usuarios finales un widget de calendario y tiempo para elegir una fecha y hora.
+- **Picklist** le permite definir una serie de opciones que su usuario final puede elegir.
+  Las listas de selección se presentan a los usuarios finales como un menú desplegable de opciones.
+  Un valor de lista de selección puede tener hasta 64 caracteres de longitud.
+- **Code** permite que su usuario final ingrese bloques de código JSON, XML u otros formatos.
+  Esto es útil si los clientes tienen formatos únicos para informes recurrentes u otros documentos formateados que difieren de un cliente a otro.
+  Elija un lenguaje de código al crear la variable de configuración para resaltar la sintaxis.
+- **Boolean** permite que su usuario final elija verdadero o falso.
+- **Number** permite que su usuario final ingrese un número (entero o decimal).
+- **Object Selection** permite que su usuario final seleccione cero o más objetos de una lista.
+  Este tipo de variable de configuración siempre obtiene datos de una [fuente de datos](#config-variable-data-sources).
+- **Object Field Map** permite que su usuario final mapee una serie de campos.
+  Este tipo de variable de configuración siempre obtiene datos de una [fuente de datos](#config-variable-data-sources).
+- **JSON Form** le permite aprovechar [JSON Forms](https://jsonforms.io/) para construir la experiencia de configuración de sus usuarios.
+  El código que respalda las variables de configuración JSON Form se desarrolla en [componentes personalizados](custom-components/writing-custom-components.mdx) y devuelve objetos compuestos por pares clave/valor.
+- **Connection** está compuesto por varios campos que determinan cómo debe conectarse un componente a una API externa.
+  Puede incluir un nombre de usuario, contraseña, clave API, URL de punto final o varios otros elementos.
+  Tenga en cuenta que las variables de configuración de conexión solo se pueden agregar a la primera página de configuración, ya que las páginas subsiguientes pueden usar la conexión para generar dinámicamente otras variables de configuración.
 
-If you're [writing a custom component](custom-components/writing-custom-components.mdx), note that you will need to cast your action's input to the correct format.
-For example, you can `JSON.parse()` a JSON string, or run [`util.types.toNumber()`](spectral/modules/_util_.md#const-tonumber) or [`util.types.toBool()`](spectral/modules/_util_.md#const-tobool) on a number or boolean input. You can use a [`clean`](custom-components/writing-custom-components.mdx#cleaning-inputs) function to simplify type casting.
+
+:::tip Las entradas se envían a las acciones como cadenas
+El tipo de variable de configuración que elija afecta a la interfaz de usuario con la que interactúa el usuario final (obtienen interruptores para booleanos, selectores de fecha para marcas de tiempo, un editor con resaltado de sintaxis para código, etc.).
+Sin embargo, independientemente del tipo de variable de configuración que elija, todos los valores se presentan a las acciones como cadenas.
+
+Si está [escribiendo un componente personalizado](custom-components/writing-custom-components.mdx), tenga en cuenta que deberá convertir la entrada de su acción al formato correcto.
+Por ejemplo, puede usar `JSON.parse()` en una cadena JSON o ejecutar [`util.types.toNumber()`](spectral/modules/_util_.md#const-tonumber) o [`util.types.toBool()`](spectral/modules/_util_.md#const-tobool) en una entrada numérica o booleana. Puede utilizar una función [`clean`](custom-components/writing-custom-components.mdx#cleaning-inputs) para simplificar la conversión de tipos.
+
 :::
 
-Once you've added a config variable, you can use it as an inputs to actions within your integration.
+Una vez que haya agregado una variable de configuración, puede usarla como entrada para acciones dentro de su integración.
 
-### List and key/value list config variables
+### Variables de configuración de listas y de pares clave/valor
 
-In addition to representing a **single** value, some config var types can represent a **list** of values, or a list of **key/value pairs**.
-This is helpful for when you want your users to be able to enter an unknown number of items as the values of a configuration variable.
-For example, you may want users to select one or more values from a **picklist** menu.
+Además de representar un **único** valor, algunos tipos de variables de configuración pueden representar una **lista** de valores o una lista de pares **clave/valor**.
+Esto es útil cuando desea que sus usuarios puedan ingresar un número desconocido de elementos como valores de una variable de configuración.
+Por ejemplo, es posible que desee que los usuarios seleccionen uno o más valores de un menú de **lista de selección**.
 
-Config variables with a data type of **string**, **date**, **timestamp**, **picklist**, **code**, or **boolean** can be configured as lists or key/value lists.
+Las variables de configuración con un tipo de datos de **cadena**, **fecha**, **marca de tiempo**, **lista de selección**, **código** o **booleano** se pueden configurar como listas o listas de pares clave/valor.
 
-To create a **list** config variable, create a new config variable and select **LIST** under **Config Var Type**:
+
+Para crear una variable de configuración de **lista**, cree una nueva variable de configuración y seleccione **LISTA** en **Tipo de variable de configuración**:
 
 <Screenshot
   filename="integrations/list-config-variable.png"
   maxWidth="500px"
-  alt="Create list config variable in  app"
+  alt="Crear variable de configuración de lista en la aplicación
+"
 />
 
-When a list config variable is referenced by a step's input, that step's action receives a JavaScript array of values.
-The config variable in the example above would provide the array `["First Option", "Third Option", "Second Option"]` to the action.
+Cuando una variable de configuración de lista es referenciada por la entrada de un paso, la acción de ese paso recibe un array de valores en JavaScript. En el ejemplo anterior, la variable de configuración proporcionaría el array `["Primera Opción", "Tercera Opción", "Segunda Opción"]` a la acción.
 
-To create a **key/value list** config variable, create a new config variable and select **KEY/VALUE LIST** under **Config Var Type**:
+Para crear una variable de configuración de lista de clave/valor, crea una nueva variable de configuración y selecciona **KEY/VALUE LIST** en **Config Var Type**:
+
 
 <Screenshot
   filename="integrations/key-value-list-config-variable.png"
   maxWidth="500px"
-  alt="Create key/value list config variable in  app"
+  alt="Crear variable de configuración de lista clave/valor en la aplicación"
 />
 
-When a key/value list config variable is referenced by a step's input, that step's action receives a JavaScript array of key/value pairs.
-The config variable in the example above would provide this array to the action:
+Cuando una variable config de lista clave/valor es referenciada por la entrada de un paso, la acción de ese paso recibe una matriz JavaScript de pares clave/valor.
+La variable config del ejemplo anterior proporcionaría esta matriz a la acción:
 
 ```javascript
 [
@@ -128,60 +137,58 @@ The config variable in the example above would provide this array to the action:
 ];
 ```
 
-### Config variable data sources
+### Configurar fuentes de datos variables
 
-**Data Sources** allow you to populate a config variable dynamically after they enter some connection settings.
-This is handy because customers' configuration differs in third-party apps.
-Customers have different Facebook business names, different Google Analytics accounts, different fields on Salesforce resources, etc.
-You can pull in those things, and allow customers to choose their Slack channel, select a folder in Google Drive, map fields from Salesforce, etc.
+Las **Fuentes de Datos** te permiten poblar dinámicamente una variable de configuración después de que ingresan algunas configuraciones de conexión. Esto es útil porque la configuración de los clientes difiere en aplicaciones de terceros. Los clientes tienen nombres comerciales diferentes en Facebook, cuentas diferentes de Google Analytics, campos diferentes en los recursos de Salesforce, etc. Puedes traer esas cosas y permitir a los clientes elegir su canal de Slack, seleccionar una carpeta en Google Drive, asignar campos desde Salesforce, etc.
 
-If you would like to populate a config variable dynamically from a data source, first ensure that a **connection** config variable for the third-party app is present on your first config page.
-Those are generally automatically created when you add a step to your integration for that third-party.
-On a subsequent page, add your config variable.
-Under **Data Source**, select the component and data source that you would like to use (for example, the [Slack Select Channel](components/slack.mdx#select-channel) data source).
+Si deseas poblar dinámicamente una variable de configuración desde una fuente de datos, primero asegúrate de que una variable de configuración de **conexión** para la aplicación de terceros esté presente en tu primera página de configuración. Generalmente, se crean automáticamente cuando agregas un paso a tu integración para ese tercero. En una página posterior, agrega tu variable de configuración. Bajo **Fuente de Datos**, selecciona el componente y la fuente de datos que te gustaría usar (por ejemplo, la [Fuente de Datos para Seleccionar Canal de Slack](components/slack.mdx#select-channel)).
 
-Your customers will authenticate with the third-party app on their first config page, and will see data dynamically loaded from the third-party populate the config variable.
 
-### JSON Forms config variables
+Tus clientes se autenticarán con la aplicación de terceros en su primera página de configuración, y verán datos cargados dinámicamente desde el tercero que poblarán la variable de configuración.
 
-[JSON Forms](https://jsonforms.io/) is a powerful form-generating tool that lets you transform JSON schema into a fillable form, and JSON Forms config variables are available on enterprise plans.
-You can build a static JSON form using the built-in [JSON Forms](components/jsonforms.mdx) component, or create dynamic configuration experiences by adding JSON Forms [data sources](custom-components/writing-custom-components.mdx#json-forms-data-sources) to your custom components.
 
-See the full [JSON Forms](jsonforms.mdx) article for more information.
+### Variables de configuración de formularios JSON
 
-### Connection config variables
+[JSON Forms](https://jsonforms.io/) es una herramienta potente para generar formularios que te permite transformar un esquema JSON en un formulario rellenable. Las variables de configuración de JSON Forms están disponibles en los planes empresariales.
+Puedes construir un formulario JSON estático utilizando el componente integrado [JSON Forms](components/jsonforms.mdx), o crear experiencias de configuración dinámicas añadiendo [fuentes de datos de JSON Forms](custom-components/writing-custom-components.mdx#json-forms-data-sources) a tus componentes personalizados.
 
-Connections are a special type of config variable that contain the information necessary to connect to a third-party app.
-A connection might include a simple username and password pair, or might declare all the fields required for OAuth 2.0 (like auth URL, client ID, etc.).
 
-You can read more about connections and OAuth 2.0 on the [Connections](connections.mdx) article.
+Consulta el artículo completo de [JSON Forms](jsonforms.mdx) para obtener más información.
 
-### Config variable visibility
+### Variables de configuración de conexión
 
-By default, config variables that you add to your integration's configuration wizard are visible to customers who deploy instances of your integration.
-But, there are some situations where you may want to hide a config variable from the config wizard.
-For example:
+Las conexiones son un tipo especial de variable de configuración que contiene la información necesaria para conectarse a una aplicación de terceros.
+Una conexión puede incluir un simple par de nombre de usuario y contraseña, o puede declarar todos los campos requeridos para OAuth 2.0 (como la URL de autenticación, el ID de cliente, etc.).
 
-- All instances of your integration might share an API key to a third-party app.
-  You may want to set that API key as a config variable, but not make it accessible or visible to your customer.
-- Your customer's instance need an API key to access your app, but you want to set it on their behalf as part of the instance deployment process.
-  In that case, you want the customer user to be able to set it programmatically behind the scenes, but not see its value in the UI.
+Puedes obtener más información sobre conexiones y OAuth 2.0 en el artículo de [Conexiones](connections.mdx).
 
-For each config variable that you add to your integration you can configure **Permissions and Visibility**.
-You have three options:
 
-- **Customer** is the default value.
-  Customer users can view and edit the config variable, and it will always appear in the config wizard.
-- **Embedded** makes it so the config variable does not show up in the config wizard, but your app is able to [set it programmatically](embedding-marketplace.mdx#dynamically-setting-config-variables-in-marketplace) through the embedded SDK.
-  This is helpful if you want to set an API key for a user during the configuration process, but not allow the user to see or edit the value that is set.
-- **Organization** makes it so the config variable is not visible to your customer, and is not able to be set programmatically by your app.
-  Config variables marked **organization** must have a default value, or else your team members will need to set the value on behalf of your customer.
+### Configurar la visibilidad de las variables
+
+Por defecto, las variables de configuración que añades al asistente de configuración de tu integración son visibles para los clientes que despliegan instancias de tu integración.
+Pero, hay algunas situaciones en las que puede querer ocultar una variable de configuración del asistente de configuración.
+Por ejemplo:
+
+- Todas las instancias de su integración pueden compartir una clave de API para una aplicación de terceros.
+  Es posible que desee establecer esa clave de API como una variable de configuración, pero no hacerla accesible o visible para su cliente.
+- La instancia de su cliente necesita una clave de API para acceder a su aplicación, pero usted desea establecerla en su nombre como parte del proceso de despliegue de la instancia.
+  En ese caso, quieres que el usuario cliente pueda establecerla mediante programación entre bastidores, pero no ver su valor en la interfaz de usuario.
+
+Para cada variable de configuración que añada a su integración puede configurar **Permisos y Visibilidad**.
+Tienes tres opciones:
+
+- **Customer** es el valor predeterminado.
+  Los usuarios del cliente pueden ver y editar la variable de configuración, y siempre aparecerá en el asistente de configuración.
+- **Embedded** hace que la variable de configuración no aparezca en el asistente de configuración, pero tu aplicación puede [configurarlo programáticamente](embedding-marketplace.mdx#dynamically-setting-config-variables-in-marketplace) a través del SDK integrado.
+  Esto es útil si deseas establecer una clave API para un usuario durante el proceso de configuración, pero no permitir que el usuario vea ni edite el valor que se establece.
+- **Organization** hace que la variable de configuración no sea visible para tu cliente y no pueda establecerse programáticamente a través de tu aplicación.
+  Las variables de configuración marcadas como **organization** deben tener un valor predeterminado, o tu equipo deberá establecer el valor en nombre de tu cliente.
 
 <Screenshot
   filename="integrations/config-var-visibility.png"
   maxWidth="400px"
-  alt="Set visibility for config variables in  app"
+  alt="Visibilidad de las variables de configuración en la aplicación"
 />
 
-Additionally, you can toggle the **Visible to Organization** toggle to false to hide the config variable from organization team members who open a customer's instance config wizard screen.
-The config variable is still available programmatically to organization members, but this prevents a sensitive config variable from being displayed unintentionally on an organization team member's screen.
+Además, puede cambiar la opción **Visible para la organización** a false para ocultar la variable de configuración a los miembros del equipo de la organización que abran la pantalla del asistente de configuración de la instancia de un cliente.
+La variable de configuración sigue estando disponible mediante programación para los miembros de la organización, pero esto evita que una variable de configuración sensible se muestre involuntariamente en la pantalla de un miembro del equipo de la organización.
