@@ -1,28 +1,28 @@
 ---
 id: jsonforms
-title: JSON Forms in the Configuration Wizard
-sidebar_label: JSON Forms & Config Wizard
-description: You can customize your customers' deployment experience by using JSON Forms in your config wizard.
+title: Formularios JSON en el Asistente de Configuración
+sidebar_label: Formularios JSON y asistente de configuración
+description: Puede personalizar la experiencia de despliegue de sus clientes utilizando formularios JSON en el asistente de configuración.
 ---
 
 import Screenshot from "@site/src/components/screenshot";
 import JsonFormsExampleButton from "@site/src/components/json-forms-example-button";
 
-JSON Forms help customize the deployment experience for your customers.
-They allow you to add one or many custom fields to the configuration wizard by defining a JSON schema and UI schema.
+JSON Forms ayuda a personalizar la experiencia de implementación para tus clientes.
+Te permite agregar uno o muchos campos personalizados al asistente de configuración al definir un esquema JSON y un esquema de interfaz de usuario (UI schema).
 
-This article describes how JSON Forms can be used in the [configuration wizard](configuration-wizard.mdx) to provide your customers a tailored deployment experience.
-Check out the [JSON Forms Playground](/jsonforms/playground/) to see sevral examples of JSON Forms in action.
+Este artículo describe cómo se pueden utilizar JSON Forms en el [asistente de configuración](configuration-wizard.mdx) para proporcionar a tus clientes una experiencia de implementación personalizada.
+Consulta el [JSON Forms Playground](/jsonforms/playground/) para ver varios ejemplos de JSON Forms en acción.
 
-Several additional examples can be found in the JSON Forms project [documentation](https://jsonforms.io/).
+Varios ejemplos adicionales se pueden encontrar en la [documentación](https://jsonforms.io/) del proyecto JSON Forms.
 
-## Schema and UI schema
+## Esquema y esquema de interfaz de usuario (UI schema)
 
-A JSON Form is defined by `schema`, which is the data model (the shape of the data you expect to be returned), and `uiSchema`, which describes how various input fields should be rendered.
+Un formulario JSON se define mediante `schema`, que es el modelo de datos (la forma de los datos que esperas que se devuelvan), y `uiSchema`, que describe cómo se deben representar diversos campos de entrada.
 
-A simple `schema` might look like this:
+Un esquema simple (`schema`) podría verse así:
 
-```json title="Example JSON Schema"
+```json title="Ejemplo de esquema JSON"
 {
   "type": "object",
   "properties": {
@@ -31,11 +31,11 @@ A simple `schema` might look like this:
     },
     "companyDescription": {
       "type": "string",
-      "description": "You can enter multiple lines here"
+      "description": "Aquí puede introducir varias líneas"
     },
     "numEmployees": {
       "type": "integer",
-      "description": "Include employees in all offices"
+      "description": "Incluir a los empleados de todas las oficinas"
     },
     "continent": {
       "type": "string",
@@ -56,15 +56,16 @@ A simple `schema` might look like this:
 }
 ```
 
-In the example above, we declare that this JSON form will return an object, and that object will have five properties: `companyName`, `companyDescription`, `numEmployees`, `continent`, and `biDirectionalSync`.
-Company name is required, but the other fields are optional.
-The `companyDescription` field is a string, and the `numEmployees` field is an integer.
-The `continent` field is a string, but it can only be one of the values in the `enum` array.
-The `biDirectionalSync` field is a boolean.
+En el ejemplo anterior, declaramos que este formulario JSON devolverá un objeto con cinco propiedades: `companyName`, `companyDescription`, `numEmployees`, `continent` y `biDirectionalSync`.
+El nombre de la empresa es obligatorio, pero los otros campos son opcionales.
+El campo `companyDescription` es una cadena, y el campo `numEmployees` es un número entero.
+El campo `continent` es una cadena, pero solo puede ser uno de los valores en la matriz `enum`.
+El campo `biDirectionalSync` es un booleano.
 
-This JSON form will return an object like this:
 
-```json title="Example JSON Form data"
+Este formulario JSON devolverá un objeto como este:
+
+```json title="Ejemplo de datos de formulario JSON"
 {
   "companyName": "Acme Corp",
   "companyDescription": "We make everything",
@@ -74,10 +75,11 @@ This JSON form will return an object like this:
 }
 ```
 
-In order to render this form, we need to define a `uiSchema` that describes how the fields should be rendered.
-A `uiSchema` could look something like this:
+Para renderizar este formulario, necesitamos definir un `uiSchema` que describa cómo se deben representar los campos.
+Un `uiSchema` podría verse algo así:
 
-```json title="Simple UI Schema"
+
+```json title="Esquema de interfaz de usuario simple"
 {
   "type": "VerticalLayout",
   "elements": [
@@ -110,23 +112,25 @@ A `uiSchema` could look something like this:
 }
 ```
 
-In the example above, we declare that the form should be rendered as a vertical layout, and that the fields should be rendered in the order they are defined in the `elements` array.
-Some optional labels were added to override the default labels that are derived from property names.
+En el ejemplo anterior, declaramos que el formulario se debe representar como un diseño vertical y que los campos se deben renderizar en el orden en que se definen en la matriz `elements`.
+Se agregaron algunas etiquetas opcionales para anular las etiquetas predeterminadas que se derivan de los nombres de las propiedades.
+
 
 <Screenshot
   filename="json-forms/basic-form.png"
-  alt="Screenshot of a basic JSON form"
+  alt="Captura de pantalla de un formulario JSON básico"
   maxWidth="600px"
 />
 
 <JsonFormsExampleButton exampleKey="basic" />
 
-## Types of fields in JSON Forms
+## Tipos de campos en formularios JSON
 
-Several types of input fields are supported in JSON Forms, including plain strings, boolean checkboxes or toggles, numbers, datetime pickers, and more.
-Note that time and datetime fields are `string` type fields with a `time` or `date-time` format property.
+JSON Forms admite varios tipos de campos de entrada, incluidas cadenas simples, casillas de verificación o interruptores booleanos, números, selectores de fecha y hora, y más.
+Tenga en cuenta que los campos de hora y fecha y hora son campos de tipo `string` con una propiedad de formato `time` o `date-time`.
 
-```json title="Examples of fields in JSON forms"
+
+```json title="Ejemplos de campos en formularios JSON"
 {
   "type": "object",
   "properties": {
@@ -159,13 +163,14 @@ Note that time and datetime fields are `string` type fields with a `time` or `da
 }
 ```
 
-## Schema UI Layouts
+## Esquema de la interfaz de usuario
 
-UI Elements can be laid out horizontally or vertically, and layouts can be nested.
-In this example, a `HorizontalLayout` contains two `VerticalLayout` elements.
-The second vertical layout element is a `Group` type layout, which adds a container and `label` around the vertically organized input elements.
+Los elementos de interfaz de usuario se pueden organizar horizontal o verticalmente, y los diseños pueden estar anidados.
+En este ejemplo, un `HorizontalLayout` contiene dos elementos `VerticalLayout`.
+El segundo elemento de diseño vertical es un diseño de tipo `Group`, que agrega un contenedor y una `label` alrededor de los elementos de entrada organizados verticalmente.
 
-```json title="Nested Layouts" {2,5,18-19}
+
+```json title="Diseños anidados" {2,5,18-19}
 {
   "type": "HorizontalLayout",
   "elements": [
@@ -203,17 +208,18 @@ The second vertical layout element is a `Group` type layout, which adds a contai
 
 <Screenshot
   filename="json-forms/nested-layouts.png"
-  alt="Screenshot of nested layouts in JSON forms"
+  alt="Captura de pantalla de diseños anidados en formularios JSON"
   maxWidth="600px"
 />
 
 <JsonFormsExampleButton exampleKey="nested-layouts" />
 
-## Dropdown menus in JSON Forms
+## Menús desplegables en formularios JSON
 
-If you would like to present your customer with a dropdown menu of prepopulated options, you can use an `enum` or `oneOf` property in your schema.
+Si desea presentar a su cliente un menú desplegable de opciones predefinidas, puede utilizar una propiedad `enum` o `oneOf` en su esquema.
 
-An `enum` can be used to select from one of a set of string values:
+Un `enum` se puede utilizar para seleccionar uno de un conjunto de valores de cadena:
+
 
 ```json title="Example using enum"
 {
