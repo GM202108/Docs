@@ -1,7 +1,7 @@
 ---
 id: integration-triggers
-title: How to Use Integration Triggers
-description: Integration triggers allow you to define when an instance runs. Scheduled triggers and webhook triggers are the most common. Learn how to use them.
+title: Cómo utilizar los desencadenantes de integración
+description: Los disparadores de integración permiten definir cuándo se ejecuta una instancia. Los activadores programados y los activadores webhook son los más comunes. Aprenda a utilizarlos.
 ---
 
 import Screenshot from "@site/src/components/screenshot";
@@ -9,65 +9,68 @@ import Vimeo from "@site/src/components/vimeo";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-Integration triggers allow you to define _when_ an instance should run.
-There are several types of triggers, with [schedule triggers](#scheduled-triggers) and [webhook triggers](#webhook-triggers) being the most commonly used.
-Many components include triggers that do things like validate webhook payloads, preprocess data, or return custom responses to the webhook caller.
-You can also configure a [deploy trigger](#instance-deploy-trigger) that runs when your integration is deployed to a customer.
+Los desencadenadores de integración te permiten definir _cuándo_ debe ejecutarse una instancia. Hay varios tipos de desencadenadores, siendo los más comúnmente utilizados los [desencadenadores programados](#scheduled-triggers) y los [desencadenadores de webhook](#webhook-triggers). Muchos componentes incluyen desencadenadores que realizan acciones como validar cargas útiles de webhook, preprocesar datos o devolver respuestas personalizadas al llamante del webhook. También puedes configurar un [desencadenador de implementación](#instance-deploy-trigger) que se ejecuta cuando tu integración se implementa en un cliente.
 
-- If you are integrating with a particular app or service, and that service has a component with a trigger, use that trigger.
-- If you would like your integration to run on a predefined regular basis, you should use a schedule trigger.
-- If you would like to invoke your integration from another system that can make HTTP calls, you should use a webhook trigger.
-- If you have a flow that you would like to run when an instance is deployed, use a deploy trigger.
 
-If your integration has multiple [flows](building-integrations.mdx#flows-in-integrations), each flow has its own trigger (and so its own webhook URL or schedule).
+- Si estás integrando con una aplicación o servicio en particular, y ese servicio tiene un componente con un desencadenador, utiliza ese desencadenador.
+- Si deseas que tu integración se ejecute de forma regular y predefinida, debes usar un desencadenador programado.
+- Si deseas invocar tu integración desde otro sistema que pueda realizar llamadas HTTP, debes usar un desencadenador de webhook.
+- Si tienes un flujo que deseas ejecutar cuando se implementa una instancia, utiliza un desencadenador de implementación.
 
-You can always change which trigger your flow uses by clicking on the trigger, and clicking the **CHANGE TRIGGER** button in the drawer that appears.
 
-## Scheduled triggers
+Si tu integración tiene varios [flujos](building-integrations.mdx#flows-in-integrations), cada flujo tiene su propio desencadenador (y, por lo tanto, su propia URL de webhook o programación).
 
-Scheduled triggers allow you to create a regular schedule to dictate how often your integration should run.
-This is useful if you have an integration that should be triggered consistently at a specific time.
-You can set up your integration to run at the same time for all customers, or you can set up schedules on a per-customer basis.
+Siempre puedes cambiar el desencadenador que utiliza tu flujo haciendo clic en el desencadenador y luego en el botón **CAMBIAR DESENCADENADOR** en el panel que aparece.
 
-To set up the same schedule for all customers, click the integration's trigger, open the **Schedule** tab, and enter the schedule you would like your integration to follow.
-You can configure your integration to run every X minutes, hours, days, or weeks:
+
+## Activadores programados
+
+Los desencadenadores programados te permiten crear una programación regular para dictar cada cuánto debe ejecutarse tu integración.
+Esto es útil si tienes una integración que debe activarse de manera consistente en un momento específico.
+Puedes configurar tu integración para que se ejecute al mismo tiempo para todos los clientes, o puedes establecer programaciones específicas para cada cliente.
+
+Para configurar la misma programación para todos los clientes, haz clic en el desencadenador de la integración, abre la pestaña **Programación** e ingresa la programación que deseas para tu integración.
+
+Puede configurar su integración para que se ejecute cada X minutos, horas, días o semanas:
 
 <Screenshot
   filename="integrations/schedule-trigger/static-schedule.png"
   maxWidth="600px"
-  alt="Set static integration trigger in  app"
+  alt="Activar la integración estática en la aplicación"
 />
 
-You can alternatively select **Custom** and provide a [cron string](https://en.wikipedia.org/wiki/Cron).
-For example, a trigger of `*/5 8-16 * * 1-5` would cause your integration to run every five minutes during business hours (8:00-16:55), Monday through Friday.
-For help computing a cron schedule, see this [Cron Calculator](https://crontab.guru/).
+Alternativamente, puedes seleccionar **Personalizado** y proporcionar una [cadena cron](https://es.wikipedia.org/wiki/Cron).
+Por ejemplo, un desencadenador de `*/5 8-16 * * 1-5` haría que tu integración se ejecute cada cinco minutos durante el horario laboral (8:00-16:55), de lunes a viernes.
+Para obtener ayuda con el cálculo de una programación cron, consulta esta [Calculadora Cron](https://crontab.guru/).
 
-To configure schedules on a per-customer basis, first create a config variable of type **Schedule** by clicking the **Configuration Wizard** button.
-You can give your config variable any name you choose:
+Para configurar programaciones específicas para cada cliente, primero crea una variable de configuración de tipo **Programación** haciendo clic en el botón **Asistente de Configuración**.
+Puedes darle el nombre que elijas a tu variable de configuración:
+
 
 <Screenshot
   filename="integrations/schedule-trigger/schedule-config-variable.png"
   maxWidth="700px"
-  alt="Configure integration trigger to use config variable in  app"
+  alt="Configurar el activador de integración para utilizar una variable de configuración en la aplicación"
 />
 
-Then, click your integration trigger and reference the **Config Variable** you created:
+A continuación, haga clic en su activador de integración y haga referencia a la **Variable de configuración** que ha creado:
 
 <Screenshot
   filename="integrations/schedule-trigger/config-driven-schedule.png"
   maxWidth="550px"
-  alt="Set config variable for integration trigger in  app"
+  alt="Establezca la variable de configuración para el activador de integración en la aplicación"
 />
 
-When your integration deployment team later deploys an instance of your integration, they can configure a custom schedule for that instance.
+Cuando su equipo de despliegue de integraciones despliega posteriormente una instancia de su integración, puede configurar un calendario personalizado para esa instancia.
 
-## Webhook triggers
+## Activadores de webhooks
 
-Webhook triggers allow you to run a particular instance or [flow](building-integrations.mdx#flows-in-integrations) of an instance by making an HTTP POST, PUT, PATCH, DELETE or GET request to the webhook's URL.
-This is useful if you would like an outside application to invoke an integration when something within the outside application occurs.
-The outside application can assemble some data, and send that data to a webhook URL via an HTTP request.
+Los desencadenadores de Webhook te permiten ejecutar una instancia particular o [flujo](building-integrations.mdx#flows-in-integrations) de una instancia realizando una solicitud HTTP POST, PUT, PATCH, DELETE o GET a la URL del webhook.
+Esto es útil si deseas que una aplicación externa invoque una integración cuando ocurre algo dentro de esa aplicación externa.
+La aplicación externa puede reunir algunos datos y enviar esos datos a una URL de webhook mediante una solicitud HTTP.
 
-For example, third-party software could invoke an instance with a JSON payload whenever a job in the third-party application is complete, like this:
+
+Por ejemplo, el software de terceros podría invocar una instancia con una carga JSON cada vez que se complete un trabajo en la aplicación de terceros, de esta manera:
 
 ```bash
 curl 'https://hooks..io/trigger/EXAMPLE==' \
@@ -75,27 +78,28 @@ curl 'https://hooks..io/trigger/EXAMPLE==' \
   --header "Content-Type: application/json"
 ```
 
-Note that the payload of the request is available by referencing the integration's trigger, shown in the screenshot below.
-Steps can then reference data from the webhook payload through the trigger's results.
-Headers are available through `results.headers` and body data is available through `results.body.data`:
+Ten en cuenta que la carga útil de la solicitud está disponible al hacer referencia al desencadenador de la integración, como se muestra en la captura de pantalla a continuación.
+Luego, los pasos pueden hacer referencia a los datos de la carga útil del webhook a través de los resultados del desencadenador.
+Las cabeceras están disponibles a través de `results.headers` y los datos del cuerpo están disponibles a través de `results.body.data`:
+
 
 <Screenshot
   filename="integrations/webhook-trigger-payload.png"
-  alt="Set webhook trigger via POST request in  app"
+  alt="Activar el webhook mediante una solicitud POST en la aplicación"
 />
 
-:::note The GET verb is supported
-You _can_ use the GET verb to invoke an instance, but note that the GET verb does not allow you to send data with your request.
-If you need to send data with your request, use the POST, PUT, DELETE or PATCH verbs.
+:::note Se admite el verbo GET
+Puedes usar el verbo GET para invocar una instancia, pero ten en cuenta que el verbo GET no te permite enviar datos con tu petición.
+Si necesita enviar datos con su petición, utilice los verbos POST, PUT, DELETE o PATCH.
 
-The GET verb was introduced because some applications send a GET request when a webhook is configured to verify that the webhook endpoint is ready to receive requests.
+El verbo GET se introdujo porque algunas aplicaciones envían una petición GET cuando se configura un webhook para verificar que el punto final del webhook está listo para recibir peticiones.
 :::
 
-### Webhook trigger responses
+### Respuestas de activación de webhooks
 
-By default, webhook triggers provide an HTTP code 200 ("OK") response to callers of the webhook.
-The response body contains an execution ID, which can be used later to get logs and step results from the API.
-The response looks like this:
+Por defecto, los activadores de webhook proporcionan una respuesta HTTP de código 200 ("OK") a quienes llaman al webhook.
+El cuerpo de la respuesta contiene un ID de ejecución, que puede utilizarse posteriormente para obtener registros y resultados de pasos de la API.
+La respuesta tiene el siguiente aspecto
 
 ```bash
 curl \
@@ -106,26 +110,27 @@ curl \
 {"executionId":"SW5zdGFuY2VFeGVjdXRpb25SZXN1bHQ6OTdiNWQxYmEtZGUyZi00ZDY4LWIyMTgtMDFlZGMwMTQxNTM5"}
 ```
 
-You can customize the response by clicking the integration webhook trigger and selecting a different HTTP code, response body, or response content type:
+Puede personalizar la respuesta haciendo clic en el activador del webhook de integración y seleccionando un código HTTP, un cuerpo de respuesta o un tipo de contenido de respuesta diferentes:
 
 <Screenshot
   filename="integrations/webhook-trigger-response.png"
   maxWidth="500px"
-  alt="Customize webhook trigger response code in  app"
+  alt="Personalizar el código de respuesta del desencadenador webhook en la aplicación"
 />
 
-### Other webhook trigger responses
+### Otras respuestas de activación de webhooks
 
-You may encounter other responses to your webhook trigger request.
+Puede encontrar otras respuestas a su solicitud de activación de webhook.
 
-#### HTTP 303 See Other / Redirect to S3 Results Bucket
+#### HTTP 303 Ver Otro / Redirigir a Cubo de Resultados S3
 
-When your webhook trigger is invoked [synchronously](#synchronous-and-asynchronous-integrations), your HTTP client sends a request and waits for the integration to finish running before closing the request.
-responds to the request with an HTTP 303 redirect, redirecting your HTTP client to an object in an Amazon S3 bucket that contains the results of the last step of your integration.
+Cuando se invoca tu desencadenador de webhook de forma [sincrónica](#synchronous-and-asynchronous-integrations), tu cliente HTTP envía una solicitud y espera a que la integración termine de ejecutarse antes de cerrar la solicitud.
+responde a la solicitud con una redirección HTTP 303, redirigiendo tu cliente HTTP a un objeto en un cubo de Amazon S3 que contiene los resultados del último paso de tu integración.
 
-Ensure that your HTTP client follows redirects (for `curl`, you add a `--location` flag).
+Asegúrate de que tu cliente HTTP siga las redirecciones (para `curl`, debes agregar la bandera `--location`).
 
-```txt title="Synchronous request redirected"
+
+```txt title="Petición síncrona redirigida"
 $ curl 'https://hooks..io/trigger/example==' --location -v
 
 ...
@@ -172,28 +177,30 @@ $ curl 'https://hooks..io/trigger/example==' --location -v
 {"item":"Widgets","quantity":5}
 ```
 
-:::caution Avoid combining --location and --request POST
-Combining `--location` and an explicit `--request POST` (or `-X POST`) flag in the same `curl` command can have unintended consequences.
-`curl` will be redirected to an S3 bucket, but will attempt to make a `POST` request (rather than a `GET` request) to the S3 bucket.
-This results in S3 responding with a `SignatureDoesNotMatch` error.
+:::caution Evita combinar --location y --request POST
+Combinar `--location` y una bandera explícita `--request POST` (o `-X POST`) en el mismo comando `curl` puede tener consecuencias no deseadas.
+`curl` será redirigido a un cubo de S3, pero intentará realizar una solicitud `POST` (en lugar de una solicitud `GET`) al cubo de S3.
+Esto resulta en que S3 responda con un error `SignatureDoesNotMatch`.
 
-You will see the S3 error within [Postman](https://www.postman.com/) if you enable **Follow original HTTP method**.
-Keep that option unchecked.
+Verás el error de S3 dentro de [Postman](https://www.postman.com/) si habilitas la opción **Seguir método HTTP original**.
+Mantén esa opción sin marcar.
+
 
 <Screenshot
   filename="integrations/postman-redirect-warning.png"
-  alt="Avoid specifying HTTP method with redirects"
+  alt="Evite especificar el método HTTP con las redirecciones"
 />
 
 :::
 
-#### HTTP 400 Bad Request
+#### HTTP 400 Petición errónea
 
-You'll see an HTTP 400 response for one of two reasons:
+Verá una respuesta HTTP 400 por una de dos razones:
 
-- If your request was malformed (for example, you have a header `content-type: application/json`, but the data you sent wasn't valid JSON).
+- Si tu solicitud estaba mal formada (por ejemplo, tienes un encabezado `content-type: application/json`, pero los datos que enviaste no eran JSON válido).
 
-  ```txt title="Malformed payload"
+
+  ```txt title="Carga malformada"
   $ curl 'https://hooks.treece.-dev.io/trigger/example==' -v \
   --data "{bad-data" \
   --header "content-type: application/json"
@@ -219,9 +226,9 @@ You'll see an HTTP 400 response for one of two reasons:
   {"error":"Received malformed JSON payload."}
   ```
 
-- When your webhook trigger is invoked [synchronously](#synchronous-and-asynchronous-integrations) and stops because an error is thrown, your request will receive an HTTP 400 response with the error that was thrown.
+- Cuando tu desencadenador de webhook es invocado [sincrónicamente](#integraciones-sincronas-y-asincronas) y se detiene porque se produce un error, tu solicitud recibirá una respuesta HTTP 400 con el error que se produjo.
 
-  ```txt title="Error thrown in synchronous execution"
+  ```txt title="Error en la ejecución síncrona"
   curl 'https://hooks.treece.-dev.io/trigger/example==' -v
 
   ...
@@ -247,12 +254,12 @@ You'll see an HTTP 400 response for one of two reasons:
   {"error":"The widget requested is not in the database"}
   ```
 
-#### HTTP 429 Too Many Requests / Rate Limiting
+#### HTTP 429 Demasiadas peticiones / Limitación de velocidad
 
-A webhook endpoint URL can be invoked up to 50 times per second.
-If a request is received for an endpoint URL that has already received 50 requests in the last second, the request will receive a 429 "too many requests" response.
+Una URL de punto final de webhook puede invocarse hasta 50 veces por segundo.
+Si se recibe una solicitud para una URL de endpoint que ya ha recibido 50 solicitudes en el último segundo, la solicitud recibirá una respuesta 429 de "demasiadas solicitudes".
 
-```txt title="Request rate limited"
+```txt title="Tarifa de solicitud limitada"
 $ curl 'https://hooks..io/trigger/example==' -v
 
 ...
@@ -273,26 +280,29 @@ $ curl 'https://hooks..io/trigger/example==' -v
 {"error":"Endpoint with id: example== has exceeded maximum allowed throughput of 50 requests/second. Please throttle your requests."}
 ```
 
-### Webhook endpoint configuration
+### Configuración del punto final Webhook
 
-Webhook triggers can be configured for in integration in one of three ways:
+Los desencadenadores Webhook pueden configurarse para la integración de tres maneras:
 
-- **Instance and Flow Specific**: Each flow on each instance gets its own unique endpoint. This is the default configuration.
-- **Instance Specific**: Each instance gets a unique endpoint, and the integration determines which flow to run based on header or payload data.
-- **Shared**: All customers' instances of the integration share an endpoint. Data in the header or payload determines which customer and flow should run.
+- Específicos de instancia y de flujo**: Cada flujo en cada instancia obtiene su propio punto final único. Esta es la configuración por defecto.
+- Específico de instancia**: Cada instancia obtiene un punto final único, y la integración determina qué flujo ejecutar en función de los datos de cabecera o de carga útil.
+- Compartido**: Todas las instancias de integración de los clientes comparten un punto final. Los datos de la cabecera o de la carga útil determinan qué cliente y qué flujo deben ejecutarse.
 
-For information on configuring and troubleshooting webhook endpoints, see our [Endpoint Configuration](endpoint-configuration.mdx) article.
+Para obtener información sobre la configuración y solución de problemas de los puntos finales de webhook, consulta nuestro artículo [Configuración de puntos finales](endpoint-configuration.mdx).
 
-### Sending data to webhook triggers
 
-A webhook parses data from the following sources:
+### Envío de datos a desencadenantes webhook
 
-- The **request body** - the JSON (or other) data that is sent to the webhook as an [HTTP request body](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages#body).
-- The **request headers** - the [HTTP headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages#headers).
-- The **URL path** - The [path to resource](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_URL#path_to_resource) that follows the integration webhook URL.
-- The **URL parameters** - The [parameters](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_URL#parameters) that follow the `?` in a URL..
+Un webhook analiza datos de las siguientes fuentes:
 
-Take, for example, this `curl` invocation:
+- El **cuerpo de la solicitud** - los datos JSON (u otros) que se envían al webhook como un [cuerpo de solicitud HTTP](https://developer.mozilla.org/es/docs/Web/HTTP/Messages#body).
+- Las **cabeceras de la solicitud** - las [cabeceras HTTP](https://developer.mozilla.org/es/docs/Web/HTTP/Messages#headers).
+- La **ruta de URL** - la [ruta al recurso](https://developer.mozilla.org/es/docs/Learn/Common_questions/What_is_a_URL#path_to_resource) que sigue la URL del webhook de integración.
+- Los **parámetros de URL** - los [parámetros](https://developer.mozilla.org/es/docs/Learn/Common_questions/What_is_a_URL#parameters) que siguen al `?` en una URL.
+
+
+Tomemos, por ejemplo, esta invocación de `curl`:
+
 
 ```bash
 curl \

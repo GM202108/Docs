@@ -221,7 +221,7 @@ Si desea presentar a su cliente un menú desplegable de opciones predefinidas, p
 Un `enum` se puede utilizar para seleccionar uno de un conjunto de valores de cadena:
 
 
-```json title="Example using enum"
+```json title="Ejemplo de uso de enum"
 {
   "type": "object",
   "properties": {
@@ -242,16 +242,17 @@ Un `enum` se puede utilizar para seleccionar uno de un conjunto de valores de ca
 
 <Screenshot
   filename="json-forms/enum.png"
-  alt="Screenshot of dropdown menu in JSON forms"
+  alt="Captura de pantalla del menú desplegable en formularios JSON"
   maxWidth="600px"
 />
 
-In this case, if someone selects "North America", the data presented to the integration will be `{ continent: "North America" }`.
+En este caso, si alguien selecciona "América del Norte", los datos presentados a la integración serán `{ continente: "América del Norte" }`.
 
-`oneOf` is handy if you would like to present a dropdown menu with human-readable labels, but you want to return a different value or to the integration.
-In this example, the same dropdown menu is presented, but the data returned to the integration will be the two-letter continent code (i.e. "NA" for North America):
+`oneOf` es útil si desea presentar un menú desplegable con etiquetas legibles para el usuario, pero desea devolver un valor diferente a la integración.
+En este ejemplo, se presenta el mismo menú desplegable, pero los datos devueltos a la integración serán el código de continente de dos letras (es decir, "NA" para América del Norte):
 
-```json title="Example using oneOf"
+
+```json title="Ejemplo de utilización de oneOf"
 {
   "type": "object",
   "properties": {
@@ -288,13 +289,14 @@ In this example, the same dropdown menu is presented, but the data returned to t
 }
 ```
 
-## Arrays of fields in JSON Forms
+## Matrices de campos en formularios JSON
 
-Arrays allow your users to specify values for several copies of a set of fields.
-In this example, two fields (`channel` which is a `string` and `notifications` which is a dropdown menu) are properties of an object.
-The object can be represented one or many times within an `array` named `slackChannels`.
+Los arrays permiten a tus usuarios especificar valores para varias copias de un conjunto de campos.
+En este ejemplo, dos campos (`channel`, que es un `string`, y `notifications`, que es un menú desplegable) son propiedades de un objeto.
+El objeto puede representarse una o muchas veces dentro de un `array` llamado `slackChannels`.
 
-```json title="Example of an array" {5}
+
+```json title="Ejemplo de matriz" {5}
 {
   "type": "object",
   "properties": {
@@ -322,9 +324,10 @@ The object can be represented one or many times within an `array` named `slackCh
 }
 ```
 
-You can optionally choose to display sort buttons, so a customer user can reorder the array elements within the `uiSchema`:
+Opcionalmente, puedes elegir mostrar botones de ordenación, para que un usuario cliente pueda reordenar los elementos del array dentro de la `uiSchema`:
 
-```json title="Example UI Schema" {7-9}
+
+```json title="Ejemplo de esquema de interfaz de usuario" {7-9}
 {
   "type": "VerticalLayout",
   "elements": [
@@ -341,11 +344,11 @@ You can optionally choose to display sort buttons, so a customer user can reorde
 
 <Screenshot
   filename="json-forms/basic-array.png"
-  alt="Screenshot of a basic array in JSON forms"
+  alt="Captura de pantalla de una matriz básica en formularios JSON"
   maxWidth="600px"
 />
 
-Arrays are presented to the integration as a list of objects:
+Las matrices se presentan a la integración como una lista de objetos:
 
 ```json
 {
@@ -372,10 +375,11 @@ Arrays are presented to the integration as a list of objects:
 
 <JsonFormsExampleButton exampleKey="basic-array" />
 
-Arrays can be presented in an `Accordion` layout to save space in the configuration wizard.
-The field used to derive the accordion labels can be specified with the `elementLabelProp` option:
+Los arrays se pueden presentar en un diseño de `Accordion` para ahorrar espacio en el asistente de configuración.
+El campo utilizado para derivar las etiquetas del acordeón se puede especificar con la opción `elementLabelProp`:
 
-```json title="Accordion layout UI Schema" {7-11}
+
+```json title="Diseño de acordeón Esquema de interfaz de usuario" {7-11}
 {
   "type": "VerticalLayout",
   "elements": [
@@ -394,25 +398,27 @@ The field used to derive the accordion labels can be specified with the `element
 
 <Screenshot
   filename="json-forms/basic-array-accordion.png"
-  alt="Screenshot of a basic array in JSON forms"
+  alt="Captura de pantalla de una matriz básica en formularios JSON"
   maxWidth="600px"
 />
 
 <JsonFormsExampleButton exampleKey="basic-array-accordion" />
 
-### Data mapping with JSON Forms
+### Mapeo de datos con formularios JSON
 
-Arrays are especially helpful when building a data mapping UI.
-See the [Building a Field Mapper Data Source](quickstarts/field-mapping-json-forms-datasource.mdx) tutorial for an example of how to build a data mapper between custom fields in Salesforce, and custom fields in your app.
+Los arrays son especialmente útiles al construir una interfaz de asignación de datos.
+Consulte el tutorial [Building a Field Mapper Data Source](quickstarts/field-mapping-json-forms-datasource.mdx) para ver un ejemplo de cómo construir un mapeador de datos entre campos personalizados en Salesforce y campos personalizados en su aplicación.
+
 
 <JsonFormsExampleButton exampleKey="data-mapper-accordion" />
 
-## Showing or hiding inputs with UI Rules
+## Mostrar u ocultar entradas con reglas de interfaz de usuario
 
-You can choose to show or hide fields conditionally based on the value of other fields.
-A `rule` is defined in UI schema and contains a `condition` that determines wheter or not an `effect` should be applied.
+Puede optar por mostrar u ocultar campos condicionalmente según el valor de otros campos.
+Una `regla` se define en el esquema de la interfaz de usuario y contiene una `condición` que determina si se debe aplicar o no un `efecto`.
 
-In this example, the `convertToUSD` input field is only shown if the value of the `country` field is _not_ `United States`:
+En este ejemplo, el campo de entrada `convertToUSD` solo se muestra si el valor del campo `country` no es `Estados Unidos`:
+
 
 ```json {7-17}
 {
@@ -437,14 +443,16 @@ In this example, the `convertToUSD` input field is only shown if the value of th
 
 <JsonFormsExampleButton exampleKey="ui-rules" />
 
-Additional examples are available in JSON Forms' [documentation](https://jsonforms.io/docs/uischema/rules)
+Se pueden encontrar ejemplos adicionales en la [documentación](https://jsonforms.io/docs/uischema/rules) de JSON Forms.
 
-## Input validation in JSON Forms
 
-You can validate what your customers enter into input fields by adding `format`, `minimum`, `maximum`, `maxLength` and other properties to your schema.
-For string inputs, a `pattern` property allows you to specify a [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions) (regex) pattern that values must adhere to - this is useful if you are expecting a very specific format of user-supplied input.
+## Validación de entradas en formularios JSON
 
-```json title="Examples of input validation"
+Puedes validar lo que tus clientes ingresan en los campos de entrada añadiendo propiedades como `format`, `minimum`, `maximum`, `maxLength` y otras a tu esquema.
+Para las entradas de tipo string, la propiedad `pattern` te permite especificar un patrón de [expresión regular](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions) (regex) que los valores deben seguir, lo cual es útil si esperas un formato muy específico de la entrada proporcionada por el usuario.
+
+
+```json title="Ejemplos de validación de entradas"
 {
   "type": "object",
   "properties": {
@@ -507,12 +515,13 @@ For string inputs, a `pattern` property allows you to specify a [regular express
 
 <JsonFormsExampleButton exampleKey="input-validation" />
 
-## Wrapping JSON Forms in a custom component
+## Envolver formularios JSON en un componente personalizado
 
-If your form is static and does not depend on fetching data from third-party apps before it renders, you can provide `schema` and `uiSchema` directly to the [JSONForms component](components/jsonforms.mdx) for rendering.
-If you would like your form to present dropdown menus and other fields that are sourced from a third-party app, you can build a form in a custom component using the custom component SDK (see [documentation](custom-components/writing-custom-components.mdx#json-forms-data-sources)).
+Si tu formulario es estático y no depende de obtener datos de aplicaciones de terceros antes de renderizar, puedes proporcionar `schema` y `uiSchema` directamente al [componente JSONForms](components/jsonforms.mdx) para su renderización.
+Si deseas que tu formulario presente menús desplegables y otros campos que provienen de una aplicación de terceros, puedes construir un formulario en un componente personalizado utilizando el SDK de componentes personalizados (ver [documentación](custom-components/writing-custom-components.mdx#json-forms-data-sources)).
 
-### Pre-filling default data
 
-In addition to `schema` and `uiSchema` properties, your custom JSON Forms data sources can include a `data` property.
-When `data` is included, your form will be pre-filled with the data you provide.
+### Prerellenado de datos por defecto
+
+Además de las propiedades `schema` y `uiSchema`, tus fuentes de datos personalizadas JSON Forms pueden incluir una propiedad `data`.
+Cuando se incluye `data`, tu formulario se rellenará previamente con los datos que proporciones.
