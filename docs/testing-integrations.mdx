@@ -1,47 +1,47 @@
 ---
 id: testing-integrations
-title: Testing Integrations
-description: Test integrations as you build them
+title: Pruebas de integración
+description: Pruebe las integraciones a medida que las construye
 ---
 
 import Screenshot from "@site/src/components/screenshot";
 import Vimeo from "@site/src/components/vimeo";
 import Icon from "@mui/material/Icon";
 
-The integration designer provides a sandbox for testing integrations.
-From the designer you can invoke an integration, configure test values for config variables, and view test logs in real time.
+El diseñador de integración proporciona un entorno de prueba para probar integraciones.
+Desde el diseñador, puedes invocar una integración, configurar valores de prueba para las variables de configuración y ver los registros de prueba en tiempo real.
 
-You can test your integration after you set test values for config variables by clicking the **SAVE & RUN TEST** button.
+Puedes probar tu integración después de configurar los valores de prueba para las variables de configuración haciendo clic en el botón **GUARDAR Y EJECUTAR PRUEBA**.
 
-If your integration is made up of multiple [flows](building-integrations.mdx#flows-in-integrations), each flow is tested independently.
-Click the flow name on the top left of the integration designer area, select the flow you would like to test, and then click **SAVE & RUN TEST**.
-Note that each flow has a distinct webhook URL, so if you are invoking the integration from a third-party app via webhook, you'll need to note the flow's webhook URL.
+Si tu integración está compuesta por varios [flujos](building-integrations.mdx#flows-in-integrations), cada flujo se prueba de forma independiente.
+Haz clic en el nombre del flujo en la parte superior izquierda del área de diseño de la integración, selecciona el flujo que deseas probar y luego haz clic en **GUARDAR Y EJECUTAR PRUEBA**.
+Ten en cuenta que cada flujo tiene una URL de webhook única, por lo que, si estás invocando la integración desde una aplicación de terceros a través de un webhook, deberás tomar nota de la URL de webhook del flujo.
 
-## Test config variables
+## Variables de configuración de prueba
 
-If your integration uses config variables, you can specify testing values for those variables under the **Configuration** tab of the **Test Runner** drawer.
-If you specified default values for your [config variables](building-integrations.mdx#config-variables-in-integrations), those will be preset for you.
-Otherwise, fill in testing values and credentials for the purposes of testing your integration.
+Si tu integración utiliza variables de configuración, puedes especificar valores de prueba para esas variables en la pestaña **Configuration** del cajón **Test Runner**.
+Si especificaste valores predeterminados para tus [variables de configuración](building-integrations.mdx#config-variables-in-integrations), estos se preestablecerán para ti.
+De lo contrario, completa los valores de prueba y las credenciales con el fin de probar tu integración.
 
 <Screenshot
   filename="integrations/test-config-variables.png"
   maxWidth="600px"
-  alt="Configure test for integration in  app"
+  alt="Configurar la prueba de integración en la aplicación"
 />
 
-We recommend that you create testing, non-production sandbox credentials for integration tests.
+Le recomendamos que cree credenciales de prueba, no de producción, para las pruebas de integración.
 
-## Test run outputs
+## Resultados de las pruebas
 
-After running an integration test, the output of each step is available in the **Step Outputs** tab of the **Test Runner** drawer.
-Select which step you would like to see results for from the dropdown menu.
-You can reference those results in subsequent steps.
-This is helpful for debugging and verifying the flow of data within your integration.
+Después de ejecutar una prueba de integración, la salida de cada paso está disponible en la pestaña **Step Outputs** del cajón **Test Runner**.
+Selecciona el paso del que te gustaría ver los resultados desde el menú desplegable.
+Puedes hacer referencia a esos resultados en pasos posteriores.
+Esto es útil para la depuración y la verificación del flujo de datos dentro de tu integración.
 
 <Screenshot
   filename="integrations/test-outputs.png"
   maxWidth="450px"
-  alt="Step outputs for tests in  app"
+  alt="Salidas escalonadas para las pruebas en la aplicación"
 />
 
 ## Test run logs

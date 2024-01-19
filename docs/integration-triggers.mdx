@@ -313,21 +313,21 @@ curl \
   --data '{"Payload Key 1":"Payload Value 1","Do Thing?":true,"quantity":123}'
 ```
 
-- The request body - `{"Payload Key 1":"Payload Value 1","Do Thing?":true,"quantity":123}` - is parsed (if JSON) and is accessible to the integration by referencing the trigger's `results.body.data.KEY-NAME`. Non-JSON payloads (like XML, images, etc) are accessible through `results.rawBody` and can be parsed in subsequent steps that handle that type of data.
-- The request headers are accessible through the trigger's `results.headers.HEADER-NAME`.
-- The url path - `my/custom/path` - is accessible through the trigger's `results.pathFragment`. You can pass that data into the built-in [split string](components/text-manipulation.mdx#split-string) action and split on the `/` character to split the URL path into an array `['my','custom','path']`.
-- The url parameters - `?param-one=ParamValueOne&param-two=ParamValueTwo` are parsed and accessible through the trigger's `results.queryParameters.PARAMETER-NAME`.
+- El cuerpo de la solicitud - `{"Clave de carga 1":"Valor de carga 1","¿Hacer algo?":true,"cantidad":123}` - se analiza (si es JSON) y es accesible para la integración al referenciar `results.body.data.NOMBRE-CLAVE` del desencadenador. Cargas útiles no JSON (como XML, imágenes, etc.) son accesibles a través de `results.rawBody` y pueden analizarse en pasos subsiguientes que manejen ese tipo de datos.
+- Las cabeceras de la solicitud son accesibles a través de `results.headers.NOMBRE-CABECERA` del desencadenador.
+- La ruta de URL - `mi/ruta/personalizada` - es accesible a través de `results.pathFragment` del desencadenador. Puedes pasar esos datos a la acción integrada [split string](components/text-manipulation.mdx#split-string) y dividir en el carácter `/` para separar la ruta de URL en un array `['mi','ruta','personalizada']`.
+- Los parámetros de URL - `?param-uno=ValorParamUno&param-dos=ValorParamDos` se analizan y son accesibles a través de `results.queryParameters.NOMBRE-PARAMETRO` del desencadenador.
 
 <Screenshot
   filename="integrations/sending-data-to-webhook-triggers.png"
-  alt="Screenshot of Sending Data to Webhook Triggers"
+  alt="Captura de pantalla de envío de datos a Webhook Triggers"
   maxWidth="600px"
 />
 
-### Posting binary data with webhook triggers
+### Envío de datos binarios con disparadores webhook
 
-If you have binary data (like an image or PDF) that you would like to post as part of your webhook invocation, you can pass that binary data in as part of your request.
-For example, if you have an image, `my-image.png`, you could invoke a test of an integration with:
+Si tienes datos binarios (como una imagen o PDF) que te gustaría enviar como parte de tu invocación de webhook, puedes pasar esos datos binarios como parte de tu solicitud. Por ejemplo, si tienes una imagen, `mi-imagen.png`, podrías invocar una prueba de una integración con:
+
 
 ```bash
 curl 'https://hooks..io/trigger/EXAMPLE==' \
@@ -336,13 +336,15 @@ curl 'https://hooks..io/trigger/EXAMPLE==' \
   --data-binary '@/path/to/my-image.png'
 ```
 
-The binary file can be accessed by subsequent steps by referencing `integrationTrigger.results.body.data`.
+El archivo binario se puede acceder en pasos posteriores haciendo referencia a `integrationTrigger.results.body.data`.
 
-### Posting multipart data with webhook triggers
 
-It's useful to be able to post a combination of binary and text data to a webhook.
-For example, you might want to post information about a person, as well as an avatar image of the person, to be processed by an integration.
-To do that, use a content type of `multipart/form-data` with your webhook invocation:
+### Envío de datos multiparte con desencadenadores webhook
+
+Es útil poder enviar una combinación de datos binarios y de texto a un webhook.
+Por ejemplo, es posible que desee publicar información sobre una persona, así como una imagen de avatar de la persona, para ser procesada por una integración.
+Para hacer eso, utiliza un tipo de contenido `multipart/form-data` en tu invocación de webhook:
+
 
 ```bash
 curl 'https://hooks..io/trigger/EXAMPLE==' \
@@ -352,72 +354,78 @@ curl 'https://hooks..io/trigger/EXAMPLE==' \
   --form photo=@taylor.png
 ```
 
-The first name in this example is accessible by referencing the trigger's `results.body.data.person.data.firstname`, and the avatar image is accessible by referencing `results.body.data.photo`:
+En este ejemplo, el primer nombre es accesible al referenciar `results.body.data.person.data.firstname` en el desencadenador, y la imagen del avatar es accesible al referenciar `results.body.data.photo`:
+
 
 <Screenshot
   filename="integrations/webhook-multipart-payload.png"
   maxWidth="600px"
-  alt="Post multipart data with webhook triggers in  app"
+  alt="Publicar datos multiparte con webhook triggers en app"
 />
 
-### Accessing webhook URLs in an integration
+### Acceso a las URL de los webhooks en una integración
 
-An integration is aware of its own webhook URLs, and those URLs are accessible by referencing the trigger's `results.webhookUrls` object:
+Una integración es consciente de sus propias URL de webhook, y esas URL son accesibles al referenciar el objeto `results.webhookUrls` en el desencadenador:
+
 
 <Screenshot
   filename="integrations/webhook-urls-payload.png"
   maxWidth="650px"
-  alt="Access webhook URLS for integration in  app"
+  alt="Acceda a las URL de los webhooks para su integración en la aplicación"
 />
 
-This comes in handy if you need to configure a third-party service to send data to your webhooks.
-A common pattern is for one [flow](building-integrations.mdx#flows-in-integrations) of your integration to be run when an instance is deployed using a [deploy trigger](#deploy-trigger).
-That deploy-time flow can set up webhooks in a third-party app by referencing its trigger's `results.webhookUrls` values.
-Then, the third-party app will invoke the other flows of the integration when it needs to.
+Esto es útil si necesitas configurar un servicio de terceros para enviar datos a tus webhooks.
+Un patrón común es que un [flujo](building-integrations.mdx#flows-in-integrations) de tu integración se ejecute cuando se implementa una instancia utilizando un [disparador de implementación](#deploy-trigger).
+Ese flujo de tiempo de implementación puede configurar webhooks en una aplicación de terceros al hacer referencia a los valores de `results.webhookUrls` de su desencadenador.
+Luego, la aplicación de terceros invocará los otros flujos de la integración cuando sea necesario.
 
-If you use [shared endpoint configuration](endpoint-configuration.mdx), the shared endpoint URL is accessible from `results.invokeUrl`.
+Si utilizas [configuración de endpoint compartida](endpoint-configuration.mdx), la URL de endpoint compartida es accesible desde `results.invokeUrl`.
 
-If you set up [API keys](endpoint-configuration.mdx/#securing-endpoints-with-api-keys) for your deployed instances, you can access `results.webhookApiKeys` similarly.
-An instance's flow can have multiple API keys assigned to it, so each `results.webhookApiKeys.MY FLOW NAME` is an array.
-You will likely reference the first API key, `results.webhookApiKeys.MY FLOW NAME.0`.
+Si configuras [claves API](endpoint-configuration.mdx/#securing-endpoints-with-api-keys) para tus instancias implementadas, puedes acceder a `results.webhookApiKeys` de manera similar.
+Un flujo de una instancia puede tener varias claves API asignadas, por lo que cada `results.webhookApiKeys.NOMBRE DE MI FLUJO` es un array.
+Probablemente harás referencia a la primera clave API, `results.webhookApiKeys.NOMBRE DE MI FLUJO.0`.
 
-## Validating webhook payloads with HMAC
 
-**Hash-Based Message Authentication Code** (or HMAC) is an authentication mechanism often used by webhook providers to verify that a webhook message is legitimate.
-It helps to ensure that messages sent to a webhook endpoint originated from a particular third-party, and not from some bad actor on the internet.
+## Validación de cargas útiles de webhooks con HMAC
 
-### How does HMAC work?
+**Hash-Based Message Authentication Code** (o HMAC) es un mecanismo de autenticación utilizado a menudo por los proveedores de webhooks para verificar que un mensaje webhook es legítimo.
+Ayuda a garantizar que los mensajes enviados a un punto final de webhook proceden de un tercero en particular, y no de algún actor malintencionado en Internet.
 
-HMAC implementations can differ slightly from one another, but generally speaking when a webhook request is sent to an endpoint, the request's body is hashed using a **secret key** and [hash function](https://en.wikipedia.org/wiki/Cryptographic_hash_function).
-The resulting **hash** is sent with the webhook HTTP request as an HTTP header.
+### ¿Cómo funciona HMAC?
 
-When the webhook endpoint receives the HTTP request, it also generates a hash using same secret key and hash function.
-If the hash the receiver generates matches the hash that the sender sent, the webhook request is processed.
-If they don't match, the request is rejected.
+Las implementaciones de HMAC pueden diferir ligeramente entre sí, pero en términos generales, cuando se envía una solicitud de webhook a un endpoint, el cuerpo de la solicitud se hashiza utilizando una **clave secreta** y una [función de hash](https://es.wikipedia.org/wiki/Funci%C3%B3n_criptogr%C3%A1fica_de_resumen).
+El **hash** resultante se envía con la solicitud HTTP de webhook como una cabecera HTTP.
 
-In order to spoof a webhook request, someone would need to know the secret key that only the sender and receiver know.
-Without the secret key (even if a bad actor intercepted the webhook request), it'd be [nearly impossible](https://stackoverflow.com/questions/44472974/how-long-time-would-it-take-to-decrypt-a-sha256-hash) for a bad actor to reverse engineer the hash and send spoofed requests to a webhook endpoint.
+Cuando el endpoint de webhook recibe la solicitud HTTP, también genera un hash utilizando la misma clave secreta y función de hash.
+Si el hash que genera el receptor coincide con el hash que envió el remitente, se procesa la solicitud de webhook.
+Si no coinciden, se rechaza la solicitud.
 
-### Generating an HMAC hash
 
-You can configure your app to compute HMAC hashes and send them alongside your webhook requests.
-To generate a hash, you need three things:
+Para falsificar una solicitud de webhook, alguien tendría que conocer la clave secreta que solo conocen el remitente y el receptor.
+Sin la clave secreta (incluso si un actor malintencionado interceptara la solicitud de webhook), sería [casi imposible](https://stackoverflow.com/questions/44472974/how-long-time-would-it-take-to-decrypt-a-sha256-hash) que un actor malintencionado ingeniera inversa el hash y envíe solicitudes falsificadas a un endpoint de webhook.
 
-1. A request's **body** to hash.
-   The body can be any format (JSON, XML, CSV, etc).
-   For our example, let's say we have a JSON message that reads `{"item":"widget","quantity":5,"customer":"abc-123"}`.
-1. A **secret key** that only the third-party and knows.
-   For our example, we'll generate a random UUID string - `"AC49CB66-511F-4085-9119-360B1B142F4B"`
-1. A **hash function** to use (like MD5, SHA1, etc.).
-   The industry standard (which APIs like Dropbox, Shopify, Slack, etc. all use) is `SHA256` - we'll use that for our example, too.
 
-Next, reach for an HMAC library for the language that your app is written in (most modern languages have an HMAC or crypto library).
-Here's a few examples in a variety of languages:
+### Generar un hash HMAC
+
+Puedes configurar tu aplicación para que calcule hashes HMAC y los envíe junto con tus peticiones webhook.
+Para generar un hash, necesitas tres cosas:
+
+1. El **cuerpo** de la solicitud para hashear.
+   El cuerpo puede estar en cualquier formato (JSON, XML, CSV, etc.).
+   Para nuestro ejemplo, supongamos que tenemos un mensaje JSON que dice `{"item":"widget","quantity":5,"customer":"abc-123"}`.
+1. Una **clave secreta** que solo conoce el tercero.
+   Para nuestro ejemplo, generaremos una cadena UUID aleatoria: `"AC49CB66-511F-4085-9119-360B1B142F4B"`.
+1. Una **función hash** para utilizar (como MD5, SHA1, etc.).
+   El estándar de la industria (que utilizan API como Dropbox, Shopify, Slack, etc.) es `SHA256`; también lo usaremos para nuestro ejemplo.
+
+
+A continuación, busca una biblioteca HMAC para el lenguaje en el que está escrita tu aplicación (la mayoría de los lenguajes modernos tienen una biblioteca HMAC o criptográfica).
+Aquí tienes algunos ejemplos en varios lenguajes:
 
 <Tabs groupId="hmac-examples">
 <TabItem value="python" label="Python" default>
 
-```python title="HMAC example written in Python3"
+```python title="Ejemplo de HMAC escrito en Python3"
 import hmac
 import hashlib
 
@@ -432,7 +440,7 @@ print(hash.digest().hex()) # dc838d5b2ee53f55b5bcd77271505f52cd4c6c5123a867d9088
 </TabItem>
 <TabItem value="nodejs" label="NodeJS">
 
-```javascript title="HMAC example written in NodeJS"
+```javascript title="Ejemplo de HMAC escrito en NodeJS"
 const { createHmac } = require("crypto");
 
 const secret = "AC49CB66-511F-4085-9119-360B1B142F4B";
@@ -446,7 +454,7 @@ console.log(hash.digest("hex")); // dc838d5b2ee53f55b5bcd77271505f52cd4c6c5123a8
 </TabItem>
 <TabItem value="php" label="PHP">
 
-```php title="HMAC example written in PHP"
+```php title="Ejemplo de HMAC escrito en PHP"
 <?php
   $message   = '{"item":"widget","quantity":5,"customer":"abc-123"}';
   $secret    = 'AC49CB66-511F-4085-9119-360B1B142F4B';
@@ -460,7 +468,7 @@ console.log(hash.digest("hex")); // dc838d5b2ee53f55b5bcd77271505f52cd4c6c5123a8
 </TabItem>
 <TabItem value="go" label="Go">
 
-```go title="HMAC example written in Go"
+```go title="Ejemplo de HMAC escrito en Go"
 package main
 
 import (
@@ -485,8 +493,9 @@ func main() {
 </TabItem>
 </Tabs>
 
-Regardless of which language you use to generate the HMAC hash, you get the same result for our example - `dc838d5b2ee53f55b5bcd77271505f52cd4c6c5123a867d9088fb70ac580f5bf`.
-You can then pass the hash as an HTTP header to our webhook URL.
+Independientemente del lenguaje que uses para generar el hash HMAC, obtienes el mismo resultado para nuestro ejemplo: `dc838d5b2ee53f55b5bcd77271505f52cd4c6c5123a867d9088fb70ac580f5bf`.
+Luego puedes pasar el hash como encabezado HTTP a nuestra URL de webhook.
+
 
 ```bash
 curl https://hooks..io/example-uuid \
@@ -496,62 +505,66 @@ curl https://hooks..io/example-uuid \
   --data '{"item":"widget","quantity":5,"customer":"abc-123"}'
 ```
 
-**Can I include the HMAC hash in the body instead?**
-That's a common question, and the answer is a resounding **no**.
-By adding the HMAC hash to the body, you change the body... so a different body hash is computed... which requires you to change the body... (GOTO 10).
-An HMAC hash should be sent via a header.
+**¿Puedo incluir el hash HMAC en el cuerpo del mensaje?
+Es una pregunta habitual, y la respuesta es un rotundo **No**.
+Al añadir el hash HMAC al cuerpo, cambias el cuerpo... por lo que se calcula un hash de cuerpo diferente... lo que requiere que cambies el cuerpo... (GOTO 10).
+Un hash HMAC debe ser enviado a través de una cabecera.
 
-### Validating HMAC hashes in a trigger
+### Validación de hashes HMAC en un activador
 
-If your HMAC hash is generated from the HTTP payload's body, the secret signing key is a string, and the hash is included as a header, you can use the built-in [HMAC Webhook Trigger](components/hash.mdx#hmac-webhook-trigger) to validate payloads.
-Configure the trigger by setting the name of the header that contains the HMAC hash (e.g. `x-hmac-sha256`), the hashing function you used (e.g. `sha256`), and the secret key you used, and the trigger will accept payloads that are properly signed, and throw an error when payloads are not signed correctly.
-The trigger otherwise operates like the standard built-in webhook trigger.
+Si tu hash HMAC se genera a partir del cuerpo del payload HTTP, la clave de firma secreta es una cadena, y el hash se incluye como encabezado, puedes usar el [Desencadenador de Webhook HMAC](components/hash.mdx#hmac-webhook-trigger) integrado para validar los payloads.
+Configura el desencadenador estableciendo el nombre del encabezado que contiene el hash HMAC (por ejemplo, `x-hmac-sha256`), la función de hash que utilizaste (por ejemplo, `sha256`), y la clave secreta que usaste. El desencadenador aceptará los payloads que estén correctamente firmados y lanzará un error cuando los payloads no estén firmados correctamente.
+El desencadenador, de lo contrario, opera como el desencadenador de webhook integrado estándar.
 
-If the app you're integrating with deviates from standard HMAC signing practices, or if you need to respond to webhook requests with dynamic responses, you can build your own custom trigger that handles HMAC validation.
-Slack, for example, includes an additional parameter (a timestamp) in its HMAC computation, and expects a custom response from the webhook endpoint.
-You can read about how the Slack webhook trigger works in [this quickstart](quickstarts/custom-trigger-with-hmac.mdx).
+Si la aplicación con la que estás integrando se desvía de las prácticas estándar de firma HMAC, o si necesitas responder a las solicitudes de webhook con respuestas dinámicas, puedes construir tu propio desencadenador personalizado que maneje la validación HMAC. Slack, por ejemplo, incluye un parámetro adicional (un sello de tiempo) en su cálculo HMAC y espera una respuesta personalizada del punto final de webhook. Puedes leer sobre cómo funciona el desencadenador de webhook de Slack en [este inicio rápido](quickstarts/custom-trigger-with-hmac.mdx).
 
-## Instance deploy trigger
 
-An integration flow can be configured to be run when an instance of the integration is [deployed](instances.mdx#deploying-instances).
-To do that, click your trigger and then click **CHANGE TRIGGER**.
-Choose to replace your trigger with a [Management Triggers - Instance Deploy](components/management-triggers.mdx#instance-deploy) trigger.
-This will cause your current flow to run whenever the integration is deployed as an instance to a customer.
+## Activador de despliegue de instancias
 
-This is handy if your integration needs to complete a series of tasks when its deployed.
-For example, your integration might need to configure a third-party app to send data to the other flows' webhooks.
-Or, your integration might need to enable features in a third-party app or create a series of directories in a file share before the integration is invoked.
+Un flujo de integración puede configurarse para ejecutarse cuando se [implementa](instances.mdx#deploying-instances) una instancia de la integración.
+Para hacerlo, haz clic en tu desencadenador y luego haz clic en **CAMBIAR DESENCADENADOR**.
+Elige reemplazar tu desencadenador con un [Desencadenador de Gestión - Implementación de Instancia](components/management-triggers.mdx#instance-deploy).
+Esto hará que tu flujo actual se ejecute cada vez que la integración se implemente como una instancia para un cliente.
 
-If there are tasks that need to occur when an instance is deployed, set up those tasks as a flow and configure the trigger to run at deploy time.
+Esto es útil si tu integración necesita completar una serie de tareas cuando se implementa.
+Por ejemplo, tu integración podría necesitar configurar una aplicación de terceros para enviar datos a los webhooks de otros flujos.
+O tu integración podría necesitar habilitar funciones en una aplicación de terceros o crear una serie de directorios en un recurso compartido de archivos antes de que se invoque la integración.
 
-**For More Information**:
-[Multiple Flows with a Deploy Trigger](quickstarts/building-an-integration-with-multiple-flows.mdx)
+Si hay tareas que deben ocurrir cuando se implementa una instancia, configura esas tareas como un flujo y ajusta el desencadenador para que se ejecute en el momento de la implementación.
 
-## Instance remove trigger
 
-The opposite of an [instance deploy trigger](#instance-deploy-trigger) is an [instance remove](components/management-triggers.mdx#instance-remove) trigger.
-Flows with this trigger run when an instance is removed (deleted), and can be used to clean up webhooks and other configuration that an instance deploy trigger created.
+**Para más información**:
+[Flujos Múltiples con un Desencadenador de Implementación](quickstarts/building-an-integration-with-multiple-flows.mdx)
 
-## Custom triggers
 
-You can [build your own triggers](custom-components/writing-custom-components.mdx#writing-triggers) as part of a custom component.
-This is helpful if you need to generate dynamic responses to webhook requests, or do HMAC or other payload validation before your integration runs.
+## Desencadenante de eliminación de instancia
 
-## Synchronous and asynchronous integrations
+La opuesta de un [desencadenador de implementación de instancia](#instance-deploy-trigger) es un [desencadenador de eliminación de instancia](components/management-triggers.mdx#instance-remove).
+Los flujos con este desencadenador se ejecutan cuando se elimina (borra) una instancia y se pueden utilizar para limpiar webhooks y otras configuraciones que un desencadenador de implementación de instancia creó.
 
-Integrations are configured by default to run **asynchronously**.
-That means that whenever an integration is invoked by trigger webhook URL, the integration begins to run and the system that invoked the integration can go on to complete other work.
-This is the most common case for integrations - you want to start up an instance when some certain event occurs, but you don't want to wait around while the instance runs.
+## Desencadenadores personalizados
 
-Sometimes, though, it's handy for an application to get information back from the instance that was invoked.
-For example, you might want your proprietary software to wait until an instance runs to completion before completing other work.
-In that case, you can choose to run your integration **synchronously**.
-Then, when your software makes a call to the instance's webhook trigger URL the HTTP request is held open until the instance run is complete.
+Puedes [crear tus propios desencadenadores](custom-components/writing-custom-components.mdx#writing-triggers) como parte de un componente personalizado.
+Esto es útil si necesitas generar respuestas dinámicas a las solicitudes de webhook o realizar validación de HMAC u otras validaciones de carga útil antes de que se ejecute tu integración.
 
-<Vimeo title="How to Run Integrations Synchronously" video="505768225" />
 
-When you choose to run your integrations **synchronously**, the HTTP request that invokes an instance returns a _redirect_ to a URL containing the output results of the final step of the integration.
-For example, if the final step of your integration pulls down JSON from https://jsonplaceholder.typicode.com/users/1, you will see this when you invoke the integration synchronously:
+## Integraciones síncronas y asíncronas
+
+Las integraciones están configuradas de forma predeterminada para ejecutarse de forma **asincrónica**.
+Esto significa que cada vez que se invoca una integración mediante la URL del webhook del desencadenador, la integración comienza a ejecutarse y el sistema que invocó la integración puede continuar realizando otras tareas.
+Este es el caso más común para las integraciones: deseas iniciar una instancia cuando ocurre algún evento específico, pero no quieres esperar mientras la instancia se ejecuta.
+
+Sin embargo, a veces es útil que una aplicación reciba información de vuelta de la instancia que se invocó.
+Por ejemplo, es posible que desees que tu software propietario espere hasta que se complete una instancia antes de realizar otras tareas.
+En ese caso, puedes optar por ejecutar tu integración de forma **sincrónica**.
+Entonces, cuando tu software realiza una llamada a la URL del webhook del desencadenador de la instancia, la solicitud HTTP se mantiene abierta hasta que se complete la ejecución de la instancia.
+
+
+<Vimeo title="Cómo ejecutar integraciones de forma sincrónica" video="505768225" />
+
+Cuando eliges ejecutar tus integraciones de forma **sincrónica**, la solicitud HTTP que invoca una instancia devuelve una _redirección_ a una URL que contiene los resultados de salida del último paso de la integración.
+Por ejemplo, si el último paso de tu integración obtiene JSON desde https://jsonplaceholder.typicode.com/users/1, verás esto al invocar la integración de forma sincrónica:
+
 
 ```bash
 curl 'https://hooks..io/trigger/EXAMPLE==' \
@@ -563,9 +576,9 @@ curl 'https://hooks..io/trigger/EXAMPLE==' \
 {"id":1,"name":"Leanne Graham","username":"Bret","email":"Sincere@april.biz","address":{"street":"Kulas Light","suite":"Apt. 556","city":"Gwenborough","zipcode":"92998-3874","geo":{"lat":"-37.3159","lng":"81.1496"}},"phone":"1-770-736-8031 x56442","website":"hildegard.org","company":{"name":"Romaguera-Crona","catchPhrase":"Multi-layered client-server neural-net","bs":"harness real-time e-markets"}}
 ```
 
-You can toggle if your integration is synchronous or asynchronous by clicking the trigger and selecting a **Response Type**.
+Puede alternar si su integración es sincrónica o asincrónica haciendo clic en el activador y seleccionando un **Tipo de respuesta**.
 
-You can also pass in a header, `-synchronous` with a webhook invocation to instruct your instance to run synchronously or asynchronously:
+También puedes incluir un encabezado, `-synchronous`, al realizar una invocación webhook para indicar que tu instancia se ejecute de forma sincrónica o asíncrona:
 
 ```bash
 curl 'https://hooks..io/trigger/EXAMPLE==' \
@@ -573,21 +586,20 @@ curl 'https://hooks..io/trigger/EXAMPLE==' \
   --request POST
 ```
 
-#### Synchronous invocations and redirects
+#### Invocaciones síncronas y redireccionamientos
 
-When you invoke an instance synchronously, the output of the final step of your integration is written to Amazon S3.
-The HTTP request that invoked the integration execution then receives a response that redirects them to the file in Amazon S3.
-We do this because Amazon's API Gateway has a 10MB limit on HTTP responses, and step results may exceed 10MB - S3 has no such size limit.
+Cuando invocas una instancia de forma sincrónica, la salida del paso final de tu integración se guarda en Amazon S3.
+La solicitud HTTP que invocó la ejecución de la integración recibe luego una respuesta que redirige a la ubicación del archivo en Amazon S3.
+Hacemos esto porque la API Gateway de Amazon tiene un límite de 10 MB en las respuestas HTTP, y los resultados de los pasos pueden superar los 10 MB. S3 no tiene tal límite de tamaño.
 
-Because of this redirection, you should make sure that your request library is configured to follow HTTP status code 303 redirects.
-For `curl`, for example, include a `-L / --location` flag so it follows redirects.
+Debido a esta redirección, asegúrate de que tu biblioteca de solicitudes esté configurada para seguir las redirecciones de los códigos de estado HTTP 303. Por ejemplo, para `curl`, incluye la bandera `-L / --location` para que siga las redirecciones.
 
-If the party initiating the instance execution request does not support following redirects, they can pass an optional header, `-prefer-direct-sync-response: true` with their request to skip the redirect to S3, and return the response directly.
-_Note_: This only works for step results less than 5MB in size, and your last step's results must be text-like (i.e. JSON, XML, plain text, etc - not a binary file).
-If your final step's output is greater than 5MB, they'll be redirected to S3.
-This works well if your final step's result is text.
+Si la parte que inicia la solicitud de ejecución de la instancia no admite el seguimiento de redirecciones, pueden pasar un encabezado opcional, `-prefer-direct-sync-response: true`, con su solicitud para omitir la redirección a S3 y devolver la respuesta directamente.
+_Nota_: Esto solo funciona para resultados de pasos menores de 5 MB y los resultados del último paso deben ser de tipo texto (es decir, JSON, XML, texto sin formato, etc., y no un archivo binario).
+Si la salida del último paso es mayor de 5 MB, se redirigirán a S3. Esto funciona bien si el resultado del último paso es texto.
 
-```bash title="Skip the redirect to Amazon S3"
+
+```bash title="Omitir la redirección a Amazon S3"
 curl 'https://hooks..io/trigger/EXAMPLE==' \
   --header "-synchronous: true" \
   --header "-prefer-direct-sync-response: true" \
@@ -595,15 +607,16 @@ curl 'https://hooks..io/trigger/EXAMPLE==' \
   --data "{}"
 ```
 
-If the third-party also doesn't support custom headers, you can append `-prefer-direct-sync-response=true` as a search parameter:
+Si el tercero tampoco admite encabezados personalizados, puedes agregar `-prefer-direct-sync-response=true` como un parámetro de búsqueda:
 
-```bash title="Skip the redirect to Amazon S3 with a search parameter"
+
+```bash title="Omitir la redirección a Amazon S3 con un parámetro de búsqueda"
 curl 'https://hooks..io/trigger/EXAMPLE==?-prefer-direct-sync-response=true'
 ```
 
-:::tip Response content type
-You can control the `content-type` of the response by adding a `contentType` property to your last step's result.
-For example,
+:::tip Tipo de contenido de la respuesta
+Puedes controlar el `content-type` de la respuesta agregando una propiedad `contentType` al resultado de tu último paso. Por ejemplo:
+
 
 ```typescript
 const returnData = `<note>
@@ -621,18 +634,15 @@ return {
 
 :::
 
-### HTTP status codes for synchronous integrations
+### Códigos de estado HTTP para integraciones síncronas
 
-When an instance is configured to run synchronously or is invoked synchronously with the `-synchronous` header, the HTTP response returns a status code `200 - OK` by default.
-It's sometimes useful, though, to return other HTTP status codes.
-For example, if a client submits wrongly formatted data to be processed by an instance, it might be helpful to return a `406 - Not Acceptible` or `415 - Unsupported Media Type`.
+Cuando una instancia está configurada para ejecutarse de forma síncrona o se invoca de forma síncrona con la cabecera `-synchronous`, la respuesta HTTP devuelve un código de estado `200 - OK` por defecto. Sin embargo, a veces es útil devolver otros códigos de estado HTTP. Por ejemplo, si un cliente envía datos con un formato incorrecto para ser procesado por una instancia, podría ser útil devolver un `406 - Not Acceptible` o `415 - Unsupported Media Type`.
 
-To accomplish this, you can configure the final step of your integration to return a different status code.
-Most commonly, you can add a [Stop Execution](components/stop-execution.mdx) step to the end of your integration, and specify an HTTP response that it should return.
+Para lograr esto, puedes configurar el último paso de tu integración para devolver un código de estado diferente. Comúnmente, puedes agregar un paso [Stop Execution](components/stop-execution.mdx) al final de tu integración y especificar una respuesta HTTP que debería devolver.
 
 <Screenshot
   filename="integrations/stop-execution-status-code.png"
-  alt="Configure HTTP status codes for synchronous integrations in  app"
+  alt="Configurar códigos de estado HTTP para integraciones síncronas en la aplicación"
 />
 
 ```bash
@@ -649,26 +659,28 @@ $ curl 'https://hooks..io/trigger/EXAMPLE==' \
 < HTTP/2 415
 ```
 
-If you would like to return HTTP status codes from a custom component at the end of your integration instead, return an object with a `statusCode` attribute instead of a `data` attribute:
+Si deseas devolver códigos de estado HTTP desde un componente personalizado al final de tu integración, devuelve un objeto con un atributo `statusCode` en lugar de un atributo `data`:
 
 ```javascript
 return { statusCode: 415 };
 ```
 
-### Synchronous call limitations
+### Limitaciones de las llamadas síncronas
 
-#### Response body and status code limitations
+#### Limitaciones del cuerpo de la respuesta y del código de estado
 
-When an integration is invoked synchronously, the integration redirects the caller to a URL containing the output results of the final step of the integration.
-If the final step of the integration is a [Stop Execution](components/stop-execution.mdx) action, or any custom component action that returns a `statusCode`, the redirect does not occur and the caller receives a `null` response body instead.
+Cuando se invoca una integración de manera síncrona, la integración redirige al solicitante a una URL que contiene los resultados de la última acción de la integración.
+Si la última acción de la integración es una [Detener ejecución](components/stop-execution.mdx) u otra acción de un componente personalizado que devuelve un `statusCode`, la redirección no ocurre y el solicitante recibe un cuerpo de respuesta `null` en su lugar.
 
-#### API gateway size and time limitations
+#### Limitaciones de tamaño y tiempo de la puerta de enlace de la API
 
-AWS API Gateway times out requests after 29 seconds, and our maximum response size is 500MB.
-So, to get a response from an instance that is invoked synchronously, please ensure that your integration runs in under 29 seconds and produces a final step payload of less that 500MB.
+AWS API Gateway agota las solicitudes después de 29 segundos, y nuestro tamaño máximo de respuesta es de 500 MB.
+Entonces, para obtener una respuesta de una instancia que se invoca de manera síncrona, asegúrate de que tu integración se ejecute en menos de 29 segundos y produzca un resultado de la última acción de menos de 500 MB.
 
-If your integration regularly takes over 29 seconds to run, or produces large responses, we recommend that you run your integrations asynchronously instead.
-When you invoke an integration asynchronously you receive an `executionId`:
+
+Si tu integración regularmente tarda más de 29 segundos en ejecutarse o produce respuestas grandes, te recomendamos que ejecutes tus integraciones de manera asíncrona en su lugar.
+Cuando invocas una integración de manera asíncrona, recibes un `executionId`:
+
 
 ```bash
 curl 'https://hooks..io/trigger/EXAMPLE==' \
@@ -678,12 +690,13 @@ curl 'https://hooks..io/trigger/EXAMPLE==' \
 {"executionId":"SW5zdGFuY2VFeGVjdXRpb25SZXN1bHQ6OTdiNWQxYmEtZGUyZi00ZDY4LWIyMTgtMDFlZGMwMTQxNTM5"}
 ```
 
-That execution ID can be exchanged later with the API for logs and step results using the [executionResult](api/schema/query/executionResult.mdx) GraphQL mutation.
+Ese ID de ejecución se puede intercambiar más tarde con la API para obtener registros y resultados de pasos utilizando la mutación GraphQL [executionResult](api/schema/query/executionResult.mdx).
 
-## Ensuring webhook ordering with a FIFO queue
 
-'s integration runner is designed to process requests in parallel.
-If you invoke an integration with multiple requests in quick succession, the runner will scale and process all of the requests at the same time.
+## Asegurar el orden de los webhooks con una cola FIFO
 
-If you have a workflow that requires requests to be processed in a specific order, or a workflow that requires you to process only one record at a time, you'll need to take some extra steps to ensure that the requests are processed sequentially.
-Check out our [FIFO Queue](quickstarts/fifo-queue.mdx) tutorial for more information.
+El ejecutor de integración está diseñado para procesar solicitudes en paralelo.
+Si invocas una integración con múltiples solicitudes de manera rápida, el ejecutor se escalonará y procesará todas las solicitudes al mismo tiempo.
+
+Si tienes un flujo de trabajo que requiere que las solicitudes se procesen en un orden específico o un flujo de trabajo que requiere procesar solo un registro a la vez, deberás tomar algunos pasos adicionales para asegurar que las solicitudes se procesen de manera secuencial.
+Consulta nuestro tutorial [FIFO Queue](quickstarts/fifo-queue.mdx) para obtener más información.
