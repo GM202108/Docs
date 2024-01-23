@@ -44,53 +44,49 @@ Esto es útil para la depuración y la verificación del flujo de datos dentro d
   alt="Salidas escalonadas para las pruebas en la aplicación"
 />
 
-## Test run logs
+## Registros de ejecución de pruebas
 
-Output for your test run is displayed under the **Logs** tab in the **Test Runner** drawer.
-If any of your steps log output or throw errors, you will see those logs and errors in this window.
+Los resultados de la ejecución de la prueba se muestran en la pestaña **Logs** del cajón **Test Runner**.
+Si alguno de los pasos registra salida o arroja errores, verá esos registros y errores en esta ventana.
 
 <Screenshot
   filename="shared/test-logs.png"
   maxWidth="400px"
-  alt="Logs for tests in  app"
+  alt="Registros de pruebas en la aplicación"
 />
 
-**For More Information**:
-[Logging](logging.mdx),
-[Log Retention](logging.mdx#log-retention)
+**Para más información**:
+[Registro de Actividad](logging.mdx) y [Retención de Registros](logging.mdx#retención-de-registros).
 
-## Testing a webhook trigger
+## Probar un activador webhook
 
-An integration can be invoked via webhook.
-This is useful if you have a third-party system that sends data to an integration to be processed.
+Una integración puede ser invocada vía webhook.
+Esto es útil si tienes un sistema de terceros que envía datos a una integración para ser procesados.
 
-To test a webhook invocation of an integration, open the **Trigger** tab of the **Test Runner** drawer and take note of the "POST URL".
+Para probar una invocación webhook de una integración, abre la pestaña **Trigger** del cajón **Test Runner** y toma nota de la "POST URL".
 
 <Screenshot
   filename="integrations/test-trigger.png"
   maxWidth="600px"
-  alt="Test webhook trigger in  app"
+  alt="Probar el activador webhook en la aplicación"
 />
 
-You can use that URL to invoke a test of your integration, just as you would to invoke an execution of a deployed instance - see our [webhook trigger](integration-triggers.mdx#webhook-triggers) docs.
-You can also specify a **test payload body** to be processed by the integration, and if your integration requires custom HTTP **headers**, those can be specified under the test payload body.
+Puedes utilizar esa URL para invocar una prueba de tu integración, de la misma manera en que invocarías una ejecución de una instancia desplegada. Consulta nuestra documentación sobre [triggers de webhook](integration-triggers.mdx#triggers-de-webhook) para obtener más información.
+También puedes especificar un **cuerpo de carga de prueba** que será procesado por la integración. Si tu integración requiere **encabezados HTTP** personalizados, estos se pueden especificar en el cuerpo de carga de prueba.
 
-### Replaying test invocations
+### Repetición de invocaciones de prueba
 
-:::tip Time-saving tip
-Just like [instance replays](instances.mdx#instance-execution-retry-and-replay), you can replay a test integration invocation.
-That comes in handy if you are testing an integration invocation from a third-party app.
-You don't need to set up your third-party environment every time - you can fire off a webhook invocation once from your third-party app with a payload, and run that same payload through your integration until you're happy with the results.
+:::tip Consejo para ahorrar tiempo
+Al igual que con las [reproducciones de instancias](instances.mdx#reproduccion-y-repeticion-de-ejecucion-de-instances), puedes repetir una invocación de prueba de integración. Esto es útil cuando estás probando una invocación de integración desde una aplicación de terceros. No necesitas configurar tu entorno de terceros cada vez: puedes enviar una invocación de webhook una vez desde tu aplicación de terceros con una carga útil, y ejecutar esa misma carga a través de tu integración hasta que estés satisfecho con los resultados.
 :::
 
-To replay a test integration invocation, open the **Test Runner** drawer and click into the **Runner** tab.
-Click the <Icon>replay</Icon> icon to the right of the test that you would like to replay.
+Para reproducir una invocación de prueba de integración, abre el cajón **Test Runner** y haz clic en la pestaña **Runner**. Haz clic en el icono de <Icon>repetir</Icon> a la derecha de la prueba que deseas reproducir.
 
 <Screenshot
   filename="integrations/test-integration-replay.png"
   maxWidth="500px"
-  alt="Replay test integration invocation in  app"
+  alt="Repetición de la invocación de la prueba de integración en la aplicación"
 />
 
-The payload that was sent to trigger this integration test will be fed back into another test of the integration.
-This allows you to make changes to your integration and iterate quickly, without needing to reconfigure your third-party apps and services to fire new webhook requests over and over.
+La carga útil que se envió para activar esta prueba de integración se devolverá a otra prueba de la integración.
+Esto te permite realizar cambios en la integración e iterar rápidamente, sin necesidad de reconfigurar las aplicaciones y servicios de terceros para que lancen nuevas solicitudes de webhook una y otra vez.

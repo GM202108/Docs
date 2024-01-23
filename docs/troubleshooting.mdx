@@ -1,26 +1,22 @@
 ---
 id: troubleshooting
-title: Troubleshooting Integrations
-description: Troubleshooting integrations, common error messages, and how to fix them
+title: Resolución de problemas de integración
+description: Resolución de problemas de integración, mensajes de error habituales y cómo solucionarlos
 ---
 
-## Common Error Messages
+## Mensajes de error comunes
 
-This page outlines common error messages that you may see, and how to fix them.
+En esta página se describen los mensajes de error más comunes y cómo solucionarlos.
 
-### P10001: Result too large to serialize
+### P10001: Resultado demasiado grande para serializar
 
-You may see this error when dealing with large files (greater than 128MB) due to limitations on how large a JavaScript `Buffer` can be.
-Reduce the size of your step result if possible.
+Es posible que veas este error al trabajar con archivos grandes (mayores de 128MB) debido a las limitaciones en el tamaño que puede tener un `Buffer` de JavaScript. Reduce el tamaño de tu resultado de paso si es posible.
 
-### P10002: Result contains non-serializable functions
+### P10002: El resultado contiene funciones no serializables
 
-You may see this error if your step result contains JavaScript functions.
-serializes step results using [MessagePack](https://msgpack.org/index.html).
-JavaScript functions are non-serializable.
-So, you cannot `return { data: { foo: () => "" } }`, for example.
+Puedes ver este error si tu resultado de paso contiene funciones JavaScript. El sistema serializa los resultados de paso usando [MessagePack](https://msgpack.org/index.html). Las funciones JavaScript no son serializables, por lo que no puedes hacer algo como `return { data: { foo: () => "" } }`, por ejemplo.
 
-As a work-around, you can JSON stringify and JSON parse an object, and functions will be automatically removed.
+Como solución alternativa, puedes utilizar `JSON.stringify` y `JSON.parse` en un objeto, y las funciones se eliminarán automáticamente.
 
 ```typescript
 const myReturnValue = {
@@ -34,9 +30,6 @@ const sanitizedResults = JSON.parse(JSON.stringify(myReturnValue));
 return { data: sanitizedResults }; // Returns {foo: 123, bar: "Hello, World"}
 ```
 
-### P10003: Error serializing step results
+### P10003: Error al serializar los resultados de los pasos
 
-An unknown error occurred when serializing your step results.
-serializes step results using [MessagePack](https://msgpack.org/index.html).
-MessagePack supports a number of complex and primitive types (numbers, strings, objects, arrays, Buffers, null, etc).
-Ensure that the data you are returning is included in the [MessagePack spec](https://github.com/msgpack/msgpack/blob/master/spec.md).
+Ocurrió un error desconocido al serializar los resultados de tu paso. El sistema serializa los resultados de paso utilizando [MessagePack](https://msgpack.org/index.html). MessagePack admite varios tipos complejos y primitivos (números, cadenas, objetos, matrices, Buffers, null, etc.). Asegúrate de que los datos que estás devolviendo estén incluidos en la [especificación de MessagePack](https://github.com/msgpack/msgpack/blob/master/spec.md).
