@@ -1,75 +1,75 @@
 ---
 id: version-your-components-integrations
-title: Version Your Components and Integrations
-description: supports versioning of both the components and the integrations. Here's how that works and what you can do with versioning.
+title: Versione sus componentes e integraciones
+description: Admite el versionado tanto de los componentes como de las integraciones. A continuación te explicamos cómo funciona y qué puedes hacer con el versionado.
 ---
 
 import Screenshot from "@site/src/components/screenshot";
 
-In a perfect world, you wouldn't need to version anything for integrations. Your team would get it right the first time it built a component or an integration and no one would ever change anything. Unfortunately, none of us live in a perfect world. Fortunately, we have a good solution for managing component and integration versions in .
+En un mundo perfecto, no sería necesario versionar nada para las integraciones. Tu equipo lo haría bien la primera vez que construyera un componente o una integración, y nadie cambiaría nada nunca. Desafortunadamente, ninguno de nosotros vive en un mundo perfecto. Afortunadamente, tenemos una buena solución para gestionar las versiones de componentes e integraciones en .
 
-We have largely built best-practices for versioning into the platform, to ensure that it is easy for your to determine what versions of components and integrations are available but also to know which ones are currently deployed. In addition, there are some steps you can take to make best use of the versioning functionality and we call those out in the following sections.
+Hemos integrado en gran medida las mejores prácticas para la versión en la plataforma, para asegurarnos de que sea fácil para ti determinar qué versiones de componentes e integraciones están disponibles, pero también para saber cuáles están actualmente implementadas. Además, hay algunos pasos que puedes seguir para hacer un mejor uso de la funcionalidad de versionado, y los señalamos en las siguientes secciones.
 
-## How components are versioned in
+## Cómo se versionan los componentes en 
 
-Integrations in are largely built by stringing components together. Built-in components (like [SFTP](/docs/components/sftp/)) can be used in any number of integrations, but so can each of your custom components.
+Las integraciones en se construyen en gran medida ensamblando componentes. Los componentes integrados (como [SFTP](/docs/components/sftp/)) pueden utilizarse en cualquier número de integraciones, pero lo mismo ocurre con cada uno de tus componentes personalizados.
 
-The drawback of using the same component in different integrations is that someone might add new functionality or otherwise modify component code to fix/do something they need for their integration, but in doing so may inadvertently break another integration. That's not good.
+La desventaja de usar el mismo componente en diferentes integraciones es que alguien podría agregar nueva funcionalidad o modificar el código del componente para solucionar/hacer algo que necesitan para su integración, pero al hacerlo, podría romper inadvertidamente otra integración. Eso no es bueno.
 
-The good thing is that all the components (whether built-in or custom) are versioned. Each time you run `prism components:publish` on one of your custom components, publishes a new version of the component as V2, V3, etc.
+Lo bueno es que todos los componentes (ya sean integrados o personalizados) tienen versiones. Cada vez que ejecutas `prism components:publish` en uno de tus componentes personalizados, publica una nueva versión del componente como V2, V3, etc.
 
-When a new version of a component is available, you'll see a notification in the integration designer.
+Cuando hay una nueva versión de un componente disponible, verás una notificación en el diseñador de integraciones.
 
 <Screenshot
   filename="best-practices/component-version-notification.png"
   maxWidth="400px"
-  alt="Integration designer with component version notification"
+  alt="Diseñador de integración con notificación de versión de componentes"
 />
 
-At this point, you may click the notification to see what components have newer versions available and update the components to use them, as needed.
+En este punto, puede hacer clic en la notificación para ver qué componentes tienen versiones más recientes disponibles y actualizar los componentes para utilizarlas, según sea necesario.
 
 <Screenshot
   filename="best-practices/component-versions.png"
   maxWidth="600px"
-  alt="Integration designer with component version selection"
+  alt="Diseñador de integración con selección de versiones de componentes"
 />
 
-Built-in components work the same way. regularly adds new actions and otherwise modifies components to improve functionality, but you determine if you want to stay with the component version you are currently using, or update a given integration to use a newer version.
+Los componentes integrados funcionan de la misma manera. regularmente agrega nuevas acciones y modifica componentes de otra manera para mejorar la funcionalidad, pero tú determinas si deseas quedarte con la versión del componente que estás utilizando actualmente o actualizar una integración específica para usar una versión más nueva.
 
-### What you can do with component versioning
+### Qué puedes hacer con la versión de componentes
 
-Use `prism components:publish --comment "Whatever the comment is"` to add a description to a given version of a component. This makes is simpler for someone else to know changes a specific version has.
+Usa `prism components:publish --comment "Cualquier comentario"` para agregar una descripción a una versión específica de un componente. Esto facilita que otra persona conozca los cambios que tiene una versión específica.
 
-It's important to note that integrations are _not_ automatically updated to use the latest version of your component. This ensures that a member of your team won't update a custom component and break an integration that you (or someone else) is using. Instead, you can choose to update integrations to newer versions of components and test those versions when it is convenient for you.
+Es importante tener en cuenta que las integraciones _no_ se actualizan automáticamente para utilizar la última versión de tu componente. Esto asegura que un miembro de tu equipo no actualice un componente personalizado y rompa una integración que tú (o alguien más) está utilizando. En su lugar, puedes optar por actualizar integraciones a versiones más recientes de componentes y probar esas versiones cuando te resulte conveniente.
 
-## How integrations are versioned in
+## Cómo se versionan las integraciones en 
 
-Integrations, like components, may also be versioned. When you've created/modified and then tested an integration and you click "Save & Publish," the system increments the version by 1. An original integration will have V1, followed by V2, etc.
+Las integraciones, al igual que los componentes, también pueden tener versiones. Cuando has creado/modificado y luego probado una integración y haces clic en "Guardar y publicar", el sistema incrementa la versión en 1. Una integración original tendrá V1, seguida de V2, etc.
 
 <Screenshot
   filename="best-practices/integration-version.png"
   maxWidth="400px"
-  alt="Integration designer with integration version"
+  alt="Diseñador de integración con versión de integración"
 />
 
-As with versioning a component, versioning an integration does not automatically deploy that version to customers. As noted, automatic deployment could be very bad, since a change to an integration for one customer might break something for another. Not all customers may be on the newest version of your integration; some may be using a legacy version of a third-party service which requires them to stay on their current integration version.
+Al igual que con la versión de un componente, la versión de una integración no se implementa automáticamente en los clientes. Como se señaló, la implementación automática podría ser muy perjudicial, ya que un cambio en una integración para un cliente podría romper algo para otro. No todos los clientes pueden estar en la versión más reciente de tu integración; algunos pueden estar utilizando una versión heredada de un servicio de terceros que les obliga a mantener su versión actual de integración.
 
-Instead, your customer-facing team decides who gets which version and when — with no need to rely on dev or DevOps to make the updates. Team members can simply select the desired integration version from the available list in the Config Wizard, enter any needed configuration data and click "Next" or "Finish."
+En cambio, tu equipo de atención al cliente decide quién recibe qué versión y cuándo, sin necesidad de depender de los desarrolladores o de DevOps para realizar las actualizaciones. Los miembros del equipo simplemente pueden seleccionar la versión de integración deseada de la lista disponible en el Asistente de Configuración, ingresar cualquier dato de configuración necesario y hacer clic en "Siguiente" o "Finalizar".
 
 <Screenshot
   filename="best-practices/instance-version.png"
   maxWidth="600px"
-  alt="Integration designer with instance version"
+  alt="Diseñador de integración con versión de instancia"
 />
 
-If something should go wrong when you switch a customer to a new version of the integration, you can easily revert to the prior version of the integration by following a similar process. Simply click "Reconfigure," select the correct version of the integration, and click "Save and Deploy" once again. In a few seconds, everything is back the way it used to be.
+Si algo sale mal al cambiar a un cliente a una nueva versión de la integración, puedes revertir fácilmente a la versión anterior de la integración siguiendo un proceso similar. Simplemente haz clic en "Reconfigurar", selecciona la versión correcta de la integración y haz clic en "Guardar y Desplegar" una vez más. En pocos segundos, todo vuelve a ser como solía ser.
 
-### What you can do to with integration versioning
+### Qué puedes hacer con la versión de la integración
 
-Each time you publish a version, you can include a comment (basically a commit message) summarizing the changes.
+Cada vez que publicas una versión, puedes incluir un comentario (básicamente un mensaje de confirmación) resumiendo los cambios.
 
-Ideally (to make maintenance sane), you'll want to keep customers on newer versions of integrations. To support that, you can mark any version of an integration as deprecated (using the integrations Version History drawer). Once a version is deprecated, it will still show in the list, but will not be selectable by your team or customers for deployment/activation.
+Idealmente (para facilitar el mantenimiento), querrás mantener a los clientes en versiones más nuevas de las integraciones. Para respaldar eso, puedes marcar cualquier versión de una integración como obsoleta (usando el cajón de Historial de versiones de las integraciones). Una vez que una versión está marcada como obsoleta, seguirá mostrándose en la lista, pero no será seleccionable por tu equipo ni por los clientes para implementación/activación.
 
-If you know for certain that you want all your customers to be updated to the current version, you can click "Update all Instances" in the version drawer.
+Si sabes con certeza que quieres que todos tus clientes se actualicen a la versión actual, puedes hacer clic en "Actualizar todas las instancias" en el cajón de versiones.
 
-Only one version of a given integration is can be made available in the [marketplace](/docs/integration-marketplace/), but that's not automatically updated (since nothing is automatically updated) when a new version is created. You can have your team deploy a new version of an integration internally for testing, but only allow your customers to update their instances via the marketplace when that QA is complete.
+Solo una versión de una integración dada puede estar disponible en el [marketplace](/docs/integration-marketplace/), pero eso no se actualiza automáticamente (ya que nada se actualiza automáticamente) cuando se crea una nueva versión. Puedes hacer que tu equipo implemente una nueva versión de una integración internamente para realizar pruebas, pero solo permitir que tus clientes actualicen sus instancias a través del marketplace cuando esa QA esté completa.

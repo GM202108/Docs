@@ -1,55 +1,55 @@
 ---
 id: drive-integrations-with-config-variables
-title: Drive Integrations with Config Variables
-description: Leveraging configuration variables for your integrations makes the integrations truly reusable.
+title: Integraciones con variables de configuración
+description: Aprovechar las variables de configuración para sus integraciones hace que éstas sean realmente reutilizables.
 ---
 
-allows you to build productized, reusable integrations that can be configured differently for each customer. Setting up your integrations with config variables also allows your customers to self-activate their integrations via the [embedded marketplace](/docs/integration-marketplace/). In addition, you can set specific config variables for your customers to use, and you can restrict other variables to your customer-facing teams.
+Permite construir integraciones productizadas y reutilizables que se pueden configurar de manera diferente para cada cliente. Configurar tus integraciones con variables de configuración también permite que tus clientes activen sus integraciones a través del [mercado integrado](/docs/integration-marketplace/). Además, puedes establecer variables de configuración específicas para que tus clientes las utilicen y restringir otras variables para los equipos orientados al cliente.
 
-## What are config variables?
+## ¿Qué son las variables de configuración?
 
-A config variable is a value that can be different for each of your customers who uses a given integration. The key here is that the value _can_ be different for each customer but does not _need_ to be different. You may have a variable that 95% of your customers don't change from the default, but 5% need it to be something else. You'll still want to set it up as a config variable instead of hardcoding it.
+Una variable de configuración es un valor que puede ser diferente para cada uno de tus clientes que utiliza una integración determinada. La clave aquí es que el valor _puede_ ser diferente para cada cliente, pero no _necesita_ ser diferente. Puedes tener una variable que el 95% de tus clientes no cambian desde el valor predeterminado, pero el 5% necesita que sea algo diferente. Aún querrás configurarlo como una variable de configuración en lugar de codificarlo directamente.
 
-Items frequently defined as config variables include auth info, API endpoints, Slack channels, file paths, and data mappings. This is not an exhaustive list but should give you an idea of the breadth of possibilities for config variables.
+Los elementos definidos con frecuencia como variables de configuración incluyen información de autenticación, puntos finales de API, canales de Slack, rutas de archivos y asignaciones de datos. Esta no es una lista exhaustiva, pero debería darte una idea de la amplitud de las posibilidades para las variables de configuración.
 
-## What types of variables should you use?
+## ¿Qué tipos de variables debes usar?
 
-We support a variety of config types, ranging from a simple string to multi-field connection variables. A full list of the config types is found in our [Building Integrations](configuration-wizard.mdx#config-variable-data-types) article.
+Admitimos una variedad de tipos de configuración, desde una simple cadena hasta variables de conexión de varios campos. Una lista completa de los tipos de configuración se encuentra en nuestro artículo [Construcción de Integraciones](configuration-wizard.mdx#config-variable-data-types).
 
-## What should you set as a config variable?
+## ¿Qué debes establecer como variable de configuración?
 
-There are a surprising number of things that should become config variables. We've categorized them as follows:
+Hay una sorprendente cantidad de cosas que deberían convertirse en variables de configuración. Las hemos categorizado de la siguiente manera:
 
-### Anything that might change on a customer basis
+### Cualquier cosa que pueda cambiar en función del cliente
 
-Before building an integration, try to think through absolutely everything that can change from one customer to another. Even if there is a value that is currently the same for each existing customer, but the value could change in the future, set that up as a config variable. You can always set the value your customers are currently using as the default value.
+Antes de construir una integración, intenta pensar en todo lo que puede cambiar de un cliente a otro. Incluso si hay un valor que actualmente es el mismo para cada cliente existente, pero el valor podría cambiar en el futuro, configura eso como una variable de configuración. Siempre puedes establecer el valor que están utilizando actualmente tus clientes como el valor predeterminado.
 
-## Anything used as an input in multiple places
+### Cualquier cosa utilizada como entrada en varios lugares
 
-Suppose you have a file path that you use as an input for each of ten SFTP steps. You'll want to make that file path a variable, so when you inevitably need to change it, you can do so in one place instead of editing ten different steps. This is one of the scenarios where you'll want to set the value for the config variable but only show it to your customer-facing teams.
+Supongamos que tienes una ruta de archivo que usas como entrada para cada uno de diez pasos SFTP. Querrás convertir esa ruta de archivo en una variable, para que cuando inevitablemente necesites cambiarla, puedas hacerlo en un solo lugar en lugar de editar diez pasos diferentes. Este es uno de los escenarios donde querrás establecer el valor de la variable de configuración, pero solo mostrarlo a los equipos orientados al cliente.
 
-## Anything that changes between environments
+### Cualquier cosa que cambie entre entornos
 
-Suppose you have an endpoint (`https://prod.example.com/api`) that all your customers use. However, your team needs to use another endpoint (`https://qa.example.com/api`) for testing. You'll want to define “endpoint” as a config variable, set the default to “prod,” and make it “not customer configurable.” Then, your customers don't see that it is a variable and can't inadvertently change it and break the integration. But your team can easily toggle the value as needed.
+Supongamos que tienes un punto final (`https://prod.example.com/api`) que todos tus clientes usan. Sin embargo, tu equipo necesita usar otro punto final (`https://qa.example.com/api`) para las pruebas. Querrás definir "punto final" como una variable de configuración, establecer el valor predeterminado en "prod" y hacerlo "no configurable por el cliente". Entonces, tus clientes no ven que es una variable y no pueden cambiarla inadvertidamente y romper la integración. Pero tu equipo puede cambiar fácilmente el valor según sea necesario.
 
-## How do you make the configuration wizard easy for customers?
+## ¿Cómo se facilita a los clientes el asistente de configuración?
 
-When your customers activate an instance, they are taken to the configuration page. To ensure that your customers have the best possible activation experience, you want to make the page as straightforward to use as possible. The goal is for customers to click a few toggles and dropdowns, maybe type a string or two, and they are good to go.
+Cuando tus clientes activan una instancia, son llevados a la página de configuración. Para garantizar que tus clientes tengan la mejor experiencia de activación posible, deseas que la página sea lo más sencilla posible de usar. El objetivo es que los clientes hagan clic en algunos interruptores y menús desplegables, tal vez escriban una cadena o dos, y estén listos para continuar.
 
-Here are a few things you can do to help your customers with config variables:
+Aquí tienes algunas cosas que puedes hacer para ayudar a tus clientes con las variables de configuración:
 
-### Use headings
+### Utiliza encabezados
 
-Let's say that you've built an integration that connects to Salesforce and Dropbox. Create a heading on the config page that says “Dropbox” and place the connection and file path variables under that heading. Then, create another heading for “Salesforce” and place the connection and other variables under that heading. Here's an example of using [headings for config variables](/quickstarts/configuration-driven-integration/#create-integration-config-variables).
+Supongamos que has construido una integración que se conecta a Salesforce y Dropbox. Crea un encabezado en la página de configuración que diga "Dropbox" y coloca las variables de conexión y la ruta del archivo bajo ese encabezado. Luego, crea otro encabezado para "Salesforce" y coloca las variables de conexión y otras variables bajo ese encabezado. Aquí tienes un ejemplo de cómo usar [encabezados para las variables de configuración](/quickstarts/configuration-driven-integration/#create-integration-config-variables).
 
-### Use descriptions
+### Utiliza descripciones
 
-Give each config variable a description. These show up in the instance activation page as helpful text located below each config variable. It is especially beneficial if the descriptions include examples (where the config variable is something other than a button, toggle, or dropdown). For example, if the instance needs a Slack webhook URL, you can make sure the description text says something like, “Your URL should look like this: `https://hooks.slack.com/some/api/key`.”
+Asigna una descripción a cada variable de configuración. Estas aparecen en la página de activación de la instancia como texto útil ubicado debajo de cada variable de configuración. Es especialmente beneficioso si las descripciones incluyen ejemplos (cuando la variable de configuración no es un botón, interruptor o menú desplegable). Por ejemplo, si la instancia necesita una URL de webhook de Slack, asegúrate de que el texto de la descripción diga algo como: "Tu URL debería lucir así: `https://hooks.slack.com/some/api/key`."
 
-### Use default values
+### Utiliza valores predeterminados
 
-We've already touched on this a bit, but using default values can simplify the activation process greatly. If you know that customers will generally use a specific value (though not always, or perhaps not always in the future), set that as the default value for the config variable.
+Ya hemos mencionado esto un poco, pero el uso de valores predeterminados puede simplificar en gran medida el proceso de activación. Si sabes que los clientes generalmente usarán un valor específico (aunque no siempre, o tal vez no siempre en el futuro), configúralo como el valor predeterminado para la variable de configuración.
 
-### Use dropdown menus
+### Utiliza menús desplegables
 
-If it makes sense to use a dropdown menu for config variables, please do so. This allows users to select valid options but limits their ability to break the instance by entering invalid data.
+Si tiene sentido usar un menú desplegable para las variables de configuración, hazlo. Esto permite a los usuarios seleccionar opciones válidas pero limita su capacidad para romper la instancia al ingresar datos no válidos.

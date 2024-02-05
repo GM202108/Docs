@@ -1,7 +1,7 @@
 ---
 id: monitoring-and-alerting
-title: Integration Monitoring and Alerting
-description: Get notified when an integration experiences problems. Use various monitors and alerts in  to notify your integration team of issues in real-time.
+title: Supervisión y alerta de la integración
+description: Reciba notificaciones cuando una integración experimente problemas. Utiliza varios monitores y alertas para notificar a tu equipo de integración los problemas en tiempo real.
 ---
 
 import ExampleTabs from "@site/src/components/example-tabs";
@@ -10,109 +10,109 @@ import Icon from "@mui/material/Icon";
 import Screenshot from "@site/src/components/screenshot";
 import Vimeo from "@site/src/components/vimeo";
 
-When something goes wrong (perhaps a REST endpoint you rely on goes down, or an integration starts taking five minutes when you expect it to take five seconds) your incident response team should be alerted right away.
-It should never be the case that customers are **calling you** to inform you that your integrations are down.
-Your team should be able to proactively, or at least quickly reactively, respond to issues with your integrations.
+Cuando algo va mal (tal vez un punto final REST del que dependes se cae, o una integración empieza a tardar cinco minutos cuando esperabas que tardara cinco segundos) tu equipo de respuesta a incidentes debe ser alertado de inmediato.
+Nunca debería darse el caso de que los clientes **le llamen** para informarle de que sus integraciones no funcionan.
+Su equipo debe ser capaz de responder de forma proactiva, o al menos reactiva, a los problemas con sus integraciones.
 
-With properly configured monitoring and alerting you can put your mind at ease - no news is good news!
+Con una monitorización y unas alertas bien configuradas, puede estar tranquilo: ¡no hay buenas noticias!
 
-alert monitors are configurable.
-You can choose from a variety of alert triggers, including triggering on elevated log levels, long execution times, failed executions, etc., and you can notify your integration team via email and SMS, or via Slack, Pager Duty, OpsGenie, or any other notification system you choose by using webhooks.
+Los monitores de alertas son configurables.
+Puedes elegir entre una variedad de disparadores de alerta, incluyendo la activación en niveles de registro elevados, tiempos de ejecución largos, ejecuciones fallidas, etc., y puedes notificar a tu equipo de integración por correo electrónico y SMS, o a través de Slack, Pager Duty, OpsGenie, o cualquier otro sistema de notificación que elijas mediante el uso de webhooks.
 
 <Vimeo
   video="499651619"
-  title="How to Alert People When an Instance has an Error"
+  title="Cómo avisar cuando una instancia tiene un error"
 />
 
-## Terminology
+## Terminología
 
-- An **alert group** is a set of users to notify (by email or SMS) and webhooks to invoke when when an instance does something noteworthy or unexpected, like failing to run to completion.
-- An **alert trigger** is a noteworthy or unexpected event that causes an alert monitor to fire.
-  An alert trigger may fire if an instance takes longer than expected or logs error or warning messages unexpectedly.
-  You can also trigger on positive things, like successful instance runs or when you set an instance to _enabled_.
-  A full list of alert triggers are [below](#alert-triggers).
-- An **alert monitor** is a combination of an alert group and some alert triggers, and is configured for an [instance](instances.mdx).
-  You add an alert monitor to an instance, specify when the monitor should be triggered, and which alert groups should be notified in the event of a trigger.
-- An **alert event** is created when an alert trigger causes an alert monitor to fire.
-  For example, one alert event might notify the DevOps team at 07:30 AM that an instance failed to run.
-  If the instance is scheduled to run every 15 minutes, another event would be created 15 minutes later if the issue hadn't been resolved.
+- Un **grupo de alerta** es un conjunto de usuarios a notificar (por correo electrónico o SMS) y webhooks para invocar cuando una instancia realiza algo notable o inesperado, como fallar al ejecutarse completamente.
+- Un **disparador de alerta** es un evento notable o inesperado que provoca que se active un monitor de alerta.
+  Un disparador de alerta puede activarse si una instancia tarda más de lo esperado, o si registra mensajes de error o advertencia de manera inesperada.
+  También puedes activar alertas en eventos positivos, como ejecuciones exitosas de instancias o cuando estableces una instancia como _habilitada_.
+  Puedes encontrar una lista completa de disparadores de alerta [a continuación](#alert-triggers).
+- Un **monitor de alerta** es una combinación de un grupo de alerta y algunos disparadores de alerta, y se configura para una [instancia](instances.mdx).
+  Agregas un monitor de alerta a una instancia, especificas cuándo se debe activar el monitor y qué grupos de alerta se deben notificar en caso de una activación.
+- Un **evento de alerta** se crea cuando un disparador de alerta provoca que se active un monitor de alerta.
+  Por ejemplo, un evento de alerta podría notificar al equipo de DevOps a las 07:30 AM que una instancia falló al ejecutarse.
+  Si la instancia está programada para ejecutarse cada 15 minutos, se crearía otro evento 15 minutos después si el problema no se resolviera.
 
-## Alert triggers
+## Activación de alertas
 
-Many events can trigger an alert monitor:
+Muchos eventos pueden activar un monitor de alertas:
 
-- **Execution Completed**: This will trigger an alert upon a successful run of an instance.
-  You could use this to notify customers when an instance runs to completion.
-- **Execution Duration Matched or Exceeded**: Does your integration normally take 5 seconds?
-  Do you want to be alerted if it takes longer than 10 seconds?
-  Specify the maximum number of seconds you expect an instance to take, after which you'd like to be notified.
-- **Execution Failed**: This will trigger an alert upon a failed run of an instance.
-- **Execution Failed, Retry Pending**: This will trigger an alert if an instance fails to run, but a retry has been queued.
-- **Execution Overdue**: Do you expect your integration to run every X minutes?
-  This will trigger an alert if X has been reached.
-- **Execution Started**: This will trigger an alert upon a start of an instance.
-- **Instance Disabled**: This will trigger if an instance is disabled.
-- **Instance Enabled**: This will trigger if an instance is enabled.
-  You might want to use this to notify project managers when an instance is ready for a customer.
-- **Instance Removed**: This will trigger if an instance is deleted.
-- **Log Level Matched or Exceeded**: Are `error`, or `warn` log lines expected in standard execution of your integration?
-  Presumably not.
-  Specify a log level (`error`, or `warn`), and if log lines are written that match or exceed that log level, an alert is triggered.
-- **Connection Threw an Exception**: This will trigger if a connection that is part of your deployed instance threw an exception, generally indicating that credentials in the connection are expired or invalid, or that the API that you are connecting to is down.
+- **Ejecución Completada**: Esto activará una alerta tras una ejecución exitosa de una instancia.
+  Puedes usar esto para notificar a los clientes cuando una instancia se ejecute completamente.
+- **Duración de Ejecución Igualada o Excedida**: ¿Tu integración normalmente tarda 5 segundos?
+  ¿Quieres recibir una alerta si tarda más de 10 segundos?
+  Especifica el número máximo de segundos que esperas que una instancia tarde, después de los cuales te gustaría recibir una notificación.
+- **Ejecución Fallida**: Esto activará una alerta tras una ejecución fallida de una instancia.
+- **Ejecución Fallida, Reintentar Pendiente**: Esto activará una alerta si una instancia falla al ejecutarse, pero se ha encolado un reintento.
+- **Ejecución Atrasada**: ¿Esperas que tu integración se ejecute cada X minutos?
+  Esto activará una alerta si se alcanza X.
+- **Ejecución Iniciada**: Esto activará una alerta al iniciar una instancia.
+- **Instancia Deshabilitada**: Esto activará una alerta si una instancia está deshabilitada.
+- **Instancia Habilitada**: Esto activará una alerta si una instancia está habilitada.
+  Puedes usar esto para notificar a los jefes de proyecto cuando una instancia esté lista para un cliente.
+- **Instancia Eliminada**: Esto activará una alerta si una instancia se elimina.
+- **Nivel de Registro Igualado o Excedido**: ¿Se esperan líneas de registro `error` o `warn` en la ejecución estándar de tu integración?
+  Presumiblemente no.
+  Especifica un nivel de registro (`error` o `warn`), y si se escriben líneas de registro que coinciden o superan ese nivel, se activa una alerta.
+- **Conexión Lanzó una Excepción**: Esto activará una alerta si una conexión que forma parte de tu instancia desplegada lanza una excepción, indicando generalmente que las credenciales en la conexión han caducado o son inválidas, o que la API a la que te estás conectando está fuera de servicio.
 
-Some triggers, like **Instance {Disabled, Enabled, Removed}** are instance-specific, meaning they're not tied to a particular flow.
-The others are flow-specific, meaning you can set up [alert monitors](#alert-monitors) to trigger when events happen in specific flows.
+Algunos disparadores, como **Instancia {Deshabilitada, Habilitada, Eliminada}**, son específicos de la instancia, lo que significa que no están vinculados a un flujo en particular.
+Los demás son específicos del flujo, lo que significa que puedes configurar [monitores de alerta](#alert-monitors) para que se activen cuando ocurran eventos en flujos específicos.
 
-**For More Information**:
-[Log Levels](logging.mdx#log-levels)
+**Para obtener más información**:
+[Niveles de registro](logging.mdx#log-levels)
 
-## Alert webhooks
+## Webhooks de alerta
 
-In addition to email and SMS notifications, you can configure alert monitors to invoke a webhook URL with a payload of your choice.
-An alert webhook could be used to send alert info the PagerDuty or OpsGenie APIs, your own DevOps alert endpoint, or any other alerting service with an HTTP-based API.
+Además de las notificaciones por correo electrónico y SMS, puede configurar los monitores de alertas para invocar una URL de webhook con una carga útil de su elección.
+Un webhook de alerta puede utilizarse para enviar información de alerta a las API de PagerDuty u OpsGenie, a tu propio punto final de alerta DevOps o a cualquier otro servicio de alerta con una API basada en HTTP.
 
-### Creating alert webhooks
+### Creación de webhooks de alerta
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-To create or modify a webhook endpoint, click into the **Settings** page and select the **Alert Webhooks** tab.
-Click the **+ Add alert webhook** button, enter an appropriate name for your alert webhook, URL, and payload information.
+Para crear o modificar un punto final de webhook, haz clic en la página **Configuración** y selecciona la pestaña **Webhooks de Alerta**.
+Haz clic en el botón **+ Agregar webhook de alerta**, introduce un nombre apropiado para tu webhook de alerta, URL e información de carga útil.
 
-Alert webhooks are meant to be general enough that they can be used by multiple alert monitors, and their payload templates help with that.
-Within the **Payload Template** section you can enter certain keywords, which are replaced when an alert monitor fires with information about the alert monitor, instance, trigger, and monitor URL.
+Los webhooks de alerta están diseñados para ser lo suficientemente generales como para ser utilizados por varios monitores de alerta, y sus plantillas de carga útil ayudan con eso.
+Dentro de la sección **Plantilla de Carga Útil**, puedes introducir ciertas palabras clave que se reemplazarán cuando se active un monitor de alerta con información sobre el monitor de alerta, la instancia, el desencadenante y la URL del monitor.
 
-- `$SUBJECT` - The string literal ".io Alert"
-- `$NAME` - The name of the [alert monitor](#alert-monitors) that was triggered
-- `$INSTANCE` - The name of the instance that had the triggered alert monitor
-- `$INSTANCE_ID` - The global identifier of the instance (the `SW5z....` portion of the URL when you open the instance)
-- `$EXECUTION_ID` - the global identifier of the running execution
-- `$CUSTOMER` - The name of the customer the instance is deployed to
-- `$CUSTOMER_EXTERNAL_ID` - The [external ID](customers.mdx#customer-external-ids) of the customer the instance is deployed to
-- `$FLOW` - The name of the flow that was running when the alert monitor triggered
-- `$TRIGGER` - The name of the [alert trigger](#alert-triggers) (like "Execution Failed")
-- `$STEP` - The name of the step within the integration that triggered the alert monitor
-- `$URL` - A URL that will navigate to the specific alert monitor that was triggered
+- `$SUBJECT` - La cadena literal ".io Alert"
+- `$NAME` - El nombre del [monitor de alerta](#alert-monitors) que se activó
+- `$INSTANCE` - El nombre de la instancia que tenía el monitor de alerta activado
+- `$INSTANCE_ID` - El identificador global de la instancia (la porción `SW5z....` de la URL cuando abres la instancia)
+- `$EXECUTION_ID` - El identificador global de la ejecución en curso
+- `$CUSTOMER` - El nombre del cliente al que se implementa la instancia
+- `$CUSTOMER_EXTERNAL_ID` - El [ID externo](customers.mdx#customer-external-ids) del cliente al que se implementa la instancia
+- `$FLOW` - El nombre del flujo que se estaba ejecutando cuando se activó el monitor de alerta
+- `$TRIGGER` - El nombre del [desencadenante de alerta](#alert-triggers) (como "Ejecución Fallida")
+- `$STEP` - El nombre del paso dentro de la integración que activó el monitor de alerta
+- `$URL` - Una URL que llevará al monitor de alerta específico que se activó
 
 <Screenshot
   filename="shared/alert-webhook.png"
   maxWidth="500px"
-  alt="Add alert trigger in  app"
+  alt="Añadir activador de alerta en la aplicación"
 />
 
-After creating the alert webhook, you can modify the name, URL, or alert payload, and optionally add HTTP headers.
-Headers are frequently used for passing an authorization token to a webhook.
+Después de crear el webhook de alerta, puede modificar el nombre, la URL o la carga útil de la alerta y, opcionalmente, añadir cabeceras HTTP.
+Las cabeceras se utilizan con frecuencia para pasar un token de autorización a un webhook.
 
 <Screenshot
   filename="alerting/alert-webhook-headers.png"
   maxWidth="700px"
-  alt="Add HTTP headers to alert trigger in  app"
+  alt="Añadir cabeceras HTTP a la activación de alertas en la aplicación"
 />
 
 </TabItem>
 <TabItem value='cli'>
 
-To create an alert webhook, use the `alerts:webhooks:create` subcommand.
+Para crear un webhook de alerta, utilice el subcomando `alerts:webhooks:create`.
 
 ```bash
 prism alerts:webhooks:create \
@@ -125,7 +125,7 @@ prism alerts:webhooks:create \
 </TabItem>
 <TabItem value='api'>
 
-To create an alert webhook, use the [createAlertWebhook](api/schema/mutation/createAlertWebhook.mdx) mutation:
+Para crear un webhook de alerta, utilice la mutación [createAlertWebhook](api/schema/mutation/createAlertWebhook.mdx):
 
 ```graphql
 mutation {
@@ -147,33 +147,33 @@ mutation {
 </TabItem>
 </ExampleTabs>
 
-### Editing existing alert webhooks
+### Edición de los webhooks de alerta existentes
 
-To modify an existing alert webhook, click **Settings** on the left-hand sidebar and then select the **Alert Webhooks** tab.
-Click into an existing alert webhook.
-In this screen, you can modify the name by clicking the name at the top of the page.
-You can modify the webhook template, payload template, or URL from the **Details** tab, and you can also add optional HTTP headers if your webhook requires authorization tokens, etc.
+Para modificar un webhook de alerta existente, haga clic en **Configuración** en la barra lateral izquierda y, a continuación, seleccione la pestaña **Webhooks de alerta**.
+Haga clic en un webhook de alerta existente.
+En esta pantalla, puede modificar el nombre haciendo clic en el nombre en la parte superior de la página.
+Puede modificar la plantilla del webhook, la plantilla de la carga útil o la URL desde la pestaña **Detalles**, y también puede añadir cabeceras HTTP opcionales si su webhook requiere tokens de autorización, etc.
 
 <Screenshot
   filename="alerting/edit-webhook.png"
   maxWidth="700px"
-  alt="Edit alert webhooks in  app"
+  alt="Editar webhooks de alerta en la aplicación"
 />
 
-### Deleting alert webhooks
+### Eliminación de webhooks de alerta
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-To delete an alert webhook open the **Settings** page from the left-hand sidebar.
-Click the **Alert Webhooks** tab and select an alert webhook.
-Within the alert webhook's page, click **Delete Alert Webhook**.
-Confirm deletion by clicking **Remove alert webhook**.
+Para eliminar un webhook de alerta, abra la página **Configuración** de la barra lateral izquierda.
+Haga clic en la pestaña **Alert Webhooks** y seleccione un webhook de alerta.
+En la página del webhook de alerta, haga clic en **Eliminar webhook de alerta**.
+Confirme la eliminación haciendo clic en **Eliminar webhook de alerta**.
 
 </TabItem>
 <TabItem value='cli'>
 
-Find the webhook's ID with
+Encuentra el ID del webhook con
 
 ```bash
 prism alerts:webhooks:list --extended
@@ -188,7 +188,7 @@ prism alerts:webhooks:delete ${WEBHOOK_ID}
 </TabItem>
 <TabItem value='api'>
 
-Delete an alert webhook by alert webhook ID using the [deleteAlertWebhook](api/schema/mutation/deleteAlertWebhook.mdx) mutation:
+Elimina un webhook de alerta por ID utilizando la mutación [deleteAlertWebhook](api/schema/mutation/deleteAlertWebhook.mdx):
 
 ```graphql
 mutation {
@@ -207,12 +207,12 @@ mutation {
 </TabItem>
 </ExampleTabs>
 
-### Sending incidents to PagerDuty with alert webhooks
+### Envío de incidencias a PagerDuty con webhooks de alerta
 
-Many operations teams prefer to use an incident response service like PagerDuty to track production issues.
-Alert webhooks can be configured to generate PagerDuty incidents by invoking [PagerDuty's API](https://developer.pagerduty.com/docs/events-api-v2/trigger-events/).
+Muchos equipos de operaciones prefieren utilizar un servicio de respuesta a incidentes como PagerDuty para realizar un seguimiento de los problemas de producción.
+Los webhooks de alerta se pueden configurar para generar incidentes en PagerDuty invocando [la API de PagerDuty](https://developer.pagerduty.com/docs/events-api-v2/trigger-events/).
 
-To send alerts to PagerDuty, point an alert webhook at `https://events.pagerduty.com/v2/enqueue` and then configure a payload template that contains PagerDuty API's required fields:
+Para enviar alertas a PagerDuty, apunta un webhook de alerta a `https://events.pagerduty.com/v2/enqueue` y luego configura una plantilla de carga útil que contenga los campos requeridos por la API de PagerDuty:
 
 ```json
 {
@@ -227,31 +227,30 @@ To send alerts to PagerDuty, point an alert webhook at `https://events.pagerduty
 }
 ```
 
-Additional fields listed in [PagerDuty's docs](https://developer.pagerduty.com/docs/events-api-v2/trigger-events/) can be added to the payload template to add additional information to the PagerDuty incident.
-No special headers are required for this alert webhook since the PagerDuty key is passed in as part of the payload.
-When an alert monitor using this alert webhook fires, an incident is created in PagerDuty:
+Se pueden agregar campos adicionales enumerados en [la documentación de PagerDuty](https://developer.pagerduty.com/docs/events-api-v2/trigger-events/) a la plantilla de carga útil para agregar información adicional al incidente de PagerDuty.
+No se requieren encabezados especiales para este webhook de alerta, ya que la clave de PagerDuty se pasa como parte de la carga útil.
+Cuando un monitor de alerta que utiliza este webhook se activa, se crea un incidente en PagerDuty:
 
 <Screenshot
   filename="alerting/pagerduty.png"
-  alt="Sample alert details in PagerDuty app"
+  alt="Ejemplo de detalles de alerta en la aplicación PagerDuty"
 />
 
-### Sending notifications to Slack with alert webhooks
+### Envío de notificaciones a Slack con webhooks de alerta
 
-<Vimeo video="500205967" title="How to Send Alerts to Slack" />
+<Vimeo video="500205967" title="Cómo enviar alertas a Slack" />
 
-Many operations teams use Slack to notify themselves of production issues.
-alert webhooks can be configured to send messages to a Slack channel.
+Muchos equipos de operaciones utilizan Slack para notificarse de problemas en producción. Los webhooks de alerta se pueden configurar para enviar mensajes a un canal de Slack.
 
-To send alerts as messages to Slack, first generate a new Slack webhook:
+Para enviar alertas como mensajes a Slack, primero genera un nuevo webhook de Slack:
 
-1. Navigate to https://api.slack.com/apps
-1. Click **Create New App**, adding an app to your workspace.
-1. Under **Add features and functionality** select **Incoming Webhooks**
-1. **Activate Incoming Webhooks** and then **Add New Webhook to Workspace**
-1. Take note of the Webhook URL. It should be of the form `https://hooks.slack.com/services/foo/bar/baz`
+1. Ve a https://api.slack.com/apps
+2. Haz clic en **Crear nueva aplicación** para agregar una aplicación a tu espacio de trabajo.
+3. En **Agregar funciones y funcionalidades**, selecciona **Incoming Webhooks**.
+4. **Activa los Incoming Webhooks** y luego **Añade un nuevo webhook al espacio de trabajo**.
+5. Toma nota de la URL del webhook. Debería tener la forma `https://hooks.slack.com/services/foo/bar/baz`.
 
-Use the Slack webhook URL that you generated in a alert webhook, and configure the payload template to read similar to this:
+Utilice la URL del webhook de Slack que generó en un webhook de alerta y configure la plantilla de carga útil para que sea similar a esta:
 
 ```json
 {
@@ -259,44 +258,40 @@ Use the Slack webhook URL that you generated in a alert webhook, and configure t
 }
 ```
 
-No special headers are required for this alert webhook.
-When an alert monitor that uses the alert webhook next fires, a message will be sent to your Slack channel.
+No se requieren encabezados especiales para este webhook de alerta.
+La próxima vez que se active un monitor de alertas que utilice el webhook de alertas, se enviará un mensaje a tu canal de Slack.
 
 <Screenshot
   filename="alerting/slack.png"
-  alt="Sample channel with alert details in Slack app"
+  alt="Ejemplo de canal con detalles de alerta en la aplicación Slack"
 />
 
-## Alert groups
+## Grupos de alerta
 
-You will likely want to alert the same group of people if integration X fails and if integration Y fails.
-To do that, you can create an **alert group** that can be assigned to multiple alert monitors.
-That way, if you hire a new DevOps engineer, you can quickly add them to the DevOps alert group and they'll automatically be added to each alert monitor the DevOps group is attached to.
+Probablemente desees alertar al mismo grupo de personas si falla la integración X y si falla la integración Y. Para hacer eso, puedes crear un **grupo de alerta** que se puede asignar a múltiples monitores de alerta. De esta manera, si contratas a un nuevo ingeniero de DevOps, puedes agregarlo rápidamente al grupo de alerta de DevOps y automáticamente se agregará a cada monitor de alerta al que esté vinculado el grupo de DevOps.
 
-Note that you can add both **organization** team members and **customer** users to alert groups.
-If you wish to notify customers when alerts trigger, for the sake of reusability we recommend creating an alert group per customer, and alert group(s) for your team.
-You can then attach your team's alert group(s) to all alert monitors, and your customer's alert group to the monitors only for their instances.
+Ten en cuenta que puedes agregar tanto a miembros del equipo de la **organización** como a usuarios de **clientes** a los grupos de alerta. Si deseas notificar a los clientes cuando se active una alerta, por razones de reutilización, recomendamos crear un grupo de alerta por cliente y uno o más grupos de alerta para tu equipo. Luego puedes vincular los grupos de alerta de tu equipo a todos los monitores de alerta y el grupo de alerta del cliente a los monitores solo para sus instancias.
 
-### Creating alert groups
+### Creación de grupos de alerta
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-Click **Settings** on the left-hand sidebar, and select the **Alert Groups** tab.
-Click the **+ Add alert group** button on the upper-right and give your alert group a name (e.g. "Progix DevOps Team").
-From there, you can enumerate users to be notified and webhooks to be invoked upon an alert being triggered.
+Haga clic en **Configuración** en la barra lateral izquierda y seleccione la pestaña **Grupos de alerta**.
+Haga clic en el botón **+Añadir grupo de alerta** de la parte superior derecha y asigne un nombre a su grupo de alerta (por ejemplo, "Equipo Progix DevOps").
+A partir de ahí, puede enumerar los usuarios a los que se notificará y los webhooks que se invocarán cuando se active una alerta.
 
 <Screenshot
   filename="alerting/create-alert-group.png"
   maxWidth="700px"
-  alt="Create alert group in  app"
+  alt="Crear un grupo de alerta en la aplicación"
 />
 
 </TabItem>
 <TabItem value='cli'>
 
-Use the `alerts:group:create` subcommand to create a new alert group.
-You can pass in JSON-formatted lists of user IDs and webhook IDs
+Utilice el subcomando `alerts:group:create` para crear un nuevo grupo de alertas.
+Puede pasar listas de ID de usuario e ID de webhook con formato JSON
 
 ```bash
 USER_IDS="[
@@ -307,17 +302,17 @@ USER_IDS="[
 
 WEBHOOK_IDS="[\"$(prism alerts:webhooks:list --columns id --no-header --filter 'name=Devops Webhook')\"]"
 
-# Create an alert group to email your DevOps Team
+# Cree un grupo de alerta para enviar correos electrónicos a su equipo DevOps
 prism alerts:groups:create \
   --name DevOps \
   --users "${USER_IDS}" \
   --webhooks "${WEBHOOK_IDS}"
 ```
 
-You can take advantage of [jq](https://stedolan.github.io/jq/) to process JSON on the command line to simply your user IDs query.
+Puedes aprovechar [jq](https://stedolan.github.io/jq/) para procesar JSON en la línea de comandos y simplificar tu consulta de identificadores de usuario.
 
 ```bash
-# Create an alert group to alert customer users at FTL Rockets
+# Crear un grupo de alerta para alertar a los usuarios clientes en FTL Rockets
 CUSTOMER_ID=$(prism customers:list --columns id --no-header --filter 'Name=^FTL Rockets$')
 CUSTOMER_USER_IDS=$(
     prism customers:users:list \
@@ -333,8 +328,8 @@ prism alerts:groups:create \
 </TabItem>
 <TabItem value='api'>
 
-To create an alert group you will need to know the IDs of the users and webhooks who you would like to add to the group.
-You can look up user IDs grouped by customer name with this query:
+Para crear un grupo de alertas necesitará conocer los ID de los usuarios y webhooks que desea añadir al grupo.
+Puede buscar los ID de usuario agrupados por nombre de cliente con esta consulta:
 
 ```graphql
 query {
@@ -352,7 +347,7 @@ query {
 }
 ```
 
-Alert webhook IDs can be queried for using this query:
+Los ID de los webhooks de alerta pueden consultarse mediante esta consulta:
 
 ```graphql
 query {
@@ -365,7 +360,7 @@ query {
 }
 ```
 
-Once you have user IDs and alert webhook IDs, create an alert group using the [createAlertGroup](api/schema/mutation/createAlertGroup.mdx) mutation:
+Una vez que tengas los identificadores de usuario y los identificadores de los alert webhooks, crea un grupo de alerta utilizando la mutación [createAlertGroup](api/schema/mutation/createAlertGroup.mdx):
 
 ```graphql
 mutation createAlertGroup($name: String!, $users: [ID], $webhooks: [ID]) {
@@ -377,7 +372,7 @@ mutation createAlertGroup($name: String!, $users: [ID], $webhooks: [ID]) {
 }
 ```
 
-```json title="Query Variables"
+```json title="Variables de consulta"
 {
   "name": "DevOps",
   "users": [
@@ -393,27 +388,27 @@ mutation createAlertGroup($name: String!, $users: [ID], $webhooks: [ID]) {
 </TabItem>
 </ExampleTabs>
 
-### Editing existing alert groups
+### Edición de los grupos de alerta existentes
 
-To modify an existing alert group, you will return to the same screen you saw when you created your alert group by clicking **Settings** on the left-hand sidebar and then select the **Alert Groups** tab.
-Click into an existing alert group.
-Within this screen, you can modify the name of the group by clicking the group's name at the top of the page.
-You can also modify the list of users and webhooks associated with the group.
+Para modificar un grupo de alerta existente, volverá a la misma pantalla que vio cuando creó su grupo de alerta haciendo clic en **Configuración** en la barra lateral izquierda y, a continuación, seleccione la pestaña **Grupos de alerta**.
+Haga clic en un grupo de alerta existente.
+Dentro de esta pantalla, puede modificar el nombre del grupo haciendo clic en el nombre del grupo en la parte superior de la página.
+También puede modificar la lista de usuarios y webhooks asociados al grupo.
 
-### Deleting alert groups
+### Eliminación de grupos de alerta
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-To delete an alert group click the **Settings** link on the left-hand sidebar.
-Then, click the **Alert Groups** tab and select an alert group.
-Scroll to the bottom of the alert group's page and click **Delete alert group**.
-Click **Remove alert group** to confirm deletion.
+Para eliminar un grupo de alerta, haga clic en el enlace **Configuración** de la barra lateral izquierda.
+A continuación, haga clic en la pestaña **Grupos de alerta** y seleccione un grupo de alerta.
+Desplácese hasta la parte inferior de la página del grupo de alerta y haga clic en **Eliminar grupo de alerta**.
+Haga clic en **Eliminar grupo de alerta** para confirmar la eliminación.
 
 </TabItem>
 <TabItem value='cli'>
 
-Find the ID of the alert group you want to delete using
+Busque el ID del grupo de alertas que desea eliminar mediante
 
 ```bash
 prism alerts:groups:list --extended
@@ -428,7 +423,7 @@ prism alerts:groups:delete ${ALERT_GROUP_ID}
 </TabItem>
 <TabItem value='api'>
 
-Delete an alert group using the [deleteAlertGroup](api/schema/mutation/deleteAlertGroup.mdx) mutation:
+Elimina un grupo de alerta utilizando la mutación [deleteAlertGroup](api/schema/mutation/deleteAlertGroup.mdx):
 
 ```graphql
 mutation {
@@ -447,54 +442,54 @@ mutation {
 </TabItem>
 </ExampleTabs>
 
-## Alert monitors
+## Monitores de alerta
 
-An **alert monitor** is a combination of an [alert group](#alert-groups) (users and webhooks) and an [alert trigger](#alert-triggers) that is configured for an [instance](instances.mdx).
-When you add an alert monitor to an instance, you specify when the monitor should be triggered, and which alert group(s) should be notified in the event of a trigger firing.
+Un **monitor de alertas** es una combinación de un [grupo de alerta](#grupos-de-alerta) (usuarios y webhooks) y un [desencadenante de alerta](#desencadenantes-de-alerta) que está configurado para una [instancia](instances.mdx).
+Cuando agregas un monitor de alertas a una instancia, especificas cuándo debería activarse el monitor y qué grupo(s) de alerta deberían ser notificados en caso de que se active el desencadenante.
 
-:::note Alert monitors cannot be bound to preprocess flows
-Note that if your instances are configured to use a [shared endpoint](endpoint-configuration.mdx#shared-endpoint-configuration) and a **preprocess flow**, an alert monitor cannot be assigned to the preprocess flow since the preprocess flow runs independently of any deployed instance.
+:::note Los monitores de alerta no pueden vincularse a flujos de preprocesamiento.
+Ten en cuenta que si tus instancias están configuradas para utilizar un [punto de conexión compartido](endpoint-configuration.mdx#configuración-de-punto-de-conexión-compartido) y un **flujo de preprocesamiento**, un monitor de alerta no puede asignarse al flujo de preprocesamiento, ya que el flujo de preprocesamiento se ejecuta de forma independiente de cualquier instancia implementada.
 :::
 
-### Creating an alert monitor
+### Creación de un monitor de alertas
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-After selecting an instance from a customer's **Instances** tab or the **Instances** link on the left-hand sidebar, click the instance's **Monitors** tab.
-Click the **+ Add alert monitor** button on the top-right of the screen.
-Specify a name for the monitor and select a trigger. if you are in a customer's **Instances** tab, you'll need to also specify the instance.
+Después de seleccionar una instancia desde la pestaña **Instancias** del cliente o el enlace **Instancias** en la barra lateral izquierda, haz clic en la pestaña **Monitores** de la instancia.
+Haz clic en el botón **+ Agregar monitor de alerta** en la parte superior derecha de la pantalla.
+Especifica un nombre para el monitor y selecciona un desencadenante. Si estás en la pestaña **Instancias** del cliente, también deberás especificar la instancia.
 
 <Screenshot
   filename="alerting/create-alert-monitor.png"
   maxWidth="500px"
-  alt="Create alert monitor in  app"
+  alt="Crear un monitor de alertas en la aplicación"
 />
 
-After creating the alert monitor you will find yourself in the monitor's **Details** tab.
-Within this tab, you can add additional triggers to your alert monitor within the **Triggers** card.
-You can also choose the groups or users to notify and webhooks to trigger when an alert trigger fires.
+Una vez creado el monitor de alertas, se encontrará en la pestaña **Detalles** del monitor.
+En esta pestaña, puede añadir activadores adicionales a su monitor de alertas dentro de la tarjeta **Activadores**.
+También puede elegir los grupos o usuarios a los que notificar y los webhooks que activar cuando se dispare una alerta.
 
 <Screenshot
   filename="alerting/configure-alert-monitor.png"
-  alt="Configure alert monitor in  app"
+  alt="Configurar el monitor de alertas en la aplicación"
 />
 
 </TabItem>
 <TabItem value='cli'>
 
-To create an alert monitor you need to look up ID of the trigger you would like to create a monitor for, the instance's ID, and the ID of the group(s) to alert.
-Then, you can create a monitor using that trigger ID, instance ID, and group ID(s).
+Para crear un monitor de alertas, debe buscar el ID del activador para el que desea crear un monitor, el ID de la instancia y el ID del grupo o grupos a alertar.
+A continuación, puede crear un monitor utilizando ese ID de activador, ID de instancia e ID de grupo(s).
 
 ```bash
-# Get Trigger ID
+# Obtener ID de activador
 prism alerts:triggers:list --extended --filter 'name=^Execution Failed$'
 
  Id                                                                   Name
  ──────────────────────────────────────────────────────────────────── ────────────────
  QWxlcnRUcmlnZ2VyOjQyYmM2MDY5LTE5YTktNDE1MS04ZjAwLTQ4ZWExN2E3MzZjMQ== Execution Failed
 
-# Get Alert Group ID
+# Obtener ID de grupo de alerta
 prism alerts:groups:list --extended --filter 'name=^DevOps$'
 
  Id                                                               Name
@@ -513,7 +508,7 @@ prism alerts:monitors:create \
 </TabItem>
 <TabItem value='api'>
 
-To create an alert monitor for an instance, you will need to query [alertTriggers](api/schema/query/alertTriggers.mdx) and select which types of triggers should result in an alert:
+Para crear un monitor de alerta para una instancia, necesitarás consultar [alertTriggers](api/schema/query/alertTriggers.mdx) y seleccionar qué tipos de desencadenantes deben provocar una alerta:
 
 ```graphql
 query listTriggers {
@@ -526,8 +521,7 @@ query listTriggers {
 }
 ```
 
-You will also need the ID of the instance you want to attach the alert to, and the IDs of any users or groups who should be notified.
-Then, use the [createAlertMonitor](api/schema/mutation/createAlertMonitor.mdx) mutation to create the alert monitor:
+También necesitarás el ID de la instancia a la que deseas adjuntar la alerta y los IDs de los usuarios o grupos que deben ser notificados. Luego, utiliza la mutación [createAlertMonitor](api/schema/mutation/createAlertMonitor.mdx) para crear el monitor de alerta:
 
 ```graphql
 mutation (
@@ -553,7 +547,7 @@ mutation (
 }
 ```
 
-```json title="Query Variables"
+```json title="Variables de consulta"
 {
   "name": "Alert Alex and DevOps on Execution Failure",
   "instance": "SW5zdGFuY2U6OTc1YzgyMTEtYTIxZi00OTg1LThhODYtMTUxMTczM2ZiYTJh",
@@ -569,57 +563,57 @@ mutation (
 </TabItem>
 </ExampleTabs>
 
-### Alerting on connection errors
+### Alerta de errores de conexión
 
-You can set up an alert monitor to notify you if a connection in an instance becomes invalid (i.e. credentials expired or have been revoked, an API is down, etc).
-To alert on connection errors, create a new alert monitor and select **Connection Threw an Exception** as the trigger.
+Puedes configurar un monitor de alerta para notificarte si una conexión en una instancia se vuelve inválida (es decir, si las credenciales han caducado o han sido revocadas, si un API está caído, etc.).
+Para recibir alertas sobre errores de conexión, crea un nuevo monitor de alerta y selecciona **La conexión lanzó una excepción** como disparador.
 
-This is especially useful with OAuth 2.0 connections.
-You can be alerted if refreshing your access key fails for any reason, and you will be directed straight to relevant logs from the alert message that is sent to you or your team members
+Esto es especialmente útil con conexiones OAuth 2.0.
+Puedes recibir alertas si falla la actualización de tu clave de acceso por cualquier motivo, y se te dirigirá directamente a los registros relevantes desde el mensaje de alerta que se envía a ti o a los miembros de tu equipo.
 
-### Editing existing alert monitors
+### Edición de monitores de alerta existentes
 
-To modify an existing alert monitor, click **Instances** on the left-hand sidebar and then select an instance.
-Under the instance's **Monitors** tab, select a monitor.
-This will bring you to the same screen you saw when you created the monitor, where you can modify who is notified under what conditions under the **Details** tab.
+Para modificar un monitor de alerta existente, haz clic en **Instancias** en la barra lateral izquierda y luego selecciona una instancia.
+En la pestaña **Monitores** de la instancia, selecciona un monitor.
+Esto te llevará a la misma pantalla que viste al crear el monitor, donde puedes modificar quién es notificado bajo qué condiciones en la pestaña **Detalles**.
 
-### Clearing a triggered alert monitor
+### Borrar un monitor de alerta activado
 
-<Vimeo video="500203509" title="How to Respond to an Alert Message" />
+<Vimeo video="500203509" title="Cómo responder a un mensaje de alerta" />
 
-If multiple team members are notified by an alert event, it's important for the team to know if the event has been addressed.
-By marking an alert monitor as "cleared", your team member acknowledges the event and indicates that they are working to resolve the issue.
+Si un evento de alerta notifica a varios miembros del equipo, es importante que el equipo sepa si el evento se ha resuelto.
+Al marcar un monitor de alerta como "despejado", el miembro de su equipo reconoce el evento e indica que está trabajando para resolver el problema.
 
-Click the **Explore > Monitors** link on the left-hand sidebar.
-Select one or more triggered monitors.
-Click the <Icon>refresh</Icon> icon to clear your selected events.
+Haga clic en el enlace **Explorar > Monitores** de la barra lateral izquierda.
+Seleccione uno o varios monitores activados.
+Haga clic en el icono <Icono>refrescar</Icono> para borrar los eventos seleccionados.
 
 <Screenshot
   filename="alerting/clear-events.png"
-  alt="Clear alert events in  app"
+  alt="Borrar eventos de alerta en la aplicación"
 />
 
-### Deleting an alert monitor
+### Eliminar un monitor de alertas
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-Click **Customers** from the left-hand sidebar and select a customer.
-Under the customer's **Instances** tab, select an instance and then click **Monitors**.
-Click into an alert monitor and open the **Details** tab.
-Scroll to the bottom of the page.
-Click **Delete Monitor** and confirm deletion by clicking **Remove monitor**
+Haga clic en **Clientes** en la barra lateral izquierda y seleccione un cliente.
+En la pestaña **Instancias** del cliente, seleccione una instancia y, a continuación, haga clic en **Monitores**.
+Haga clic en un monitor de alertas y abra la pestaña **Detalles**.
+Desplácese hasta la parte inferior de la página.
+Haga clic en **Eliminar monitor** y confirme la eliminación haciendo clic en **Eliminar monitor**.
 
 </TabItem>
 <TabItem value='cli'>
 
-Find the ID of the alert monitor you would like to delete using
+Busque el ID del monitor de alertas que desea eliminar mediante
 
 ```bash
 prism alerts:monitors:list --extended
 ```
 
-and then delete the monitor with
+y, a continuación, elimine el monitor con
 
 ```bash
 prism alerts:monitors:delete ${ALERT_MONITOR_ID}
@@ -628,7 +622,7 @@ prism alerts:monitors:delete ${ALERT_MONITOR_ID}
 </TabItem>
 <TabItem value='api'>
 
-Delete an alert monitor with the [deleteAlertMonitor](api/schema/mutation/deleteAlertMonitor.mdx) mutation:
+Elimina un monitor de alertas con la mutación [deleteAlertMonitor](api/schema/mutation/deleteAlertMonitor.mdx):
 
 ```graphql
 mutation {
@@ -647,47 +641,47 @@ mutation {
 </TabItem>
 </ExampleTabs>
 
-## Alert events
+## Eventos de alerta
 
-An **alert event** is created when an alert monitor is triggered.
-When an event is created, any users in the monitor's associated alert groups receive a notification (email or SMS) with a link to the event.
-Your team members can indicate that the issue has been acknowledged and is being addressed by **clearing** the alert event.
+Se crea un **evento de alerta** cuando se activa un monitor de alerta.
+Cuando se crea un evento, todos los usuarios de los grupos de alerta asociados al monitor reciben una notificación (por correo electrónico o SMS) con un enlace al evento.
+Los miembros de su equipo pueden indicar que el problema ha sido reconocido y está siendo tratado **borrando** el evento de alerta.
 
-### Viewing alert events
+### Ver eventos de alerta
 
 <ExampleTabs>
 <TabItem value='webapp'>
 
-The easiest way to view an alert event is to click the link that is sent in the alert event email/SMS.
+La forma más sencilla de ver un evento de alerta es hacer clic en el enlace que se envía en el correo electrónico/SMS del evento de alerta.
 
-Alternatively, after clicking the **Instances** link on the left-hand sidebar, you will be presented with a list of all instances.
-Each instance has an indicator in the lower-right indicating if any alert monitors have been triggered but not yet cleared.
+Alternativamente, después de hacer clic en el enlace **Instancias** de la barra lateral izquierda, se le presentará una lista de todas las instancias.
+Cada instancia tiene un indicador en la parte inferior derecha que indica si se ha activado algún monitor de alerta pero aún no se ha borrado.
 
 <Screenshot
   filename="alerting/triggered-alert-monitor.png"
-  alt="Alert monitor indicator on instance in  app"
+  alt="Indicador del monitor de alertas en la instancia de la aplicación"
 />
 
-If you click an instance with triggered monitors and then select the **Monitors** tab, you can view currently triggered monitors.
+Si hace clic en una instancia con monitores activados y, a continuación, selecciona la pestaña **Monitores**, podrá ver los monitores activados actualmente.
 
 <Screenshot
   filename="alerting/list-instance-monitors.png"
-  alt="Instance monitors with current uncleared alerts highlighted in  app"
+  alt="Monitores de instancias con alertas actuales no resueltas resaltadas en la aplicación"
 />
 
-Clicking a triggered monitor will bring you to the monitor's **Details** tab. Then you can click the **Events** tab to see exactly what happened.
+Al hacer clic en un monitor activado, accederá a la pestaña **Detalles** del monitor. A continuación, puede hacer clic en la pestaña **Eventos** para ver exactamente lo que ha ocurrido.
 
-From there, clicking a specific alert event will bring up logs from just before and after the event on the bottom of the page.
+A partir de ahí, al hacer clic en un evento de alerta específico, aparecerán los registros de justo antes y después del evento en la parte inferior de la página.
 
 <Screenshot
   filename="alerting/alert-event-logs.png"
-  alt="Logs for time adjacent to alert events in  app"
+  alt="Registros para el tiempo adyacente a los eventos de alerta en la aplicación"
 />
 
 </TabItem>
 <TabItem value='cli'>
 
-To view alert events, use the `alerts:events:list` subcommand with an alert monitor's ID.
+Para ver los eventos de alerta, utilice el subcomando `alerts:events:list` con el ID de un monitor de alertas.
 
 ```bash
 prism alerts:monitors:list --extended
@@ -703,10 +697,10 @@ prism alerts:events:list QWxlcnRNb25pdG9yOmQ0MTM3N2M5LWE1NTItNDJjNi04ZWYwLWNiY2Z
 </TabItem>
 <TabItem value='api'>
 
-List alert events for a particular alert monitor by querying [alertEvents](api/schema/query/alertEvents.mdx).
+Enumera los eventos de alerta de un monitor de alertas concreto consultando [alertEvents](api/schema/query/alertEvents.mdx).
 
 </TabItem>
 </ExampleTabs>
 
-**For More Information:**
-[Log Retention](logging.mdx#log-retention)
+**Para obtener más información:**
+[Conservación de registros](logging.mdx#log-retention)

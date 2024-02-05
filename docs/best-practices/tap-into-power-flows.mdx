@@ -1,13 +1,13 @@
 ---
 id: tap-into-power-flows
-title: Tap Into the Power of Flows
-description: Understanding how flows function within integrations can open up more efficient ways to build them.
+title: Aproveche el poder de los flujos
+description: Entender cómo funcionan los flujos dentro de las integraciones puede abrir vías más eficientes para construirlas.
 ---
 
-A single integration can have a [single flow](/docs/building-integrations/#flows-in-integrations) (for the simplest integrations). However, many integrations benefit from having [multiple flows](/docs/quickstarts/building-an-integration-with-multiple-flows/). For example, a two-way integration has both import and export flows.
+Una sola integración puede tener un [flujo único](/docs/building-integrations/#flows-in-integrations) (para las integraciones más simples). Sin embargo, muchas integraciones se benefician al tener [múltiples flujos](/docs/quickstarts/building-an-integration-with-multiple-flows/). Por ejemplo, una integración bidireccional tiene flujos tanto de importación como de exportación.
 
-Using different flows within a single integration allows each flow to have its own endpoints, triggers, and steps. You can even mix and match types within an integration where some flows run on schedules, some are based on webhooks, and others run automatically upon deployment/activation.
+El uso de diferentes flujos dentro de una sola integración permite que cada flujo tenga sus propios puntos finales, desencadenantes y pasos. Incluso puedes combinar tipos dentro de una integración donde algunos flujos se ejecutan según horarios, algunos se basan en webhooks y otros se ejecutan automáticamente al implementarse/activarse.
 
-Instances (an integration deployed for a single customer) can have common endpoints, or you can configure the system with a separate endpoint for each instance. Similarly, flows can have a common endpoint, or they can each have a different one. It's common practice to use pre-process flows to route data to the correct flow.
+Las instancias (una integración implementada para un solo cliente) pueden tener puntos finales comunes, o puedes configurar el sistema con un punto final separado para cada instancia. De manera similar, los flujos pueden tener un punto final común, o cada uno puede tener uno diferente. Es práctica común utilizar flujos de preprocesamiento para dirigir los datos al flujo correcto.
 
-Using multiple flows in a single integration, instead of building a separate integration for each flow, also means that customers only need to activate a single integration within the [marketplace](/integration-marketplace/).
+Usar múltiples flujos en una sola integración, en lugar de construir una integración separada para cada flujo, también significa que los clientes solo necesitan activar una sola integración dentro del [marketplace](/integration-marketplace/).

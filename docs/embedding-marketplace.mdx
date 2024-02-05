@@ -1,8 +1,8 @@
 ---
 id: embedding-marketplace
-title: "Embedding Integration Marketplace"
-sidebar_label: "Embedded Marketplace"
-description: "embedded integration marketplace allows your customers to discover all your integrations. Learn how to install the embedded integration marketplace."
+title: "Mercado de integración"
+sidebar_label: "Mercado integrado"
+description: "El mercado de integraciones integradas permite a sus clientes descubrir todas sus integraciones. Aprenda a instalar el mercado de integraciones integradas."
 ---
 
 import InternalLink from "@site/src/components/internal-link";
@@ -10,27 +10,27 @@ import Screenshot from "@site/src/components/screenshot";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-You can embed the [Integration Marketplace](integration-marketplace.mdx) into your application with just a few lines of code, giving your customers a native integration deployment experience.
-This article details how to embed 's integration marketplace into your application.
+Puedes incrustar el [Integration Marketplace](integration-marketplace.mdx) en tu aplicación con solo unas pocas líneas de código, brindando a tus clientes una experiencia nativa de implementación de integraciones.
+Este artículo detalla cómo incrustar el marketplace de integraciones de en tu aplicación.
 
-For information on how to install the embedded SDK and authenticate customer users, see [Installing Embedded SDK](installing-embedded.mdx)
+Para obtener información sobre cómo instalar el SDK incrustado y autenticar a los usuarios del cliente, consulta [Installing Embedded SDK](installing-embedded.mdx)
 
-## Embed the integration marketplace
+## Incrustar el marketplace de integraciones
 
-Once a user has been authenticated, you can display the integration marketplace to them using the `.showMarketplace()` function.
-The `showMarketplace()` function takes three optional arguments:
+Una vez que un usuario ha sido autenticado, puedes mostrarle el marketplace de integraciones utilizando la función `.showMarketplace()`.
+La función `showMarketplace()` toma tres argumentos opcionales:
 
-- `usePopover` is a boolean that determines if the marketplace should display as a popover.\
-  By default, the screen is injected as an iframe into an existing DOM element.
-- `selector` identifies which element in the DOM to inject the iframe into when `usePopover` is false.
-- `theme` can override [custom theming](#theming-embedded-marketplace) default behavior, and can be set to `"LIGHT"` or `"DARK"` mode.
+- `usePopover` es un booleano que determina si el marketplace debe mostrarse como un popover.\
+  Por defecto, la pantalla se inyecta como un iframe en un elemento DOM existente.
+- `selector` identifica qué elemento en el DOM debe inyectarse en el iframe cuando `usePopover` es false.
+- `theme` puede anular el comportamiento predeterminado del [tema personalizado](#theming-embedded-marketplace) y puede establecerse en modo `"LIGHT"` o `"DARK"`.
 
-### iframe injection method
+### Método de inyección de iframe
 
-When `showPopover` is set to `false`, an [iframe](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe) HTML element is injected into an element that you select with the `selector` argument.
-The iframe contains the integration marketplace.
+Cuando `showPopover` se establece en `false`, se inyecta un elemento HTML [iframe](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe) en un elemento que seleccionas con el argumento `selector`.
+El iframe contiene el marketplace de integraciones.
 
-For example, if you have a section of your app that reads:
+Por ejemplo, si tienes una sección de tu aplicación que dice:
 
 ```html
 <div id="integration-marketplace-placeholder" style="height:100%">
@@ -38,7 +38,7 @@ For example, if you have a section of your app that reads:
 </div>
 ```
 
-You can inject the integration marketplace iframe into that div, replacing the "Loading..." text, by invoking:
+Puedes inyectar el iframe del marketplace de integraciones en ese div, reemplazando el texto "Loading...", invocando:
 
 ```javascript
 .showMarketplace({
@@ -47,21 +47,21 @@ You can inject the integration marketplace iframe into that div, replacing the "
 });
 ```
 
-The result is that the integration marketplace appears to be a portion of the rest of your application:
+El resultado es que el mercado de integración parece ser una parte del resto de su aplicación:
 
 <Screenshot
   filename="embedded-marketplace/progix-default.png"
-  alt=" integration marketplace embedded in your app"
+  alt="Mercado de integración integrado en su aplicación"
 />
 
-Note: at this point marketplace has not been themed to match your app.
-To match your app branding, see [Theming Embedded Marketplace](#theming-embedded-marketplace) below.
+Nota: en este punto, el marketplace no se ha tematizado para que coincida con tu aplicación.
+Para que coincida con la identidad visual de tu aplicación, consulta [Tematización del Marketplace Empotrado](#tematizacion-del-marketplace-empotrado) más abajo.
 
-For an example of the iframe injection method, see [GitHub](https://github.com/-io/embedded/blob/main/example-embedded-app/pages/examples/embedded-marketplace.tsx).
+Para un ejemplo del método de inyección de iframe, consulta en [GitHub](https://github.com/-io/embedded/blob/main/example-embedded-app/pages/examples/embedded-marketplace.tsx).
 
-### Popover method
+### Método de Pestaña emergente (Popover)
 
-If you elect to set `usePopover` to `true`, a popover will be opened containing the integration marketplace:
+Si decides establecer `usePopover` en `true`, se abrirá una pestaña emergente que contiene el marketplace de integraciones:
 
 ```typescript
 .showMarketplace({
@@ -71,21 +71,21 @@ If you elect to set `usePopover` to `true`, a popover will be opened containing 
 
 <Screenshot
   filename="embedded-marketplace/popover.png"
-  alt="Enable popover for  embedded marketplace"
+  alt="Habilitar ventana emergente para mercado incrustado"
 />
 
-### Filtering integrations
+### Filtrado de integraciones
 
-You can choose to show a subset of your integrations by applying `filters` to your `showMarketplace()` invocation.
+Puedes optar por mostrar un subconjunto de tus integraciones aplicando `filtros` a tu invocación de `showMarketplace()`.
 
-#### Simple integration filters
+#### Filtros simples de integración
 
-You can filter your integrations by a single [category](integrations.mdx#categorizing-integrations) or [label](integrations.mdx#integration-labels) (or both).
-If you filter by both, integrations will appear only if they match both `category` and `label`.
+Puedes filtrar tus integraciones por una sola [categoría](integrations.mdx#categorizing-integrations) o [etiqueta](integrations.mdx#integration-labels) (o ambas).
+Si filtras por ambas, las integraciones solo aparecerán si coinciden tanto con la `categoría` como con la `etiqueta`.
 
-For example, if you would like to show only integrations with the category "ERP" and the label "enterprise" in an embedded marketplace, you can issue this invocation:
+Por ejemplo, si deseas mostrar solo integraciones con la categoría "ERP" y la etiqueta "enterprise" en un marketplace empotrado, puedes realizar esta invocación:
 
-```javascript title="Filter by category and label"
+```javascript title="Filtrar por categoría y etiqueta"
 .showMarketplace({
   selector: `#my-div-id`,
   usePopover: false,
@@ -98,14 +98,14 @@ For example, if you would like to show only integrations with the category "ERP"
 });
 ```
 
-#### Advanced integration filters
+#### Filtros avanzados de integración
 
-You can use a `filterQuery` to perform more advanced logic when filtering integrations.
-You can query for integrations given the integration's `name`, `labels` or `category`.
-The following operators are at your disposal:
+Puedes utilizar un `filterQuery` para realizar lógica más avanzada al filtrar integraciones.
+Puedes consultar integraciones según el `nombre`, `etiquetas` o `categoría` de la integración.
+Tienes a tu disposición los siguientes operadores:
 
-- `TermOperator.equal` checks if the first term is equal to the second term and can be used for `name` and `category`.
-  For example, to show only the integration named "Dropbox" enter:
+- `TermOperator.equal` verifica si el primer término es igual al segundo término y se puede utilizar para `nombre` y `categoría`.
+  Por ejemplo, para mostrar solo la integración llamada "Dropbox", ingresa:
 
   ```ts
   .showMarketplace({
@@ -117,8 +117,8 @@ The following operators are at your disposal:
   });
   ```
 
-- `TermOperator.notEqual` checks if the first term is _not_ equal to the second term and can be used for `name` and `category`.
-  For example, to show all integrations _except_ those with the category "ERP" use:
+- `TermOperator.notEqual` verifica si el primer término _no_ es igual al segundo término y se puede utilizar para `nombre` y `categoría`.
+  Por ejemplo, para mostrar todas las integraciones _excepto_ aquellas con la categoría "ERP", utiliza:
 
   ```ts
   .showMarketplace({
@@ -130,8 +130,8 @@ The following operators are at your disposal:
   });
   ```
 
-- `TermOperator.in` is used to check if the integration's `labels` include a specific label.
-  For example, if you want to show integrations with a "paid" label, use:
+- `TermOperator.in` se utiliza para verificar si las `etiquetas` de la integración incluyen una etiqueta específica.
+  Por ejemplo, si deseas mostrar integraciones con la etiqueta "pagado", utiliza:
 
   ```ts
   .showMarketplace({
@@ -143,9 +143,9 @@ The following operators are at your disposal:
   });
   ```
 
-- `TermOperator.notIn` will show integrations that do _not_ have certain labels.
-- `TermOperator.startsWith` checks if a `name` or `category` begins with a certain string.
-  For example, to find all integrations that start with "Algolia" use:
+- `TermOperator.notIn` mostrará integraciones que _no_ tienen ciertas etiquetas.
+- `TermOperator.startsWith` verifica si un `nombre` o `categoría` comienza con una cadena específica.
+  Por ejemplo, para encontrar todas las integraciones que comienzan con "Algolia", utiliza:
 
   ```ts
   .showMarketplace({
@@ -157,14 +157,14 @@ The following operators are at your disposal:
   });
   ```
 
-  That will match integrations with names like `Algolia - Dropbox` or `Algolia - SFTP`.
+  Eso coincidirá con integraciones con nombres como `Algolia - Dropbox` o `Algolia - SFTP`.
 
-- `TermOperator.doesNotStartWith` returns integrations with name or category that does _not_ start with a certain string.
-- `TermOperator.endsWith` returns integrations with name or cateogry that ends with a certain string.
-- `TermOperator.doesNotEndWith` returns integrations with name or cateogry that does _not_ end with a certain string.
+- `TermOperator.doesNotStartWith` devuelve integraciones con nombre o categoría que _no_ comienzan con una cadena específica.
+- `TermOperator.endsWith` devuelve integraciones con nombre o categoría que termina con una cadena específica.
+- `TermOperator.doesNotEndWith` devuelve integraciones con nombre o categoría que _no_ termina con una cadena específica.
 
-Several conditionals can be applied in unison with `and` and `or` logic.
-For example, if you would like to show all integrations that have a category "ERP" and label "paid", and would also like the Dropbox and Slack integrations, a filter could look like:
+Varios condicionales se pueden aplicar en conjunto con lógica `and` y `or`.
+Por ejemplo, si deseas mostrar todas las integraciones que tienen una categoría "ERP" y una etiqueta "pagado", y también deseas las integraciones de Dropbox y Slack, un filtro podría ser así:
 
 ```ts
 import , {
@@ -190,19 +190,19 @@ import , {
 });
 ```
 
-### Configure a specific integration
+### Configurar una integración específica
 
-If you'd like to use your own UI elements (a button, div, hyperlink, etc) for selecting an integration to deploy, you can.
+Si deseas utilizar tus propios elementos de IU (un botón, div, hipervínculo, etc.) para seleccionar una integración para implementar, puedes hacerlo.
 
-Invoke the `.configureInstance()` function from your UI element to display a configuration screen for a specific integration by passing in the name of the integration as `integrationName`.
-You can pass in other display information (like `usePopover` and `selector`) as you would with the iframe injection and popover methods described above.
+Invoca la función `.configureInstance()` desde tu elemento de IU para mostrar una pantalla de configuración para una integración específica pasando el nombre de la integración como `integrationName`.
+Puedes pasar otra información de visualización (como `usePopover` y `selector`) como lo harías con los métodos de inyección de iframe y popover descritos anteriormente.
 
-You can also pass in an optional `skipRedirectOnRemove` boolean, which defaults to `false`.
-This determines if your user should be redirected to the list of integrations upon removing an integration.
-If you are embedding marketplace, you probably want to keep this value `false`.
-If you're wrapping our API and handling displaying of integrations yourself, you might want this to be `true`.
+También puedes pasar un booleano opcional `skipRedirectOnRemove`, que por defecto es `false`.
+Esto determina si tu usuario debe ser redirigido a la lista de integraciones al eliminar una integración.
+Si estás incrustando el marketplace, probablemente quieras mantener este valor en `false`.
+Si estás envolviendo nuestra API y gestionando la visualización de integraciones por ti mismo, es posible que desees establecerlo en `true`.
 
-For example, if you would like your "Salesforce" integration to appear when someone clicks one of your buttons, you could invoke `configureInstance` like this:
+Por ejemplo, si deseas que tu integración "Salesforce" aparezca cuando alguien haga clic en uno de tus botones, podrías invocar `configureInstance` de la siguiente manera:
 
 ```jsx
 const deploySalesforce = () => {
@@ -216,22 +216,25 @@ const deploySalesforce = () => {
 <Button onClick={deploySalesforce}>Configure Salesforce Integration</Button>;
 ```
 
-For an example of rendering a custom UI for marketplace, and opening the configuration screen for a specific integration with `.configureInstance()`, see [GitHub](https://github.com/-io/embedded/blob/main/example-embedded-app/pages/examples/custom-ui-elements.tsx#L212-L219).
+Ejemplo de renderización de una interfaz de usuario personalizada para el Marketplace y apertura de la pantalla de configuración para una integración específica con `.configureInstance()`
 
-### Listening to Marketplace events
+Para ver un ejemplo de cómo renderizar una interfaz de usuario personalizada para el Marketplace y abrir la pantalla de configuración para una integración específica con `.configureInstance()`, consulta [GitHub](https://github.com/-io/embedded/blob/main/example-embedded-app/pages/examples/custom-ui-elements.tsx#L212-L219).
 
-The embedded marketplace emits custom JavaScript [events](https://www.w3schools.com/js/js_events.asp) when certain things happen:
+### Escuchar eventos del Marketplace
 
-- An `INSTANCE_CREATED` event is emitted the _first time_ an integration's configuration screen is opened.
-- An `INSTANCE_CONFIGURATION_OPENED` event is emitted when an instance configuration screen is opened.
-- An `INSTANCE_CONFIGURATION_LOADED` event is emitted when an instance configuration screen has loaded. This is a good event to hook into if you want to [programmatically set config variables](#dynamically-setting-config-variables-in-marketplace).
-- An `INSTANCE_CONFIGURATION_PAGE_LOADED` event is emitted when an instance configuration screen has moved from one page to another.
-- An `INSTANCE_CONFIGURATION_CLOSED` event is emitted when an instance configuration screen is closed (regardless of if configuration was completed or not).
-- An `INSTANCE_DEPLOYED` event is emitted when an instance has been configured and enabled for a customer.
-- An `INSTANCE_DELETED` event is emitted when an integration has been deactivated (the instance has been deleted).
+El marketplace incrustado emite eventos personalizados de JavaScript [events](https://www.w3schools.com/js/js_events.asp) cuando ocurren ciertos eventos:
 
-You can subscribe to these events so your app can take additional steps when an instance has been created, configured, deleted, etc.
-All events return data structured similar to this (except for `INSTANCE_CONFIGURATION_LOADED`, which returns additional data):
+- Un evento `INSTANCE_CREATED` se emite la _primera vez_ que se abre la pantalla de configuración de una integración.
+- Un evento `INSTANCE_CONFIGURATION_OPENED` se emite cuando se abre una pantalla de configuración de instancia.
+- Un evento `INSTANCE_CONFIGURATION_LOADED` se emite cuando se ha cargado una pantalla de configuración de instancia. Este es un buen evento al que conectar si deseas [configurar variables de configuración programáticamente](#configurar-variables-de-configuracion-dinamicamente-en-el-marketplace).
+- Un evento `INSTANCE_CONFIGURATION_PAGE_LOADED` se emite cuando una pantalla de configuración de instancia se ha movido de una página a otra.
+- Un evento `INSTANCE_CONFIGURATION_CLOSED` se emite cuando se cierra una pantalla de configuración de instancia (independientemente de si se completó la configuración o no).
+- Un evento `INSTANCE_DEPLOYED` se emite cuando una instancia se ha configurado y habilitado para un cliente.
+- Un evento `INSTANCE_DELETED` se emite cuando se ha desactivado una integración (la instancia ha sido eliminada).
+
+Puedes suscribirte a estos eventos para que tu aplicación pueda realizar pasos adicionales cuando se haya creado, configurado, eliminado, etc.
+
+Todos los eventos devuelven datos estructurados de manera similar a esto (excepto `INSTANCE_CONFIGURATION_LOADED`, que devuelve datos adicionales):
 
 ```json
 {
@@ -247,7 +250,7 @@ All events return data structured similar to this (except for `INSTANCE_CONFIGUR
 }
 ```
 
-In this example we log out the name of the customer and what integration they opened:
+En este ejemplo registramos el nombre del cliente y qué integración ha abierto:
 
 ```typescript
 import { MessageEvent } from "@-io/embedded";
@@ -265,20 +268,20 @@ window.addEventListener("message", (event) => {
 });
 ```
 
-Similar event listeners can be added for when an instance configuration page is closed or loads, or an instance is initially created or deleted.
+Se pueden agregar escuchadores de eventos similares para cuando se cierra o carga una página de configuración de instancia, o cuando se crea o elimina una instancia inicialmente.
 
-### User-level configuration Marketplace events
+### Eventos del Marketplace de configuración a nivel de usuario
 
-If [user-level configuration](user-level-configuration.mdx) is enabled for an integration, you will see the following marketplace events:
+Si la [configuración a nivel de usuario](user-level-configuration.mdx) está habilitada para una integración, verás los siguientes eventos del marketplace:
 
-- A `USER_CONFIGURATION_OPENED` event is emitted when a ULC configuration screen is opened.
-- A `USER_CONFIGURATION_LOADED` event is emitted when a ULC configuration screen has loaded. This is a good event to hook into if you want to [programmatically set config variables](#dynamically-setting-config-variables-in-marketplace).
-- A `USER_CONFIGURATION_PAGE_LOADED` event is emitted when aa ULC configuration screen has moved from one page to another.
-- A `USER_CONFIGURATION_CLOSED` event is emitted when a ULC configuration screen is closed (regardless of if configuration was completed or not).
-- A `USER_CONFIGURATION_DEPLOYED` event is emitted when a ULC configuration is completed.
-- A `USER_CONFIGURATION_DELETED` event is emitted when a ULC configuration is deleted.
+- Se emite un evento `USER_CONFIGURATION_OPENED` cuando se abre una pantalla de configuración de ULC.
+- Se emite un evento `USER_CONFIGURATION_LOADED` cuando se carga una pantalla de configuración de ULC. Este es un buen evento para conectarse si deseas [configurar variables de configuración de forma programática](#dynamically-setting-config-variables-in-marketplace).
+- Se emite un evento `USER_CONFIGURATION_PAGE_LOADED` cuando una pantalla de configuración de ULC se ha movido de una página a otra.
+- Se emite un evento `USER_CONFIGURATION_CLOSED` cuando se cierra una pantalla de configuración de ULC (independientemente de si se completó la configuración o no).
+- Se emite un evento `USER_CONFIGURATION_DEPLOYED` cuando se completa la configuración de ULC.
+- Se emite un evento `USER_CONFIGURATION_DELETED` cuando se elimina la configuración de ULC.
 
-For all of these events, the event's `data` property will look like this:
+Para todos estos eventos, la propiedad `data` del evento se verá así:
 
 ```
 {
@@ -303,23 +306,23 @@ For all of these events, the event's `data` property will look like this:
 }
 ```
 
-## Dynamically setting config variables in marketplace
+## Configuración dinámica de variables de configuración en el marketplace
 
-You can programmatically set values for your customers' config variables by leveraging [marketplace events](#listening-to-marketplace-events).
-This is handy if you know some value (an API key, endpoint, etc), and would like to set a config variable on your customer's behalf (so they don't need to look up the values themselves).
+Puedes establecer programáticamente valores para las variables de configuración de tus clientes aprovechando [los eventos del marketplace](#listening-to-marketplace-events).
+Esto es útil si conoces algún valor (una clave API, un punto final, etc.) y deseas establecer una variable de configuración en nombre de tu cliente (para que no tengan que buscar los valores por sí mismos).
 
-When your app receives an `INSTANCE_CONFIGURATION_LOADED` event message (or `USER_CONFIGURATION_LOADED` for ULC), the message's payload contains the properties listed above, plus current config variable values.
+Cuando tu aplicación recibe un mensaje de evento `INSTANCE_CONFIGURATION_LOADED` (o `USER_CONFIGURATION_LOADED` para ULC), la carga útil del mensaje contiene las propiedades mencionadas anteriormente, además de los valores actuales de las variables de configuración.
 
-You can inspect that event's data, and conditionally set values for some config variables using the `.setConfigVars()` function.
-Let's look at the event message, and how to respond to it with some config variable values:
+Puedes inspeccionar los datos de ese evento y establecer condicionalmente valores para algunas variables de configuración utilizando la función `.setConfigVars()`.
+Veamos el mensaje de evento y cómo responder a él con algunos valores de variables de configuración:
 
 <Tabs defaultValue="event-payload" values={[{label: "Event Payload", value: "event-payload"},{label: "NodeJS Example", value: "nodejs-example"},{label: "React Example", value: "react-example"}]}>
 <TabItem value="event-payload">
 
-Here's what the `INSTANCE_CONFIGURATION_LOADED` payload looks like.
-The event message's `.data.configVars` property contains all currently set config variables and their values:
+Así es como se ve la carga útil de `INSTANCE_CONFIGURATION_LOADED`.
+La propiedad `.data.configVars` del mensaje de evento contiene todas las variables de configuración actualmente establecidas y sus valores:
 
-```json title="Example INSTANCE_CONFIGURATION_LOADED event payload"
+```json title="Ejemplo de carga útil del evento INSTANCE_CONFIGURATION_LOADED"
 {
   "event": "INSTANCE_CONFIGURATION_LOADED",
   "data": {
@@ -409,29 +412,29 @@ The event message's `.data.configVars` property contains all currently set confi
 
 <TabItem value="nodejs-example">
 
-In this example we add a [message event listener](https://developer.mozilla.org/en-US/docs/Web/API/Window/message_event) to listen for the `MessageEvent.INSTANCE_CONFIGURATION_LOADED` event.
-If that event contains a config variable named `Acme Connection`, a value for that config variable is assigned.
-Additionally, if this is the `Salesforce` integration, values for some additional example config variables are assigned.
+En este ejemplo, agregamos un [escucha de eventos de mensajes](https://developer.mozilla.org/en-US/docs/Web/API/Window/message_event) para estar atentos al evento `MessageEvent.INSTANCE_CONFIGURATION_LOADED`.
+Si ese evento contiene una variable de configuración llamada `Acme Connection`, se asigna un valor para esa variable de configuración.
+Además, si se trata de la integración `Salesforce`, se asignan valores para algunas variables de configuración de ejemplo adicionales.
 
-```typescript title="Dynamically set config variable values"
+```typescript title="Establecer dinámicamente los valores de las variables de configuración"
 import , {
   getMessageIframe,
   MessageEvent,
 } from "@-io/embedded";
 
 const myListener = (message: MessageEvent) => {
-  // Destructure the event and data information from the message
+  // Desestructurar la información de eventos y datos del mensaje
   const { event, data } = message;
 
-  // Check if this is an "INSTANCE_CONFIGURATION_LOADED" event
+  // Compruebe si se trata de un evento "INSTANCE_CONFIGURATION_LOADED
   if (event === MessageEvent.INSTANCE_CONFIGURATION_LOADED) {
     // Destructure the integration name and config variables
     const { integrationName, configVars } = data;
 
-    // Determine which iframe sent the message, so we can send one back
+    // Determinar qué iframe envió el mensaje, para que podamos enviar uno de vuelta
     const iframe = getMessageIframe(message);
 
-    // Check if the instance has an "Acme Connection" config variable:
+    // Compruebe si la instancia tiene una variable de configuración "Acme Connection":
     if (Object.keys(configVars).includes("Acme Connection")) {
       // Check if they're empty, or have already been filled in:
       if (
@@ -454,7 +457,7 @@ const myListener = (message: MessageEvent) => {
       }
     }
 
-    // Set a couple of config variables if this is the Salesforce integration
+    // Establezca un par de variables de configuración si se trata de la integración con Salesforce
     if (integrationName === "Salesforce") {
       .setConfigVars({
         iframe,
@@ -481,9 +484,9 @@ window.addEventListener("message", myListener);
 
 <TabItem value="react-example">
 
-Here's how to wrap a similar JavaScript example in a React [useEffect hook](https://reactjs.org/docs/hooks-effect.html):
+Así es como se envuelve un ejemplo similar en JavaScript en un [gancho useEffect de React](https://reactjs.org/docs/hooks-effect.html):
 
-```typescript title="setConfigVars Example in React"
+```typescript title="Ejemplo de setConfigVars en React"
 import React, { useEffect } from "react";
 import , {
   getMessageIframe,
@@ -543,16 +546,16 @@ export default EmbeddedMarketplace;
 </TabItem>
 </Tabs>
 
-### The getMessageIframe helper function
+### La función auxiliar getMessageIframe
 
-Your app needs to know which iframe to send a `setConfigVars` message to.
-Your app might have multiple iframes, and potentially multiple instances of the embedded marketplace on a single page.
+Tu aplicación necesita saber a qué iframe enviarle un mensaje `setConfigVars`.
+Tu aplicación podría tener varios iframes y potencialmente múltiples instancias del mercado integrado en una sola página.
 
-The `getMessageIframe` function helps to identify which iframe generated the `INSTANCE_CONFIGURATION_LOADED` event.
+La función `getMessageIframe` ayuda a identificar qué iframe generó el evento `INSTANCE_CONFIGURATION_LOADED`.
 
-If you would like to send a `setConfigVars` message to a specific iframe, you can instead pass a `selector` property to the `setConfigVars` function (like you did for `.showMarketplace()`):
+Si deseas enviar un mensaje `setConfigVars` a un iframe específico, en su lugar puedes pasar una propiedad `selector` a la función `setConfigVars` (como lo hiciste con `.showMarketplace()`):
 
-```typescript title="setConfigVars message by selector"
+```typescript title="Mensaje setConfigVars por selector"
 .setConfigVars({
   selector: "#my-marketplace-container",
   configVars: {
@@ -561,45 +564,45 @@ If you would like to send a `setConfigVars` message to a specific iframe, you ca
 });
 ```
 
-## Theming embedded marketplace
+## Personalización del tema del mercado integrado
 
-You can theme your embedded marketplace to match your app's look and feel.
-To create a custom theme for your customers, click your organization's name on the bottom of the left-hand sidebar, and then open the **Theme** tab.
-_Note_: You need to have the _admin_ or _owner_ [role](users.mdx) to edit custom themes.
+Puedes personalizar el tema de tu mercado integrado para que coincida con el aspecto de tu aplicación.
+Para crear un tema personalizado para tus clientes, haz clic en el nombre de tu organización en la parte inferior de la barra lateral izquierda y luego abre la pestaña **Tema**.
+_Nota_: Necesitas tener el rol de _administrador_ u _owner_ [rol](users.mdx) para editar temas personalizados.
 
-The left side of the **Theme** tab shows properties (colors and styles) that you can customize, and the right side shows a preview of how various UI elements would look given those custom properties.
+El lado izquierdo de la pestaña **Tema** muestra propiedades (colores y estilos) que puedes personalizar, y el lado derecho muestra una vista previa de cómo se verían varios elementos de la interfaz de usuario dados esos valores personalizados.
 
 <Screenshot
   filename="embedded-marketplace/theme-settings.png"
-  alt="Theming the  integration marketplace for your app"
+  alt="Tematizar el mercado de integración para su aplicación"
 />
 
-Your embedded themes will be reflected in your embedded application:
+Tus temas incrustados se reflejarán en tu aplicación incrustada:
 
 <Screenshot
   filename="embedded-marketplace/progix-themed.png"
   maxWidth="710px"
-  alt="Example of themed integration marketplace"
+  alt="Ejemplo de mercado de integración temática"
 />
 
-### Light and dark mode themes
+### Temas de modo claro y oscuro
 
-Under **Theme Mode** you have four options:
+En **Modo de tema**, tienes cuatro opciones:
 
-- **Light** and **Dark** determine what the app itself looks like when you use "dark" or "light" mode.
-  Each of your team members can configure dark or light mode settings from their [profile settings page](users.mdx#setting-light-or-dark-mode), or they can choose to have follow their operating system's dark/light mode theme.
+- **Claro** y **Oscuro** determinan cómo se ve la aplicación en sí misma cuando se utiliza el modo "oscuro" o "claro".
+  Cada miembro de tu equipo puede configurar la opción de modo oscuro o claro desde su [página de configuración de perfil](users.mdx#setting-light-or-dark-mode), o pueden optar por seguir el tema de modo oscuro o claro de su sistema operativo.
 
-  _Note_: Your customers will not see **Light** or **Dark** themes unless you create customer users for them and they log directly in to .
+  _Nota_: Tus clientes no verán los temas **Claro** u **Oscuro** a menos que les crees usuarios personalizados y accedan directamente a .
 
-- **Embedded Light** and **Embedded Dark** determine the theme for your embedded marketplace.
-  These are the themes that your customers using embedded marketplace in your app will see.
+- **Incrustado Claro** e **Incrustado Oscuro** determinan el tema para tu mercado integrado.
+  Estos son los temas que verán tus clientes al utilizar el mercado integrado incrustado en tu aplicación.
 
-By default, embedded marketplace follows your customers' operating system dark/light mode theme settings.
-That's helpful if your app has dark and light modes that also follow OS theme settings - the embedded marketplace will swap between dark and light alongside your app.
+Por defecto, el mercado integrado incrustado sigue la configuración del tema oscuro o claro del sistema operativo de tus clientes.
+Esto es útil si tu aplicación tiene modos oscuro y claro que también siguen la configuración del tema del sistema operativo; el mercado integrado incrustado cambiará entre oscuro y claro junto con tu aplicación.
 
-If you would like to override the dark/light mode behavior for embedded, and only show either the dark or light theme, add a `theme` property to your `showMarketplace` invocations:
+Si deseas anular el comportamiento de modo oscuro/claro para incrustar y mostrar solo el tema oscuro o claro, agrega una propiedad `theme` a tus invocaciones de `showMarketplace`:
 
-```typescript title="Only show light-mode theme"
+```typescript title="Mostrar sólo el tema en modo luz"
 .showMarketplace({
   selector: `#my-embedded-div`,
   usePopover: false,
@@ -607,16 +610,16 @@ If you would like to override the dark/light mode behavior for embedded, and onl
 });
 ```
 
-### Customizing the loading screen
+### Personalizando la pantalla de carga
 
-A loading screen appears briefly when `.showMarketplace()` is invoked.
-The screen is simple - a loading icon on top of a monocolor background.
+Aparece brevemente una pantalla de carga cuando se invoca `.showMarketplace()`.
+La pantalla es simple, con un ícono de carga sobre un fondo monocromático.
 
-You can customize the color of the background and the color of the loading icon and "Loading" text by adding a `screenConfiguration.initializing` argument.
-Add it to `.init()` to customize color for all marketplace loading screens, or to `.configureInstance()` or `.showMarketplace()` to customize color for just one marketplace div.
-Colors can be any valid CSS color.
+Puedes personalizar el color del fondo y el color del ícono de carga y el texto "Cargando" agregando un argumento `screenConfiguration.initializing`.
+Agrégalo a `.init()` para personalizar el color de todas las pantallas de carga del mercado, o a `.configureInstance()` o `.showMarketplace()` para personalizar el color de una sola ventana del mercado.
+Los colores pueden ser cualquier color CSS válido.
 
-```typescript title="Customize loading screen color"
+```typescript title="Personaliza el color de la pantalla de carga"
 .init({
   screenConfiguration: {
     initializing: {
@@ -638,14 +641,14 @@ Colors can be any valid CSS color.
 });
 ```
 
-## Hiding UI elements in marketplace
+## Ocultar elementos de la interfaz de usuario en el mercado
 
-You can optionally hide the **Back to Marketplace** link, some tabs from the instance screen, and elements of the instance configuration wizard.
-This is useful if you want to prevent your customers from running tests from the **Test** tab or reconfiguring alert monitors for themselves.
+Opcionalmente, puedes ocultar el enlace **Volver al mercado**, algunas pestañas de la pantalla de la instancia y elementos del asistente de configuración de la instancia.
+Esto es útil si deseas evitar que tus clientes ejecuten pruebas desde la pestaña **Prueba** o reconfiguren monitores de alerta por sí mismos.
 
-To disable certain UI elements, add a `screenConfiguration` block to your `.showMarketplace()` or `.configureInstance()` invocations:
+Para deshabilitar ciertos elementos de la interfaz de usuario, agrega un bloque `screenConfiguration` a tus invocaciones de `.showMarketplace()` o `.configureInstance()`:
 
-```typescript {5-13} title="Hide the 'back' link and 'monitors' and 'test' tabs"
+```typescript {5-13} title="Ocultar el enlace "atrás" y las pestañas "monitores" y "prueba"
 .showMarketplace({
   selector: `#${id}`,
   usePopover: false,
@@ -664,20 +667,20 @@ To disable certain UI elements, add a `screenConfiguration` block to your `.show
 });
 ```
 
-- `instance.hideBackToMarketplace` determines whether or not to hide the **Back to Marketplace** link in the instance configuration screen and defaults to `false`.
-- `instance.hideTabs` determines which tabs to hide from the instance configuration screen.
-  You can choose from the **Test**, **Executions**, **Monitors** or **Logs** tabs.
-  No tabs are hidden by default.
-- `configurationWizard.hideSidebar` hides the left-hand sidebar from the configuration wizard (the config wizard page titles and numbers).
-- `configurationWizard.isInModal` affects if the config wizard should appear over the current page in a modal.
-  When set to `true`, it's assumed that your embedded marketplace is already in a modal, (and since a modal-in-a-modal isn't the best look), opens the config wizard to fill its containing `<div>`.
-- `configurationWizard.triggerDetailsConfiguration` determines if and how trigger details are shown in the config wizard.
-  Your options are `hidden` to hide trigger details completely, `default` to include the element, but collapse them, or `default-open` to include the element and have it expanded.
-  Endpoint details may also be hidden if they are not configured to be **Secured by Customer** (see [Endpoint Configuration](endpoint-configuration.mdx/#securing-endpoints-with-api-keys)).
+- `instance.hideBackToMarketplace` determina si ocultar o no el enlace **Volver al mercado** en la pantalla de configuración de la instancia y tiene un valor predeterminado de `false`.
+- `instance.hideTabs` determina qué pestañas ocultar en la pantalla de configuración de la instancia.
+  Puedes elegir entre las pestañas **Prueba**, **Ejecuciones**, **Monitores** o **Registros**.
+  Por defecto, no se oculta ninguna pestaña.
+- `configurationWizard.hideSidebar` oculta la barra lateral izquierda del asistente de configuración (los títulos de las páginas y los números del asistente de configuración).
+- `configurationWizard.isInModal` afecta si el asistente de configuración debe aparecer sobre la página actual en un modal.
+  Cuando se establece en `true`, se asume que tu mercado integrado ya está en un modal (y dado que un modal dentro de un modal no es la mejor apariencia), abre el asistente de configuración para llenar su contenedor `<div>`.
+- `configurationWizard.triggerDetailsConfiguration` determina si y cómo se muestran los detalles del disparador en el asistente de configuración.
+  Tus opciones son `hidden` para ocultar completamente los detalles del disparador, `default` para incluir el elemento, pero colapsarlo, o `default-open` para incluir el elemento y tenerlo expandido.
+  Los detalles del punto final también pueden ocultarse si no están configurados como **Asegurados por el Cliente** (consulta [Configuración del Punto Final](endpoint-configuration.mdx/#asegurando-puntos-finales-con-claves-api)).
 
-If you would like to apply your preferences globally (in the case that you have multiple invocations `showMarketplace()` and `configureInstance()`), you can configure settings when you run `.init()`:
+Si deseas aplicar tus preferencias de forma global (en el caso de que tengas múltiples invocaciones de `showMarketplace()` y `configureInstance()`), puedes configurar ajustes cuando ejecutas `.init()`:
 
-```typescript {2-7} title="Hide UI elements globally"
+```typescript {2-7} title="Ocultar elementos de la interfaz de usuario globalmente"
 .init({
   screenConfiguration: {
     instance: {
@@ -688,23 +691,23 @@ If you would like to apply your preferences globally (in the case that you have 
 });
 ```
 
-Screen configuration settings in `.init()` can be overridden within a specific `showMarketplace()` or `configureInstance()` invocation.
-`hideTabs` properties are _not_ merged if yo do this - the `screenConfiguration` settings in `showMarketplace` / `configureInstance` completely override the default settings in `init`.
+La configuración de la pantalla en `.init()` puede anularse dentro de una invocación específica de `showMarketplace()` o `configureInstance()`.
+Las propiedades `hideTabs` _no_ se fusionan si haces esto: la configuración de `screenConfiguration` en `showMarketplace` / `configureInstance` anula completamente la configuración predeterminada en `init`.
 
-## Integration configuration detail screen
+## Pantalla de detalles de configuración de integración
 
-The embedded SDK configuration allows you to fine-tune the user experience for accessing the integration configuration details screen. It includes the ability to prevent a marketplace user from accessing the detail screen. This is useful if you do not want your customer to access the **Test**, **Executions**, **Monitors** or **Logs** functionality.
+La configuración del SDK integrado te permite ajustar la experiencia del usuario para acceder a la pantalla de detalles de configuración de la integración. Incluye la capacidad de evitar que un usuario del mercado acceda a la pantalla de detalles. Esto es útil si no deseas que tu cliente acceda a las funcionalidades de **Prueba**, **Ejecuciones**, **Monitores** o **Registros**.
 
-- `allow-details` Will redirect the marketplace user back to the marketplace listing after the user finishes the configuration wizard.
-  When a user clicks on an integration from the marketplace listing, they will see a summary of the integration including the integration status.
-  The user can manage the instances from the overflow menu at the bottom. "View Details" will open the full details integration screen.
-  You can [hide some UI elements](#hiding-ui-elements-in-marketplace) of this page.
-  This is the default behavior if no configuration is provided, starting in SDK version 2.0.0.
-- `disallow-details` Will provide the same experience as the `allow-details` option described above.
-  However, users will not have access to the details option from the overflow menu.
-- `always-show-details` Will redirect the marketplace user to the full integration details screen after the integration has been configured or when an instance is selected from the marketplace listing.
+- `allow-details` redirigirá al usuario del mercado de nuevo a la lista del mercado después de que el usuario termine el asistente de configuración.
+  Cuando un usuario hace clic en una integración desde la lista del mercado, verá un resumen de la integración, incluido el estado de la integración.
+  El usuario puede gestionar las instancias desde el menú desplegable en la parte inferior. "Ver detalles" abrirá la pantalla completa de detalles de la integración.
+  Puedes [ocultar algunos elementos de la interfaz de usuario](#hiding-ui-elements-in-marketplace) en esta página.
+  Este es el comportamiento predeterminado si no se proporciona ninguna configuración, a partir de la versión del SDK 2.0.0.
+- `disallow-details` proporcionará la misma experiencia que la opción `allow-details` descrita anteriormente.
+  Sin embargo, los usuarios no tendrán acceso a la opción de detalles desde el menú desplegable.
+- `always-show-details` redirigirá al usuario del mercado a la pantalla completa de detalles de la integración después de que se haya configurado la integración o cuando se seleccione una instancia desde la lista del mercado.
 
-```typescript {5} title="Inline configuration experience that allows marketplace users to access integration config details"
+```typescript {5} title="Experiencia de configuración en línea que permite a los usuarios del mercado acceder a los detalles de configuración de la integración"
 .showMarketplace({
   selector: `#my-div`,
   screenConfiguration: {
@@ -715,13 +718,13 @@ The embedded SDK configuration allows you to fine-tune the user experience for a
 });
 ```
 
-## Showing all instances in marketplace
+## Mostrar todas las instancias en el mercado
 
-Sometimes you will have an integration that you would like to deploy to a specific customer via Marketplace, but you don't want to make it generally available to all customers.
-To accomplish that, deploy an [unconfigured instance](instances.mdx/#creating-an-unconfigured-instance) of the integration to your customer as an organization user.
-Then, set the `screenConfiguration.marketplace.includeActiveIntegrations` marketplace option to `true` to show instances that are enabled for a customer (even if the integration is not in marketplace):
+A veces, tendrás una integración que te gustaría implementar en un cliente específico a través del Mercado, pero no deseas que esté disponible para todos los clientes en general.
+Para lograrlo, implementa una [instancia no configurada](instances.mdx/#creating-an-unconfigured-instance) de la integración en tu cliente como usuario de la organización.
+Luego, configura la opción de mercado `screenConfiguration.marketplace.includeActiveIntegrations` a `true` para mostrar instancias habilitadas para un cliente (incluso si la integración no está en el mercado):
 
-```typescript {5} title="Show all instances in marketplace"
+```typescript {5} title="Mostrar todos los casos en el mercado"
 .showMarketplace({
   selector: `#my-div`,
   screenConfiguration: {
@@ -732,52 +735,52 @@ Then, set the `screenConfiguration.marketplace.includeActiveIntegrations` market
 });
 ```
 
-## Multiple instances of one integration in Marketplace
+## Múltiples instancias de una integración en el Mercado
 
-By default customer users can enable a single instance of an integration through embedded marketplace.
-There are situations, though, where you want customers to be able to deploy multiple intances of an integration.
-For example, your customers may have multiple Shopify stores, and require a separate instance of your Shopify integration for each store.
+Por defecto, los usuarios clientes pueden habilitar una única instancia de una integración a través del mercado integrado.
+Sin embargo, hay situaciones en las que deseas que los clientes puedan implementar múltiples instancias de una integración.
+Por ejemplo, tus clientes pueden tener varias tiendas Shopify y necesitar una instancia separada de tu integración de Shopify para cada tienda.
 
-Enabling customers to deploy multiple instances of an integration is configured on a per-integration basis.
-From the marketplace configuration screen or the marketplace drawer in the integration designer, enable the **Allow Multiple Instances** toggle.
+Habilitar a los clientes para implementar múltiples instancias de una integración se configura específicamente para cada integración.
+Desde la pantalla de configuración del mercado o el cajón del mercado en el diseñador de integraciones, habilita la opción **Permitir Múltiples Instancias**.
 
 <Screenshot
   filename="embedded-marketplace/allow-multiple-instances.png"
   maxWidth="450px"
-  alt="Allow multiple instances toggle in marketplace drawer"
+  alt="Permitir la alternancia de varias instancias en el cajón del mercado"
 />
 
-Embedded customer users who select your integration will be able to view existing instances of the integration that are enabled, and will have the option to add addtional instances of the integration.
+Los usuarios de clientes integrados que seleccionen su integración podrán ver las instancias existentes de la integración que estén habilitadas y tendrán la opción de añadir instancias adicionales de la integración.
 
 <Screenshot
   filename="embedded-marketplace/multiple-instances.png"
   maxWidth="400px"
-  alt="Multiple instances in embedded marketplace"
+  alt="Varias instancias en el mercado integrado"
 />
 
-Customers will see a simlar view if you have enabled mutliple instances of an integration for them.
+Los clientes verán una vista similar si ha habilitado varias instancias de una integración para ellos.
 
-## Translations and internationalization
+## Traducciones e internacionalización
 
-Your customers may not speak English.
-Internationalization (i18n) allows you to translate the embedded marketplace into other languages.
+Tus clientes pueden no hablar inglés.
+La internacionalización (i18n) te permite traducir el mercado integrado a otros idiomas.
 
-Next, examine marketplace's [translations](https://github.com/-io/translations/tree/main/src).
-This repo contains all phrases in marketplace that you can override, along with their English translations.
-There are two types of phrases that need to be translated:
+Primero, examina las [traducciones](https://github.com/-io/translations/tree/main/src) del mercado.
+Este repositorio contiene todas las frases en el mercado que puedes sobrescribir, junto con sus traducciones al inglés.
+Hay dos tipos de frases que deben traducirse:
 
-- `SimplePhrase` phrases are direct string-to-string translations.
-  For example, `input.integrationVersionLabel` "Integration Version" my translate to French "Version d'intégration".
-- `ComplexPhrase` phrases are templated strings, where a set of variables representing customer name, integration name, counts, etc., will be templated into the string.
-  For example, `integrations.id__banner.customerActivateText` could have a value of `"Please contact %{organization} to activate this integration."`
-  This will template your organization's name into the string.
+- Las frases `SimplePhrase` son traducciones directas de cadena a cadena.
+  Por ejemplo, `input.integrationVersionLabel` "Integration Version" podría traducirse al francés como "Version d'intégration".
+- Las frases `ComplexPhrase` son cadenas con plantillas, donde un conjunto de variables que representan el nombre del cliente, el nombre de la integración, recuentos, etc., se plantillarán en la cadena.
+  Por ejemplo, `integrations.id__banner.customerActivateText` podría tener un valor de `"Por favor, contacta a %{organization} para activar esta integración."`
+  Esto plantillará el nombre de tu organización en la cadena.
 
-### Adding an i18n dictionary for a user
+### Agregar un diccionario i18n para un usuario
 
-To apply an i18n dictionary for a user, add a `translation` property to your `.init` invocation.
-Include any `phrases` that you would like to translate:
+Para aplicar un diccionario i18n para un usuario, agrega una propiedad `translation` a tu invocación de `.init`.
+Incluya las `frases` que desee traducir:
 
-```typescript title="Translating phrases"
+```typescript title="Traducir frases"
 .init({
   translation: {
     phrases: {
@@ -790,14 +793,14 @@ Include any `phrases` that you would like to translate:
 });
 ```
 
-After making changes, reload marketplace.
-You will see the new translations.
+Después de hacer los cambios, vuelva a cargar marketplace.
+Verá las nuevas traducciones.
 
 <Screenshot filename="embedded-marketplace/i18n-example.png" maxWidth="350px" />
 
-:::tip Use Intellisense
-The Marketplace NPM package includes helpful comments that show current English values for phrases you can translate.
-Enable intellisense in your code editor and mouse over the phrase you want to translate to see the English version of the phrase.
+:::tip Utilizar Intellisense
+El paquete NPM de Marketplace incluye útiles comentarios que muestran los valores actuales en inglés de las frases que puedes traducir.
+Active intellisense en su editor de código y pase el ratón por encima de la frase que desee traducir para ver la versión inglesa de la misma.
 
 <Screenshot
   filename="embedded-marketplace/i18n-intellisense.png"
@@ -805,11 +808,11 @@ Enable intellisense in your code editor and mouse over the phrase you want to tr
 />
 :::
 
-### i18n debug mode
+### Modo de depuración i18n
 
-If you would like to identify what phrase matches what UI element in , turn on **debug mode** by adding `debugMode: true` to the `translation` property of `.init`:
+Si deseas identificar qué frase coincide con qué elemento de la interfaz de usuario en , activa el **modo de depuración** agregando `debugMode: true` a la propiedad `translation` de `.init`:
 
-```typescript title="Enable debug mode for translations"
+```typescript title="Activar el modo de depuración para las traducciones"
 .init({
   translation: {
     debugMode: true,
@@ -817,25 +820,25 @@ If you would like to identify what phrase matches what UI element in , turn on *
 });
 ```
 
-This will cause all UI elements in an embedded marketplace to show their phrase's key names and current values:
+Esto hará que todos los elementos de la interfaz de usuario en un mercado incrustado muestren los nombres clave de sus frases y los valores actuales:
 
 <Screenshot
   filename="embedded-marketplace/i18n-debug-mode.png"
   maxWidth="600px"
 />
 
-### Namespaced phrases
+### Frases con espacio de nombres
 
-Some phrases are shared across several pages in the embedded marketplace.
-A list of these common/shared pharases are available on [GitHub](https://github.com/-io/translations/tree/main/src/lib/shared).
+Algunas frases se comparten en varias páginas del mercado integrado.
+Una lista de estas frases comunes/compartidas está disponible en [GitHub](https://github.com/-io/translations/tree/main/src/lib/shared).
 
-For example, `common.loading` translates to `"Loading"` in English on several screens.
-You can set `common.loading` once, and that translation will affect multiple screens.
+Por ejemplo, `common.loading` se traduce como `"Cargando"` en inglés en varias pantallas.
+Puedes establecer `common.loading` una vez, y esa traducción afectará a varias pantallas.
 
-If you would like to customize common phrases on a per-page basis, you can namespace phrases.
-For example, if you would like to translate `common.loading` to a different phrase, but only on the [alert monitors](monitoring-and-alerting.mdx) page, prepend the phrase key with a `PhraseNamespace`, entering `NAMESPACE__PHRASE-KEY` (see [translations](https://github.com/-io/translations/tree/main/src)):
+Si deseas personalizar frases comunes en función de la página, puedes agregar un espacio de nombres a las frases.
+Por ejemplo, si deseas traducir `common.loading` a una frase diferente, pero solo en la página de [alertas y monitoreo](monitoring-and-alerting.mdx), agrega un espacio de nombres al clave de la frase, ingresando `NAMESPACE__PHRASE-KEY` (consulta [translations](https://github.com/-io/translations/tree/main/src)):
 
-```typescript title="Namespacing phrases"
+```typescript title="Frases intercaladas"
 .init({
   translation: {
     phrases: {

@@ -1,11 +1,11 @@
 ---
 id: create-webhooks-in-your-core-product
-title: Create Webhooks in Your Core Product
-description: The value of setting up your core app to use webhooks for outbound messaging.
+title: Crear Webhooks en su producto principal
+description: El valor de configurar su aplicación principal para utilizar webhooks para la mensajería saliente.
 ---
 
-Webhooks in your core app allow you to simplify export integrations. Setting up webhooks may add quite a bit of development time to the first export integration, but subsequent integrations can be completed much faster because of the webhooks. And, speaking of faster, webhooks help your export work in near-real-time.
+Los webhooks en tu aplicación principal te permiten simplificar las integraciones de exportación. Configurar webhooks puede agregar bastante tiempo de desarrollo a la primera integración de exportación, pero las integraciones subsiguientes se pueden completar mucho más rápido gracias a los webhooks. Y, hablando de rapidez, los webhooks ayudan a que tu exportación funcione casi en tiempo real.
 
-Webhooks are also not limited in terms of endpoints, so they can be used to export data to multiple destinations. For example, if you have a webhook that [triggers](/docs/integration-triggers/#webhook-triggers) whenever there is an update in your inventory system, and it fires off a payload that includes updated inventory data (even if some of that data is extraneous to the current integration), you can easily filter that data within the integration to what is needed by the destination system. Then, when you are creating the next integration for inventory updates, you already have the payload with everything in it (which you can now filter for a different dataset for your second integration).
+Los webhooks tampoco están limitados en cuanto a los puntos finales, por lo que se pueden utilizar para exportar datos a múltiples destinos. Por ejemplo, si tienes un webhook que [se activa](/docs/integration-triggers/#webhook-triggers) cada vez que hay una actualización en tu sistema de inventario, y dispara un payload que incluye datos de inventario actualizados (incluso si algunos de esos datos son irrelevantes para la integración actual), puedes filtrar fácilmente esos datos dentro de la integración para lo que necesita el sistema de destino. Entonces, al crear la siguiente integración para actualizaciones de inventario, ya tienes el payload con todo incluido (que ahora puedes filtrar para un conjunto de datos diferente para tu segunda integración).
 
-Once you have webhooks set up for your core app, you shouldn't need nearly as much help from devs to build out additional export integrations. In fact, your technical non-developers should be able to build export integrations that follow the same pattern as existing integrations. This frees your devs to work on the core product rather than the integrations.
+Una vez que tengas configurados los webhooks para tu aplicación principal, no deberías necesitar casi tanta ayuda de los desarrolladores para crear integraciones de exportación adicionales. De hecho, tus técnicos no desarrolladores deberían poder construir integraciones de exportación que sigan el mismo patrón que las integraciones existentes. Esto libera a tus desarrolladores para trabajar en el producto principal en lugar de en las integraciones.

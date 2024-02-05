@@ -1,8 +1,8 @@
 ---
 id: installing-embedded
-title: Installing the Embedded SDK
-sidebar_label: Installing Embedded SDK
-description: This article walks you through installing the embedded SDK and authenticating users
+title: Instalación del Embedded SDK
+sidebar_label: Instalación de Embedded SDK
+description: Este artículo le guiará a través de la instalación del SDK integrado y la autenticación de usuarios.
 ---
 
 import InternalLink from "@site/src/components/internal-link";
@@ -10,20 +10,21 @@ import Screenshot from "@site/src/components/screenshot";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-## Installing 's SDK
+## Instalación del SDK
 
-To embed in your app, you must include some JavaScript code with your client application.
-You have two choices for how to incorporate that code: you can add the [@-io/embedded](https://www.npmjs.com/package/@-io/embedded) NPM package to your web app Node.js project, or you can build the package from source and include it in your app through a `<script>` tag.
-We strongly recommend installing the SDK via NPM so that you have intellisense and TypeScript support.
+Para integrar en tu aplicación, debes incluir algo de código JavaScript con tu aplicación cliente.
+Tienes dos opciones para incorporar ese código: puedes agregar el paquete NPM [@-io/embedded](https://www.npmjs.com/package/@-io/embedded) a tu proyecto Node.js de la aplicación web, o puedes compilar el paquete desde la fuente e incluirlo en tu aplicación a través de una etiqueta `<script>`.
+Recomendamos instalar el SDK a través de NPM para tener soporte de intellisense y TypeScript.
 
-You can view the source code for the Embedded NPM package on [GitHub](https://github.com/-io/embedded).
+Puedes ver el código fuente del paquete NPM Embedded en [GitHub](https://github.com/-io/embedded).
 
-### Installing embedded through NPM
+### Instalación de embedded a través de NPM
 
-[![Embedded NPM version](https://badge.fury.io/js/@-io%2Fembedded.svg)](https://www.npmjs.com/package/@-io/embedded)
+[![Versión de Embedded en NPM](https://badge.fury.io/js/@-io%2Fembedded.svg)](https://www.npmjs.com/package/@-io/embedded)
 
-If your web application is written in Node.js, you can include 's JavaScript code as a Node.js import.
-Install the Embedded Node.js package from NPM with `npm` or `yarn`:
+Si tu aplicación web está escrita en Node.js, puedes incluir el código JavaScript de en tu aplicación como una importación de Node.js.
+
+Instala el paquete Embedded Node.js desde NPM con `npm` o `yarn`:
 
 ```bash
 npm install @-io/embedded
@@ -33,110 +34,112 @@ npm install @-io/embedded
 yarn add @-io/embedded
 ```
 
-Then, for any page that needs to invoke a `.*` function, include the `@-io/embedded` package at the top of the file:
+A continuación, para cualquier página que necesite invocar una función `.*`, incluya el paquete `@-io/embedded` en la parte superior del archivo:
 
 ```javascript
 import  from "@-io/embedded";
 ```
 
-### Installing embedded with a script tag
+### Instalación incrustada con una etiqueta script
 
-:::tip We recommend installing embedded through NPM
-Installing Embedded through the script tag is great for prototyping and testing, but for production use we recommend installing Embedded through NPM.
-The TypeScript NPM package gives you advanced features, like code completion and type safety.
+:::tip Recomendamos instalar Embedded a través de NPM
+Instalar Embedded a través de la etiqueta script es genial para prototipos y pruebas, pero para uso en producción recomendamos instalar Embedded a través de NPM.
+El paquete TypeScript NPM te ofrece características avanzadas, como la finalización de código y la seguridad de tipos.
 :::
 
-To install the SDK through a script tag, you will first need to build the `@-io/embedded` package.
-You will need [Node.js](https://nodejs.org/) installed on your machine.
+Para instalar el SDK a través de una etiqueta de script, primero deberá compilar el paquete `@-io/embedded`.
 
-```bash title="Clone and build the  SDK"
-# Clone the @-io/embedded repository from GitHub
+Necesitarás tener [Node.js](https://nodejs.org/) instalado en tu máquina.
+
+```bash title="Clonar y crear el SDK"
+# Clona el repositorio @-io/embedded de GitHub
 git clone https://github.com/-io/embedded.git -embedded
 
-# Install node dependencies
+# Instalar dependencias de nodos
 cd -embedded
 npm install
 
-# Build the @-io/embedded package
+# Crear el paquete @-io/embedded
 npm run build
 ```
 
-This will create a directory in `-embedded/` called `dist/`, which contains `index.js` (along with some TypeScript files).
-You can copy that file into your app's static scripts directory and then include it in your HTML with a `script` tag:
+Esto creará un directorio en `-embedded/` llamado `dist/`, que contiene `index.js` (junto con algunos archivos TypeScript).
+Puedes copiar ese archivo en el directorio de scripts estáticos de tu aplicación y luego incluirlo en tu HTML con una etiqueta `script`:
 
 ```html
 <script src="/static/js/path/to//index.js"></script>
 ```
 
-Once the script has loaded, `.*` functions (described below) are available for you to use.
+Una vez que el script se ha cargado, las funciones `.*` (descritas a continuación) están disponibles para que las uses.
 
-You can also pull down the built `index.js` file from a JavaScript CDN like UNKPG: [unpkg.com/browse/@-io/embedded/](https://unpkg.com/browse/@-io/embedded/).
+También puedes descargar el archivo `index.js` compilado desde un CDN de JavaScript como UNKPG: [unpkg.com/browse/@-io/embedded/](https://unpkg.com/browse/@-io/embedded/).
 
-## Initialize the client
+## Inicializar el cliente
 
-When is embedded in your app, it's presented in an [iframe](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe) that by default points to 's application URL (https://app..io).
+Cuando se incorpora en tu aplicación, se presenta en un [iframe](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe) que, por defecto, apunta a la URL de la aplicación de `'.io` (https://app..io).
 
-To initialize the client, run the `init` function:
+Para inicializar el cliente, ejecute la función `init`:
 
 ```javascript
 .init();
 ```
 
-If you use a [custom white-label domain](organization.mdx#custom-domains) (something like **https<!---->://integrations.my-example-company.com**), you can point the iframes that you embed your white-label domain instead.
-To do that, add this snippet of code:
+Si utilizas un [dominio personalizado de marca blanca](organization.mdx#custom-domains) (algo como **https<!---->://integrations.my-example-company.com**), puedes apuntar los iframes que incorporas a tu dominio de marca blanca en su lugar.
+Para hacer eso, agrega este fragmento de código:
 
-```javascript title="Optional white-label iframe config"
+```javascript title="Configuración opcional de iframe de marca blanca"
 .init({
   Url: "https://integrations.my-example-company.com",
 });
 ```
 
-## Authenticating users
+## Autenticación de usuarios
 
-One big advantage of embedding the marketplace or integration designer is that users don't need to be assigned an additional set of credentials to remember.
-They can log in to your application, and you can provide them with an authentication token that allows them to deploy integrations.
-You do this by generating a JSON Web Token (JWT) that is signed by a unique private key that you get from .
-The JWT contains information about the user from your system.
-When is presented a signed JWT, the JWT signature is verified and the user is granted a [customer role](users.mdx#customer-user-roles) of **Marketplace**, which allows them to deploy integrations for their specific customer in .
+Una gran ventaja de incrustar el marketplace o el diseñador de integraciones es que los usuarios no necesitan que se les asignen un conjunto adicional de credenciales para recordar.
+Pueden iniciar sesión en tu aplicación, y puedes proporcionarles un token de autenticación que les permita implementar integraciones.
+Esto se hace generando un JSON Web Token (JWT) firmado por una clave privada única que obtienes de .
+El JWT contiene información sobre el usuario desde tu sistema.
+Cuando se presenta a un JWT firmado, se verifica la firma del JWT y se otorga al usuario un [rol de cliente](users.mdx#customer-user-roles) de **Marketplace**, lo que le permite implementar integraciones para su cliente específico en .
 
-### JWT signing keys
+### Claves de firma JWT
 
-Before you can generate a JWT, you will need a valid **signing key** from .
-Within click on your organization name on the bottom of the left-hand sidebar, and then open the **Embedded** tab.
-Click the **+ Add signing Key** button.
-_Note_: You must be an [owner or admin](users.mdx#organization-team-member-roles) to create a signing key.
+Antes de poder generar un JWT, necesitarás una **clave de firma** válida de .
+Dentro de , haz clic en el nombre de tu organización en la parte inferior de la barra lateral izquierda y luego abre la pestaña **Incrustado**.
+Haz clic en el botón **+ Agregar clave de firma**.
+_Nota_: Debes ser un [propietario o administrador](users.mdx#organization-team-member-roles) para crear una clave de firma.
 
-You will be presented with a private signing key.
-Store this key somewhere safe - it's the key you'll use to validate that users are authenticated within your application.
+Se te presentará una clave de firma privada.
+Guarda esta clave en un lugar seguro, es la clave que utilizarás para validar que los usuarios están autenticados en tu aplicación.
 
 <Screenshot
   filename="embedded/example-private-key.png"
   maxWidth="600px"
-  alt="Get signing key in  app"
+  alt="Obtener la clave de firma en la aplicación"
 />
 
-:::note Private keys are not stored in
-does not store the private signing key that is generated, and only saves the last 8 characters so you can easily match up a private key you have with one in our system.
-Instead, we store the corresponding public key to verify signatures of JWTs you send.
-Save the private key that you generate somewhere safe.
-If it's ever compromised, or you lose it, you can deactivate old keys and generate a new one.
+:::note Las claves privadas no se almacenan en
+no guarda la clave privada de firma que se genera y solo guarda los últimos 8 caracteres para que puedas hacer coincidir fácilmente una clave privada que tienes con una en nuestro sistema.
+En su lugar, almacenamos la clave pública correspondiente para verificar las firmas de los JWT que envías.
+Guarda la clave privada que generas en un lugar seguro.
+Si alguna vez se ve comprometida o la pierdes, puedes desactivar las claves antiguas y generar una nueva.
 :::
 
-#### Importing your own private signing key
+#### Importar su propia clave de firma privada
 
-You can also import your own private signing key for embedded.
-The OpenSSL CLI tool is most commonly used for generating public/private keys pairs yourself:
+También puedes importar tu propia clave privada para embedded.
+La herramienta de línea de comandos OpenSSL se utiliza comúnmente para generar pares de claves pública/privada tú mismo:
 
 ```bash
-# Generate a private key with 4096 bit encryption
+# Generar una clave privada con cifrado de 4096 bits
 openssl genrsa -out my-private-key.pem 4096
 
-# Generate the corresponding public key
+# Generar la clave pública correspondiente
 openssl rsa -in my-private-key.pem -pubout > my-public-key.pub
 ```
 
-This will generate two files - a private key called `my-private-key.pem` and a public key called `my-public-key.pub`.
-Your public key will look like this:
+Esto generará dos archivos: una clave privada llamada `my-private-key.pem` y una clave pública llamada `my-public-key.pub`.
+
+Tu clave pública tendrá este aspecto:
 
 ```
 -----BEGIN PUBLIC KEY-----
@@ -150,43 +153,43 @@ Import the public key using the [prism CLI tool](cli/prism.mdx#organizationsigni
 prism organization:signingkeys:import -p my-public-key.pub
 ```
 
-### Create and sign a JWT
+### Crear y firmar un JWT
 
-Now that you have a signing key, you can create and sign a JSON web token (JWT).
-Your backend API (not your frontend) should generate a JWT for your users, and your frontend client should request a signed JWT from your backend API.
+Ahora que tiene una clave de firma, puede crear y firmar un token web JSON (JWT).
+Tu API backend (no tu frontend) debería generar un JWT para tus usuarios, y tu cliente frontend debería solicitar un JWT firmado a tu API backend.
 
-:::caution Do your JWT generation on the backend
-Generate the JWT tokens on the backend.
-Baking JWT generation (including the signing key) into your frontend presents a security problem - someone with the signing key could sign their own JWT and pretend to be anyone.
+:::caution Generar los tokens JWT en el backend
+Genera los tokens JWT en el backend.
+La generación de JWT (incluida la clave de firma) en tu frontend presenta un problema de seguridad: alguien con la clave de firma podría firmar su propio JWT y hacerse pasar por cualquiera.
 :::
 
-Most programming languages that APIs are written in have a JWT library for generating tokens - see [jwt.io](https://jwt.io/).
+La mayoría de los lenguajes de programación en los que están escritas las API tienen una biblioteca JWT para generar tokens; consulta [jwt.io](https://jwt.io/).
 
-The JWT that you generate for a user should have the following properties:
+El JWT que generes para un usuario debe tener las siguientes propiedades:
 
-- The **header** should indicate that it's HMAC with SHA-256 encrypted, and should read:
+- El **encabezado** debe indicar que es HMAC con cifrado SHA-256, y debe leerse:
   ```json
   {
     "alg": "RS256",
     "typ": "JWT"
   }
   ```
-- The **private signing key** you generated.
-- A **payload** with a few fields:
-  - A unique user ID `sub`.
-    This should generally be a UUID.
-  - An optional `external_id` sets the external ID of the _user_ in .
-    This generally matches the `sub` and represents the ID of the user in your system.
-  - The user's `name` (_optional_)
-  - Your `organization` ID, found on the **Embedded** tab where you generate signing certificates
-  - The [external ID](customers.mdx#customer-external-ids) of the `customer` the user belongs to
-  - A signing time (current time) `iat`
-  - A `role` is only necessary for [user level configuration](user-level-configuration.mdx) (ULC).
-    A role of `"admin"` gives the user the ability to deploy ULC instances.
-    A role of `"user"` gives the user the ability to supply user configuration to an already deployed ULC instance.
-    This value defaults to `"admin"`.
-  - An expiration time `exp`
-    ```json title="Example JWT Payload"
+- La **clave de firma privada** que generaste.
+- Una **carga útil** con algunos campos:
+  - Un ID de usuario único `sub`. Esto debería ser generalmente un UUID.
+  - Un `external_id` opcional que establece el ID externo del _usuario_ en .
+    Generalmente coincide con el `sub` y representa el ID del usuario en tu sistema.
+  - El `nombre` del usuario (_opcional_)
+  - El ID de tu `organización`, que se encuentra en la pestaña **Embedded** donde generas certificados de firma.
+  - El [ID externo](customers.mdx#customer-external-ids) del `cliente` al que pertenece el usuario.
+  - Un tiempo de firma (`iat`) que indica la hora actual.
+  - Un `role` que solo es necesario para [configuración a nivel de usuario](user-level-configuration.mdx) (ULC).
+    Un rol de `"admin"` le da al usuario la capacidad de implementar instancias de ULC.
+    Un rol de `"user"` le da al usuario la capacidad de proporcionar configuración de usuario a una instancia de ULC ya implementada.
+    Este valor se establece por defecto en `"admin"`.
+  - Un tiempo de vencimiento `exp`.
+
+    ```json title="Ejemplo de carga JWT"
     {
       "sub": "2E52B7CB-071B-4EA2-8E9D-F64910EBDBB1",
       "external_id": "2E52B7CB-071B-4EA2-8E9D-F64910EBDBB1",
@@ -199,24 +202,24 @@ The JWT that you generate for a user should have the following properties:
     }
     ```
 
-:::tip Use unique identifiers as JWT subjects
-The `sub` (subject) within the JWT identifies the user who is logged in to your system.
-The `sub` value can be any unique identifier - a UUID, email address, etc.
+:::tip Utiliza identificadores únicos como sujetos de JWT
+El `sub` (sujeto) dentro del JWT identifica al usuario que ha iniciado sesión en tu sistema.
+El valor de `sub` puede ser cualquier identificador único, como un UUID, dirección de correo electrónico, etc.
 
-A customer user with that identifier will be created in if it doesn't already exist, and will be granted permissions to configure and deploy instances to the customer they're assigned to (you assign the user to a customer in the examples below).
+Se creará un usuario del cliente con ese identificador en si aún no existe y se le otorgarán permisos para configurar e implementar instancias en el cliente al que estén asignados (asignas el usuario a un cliente en los ejemplos a continuación).
 :::
 
-Here are a couple of code snippets for JavaScript and Python that would create a valid JWT to authenticate a user in :
+Aquí hay un par de fragmentos de código para JavaScript y Python que crearían un JWT válido para autenticar a un usuario en:
 
 <Tabs>
-<TabItem value="js" label="JavaScript Example" default>
+<TabItem value="js" label="Ejemplo de JavaScript" default>
 
 ```javascript
 import jsonwebtoken from "jsonwebtoken";
 
 /*
- This is for illustrative purposes only;
- Obviously don't hard-code a signing key in your code.
+ Esto es sólo para fines ilustrativos;
+ Obviamente no codifique una clave de firma en su código.
 */
 const signingKey = `-----BEGIN PRIVATE KEY-----
 MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDP3+OrT0IXqCu4
@@ -243,15 +246,15 @@ const token = jsonwebtoken.sign(
 ```
 
 </TabItem>
-<TabItem value="py" label="Python Example">
+<TabItem value="py" label="Ejemplo de Python">
 
 ```python
 import jwt
 import math
 from time import time
 
-# This is for illustrative purposes only;
-# Obviously don't hard-code a signing key in your code.
+# Esto es sólo a título ilustrativo;
+# Obviamente, no codifique una clave de firma en su código.
 signing_key = '''-----BEGIN PRIVATE KEY-----
 MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDP3+OrT0IXqCu4
 EXAMPLEEXAMPLEEXAMPLEEXAMPLEEXAMPLEEXAMPLEEXAMPLEEXAMPLEEXAMPLEE
@@ -275,7 +278,7 @@ token = jwt.encode(
 ```
 
 </TabItem>
-<TabItem value="dotnet" label=".Net (C#) Example">
+<TabItem value="dotnet" label=".Net (C#) Ejemplo">
 
 ```csharp
 using Microsoft.IdentityModel.Tokens;
@@ -284,8 +287,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
 /*
- This is for illustrative purposes only;
- Obviously don't hard-code a signing key in your code.
+ Esto es sólo para fines ilustrativos;
+ Obviamente no codifique una clave de firma en su código.
 */
 var pem = @"-----BEGIN PRIVATE KEY-----
 MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDP3+OrT0IXqCu4
@@ -325,14 +328,14 @@ var token = await GetToken();
 </TabItem>
 </Tabs>
 
-An example NextJS implementation of JWT generation is available in [GitHub](https://github.com/-io/embedded/blob/main/example-embedded-app/pages/api/-auth.tsx).
+Un ejemplo de implementación de JWT en NextJS está disponible en [GitHub](https://github.com/-io/embedded/blob/main/example-embedded-app/pages/api/-auth.tsx).
 
-### Use the JWT to authenticate the user
+### Utiliza el JWT para autenticar al usuario
 
-Now that a user in your application has a signed JWT from the backend, you can authenticate them with the library using the `.authenticate()` function in your frontend application:
+Ahora que un usuario en tu aplicación tiene un JWT firmado desde el backend, puedes autenticarlo con la biblioteca utilizando la función `.authenticate()` en tu aplicación frontend:
 
 ```javascript
-// Some function that fetches the JWT from your API:
+// Alguna función que obtenga el JWT de su API:
 const token = getJwtToken();
 
 try {
@@ -342,12 +345,12 @@ try {
 }
 ```
 
-If your customer or organization ID in your JWT are incorrect, if your JWT is not signed correctly, or if the JWT is expired, `.authenticate()` will throw an error.
+Si la ID de tu cliente u organización en tu JWT es incorrecta, si tu JWT no está firmado correctamente o si el JWT ha caducado, `.authenticate()` lanzará un error.
 
-For an example React hook that wraps the `.authenticate()` function, see the [GitHub](https://github.com/-io/embedded/blob/main/example-embedded-app/src/useAuth.ts#L66).
+Para ver un ejemplo de un hook de React que envuelve la función `.authenticate()`, consulta el [GitHub](https://github.com/-io/embedded/blob/main/example-embedded-app/src/useAuth.ts#L66).
 
-#### Refreshing an embedded JWT
+#### Renovación de un JWT incrustado
 
-If a customer user's JWT expires, the customer user will see a 404 in their embedded iframe.
-To reauthenticate a user prior to expiration, ensure that your frontend app fetches a new token for your user and then run `.authenticate({ token })` with the new token.
-Existing iframes and the embedded client will be updated to use the new token.
+Si el JWT de un usuario caduca, el usuario del cliente verá un error 404 en su iframe incrustado.
+Para volver a autenticar a un usuario antes de la expiración, asegúrate de que tu aplicación frontend obtenga un nuevo token para tu usuario y luego ejecuta `.authenticate({ token })` con el nuevo token.
+Los iframes existentes y el cliente incrustado se actualizarán para usar el nuevo token.

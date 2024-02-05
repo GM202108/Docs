@@ -1,23 +1,23 @@
 ---
 id: integrations-multiple-regions
-title: Integrations in Multiple Regions
-description: You may host  integrations in multiple regions or in your private cloud. Here's how you manage integrations across multiple regions.
+title: Integraciones en múltiples regiones
+description: Puede alojar integraciones en varias regiones o en su nube privada. A continuación se explica cómo gestionar integraciones en varias regiones.
 ---
 
-## Why use multiple regions?
+## ¿Por qué utilizar varias regiones?
 
-There are many reasons that a company might choose to host integrations in multiple regions:
+Hay muchas razones por las que una empresa puede optar por alojar integraciones en varias regiones:
 
-- They need to adhere to GDPR, keeping EU-based customers' data in the EU, and US-based customers' data in the US
-- They have CJIS or ITAR requirements and need to keep customer data in GovCloud, but would like to test integrations in commercial
-- They need low latency between their app and , so host certain integrations in Australia or the EU
-- They might host in a private cloud to fulfil customer requirements
+- Necesitan adherirse al GDPR, manteniendo los datos de los clientes con sede en la UE en la UE, y los datos de los clientes con sede en los EE.UU. en los EE.UU.
+- Tienen requisitos CJIS o ITAR y necesitan mantener los datos de los clientes en GovCloud, pero les gustaría probar las integraciones en el ámbito comercial.
+- Necesitan una latencia baja entre su aplicación y , por lo que alojan determinadas integraciones en Australia o la UE.
+- Puede que alojen en una nube privada para cumplir los requisitos del cliente
 
-Whatever the reason, if you host integrations in multiple stacks you need to keep your components and integrations in sync between regions.
+Sea cual sea el motivo, si alojas integraciones en varias pilas, debes mantener tus componentes e integraciones sincronizados entre regiones.
 
-## Logging in to additional regions
+## Conectarse a otras regiones
 
-'s public regions are accessible through the following URLs:
+Las regiones públicas son accesibles a través de las siguientes URL:
 
 | Stack                | App URL                        |
 | -------------------- | ------------------------------ |
@@ -26,25 +26,25 @@ Whatever the reason, if you host integrations in multiple stacks you need to kee
 | Europe (Ireland)     | https://app.eu-west-1..io      |
 | Australia (Sydney)   | https://app.ap-southeast-2..io |
 
-If your enterprise contract includes a private cloud deployment, see [support](mailto:support@.io) for your endpoint URL.
+Si su contrato de empresa incluye la implantación de una nube privada, consulte [support](mailto:support@.io) para obtener la URL de su punto final.
 
-### Access to additional regions
+### Acceso a regiones adicionales
 
-By default, new accounts are added to the US Commercial (Ohio) region, [app..io](https://app..io).
-Access to additional regions can be enabled by for enterprise customers whose contracts include additional regions.
+Por defecto, las cuentas nuevas se añaden a la región US Commercial (Ohio), [app..io](https://app..io).
+El acceso a regiones adicionales puede habilitarse para clientes empresariales cuyos contratos incluyan regiones adicionales.
 
-:::note Users need to be added to each region
-User authentication spans across all regions, so you can use the same email and password to log in to each region.
-However, user data is not shared across regions.
-Once your organization has been enabled by support in an additional region, you will need to invite your team members to the new region in order for them to log in to your tenant.
+:::note Es necesario añadir usuarios a cada región
+La autenticación de usuarios se extiende a todas las regiones, por lo que puede utilizar el mismo correo electrónico y contraseña para iniciar sesión en cada región.
+Sin embargo, los datos de usuario no se comparten entre regiones.
+Una vez que el servicio de asistencia haya habilitado su organización en una región adicional, deberá invitar a los miembros de su equipo a la nueva región para que puedan iniciar sesión en su inquilino.
 :::
 
-### Logging in to additional regions with Prism
+### Inicio de sesión en regiones adicionales con Prism
 
-The [prism](cli/prism.mdx) CLI tool interacts with the US Commercial region by default.
-In order to interact with an additional region, set a `_URL` environment variable with the endpoint of the region you want:
+La herramienta CLI [prism](cli/prism.mdx) interactúa con la región comercial de EE.UU. por defecto.
+Para interactuar con una región adicional, establezca una variable de entorno `_URL` con el punto final de la región que desee:
 
-```bash title="Log in to US and then EU stacks"
+```bash title="Acceda a las pilas de EE.UU. y luego a las de la UE"
 $ prism login
 Press any key to open .io in your default browser:
 Login complete!
@@ -67,88 +67,88 @@ Organization: Example Corp - EU Region
 Endpoint URL: https://app.eu-west-1..io
 ```
 
-If you use `prism` on a headless system (like a CI/CD pipeline or when running automated scripts), you will need to generate a refresh token.
-See docs on [Headless prism Usage](cli/cli-usage.mdx#headless-prism-usage-for-cicd-pipelines).
+Si usas `prism` en un sistema sin interfaz gráfica (como un pipeline de CI/CD o al ejecutar scripts automatizados), necesitarás generar un token de actualización.
+Consulta la documentación sobre [Uso de Prism sin interfaz gráfica](cli/cli-usage.mdx#headless-prism-usage-for-cicd-pipelines).
 
-## Syncing integrations between regions
+## Sincronización de integraciones entre regiones
 
-Behind the scenes, an integration is saved as a YAML definition that outlines the flows, steps, configuration and config variables that make up the integration.
-Integrations can be copied between regions by downloading an integration's YAML definition from one region, and importing the YAML file into another region.
+En el fondo, una integración se guarda como una definición YAML que describe los flujos, pasos, configuración y variables de configuración que componen la integración.
+Las integraciones se pueden copiar entre regiones descargando la definición YAML de una integración desde una región y luego importando el archivo YAML en otra región.
 
-### Exporting an integration's YAML definition
+### Exportar la definición YAML de una integración
 
-To access an integration's YAML definition from the integration builder, click **MANAGE**, and then **Save/Load** to open the Save/Load drawer.
-From there, you can copy the YAML definition to your clipboard, or download the YAML file to your computer.
+Para acceder a la definición YAML de una integración desde el creador de integraciones, haz clic en **GESTIONAR** y luego en **Guardar/Cargar** para abrir el cajón de Guardar/Cargar.
+Desde allí, puedes copiar la definición YAML al portapapeles o descargar el archivo YAML a tu computadora.
 
-To access an integration's YAML definition using `prism`, identify the integration's ID by running `prism integrations:list --extended`, or by copying the `SW5.....` portion of your integration's URL when you have it open.
-Then, run `prism integrations:export`:
+Para acceder a la definición YAML de una integración mediante `prism`, identifica el ID de la integración ejecutando `prism integrations:list --extended`, o copiando la parte `SW5.....` de la URL de tu integración cuando la tengas abierta.
+Después, ejecuta `prism integrations:export`:
 
-```bash title="Save an integration's YAML definition to my-file.yaml"
+```bash title="Guardar la definición YAML de una integración en mi-archivo.yaml"
 prism integrations:export SW50ZWdyYXRpb246YmE0NGU5NmQtYWMzOS00MDMxLTg4MmUtMWQyNzA5ZjY5MDg0 > my-file.yaml
 ```
 
-:::caution Component Versions Across Regions
-Component versions may not be consistent between regions.
-For example, you might publish an "Acme Inc" component 50 times during testing on the US Commercial stack, and only twice on your Europe tenant.
-In that case, "v50" in the US stack would correspond to "v2" in the Europe stack.
-A YAML file that specifies "Acme Inc v50" would mean nothing to the Europe stack.
+:::caution Versiones de componentes entre regiones
+Las versiones de los componentes pueden no ser consistentes entre regiones.
+Por ejemplo, puede que publique un componente "Acme Inc" 50 veces durante las pruebas en la pila comercial de EE.UU., y sólo dos veces en su inquilino de Europa.
+En ese caso, "v50" en la pila de EE.UU. correspondería a "v2" en la pila de Europa.
+Un archivo YAML que especifique "Acme Inc v50" no significaría nada para la pila Europa.
 
-To avoid version mismatches, export your YAML definition using the **Save to file with latest component versions** button in the UI, or by adding the `--latest-components` flag to your `prism` command:
+Para evitar discrepancias de versiones, exporta tu definición YAML utilizando el botón **Save to file with latest component versions** en la interfaz de usuario o agregando la bandera `--latest-components` a tu comando `prism`:
 
 ```
 prism integrations:export --latest-components SW50Z...
 ```
 
-When you import your integration in another region, the latest versions of each component will be used.
+Cuando importe su integración en otra región, se utilizarán las últimas versiones de cada componente.
 :::
 
-### Loading an integration's YAML definition
+### Cargar la definición YAML de una integración
 
-Once you have the YAML definition of your integration, you can import the integration through the UI or using `prism`.
-In the integration designer, you can open up the **Save/Load drawer** once again, and then time click **Load from clipboard** or **Load from file**.
-Using prism, run `prism integrations:import --path ./my-file.yaml` to import your YAML file.
+Una vez que tengas la definición YAML de tu integración, puedes importar la integración a través de la interfaz de usuario o utilizando `prism`.
+En el diseñador de integraciones, puedes abrir el **Save/Load drawer** nuevamente y hacer clic en **Load from clipboard** o **Load from file**.
+Usando prism, ejecuta `prism integrations:import --path ./mi-archivo.yaml` para importar tu archivo YAML.
 
-**Troubleshooting**: If you get any errors, ensure that the custom components that you used in your source stack are also deployed to your destination stack.
-You may have an older version of your custom component that is missing some actions, inputs, etc.
+**Solución de problemas**: Si encuentras algún error, asegúrate de que los componentes personalizados que utilizaste en tu pila de origen también estén desplegados en tu pila de destino.
+Puede ser que tengas una versión más antigua de tu componente personalizado que falte en algunas acciones, entradas, etc.
 
-## Syncing components between regions
+## Sincronización de componentes entre regiones
 
-When you publish a component, the component is published to a single region.
-If you would like to publish a built component to multiple regions, you will need to log in to each region and run `prism components:publish`.
+Cuando publicas un componente, este se publica en una sola región.
+Si deseas publicar un componente construido en varias regiones, deberás iniciar sesión en cada región y ejecutar `prism components:publish`.
 
-Alternatively, you can store a [refresh token](cli/cli-usage.mdx#headless-prism-usage-for-cicd-pipelines) for each region.
-Then, you can push the component to whichever region you like:
+Como alternativa, puedes almacenar un [token de actualización](cli/cli-usage.mdx#headless-prism-usage-for-cicd-pipelines) para cada región.
+Luego, puedes enviar el componente a la región que prefieras:
 
-```bash title="Publish a component to multiple regions"
-# Publish to default US commercial region
+```bash title="Publicar un componente en varias regiones"
+# Publicar en la región comercial predeterminada de EE.UU.
 prism components:publish
 
-# Publish to EU with inline environment variables
+# Publicar en EU con variables de entorno en línea
 PRISM_REFRESH_TOKEN=your-eu-refresh-token _URL=https://app.eu-west-1..io prism components:publish
 
-# Publish to GovCloud by exporting environment variables
+# Publicar en GovCloud exportando variables de entorno
 export PRISM_REFRESH_TOKEN=your-govcloud-refresh-token
 export _URL=https://app.us-gov-west-1..io
 prism components:publish
 ```
 
-Note that component versions increment independently in each region.
-If you've published your custom component 50 times to US Commercial, and 10 versions to the Sydney region, the same component code will be seen as `v50` and `v10` respectively.
+Ten en cuenta que las versiones de los componentes aumentan de forma independiente en cada región.
+Si has publicado tu componente personalizado 50 veces en la región comercial de EE. UU. y 10 versiones en la región de Sídney, el mismo código del componente se verá como `v50` y `v10` respectivamente.
 
-## Building multi-region deployment into a CI/CD pipeline
+## Integración de implementación en varias regiones en un pipeline de CI/CD
 
-If you would like to develop integrations and custom components in one tenant, and automatically deploy them to another, you can save your custom component code and integration YAML in a version control system (like a git repo), and configure a CI/CD pipeline to automatically deploy new versions of components and integrations when code passes QA and is merged to your production branch.
+Si deseas desarrollar integraciones y componentes personalizados en un inquilino y desplegarlos automáticamente en otro, puedes guardar el código de tus componentes personalizados y el YAML de integración en un sistema de control de versiones (como un repositorio de git) y configurar un pipeline de CI/CD para desplegar automáticamente nuevas versiones de componentes e integraciones cuando el código pase las pruebas de calidad y se fusiona en tu rama de producción.
 
-Because integrations are dependent on components, [build and publish](custom-components/writing-custom-components.mdx#publishing-a-component) your components first, and then update your integrations.
-See [above](#syncing-components-between-regions) for information on publishing components in several regions.
+Debido a que las integraciones dependen de los componentes, [construye y publica](custom-components/writing-custom-components.mdx#publishing-a-component) tus componentes primero y luego actualiza tus integraciones.
+Consulta [arriba](#syncing-components-between-regions) para obtener información sobre cómo publicar componentes en varias regiones.
 
-Once components are published, you can use the same `prism` authentication you used for components to [import integrations](#loading-an-integrations-yaml-definition).
-The `prism integrations:import` command will return an **integration ID** (SW50Z....).
-Using that integration ID, you can **publish** a new version of your integration:
+Una vez que los componentes están publicados, puedes usar la misma autenticación de `prism` que utilizaste para los componentes para [importar integraciones](#loading-an-integrations-yaml-definition).
+El comando `prism integrations:import` devolverá un **ID de integración** (SW50Z....).
+Utilizando ese ID de integración, puedes **publicar** una nueva versión de tu integración:
 
 ```
 prism integrations:publish SW50Z... --comment "My publication comment"
 ```
 
-The `integrations:publish` command will return an **integration version ID** (SW50Z...).
-You can use that ID along with the [`updateInstance`](api/schema/mutation/updateInstance.mdx) GraphQL mutation to update deployed instances to the latest published version of your integration.
+El comando `integrations:publish` devolverá un **ID de versión de integración** (SW50Z...).
+Puedes usar ese ID junto con la mutación GraphQL [`updateInstance`](api/schema/mutation/updateInstance.mdx) para actualizar las instancias implementadas a la última versión publicada de tu integración.

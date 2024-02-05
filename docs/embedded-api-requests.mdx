@@ -1,7 +1,7 @@
 ---
 id: embedded-api-requests
-title: Embedded API Requests
-description: Learn how to make API requests to 's GraphQL API using the embedded SDK
+title: Solicitudes API integradas
+description: Aprenda a realizar solicitudes a la API GraphQL utilizando el SDK integrado.
 ---
 
 import InternalLink from "@site/src/components/internal-link";
@@ -9,24 +9,24 @@ import Screenshot from "@site/src/components/screenshot";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-The embedded SDK allows you to embed the marketplace and the integration designer into your app. But, you may want to query for and display other data from the API. By querying the API, you can map data from the API into custom UI elements in your app, and you can completely customize your customers' experience as they manage and deploy integrations.
+El SDK integrado te permite incrustar el mercado y el diseñador de integraciones en tu aplicación. Sin embargo, es posible que desees consultar y mostrar otros datos desde la API. Al realizar consultas a la API, puedes mapear datos desde la API a elementos de interfaz de usuario personalizados en tu aplicación, y puedes personalizar completamente la experiencia de tus clientes mientras administran y implementan integraciones.
 
-This article outlines how to fetch data from the API using the embedded SDK.
-For information on how to install the embedded SDK and authenticate customer users, see [Installing Embedded SDK](installing-embedded.mdx).
+Este artículo describe cómo obtener datos de la API mediante el SDK integrado.
+Para obtener información sobre cómo instalar el SDK integrado y autenticar a los usuarios del cliente, consulta [Instalación del SDK integrado](installing-embedded.mdx).
 
-For an example of querying the API to generate a custom marketplace UI, see [GitHub](https://github.com/-io/embedded/blob/main/example-embedded-app/pages/examples/custom-ui-elements.tsx).
+Para ver un ejemplo de cómo realizar consultas a la API para generar una interfaz de usuario personalizada del mercado, consulta [GitHub](https://github.com/-io/embedded/blob/main/example-embedded-app/pages/examples/custom-ui-elements.tsx).
 
-## The GraphQL API
+## La API GraphQL
 
-'s API is GraphQL-based.
-Full documentation on the API is available in the [API docs](api/api-overview.mdx), including several [example queries and mutations](api/using--api.mdx).
-You can try out the API using our [GraphiQL explorer tool](/explorer/).
+La API de está basada en GraphQL.
+La documentación completa de la API está disponible en los [documentos de la API](api/api-overview.mdx), que incluyen varios [ejemplos de consultas y mutaciones](api/using--api.mdx).
+Puedes probar la API utilizando nuestra [herramienta de exploración GraphiQL](/explorer/).
 
-## Embedded user scope and API permissions
+## Ámbito de usuario integrado y permisos de API
 
-When you authenticate a customer user in the embedded SDK, that user is attached to one of your customers in .
-The embedded customer user has permission to affect only the resources available to that customer (i.e. they cannot see other customers' integrations, instances, custom components, users, etc).
-They can, for example, use this query to fetch the instances that are deployed to their customer:
+Cuando autenticas a un usuario del cliente en el SDK integrado, ese usuario está asociado a uno de tus clientes en .
+El usuario integrado del cliente tiene permisos para afectar solo los recursos disponibles para ese cliente (es decir, no puede ver las integraciones, instancias, componentes personalizados, usuarios, etc., de otros clientes).
+Por ejemplo, pueden usar esta consulta para obtener las instancias implementadas en su cliente:
 
 ```graphql
 {
@@ -43,26 +43,26 @@ They can, for example, use this query to fetch the instances that are deployed t
 }
 ```
 
-## Example embedded API requests
+## Ejemplos de solicitudes de API integradas
 
-Here are a few examples of what you can do through embedded API requests.
-All examples use `.graphqlRequest`, which takes two parameters:
+Aquí tienes algunos ejemplos de lo que puedes hacer mediante solicitudes de API integradas.
+Todos los ejemplos utilizan `.graphqlRequest`, que toma dos parámetros:
 
-- `query` is a string that represents the query or mutation to send to the API.
-- `variables` is a key-value object of variables to send with the query or mutation.
+- `query` es una cadena que representa la consulta o mutación que se enviará a la API.
+- `variables` es un objeto de clave-valor de variables para enviar con la consulta o mutación.
 
-### Listing deployed instances
+### Listar instancias implementadas
 
-In this example, we fetch a list of instances from API and map them to `<ul>` elements.
-This example is simple, but illustrates how you can pull any data you want from the API and display it using whatever UI elements you choose.
+En este ejemplo, obtenemos una lista de instancias de la API y las asignamos a elementos `<ul>`.
+Este ejemplo es simple, pero ilustra cómo puedes extraer cualquier dato que desees de la API y mostrarlo utilizando los elementos de interfaz de usuario que elijas.
 
-```ts title="Fetch and display data from the API"
+```ts title="Obtención y visualización de datos de la API"
 import { Button, Typography } from "@mui/material";
 import  from "@-io/embedded";
 import { useState } from "react";
 
 /**
- * Get a list of instances deployed to the current user's customer
+ * Obtener una lista de instancias desplegadas en el cliente del usuario actual
  */
 const loadInstances = async (setInstances: Function) => {
   const query = `{
@@ -111,9 +111,8 @@ function ListInstances() {
   return (
     <>
       <Typography variant="body1">
-        In this example, all instances that are currently deployed to the
-        current user's customer are listed, along with each instance's webhook
-        URLs.
+        En este ejemplo, se enumeran todas las instancias desplegadas actualmente en el cliente del usuario actual, junto con el webhook de cada instancia.
+        cliente del usuario actual, junto con las URL de los webhooks de cada instancia.
       </Typography>
       <Button onClick={() => loadInstances(setInstances)} variant={"contained"}>
         Load Instances...
@@ -140,21 +139,21 @@ function ListInstances() {
 export default ListInstances;
 ```
 
-### Deploying an instance
+### Implementación de una instancia
 
-If your instance has minimal configuration (say, only a single OAuth flow to complete), you may want to skip the instance config wizard altogether.
-In this example, a single button is presented, "Deploy Dropbox".
-When that button is clicked, the current user's customer ID is fetched, along with the ID of the Dropbox integration.
-An instance of Dropbox is deployed, and a new window is opened where a user can complete the OAuth flow for the instance.
+Si tu instancia tiene una configuración mínima (por ejemplo, solo un flujo de OAuth que completar), es posible que desees omitir por completo el asistente de configuración de la instancia.
+En este ejemplo, se presenta un solo botón, "Implementar Dropbox".
+Cuando se hace clic en ese botón, se obtiene el ID del cliente del usuario actual, junto con el ID de la integración de Dropbox.
+Se implementa una instancia de Dropbox y se abre una nueva ventana donde el usuario puede completar el flujo de OAuth para la instancia.
 
-```ts title="Deploy an instance without the config wizard"
+```ts title="Desplegar una instancia sin el asistente de configuración"
 import { Button, Typography } from "@mui/material";
 import  from "@-io/embedded";
 import { useState } from "react";
 
 /**
- * Get the ID of the version of the Dropbox integration
- * that is available in the integration marketplace
+ * Obtén el ID de la versión de la integración de Dropbox
+ * que está disponible en el mercado de integración
  */
 const getDropboxVersionId = async () => {
   const query = `query getMarketplaceIntegrations($name: String) {
@@ -182,7 +181,7 @@ const getDropboxVersionId = async () => {
 };
 
 /**
- * Get the current user's customer ID
+ * Obtener el ID de cliente del usuario actual
  */
 const getCustomerId = async () => {
   const query = `{
@@ -203,8 +202,8 @@ interface CreateInstanceProps {
 }
 
 /**
- * Create a new instance of the Dropbox integration, returning the
- * OAuth authorize URL where the user should be sent
+ * Crear una nueva instancia de la integración de Dropbox, devolviendo la
+ * URL de autorización OAuth a la que se debe enviar al usuario
  */
 const createInstance = async ({
   dropboxVersionId,
@@ -247,7 +246,7 @@ interface DeployInstanceProps {
 }
 
 /**
- * Deploy the instance after configuration
+ * Despliegue de la instancia tras la configuración
  */
 const deployInstance = async ({ instanceId }: DeployInstanceProps) => {
   const query = `mutation deployDropbox($instanceId: ID!){
@@ -274,12 +273,8 @@ function DeployDropbox() {
   return (
     <>
       <Typography variant="body1">
-        In this example, an instance of an integration named Dropbox is created,
-        the user is redirected to an OAuth screen, and the instance is then
-        deployed. <br />
-        Note: this assumes that you have an integration in your marketplace called
-        "Dropbox", and that the integration has only one config variable - the Dropbox
-        connection.
+        En este ejemplo, se crea una instancia de una integración llamada Dropbox,el usuario es redirigido a una pantalla de OAuth y luego la instancia seimplementa. <br/>
+        Nota: esto asume que tienes una integración en tu marketplace llamada"Dropbox" y que la integración tiene solo una variable de configuración: la conexión de Dropbox.
       </Typography>
       <Button
         onClick={async () => {

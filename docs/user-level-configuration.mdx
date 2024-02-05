@@ -1,139 +1,139 @@
 ---
 id: user-level-configuration
-title: User Level Configuration
-description: Configure an instance of an integration for a customer with multiple users
+title: Configuración a nivel de usuario
+description: Configurar una instancia de una integración para un cliente con varios usuarios.
 ---
 
 import Screenshot from "@site/src/components/screenshot";
 
-Typically, one instance of an integration is configured and deployed to one customer.
-That "one instance for one customer" setup works well for many integrations, but what do you do when multiple users of a single customer each have their own third-party credentials or configuration needs?
+Normalmente, una instancia de una integración se configura y despliega para un cliente.
+Esta configuración de "una instancia para un cliente" funciona bien para muchas integraciones, pero ¿qué haces cuando varios usuarios de un solo cliente tienen cada uno sus propias credenciales de terceros o necesidades de configuración?
 
-**User Level Configuration** (ULC) allows your customers' users to each configure user-specific settings on an instance of an integration.
-One instance is deployed to a customer, but it contains user configuration information for one or more users within that customer.
-The instance then runs using the appropriate user's configuration depending on some rules you set.
+La **Configuración a Nivel de Usuario** (ULC, por sus siglas en inglés) permite a los usuarios de tus clientes configurar ajustes específicos para cada usuario en una instancia de una integración.
+Se despliega una sola instancia para un cliente, pero contiene información de configuración del usuario para uno o más usuarios dentro de ese cliente.
+La instancia luego se ejecuta utilizando la configuración del usuario correspondiente según algunas reglas que defines.
 
-**Example use case**: Suppose your customers use Dropbox for file storage.
-Your customer would like to sync data from your app with some subset of their users' Dropbox accounts.
-Using ULC, your customer would deploy an instance of your Dropbox integration using the usual deployment process.
-Then, the users who would like to use the integration within that customer would each go through a ULC configuration, each supplying connection information for their Dropbox account.
+**Ejemplo de caso de uso**: Supongamos que tus clientes usan Dropbox para el almacenamiento de archivos.
+Tu cliente desea sincronizar datos desde tu aplicación con un subconjunto de las cuentas de Dropbox de sus usuarios.
+Usando ULC, tu cliente desplegaría una instancia de tu integración de Dropbox utilizando el proceso de implementación habitual.
+Luego, los usuarios que deseen utilizar la integración dentro de ese cliente pasarían por una configuración de ULC, proporcionando cada uno información de conexión para su cuenta de Dropbox.
 
-:::info ULC is an opt-in feature
-ULC is enabled on an as-needed basis.
-Please contact [support](mailto:support@.io) to discuss enabling ULC for your organization.
+:::info ULC es una función opcional
+ULC se habilita según sea necesario.
+Por favor, contacta a [soporte](mailto:support@.io) para discutir la habilitación de ULC para tu organización.
 :::
 
-## User level configuration wizard
+## Asistente de configuración a nivel de usuario
 
-When ULC is enabled in your account, you will see a the **User Level Configuration Wizard** beneath the **Configuration Wizard** button in the integration designer.
+Cuando ULC está activado en su cuenta, verá un **Asistente de configuración a nivel de usuario** debajo del botón **Asistente de configuración** en el diseñador de integración.
 
 <Screenshot
   filename="user-level-configuration/ulc-button.png"
   maxWidth="270px"
-  alt="ULC button in the integration designer"
+  alt="Botón ULC en el diseñador de integración"
 />
 
-The ULC configuration wizard designer is very similar to the [configuration wizard designer](configuration-wizard.mdx#configuration-wizard-designer) - you can add connections and other types of config variables like you would in the normal configuration wizard.
+El diseñador del asistente de configuración de ULC es muy similar al [diseñador del asistente de configuración](configuration-wizard.mdx#configuration-wizard-designer): puedes agregar conexiones y otros tipos de variables de configuración como lo harías en el asistente de configuración normal.
 
-- The configuration that you define in the **Configuration Wizard Designer** will be seen by an admin user of your customer.
-  That user will initially create the instance of the integration for the customer and fill in any customer-wide configuration.
-- The configuration that you define in the **User Level Configuration Wizard Designer** will be seen by standard users of your customer.
-  It will prompt individual users for user-specific credentials and config variables.
+- La configuración que defines en el **Diseñador del Asistente de Configuración** será vista por un usuario administrador de tu cliente.
+  Este usuario creará inicialmente la instancia de la integración para el cliente y completará cualquier configuración a nivel de cliente.
+- La configuración que defines en el **Diseñador del Asistente de Configuración de Nivel de Usuario** será vista por los usuarios estándar de tu cliente.
+  Solicitará a los usuarios individuales las credenciales específicas del usuario y las variables de configuración.
 
-## Testing user level configuration in the integration designer
+## Pruebas de la configuración de nivel de usuario en el diseñador de integración
 
-To test ULC in the integration designer, open up the **Test Runner** drawer and complete both the standard config wizard as well as user-specific config wizard.
+Para probar ULC en el diseñador de integración, abre el cajón **Test Runner** y completa tanto el asistente de configuración estándar como el asistente de configuración específico del usuario.
 
 <Screenshot
   filename="user-level-configuration/test-runner-drawer.png"
   maxWidth="500px"
-  alt="ULC button in the integration designer"
+  alt="Botón ULC en el diseñador de integración"
 />
 
-Tests you run will load the test user level configuration that you set.
+Las pruebas que ejecute cargarán la configuración de nivel de usuario de prueba que haya establecido.
 
-## User level configuration in embedded marketplace
+## Configuración a nivel de usuario en el mercado integrado
 
-When you [authenticate users in the embedded marketplace](installing-embedded.mdx#authenticating-users) you will need to include a `role` property in your signed JWT that has a value of either `"admin"` or `"user"`.
-If a `role` property is omitted, it defaults to `"admin"`.
+Cuando [autentiques usuarios en el mercado integrado](installing-embedded.mdx#authenticating-users), deberás incluir una propiedad `role` en tu JWT firmado con un valor de `"admin"` o `"user"`.
+Si se omite la propiedad `role`, se establece por defecto en `"admin"`.
 
-If you plan to use shared endpoints for ULC integrations, ensure your signed JWT includes an `external_id` property.
-This represents the customer _user's_ external ID.
-This property generally matches `sub`, and is used to invoke ULC instances with shared endpoints.
+Si planeas utilizar puntos finales compartidos para integraciones ULC, asegúrate de que tu JWT firmado incluya una propiedad `external_id`.
+Esto representa el ID externo del usuario del cliente.
+Esta propiedad generalmente coincide con `sub` y se utiliza para invocar instancias de ULC con puntos finales compartidos.
 
-### Marketplace admins
+### Administradores del mercado
 
-A user with `role: "admin"` can deploy an instance of a ULC integration for the customer.
-They can also supply user-specific configuration on their own behalf after creating the instance.
+Un usuario con `role: "admin"` puede implementar una instancia de una integración ULC para el cliente.
+También pueden proporcionar configuración específica del usuario en su propio nombre después de crear la instancia.
 
-An admin user will [configure](instances.mdx#configuring-instances) a ULC instance like they would a non-ULC instance - by stepping through a configuration wizard to set up customer-wide configuration settings.
+Un usuario administrador [configurará](instances.mdx#configuring-instances) una instancia ULC como lo haría con una instancia no ULC, pasando por un asistente de configuración para establecer configuraciones a nivel de cliente.
 
-Once an instance is deployed, a marketplace admin can click **Configure User Level Configuration** to add their own user-specific credentials and config vars to the instance.
-The admin user is not required to enter those - they only need to set them if they themselves would like to use the integration.
+Una vez que se implementa una instancia, un administrador del mercado puede hacer clic en **Configurar Configuración de Nivel de Usuario** para agregar sus propias credenciales específicas del usuario y variables de configuración a la instancia.
+El usuario administrador no está obligado a ingresarlos, solo necesitará establecerlos si desea usar la integración.
 
 <Screenshot
   filename="user-level-configuration/configure-ulc-button.png"
   maxWidth="750px"
-  alt="Configure user level config button in embedded"
+  alt="Botón de configuración del nivel de usuario en incrustado"
 />
 
-### Marketplace users
+### Usuarios del mercado
 
-A user with a `role: "user"` cannot deploy the instance, but can add user-specific configuration on their own behalf.
-A standard user will only see ULC integrations on the listview screen within the embedded marketplace.
-When a standard user selects an integration to configure, they will walk through the [user level configuration wizard](#user-level-configuration-wizard).
+Un usuario con `role: "user"` no puede implementar la instancia, pero puede agregar configuración específica del usuario en su propio nombre.
+Un usuario estándar solo verá integraciones ULC en la pantalla de vista de lista dentro del mercado integrado.
+Cuando un usuario estándar selecciona una integración para configurar, seguirán el [asistente de configuración a nivel de usuario](#user-level-configuration-wizard).
 
 <Screenshot
   filename="user-level-configuration/standard-user-ulc-config-wizard.png"
   maxWidth="600px"
-  alt="User level config wizard"
+  alt="Asistente de configuración a nivel de usuario"
 />
 
-A standard user will _not_ be able to see the instance's executions, logs, or other tabs.
-Clicking an integration again will show the ULC config wizard, where they can update or remove their user-specific configuration.
+Un usuario estándar _no_ podrá ver las ejecuciones, logs u otras pestañas de la instancia.
+Si vuelve a hacer clic en una integración, se mostrará el asistente de configuración de ULC, donde podrá actualizar o eliminar su configuración específica de usuario.
 
-## Managing a instance's user level config
+## Gestión de la configuración a nivel de usuario de una instancia
 
-An organization user can view the various user-specific configuration by opening an instance and then opening the **User Configurations** tab.
+Un usuario de la organización puede ver las distintas configuraciones específicas de usuario abriendo una instancia y, a continuación, abriendo la pestaña **Configuraciones de usuario**.
 
 <Screenshot
   filename="user-level-configuration/instance-user-configurations.png"
   maxWidth="750px"
-  alt="Instance user configurations"
+  alt="Configuraciones de usuario de instancia"
 />
 
-You can click the **Details** button beside a user to view a user-specific webhook URL that can be used to all the instance using that user's configuration.
+Puedes hacer clic en el botón **Detalles** junto a un usuario para ver una URL de webhook específica del usuario que se puede utilizar para todas las instancias que utilizan la configuración de ese usuario.
 
-## User level configuration and endpoint config
+## Configuración a nivel de usuario y configuración de extremo
 
-You have the same options for [endpoint configuration](endpoint-configuration.mdx) in ULC integrations that you do for non-ULC integrations, with the caveat that when you use shared endpoints you also need to specify a user by external user ID (like you do for flow name and external customer ID):
+Tienes las mismas opciones de [configuración de extremo](endpoint-configuration.mdx) en integraciones ULC que en integraciones no ULC, con la salvedad de que cuando utilizas extremos compartidos también necesitas especificar un usuario por ID de usuario externo (como lo haces para el nombre del flujo y el ID de cliente externo):
 
-- When endpoint type is **Instance and Flow Specific**, each flow for each user configured for each instance receives its own unique webhook URL.
-  In other words, Bob's "Import Records" flow webhook URL differs from Jane's "Import Records" flow webhook URL and differs from Bob's "Export Documents" flow webhook URL.
-  User config is loaded based on unique webhook URL when the instance is invoked.
-- When endpoint type is **Instance Specific**, all flows for all users of a particular customer share a webhook URL.
-  Executions are dispatched to specific flows running with user-specific configurations by sourcing a **Flow Name** and **External Customer User ID**.
-  The external customer user ID should match the `external_id` that you set in your embedded users' JWT tokens, and often matches the JWT's `sub` property.
+- Cuando el tipo de extremo es **Específico de la instancia y el flujo**, cada flujo para cada usuario configurado para cada instancia recibe su propia URL de webhook única.
+  En otras palabras, la URL de webhook del flujo "Importar registros" de Bob difiere de la URL de webhook del flujo "Importar registros" de Jane y difiere de la URL de webhook del flujo "Exportar documentos" de Bob.
+  La configuración del usuario se carga según la URL de webhook única cuando se invoca la instancia.
+- Cuando el tipo de extremo es **Específico de la instancia**, todos los flujos para todos los usuarios de un cliente en particular comparten una URL de webhook.
+  Las ejecuciones se envían a flujos específicos que se ejecutan con configuraciones específicas del usuario mediante la especificación de un **Nombre de flujo** e **ID de usuario externo del cliente**.
+  El ID de usuario externo del cliente debe coincidir con el `external_id` que estableces en los tokens JWT de tus usuarios integrados, y a menudo coincide con la propiedad `sub` del JWT.
 
   <Screenshot
     filename="user-level-configuration/instance-specific-endpoint-configuration.png"
     maxWidth="600px"
-    alt="Instance specific endpoint configurations"
+    alt="Configuraciones de punto final específicas de la instancia"
   />
 
-- When endpoint type is **Shared**, all users and their flows of all customers share a single webhook URL.
-  In addition to specifying **Flow Name** and **External Customer User ID**, like in **Instance Specific**, you also need to specify **External Customer ID**.
+- Cuando el tipo de endpoint es **Compartido**, todos los usuarios y sus flujos de todos los clientes comparten una única URL de webhook.
+  Además de especificar **Nombre de flujo** e **ID de usuario de cliente externo**, como en **Específico de instancia**, también debe especificar **ID de cliente externo**.
 
-:::caution ULC Shared Endpoints require ULC configurations for customer users
-An organization team member can create a ULC configuration on an instance deployed to a customer.
-However, such configurations are only meant for testing purposes from within the web app.
+:::caution Los puntos finales compartidos de ULC requieren configuraciones de ULC para los usuarios del cliente
+Un miembro del equipo de la organización puede crear una configuración ULC en una instancia desplegada a un cliente.
+Sin embargo, dichas configuraciones sólo sirven para realizar pruebas desde la aplicación web.
 
-If you try to invoke a shared endpoint for a ULC instance and include an organization user's external ID (rather than a customer user's external ID), the execution will fail as the organization team member is not a customer user.
+Si intenta invocar un punto final compartido para una instancia de ULC e incluye el ID externo de un usuario de la organización (en lugar del ID externo de un usuario del cliente), la ejecución fallará, ya que el miembro del equipo de la organización no es un usuario del cliente.
 :::
 
-Like non-ULC integrations, ULC integrations with **Instance Specific** and **Shared** endpoint configuration can leverage a [preprocess flow](endpoint-configuration.mdx#shared-endpoint-without-a-preprocess-flow) to process incoming data and dispatch executions to the proper instance / user / flow.
+Al igual que las integraciones no ULC, las integraciones ULC con configuración de extremo **Específica de la instancia** y **Compartida** pueden aprovechar un [flujo de preprocesamiento](endpoint-configuration.mdx#shared-endpoint-without-a-preprocess-flow) para procesar los datos entrantes y despachar las ejecuciones a la instancia, usuario y flujo adecuados.
 
-## User level configuration information in trigger payloads
+## Información de configuración a nivel de usuario en los desencadenadores
 
-The default webhook trigger and most other non-custom triggers include information about the user whose user level config was used for an execution.
-To get ULC information for the current execution within an integration, reference the trigger's `results.user`, which is an object containing the user's `id`, `email` (which may be a UUID or or their ID), `name` and `externalId`.
+El desencadenador predeterminado de la webhook y la mayoría de los desencadenadores no personalizados incluyen información sobre el usuario cuya configuración a nivel de usuario se utilizó para una ejecución.
+Para obtener información ULC para la ejecución actual dentro de una integración, haz referencia a `results.user` del desencadenador, que es un objeto que contiene el `id` del usuario, su `email` (que puede ser un UUID o su ID), su `name` y su `externalId`.

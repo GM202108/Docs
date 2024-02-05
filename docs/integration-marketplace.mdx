@@ -1,217 +1,220 @@
 ---
 id: integration-marketplace
-title: Integration Marketplace
-description: Allow customers to manage integrations deployed to them
+title: Mercado de la integración
+description: Permitir que los clientes gestionen las integraciones que se les han implantado
 ---
 
 import Screenshot from "@site/src/components/screenshot";
 import Vimeo from "@site/src/components/vimeo";
 
-'s **integration marketplace** is a complete out-of-the-box UX that allows your customers to activate the integrations that you've developed for themselves.
-You can either create accounts for your customers, or you can [embed](embedding-marketplace.mdx) marketplace within your app so your users can seamlessly deploy integrations natively using your existing authentication system.
+El **mercado de integraciones** es una experiencia completa lista para usar que permite a tus clientes activar las integraciones que has desarrollado por sí mismos.
+Puedes crear cuentas para tus clientes o puedes [incrustar](embedding-marketplace.mdx) el mercado en tu aplicación para que tus usuarios puedan implementar integraciones de forma nativa utilizando tu sistema de autenticación existente.
 
-The integration marketplace allows you (a B2B software company) to:
+El mercado de integraciones te permite (como empresa de software B2B):
 
-- Provide a high-quality integration experience to your customers that, when embedded, appears to be a native part of your app
-- Increase awareness and adoption of your integration offerings
-- Increase product value, improve product stickiness, and increase your customer retention
-- Lessen the integration effort for your teams by allowing users to enable integrations for themselves
-- Reduce integration-related support volume
+- Proporcionar una experiencia de integración de alta calidad a tus clientes que, cuando está incrustada, parece ser parte nativa de tu aplicación.
+- Aumentar la conciencia y adopción de tus ofertas de integración.
+- Aumentar el valor del producto, mejorar la retención del producto y aumentar la retención del cliente.
+- Reducir el esfuerzo de integración para tus equipos al permitir que los usuarios habiliten integraciones por sí mismos.
+- Reducir el volumen de soporte relacionado con la integración.
 
-Within the integration marketplace your customers can:
+Dentro del mercado de integraciones, tus clientes pueden:
 
-- Explore your integration offerings in an attractive marketplace
-- Easily self-activate integrations that connect your app to third-party services they use
-- Monitor their active integrations using powerful logging and alerting tools
+- Explorar tus ofertas de integración en un atractivo mercado.
+- Activar fácilmente las integraciones que conectan tu aplicación con los servicios de terceros que utilizan.
+- Supervisar sus integraciones activas mediante herramientas potentes de registro y alerta.
 
-You can choose which integrations you'd like to include in your integration marketplace, and how they're presented to your customers.
-Customers follow a simple configuration and deployment experience that [you create](building-integrations.mdx#config-variables-in-integrations) when you build the integration - they enter some configuration values and credentials, select a few options from some dropdown menus, and click "activate".
+Puedes elegir qué integraciones deseas incluir en tu mercado de integraciones y cómo se presentan a tus clientes.
+Los clientes siguen una experiencia de configuración e implementación sencilla que [creas](building-integrations.mdx#config-variables-in-integrations) al construir la integración: ingresan algunos valores de configuración y credenciales, seleccionan algunas opciones de menús desplegables y hacen clic en "activar".
 
-:::info Disambiguating "integrations" and "instances"
-For organization users, an **integration** refers to a general, productized and published integration that can be configured and deployed to multiple customers.
-An **instance** of an integration is a copy of the integration that has been configured and deployed a specific customer.
+:::info Desambiguación de "integraciones" e "instancias"
+Para los usuarios de la organización, una **integración** se refiere a una integración general, productizada y publicada que se puede configurar e implementar en varios clientes.
+Una **instancia** de una integración es una copia de la integración que se ha configurado e implementado para un cliente específico.
 
-For your customers, **instance** doesn't have any meaning - they either have an integration or they don't.
-So, when customers log in to they're presented phrases like "activate this integration", or "configure this integration".
-A customer "activates" an "integration" - which is the same as deploying an "instance" in your lingo as an organization user.
+Para tus clientes, **instancia** no tiene ningún significado; o tienen una integración o no la tienen.
+Así que, cuando los clientes inician sesión, se les presentan frases como "activar esta integración" o "configurar esta integración".
+Un cliente "activa" una "integración", que es lo mismo que implementar una "instancia" en tu jerga como usuario de la organización.
 :::
 
-## Presenting the integration marketplace to your customers
+## Presentar el mercado de la integración a sus clientes
 
-You have a few options for presenting the integration marketplace to your customers:
+Tiene varias opciones para presentar el mercado de integración a sus clientes:
 
-1. You can [embed the integration marketplace](embedding-marketplace.mdx) within your app as an iframe.
-   This option allows your customers to activate integrations natively within your app.
-   You can [theme](embedding-marketplace.mdx#theming-embedded-marketplace) the integration marketplace to match your app's branding.
+1. Puedes [incrustar el mercado de integraciones](embedding-marketplace.mdx) dentro de tu aplicación como un iframe.
+   Esta opción permite que tus clientes activen integraciones de forma nativa dentro de tu aplicación.
+   Puedes [personalizar el tema](embedding-marketplace.mdx#temas-del-mercado-incrustado) del mercado de integraciones para que coincida con la marca de tu aplicación.
 
    <Screenshot
      filename="integration-marketplace/presenting-embed-iframe.png"
      maxWidth="650px"
-     caption="Your customers log in to your app activate integrations through an embedded iframe"
+     caption="Tus clientes inician sesión en tu aplicación y activan las integraciones a través de un iframe incrustado"
    />
 
-2. For a fully native expeirence, you can use the [embedded SDK](installing-embedded.mdx) to [query 's API](embedded-api-requests.mdx) for information on integrations.
-   You can then use this information to build your own integration marketplace within your app.
-   This option requires the most development effort, but allows you to build a fully native integration marketplace experience.
+2. Para una experiencia completamente nativa, puedes utilizar el [SDK integrado](installing-embedded.mdx) para [consultar la API de Prism](embedded-api-requests.mdx) en busca de información sobre integraciones.
+   Luego, puedes utilizar esta información para construir tu propio mercado de integraciones dentro de tu aplicación.
+   Esta opción requiere un mayor esfuerzo de desarrollo, pero te permite crear una experiencia de mercado de integraciones completamente nativa.
 
    <Screenshot
      filename="integration-marketplace/presenting-custom-ui.png"
      maxWidth="650px"
-     caption="Your customers log in to your app activate integrations through a custom UI"
+     caption="Sus clientes inician sesión en su aplicación y activan las integraciones a través de una interfaz de usuario personalizada."
    />
 
-3. You can create accounts for your customers and have them log in to to activate integrations.
-   This is the simplest option, and is a good choice if you don't have an existing authentication system.
-   However, this option requires your customers to log in to to activate integrations, rather than activating integrations natively within your app.
+3. Puedes crear cuentas para tus clientes y hacer que inicien sesión en para activar integraciones.
+   Esta es la opción más sencilla y es una buena elección si no tienes un sistema de autenticación existente.
+   Sin embargo, esta opción requiere que tus clientes inicien sesión en para activar integraciones, en lugar de activarlas de forma nativa dentro de tu aplicación.
 
    <Screenshot
      filename="integration-marketplace/presenting-login-to-.png"
      maxWidth="600px"
-     caption="Your customers log in to  to activate integrations"
+     caption="Sus clientes inician sesión para activar las integraciones"
    />
 
-## Preparing an integration for the integration marketplace
+## Preparar una integración para el mercado de integración
 
-If you'd like to configure an integration to appear in the integration marketplace for your customers, follows these steps:
+Si desea configurar una integración para que aparezca en el mercado de integraciones para sus clientes, siga estos pasos:
 
-1. First, [publish your integration](integrations.mdx#publishing-an-integration) from the integration designer.
-1. Next, open your integration's marketplace configuration page.
-   You can either:
-   1. Click the **Settings** link on the left-hand side of the integration designer and choose **Marketplace Configuration**.
-      Click the **RECONFIGURE** button that appears in the upper-right corner of the next screen.
-      Or,
-   1. Select the **Integration Marketplace** link on the left-hand sidebar of the main screen, click **+ Integration**, and select the integration you'd like to add.
-1. Select the version of your integration that you would like to appear in the integration marketplace and provide a nice overview for your integration to explain to users what your integration does.
-   Your overview can contain [markdown](https://markdownlivepreview.com/).
+1. Primero, [publica tu integración](integrations.mdx#publishing-an-integration) desde el diseñador de integraciones.
+1. A continuación, abre la página de configuración del mercado de tu integración.
+   Puedes hacerlo de dos maneras:
+   1. Haz clic en el enlace **Configuración** en el lado izquierdo del diseñador de integraciones y elige **Configuración del Mercado**.
+      Haz clic en el botón **RECONFIGURAR** que aparece en la esquina superior derecha de la siguiente pantalla.
+      O,
+   1. Selecciona el enlace **Mercado de Integraciones** en la barra lateral izquierda de la pantalla principal, haz clic en **+ Integración** y elige la integración que deseas agregar.
+1. Selecciona la versión de tu integración que deseas que aparezca en el mercado de integraciones y proporciona una descripción general de tu integración para explicar a los usuarios qué hace tu integración.
+   Tu descripción general puede contener [Markdown](https://markdownlivepreview.com/).
 
    <Screenshot
      filename="integration-marketplace/org-configure-integration.png"
      maxWidth="600px"
-     alt="Configure integration for marketplace in  app"
+     alt="Configurar la integración del mercado en la aplicación"
    />
 
-   Toggle **Customer Deployable** _on_ if you would like your customers to be able to activate the integration themselves.
-   If **Customer Deployable** is _off_, your integration will appear in the integration marketplace with a note instructing your customers to contact your company to activate the integration:
+   Activa **Implementable por el Cliente** si deseas que tus clientes puedan activar la integración por sí mismos.
+   Si **Implementable por el Cliente** está _apagado_, tu integración aparecerá en el mercado de integraciones con una nota que instruye a tus clientes a ponerse en contacto con tu empresa para activar la integración:
 
    <Screenshot
      filename="integration-marketplace/customer-deployable-off.png"
      maxWidth="700px"
-     alt="Toggle customer deployable option for integration in  app"
+     alt="Alternar la opción desplegable por el cliente para la integración en la aplicación"
    />
 
-   Click the **UPDATE** button when you are ready for the integration to be available in the integration marketplace.
+   Haga clic en el botón **ACTUALIZAR** cuando esté listo para que la integración esté disponible en el mercado de integraciones.
 
-To change any details about your integration marketplace offering (like updating the integration version or overview text), open the **Integration Marketplace** link on the left-hand sidebar again and select the integration you want to modify.
+Para cambiar cualquier detalle de su oferta del mercado de integraciones (como actualizar la versión de la integración o el texto de resumen), abra de nuevo el enlace **Mercado de integraciones** de la barra lateral izquierda y seleccione la integración que desea modificar.
 
-:::tip Add an icon to your integration
-To make your integration look attractive in the integration marketplace, you can [add an icon](integrations.mdx#assigning-an-icon-to-an-integration) to your integration.
+:::tip Agrega un ícono a tu integración
+Para que tu integración luzca atractiva en el mercado de integraciones, puedes [agregar un ícono](integrations.mdx#assigning-an-icon-to-an-integration) a tu integración.
 :::
 
-### Preparing the configuration experience
+### Preparar la experiencia de configuración
 
-Integrations are driven by [config variables](building-integrations.mdx/#config-variables-in-integrations).
-As you develop your integration, you create a series of config variables and connections that are required by the steps in your integration.
-We recommend grouping related config variables together (for example, putting all Amazon S3 variables together), and adding appropriate headers between groups of config variables.
-This will give your customers a richer deployment experience.
+Las integraciones están impulsadas por [variables de configuración](building-integrations.mdx/#config-variables-in-integrations).
+A medida que desarrollas tu integración, creas una serie de variables de configuración y conexiones que son necesarias para los pasos de tu integración.
+Recomendamos agrupar las variables de configuración relacionadas (por ejemplo, colocar todas las variables de Amazon S3 juntas) y agregar encabezados apropiados entre grupos de variables de configuración.
+Esto proporcionará a tus clientes una experiencia de implementación más completa.
 
-You can choose which config variables customers are allowed to configure when you create the config variables:
+
+Puede elegir qué variables de configuración se permite configurar a los clientes cuando crea las variables de configuración:
 
 <Screenshot
   filename="integration-marketplace/customer-configurable-config-variable.png"
   maxWidth="650px"
-  alt="Enable config variables for customers in  app"
+  alt="Habilitar variables de configuración para los clientes en la aplicación"
 />
 
-This is handy if you have a config variable or credential that you would generally like to use for all of your customers, but you don't want your customers to see the variable or credential's value (say you have an API key you use as an organization, but don't want your customers to see it).
+Esto es útil si usted tiene una variable de configuración o credencial que generalmente le gustaría usar para todos sus clientes, pero no quiere que sus clientes vean el valor de la variable o credencial (digamos que tiene una clave API que usa como organización, pero no quiere que sus clientes la vean).
 
-If a config variable is **not** customer-configurable, then the variable's **Default Value** is used.
+Si una variable de configuración no es configurable por el cliente, se utilizará el valor predeterminado de la variable.
 
-:::note Set default values for non-customer-configurable variables
-All non-customer-configurable config variables need default values.
-If one does not have a default value, the integration won't be deployable by your customers.
-Instead, your customers will get a message when they attempt to activate the integration instructing them to contact your company, and your team will need to set a value for that missing config variable.
+:::note Establecer valores por defecto para variables no configurables por el cliente
+Todas las variables de configuración no configurables por el cliente necesitan valores por defecto.
+Si una de ellas no tiene un valor por defecto, la integración no podrá ser desplegada por sus clientes.
+En su lugar, sus clientes recibirán un mensaje cuando intenten activar la integración indicándoles que se pongan en contacto con su empresa, y su equipo tendrá que establecer un valor para esa variable de configuración que falta.
 :::
 
-## Updating integration marketplace version
+## Actualización de la versión del mercado de integración
 
-Your customers have access to the version of the integration that is available in the integration marketplace.
-You can update the version two ways.
-Either:
+Sus clientes tienen acceso a la versión de la integración que está disponible en el mercado de integración.
+Puede actualizar la versión de dos maneras.
+O bien:
 
-1. Select the **Integration Marketplace** link on the left-hand sidebar of the main screen select your integration, and then click **Reconfigure** and select a version of your integration to present.
-1. When you publish a new version of your integration, you can choose to update your integration marketplace version from the publish drawer in the integration designer.
+1. Selecciona el enlace **Integration Marketplace** en la barra lateral izquierda de la pantalla principal, elige tu integración y luego haz clic en **Reconfigurar** y selecciona una versión de tu integración para presentar.
+1. Cuando publiques una nueva versión de tu integración, puedes optar por actualizar la versión de tu integración en el marketplace desde el cajón de publicación en el diseñador de integraciones.
+
    <Screenshot
      filename="integration-marketplace/update-integration-version.png"
      maxWidth="500px"
-     alt="Update integration version in integration marketplace from designer"
+     alt="Actualizar la versión de integración en el mercado de integración desde el diseñador"
    />
 
-## Activating integrations as a customer
+## Activar integraciones como cliente
 
-:::info You can embed marketplace, or let your customers log in to
-Most organizations choose to [embed](embedding-marketplace.mdx) marketplace in their apps so integration activation is a seamless experience and their users never have to leave their app.
+:::info Puedes integrar el marketplace o permitir que tus clientes inicien sesión en
+La mayoría de las organizaciones optan por [incrustar](embedding-marketplace.mdx) el marketplace en sus aplicaciones para que la activación de la integración sea una experiencia fluida y sus usuarios no tengan que salir de su aplicación.
 
-The instructions below apply if you're choosing _not_ to embed marketplace in your app.
-You have the option to create [customer users](users.mdx#customer-users) in , allowing your customers to log in to and activate integrations for themselves.
+Las instrucciones a continuación aplican si decides _no_ integrar el marketplace en tu aplicación.
+Tienes la opción de crear [usuarios del cliente](users.mdx#customer-users) en , permitiendo a tus clientes iniciar sesión en y activar integraciones por sí mismos.
 :::
 
-Once you have an integration in your marketplace, customers can activate the integration to themselves.
-The customer's view of differs from an organization user's view - a customer can only see integrations, configuration, users, etc., that are specific to them.
+Una vez que tienes una integración en tu marketplace, los clientes pueden activar la integración por sí mismos.
+La vista del cliente en  es diferente a la vista de un usuario de la organización; un cliente solo puede ver integraciones, configuraciones, usuarios, etc., que son específicos para ellos.
 
-As a customer user, open the **Integration Marketplace** link on the left-hand sidebar.
-Integrations that have been activated are marked with a green check mark:
+Como usuario del cliente, abre el enlace **Integration Marketplace** en la barra lateral izquierda.
+
+Las integraciones activadas aparecen marcadas en verde:
 
 <Screenshot
   filename="integration-marketplace/integration-marketplace.png"
   maxWidth="700px"
-  alt="List of integrations with activated integrations highlighted in  integration marketplace"
+  alt="Lista de integraciones con integraciones activadas destacadas en el mercado de integraciones"
 />
 
-A customer can activate a new integration by clicking into an integration that hasn't been activated (no green check mark).
-They will be greeted with a popover with the name, description, and overview of the integration:
+Un cliente puede activar una nueva integración haciendo clic en una integración que no haya sido activada (sin marca de verificación verde).
+Aparecerá una ventana emergente con el nombre, la descripción y una descripción general de la integración:
 
 <Screenshot
   filename="integration-marketplace/deploy-modal.png"
   maxWidth="700px"
-  alt="Customer activates integration in  integration marketplace"
+  alt="El cliente activa la integración en el mercado de integración"
 />
 
-Once a customer has clicked **ACTIVATE**, they are brought to the integration configuration screen:
+Una vez que el cliente ha hecho clic en **ACTIVAR**, se le lleva a la pantalla de configuración de la integración:
 
 <Screenshot
   filename="integration-marketplace/customer-configure-integration.png"
   maxWidth="700px"
-  alt="Customer configures integration in  integration marketplace"
+  alt="El cliente configura la integración en el mercado de integración"
 />
 
-Your customer can now enter values for config variables and connections, and click **ACTIVATE** when they are finished.
-They can test the integration by clicking into the **Test** tab, and view logs and execution data by clicking into the **Logs** and **Executions** tabs.
+Ahora, tu cliente puede ingresar valores para las variables de configuración y conexiones, y hacer clic en **ACTIVAR** cuando haya terminado.
+Pueden probar la integración haciendo clic en la pestaña **Test**, y ver los registros y datos de ejecución haciendo clic en las pestañas **Logs** y **Executions**.
 
-Webhook URL(s) are listed at the bottom of the page so they can be used to configure third-party apps and services.
+Las URL(s) de webhook se encuentran en la parte inferior de la página para que puedan ser utilizadas para configurar aplicaciones y servicios de terceros.
 
-## Deactivating an integration as a customer
+## Desactivar una integración como cliente
 
-To remove an integration as a customer, open the integration from the **Integration Marketplace** page, and click **Deactivate Integration** on the bottom of the page.
+Para eliminar una integración como cliente, abra la integración desde la página **Mercado de integraciones** y haga clic en **Desactivar integración** en la parte inferior de la página.
 
-## Supporting and modifying deployed instances
+## Soporte y modificación de las instancias desplegadas
 
-To modify an activated integration as a customer, open the integration from the **Integration Marketplace** page again and click **Reconfigure**.
-Make changes to configuration and click **SAVE** to save changes.
+Para modificar una integración activada como cliente, abre la integración desde la página de **Integration Marketplace** y haz clic en **Reconfigure**.
+Realiza cambios en la configuración y haz clic en **GUARDAR** para guardar los cambios.
 
-As an organization user, you can modify an integration that a customer activated as you would any other deployed [instance](instances.mdx#configuring-instances).
-You also have the ability to modify config variables that are marked non-customer-configurable.
+Como usuario de la organización, puedes modificar una integración que un cliente activó de la misma manera que cualquier otra [instancia](instances.mdx#configuring-instances).
+También tienes la capacidad de modificar variables de configuración que estén marcadas como no configurables por el cliente.
 
-## Removing an integration from the integration marketplace
+## Eliminar una integración del mercado de integraciones
 
-To remove an integration from the integration marketplace, open the **Integration Marketplace** page from the left-hand sidebar.
-Select the integration you would like to remove, and then click **Remove Integration** on the bottom of the page.
+Para eliminar una integración del mercado de integraciones, abra la página **Mercado de integraciones** de la barra lateral izquierda.
+Seleccione la integración que desea eliminar y, a continuación, haga clic en **Eliminar integración** en la parte inferior de la página.
 
-:::info Activated Instances will not be removed
-If you remove an integration from the integration marketplace, instances of the integration that customers have activated will not automatically be removed.
-You can safely remove an integration marketplace offering without affecting existing deployments, and instances will still show up on the **Instances** page.
+:::info Las instancias activadas no se eliminarán
+Si elimina una integración del mercado de integración, las instancias de la integración que los clientes hayan activado no se eliminarán automáticamente.
+Puede eliminar de forma segura una oferta del mercado de integración sin que ello afecte a las implantaciones existentes, y las instancias seguirán apareciendo en la página **Instancias**.
 :::
 
-## Embedding marketplace in an application
+## Integrar el mercado en una aplicación
 
-Marketplace can be embedded into your application.
-See our [Embedding Marketplace](embedding-marketplace.mdx) article for more details.
+Marketplace se puede integrar en tu aplicación.
+Consulta nuestro artículo [Embedding Marketplace](embedding-marketplace.mdx) para obtener más detalles.

@@ -1,8 +1,8 @@
 ---
 id: embedded-designer
-title: Embedding Integration Designer
-sidebar_label: Embedded Designer
-description: embedded designer allows your customers to build their own integrations with your product. Learn how to install the embedded integration designer.
+title: Incorporación de Integration Designer
+sidebar_label: Diseñador de sistemas integrados
+description: El diseñador de integraciones permite a sus clientes crear sus propias integraciones con su producto. Aprenda a instalar el diseñador de integraciones integradas.
 ---
 
 import InternalLink from "@site/src/components/internal-link";
@@ -10,46 +10,46 @@ import Screenshot from "@site/src/components/screenshot";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-In addition to using productized integrations from your marketplace, some of your customers may need to build unique integrations between your product and the other apps they use. These are often one-off, custom integrations that a single customer needs, but that wouldn't be of value to others.
+Además de utilizar integraciones productizadas de tu mercado, algunos de tus clientes pueden necesitar construir integraciones únicas entre tu producto y otras aplicaciones que utilizan. Estas suelen ser integraciones personalizadas únicas que un solo cliente necesita, pero que no tendrían valor para otros.
 
-Embedded designer allows customers to log in to your product and build these integrations using the same integration designer your teams use. And along with the designer, you can give your customers access to private components and templates they can use as starting points for these custom integrations.
+El diseñador integrado permite a los clientes iniciar sesión en tu producto y construir estas integraciones utilizando el mismo diseñador de integraciones que utilizan tus equipos. Además del diseñador, puedes dar a tus clientes acceso a componentes privados y plantillas que pueden usar como puntos de partida para estas integraciones personalizadas.
 
-This article covers how to embed the integration designer in your product so that your customers can have the best integration building UX.
+Este artículo cubre cómo integrar el diseñador de integraciones en tu producto para que tus clientes puedan tener la mejor experiencia de construcción de integraciones.
 
-For information on how to install the embedded SDK and authenticate customer users, see [Installing Embedded SDK](installing-embedded.mdx).
-Note: you should include `"role": "admin"` in JWTs that you sign for customer users who build integrations.
+Para obtener información sobre cómo instalar el SDK integrado y autenticar a los usuarios, consulta [Instalación del SDK integrado](installing-embedded.mdx).
+Nota: debes incluir `"role": "admin"` en los JWT que firmas para los usuarios que construyen integraciones.
 
-:::info Embedded Designer is an add-on feature
-Embedded designer can be enabled for enterprise accounts as an add-on feature. Please contact [support](https://support..io) to discuss embedded designer.
+:::info El Diseñador Integrado es una característica adicional
+El diseñador integrado se puede habilitar como una característica adicional para las cuentas empresariales. Por favor, ponte en contacto con [soporte](https://support..io) para discutir sobre el diseñador integrado.
 :::
 
-## Enabling embedded designer for a customer
+## Habilitación del diseñador integrado para un cliente
 
-Embedded designer is disabled for all customers by default.
-To enable embedded designer for a customer, open the customer from the **Customers** screen and then select the **Details** tab.
-Toggle the **Allow Embedded Designer** option.
+El Diseñador Integrado está desactivado para todos los clientes de forma predeterminada.
+Para habilitar el Diseñador Integrado para un cliente, abre el cliente desde la pantalla de **Clientes** y luego selecciona la pestaña **Detalles**.
+Activa la opción **Permitir Diseñador Integrado**.
 
 <Screenshot
   filename="embedded-designer/customer-allow-embedded-designer.png"
-  alt="Enable embedded designer for a customer"
+  alt="Habilitar diseñador integrado para un cliente"
   maxWidth="800px"
 />
 
-## Embedded screen configuration
+## Configuración de Pantalla Integrada
 
-Most embedded screens that show components, integrations, instances, etc., take three properties:
+La mayoría de las pantallas integradas que muestran componentes, integraciones, instancias, etc., tienen tres propiedades:
 
-- `usePopover` is a boolean that determines if the screen should display as a popover.
-  By default, the screen is injected as an iframe into an existing DOM element.
-- `selector` identifies which element in the DOM to inject the iframe into when `usePopover` is false.
-- `theme` can override [custom theming](#theming-embedded-marketplace) default behavior, and can be set to `"LIGHT"` or `"DARK"` mode.
+- `usePopover` es un booleano que determina si la pantalla debe mostrarse como un popover.
+  Por defecto, la pantalla se inyecta como un iframe en un elemento DOM existente.
+- `selector` identifica qué elemento en el DOM se debe inyectar con el iframe cuando `usePopover` es falso.
+- `theme` puede anular el comportamiento predeterminado de [tematización personalizada](#tematizando-el-marketplace-integrado) y puede establecerse en modo `"LIGHT"` o `"DARK"`.
 
-## Showing component screens
+## Mostrar pantallas de componentes
 
-You can embed the component screens in your app using the `.showComponents` and `.showComponent` functions respectively.
-To show all components that are available in your tenant, use the `showComponents()` function:
+Puedes integrar las pantallas de componentes en tu aplicación utilizando las funciones `.showComponents` y `.showComponent` respectivamente.
+Para mostrar todos los componentes disponibles en tu inquilino, utiliza la función `showComponents()`:
 
-```ts title="Showing all components - ReactJS example"
+```ts title="Mostrar todos los componentes - Ejemplo ReactJS"
 import  from "@-io/embedded";
 import { useEffect } from "react";
 
@@ -68,10 +68,10 @@ function ComponentListView() {
 export default ComponentListView;
 ```
 
-To show details about a specific component, use the `showComponent()` function and provide the function with the ID of a component.
-You will need to query for the ID of the component using `.graphqlRequest` function, which you can use to query the API:
+Para mostrar detalles sobre un componente específico, utiliza la función `showComponent()` y proporciona el ID del componente.
+Necesitarás consultar el ID del componente utilizando la función `.graphqlRequest`, que puedes utilizar para hacer consultas a la API:
 
-```ts title="Showing a specific component"
+```ts title="Mostrar un componente específico"
 import  from "@-io/embedded";
 import { useEffect } from "react";
 
@@ -110,14 +110,14 @@ function DropboxComponent() {
 export default DropboxComponent;
 ```
 
-Additional documentation on querying the API as a customer user from the embedded SDK is available on the [Embedded API Requests](embedded-api-requests.mdx) article.
+Documentación adicional sobre cómo realizar consultas a la API como usuario cliente desde el SDK integrado está disponible en el artículo [Solicitudes de API Integradas](embedded-api-requests.mdx).
 
-For an example of embedding the integration designer, including a check if the current user has integration designer permissions, see [GitHub](https://github.com/-io/embedded/blob/main/example-embedded-app/pages/examples/embedded-designer.tsx).
+Para un ejemplo de cómo incrustar el diseñador de integraciones, incluida una verificación de si el usuario actual tiene permisos de diseñador de integraciones, consulta [GitHub](https://github.com/-io/embedded/blob/main/example-embedded-app/pages/examples/embedded-designer.tsx).
 
-## Showing integrations
+## Mostrar integraciones
 
-The `.showIntegrations` function shows the customer user all of the integrations that are owned by their customer.
-Customers can create their own integrations, or integrations can be assigned to them.
+La función `.showIntegrations` muestra al usuario cliente todas las integraciones que pertenecen a su organización.
+Los clientes pueden crear sus propias integraciones o se les pueden asignar integraciones.
 
 ```ts
 import  from "@-io/embedded";
@@ -136,43 +136,43 @@ function IntegrationList() {
 export default IntegrationList;
 ```
 
-From the `showIntegrations` screen, customer users will be able to open existing integrations or create new integrations by clicking the **+Add integration** button (like an organization team member would do).
+Desde la pantalla `showIntegrations`, los usuarios clientes podrán abrir integraciones existentes o crear nuevas integraciones haciendo clic en el botón **+Agregar integración** (como lo haría un miembro del equipo de la organización).
 
 <Screenshot
   filename="embedded-designer/list-integrations.png"
-  alt="List integrations as a customer user in embedded"
+  alt="Listar integraciones como usuario cliente en embedded"
   maxWidth="800px"
 />
 
-:::note integrations are scoped to the customer
-Integrations are scoped to a customer.
-If a customer creates a new integration, or if you assign an integration to a customer, only customer users for that customer see that integration.
+:::note Las integraciones se asignan a un cliente
+Las integraciones se asignan a un cliente.
+Si un cliente crea una nueva integración, o si asigna una integración a un cliente, sólo los usuarios de ese cliente verán la integración.
 :::
 
-### Assigning an integration to a customer
+### Asignar una integración a un cliente
 
-You can build an integration and assign ownership of it to a customer.
-To do that, open the integration, select the **Details** tab on the top of the screen, and select the customer who should own the integration from the **Customer** dropdown menu.
+Puede crear una integración y asignar su propiedad a un cliente.
+Para ello, abra la integración, seleccione la pestaña **Detalles** en la parte superior de la pantalla y seleccione el cliente al que debe pertenecer la integración en el menú desplegable **Cliente**.
 
 <Screenshot
   filename="embedded-designer/assign-integration.png"
-  alt="Assign an integration to a customer"
+  alt="Asignar una integración a un cliente"
   maxWidth="400px"
 />
 
-## Opening the integration designer directly
+## Abrir directamente el diseñador de integraciones
 
-If you know the ID of an integration that you would like to open, you can open an integration directly using `.showDesigner`.
-You will need to query for the ID of the component using `.graphqlRequest` function, which you can use to query the API:
+Si conoces el ID de una integración que te gustaría abrir, puedes abrir una integración directamente usando `.showDesigner`.
+Necesitarás consultar el ID del componente usando la función `.graphqlRequest`, la cual puedes utilizar para hacer una consulta a la API:
 
-```ts title="Open an integration designer directly"
+```ts title="Abrir directamente un diseñador de integración"
 import  from "@-io/embedded";
 import { useEffect } from "react";
 
 const id = "my-embedded-builder-div";
 
 /**
- * Get an integration's ID given its name
+ * Obtener el ID de una integración dado su nombre
  */
 async function getIntegrationId(integrationName: string) {
   const query = `query getMyIntegration($integrationName: String!) {
@@ -208,18 +208,18 @@ export default EmbeddedDesigner;
 
 <Screenshot
   filename="embedded-designer/embedded-designer.png"
-  alt="Build an integration as a customer user"
+  alt="Construir una integración como usuario cliente"
   maxWidth="800px"
 />
 
-## Filtering components in the embedded designer
+## Filtrar componentes en el diseñador integrado
 
-If you would like to limit the components that a customer user can use in the embedded designer, you can do so by specifying a `filters.components.filterQuery` object when you call `.showIntegrations` or `.showDesigner`.
-You can filter using a component's `key`, whether or not it's a `public` component, and component `category`.
+Si deseas limitar los componentes que un usuario cliente puede usar en el diseñador integrado, puedes hacerlo especificando un objeto `filters.components.filterQuery` cuando llames a `.showIntegrations` o `.showDesigner`.
+Puedes filtrar usando la `clave` de un componente, si es o no un componente `público`, y la `categoría` del componente.
 
-In this example, we list the Code and Dropbox components, as well as a private version of the Slack component and all components in the "Logic" category (like Branch, Loop, etc):
+En este ejemplo, enumeramos los componentes de Code y Dropbox, así como una versión privada del componente Slack y todos los componentes en la categoría "Lógica" (como Branch, Loop, etc):
 
-```ts title="Filter components in the embedded designer"
+```ts title="Componentes de filtro en el diseñador integrado"
 import , {
   BooleanOperator,
   TermOperator,
@@ -247,15 +247,15 @@ import , {
 
 <Screenshot
   filename="embedded-designer/filter-components.png"
-  alt="Filter component list in the embedded designer"
+  alt="Filtrar la lista de componentes en el diseñador integrado"
   maxWidth="800px"
 />
 
-## Showing logs
+## Mostrar registros
 
-The `.showLogs` function presents a customer user with the logs listview page.
-This gives them the chance to view logs from all of their instances in one place.
-It is the same view that you would see as an organization team member if you opened a [customer's logs tab](customers.mdx/#accessing-customer-logs).
+La función `.showLogs` presenta a un usuario cliente la página de lista de registros.
+Esto les brinda la oportunidad de ver registros de todas sus instancias en un solo lugar.
+Es la misma vista que verías como miembro del equipo de una organización si abres la [pestaña de registros de un cliente](customers.mdx/#acceso-a-los-registros-de-un-cliente).
 
 ```ts
 import  from "@-io/embedded";
@@ -274,9 +274,9 @@ function InstanceLogs() {
 export default InstanceLogs;
 ```
 
-## Showing the customer dashboard
+## Mostrar el panel de control del cliente
 
-To give your customer a holistic view of their integrations, instances, etc, you can show them the customer dashboard.
+Para ofrecer al cliente una visión global de sus integraciones, instancias, etc., puede mostrarle el panel de control del cliente.
 
 ```ts
 import  from "@-io/embedded";
@@ -297,14 +297,14 @@ export default Dashboard;
 
 <Screenshot
   filename="embedded-designer/show-dashboard.png"
-  alt="Open the customer dashboard in embedded"
+  alt="Abrir el panel de control del cliente en incrustado"
   maxWidth="800px"
 />
 
-### Hiding tabs in the embedded customer dashboard
+### Ocultar pestañas en el panel de control integrado para clientes
 
-By default, all tabs are shown to customers when `showDashboard()` is invoked.
-To hide certain tabs, include `screenConfiguration.dashboard.hideTabs` parameter when you call `showDashboard()`:
+Por defecto, se muestran todas las pestañas a los clientes cuando se invoca `showDashboard()`.
+Para ocultar ciertas pestañas, incluye el parámetro `screenConfiguration.dashboard.hideTabs` al llamar a `showDashboard()`:
 
 ```ts
 .showDashboard({
@@ -318,21 +318,21 @@ To hide certain tabs, include `screenConfiguration.dashboard.hideTabs` parameter
 });
 ```
 
-## Customer users and custom components
+## Usuarios de clientes y componentes personalizados
 
-Your customers can build their own custom components and use them in their integrations.
-These private components are scoped to the customer, and are not visible to other customers.
-This is helpful if your customer needs to build a custom component that is specific to their business (for example, to wrap their own API).
+Tus clientes pueden crear sus propios componentes personalizados y utilizarlos en sus integraciones.
+Estos componentes privados están limitados al alcance del cliente y no son visibles para otros clientes.
+Esto es útil si tu cliente necesita construir un componente personalizado específico para su negocio (por ejemplo, para envolver su propia API).
 
-The building of customer-scoped custom components is done in the same way as it is for organization-wide custom components.
-For information on building custom components, see the [Building Custom Components](custom-components/writing-custom-components.mdx) article or the custom component [getting started guide](getting-started/first-custom-component/set-up-environment.mdx).
+La construcción de componentes personalizados con alcance de cliente se realiza de la misma manera que para los componentes personalizados a nivel de la organización.
+Para obtener información sobre la construcción de componentes personalizados, consulta el artículo [Construcción de Componentes Personalizados](custom-components/writing-custom-components.mdx) o la guía de inicio para componentes personalizados [Getting Started Guide](getting-started/first-custom-component/set-up-environment.mdx).
 
-:::info Customer users must be able to log in to
-In order for a customer user to publish a custom component, you must [create a customer user account](users.mdx/#customer-users) and assign them the "Admin" role.
-The customer user needs to be able to log in to in order to authenticate the Prism CLI tool to publish custom components.
-A customer user cannot use a signed JWT to publish custom components.
+:::info Los usuarios clientes deben poder acceder a
+Para que un usuario pueda publicar un componente personalizado, debes [crear una cuenta de usuario de cliente](users.mdx/#customer-users) y asignarle el rol de "Admin".
+El usuario de cliente debe poder iniciar sesión en para autenticar la herramienta Prism CLI y poder publicar componentes personalizados.
+Un usuario de cliente no puede utilizar un JWT firmado para publicar componentes personalizados.
 :::
 
-Once a customer user has logged in to , they can authenticate the Prism CLI tool by running `prism login` and then publish a component scoped to their customer with `prism components:publish`, as an organization team member would do.
+Una vez que un usuario de cliente ha iniciado sesión en , puede autenticar la herramienta Prism CLI ejecutando `prism login` y luego publicar un componente específico para su cliente con `prism components:publish`, de la misma manera que lo haría un miembro del equipo de la organización.
 
-If you would like to publish a component as an organization team member for a specific customer, you can run `prism components:publish --customer <CUSTOMER ID>` using an ID that you can fetch by running `prism customers:list --columns id,name`.
+Si deseas publicar un componente como miembro del equipo de la organización para un cliente específico, puedes ejecutar `prism components:publish --customer <ID DEL CLIENTE>` utilizando un ID que puedes obtener ejecutando `prism customers:list --columns id,name`.
