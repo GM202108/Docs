@@ -1,15 +1,15 @@
 ---
 id: generating-a-pdf-with-a-code-component
-title: Generating a PDF with a Code Component
-description: In this quickstart we import an external library and generate a PDF using the  code component
+title: Generar un PDF con un componente de código
+description: En esta guía rápida importamos una biblioteca externa y generamos un PDF utilizando el componente de código.
 ---
 
 import Screenshot from "@site/src/components/screenshot";
 
-In this quickstart we'll write a short code component snippet that references some JSON data, and outputs a rendered PDF file.
-We'll cover how to import external libraries in a code component, and how to output binary data (like a PDF file) from a code component.
+En esta guía rápida escribiremos un breve fragmento de componente de código que hace referencia a algunos datos JSON y genera un archivo PDF.
+Veremos cómo importar bibliotecas externas en un componente de código y cómo generar datos binarios (como un archivo PDF) desde un componente de código.
 
-For this example, assume that our integration receives a list of rocket launches that have occurred recently in JSON format:
+Para este ejemplo, supongamos que nuestra integración recibe una lista de lanzamientos de cohetes que se han producido recientemente en formato JSON:
 
 ```json
 [
@@ -28,21 +28,21 @@ For this example, assume that our integration receives a list of rocket launches
 ]
 ```
 
-Our customers would like to generate PDF files from this data with launch information, one launch per page, for their managers to print and read through.
+A nuestros clientes les gustaría generar archivos PDF a partir de estos datos con información de lanzamiento, un lanzamiento por página, para que sus gerentes los impriman y los lean.
 
-## Should we use a custom component instead?
+## ¿Deberíamos usar un componente personalizado en su lugar?
 
-This use case straddles the line of needing a custom component vs using a code component.
-This code is only used for a single integration, is relatively short, and after some preliminary testing _probably_ doesn't need extensive unit testing.
+Este caso de uso se encuentra en la línea de necesitar un componente personalizado en lugar de usar un componente de código.
+Este código solo se usa para una única integración, es relativamente corto y, después de algunas pruebas preliminares, _probablemente_ no necesita pruebas unitarias extensas.
 
-It should be noted that when your code step has external dependencies (like on a PDF library), that external dependency is pulled down from a CDN each execution.
-That can be slow, and your integration will be dependent on the CDN being available.
-You may be better off building a custom component, where the external dependency will be compiled in to your component.
+Cabe destacar que cuando su paso de código tiene dependencias externas (como una biblioteca de PDF), esa dependencia externa se descarga de un CDN en cada ejecución.
+Eso puede ser lento, y su integración dependerá de que el CDN esté disponible.
+Es posible que sea mejor construir un componente personalizado, donde la dependencia externa se compilará en su componente.
 
-## Importing external libraries
+## Importando bibliotecas externas
 
-Today we'll use the [PDF-LIB](https://www.npmjs.com/package/pdf-lib) library to render our PDF.
-To do that, let's add the following to the top of a new code component in our integration:
+Hoy usaremos la biblioteca [PDF-LIB](https://www.npmjs.com/package/pdf-lib) para renderizar nuestro PDF.
+Para hacer eso, agreguemos lo siguiente en la parte superior de un nuevo componente de código en nuestra integración:
 
 ```javascript
 const {
@@ -51,16 +51,16 @@ const {
 } = require("pdf-lib@1.11.2/dist/pdf-lib.js");
 ```
 
-It's wise to pin requirements to known working versions.
-Since we're testing our integration with PDF-LIB version 1.11.2, we'll select that specific version.
-If we omitted the version, our integration would import whatever latest version is available.
+Es prudente fijar los requisitos a versiones conocidas que funcionan.
+Como estamos probando nuestra integración con la versión 1.11.2 de PDF-LIB, seleccionaremos esa versión específica.
+Si omitiéramos la versión, nuestra integración importaría la última versión disponible.
 
-Adding this `require()` line to the top of our code component will cause the code component to [dynamically import](code-component-usage.mdx#adding-dependencies-to-a-code-step) the PDF-LIB library as a dependency.
+Agregar esta línea `require()` en la parte superior de nuestro componente de código hará que el componente de código [importe dinámicamente](code-component-usage.mdx#adding-dependencies-to-a-code-step) la biblioteca PDF-LIB como una dependencia.
 
-## Writing our code component snippet
+## Escribiendo nuestro fragmento de código del componente
 
-Next, we'll write the code that generates a PDF.
-Let's first test that we can generate a blank PDF file:
+A continuación, escribiremos el código que genera un PDF.
+Primero probemos que podemos generar un archivo PDF en blanco:
 
 ```javascript
 const { PDFDocument } = require("pdf-lib@1.17.1/dist/pdf-lib.js");
@@ -72,12 +72,12 @@ module.exports = async (context, stepResults) => {
 };
 ```
 
-If we run this code component and look at step outputs, we see that our code component generated a 583 byte binary file.
-By adding a **Save File** step after the code component to GCP Storage, and we can write that blank file out to GCP storage to verify that it looks like we'd expect.
-You can choose to write the file out to Amazon S3, Azure, an SFTP share, DropBox, etc... your choice.
+Si ejecutamos este componente de código y miramos las salidas del paso, veremos que nuestro componente de código generó un archivo binario de 583 bytes.
+Al agregar un paso de **Guardar archivo** después del componente de código a GCP Storage, podemos escribir ese archivo en blanco en GCP Storage para verificar que se ve como esperamos.
+Puedes elegir escribir el archivo en Amazon S3, Azure, una compartición SFTP, Dropbox, etc. ... tu elección.
 
-We now have a blank PDF written out.
-What's left to do is add some text to the PDF based on the data that was presented to our integration's webhook:
+Ahora tenemos un archivo PDF en blanco escrito.
+Lo que queda por hacer es agregar algún texto al PDF basado en los datos que se presentaron al webhook de nuestra integración:
 
 ```javascript
 const {
@@ -86,26 +86,26 @@ const {
 } = require("pdf-lib@1.17.1/dist/pdf-lib.js");
 
 module.exports = async (context, stepResults) => {
-  // Pull in data from the webhook trigger payload
+  // Extraer datos de la carga útil del desencadenante webhook
   const rocketLaunches = stepResults.integrationTrigger.results.body.data;
 
-  // Generate a PDF Document
+  // Generar un documento PDF
   const doc = await PDFDocument.create();
 
-  // Embed the Times Roman font
+  // Incrustar la fuente Times Roman
   const timesRomanFont = await doc.embedFont(StandardFonts.TimesRoman);
 
-  // Loop over each rocket launch, adding a page to our document for each one
+  // Repasar cada lanzamiento de cohete, añadiendo una página a nuestro documento para cada uno.
   rocketLaunches.forEach((rocketLaunch) => {
     const { rocketName, launchTime, launchSupervisor, launchNotes } =
       rocketLaunch;
 
-    // Create a new page for each launch
+    // Crear una nueva página para cada lanzamiento
     const page = doc.addPage();
     const { width, height } = page.getSize();
     const _launchTime = new Date(launchTime).toLocaleString();
 
-    // Print information about the launch
+    // Imprimir información sobre el lanzamiento
     page.drawText(`Rocket: ${rocketName}`, {
       x: 30,
       y: height - 120,
@@ -128,33 +128,33 @@ module.exports = async (context, stepResults) => {
     });
   });
 
-  // Get PDF file as a file Buffer
+  // Obtener archivo PDF como archivo Buffer
   const pdfBytes = await doc.save();
 
-  // Return a PDF file with proper MIME type
+  // Devolver un archivo PDF con el tipo MIME adecuado
   return { data: pdfBytes, contentType: "application/pdf" };
 };
 ```
 
-Note the format of the object that is returned from this code component:
+Observe el formato del objeto que devuelve este componente de código:
 
 ```javascript
 return { data: pdfBytes, contentType: "application/pdf" };
 ```
 
-The return object specifies both a `data` property that is a file `Buffer`, and a `contentType` specifying the MIME type of the file being returned.
+El objeto devuelto especifica una propiedad `data` que es un `Buffer` de archivo, y un `contentType` que especifica el tipo MIME del archivo devuelto.
 
-If we run a test again, we can see that a two-page PDF is being generated with formatted content from the webhook payload:
+Si ejecutamos una prueba de nuevo, podemos ver que se está generando un PDF de dos páginas con contenido formateado a partir de la carga útil del webhook:
 
 <Screenshot
   filename="quickstarts/generating-a-pdf-with-a-code-component/final-product.png"
   dropshadow
-  alt="Sample PDF output file from webhook payload"
+  alt="Ejemplo de archivo PDF de salida de la carga útil del webhook"
 />
 
-## Further reading
+## Para saber más
 
-That's it!
-With just about 40 lines of code (if you omit comments and blank lines) we have a code component that renders PDFs.
+¡Eso es todo!
+Con aproximadamente 40 líneas de código (si omites comentarios y líneas en blanco), tenemos un componente de código que renderiza PDF.
 
-For more information on code components checkout the [code component usage](code-component-usage.mdx) page.
+Para obtener más información sobre los componentes de código, consulta la página [uso de componentes de código](code-component-usage.mdx).

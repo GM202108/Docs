@@ -1,20 +1,20 @@
 ---
 id: building-the-s3-component
-title: Building an Advanced Component With a Connection
-description: This quickstart examines how to build an advanced component with a connection
+title: Creación de un componente avanzado con una conexión
+description: Este quickstart examina cómo construir un componente avanzado con una conexión
 ---
 
-The goal of this quickstart is to examine the [Amazon S3 component](components/aws-s3.mdx) to get you accustomed to developing more advanced components that have multiple actions, handle credentials through connections, and handle non-string binary data input fields.
+El objetivo de este inicio rápido es examinar el [componente de Amazon S3](components/aws-s3.mdx) para familiarizarte con el desarrollo de componentes más avanzados que tienen múltiples acciones, manejan credenciales a través de conexiones y manejan campos de entrada de datos binarios no string.
 
-Amazon S3 component [source code](https://github.com/-io/examples/tree/main/components/aws-s3) is referenced throughout this quickstart.
+El [código fuente del componente de Amazon S3](https://github.com/-io/examples/tree/main/components/aws-s3) se referencia en todo este inicio rápido.
 
-## Prerequisites
+## Prerrequisitos
 
-You should read [Building Your First Custom Component](quickstarts/first-custom-component.mdx) and [Writing Custom Components](custom-components/writing-custom-components.mdx) prior to this quickstart to get a sense of project set up, and the `action`, `input`, `connection` and `component` objects that make up a component project.
+Deberías leer [Construir tu primer componente personalizado](quickstarts/first-custom-component.mdx) y [Escribir Componentes Personalizados](custom-components/writing-custom-components.mdx) antes de este inicio rápido para tener una idea de la configuración del proyecto y de los objetos `action`, `input`, `connection` y `component` que conforman un proyecto de componente.
 
-## Reusable inputs
+## Entradas reutilizables
 
-`input` definitions _can_ be written in an `action` code block. For example, the [Slack component](https://github.com/-io/examples/tree/main/components/slack) is comprised of a single action, and inputs are defined within that action.
+Las definiciones de `input` _pueden_ escribirse en un bloque de código de `action`. Por ejemplo, el [componente de Slack](https://github.com/-io/examples/tree/main/components/slack) está compuesto por una sola acción, y las entradas se definen dentro de esa acción.
 
 ```javascript title="slack/src/index.ts"
 action({
@@ -33,9 +33,9 @@ action({
 });
 ```
 
-However, for sufficiently complex components, you will likely have multiple actions that rely on the same input.
-The S3 component, for example, has multiple actions that take the name of an S3 bucket as input.
-Defining the input field once, and referencing it by multiple actions results in cleaner, more concise code.
+Sin embargo, para componentes suficientemente complejos, es probable que tenga múltiples acciones que dependen de la misma entrada.
+El componente S3, por ejemplo, tiene múltiples acciones que toman el nombre de un bucket S3 como entrada.
+Definir el campo de entrada una vez, y referenciarlo por múltiples acciones resulta en un código más limpio y conciso.
 
 ```javascript title="inputs.ts" {2}
 import { input } from "@-io/spectral";
@@ -45,7 +45,7 @@ export const bucket = input({
   type: "string",
   required: true,
   comments:
-    "An Amazon S3 'bucket' is a container where files are stored. You can create a bucket from within the AWS console. Bucket names contain only letters, numbers, and dashes.",
+    "Un "bucket" de Amazon S3 es un contenedor donde se almacenan archivos. Puede crear un bucket desde la consola de AWS. Los nombres de los buckets solo contienen letras, números y guiones.",
   example: "my-s3-bucket-abc123",
 });
 ```
@@ -67,10 +67,9 @@ const listObjects = action({
 });
 ```
 
-## Reusable helper functions
+## Funciones auxiliares reutilizables
 
-S3 actions require an Amazon S3 client, imported from the [AWS SDK](https://aws.amazon.com/sdk-for-node-js/).
-Rather than wrapping the client creation logic into each action, authorization and client creation are placed in a distinct file, [auth.ts](https://github.com/-io/examples/blob/main/components/aws-s3/src/auth.ts), and referenced by the actions.
+Las acciones de S3 requieren un cliente de Amazon S3, importado desde el [AWS SDK](https://aws.amazon.com/sdk-for-node-js/). En lugar de envolver la lógica de creación del cliente en cada acción, la autorización y la creación del cliente se colocan en un archivo distinto, [auth.ts](https://github.com/-io/examples/blob/main/components/aws-s3/src/auth.ts), y se referencia desde las acciones.
 
 ```javascript title="auth.ts" {4}
 import { S3, STS } from "aws-sdk";
@@ -85,14 +84,14 @@ export const createS3Client = async (accessKey: Connection, region: string) => {
     region,
   };
 
-  // Verify credentials are valid with STS.getCallerIdentity()
+  // Verifica que las credenciales son válidas con STS.getCallerIdentity()
   const sts = new STS(credentials);
   try {
     await sts.getCallerIdentity({}).promise();
   } catch (err) {
     throw new ConnectionError(
       accessKey,
-      `Invalid AWS Credentials have been configured. This is sometimes caused by missing characters from a copy/paste. Original AWS error message: ${
+      `Se han configurado credenciales de AWS no válidas. Esto se debe a veces a que faltan caracteres en un copiar/pegar. Mensaje de error original de AWS: ${
         (err as Error).message
       }`
     );
@@ -118,10 +117,9 @@ const getObject = action({
 });
 ```
 
-## Handling authentication
+## Manejo de autenticación
 
-To make Amazon S3 API calls, an `access_key_id` and `secret_access_key` key pair are presented to AWS's API.
-So, we'll create a `connection` that has those two fields:
+Para realizar llamadas a la API de Amazon S3, se presenta un par de claves `access_key_id` y `secret_access_key` a la API de AWS. Por lo tanto, crearemos una `connection` que tenga esos dos campos:
 
 ```typescript
 import { connection } from "@-io/spectral";
@@ -155,7 +153,7 @@ export const accessKeySecretPair = connection({
 export default [accessKeySecretPair];
 ```
 
-Then, we'll let our `component` know that it should support the `accessKeySecretPair` connection:
+A continuación, haremos saber a nuestro `componente` que debe soportar la conexión `accessKeySecretPair`:
 
 ```javascript title="index.ts" {3,15}
 import { component } from "@-io/spectral";
@@ -177,22 +175,21 @@ export default component({
 });
 ```
 
-This connection will now be available to any action that takes an input of type `connection` (which is all of our actions).
+Esta conexión estará ahora disponible para cualquier acción que tome una entrada de tipo `connection` (que son todas nuestras acciones).
 
-## Binary data
+## Datos binarios
 
-For most components, passing text or JSON as inputs and outputs is sufficient.
-The [Slack component](components/slack.mdx), for example, will only ever post string messages.
+Para la mayoría de los componentes, pasar texto o JSON como entradas y salidas es suficiente. Por ejemplo, el [componente de Slack](components/slack.mdx) solo publicará mensajes de texto.
 
-The Amazon S3 component, on the other hand, might fetch or write non-string data, like images, videos, or PDFs.
+El componente de Amazon S3, por otro lado, podría recuperar o escribir datos no string, como imágenes, videos o PDF.
 
-### Binary data as outputs
+### Datos binarios como salidas
 
-The S3 `getObject` action reads a file (text or binary data) from an S3 bucket and returns its contents as an action output.
+La acción `getObject` de S3 lee un archivo (datos de texto o binarios) de un bucket de S3 y devuelve su contenido como salida de la acción.
 
 ```javascript title="actions.ts" {17-20}
 /*
-  Implementation of the S3 GetObject API
+  Implementación de la API GetObject de S3
   https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html
 */
 const getObject = action({
@@ -221,14 +218,14 @@ const getObject = action({
 ```
 
 :::note
-Note that in addition to the file's contents, the return contains `contentType`. That might be `image/png`, etc., depending on the type of the file.
+Tenga en cuenta que, además del contenido del archivo, el retorno contiene `contentType`. Puede ser `image/png`, etc., dependiendo del tipo de archivo.
 :::
 
-### Binary data as inputs
+### Datos binarios como entradas
 
-The S3 `putObject` action writes either plain text or a binary file to an S3 bucket. S3 extracts `contentType` from the file that is uploaded.
+La acción S3 `putObject` escribe texto plano o un archivo binario en un bucket S3. S3 extrae `contentType` del archivo que se carga.
 
-Our input is defined with `type: "data"` to indicate that it might contain binary data from a previous step.
+Nuestra entrada se define con `type: "data"` para indicar que puede contener datos binarios de un paso anterior.
 
 ```javascript title="inputs.ts" {4}
 export const fileContents = input({
@@ -237,15 +234,15 @@ export const fileContents = input({
   type: "data",
   required: true,
   comments:
-    "The contents to write to a file. This can be a string of text, it can be binary data (like an image or PDF) that was generated in a previous step.",
-  example: "My File Contents",
+    "Los contenidos para escribir en un archivo. Esto puede ser una cadena de texto o datos binarios (como una imagen o PDF) que se generaron en un paso anterior.",
+  ejemplo: "Contenido de mi archivo"",
 });
 ```
 
-If plain text is entered in the `fileContents` input field, a string is passed into the `perform` function.
-If a reference to binary data is passed in (for example, from an [HTTP GET](components/http.mdx#httpget) action's output), `fileContents` will be an object with `.data` and `.contentType` properties.
+Si se ingresa texto plano en el campo de entrada `fileContents`, se pasa una cadena a la función `perform`.
+Si se pasa una referencia a datos binarios (por ejemplo, desde la salida de una acción [HTTP GET](components/http.mdx#httpget)), `fileContents` será un objeto con propiedades `.data` y `.contentType`.
 
-The S3 `putObject` action takes advantage of Spectral's `util.types.toData()` function to turn fileContents into a type that the AWS SDK expects.
+La acción `putObject` de S3 aprovecha la función `util.types.toData()` de Spectral para convertir `fileContents` en un tipo que espera el SDK de AWS.
 
 ```javascript title="actions.ts" {18,28-29}
 /*

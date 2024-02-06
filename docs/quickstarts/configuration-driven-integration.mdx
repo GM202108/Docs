@@ -1,124 +1,124 @@
 ---
 id: configuration-driven-integration
-title: Configuration-Driven Integration
-description: This quickstart highlights how to build configuration-driven integrations that can be deployed to customers with different setups
+title: Integración basada en la configuración
+description: Esta guía rápida muestra cómo crear integraciones basadas en la configuración que pueden implantarse en clientes con diferentes configuraciones.
 ---
 
 import Icon from "@mui/material/Icon";
 import InternalLink from "@site/src/components/internal-link";
 import Screenshot from "@site/src/components/screenshot";
 
-In this quickstart we'll look at how you can use several types of config variables and connections to drive logic in your integration.
-This helps to illustrate how your customers can have instances of the same integration deployed to them, with different configurations.
+En esta guía rápida veremos cómo puede utilizar varios tipos de variables de configuración y conexiones para controlar la lógica de su integración.
+Esto ayuda a ilustrar cómo sus clientes pueden tener instancias de la misma integración desplegadas para ellos, con diferentes configuraciones.
 
-## Basic config variables
+## Variables de configuración básicas
 
-The most basic type of config variable is a simple string.
-A string config variable can have an optional default value, and you can add **Description** helper text to indicate to your end user what type of string the config variable expects.
+El tipo más básico de variable de configuración es una simple cadena.
+Una variable de configuración de cadena puede tener un valor por defecto opcional, y puede añadir texto de ayuda **Description** para indicar al usuario final qué tipo de cadena espera la variable de configuración.
 
-For example, we can create a config variable that prompts the user for their API endpoint:
+Por ejemplo, podemos crear una variable de configuración que pregunte al usuario por su punto final de API:
 
 <Screenshot
   filename="quickstarts/configuration-driven-integration/simple-string-config-var.png"
-  alt="Simple string config variable"
+  alt="Variable de configuración de cadena simple"
 />
 
-When your user configures an instance of the integration, they're prompted for the string and they're provided the helper text you added:
+Cuando el usuario configura una instancia de la integración, se le solicita la cadena y se le proporciona el texto de ayuda que has añadido:
 
 <Screenshot
   filename="quickstarts/configuration-driven-integration/simple-string-prompt.png"
-  alt="Simple string prompt"
+  alt="Aviso de cadena simple"
   maxWidth="700px"
 />
 
-You can use the string that your user entered as an input for one or more steps:
+Puede utilizar la cadena introducida por el usuario como entrada para uno o varios pasos:
 
 <Screenshot
   filename="quickstarts/configuration-driven-integration/simple-string-as-input.png"
-  alt="Simple string as input"
+  alt="Cadena simple como entrada"
   maxWidth="600px"
 />
 
-Or, you can concatenate the string together with other static strings, config variables, and step results, to generate dynamic inputs for steps:
+O bien, puede concatenar la cadena junto con otras cadenas estáticas, variables de configuración y resultados de pasos, para generar entradas dinámicas para los pasos:
 
 <Screenshot
   filename="quickstarts/configuration-driven-integration/simple-string-in-template.png"
-  alt="Simple string in template"
+  alt="Cadena simple en plantilla"
   maxWidth="600px"
 />
 
-## Creating dropdown menus and branching from options
+## Creación de menús desplegables y ramificación de opciones
 
-If you'd like to limit the options an end user can choose from, select **picklist** as your config variable data type.
-You can generate a list of options that your user can choose from:
+Si desea limitar las opciones entre las que puede elegir un usuario final, seleccione **picklist** como tipo de datos de su variable de configuración.
+Puede generar una lista de opciones que el usuario puede elegir:
 
 <Screenshot
   filename="quickstarts/configuration-driven-integration/picklist-config-var.png"
-  alt="Picklist config variable"
+  alt="Variable de configuración Picklist"
   maxWidth="500px"
 />
 
-When deploying an instance of the integration, your user will see a dropdown menu with the options you created:
+Al desplegar una instancia de la integración, tu usuario verá un menú desplegable con las opciones que hayas creado:
 
 <Screenshot
   filename="quickstarts/configuration-driven-integration/picklist-config-wizard.png"
-  alt="Picklist input in the config wizard"
+  alt="Introducción de listas de selección en el asistente de configuración"
   maxWidth="700px"
 />
 
-These config variables can be used like you use string config variables (above).
+Estas variables de configuración se pueden utilizar como se utilizan las variables de configuración de cadena (arriba).
 
-You can also drive branching logic from a picklist by adding a branch for each picklist option.
+También puede controlar la lógica de bifurcación desde una lista de selección añadiendo una bifurcación para cada opción de la lista de selección.
 
 <Screenshot
   filename="quickstarts/configuration-driven-integration/branch-from-picklist.png"
-  alt="Create a branch from a picklist"
+  alt="Crear una rama a partir de una lista de selección"
   maxWidth="800px"
 />
 
-## Prompting for lists of values
+## Preguntar por listas de valores
 
-Sometimes it's handy to have a user enter one or more values for a config variable (think "arrays" in JavaScript or "lists" in Python).
-Create a config variable, and select **List** as the **Config Var Type**.
+A veces es útil que el usuario introduzca uno o más valores para una variable de configuración (piensa en "arrays" en JavaScript o "listas" en Python).
+Cree una variable de configuración y seleccione **Lista** como **Tipo de variable de configuración**.
 
 <Screenshot
   filename="quickstarts/configuration-driven-integration/list-config-var.png"
-  alt="List of strings in a config variable"
+  alt="Lista de cadenas en una variable de configuración"
   maxWidth="700px"
 />
 
-Users can enter one or more values for the config variable
+Los usuarios pueden introducir uno o más valores para la variable de configuración
 
 <Screenshot
   filename="quickstarts/configuration-driven-integration/list-config-wizard.png"
-  alt="List config var in config wizard"
+  alt="Listar var config en el asistente de configuración"
   maxWidth="550px"
 />
 
-If you reference that config variable in steps of your integration, the code backing your step will receive an array of strings rather than a single string.
+Si haces referencia a esa variable de configuración en los pasos de tu integración, el código que respalda tu paso recibirá una matriz de cadenas en lugar de una única cadena.
 
-## Branching on boolean config variables
+## Ramificación en variables de configuración booleanas
 
-You may want to prompt a user with a "yes/no" question, and drive some logic based on their answer.
-First, create a boolean input.
+Es posible que desee pedir a un usuario con un "sí / no" pregunta, y la unidad de alguna lógica basada en su respuesta.
+Primero, cree una entrada booleana.
 
 <Screenshot
   filename="quickstarts/configuration-driven-integration/boolean-config-var.png"
-  alt="Boolean type config variable"
+  alt="Variable de configuración de tipo booleano"
   maxWidth="600px"
 />
 
-The end user will see a simple toggle in their configuration wizard.
+El usuario final verá un simple conmutador en su asistente de configuración.
 
 <Screenshot
   filename="quickstarts/configuration-driven-integration/boolean-config-wizard.png"
-  alt="Boolean in the config wizard"
+  alt="Booleano en el asistente de configuración"
   maxWidth="200px"
 />
 
-Create a **Branch on Expression** step, and have one branch run if the value "is true" (otherwise, it'll follow the other branch)
+Crea un paso **Branch on Expression**, y haz que una rama se ejecute si el valor "is true" (de lo contrario, seguirá a la otra rama)
 
 <Screenshot
   filename="quickstarts/configuration-driven-integration/branch-on-boolean.png"
-  alt="Branch based on boolean config var value"
+  alt="Rama basada en el valor booleano config var"
 />

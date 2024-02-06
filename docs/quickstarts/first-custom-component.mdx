@@ -1,21 +1,21 @@
 ---
 id: first-custom-component
-title: Writing Your First Custom Component
-description: Create your first custom  component with the Spectral component SDK
+title: Escribir su primer componente personalizado
+description: Cree su primer componente personalizado con el SDK de componentes de Spectral.
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
-In this tutorial we will create a Slack component from scratch to illustrate how readily you can write custom code for an integration.
+En este tutorial, crearemos un componente de Slack desde cero para ilustrar lo fácil que es escribir código personalizado para una integración.
 
-## Initialize your project
+## Inicializar tu proyecto
 
-Suppose 's [Slack component](components/slack.mdx) did not exist. How would one go about creating a component that sends notifications to Slack?
+Supongamos que el [componente de Slack](components/slack.mdx) de Prism no existiera. ¿Cómo podríamos crear un componente que envíe notificaciones a Slack?
 
-To start your integration, use the `prism components:init` subcommand to create a new TypeScript project.
+Para comenzar tu integración, utiliza el subcomando `prism components:init` para crear un nuevo proyecto TypeScript.
 
 ```bash
-# Initialize the project
+# Inicializar el proyecto
 prism components:init myslack
 
 Creating component directory for "myslack"...
@@ -33,44 +33,44 @@ Creating component directory for "myslack"...
    create src/triggers.ts
    create src/connections.ts
 
-# Move to the newly created directory
+# Desplazarse al directorio recién creado
 cd myslack
 
-# Pull down the Slack icon for use by the component
+# Despliegue el icono de Slack para que lo utilice el componente
 curl 'https://.io/docs/img/slack.png' > assets/icon.png
 
-# Remove all boilerplate code; we'll write this component from scratch
+# Elimine todo el código repetitivo; escribiremos este componente desde cero.
 rm src/*.ts
 ```
 
-This will create a NodeJS project with TypeScript support, complete with required dependencies, like Webpack and 's custom component library, [spectral](https://www.npmjs.com/package/@-io/spectral).
+Esto creará un proyecto NodeJS con soporte para TypeScript, completo con las dependencias necesarias, como Webpack y la biblioteca de componentes personalizados de Prism, [spectral](https://www.npmjs.com/package/@-io/spectral).
 
-## Add dependencies
+## Agregar dependencias
 
-Most of the dependencies you require have been added for you, but because you're building a [Slack](https://slack.com/) component, you will want to take advantage of the Slack webhook npm package.
+La mayoría de las dependencias necesarias ya han sido agregadas, pero como estás construyendo un componente de [Slack](https://slack.com/), querrás aprovechar el paquete npm de webhook de Slack.
 
 ```bash
 npm install @slack/webhook
 ```
 
-Add the following to the top of a new file, `src/index.ts`:
+Añade lo siguiente al principio de un nuevo fichero, `src/index.ts`:
 
 ```js title="src/index.ts"
 import { action, component, input, util } from "@-io/spectral";
 import { IncomingWebhook } from "@slack/webhook";
 ```
 
-## Create some input fields
+## Crear algunos campos de entrada
 
-What information will you need to send a Slack message? At minimum, we'll need two things:
+¿Qué información necesitarás para enviar un mensaje a Slack? Como mínimo, necesitaremos dos cosas:
 
-1. A Slack webhook URL to send messages to
-1. A message to send.
+1. Una URL de webhook de Slack para enviar mensajes.
+2. Un mensaje para enviar.
 
-To create those input fields for your component, you will create two new `input`s in `src/index.ts`.
-The `label` and `placeholder` will appear within the web app when a user utilizes this action. `type` and `required` are self-explanatory.
+Para crear esos campos de entrada para tu componente, crearás dos nuevos `input` en `src/index.ts`.
+La `label` y el `placeholder` aparecerán dentro de la aplicación web cuando un usuario utilice esta acción. `type` y `required` son autoexplicativos.
 
-Each input has a `clean` function, which helps with type hinting - the `util.types.toString` function will guarantee that the value of `webhookUrl` and `message` is cast to a string.
+Cada entrada tiene una función `clean`, que ayuda con el tipo de sugerencia; la función `util.types.toString` garantizará que el valor de `webhookUrl` y `message` se convierta en una cadena.
 
 ```js title="src/index.ts"
 const webhookUrl = input({
@@ -89,11 +89,11 @@ const message = input({
 });
 ```
 
-## Create a component action
+## Crear una acción de componente
 
-Now it's time to create an `action` that our component can take.
-You need to provide the action with a `label` and `description` to display in the web app, a set of `input`s that you created above, and some code to `perform` when the action is invoked.
-You can take advantage of the Slack API in our `perform` function.
+Ahora es el momento de crear una `acción` que nuestro componente puede realizar.
+Debes proporcionar a la acción una `etiqueta` y una `descripción` para mostrar en la aplicación web, un conjunto de `entradas` que creaste anteriormente y algún código para `realizar` cuando se invoque la acción.
+Puedes aprovechar la API de Slack en nuestra función `realizar`.
 
 ```js title="src/index.ts"
 const postSlackMessage = action({
@@ -110,9 +110,9 @@ const postSlackMessage = action({
 });
 ```
 
-## Export your component
+## Exportar tu componente
 
-Lastly, we need to export a `component` object that has a unique `key` to identify it in , contains a `label` and `description` to display in the web app, and an object containing the `actions` that are associated with the component.
+Finalmente, necesitamos exportar un objeto `componente` que tenga una `clave` única para identificarlo en , contenga una `etiqueta` y una `descripción` para mostrar en la aplicación web, y un objeto que contenga las `acciones` asociadas con el componente.
 
 ```js title="src/index.ts"
 export default component({
@@ -127,23 +127,23 @@ export default component({
 });
 ```
 
-## Build and deploy your component
+## Compilar e implementar tu componente
 
-At this point you're ready to compile your component, and then deploy it.
-The `build` script leverages [webpack](https://webpack.js.org/) to compile and minify your TypeScript:
+En este punto, estás listo para compilar tu componente y luego implementarlo.
+El script `build` utiliza [webpack](https://webpack.js.org/) para compilar y minimizar tu TypeScript:
 
 ```bash
 npm run build
 ```
 
-Your build exists in `dist/`.
-Now, you can use `prism` to deploy your component.
+Su compilación existe en `dist/`.
+Ahora, puede utilizar `prism` para desplegar su componente.
 
 ```bash
 prism components:publish
 ```
 
-## Test your new component
+## Prueba tu nuevo componente
 
-Congratulations! You've published your first custom component!
-Try modifying your [first integration](getting-started/first-integration/build-first-integration.mdx) to use your new component, and verify that it posts to Slack like the official Slack component does!
+¡Felicidades! ¡Has publicado tu primer componente personalizado!
+Intenta modificar tu [primera integración](getting-started/first-integration/build-first-integration.mdx) para usar tu nuevo componente y verifica que envíe mensajes a Slack, ¡igual que el componente oficial de Slack!

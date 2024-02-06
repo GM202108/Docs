@@ -1,148 +1,148 @@
 ---
 id: looping-over-a-paginated-api
-title: Looping Over a Paginated API
-description: Learn to loop over an API that returns one "page" of results at a time.
+title: Bucle sobre una API paginada
+description: Aprenda a realizar bucles sobre una API que devuelve una "página" de resultados cada vez.
 ---
 
 import Screenshot from "@site/src/components/screenshot";
 
-When the number of records that an API stores is large, it's not economical to return all possible records at one time.
-Instead, many APIs implement **pagination**.
-That means that the API returns a small number of records at a time.
-You as the consumer of the API can "page" through the records, and ask for more records by requesting the next "page".
+Cuando el número de registros que almacena una API es grande, no es económico devolver todos los registros posibles de una sola vez.
+En su lugar, muchas APIs implementan la **paginación**.
+Esto significa que la API devuelve un pequeño número de registros a la vez.
+Usted, como consumidor de la API, puede "paginar" a través de los registros y solicitar más registros solicitando la siguiente "página".
 
-In an integration it's often helpful to be able to loop over a paginated API.
-In this tutorial, we'll look at how to use the [loop component](components/loop.mdx) to loop over a paginated API.
+En una integración, a menudo es útil poder recorrer una API paginada.
+En este tutorial, veremos cómo usar el [componente de loop](components/loop.mdx) para recorrer una API paginada.
 
-## JSON Placeholder API
+## API de JSON Placeholder
 
-For illustration purposes, we'll use Typicode's [JSON Placeholder](https://jsonplaceholder.typicode.com/).
-You can request all 100 "posts" in JSON Placeholder by making a request to https://jsonplaceholder.typicode.com/posts, and you can request fewer posts by making the same request with a `_limit` parameter.
-You can also choose an offset by passing in a `_start` parameter.
+Para fines ilustrativos, usaremos el [JSON Placeholder](https://jsonplaceholder.typicode.com/) de Typicode.
+Puede solicitar los 100 "posts" en JSON Placeholder haciendo una solicitud a https://jsonplaceholder.typicode.com/posts, y puede solicitar menos posts haciendo la misma solicitud con un parámetro `_limit`.
+También puede elegir un desplazamiento pasando un parámetro `_start`.
 
-For example, if you want just 10 posts, but you want to start at the 25th post, you can make a request to https://jsonplaceholder.typicode.com/posts?_limit=10&_start=25.
+Por ejemplo, si desea solo 10 posts, pero desea comenzar en el post número 25, puede hacer una solicitud a https://jsonplaceholder.typicode.com/posts?_limit=10&_start=25.
 
-In this exercise we're going to page through all 100 posts, 10 at a time, so we'll be making a request to `/posts?_limit=10&_start=0`, then `/posts?_limit=10&_start=10`, `/posts?_limit=10&_start=20`, etc. until there are no more posts left to process.
+En este ejercicio, vamos a recorrer los 100 posts, 10 a la vez, por lo que haremos una solicitud a `/posts?_limit=10&_start=0`, luego `/posts?_limit=10&_start=10`, `/posts?_limit=10&_start=20`, etc., hasta que no queden más posts por procesar.
 
-:::tip This works for any number of records
-Note: with paginated APIs you often don't know how many total results exist.
+:::tip Esto funciona para cualquier número de registros
+Nota: con las API paginadas a menudo no se sabe cuántos resultados totales existen.
 
-We happen to know that we're going to fetch 100 total "posts", but the looping strategy we cover here will accommodate any unknown number of posts.
-We'll simply loop until there are no more records left to loop over.
+Resulta que sabemos que vamos a obtener un total de 100 "entradas", pero la estrategia de bucle que cubrimos aquí se adaptará a cualquier número desconocido de entradas.
+Simplemente haremos un bucle hasta que no queden más registros.
 :::
 
-## Our paginated integration
+## Nuestra integración paginada
 
-Our integration will follow this flow to process all posts in the paginated API:
+Nuestra integración seguirá este flujo para procesar todos los posts en la API paginada:
 
-- Start a loop
-  - Fetch a page of up to 10 posts
-  - Are we out of posts to process?
-    - If so, break out of the loop
-    - If not, loop over each post
-      - Do something with the post (we'll just log out the post's title here)
-      - Is this the last post?
-        - If so, make a note of what `_start` we should use for the next loop iteration
-  - Go back to the start of the loop
+- Iniciar un bucle
+  - Obtener una página de hasta 10 posts
+  - ¿Se acabaron los posts por procesar?
+    - Si es así, salir del bucle
+    - Si no, recorrer cada post
+      - Hacer algo con el post (aquí simplemente registraremos el título del post)
+      - ¿Es este el último post?
+        - Si es así, hacer una nota de qué `_start` deberíamos usar para la próxima iteración del bucle
+  - Volver al inicio del bucle
 
-Let's get building!
+¡Comencemos a construir!
 
-### Our main loop
+### Nuestro bucle principal
 
-First, we'll create a [Loop N Times](components/loop.mdx#loop-n-times) loop step to loop over pages.
-Under "Number of Iterations" we'll put in some high number, like 20, even though we'll break out of the loop before 20 iterations.
+Primero, crearemos un paso de bucle [Loop N Times](components/loop.mdx#loop-n-times) para recorrer las páginas.
+Bajo "Número de iteraciones" pondremos un número alto, como 20, aunque saldremos del bucle antes de 20 iteraciones.
 
-Having a maximum number of iterations in a loop helps guard against an infinite loop - we don't want introduce unintended load on the vendor's API from an infinite loop.
-If you know that you're going to loop over thousands of pages, you can choose a higher number of maximum iterations.
+Tener un número máximo de iteraciones en un bucle ayuda a evitar un bucle infinito; no queremos introducir una carga no deseada en la API del proveedor desde un bucle infinito.
+Si sabes que vas a recorrer miles de páginas, puedes elegir un número mayor de iteraciones máximas.
 
-### Fetching a page of data
+### Obtener una página de datos
 
-Next, we'll add two steps:
+A continuación, añadiremos dos pasos:
 
-1. A [Persist Data - Get Execution Value](components/persist-data.mdx#execution---get-value) step will help to track the `_start` value in our API request.
-   This action references a variable that is scoped to the current execution.
-   That variable's value will be set by another step in the loop later.
-   We'll provide a variable name, `Latest Post ID`, and default value `0` (since it's not been set yet):
+1. Un paso [Persist Data - Get Execution Value](components/persist-data.mdx#execution---get-value) ayudará a rastrear el valor `_start` en nuestra solicitud a la API.
+   Esta acción hace referencia a una variable que tiene un ámbito en la ejecución actual.
+   El valor de esa variable será establecido por otro paso en el bucle más adelante.
+   Proporcionaremos un nombre de variable, `Último ID de Post`, y un valor predeterminado de `0` (ya que aún no se ha establecido):
 
    <Screenshot
      filename="quickstarts/looping-over-a-paginated-api/get-execution-value.png"
-     alt="Persist Data - Get Execution Value in  integration designer"
+     alt="Persist Data - Obtener valor de ejecución en el diseñador de integración"
    />
 
-2. Next, we'll use the value from the previous step to make a call to JSON Placeholder.
-   We'll add an [HTTP - GET Request](components/http.mdx#get-request) step and fetch `https://jsonplaceholder.typicode.com/posts?_limit=10&_start={{ THE VALUE WE GOT }}`:
+2. A continuación, usaremos el valor del paso anterior para hacer una llamada a JSON Placeholder.
+   Agregaremos un paso [HTTP - GET Request](components/http.mdx#get-request) y obtendremos `https://jsonplaceholder.typicode.com/posts?_limit=10&_start={{ EL VALOR QUE OBTUVIMOS }}`:
 
    <Screenshot
      filename="quickstarts/looping-over-a-paginated-api/get-posts.png"
-     alt="HTTP Get Request in  integration designer"
+     alt="Solicitud HTTP Get en el diseñador de integración"
    />
 
-### Are we done?
+### ¿Hemos terminado?
 
-Next, we'll determine if we're done fetching posts.
-We'll do this by adding a [Branch on Expression](components/branch.mdx#branch-on-expression) step, and we'll check to see if the "Get Posts" step we invoked returned an empty array:
+A continuación, determinaremos si hemos terminado de obtener publicaciones.
+Esto lo haremos agregando un paso [Branch on Expression](components/branch.mdx#branch-on-expression), y comprobaremos si el paso "Obtener publicaciones" que invocamos devolvió un array vacío:
 
 <Screenshot
   filename="quickstarts/looping-over-a-paginated-api/branch-on-empty.png"
-  alt="Branch on Expression to Check Empty in  integration designer"
+  alt="Rama en la expresión para comprobar vacío en el diseñador de integración"
 />
 
-If the array returned was empty, we know there are no more results to page through.
-In that case we'll add a [Break Loop](components/loop.mdx#break-loop) step to get out of our main loop:
+Si el array devuelto está vacío, sabemos que no hay más resultados para paginar.
+En ese caso, agregaremos un paso [Break Loop](components/loop.mdx#break-loop) para salir de nuestro bucle principal:
 
 <Screenshot
   filename="quickstarts/looping-over-a-paginated-api/break-loop.png"
   maxWidth="350px"
-  alt="Break Loop in  integration designer"
+  alt="Romper bucle en el diseñador de integración"
 />
 
-### Process posts
+### Procesar publicaciones
 
-Assuming there are posts to process, we'll create an interior loop to loop over each post.
+Suponiendo que hay publicaciones para procesar, crearemos un bucle interior para recorrer cada publicación.
 
-1. Add a [Loop Over Items](components/loop.mdx#loop-over-items) action that takes the results from the "Get Posts" step in order to loop over the results:
+1. Agrega una acción [Loop Over Items](components/loop.mdx#loop-over-items) que tome los resultados del paso "Get Posts" para recorrer los resultados:
 
    <Screenshot
      filename="quickstarts/looping-over-a-paginated-api/loop-over-posts.png"
-     alt="Loop Over Items in  integration designer"
+     alt="Bucle sobre elementos en el diseñador de integración"
    />
 
-2. We'll "process" each post.
-   For illustration purposes we'll just log out the post's **id** and **title**.
-   We can access each post's title by referencing the interior loop's `currentItem` property:
+2. Vamos a "procesar" cada publicación.
+   Para fines ilustrativos, simplemente registraremos el **id** y el **título** de la publicación.
+   Podemos acceder al título de cada publicación haciendo referencia a la propiedad `currentItem` del bucle interior:
 
    <Screenshot
      filename="quickstarts/looping-over-a-paginated-api/log-out-post.png"
-     alt="Log Write Message in  integration designer"
+     alt="Mensaje de escritura en el diseñador de integración"
    />
 
-### Store the last item's ID
+### Almacenar el ID del último elemento
 
-Finally, we'll figure out the ID of the last post in the page we loaded, so we can adjust our `_start` parameter for the next loop.
+Finalmente, vamos a determinar el ID del último post en la página que cargamos, para poder ajustar nuestro parámetro `_start` para el próximo bucle.
 
-1. We'll use a [Branch on Expression](components/branch.mdx#branch-on-expression) action to determine if the `currentItem` has `isLast=true` (which indicates if we're looping over the last post):
+1. Usaremos una acción [Branch on Expression](components/branch.mdx#branch-on-expression) para determinar si `currentItem` tiene `isLast=true` (lo que indica si estamos recorriendo el último post):
 
    <Screenshot
      filename="quickstarts/looping-over-a-paginated-api/is-last-post.png"
      maxWidth="400px"
-     alt="Branch on Expression to check for last post in  integration designer"
+     alt="Rama en Expresión para comprobar el último mensaje en el diseñador de integración"
    />
 
-2. If we are on the last post, we'll use a [Persist Data - Save Execution Value](components/persist-data.mdx#execution---save-value) to save the ID of the last post.
-   We'll use the same variable name - `Latest Post ID` - that we used before, and we'll save out the loop's `currentItem.id`.
-   The "Get Execution Value" step we added at the beginning of the integration will pick up this value when the loop runs again:
+2. Si estamos en el último post, utilizaremos una acción [Persist Data - Guardar Valor de Ejecución](components/persist-data.mdx#execution---save-value) para guardar el ID del último post.
+   Utilizaremos el mismo nombre de variable - `Latest Post ID` - que usamos anteriormente, y guardaremos el `currentItem.id` del bucle.
+   La acción "Get Execution Value" que agregamos al principio de la integración recogerá este valor cuando se ejecute el bucle nuevamente:
 
    <Screenshot
      filename="quickstarts/looping-over-a-paginated-api/save-execution-value.png"
-     alt="Perist Data - Save Execution Value in  integration designer"
+     alt="Perist Data - Guardar valor de ejecución en el diseñador de integración"
    />
 
-If we run our integration and look at logs, we can see that IDs and titles of the posts we loaded were logged out.
-After every 10 posts (after post ID 60, 70, etc.) we can also see that that our main loop ran again and an additional page of posts was loaded.
+Si ejecutamos nuestra integración y miramos los registros, podemos ver que se registraron los IDs y títulos de las publicaciones que cargamos.
+Después de cada 10 publicaciones (después de la publicación ID 60, 70, etc.), también podemos ver que nuestro bucle principal se ejecutó nuevamente y se cargó una página adicional de publicaciones.
 
-## Pagination implementations
+## Implementaciones de paginación
 
-Different APIs implement their pagination differently.
-Some page payloads contain a value indicating if you're on the last page or not.
-Others contain a value to let you know what value to ask for with your next API call.
-Your pagination loop implementation may look slightly different than this one, but hopefully this gave you a general idea of how to implement pagination in an integration.
+Las diferentes APIs implementan su paginación de manera diferente.
+Algunos cargan lotes de datos con un valor que indica si estás en la última página o no.
+Otros contienen un valor para informarte qué valor solicitar en tu próxima llamada a la API.
+Tu implementación de bucle de paginación puede verse ligeramente diferente a esta, pero esperamos que esto te haya dado una idea general de cómo implementar la paginación en una integración.

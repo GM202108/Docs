@@ -1,166 +1,166 @@
 ---
 id: looping-over-files
-title: Looping Over Files in GCS Bucket
-description: This tutorial shows you  how to build an integration that works with files stored in Google Cloud Storage. Learn how to loop over these files with .
+title: Recorrer archivos en bucket GCS
+description: Este tutorial muestra cómo crear una integración que funcione con archivos almacenados en Google Cloud Storage. Aprende a hacer bucles sobre estos archivos.
 ---
 
 import Screenshot from "@site/src/components/screenshot";
 
-In this tutorial we will build an integration that downloads and processes files stored in [Google Cloud Storage](components/google-cloud-storage.mdx).
+En este tutorial, construiremos una integración que descargará y procesará archivos almacenados en [Google Cloud Storage](components/google-cloud-storage.mdx).
 
-For this integration, assume that some third-party service writes a file to a Google Cloud Platform (GCP) storage bucket whenever an order is processed.
+Para esta integración, supongamos que algún servicio de terceros escribe un archivo en un cubo de almacenamiento de Google Cloud Platform (GCP) cada vez que se procesa un pedido.
 
-We'll configure our integration to run every five minutes, and our integration will do the following:
+Configuraremos nuestra integración para que se ejecute cada cinco minutos, y nuestra integración hará lo siguiente:
 
-- Look for files in the `unprocessed/` directory of our GCP Storage bucket
-- Loop over each file that we found:
-  - Download the file
-  - Deserialize the JSON contained in the file
-  - Do some data mapping
-  - Post the transformed data to an HTTP endpoint
-  - Move the file from the `unprocessed/` directory to a `processed/` directory
+- Buscar archivos en el directorio `no procesados/` de nuestro cubo de almacenamiento de GCP
+- Iterar sobre cada archivo que encontremos:
+  - Descargar el archivo
+  - Deserializar el JSON contenido en el archivo
+  - Realizar algún mapeo de datos
+  - Enviar los datos transformados a un punto de conexión HTTP
+  - Mover el archivo del directorio `no procesados/` a un directorio `procesados/`
 
-Our integration will take advantage of the [loop](components/loop.mdx) component to process files one by one.
+Nuestra integración aprovechará el componente [loop](components/loop.mdx) para procesar archivos uno por uno.
 
 :::note
-If you do not have a Google Cloud Platform (GCP) account, you can use [Dropbox](components/dropbox.mdx), [Box](components/box.mdx), [Amazon S3](components/aws-s3.mdx), [Azure Blob Storage](components/azure-blob.mdx), etc., instead.
-They all have similar **list files**, **download file** and **move file** actions.
+Si no tienes una cuenta en Google Cloud Platform (GCP), puedes utilizar [Dropbox](components/dropbox.mdx), [Box](components/box.mdx), [Amazon S3](components/aws-s3.mdx), [Azure Blob Storage](components/azure-blob.mdx), etc., en su lugar.
+Todos ellos tienen acciones similares de **listar archivos**, **descargar archivo** y **mover archivo**.
 :::
 
-If you would like to view the YAML definition of this example integration, it's available on [GitHub](https://github.com/-io/examples/blob/main/integrations/example-with-loop.yaml).
-You can import it by creating a new integration, and then clicking **Settings** -> **Save / Load** in the integration designer.
+Si deseas ver la definición YAML de esta integración de ejemplo, está disponible en [GitHub](https://github.com/-io/examples/blob/main/integrations/example-with-loop.yaml).
+Puedes importarlo creando una nueva integración y luego haciendo clic en **Configuración** -> **Guardar / Cargar** en el diseñador de integraciones.
 
-## List files
+## Listar archivos
 
-We'll start by adding a Google Cloud Storage **List Files** action to our integration.
-This will automatically create a Google Cloud Storage [connection](connections.mdx) to our config wizard.
-Under the **Bucket Name** input, we'll click **Config Variable** tab and create a new config variable to represent bucket name:
+Comenzaremos agregando una acción de **Listar archivos** de Google Cloud Storage a nuestra integración.
+Esto creará automáticamente una [conexión](connections.mdx) de Google Cloud Storage en nuestro asistente de configuración.
+Bajo el campo **Nombre del cubo**, haremos clic en la pestaña **Variable de configuración** y crearemos una nueva variable de configuración para representar el nombre del cubo:
 
 <Screenshot
   filename="quickstarts/looping-over-files/list-files-inputs.png"
-  alt="Google Cloud Storage - List Files inputs"
+  alt="Google Cloud Storage - Lista de entradas de archivos"
   maxWidth="800px"
 />
 
-Under **Prefix**, enter `unprocessed/`, so it only displays files in the `unprocessed/` directory of the bucket.
+Bajo **Prefijo**, ingresa `unprocessed/`, para que solo muestre archivos en el directorio `unprocessed/` del cubo.
 
-Next, we'll open the **Test Runner** drawer and select **Save & Reconfigure Test Instance** to set some test credentials.
+Luego, abriremos el cajón **Ejecutor de pruebas** y seleccionaremos **Guardar y volver a configurar la instancia de prueba** para establecer algunas credenciales de prueba.
 
 <Screenshot
   filename="quickstarts/looping-over-files/test-config-variables.png"
-  alt="Google Cloud Storage - Test config variables"
+  alt="Google Cloud Storage - Variables de configuración de prueba"
   maxWidth="600px"
 />
 
-Finally, we'll click **Save & Run Test**.
-If you see any errors about permissions, ensure that the Google IAM account you created as the proper permissions to the bucket you created.
-You should see the files in your `unprocessed/` directory:
+Por último, haremos clic en **Guardar y ejecutar la prueba**.
+Si ves algún error sobre los permisos, asegúrate de que la cuenta IAM de Google que has creado tiene los permisos adecuados para el bucket que has creado.
+Deberías ver los archivos en tu directorio `unprocessed/`:
 
 <Screenshot
   filename="quickstarts/looping-over-files/list-files-results.png"
-  alt="Google Cloud Storage - List Files result"
+  alt="Google Cloud Storage - Resultado de la lista de archivos"
   maxWidth="800px"
 />
 
-## Create our loop
+## Crear nuestro bucle
 
-Next, we'll loop over the files that our **List Files** step found.
-We'll add a **Loop Over Items** step.
+A continuación, haremos un bucle sobre los ficheros que ha encontrado nuestro paso **List Files**.
+Añadiremos un paso **Loop Over Items**.
 
-Under the **Items** input we will reference the list of files our previous step returned:
+En la entrada **Items** haremos referencia a la lista de ficheros que devolvió nuestro paso anterior:
 
 <Screenshot
   filename="quickstarts/looping-over-files/loop-step.png"
-  alt="Loop Over Items in  integration designer"
+  alt="Bucle sobre elementos en el diseñador de integración"
   maxWidth="800px"
 />
 
-## Add tasks to the loop
+## Agregar tareas al bucle
 
-Our loop is now configured to run once for each file that was found in the `unprocessed/` directory in our GCP bucket.
-Our loop will contain a few steps to process and send the data to an external system:
+Nuestro bucle ahora está configurado para ejecutarse una vez por cada archivo que se encontró en el directorio `unprocessed/` en nuestro cubo de GCP.
+Nuestro bucle contendrá algunos pasos para procesar y enviar los datos a un sistema externo:
 
-### Download the file we're currently looping over
+### Descargar el archivo sobre el que estamos iterando actualmente
 
-First, we'll download the file we're currently looping over.
-The item that we're currently processing from our is accessible using the `currentItem` key of the loop.
+Primero, descargaremos el archivo sobre el que estamos iterando actualmente.
+El elemento que estamos procesando actualmente de nuestro está accesible mediante la clave `currentItem` del bucle.
 
-We'll add a **Download File** action from the GCP component.
+Agregaremos una acción **Descargar archivo** del componente de GCP.
 
-- For **File Name** we'll reference the loop's `currentItem`.
-- For **Bucket Name** we'll reference the bucket name config variable we created.
-- Our **Connection** is already set up for us.
-  For example, if there's a file named `unprocessed/20210322_163522.json` in our bucket, `loopOverEachFile.currentItem` would be equal to `"unprocessed/20210322_163522.json"`:
+- Para **Nombre de archivo**, haremos referencia a `currentItem` del bucle.
+- Para **Nombre del cubo**, haremos referencia a la variable de configuración del nombre del cubo que creamos.
+- Nuestra **Conexión** ya está configurada para nosotros.
+  Por ejemplo, si hay un archivo llamado `unprocessed/20210322_163522.json` en nuestro cubo, `loopOverEachFile.currentItem` sería igual a `"unprocessed/20210322_163522.json"`:
 
 <Screenshot
   filename="quickstarts/looping-over-files/download-file-inputs.png"
-  alt="Download current file inputs"
+  alt="Descargar entradas de archivos actuales"
   maxWidth="800px"
 />
 
-Because we're downloading a JSON file, the JSON is automatically parsed for us.
-If we'd downloaded an XML file, CSV, file, etc, we could have leveraged a [Change Data Format](components/change-data-format.mdx) step to deserialize the file.
+Debido a que estamos descargando un archivo JSON, este se analiza automáticamente para nosotros.
+Si hubiéramos descargado un archivo XML, CSV, etc., podríamos haber aprovechado un paso de [Cambio de Formato de Datos](components/change-data-format.mdx) para deserializar el archivo.
 
 <Screenshot
   filename="quickstarts/looping-over-files/download-file-results.png"
-  alt="Download current file results"
+  alt="Descargar resultados de archivos actuales"
   maxWidth="400px"
 />
 
-### Map the data
+### Mapear los datos
 
-Next, suppose the API we're sending the data to expects a different format ("quantity" instead of "qty", etc).
-We can use the [Collection Tools](components/collection-tools.mdx) **Create Object** action to create a new object for us, referencing the results of the **Download File** step:
+A continuación, supongamos que la API a la que enviamos los datos espera un formato diferente ("cantidad" en lugar de "qty", etc.).
+Podemos usar la acción **Crear Objeto** de [Herramientas de Colección](components/collection-tools.mdx) para crear un nuevo objeto para nosotros, haciendo referencia a los resultados del paso **Descargar Archivo**:
 
 <Screenshot
   filename="quickstarts/looping-over-files/create-object-inputs.png"
-  alt="Create object inputs"
+  alt="Crear entradas de objetos"
   maxWidth="700px"
 />
 
-### Send the data
+### Enviar los datos
 
-Next, we'll use the [HTTP](components/http.mdx) component's **POST Request** action to send the data we generated.
-As a placeholder for an external API, we'll post the data to [Postman's](https://www.postman.com/) [https://postman-echo.com/post](https://postman-echo.com/post) endpoint.
-For our **Data** input, we'll reference the **Create Object**'s results:
+A continuación, utilizaremos la acción **Solicitud POST** del componente [HTTP](components/http.mdx) para enviar los datos que generamos.
+Como marcador de posición para una API externa, enviaremos los datos al punto final [https://postman-echo.com/post](https://postman-echo.com/post) de [Postman](https://www.postman.com/).
+Para nuestra entrada **Datos**, haremos referencia a los resultados de **Crear Objeto**:
 
 <Screenshot
   filename="quickstarts/looping-over-files/http-post-inputs.png"
-  alt="HTTP POST inputs"
+  alt="Entradas HTTP POST"
   maxWidth="700px"
 />
 
-If we run **Save & Run Test** again, we can see the results of the POSTed data:
+Si ejecutamos **Save & Run Test** de nuevo, podemos ver los resultados de los datos POSTed:
 
 <Screenshot
   filename="quickstarts/looping-over-files/http-post-results.png"
-  alt="HTTP POST results"
+  alt="Resultados de HTTP POST"
   maxWidth="500px"
 />
 
-### Move the file to a processed directory
+### Mover el archivo a un directorio procesado
 
-Finally, we'll move the file that we downloaded out of the way by moving the file from `unprocessed/` to `processed/`.
+Finalmente, moveremos el archivo que descargamos fuera del camino moviéndolo de `unprocessed/` a `processed/`.
 
-First, we need to replace the word `unprocessed` with `processed`.
-We'll use the [Text Manipulation](components/text-manipulation.mdx) component's **Find & Replace** action for that, once again referencing the loop's `currentItem`:
+Primero, necesitamos reemplazar la palabra `unprocessed` con `processed`.
+Utilizaremos la acción **Buscar y Reemplazar** del componente [Manipulación de Texto](components/text-manipulation.mdx) para eso, una vez más haciendo referencia a `currentItem` del bucle:
 
 <Screenshot
   filename="quickstarts/looping-over-files/find-and-replace-inputs.png"
-  alt="Find-and-replace inputs"
+  alt="Buscar y sustituir entradas"
   maxWidth="500px"
 />
 
-We'll add a Google Cloud Storage **Move File** action to move our folder from one folder to another:
+Añadiremos una acción **Mover archivo** de Google Cloud Storage para mover nuestra carpeta de una carpeta a otra:
 
 <Screenshot
   filename="quickstarts/looping-over-files/move-file-inputs.png"
-  alt="Move File inputs"
+  alt="Mover entradas de archivos"
   maxWidth="800px"
 />
 
-## Conclusion
+## Conclusión
 
-That's it!
-At this point we have an integration that loops over files in a directory, processes them, and sends the data to an HTTP endpoint.
-This integration can be [published](integrations.mdx#publishing-an-integration), and [instances](instances.mdx) of this integration can be configured and deployed to customers.
+¡Eso es todo!
+En este punto, tenemos una integración que recorre archivos en un directorio, los procesa y envía los datos a un punto final HTTP.
+Esta integración puede ser [publicada](integrations.mdx#publicar-una-integración), y [instancias](instances.mdx) de esta integración pueden ser configuradas e implementadas para los clientes.

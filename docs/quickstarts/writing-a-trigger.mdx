@@ -1,33 +1,33 @@
 ---
 id: writing-a-trigger
-title: Writing a Trigger
-description: Learn how to write a trigger for a custom component by examining how our Salesforce trigger handles webhook requests.
+title: Escribiendo un Desencadenador
+description: Aprende cómo escribir un desencadenador para un componente personalizado examinando cómo nuestro desencadenador de Salesforce maneja las solicitudes de webhook.
 ---
 
 import Screenshot from "@site/src/components/screenshot";
 
-In this tutorial we'll walk through how we wrote a trigger for our [Salesforce component](components/salesforce.mdx) to serve as an example for how you'd go about writing triggers for your own custom components.
-Salesforce [outbound messages](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_om_outboundmessaging_understanding.htm) allow you to send updates about Salesforce accounts, opportunities, and more to webhooks of your choosing.
-However, integrations with Salesforce do not work well with the [standard webhook trigger](integration-triggers.mdx#webhook-triggers) for two reasons:
+En este tutorial, repasaremos cómo escribimos un desencadenador para nuestro [componente de Salesforce](components/salesforce.mdx) para servir como ejemplo de cómo escribir desencadenadores para tus propios componentes personalizados.
+Los [mensajes salientes](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_om_outboundmessaging_understanding.htm) de Salesforce te permiten enviar actualizaciones sobre cuentas de Salesforce, oportunidades y más a webhooks de tu elección.
+Sin embargo, las integraciones con Salesforce no funcionan bien con el [desencadenador estándar de webhook](integration-triggers.mdx#webhook-triggers) por dos razones:
 
-1. Salesforce outbound messages send XML payloads rather than JSON.
-   This isn't a deal-breaker, but all integrations with Salesforce would then need to start with an extra [Deserialize XML](components/change-data-format.mdx#deserialize-xml) step.
-   It'd be convenient if the trigger took care of the XML deserialization.
-1. Salesforce outbound messages require an acknowledgement (ack) response that has a [very particular format](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_om_outboundmessaging_wsdl.htm).
-   The standard webhook trigger does not send that proprietary acknowledgement response.
-   Instead, it responds with an execution ID in JSON format.
-   Since it wouldn't get its proprietary ACK response, Salesforce would resend its outbound message dozens of times and then report "failure".
-   We need a trigger that can respond to Salesforce requests with a Salesforce ACK.
+1. Los mensajes salientes de Salesforce envían cargas útiles XML en lugar de JSON.
+   Esto no es un problema grave, pero todas las integraciones con Salesforce necesitarían comenzar con un paso adicional de [Deserializar XML](components/change-data-format.mdx#deserialize-xml).
+   Sería conveniente si el desencadenador se encargara de la deserialización XML.
+2. Los mensajes salientes de Salesforce requieren una respuesta de acuse de recibo (ACK) que tiene un [formato muy particular](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_om_outboundmessaging_wsdl.htm).
+   El desencadenador de webhook estándar no envía esa respuesta de ACK propietaria.
+   En su lugar, responde con un ID de ejecución en formato JSON.
+   Dado que no recibiría su respuesta ACK propietaria, Salesforce reenviaría su mensaje saliente docenas de veces y luego informaría "fallo".
+   Necesitamos un desencadenador que pueda responder a las solicitudes de Salesforce con un ACK de Salesforce.
 
-So, let's develop a Salesforce trigger that deserializes XML, and responds with a Salesforce ACK.
+Entonces, desarrollaremos un desencadenador de Salesforce que deserializa XML y responde con un ACK de Salesforce.
 
-## Deserializing XML
+## Deserializando XML
 
-Let's start by addressing the first problem: deserializing XML within the trigger.
-We could omit this step, but then every integration with Salesforce would require an extra [Deserialize XML](components/change-data-format.mdx#deserialize-xml) step.
-If we know that we can expect XML from Salesforce, so it's cleaner to take care of XML deserialization as part of the trigger.
+Comencemos abordando el primer problema: deserializar XML dentro del desencadenador.
+Podríamos omitir este paso, pero entonces cada integración con Salesforce requeriría un paso adicional de [Deserializar XML](components/change-data-format.mdx#deserialize-xml).
+Si sabemos que podemos esperar XML de Salesforce, es más limpio encargarse de la deserialización XML como parte del desencadenador.
 
-We'll use [fast-xml-parser](https://www.npmjs.com/package/fast-xml-parser) to deserialize the XML, and we'll save the object that's created from deserialization into the trigger payload's `body.data`:
+Usaremos [fast-xml-parser](https://www.npmjs.com/package/fast-xml-parser) para deserializar el XML, y guardaremos el objeto creado a partir de la deserialización en los datos del payload del desencadenador en `body.data`:
 
 ```typescript
 import { trigger, TriggerPayload, HttpResponse, util } from "@-io/spectral";
@@ -37,10 +37,10 @@ export const salesforceTrigger = trigger({
   display: {
     label: "Webhook",
     description:
-      "Trigger for handling webhook requests from the Salesforce platform. Returns the expected response to Salesforce and converts the XML payload to an object for more convenient use in the rest of the flow.",
+      "Activador para gestionar las solicitudes de webhook de la plataforma Salesforce. Devuelve la respuesta esperada a Salesforce y convierte la carga útil XML en un objeto para un uso más conveniente en el resto del flujo.",
   },
   perform: async (context, payload, params) => {
-    // Make a copy of the payload that the trigger received
+    // Hacer una copia de la carga útil que recibió el disparador
     const finalPayload: TriggerPayload = { ...payload };
 
     const parseOptions = {
@@ -49,12 +49,12 @@ export const salesforceTrigger = trigger({
       textNodeName: "_text",
     };
 
-    // Deserialize XML to JS Object.
+    // Deserializar XML a objeto JS.
     finalPayload.body.data =
       parse(util.types.toString(finalPayload.body.data), parseOptions) || {};
     delete finalPayload.body.contentType;
 
-    // Return the payload, with a deserialized body.
+    // Devuelve la carga útil, con un cuerpo deserializado.
     return Promise.resolve({
       payload: finalPayload,
     });
@@ -67,28 +67,24 @@ export const salesforceTrigger = trigger({
 export default { salesforceTrigger };
 ```
 
-Let's concentrate on a few portions of this code:
+Concentrémonos en algunas partes de este código:
 
-Similar to an [action](custom-components/writing-custom-components.mdx#writing-actions), a trigger's `perform` function takes [context](custom-components/writing-custom-components.mdx#the-context-parameter) and `params` (inputs) parameters (though this trigger doesn't happen to take inputs).
-Additionally, it takes a `payload` parameter, which contains the payload (headers and body) of the webhook invocation:
+Similar a una [acción](custom-components/writing-custom-components.mdx#escribiendo-acciones), la función `perform` de un desencadenador recibe [contexto](custom-components/writing-custom-components.mdx#el-parámetro-contexto) y `params` (entradas) como parámetros (aunque este desencadenador no toma entradas). Además, recibe un parámetro `payload`, que contiene el payload (encabezados y cuerpo) de la invocación del webhook:
 
 ```typescript
 perform: async (context, payload, params) => {};
 ```
 
-We can reference the raw body of the webhook payload, and ensure that it is cast to a string using the Spectral [toString](spectral/modules/_util_.md#const-tostring) function.
-Then, we can parse the XML into a JavaScript object so it's easier to reference.
-Since we're returning a deserialized object, and not serialized XML, we can delete `contentType` from the payload body:
+Podemos hacer referencia al cuerpo sin procesar del payload del webhook y asegurarnos de que se convierta en una cadena utilizando la función [toString](spectral/modules/_util_.md#const-tostring) de Spectral. Luego, podemos analizar el XML en un objeto JavaScript para que sea más fácil de referenciar. Dado que estamos devolviendo un objeto deserializado, y no XML serializado, podemos eliminar `contentType` del cuerpo del payload:
 
 ```typescript
-// Deserialize XML to JS Object.
+// Deserializar XML a objeto JS.
 finalPayload.body.data =
   parse(util.types.toString(finalPayload.body.data), parseOptions) || {};
 delete finalPayload.body.contentType;
 ```
 
-Finally, we can return an updated payload that can be referenced by subsequent steps.
-This updated payload contains a deserialized XML body, so keys within the XML can be easily referenced:
+Finalmente, podemos devolver un payload actualizado que pueda ser referenciado por pasos posteriores. Este payload actualizado contiene un cuerpo XML deserializado, por lo que las claves dentro del XML pueden ser fácilmente referenciadas:
 
 ```typescript
 return Promise.resolve({
@@ -96,21 +92,19 @@ return Promise.resolve({
 });
 ```
 
-Now that we're parsing the XML that comes in, we can see that the output of the Salesforce trigger when invoked from a Salesforce outbound message is an object with easy-to-reference keys:
+Ahora que estamos analizando el XML que llega, podemos ver que la salida del activador de Salesforce cuando se invoca desde un mensaje saliente de Salesforce es un objeto con claves fáciles de referenciar:
 
 <Screenshot
   filename="quickstarts/writing-a-trigger/deserialized-body.png"
   maxWidth="600px"
-  alt="Integration Trigger step outputs in  integration designer"
+  alt="Integración Salidas de pasos de activación en el diseñador de integración"
 />
 
-## Responding with an acknowledgement message
+## Respondiendo con un mensaje de acuse de recibo
 
-Next, let's configure the trigger to respond with a Salesforce ACK message.
-Without a proper ACK message, Salesforce attempts to resend the same message several times over a few hours.
+A continuación, configuremos el disparador para responder con un mensaje de acuse de recibo de Salesforce. Sin un mensaje de acuse de recibo adecuado, Salesforce intenta reenviar el mismo mensaje varias veces durante unas pocas horas.
 
-To do that, all we have to do is add a `response` to our `perform` function's return object.
-That `repsonse` should be of type `HttpResponse` (defined in Spectral):
+Para hacer eso, todo lo que tenemos que hacer es agregar una `respuesta` al objeto de retorno de nuestra función `perform`. Esa `respuesta` debe ser del tipo `HttpResponse` (definida en Spectral):
 
 ```typescript {1,8-19,24}
 import { HttpResponse } from "@-io/spectral";
@@ -120,7 +114,7 @@ export const salesforceTrigger = trigger({
   perform: async (context, payload, params) => {
     // ...
 
-    // Create the HTTP response that Salesforce expects
+    // Cree la respuesta HTTP que espera Salesforce
     const response: HttpResponse = {
       statusCode: 200,
       contentType: "text/xml; charset=utf-8",
@@ -133,7 +127,7 @@ export const salesforceTrigger = trigger({
       </soapenv:Envelope>`,
     };
 
-    // Return the payload, with a deserialized body.
+    // Devuelve la carga útil, con un cuerpo deserializado.
     return Promise.resolve({
       payload: finalPayload,
       response,
@@ -142,11 +136,9 @@ export const salesforceTrigger = trigger({
 });
 ```
 
-Within our `response` object, we indicate that the trigger should return HTTP status code `200`, that we're returning XML `text/xml`, and it includes the ACK message that [Salesforce requires](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_om_outboundmessaging_wsdl.htm).
-When the `return` block includes a `reponse`, the default execution ID response is overridden by the response that we specify.
+Dentro de nuestro objeto `response`, indicamos que el disparador debe devolver el código de estado HTTP `200`, que estamos devolviendo XML `text/xml`, e incluye el mensaje de ACK que [Salesforce requiere](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_om_outboundmessaging_wsdl.htm). Cuando el bloque `return` incluye una `response`, la respuesta predeterminada del ID de ejecución es anulada por la respuesta que especificamos.
 
-Now our trigger is configured to respond to Salesforce in a way that Salesforce expects.
-We can see that response in action by hitting our integration's webhook endpoint:
+Ahora nuestro disparador está configurado para responder a Salesforce de la manera que Salesforce espera. Podemos ver esa respuesta en acción al golpear el punto final del webhook de nuestra integración:
 
 ```bash
 curl -L 'https://hooks..io/trigger/EXAMPLE==' \
@@ -200,10 +192,8 @@ curl -L 'https://hooks..io/trigger/EXAMPLE==' \
 </soapenv:Envelope>
 ```
 
-## Conclusion
+## Conclusión
 
-In this tutorial we covered processing the webhook payload within a trigger and modifying the webhook's HTTP response.
-The example used was for Salesforce, but could be adapted for many other third-party systems.
-Some third-party systems, for example, require you to echo back part of the webhook payload in the response to ensure it was received correctly - that could easily be done by capturing a key or header of the webhook payload, and creating an `HttpResponse` object containing that information
+En este tutorial cubrimos el procesamiento del payload del webhook dentro de un disparador y la modificación de la respuesta HTTP del webhook. El ejemplo utilizado fue para Salesforce, pero podría adaptarse para muchos otros sistemas de terceros. Algunos sistemas de terceros, por ejemplo, requieren que devuelvas parte del payload del webhook en la respuesta para asegurarte de que se recibió correctamente; eso podría hacerse fácilmente capturando una clave o encabezado del payload del webhook y creando un objeto `HttpResponse` que contenga esa información.
 
-To read more about authoring triggers, check out our [Writing Custom Components](custom-components/writing-custom-components.mdx#writing-triggers) article.
+Para leer más sobre la redacción de disparadores, consulta nuestro artículo [Writing Custom Components](custom-components/writing-custom-components.mdx#writing-triggers).

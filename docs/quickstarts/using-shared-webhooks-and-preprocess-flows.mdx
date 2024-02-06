@@ -1,61 +1,61 @@
 ---
 id: using-shared-webhooks-and-preprocess-flows
-title: Using Shared Webhooks and Preprocess Flows
-description: Learn how to use a shared webhook endpoint for multiple customers, and route webhook invocations to specific customers and flows.
+title: Uso de webhooks compartidos y flujos de preprocesamiento
+description: Aprenda a utilizar un punto final de webhook compartido para varios clientes y a dirigir las invocaciones de webhook a clientes y flujos específicos.
 ---
 
 import Screenshot from "@site/src/components/screenshot";
 
-In this tutorial we'll cover how to create a single webhook endpoint that can be invoked by multiple customers.
+En este tutorial, cubriremos cómo crear un único punto de conexión de webhook que pueda ser invocado por múltiples clientes.
 
-For our scenario, like for many other examples, imagine we're "Progix Software" and we want to integrate with a third-party ERP "Acme ERP".
-The Acme ERP tracks things like inventory and orders.
-Configuration of the ERP is limited, and only allows you to specify a single webhook URL for all of your customers to post inventory and order updates.
+Para nuestro escenario, como en muchos otros ejemplos, imaginemos que somos "Progix Software" y queremos integrarnos con un ERP de terceros llamado "Acme ERP".
+El Acme ERP realiza un seguimiento de cosas como inventario y pedidos.
+La configuración del ERP es limitada y solo te permite especificar una única URL de webhook para que todos tus clientes publiquen actualizaciones de inventario y pedidos.
 
-We need to create a single webhook URL that can accept the webhook payload that Acme ERP sends.
-That endpoint will need to inspect the payload, figure out what customer it pertains to and what sort of payload it is (an "inventory update" payload, or an "order creation" payload), and then it'll need to route that information to the correct flow in an instance deployed to the correct customer in .
+Necesitamos crear una única URL de webhook que pueda aceptar la carga útil del webhook que envía Acme ERP.
+Este punto final necesitará inspeccionar la carga útil, determinar a qué cliente pertenece y qué tipo de carga útil es (una carga útil de "actualización de inventario" o una carga útil de "creación de pedido"), y luego deberá enrutar esa información al flujo correcto en una instancia implementada para el cliente correcto.
 
 <Screenshot
   filename="quickstarts/using-shared-webhooks-and-preprocess-flows/flow.png"
   maxWidth="400px"
-  alt="Simple diagram of integration flows"
+  alt="Diagrama sencillo de los flujos de integración"
 />
 
-## Our Acme ERP Integration
+## Nuestra Integración con Acme ERP
 
-The Acme ERP integration that we deploy to customers has two flows.
-The first flow takes a collection of inventory updates ("remove 5 bowler hats", "add 20 pencils", etc.), and ensures that those updates are reflected in Progix:
+La integración con Acme ERP que implementamos para los clientes consta de dos flujos.
+El primer flujo toma una colección de actualizaciones de inventario ("eliminar 5 sombreros de copa", "agregar 20 lápices", etc.), y se asegura de que esas actualizaciones se reflejen en Progix:
 
 <Screenshot
   filename="quickstarts/using-shared-webhooks-and-preprocess-flows/inventory-flow.png"
   maxWidth="800px"
-  alt="Acme ERP Update Inventory flow in  integration designer"
+  alt="Acme ERP Actualizar el flujo de inventario en el diseñador de integración"
 />
 
-The second flow takes an order created in Acme ERP, processes the data in the order, and submits an order request to Progix:
+El segundo flujo toma un pedido creado en Acme ERP, procesa los datos del pedido y envía una solicitud de pedido a Progix:
 
 <Screenshot
   filename="quickstarts/using-shared-webhooks-and-preprocess-flows/order-flow.png"
   maxWidth="800px"
-  alt="Acme ERP Create Order flow in  integration designer"
+  alt="Acme ERP Crear flujo de pedidos en el diseñador de integración"
 />
 
-All of our customers are going to use the same webhook endpoint, so we'll need to configure our integration to create just one URL for all instances of this integration that are deployed.
-To do that, let's open up the **Endpoint Configuration** drawer using the button on the right-hand side of the integration designer.
-We'll toggle **Endpoint Type** to **Shared**.
+Todos nuestros clientes van a utilizar el mismo webhook endpoint, por lo que tendremos que configurar nuestra integración para crear una única URL para todas las instancias de esta integración que se desplieguen.
+Para ello, vamos a abrir el cajón de **Configuración del punto final** utilizando el botón situado en la parte derecha del diseñador de integración.
+Cambiaremos el **Tipo de punto final** a **Compartido**.
 
 <Screenshot
   filename="quickstarts/using-shared-webhooks-and-preprocess-flows/endpoint-type-shared-instance.png"
-  alt="AcmeERP Endpoint Configuration for shared endpoint in  integration designer"
+  alt="Configuración del punto final de AcmeERP para el punto final compartido en el diseñador de integración"
 />
 
-We'll leave **Preprocess Flow**, **Flow Name** and **External Customer ID** alone for now, and come back to them in a moment.
+Dejaremos **Flujo de Preprocesamiento**, **Nombre del Flujo** e **ID de Cliente Externo** por ahora, y volveremos a ellos en un momento.
 
-Read more about webhook endpoint configuration on the [Integration Triggers](integration-triggers.mdx#webhook-endpoint-configuration) article.
+Lee más sobre la configuración de puntos de conexión de webhook en el artículo [Disparadores de Integración](integration-triggers.mdx#webhook-endpoint-configuration).
 
-## The webhook payloads
+## Los payloads del webhook
 
-When a customer in Acme ERP updates their inventory, Acme ERP sends a payload in this format to the shared webhook:
+Cuando un cliente en Acme ERP actualiza su inventario, Acme ERP envía un payload en este formato al webhook compartido:
 
 ```json
 {
@@ -78,7 +78,7 @@ When a customer in Acme ERP updates their inventory, Acme ERP sends a payload in
 }
 ```
 
-When a customer in Acme ERP creates a new order, Acme ERP sends a payload in this format to the shared webhook:
+Cuando un cliente en Acme ERP crea un nuevo pedido, Acme ERP envía una carga útil en este formato al webhook compartido:
 
 ```json
 {
@@ -96,26 +96,26 @@ When a customer in Acme ERP creates a new order, Acme ERP sends a payload in thi
 }
 ```
 
-These two webhook payloads share some similarities: they both contain a `customerId` for your customers in Acme ERP, and they both have a `type` indicating the type of the webhook payload.
-We're going to use those two values to determine which customer in to send the webhook to, and which flow to invoke for that customer.
+Estos dos payloads de webhook comparten algunas similitudes: ambos contienen un `customerId` para tus clientes en Acme ERP, y ambos tienen un `tipo` que indica el tipo del payload del webhook.
+Vamos a usar esos dos valores para determinar a qué cliente enviar el webhook y qué flujo invocar para ese cliente.
 
-To determine which customer to dispatch the webhook request to, we'll need a way to map an Acme ERP `customerId` to the [external ID](customers.mdx#customer-external-ids) that we use in .
-We'll also need need to map `type` to a flow name.
-To do those things, we'll create another flow that will execute when a webhook is first received, but before it's been dispatched to a customer's instance.
+Para determinar a qué cliente enviar la solicitud de webhook, necesitaremos una forma de asignar un `customerId` de Acme ERP al [ID externo](customers.mdx#customer-external-ids) que usamos en .
+También necesitaremos asignar `tipo` a un nombre de flujo.
+Para hacer esas cosas, crearemos otro flujo que se ejecutará cuando se reciba un webhook por primera vez, pero antes de que se envíe a la instancia de un cliente.
 
-## The preprocess flow
+## El flujo de preprocesamiento
 
-A "preprocess" flow allows us to process data that comes in to a shared webhook URL, and dispatch the data to a specific customer's instance and flow accordingly.
-The preprocess is called synchronously, and returns whatever the last step of the flow returns.
-Our preprocess flow will contain two steps: one step will look up the customer's Progix external ID given the Acme ERP customer ID, and the second step will map `type` to a flow name, and return both customer ID and flow name:
+Un flujo de "preprocesamiento" nos permite procesar los datos que llegan a una URL de webhook compartida y enviar los datos a la instancia específica de un cliente y al flujo correspondiente.
+El preprocesamiento se llama de forma sincrónica y devuelve lo que devuelva el último paso del flujo.
+Nuestro flujo de preprocesamiento contendrá dos pasos: un paso buscará el ID externo de Progix del cliente dado el ID de cliente de Acme ERP, y el segundo paso asignará `tipo` a un nombre de flujo, y devolverá tanto el ID del cliente como el nombre del flujo:
 
 <Screenshot
   filename="quickstarts/using-shared-webhooks-and-preprocess-flows/preprocess-flow.png"
-  alt="AcmeERP preprocess flow in  integration designer"
+  alt="Flujo de preprocesamiento de AcmeERP en el diseñador de integración"
 />
 
-The `customerId` from the Acme ERP webhook request (accessible from `integrationTrigger.results.body.data.customerId`) can be passed in to a Progix external ID lookup action.
-The code component, then, can grab the external ID that is returned and can map `type` to a flow name:
+El `customerId` de la solicitud de webhook de Acme ERP (accesible desde `integrationTrigger.results.body.data.customerId`) se puede pasar a una acción de búsqueda de ID externo de Progix.
+Luego, el componente de código puede obtener el ID externo que se devuelve y puede asignar `tipo` a un nombre de flujo:
 
 ```javascript
 const flowNamesMap = {
@@ -136,76 +136,76 @@ module.exports = async ({ logger, configVars }, stepResults) => {
 };
 ```
 
-If we run our flow with a sample payload from above using the **Save & Test Flow** button, we can see that our last step returns an `externalId` and `flowName`.
+Si ejecutamos nuestro flujo con una carga útil de ejemplo utilizando el botón **Guardar y Probar Flujo**, podemos ver que nuestro último paso devuelve un `externalId` y un `flowName`.
 
 <Screenshot
   filename="quickstarts/using-shared-webhooks-and-preprocess-flows/preprocess-step-results.png"
   maxWidth="500px"
-  alt="AcmeERP Update Inventory test runner step results in  integration designer"
+  alt="AcmeERP Update Inventory test runner step results in integration designer"
 />
 
-With a working flow, now we just need to indicate in that this flow is a preprocess flow.
-To do that, let's open up the **Endpoint Configuration** once again, and select our "Preprocess" flow as the **Preprocess Flow** (you can name your preprocess flow whatever you want).
+Con un flujo de trabajo, ahora sólo tenemos que indicar en que este flujo es un flujo de preprocesamiento.
+Para ello, vamos a abrir la **Configuración de punto final** una vez más, y seleccionar nuestro flujo "Preproceso" como el **Flujo de preproceso** (puedes nombrar tu flujo de preproceso como quieras).
 
 <Screenshot
   filename="quickstarts/using-shared-webhooks-and-preprocess-flows/set-preprocess-flow.png"
   maxWidth="700px"
-  alt="Set preprocess flow for Acme ERP in  integration designer"
+  alt="Establecer el flujo de preprocesamiento para Acme ERP en el diseñador de integración"
 />
 
-Read more about preprocess flows on the [Integration Triggers](integration-triggers.mdx#the-preprocess-flow) article.
+Lee más sobre flujos de preprocesamiento en el artículo [Disparadores de Integración](integration-triggers.mdx#el-flujo-de-preprocesamiento).
 
-## Routing the webhook to the correct customer and flow
+## Enrutamiento del webhook al cliente y flujo correctos
 
-Now that our preprocess flow has yielded a customer's `externalId` and `flowName`, we now need to configure our integration to route the webhook invocation to the proper customer and flow.
-All we need to do is instruct our integration where to look to get the `externalId` and `flowName` to key off of.
+Ahora que nuestro flujo de preprocesamiento ha proporcionado el `externalId` y `flowName` de un cliente, ahora necesitamos configurar nuestra integración para enrutar la invocación del webhook al cliente y flujo adecuados.
+Todo lo que necesitamos hacer es indicarle a nuestra integración dónde buscar para obtener el `externalId` y `flowName` para basarse en ellos.
 
-Let's open up the **Endpoint Configuration** drawer once more.
-This time, we'll open the **Flow Name** input, which works a lot like a step input.
-The results of the preprocess flow test run are available here as an object named `results`.
-We can select `results.flowName` that our preprocess flow returned from the result picker.
-We'll do the same for the **External Customer ID** input - this time we'll select `results.externalId`:
+Abramos nuevamente el panel de **Configuración del Endpoint**.
+Esta vez, abriremos la entrada de **Nombre del Flujo**, que funciona de manera similar a una entrada de paso.
+Los resultados de la ejecución de prueba del flujo de preprocesamiento están disponibles aquí como un objeto llamado `results`.
+Podemos seleccionar `results.flowName` que nuestro flujo de preprocesamiento devolvió desde el selector de resultados.
+Haremos lo mismo para la entrada de **ID Externo del Cliente**; esta vez seleccionaremos `results.externalId`:
 
 <Screenshot
   filename="quickstarts/using-shared-webhooks-and-preprocess-flows/reference-preprocess-results.png"
   maxWidth="600px"
-  alt="Reference preprocess flow results in  integration designer"
+  alt="Resultados del flujo de preprocesamiento de referencia en el diseñador de integración"
 />
 
-That's it.
-All instances we deploy of this integration will share a single webhook endpoint, and webhook invocations will be routed to the proper customer and flow based on the information contained in the body of the webhook request.
+¡Eso es todo!
+Todas las instancias que despleguemos de esta integración compartirán un único punto final de webhook, y las invocaciones de webhook se dirigirán al cliente y flujo adecuados basados en la información contenida en el cuerpo de la solicitud de webhook.
 
-## Follow-up questions
+## Preguntas de seguimiento
 
-### Can I test endpoint config in the designer?
+### ¿Puedo probar la configuración del punto final en el diseñador?
 
-Yep! Your requests will always be routed to your integration designer (and not actual instances), but you can click the dropdown menu by **Save & Test Flow** and change it to **Save & Test Endpoint**.
-From the **Test Runner** drawer you can open the **Endpoint** tab and **Payload** tab to add a test payload.
-Then, click **Save & Test Endpoint**.
-You should see logs, including from the flow that is eventually invoked.
+¡Sí! Tus solicitudes siempre se dirigirán a tu diseñador de integraciones (y no a instancias reales), pero puedes hacer clic en el menú desplegable junto a **Guardar y Probar Flujo** y cambiarlo a **Guardar y Probar Punto Final**.
+Desde el panel **Test Runner** puedes abrir la pestaña **Endpoint** y la pestaña **Payload** para agregar un payload de prueba.
+Luego, haz clic en **Guardar y Probar Punto Final**.
+Deberías ver registros, incluidos los del flujo que se invoca finalmente.
 
 <Screenshot
   filename="quickstarts/using-shared-webhooks-and-preprocess-flows/endpoint-test-payload.png"
   alt="Endpoint Test Payload"
 />
 
-### Was the preprocess flow necessary here?
+### ¿Fue necesaria la flujo de preprocesamiento aquí?
 
-Possibly.
-If the webhook trigger had contained the flow name and customer external ID that we needed, we could have omitted the preprocess flow.
-When no preprocess flow is assigned, the `results` object that **External Customer ID** and **Flow Name** can reference contains the header and payload information from the webhook invocation.
-We could have mapped the customers' external ID from the webhook's `results.body.data.externalId`.
-That would require AcmeERP to be cognizant of the external IDs we assign in to customers in , which may or may not be possible in the third-party system.
+Posiblemente.
+Si el desencadenador del webhook hubiera contenido el nombre del flujo y el ID externo del cliente que necesitábamos, podríamos haber omitido el flujo de preprocesamiento.
+Cuando no se asigna un flujo de preprocesamiento, el objeto `results` al que pueden hacer referencia **ID Externo del Cliente** y **Nombre del Flujo** contiene la información de encabezado y carga útil de la invocación del webhook.
+Podríamos haber asignado el ID externo de los clientes desde `results.body.data.externalId` del webhook.
+Eso requeriría que AcmeERP fuera consciente de los ID externos que asignamos a los clientes en , lo cual puede o no ser posible en el sistema de terceros.
 
-For **Flow Name**, we could have named our flows `inventory_update` rather than `Update Inventory` and `create_order` rather than `Create Order`, and we could configured **Flow Name** to reference the webhook request's `results.body.data.type` instead.
-That would look less pretty in the integration designer, so again, there are trade-offs there.
+Para **Nombre del Flujo**, podríamos haber nombrado nuestros flujos `actualización_inventario` en lugar de `Actualizar Inventario` y `crear_pedido` en lugar de `Crear Pedido`, y podríamos haber configurado **Nombre del Flujo** para hacer referencia a `results.body.data.type` de la solicitud del webhook en su lugar.
+Eso se vería menos estético en el diseñador de integraciones, así que nuevamente, hay compensaciones allí.
 
-### Could the customer ID have been passed in as a header instead of in the body?
+### ¿Podría haberse pasado el ID del cliente como un encabezado en lugar de en el cuerpo?
 
-Yes. The customer ID could have just as easily been a header as a value in the body.
-In that case, the lookup action could have referenced `stepResults.integrationTrigger.results.headers.customerId` rather than `stepResults.integrationTrigger.results.body.customerId`.
+Sí. El ID del cliente podría haber sido igualmente un encabezado en lugar de un valor en el cuerpo.
+En ese caso, la acción de búsqueda podría haber hecho referencia a `stepResults.integrationTrigger.results.headers.customerId` en lugar de `stepResults.integrationTrigger.results.body.customerId`.
 
-### Do the same concepts apply to an instance-specific webhook?
+### ¿Los mismos conceptos se aplican a un webhook específico de la instancia?
 
-Yes. Instance-specific webhooks give you a unique webhook per instance you deploy (so, each customer gets its own webhook endpoint).
-In that situation, you wouldn't need to worry about **Customer External ID**, but you would still want a way to route to a particular flow, so the flow-name-mapping portion of this tutorial still applies.
+Sí. Los webhooks específicos de la instancia te dan un webhook único por cada instancia que despliegas (por lo tanto, cada cliente obtiene su propio punto final de webhook).
+En esa situación, no tendrías que preocuparte por **ID Externo del Cliente**, pero aún así querrías una forma de dirigirte a un flujo en particular, por lo que la parte de asignación de nombres de flujo de este tutorial todavía se aplica.

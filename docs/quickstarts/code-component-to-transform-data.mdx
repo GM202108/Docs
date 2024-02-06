@@ -1,22 +1,22 @@
 ---
 id: code-component-to-transform-data
-title: Using a Code Component to Transform Data
-description: Using a code component to transform data
+title: Uso de un componente de código para transformar datos
+description: Utilizar un componente de código para transformar datos.
 ---
 
 import Screenshot from "@site/src/components/screenshot";
 
-'s code component lets you incorporate custom JavaScript code anywhere in your integration.
-The code component, alongside [custom components](custom-components/writing-custom-components.mdx), allows you to write the product- or industry-specific portions of your integration that aren't readily solved using built-in components from the [component catalog](components/component-catalog.mdx).
+El componente de código te permite incorporar código JavaScript personalizado en cualquier parte de tu integración.
+El componente de código, junto con los [componentes personalizados](custom-components/writing-custom-components.mdx), te permite escribir las partes específicas de tu producto o industria en tu integración que no se resuelven fácilmente utilizando componentes integrados del [catálogo de componentes](components/component-catalog.mdx).
 
-Both code and custom components have their use cases.
-As a reminder here: code components are handy to write simple one-off, single integration code snippets.
-If you need to run the same code for multiple integrations, if your code is complex enough that it would benefit from unit testing, or if you are reliant on lots of external Node.JS libraries, consider creating a [custom component](custom-components/writing-custom-components.mdx) instead.
+Ambos componentes de código y personalizados tienen sus casos de uso.
+Como recordatorio: los componentes de código son útiles para escribir fragmentos de código sencillos y específicos de una sola vez para una integración.
+Si necesitas ejecutar el mismo código para múltiples integraciones, si tu código es lo suficientemente complejo como para beneficiarse de las pruebas unitarias, o si dependes de muchas bibliotecas externas de Node.JS, considera crear un [componente personalizado](custom-components/writing-custom-components.mdx) en su lugar.
 
-## Today's problem
+## El problema de hoy
 
-Today we'll address a problem that B2B companies often see when working with third-party vendors: data not coming in within an agreed upon spec.
-Suppose that we and a third-party vendor agreed that we would be sent JSON-formatted data via webhook payload that looked like this:
+Hoy abordaremos un problema que las empresas B2B ven a menudo cuando trabajan con proveedores externos: los datos no llegan dentro de una especificación acordada.
+Supongamos que nosotros y un proveedor externo acordamos que se nos enviarían datos con formato JSON a través de una carga útil de webhook con este aspecto:
 
 ```json
 [
@@ -35,8 +35,8 @@ Suppose that we and a third-party vendor agreed that we would be sent JSON-forma
 ]
 ```
 
-Our integration worked during testing with sample data, but when we turn on our integration for third-party vendor consumption, errors are generated when our integration tries to parse the data that was sent.
-Logs indicate that the data the vendor is sending is formatted entirely differently than what we agreed to:
+Nuestra integración funcionó durante las pruebas con datos de muestra, pero cuando activamos nuestra integración para el consumo de proveedores externos, se generan errores cuando nuestra integración intenta analizar los datos enviados.
+Los registros indican que los datos que envía el proveedor tienen un formato totalmente distinto al que acordamos:
 
 ```json
 {
@@ -51,14 +51,14 @@ Logs indicate that the data the vendor is sending is formatted entirely differen
 }
 ```
 
-The other vendor drags its feet, and claims a fix is a "long ways off".
-We don't have time to wait for the other vendor to fix its software - our customer is clamoring for the new integration they paid for!
-We can fortunately implement a quick fix by adding a code component to the top of our integration to transform the malformed data into the format we expect.
+El otro proveedor da largas al asunto y afirma que la solución está "muy lejos".
+No tenemos tiempo para esperar a que el otro proveedor arregle su software: ¡nuestro cliente está reclamando la nueva integración por la que ha pagado!
+Afortunadamente, podemos aplicar una solución rápida añadiendo un componente de código a la parte superior de nuestra integración para transformar los datos malformados en el formato que esperamos.
 
-## Using a code component as a shim
+## Uso de un componente de código como calza
 
-Our integration was written to expect one format of input, but received another.
-We need to transform the data like this:
+Nuestra integración fue escrita para esperar un formato de entrada, pero recibió otro.
+Necesitamos transformar los datos así:
 
 ```json
 {
@@ -69,7 +69,7 @@ We need to transform the data like this:
 }
 ```
 
-into something like this:
+En algo como esto:
 
 ```json
 {
@@ -80,14 +80,14 @@ into something like this:
 }
 ```
 
-That should be pretty easy to do.
-We really just need to do three things:
+Eso debería ser bastante fácil de hacer.
+Realmente sólo tenemos que hacer tres cosas:
 
-- Split the name at the space character to form a first and last name
-- Reformat the date of birth into a more reasonable format
-- Pull the JSON key ("123") into a value of `userid`
+- Dividir el nombre en el espacio para formar un nombre y un apellido.
+- Reformatear la fecha de nacimiento en un formato más razonable
+- Extraer la clave JSON ("123") en un valor de `userid`.
 
-If we add a code component to our integration, by default it reads:
+Si añadimos un componente de código a nuestra integración, por defecto se lee:
 
 ```javascript
 module.exports = async (context, stepResults) => {
@@ -96,7 +96,7 @@ module.exports = async (context, stepResults) => {
 };
 ```
 
-The first thing I want to do is use JavaScript destructuring to capture the JSON that the third-party vendor sent as part of the integration trigger's webhook payload:
+Lo primero que quiero hacer es utilizar la desestructuración de JavaScript para capturar el JSON que el proveedor externo envió como parte de la carga útil del desencadenador de integración:
 
 ```javascript
 module.exports = async (
@@ -109,17 +109,17 @@ module.exports = async (
     },
   }
 ) => {
-  logger.info(userData); // Verify we're capturing in user data properly
+  logger.info(userData); // Verificar que estamos capturando correctamente los datos de los usuarios.
   const result = null;
   return { data: result };
 };
 ```
 
-Looking at logs, it looks like we've written our destructuring correctly.
-Let's next [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) over the objects (users) that we were sent with `Object.entries(userData).map()`.
+Al observar los registros, parece que hemos escrito nuestra destructuración correctamente.
+A continuación, vamos a [mapear](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/map) sobre los objetos (usuarios) que nos enviaron con `Object.entries(userData).map()`.
 
-Each iteration of our `map()` will generate an object with `firstName`, `lastName`, `dob`, and `userid`.
-We'll reformat the date of birth with the `Date()` object, split the name that was provided to us into a first and last name using `split()`, and grab the `userid` from the keys that were provided to us:
+Cada iteración de nuestro `map()` generará un objeto con `firstName`, `lastName`, `dob` y `userid`.
+Reformatearemos la fecha de nacimiento con el objeto `Date()`, dividiremos el nombre que nos proporcionaron en un nombre y apellido utilizando `split()`, y obtendremos el `userid` de las claves que nos proporcionaron:
 
 ```javascript
 module.exports = async (
@@ -147,12 +147,12 @@ module.exports = async (
 };
 ```
 
-That's it!
-The rest of our integration can now be configured to reference the results of the code component rather than the body of the integration payload, and it'll start working as we'd expect it to despite the poorly formatted JSON from the third-party vendor.
-We can see from a test of our code component that our code component is reformatting data like we expect it to:
+Ya está.
+El resto de nuestra integración puede configurarse ahora para hacer referencia a los resultados del componente de código en lugar de al cuerpo de la carga útil de integración, y empezará a funcionar como esperábamos a pesar del JSON mal formateado del proveedor externo.
+Podemos ver en una prueba de nuestro componente de código que éste está reformateando los datos como esperábamos:
 
 <Screenshot
   filename="quickstarts/code-component-to-transform-data/results.png"
   maxWidth="500px"
-  alt="Step outputs in  integration designer"
+  alt="Salidas por pasos en el diseñador de integración"
 />

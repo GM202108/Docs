@@ -1,52 +1,52 @@
 ---
 id: field-mapping-json-forms-datasource
-title: Building a Field Mapper Data Source
-description: Build a data source using JSON forms and an existing Salesforce connection to do field mapping from SFDC to your app
+title: Creación de una fuente de datos Field Mapper
+description: Cree una fuente de datos utilizando formularios JSON y una conexión Salesforce existente para realizar la asignación de campos desde SFDC a su aplicación.
 ---
 
 import Screenshot from "@site/src/components/screenshot";
 import JsonFormsExampleButton from "@site/src/components/json-forms-example-button";
 
-Every customer of Salesforce uses SFDC differently.
-Some customers add unique fields to existing resources.
-Others use existing fields in unique ways.
+Cada cliente de Salesforce utiliza SFDC de manera diferente.
+Algunos clientes añaden campos únicos a los recursos existentes.
+Otros utilizan campos existentes de formas únicas.
 
-If you integrate with a CRM, you may want your users to map fields from the CRM to your product.
-In this tutorial, we'll look at how to use an existing Salesforce connection to fetch your customer's SFDC fields, and present them to a user as a field map during the instance configuration process using [JSON Forms](custom-components/writing-custom-components.mdx#json-forms-data-sources).
+Si integras con un CRM, es posible que desees que tus usuarios asignen campos del CRM a tu producto.
+En este tutorial, veremos cómo utilizar una conexión existente de Salesforce para obtener los campos de SFDC de tu cliente y presentarlos a un usuario como un mapeo de campos durante el proceso de configuración de la instancia utilizando [JSON Forms](custom-components/writing-custom-components.mdx#json-forms-data-sources).
 
 <Screenshot
   filename="quickstarts/field-mapping-json-forms-datasource/end-result.png"
   maxWidth="800px"
-  alt="Screenshot of a data mapper in the configuration wizard"
+  alt="Captura de pantalla de un mapeador de datos en el asistente de configuración"
 />
 
-The final product is available in our [examples repo](https://github.com/-io/examples/blob/main/components/salesforce-field-mapping-example/src/index.ts).
+El producto final está disponible en nuestro [repositorio de ejemplos](https://github.com/-io/examples/blob/main/components/salesforce-field-mapping-example/src/index.ts).
 
 <JsonFormsExampleButton exampleKey="data-mapper-accordion" />
 
-## Initializing the datasource component
+## Inicialización del componente del origen de datos
 
-You can initialize the data mapper data source project as you would [any other custom component](custom-components/writing-custom-components.mdx#initializing-a-new-component).
-After initializing the component, remove all templated files in the `src/` directory.
-Then, install Salesforce's NPM package, [jsforce](https://jsforce.github.io/):
+Puedes inicializar el proyecto del origen de datos del mapeador de datos como lo harías con [cualquier otro componente personalizado](custom-components/writing-custom-components.mdx#inicialización-de-un-nuevo-componente).
+Después de inicializar el componente, elimina todos los archivos con plantillas en el directorio `src/`.
+Luego, instala el paquete NPM de Salesforce, [jsforce](https://jsforce.github.io/):
 
-```bash title="Install JSforce and its TypeScript definitions"
+```bash title="Instale JSforce y sus definiciones de TypeScript"
 npm install jsforce
 npm install --save-dev @types/jsforce
 ```
 
-If you are integrating with a different CRM, you can use their respective NPM package or a [generic HTTP client](custom-components/writing-custom-components.mdx#using-the-built-in-createclient-http-client).
+Si estás integrando con un CRM diferente, puedes utilizar su respectivo paquete NPM o un [cliente HTTP genérico](custom-components/writing-custom-components.mdx#usando-el-cliente-http-createclient-incorporado).
 
-## Reusing HTTP connections
+## Reutilización de conexiones HTTP
 
-It would be a poor experience to require a user to authenticate with Salesforce twice.
-Instead, add a Salesforce step to your integration (that will automatically create a Salesforce connection config variable).
-You can re-use that existing Salesforce connection for your data source!
+Sería una mala experiencia requerir que un usuario se autentique con Salesforce dos veces.
+En su lugar, agrega un paso de Salesforce a tu integración (que creará automáticamente una variable de configuración de conexión a Salesforce).
+¡Puedes reutilizar esa conexión existente de Salesforce para tu origen de datos!
 
-You do not need to define any `connections` for your component.
-Simply add a connection input to your data source:
+No necesitas definir ninguna `connection` para tu componente.
+Simplemente agrega una entrada de conexión a tu origen de datos:
 
-```typescript title="Reuse the existing Salesforce connection" {8-12}
+```typescript title="Reutilice la conexión Salesforce existente" {8-12}
 const salesforceFieldMappingExample = dataSource({
   dataSourceType: "jsonForm",
   display: {
@@ -64,27 +64,27 @@ const salesforceFieldMappingExample = dataSource({
 });
 ```
 
-The Salesforce connection uses OAuth, so the access token that you'll need will be available via `sfConnection.token?.access_token`.
+La conexión de Salesforce utiliza OAuth, por lo que el token de acceso que necesitará estará disponible a través de `sfConnection.token?.access_token`.
 
-## Fetch fields from SFDC
+## Obtener campos de SFDC
 
-Next, we'll use the existing connection to fetch fields from SFDC.
+A continuación, utilizaremos la conexión existente para obtener campos de SFDC.
 
-```typescript title="Fetch custom fields on the Lead resource from Salesforce"
+```typescript title="Obtención de campos personalizados en el recurso Lead de Salesforce"
 {
   // ...
   perform: async (context, params) => {
-    // Reference an existing SFDC OAuth access token
+    // Hacer referencia a un token de acceso OAuth de SFDC existente
     const salesforceClient = new jsforce.Connection({
       instanceUrl: util.types.toString(params.sfConnection.token?.instance_url),
       version: "51.0",
       accessToken: util.types.toString(params.sfConnection.token?.access_token),
     });
 
-    // Fetch all fields on a Lead using https://jsforce.github.io/document/#describe
+    // Obtenga todos los campos de un cliente potencial mediante https://jsforce.github.io/document/#describe
     const { fields } = await salesforceClient.sobject("Lead").describe();
 
-    // Filter out non-required fields
+    // Filtrar los campos no obligatorios
     const salesforceRequiredLeadFields = fields.filter(
       ({ nillable }) => !nillable
     );
@@ -92,41 +92,41 @@ Next, we'll use the existing connection to fetch fields from SFDC.
 }
 ```
 
-For illustration purposes we fetched fields on the "Lead" resource and filtered them down to only fields that are required (i.e. not `nillable`).
-You can fetch fields on any resource and can choose to filter those fields or not.
+Con fines ilustrativos, obtuvimos campos en el recurso "Lead" y los filtramos para mostrar solo los campos necesarios (es decir, que no son `nillable`).
+Puedes obtener campos de cualquier recurso y decidir filtrar esos campos o no.
 
-## Generate a JSON Forms schema
+## Generar un esquema JSON Forms
 
-JSON Forms allows you to define a **schema** where you declare how the UI that your customer uses should look.
-Here, we hard-code some fields from "Acme", and create an array where every element of the array has one Salesforce Lead field, and one Acme field:
+JSON Forms te permite definir un **esquema** donde declaras cómo debería lucir la interfaz de usuario que utiliza tu cliente.
+Aquí, codificamos algunos campos de "Acme" y creamos un array donde cada elemento tiene un campo de Salesforce Lead y un campo de Acme:
 
-```typescript title="Create the JSON Form Schema"
-// Hard-code Acme fields - these can be fetched from an external source, too
+```typescript title="Crear el esquema de formulario JSON"
+// Campos Acme de código duro: también pueden obtenerse de una fuente externa.
 const acmeSaleFields: { name: string; id: number }[] = [
   { id: 123, name: "First Field" },
   { id: 456, name: "Second Field" },
   { id: 789, name: "Third Field" },
 ];
 
-// Schema defines the shape of the object to be returned to the integration,
-// along with options for dropdown menus
+// El esquema define la forma del objeto que se devolverá a la integración,
+// junto con las opciones para los menús desplegables
 const schema = {
   type: "object",
   properties: {
     mymappings: {
-      // Arrays allow users to make one or more mappings
+      // Las matrices permiten a los usuarios realizar una o varias asignaciones
       type: "array",
       items: {
-        // Each object in the array should contain a salesforceField and an acmeField
+        // Cada objeto de la matriz debe contener un salesforceField y un acmeField
         type: "object",
         properties: {
           salesforceLeadField: {
             type: "string",
-            // Have users select "one of" a dropdown of items
+            // Hacer que los usuarios seleccionen "uno de" un desplegable de elementos
             oneOf: salesforceRequiredLeadFields.map((field) => ({
-              // Display the pretty "label" like "My First Name" to the user
+              // Mostrar al usuario una "etiqueta" bonita como "Mi nombre".
               title: field.label,
-              // Feed programmatic "name" like "My_First_Name__c" to the integration
+              // Introducir "nombre" programático como "My_First_Name__c" en la integración
               const: field.name,
             })),
           },
@@ -134,7 +134,7 @@ const schema = {
             type: "string",
             oneOf: acmeSaleFields.map((field) => ({
               title: field.name,
-              const: util.types.toString(field.id), // JSON Forms requires string values
+              const: util.types.toString(field.id), // Los formularios JSON requieren valores de cadena
             })),
           },
         },
@@ -144,10 +144,10 @@ const schema = {
 };
 ```
 
-JSON Forms also require UI schema, which determines how the above UI elements should be placed (vertically, horizontally, etc):
+Los formularios JSON también requieren un esquema de interfaz de usuario, que determina cómo deben colocarse los elementos de interfaz de usuario anteriores (verticalmente, horizontalmente, etc.):
 
-```typescript title="Define UI Schema"
-// UI Schema defines how the schema should be displayed in the configuration wizard
+```typescript title="Definir el esquema de interfaz de usuario"
+// UI Schema define cómo debe mostrarse el esquema en el asistente de configuración
 const uiSchema = {
   type: "VerticalLayout",
   elements: [
@@ -160,12 +160,12 @@ const uiSchema = {
 };
 ```
 
-## Add an optional default mapping
+## Añadir una asignación por defecto opcional
 
-If you have an idea of what SFDC fields should map to your fields, you can provide a default mapping.
-Here, for illustration purposes, we simply map the first three SFDC fields to our three fields:
+Si tiene una idea de qué campos de SFDC deberían asignarse a sus campos, puede proporcionar una asignación predeterminada.
+Aquí, a efectos ilustrativos, simplemente asignamos los tres primeros campos SFDC a nuestros tres campos:
 
-```typescript title="Add an optional default mapping"
+```typescript title="Añadir una asignación opcional por defecto"
 const defaultValues = {
   mymappings: [
     {
@@ -194,12 +194,12 @@ return {
 };
 ```
 
-## The completed code
+## Código completo
 
-The full source code of this field mapper can be found in our [examples repo](https://github.com/-io/examples/blob/main/components/salesforce-field-mapping-example/src/index.ts).
-It serves as a good jumping-off point for your own field mapping, and you can modify it however you like.
-For example you could:
+Puedes encontrar el código fuente completo de este mapeador de campos en nuestro [repositorio de ejemplos](https://github.com/-io/examples/blob/main/components/salesforce-field-mapping-example/src/index.ts).
+Sirve como un buen punto de partida para tu propio mapeo de campos, y puedes modificarlo según tus preferencias.
+Por ejemplo, podrías:
 
-- Fetch your app's fields dynamically rather than hard-coding them
-- Fetch fields for other SFDC resources, like opportunities or accounts
-- Fetch fields from another CRM
+- Obtener dinámicamente los campos de tu aplicación en lugar de codificarlos.
+- Obtener campos de otros recursos de SFDC, como oportunidades o cuentas.
+- Obtener campos de otro CRM.

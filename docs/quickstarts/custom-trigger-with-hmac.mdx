@@ -1,39 +1,39 @@
 ---
 id: custom-trigger-with-hmac
-title: Writing a Custom Webhook Trigger with HMAC Validation
-description: HMAC helps to validate authenticity of a webhook message. Learn how to write a custom trigger that validates HMAC hashes automatically
+title: Escribir un desencadenador Webhook personalizado con validación HMAC
+description: HMAC ayuda a validar la autenticidad de un mensaje webhook. Aprende a escribir un disparador personalizado que valide los hashes HMAC automáticamente.
 ---
 
 import Screenshot from "@site/src/components/screenshot";
 
-**Hash-Based Message Authentication Code** (or HMAC) is an authentication mechanism used frequently by webhooks to verify that a webhook message is legitimate.
-It helps to ensure that messages sent to a webhook endpoint originated from a particular third-party, and not from some bad actor on the internet.
+El **Código de Autenticación de Mensaje Basado en Hash** (o HMAC, por sus siglas en inglés) es un mecanismo de autenticación utilizado frecuentemente por los webhooks para verificar que un mensaje de webhook sea legítimo.
+Ayuda a garantizar que los mensajes enviados a un punto final de webhook se originen de un tercero en particular, y no de algún actor malintencionado en Internet.
 
-If you compute an HMAC hash from the webhook's request body, your secret key is a string, and the hash is included as a header, you can use the built-in [HMAC Webhook Trigger](components/hash.mdx#hmac-webhook-trigger) to validate webhook requests.
-Most (but not all) HMAC implementations follow this pattern.
+Si calculas un hash HMAC a partir del cuerpo de la solicitud del webhook, tu clave secreta es una cadena, y el hash se incluye como un encabezado, puedes usar el [Desencadenador de Webhook HMAC](components/hash.mdx#hmac-webhook-trigger) incorporado para validar las solicitudes de webhook.
+La mayoría (pero no todos) de las implementaciones HMAC siguen este patrón.
 
-In this tutorial, we'll look at the code behind the [Slack Webhook Trigger](components/slack.mdx#webhook), which differs from the generic HMAC trigger in two ways:
+En este tutorial, examinaremos el código detrás del [Desencadenador de Webhook de Slack](components/slack.mdx#webhook), que difiere del desencadenador HMAC genérico en dos aspectos:
 
-- Slack concatenates the request body with a timestamp before computing the HMAC hash (see [Slack docs](https://api.slack.com/authentication/verifying-requests-from-slack#verifying-requests-from-slack-using-signing-secrets__a-recipe-for-security__step-by-step-walk-through-for-validating-a-request)).
-- When a webhook is first configured in Slack, Slack sends a URL verification ["challenge" request](https://api.slack.com/apis/connections/events-api#the-events-api__subscribing-to-event-types__events-api-request-urls__request-url-configuration--verification__url-verification-handshake) to the webhook endpoint and expects that the endpoint responds with the same challenge string.
-  The Slack trigger responds with that dynamic response and branches into "URL Verify" or "Notification" branches, depending on if it received a "challenge" confirmation request or actual Slack event.
+- Slack concatena el cuerpo de la solicitud con una marca de tiempo antes de calcular el hash HMAC (ver [documentos de Slack](https://api.slack.com/authentication/verifying-requests-from-slack#verifying-requests-from-slack-using-signing-secrets__a-recipe-for-security__step-by-step-walk-through-for-validating-a-request)).
+- Cuando se configura por primera vez un webhook en Slack, Slack envía una solicitud de verificación de URL ["challenge" request](https://api.slack.com/apis/connections/events-api#the-events-api__subscribing-to-event-types__events-api-request-urls__request-url-configuration--verification__url-verification-handshake) al punto final del webhook y espera que el punto final responda con la misma cadena de desafío.
+  El desencadenador de Slack responde con esa respuesta dinámica y se bifurca en ramas de "Verificar URL" o "Notificación", dependiendo de si recibió una solicitud de confirmación de "challenge" o un evento real de Slack.
 
-Full source code for the Slack trigger can be found in our [examples repo on GitHub](https://github.com/-io/examples/blob/main/components/slack/src/triggers.ts).
+El código fuente completo para el desencadenador de Slack se puede encontrar en nuestro [repositorio de ejemplos en GitHub](https://github.com/-io/examples/blob/main/components/slack/src/triggers.ts).
 
-## Computing the Slack HMAC hash
+## Cálculo del hash HMAC de Slack
 
-Rather than hashing just the request's body, Slack hashes a timestamp, as well, which is passed in as a header.
-The string that is hashed ends up looking like this:
+En lugar de hashear sólo el cuerpo de la solicitud, Slack hashea también una marca de tiempo, que se pasa como una cabecera.
+La cadena a la que se aplica el hash tiene este aspecto:
 
 ```
 v0:{TIMESTAMP}:{REQUEST BODY}
 ```
 
-Then, an HMAC hash is computed and tacked on to the end of a string that starts with `v0=`.
+A continuación, se calcula un hash HMAC y se añade al final de una cadena que empieza por "v0=".
 
-So, we built a function that takes a request body, timestamp and signing secret, and returns a string in the form Slack sends:
+Por lo tanto, hemos creado una función que toma un cuerpo de solicitud, una marca de tiempo y un secreto de firma, y devuelve una cadena en la forma que envía Slack:
 
-```typescript title="Helper function to compute Slack hashes"
+```typescript title="Función auxiliar para calcular hashes Slack"
 const computeSignature = (
   requestBody: string,
   signingSecret: string,
@@ -48,21 +48,21 @@ const computeSignature = (
 };
 ```
 
-## Verifying the incoming hash signature
+## Verificación de la firma de hash entrante
 
-Now that we have a helper function, let's look at the trigger's `perform` function that is invoked when a webhook request is received.
-The trigger first gathers the necessary pieces of information needed:
+Ahora que tenemos una función auxiliar, veamos la función `perform` del desencadenador que se invoca cuando se recibe una solicitud de webhook.
+El desencadenador primero recopila las piezas necesarias de información requeridas:
 
-- We fetch the raw, unprocessed request **body** from `payload.rawBody.data` and turn it into a string.
-- We get the **timestamp** from an HTTP header through `payload.headers["X-Slack-Request-Timestamp"]`.
-  The timestamp is an integer (Unix epoch seconds).
-- We get the **signing secret** from the Slack connection.
-  A connection contains OAuth 2.0 info in addition to a signing secret, and is passed in as an input, `params.slackConnection.fields.signingSecret`.
+- Obtenemos el **cuerpo** de la solicitud sin procesar desde `payload.rawBody.data` y lo convertimos en una cadena.
+- Obtenemos la **marca de tiempo** de un encabezado HTTP a través de `payload.headers["X-Slack-Request-Timestamp"]`.
+  La marca de tiempo es un entero (segundos del epoch de Unix).
+- Obtenemos el **secreto de firma** de la conexión de Slack.
+  Una conexión contiene información de OAuth 2.0 además de un secreto de firma, y se pasa como entrada, `params.slackConnection.fields.signingSecret`.
 
-Then, we'll run our `computeSignature` function on the data we gathered.
-If the hash we generate is not the same as the hash that Slack provided (through `payload.headers["X-Slack-Signature"]`), we'll throw an error and the integration will stop running:
+Luego, ejecutaremos nuestra función `computeSignature` en los datos que recopilamos.
+Si el hash que generamos no es el mismo que el hash que Slack proporcionó (a través de `payload.headers["X-Slack-Signature"]`), lanzaremos un error y la integración dejará de ejecutarse:
 
-```typescript title="Check Slack HMAC hash"
+```typescript title="Comprobar hash HMAC de Slack"
 const signingSecret = util.types.toString(
   params.slackConnection.fields.signingSecret
 );
@@ -80,17 +80,17 @@ const payloadSignature = util.types.toString(
 );
 if (payloadSignature !== computedSignature) {
   throw new Error(
-    "Error validating message signature. Check your signing secret and verify that this message came from Slack."
+    "Error al validar la firma del mensaje. Comprueba tu secreto de firma y verifica que este mensaje procede de Slack."
   );
 }
 ```
 
-Assuming the signature Slack generated, `payloadSignature`, matches the hash we computed, `computedSignature`, our trigger continues.
+Asumiendo que la firma generada por Slack, `payloadSignature`, coincide con el hash que hemos calculado, `computedSignature`, nuestro disparador continúa.
 
-## Returning a Slack challenge and branching
+## Devolviendo un desafío de Slack y ramificando
 
-Once we've verified that the webhook we received is, indeed, from Slack, we can return a proper challenge response to Slack if it needs one and then branch appropriately.
-We'll get the challenge that Slack sent from the request's body (if we got a URL verification request), and then we'll generate a response that contains exactly that challenge string:
+Una vez que hemos verificado que el webhook que recibimos es, de hecho, de Slack, podemos devolver una respuesta de desafío adecuada a Slack si la necesita y luego ramificar apropiadamente.
+Obtendremos el desafío que Slack envió desde el cuerpo de la solicitud (si recibimos una solicitud de verificación de URL), y luego generaremos una respuesta que contenga exactamente esa cadena de desafío:
 
 ```typescript
 const challenge = (payload.body.data as Request)?.challenge;
@@ -101,11 +101,11 @@ const response: HttpResponse = {
 };
 ```
 
-Note: if we didn't get a `challenge` request, the response body will just be blank.
-That's fine.
-Slack doesn't expect a special response for other webhook events.
+Nota: si no recibimos una solicitud de `challenge`, el cuerpo de la respuesta estará vacío.
+Está bien.
+Slack no espera una respuesta especial para otros eventos de webhook.
 
-Finally, we'll return the `payload` that we received (so it can be used by the integration), the `response` that our webhook should send back to Slack, and the `branch` that the integration should follow (depending on if we received a URL verify challenge request):
+Finalmente, devolveremos el `payload` que recibimos (para que pueda ser utilizado por la integración), la `respuesta` que nuestro webhook debe enviar de vuelta a Slack y la `rama` que la integración debe seguir (dependiendo de si recibimos una solicitud de desafío de verificación de URL):
 
 ```typescript
 return Promise.resolve({
@@ -115,8 +115,8 @@ return Promise.resolve({
 });
 ```
 
-## Conclusion
+## Conclusión
 
-You can build your own trigger that validates webhooks by following similar patterns, and you can make your HTTP responses as static/simple or dynamic/complex as you'd like.
-For more information on building custom components and custom triggers, check out the [Writing Custom Components](custom-components/writing-custom-components.mdx) article.
-For full source code of the Slack trigger, check out our [examples repo on GitHub](https://github.com/-io/examples/blob/main/components/slack/src/triggers.ts).
+Puedes construir tu propio disparador que valide los webhooks siguiendo patrones similares, y puedes hacer que tus respuestas HTTP sean estáticas/simples o dinámicas/complexas según lo desees.
+Para obtener más información sobre cómo crear componentes personalizados y disparadores personalizados, consulta el artículo [Escribir Componentes Personalizados](custom-components/writing-custom-components.mdx).
+Para ver el código fuente completo del disparador de Slack, consulta nuestro [repositorio de ejemplos en GitHub](https://github.com/-io/examples/blob/main/components/slack/src/triggers.ts).

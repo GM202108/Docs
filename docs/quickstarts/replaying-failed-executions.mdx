@@ -1,36 +1,35 @@
 ---
 id: replaying-failed-executions
-title: Replaying Failed Executions
-description: Learn how to replay (retry) failed executions
+title: Repetición de ejecuciones fallidas
+description: Aprende a reproducir (reintentar) ejecuciones fallidas.
 ---
 
 import GraphqlExample from "@site/src/components/graphql-example";
 
-Errors are almost inevitable in software integrations.
+Los errores son casi inevitables en las integraciones de software.
 
-- A third-party API might be unavailable when your instance tries to access it.
-  That might be remedied through instance [retry](instances.mdx#instance-execution-retry-and-replay), but retry doesn't handle the scenario that the API is down for hours or days at a time.
-- A third-party might start sending you data in a new format that you didn't expect.
-- Your instance may encounter some other edge-case that it doesn't handle gracefully.
+- Es posible que una API de terceros no esté disponible cuando su instancia intente acceder a ella. Eso podría remediarse a través de la [reintento](instances.mdx#instance-execution-retry-and-replay) de la instancia, pero la reintento no maneja el escenario en que la API está inactiva durante horas o días.
+- Un tercero podría comenzar a enviarle datos en un nuevo formato que no esperaba.
+- Su instancia puede encontrar algún otro caso especial que no maneje adecuadamente.
 
-Whatever the reason for the error, it's handy to be able to re-run your instance with the exact same incoming data when the third-party API is back up and running, or after you've fixed your integration to better handle the data coming in.
+Sea cual sea la razón del error, es útil poder volver a ejecutar su instancia con los mismos datos de entrada exactos cuando la API de terceros vuelva a estar en funcionamiento, o después de haber corregido su integración para manejar mejor los datos entrantes.
 
-[Replay](instances.mdx#instance-execution-retry-and-replay) allows you to run a previous execution's data through your instance again, and it's easy to do through ['s GraphQL API](api/api-overview.mdx).
+[Replay](instances.mdx#instance-execution-retry-and-replay) le permite ejecutar nuevamente los datos de una ejecución anterior a través de su instancia, y es fácil de hacer a través de la API de GraphQL de .
 
-## Querying for failed executions
+## Consulta de ejecuciones fallidas
 
-First, let's query an instance for failed executions.
-You can find an instance's ID in your browser's URL bar when you view the instance, or you can query for it via the API.
+Primero, busquemos una instancia para las ejecuciones fallidas.
+Puede encontrar el ID de una instancia en la barra de direcciones de su navegador cuando ve la instancia, o puede consultarla a través de la API.
 
-We'll search only for executions that have `error_Isnull: false` (in other words, it had an error).
-We also only want _original_ executions (and not replays), so we'll include `replayForExecution_Isnull: true`.
-Finally, let's fetch `replays` for those original executions that have since succeeded with `replays(error_Isnull: true)`:
+Buscaremos solo las ejecuciones que tengan `error_Isnull: false` (en otras palabras, tuvo un error).
+También solo queremos ejecuciones _originales_ (y no repeticiones), así que incluiremos `replayForExecution_Isnull: true`.
+Finalmente, busquemos `replays` para esas ejecuciones originales que desde entonces han tenido éxito con `replays(error_Isnull: true)`:
 
 <GraphqlExample example="findFailedExecutions" />
 
-If we have multiple pages of executions (more than 100), we can use the `endCursor` we get back as the `startCursor` to get the next page of results.
+Si tenemos varias páginas de ejecuciones (más de 100), podemos utilizar el `endCursor` que obtenemos como `startCursor` para obtener la siguiente página de resultados.
 
-The GraphQL API will respond with any failed executions for that instance along with any replays that have succeeded since the original execution failed:
+La API GraphQL responderá con cualquier ejecución fallida para esa instancia junto con cualquier repetición que haya tenido éxito desde que falló la ejecución original:
 
 ```json
 {
@@ -66,15 +65,14 @@ The GraphQL API will respond with any failed executions for that instance along 
 }
 ```
 
-## Replaying failed executions programmatically
+## Reejecución de ejecuciones fallidas de manera programática
 
-Now, with the IDs of the executions that failed in hand, we can issue a [replayExecution](api/schema/mutation/replayExecution.mdx) mutation for each one that does not have a replay that succeeded:
+Ahora, con los IDs de las ejecuciones que fallaron en mano, podemos emitir una mutación de [replayExecution](api/schema/mutation/replayExecution.mdx) para cada una que no tenga una repetición que haya tenido éxito:
 
 <GraphqlExample example="replayFailedExecution" />
 
-That mutation will return the ID of the new execution that occurs.
-You can the query the API with that new execution to verify that it runs successfully, or do further debugging if it does not.
+Esa mutación devolverá el ID de la nueva ejecución que ocurra. Luego puedes consultar la API con esa nueva ejecución para verificar que se ejecute correctamente, o realizar más depuración si no es así.
 
-For an example script that wraps the above GraphQL calls, see our [examples GitHub repo](https://github.com/-io/examples/blob/main/api/replay-failed-executions/queries.ts).
+Para obtener un script de ejemplo que envuelva las llamadas GraphQL mencionadas anteriormente, consulta nuestro [repositorio de ejemplos en GitHub](https://github.com/-io/examples/blob/main/api/replay-failed-executions/queries.ts).
 
-For more information on the API, see the [API docs](api/api-overview.mdx).
+Para obtener más información sobre la API, consulta la [documentación de la API](api/api-overview.mdx).

@@ -1,26 +1,26 @@
 ---
 id: syncing-customers-to-prismatic
-title: Syncing Customers
-description: Learn to sync customers from an external system to  using our GraphQL API
+title: Sincronización de clientes
+description: Aprenda a sincronizar clientes desde un sistema externo utilizando nuestra API GraphQL.
 ---
 
-As a B2B software company you likely rely on a customer or user management system like Salesforce or some in-house system to keep track of your customers.
-In this tutorial, we'll cover how to sync customers from an external system to using 's [GraphQL API](api/api-overview.mdx).
-We'll highlight **External IDs**, which are a way to assign a unique external identifier to a customer.
+Como empresa de software B2B, es probable que dependas de un sistema de gestión de clientes o usuarios como Salesforce o algún sistema interno para realizar un seguimiento de tus clientes.
+En este tutorial, cubriremos cómo sincronizar clientes desde un sistema externo utilizando la [API GraphQL](api/api-overview.mdx) de .
+Destacaremos los **IDs Externos**, que son una forma de asignar un identificador externo único a un cliente.
 
-## Setting up
+## Puesta en marcha
 
-We'll use Python in this tutorial, though the same ideas can be adapted to any language that has a [GraphQL client library](https://graphql.org/code/).
-Full code shown in this tutorial can be found on [GitHub](https://github.com/-io/examples/blob/main/api/customers/customers.py).
+Para este tutorial utilizaremos Python, aunque las mismas ideas pueden adaptarse a cualquier lenguaje que tenga una [biblioteca cliente de GraphQL](https://graphql.org/code/).
+El código completo mostrado en este tutorial se puede encontrar en [GitHub](https://github.com/-io/examples/blob/main/api/customers/customers.py).
 
-To start, we'll add `gql` to our dependencies for our Python project:
+Para comenzar, agregaremos `gql` a nuestras dependencias para nuestro proyecto de Python:
 
 ```bash
 pip install gql
 ```
 
-Next, we'll import our necessary libraries and create a GraphQL client so we can run queries against 's API.
-We'll define the transport layer for getting to our API (HTTP), which will include an authorization header to authenticate our client against :
+A continuación, importaremos nuestras bibliotecas necesarias y crearemos un cliente de GraphQL para poder ejecutar consultas contra la API de 's.
+Definiremos la capa de transporte para acceder a nuestra API (HTTP), que incluirá un encabezado de autorización para autenticar nuestro cliente contra:
 
 ```python
 import json
@@ -39,30 +39,30 @@ transport = RequestsHTTPTransport(
 client = Client(transport=transport)
 ```
 
-This code assumes that an environment variable, `_API_KEY`, has been set (it's best practice not to hard-code API keys).
-To get an API key into our environment variables, we can leverage the `me:token` [prism subcommand](cli/prism.mdx#metoken):
+Este código asume que se ha establecido una variable de entorno, `_API_KEY` (es mejor práctica no codificar las claves de API).
+Para agregar una clave API a nuestras variables de entorno, podemos aprovechar el subcomando `me:token` de [prism](cli/prism.mdx#metoken):
 
 ```bash
 export _API_KEY=$(prism me:token)
 ```
 
-Now that we have a working client, let's write some GraphQL queries and mutations to manage customers within :
+Ahora que tenemos un cliente funcionando, escribamos algunas consultas y mutaciones GraphQL para gestionar los clientes dentro de :
 
-## GraphQL queries and mutations
+## Consultas y mutaciones GraphQL
 
-To sync customers, we'll use the [customers](api/schema/query/customers.mdx) query and [createCustomer](api/schema/mutation/createCustomer.mdx) and [deleteCustomer](api/schema/mutation/deleteCustomer.mdx) mutations.
+Para sincronizar clientes, utilizaremos la consulta [customers](api/schema/query/customers.mdx) y las mutaciones [createCustomer](api/schema/mutation/createCustomer.mdx) y [deleteCustomer](api/schema/mutation/deleteCustomer.mdx).
 
-:::info GraphQL Queries and Mutations
-In GraphQL lingo, a **query** is similar to a `SELECT` statement in SQL.
-You query for a particular set of information in a read-only way.
+:::info Consultas y Mutaciones de GraphQL
+En la jerga de GraphQL, una **consulta** es similar a una sentencia `SELECT` en SQL.
+Usted consulta un conjunto particular de información de una manera de sólo lectura.
 
-A **mutation** is similar to an `INSERT`, `UPDATE`, or `DELETE` statement in SQL.
-You mutate data by creating new records, or updating or deleting existing records.
+Una **mutación** es similar a una sentencia `INSERT`, `UPDATE` o `DELETE` en SQL.
+Los datos se modifican creando nuevos registros o actualizando o eliminando los existentes.
 :::
 
-## List all customers
+## Listar todos los clientes
 
-First, let's write a function that gets a list of all of our customers, including their `name`, `description`, `id`, and `externalId`:
+Primero, escribamos una función que obtenga una lista de todos nuestros clientes, incluyendo su `nombre`, `descripción`, `id` y `externalId`:
 
 ```python
 def getCustomers():
@@ -82,14 +82,14 @@ def getCustomers():
   return result['customers']['nodes']
 ```
 
-This function runs a [customers](api/schema/query/customers.mdx) query against 's API.
-We specify `isSystem: false` because your tenant has a set of "system" customers that are used behind-the-scenes for running test integrations as you build them.
-This will filter out those "system" customers, and return only your "real" customers.
+Esta función ejecuta una consulta [customers](api/schema/query/customers.mdx) contra la API de 's.
+Especificamos `isSystem: false` porque su inquilino tiene un conjunto de clientes "del sistema" que se utilizan internamente para ejecutar integraciones de prueba mientras las construye.
+Esto filtrará esos clientes "del sistema" y devolverá solo sus clientes "reales".
 
-The query returns an object with a `customers` key, which has (in GraphQL lingo) has a series of **nodes** (customers).
-We return `result['customers']['nodes']` so that just a list of customer objects are returned.
+La consulta devuelve un objeto con una clave `customers`, que tiene (en el lenguaje de GraphQL) una serie de **nodos** (clientes).
+Devolvemos `result['customers']['nodes']` para que solo se devuelva una lista de objetos de clientes.
 
-Let's invoke this function, and use `json.dumps()` for readability:
+Vamos a invocar esta función, y utilizar `json.dumps()` para facilitar la lectura:
 
 ```python
 print(json.dumps(getCustomers()))
@@ -112,18 +112,18 @@ print(json.dumps(getCustomers()))
 ]
 ```
 
-We could use the output of this function to figure out which customers have not been synced _into_ , or to sync customers back to an outside system.
+Podríamos usar la salida de esta función para averiguar qué clientes no se han sincronizado _en_ , o para sincronizar clientes de nuevo con un sistema externo.
 
-### GraphQL pagination
+### Paginación GraphQL
 
-Before moving on, I want to address pagination.
-By default, the API returns the first 100 results for a query.
-So, the [customers](api/schema/query/customers.mdx) query only returns 100 customers, even if we have more than 100 in the system.
+Antes de continuar, quiero abordar la paginación.
+De forma predeterminada, la API devuelve los primeros 100 resultados para una consulta.
+Entonces, la consulta [customers](api/schema/query/customers.mdx) solo devuelve 100 clientes, incluso si tenemos más de 100 en el sistema.
 
-If we want to download **all** customers, we'll need to update our `getCustomers()` function a bit.
-We'll update our query so that it requests pagination information (`pageInfo`).
-We'll request whether or not there are additional pages to fetch (`hasNextPage`), and a unique ID indicating where to start the next page (`endCursor`).
-We'll feed that `endCursor` back in to our query as a parameter `after`, so the GraphQL API knows where it last left off:
+Si queremos descargar **todos** los clientes, necesitaremos actualizar un poco nuestra función `getCustomers()`.
+Actualizaremos nuestra consulta para que solicite información de paginación (`pageInfo`).
+Solicitaremos si hay páginas adicionales para recuperar (`hasNextPage`), y un ID único que indica dónde comenzar la siguiente página (`endCursor`).
+Alimentaremos ese `endCursor` nuevamente en nuestra consulta como un parámetro `after`, para que la API de GraphQL sepa dónde se quedó la última vez:
 
 ```python
 def getCustomers():
@@ -157,12 +157,12 @@ def getCustomers():
   return customers
 ```
 
-## Fetch a specific customer by external ID
+## Obtener un cliente específico por su ID externo
 
-Now, let's look at how to look up a specific customer by their `externalId`.
-The [customers](api/schema/query/customers.mdx) query allows you to filter customers by `externalId`.
-We will pass in the `externalId` as a variable to the customers query using an object, `params`, that contains the GraphQL variables we want to use.
-We'll also assert that we got exactly one customer object back from the API:
+Ahora, veamos cómo buscar un cliente específico por su `externalId`.
+La consulta [customers](api/schema/query/customers.mdx) te permite filtrar clientes por `externalId`.
+Pasaremos el `externalId` como una variable a la consulta de clientes usando un objeto, `params`, que contiene las variables de GraphQL que queremos usar.
+También afirmaremos que obtuvimos exactamente un objeto de cliente de la API:
 
 ```python
 def getCustomerByExternalId(externalId):
@@ -184,7 +184,7 @@ def getCustomerByExternalId(externalId):
   return response["customers"]["nodes"][0]
 ```
 
-If we invoke this function now, we'll get a single customer based on the `externalId` that we provide:
+Si invocamos esta función ahora, obtendremos un único cliente basado en el `externalId` que proporcionemos:
 
 ```python
 print(json.dumps(getCustomerByExternalId("abc-123")))
@@ -199,11 +199,11 @@ print(json.dumps(getCustomerByExternalId("abc-123")))
 }
 ```
 
-## Create a new customer
+## Crear un nuevo cliente
 
-Next, we'll write a function that creates a new customer given the customer's `name`, `description`, and `externalId`.
-To do that, we'll use the the [createCustomer](api/schema/mutation/createCustomer.mdx) GraphQL mutation.
-Similar to the [getCustomerByExternalId](#fetch-a-specific-customer-by-external-id) function above, we'll supply some input variables to our mutation with a `params` object:
+A continuación, escribiremos una función que cree un nuevo cliente dado el `name`, `description`, y `externalId` del cliente.
+Para hacerlo, utilizaremos la mutación GraphQL [createCustomer](api/schema/mutation/createCustomer.mdx).
+Similar a la función [getCustomerByExternalId](#obtener-un-cliente-específico-por-su-id-externo) anterior, proporcionaremos algunas variables de entrada a nuestra mutación con un objeto `params`:
 
 ```python
 def createCustomer(name, description="", externalId=""):
@@ -239,9 +239,9 @@ def createCustomer(name, description="", externalId=""):
     return result["createCustomer"]["customer"]
 ```
 
-The `createCustomer` mutation will return `errors` if the `name` or `externalId` you specified is already in the system.
-If the mutation does not throw an error, it will return a customer object containing the new customer's `name`, `description`, `externalId` and generated `id`.
-Let's try it out:
+La mutación `createCustomer` devolverá `errors` si el `name` o `externalId` que especificaste ya está en el sistema.
+Si la mutación no genera un error, devolverá un objeto de cliente que contiene el `name`, `description`, `externalId` y el `id` generado del nuevo cliente.
+¡Probémoslo!
 
 ```python
 print(
@@ -262,12 +262,12 @@ print(
 }
 ```
 
-## Delete a customer by External ID
+## Eliminar un cliente por ID externo
 
-For the last customer-related function, let's delete a customer given their external ID.
-To do that, we'll use the [deleteCustomer](api/schema/mutation/deleteCustomer.mdx) mutation.
-First, we'll look up the customer we would like to delete using the [getCustomerByExternalId](#fetch-a-specific-customer-by-external-id) function we wrote previously.
-Then, we'll feed the ID that we get into the `deleteCustomer` mutation:
+Para la última función relacionada con clientes, eliminemos un cliente dado su ID externo.
+Para hacer eso, usaremos la mutación [deleteCustomer](api/schema/mutation/deleteCustomer.mdx).
+Primero, buscaremos el cliente que deseamos eliminar usando la función [getCustomerByExternalId](#fetch-a-specific-customer-by-external-id) que escribimos anteriormente.
+Luego, alimentaremos el ID que obtenemos en la mutación `deleteCustomer`:
 
 ```python
 def deleteCustomer(externalId):
@@ -302,4 +302,4 @@ def deleteCustomer(externalId):
     return result["deleteCustomer"]["customer"]
 ```
 
-If we supply an external ID that is not attached to a customer, the `getCustomerByExternalId()` function will throw an error indicating that.
+Si proporcionamos un ID externo que no está asociado a un cliente, la función `getCustomerByExternalId()` lanzará un error indicándolo.
