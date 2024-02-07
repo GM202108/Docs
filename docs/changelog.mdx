@@ -1,7 +1,7 @@
 ---
 id: changelog
-title: Changelog
-description: The latest updates to the platform make it even easier to build, manage, and deploy integrations for your customers.
+title: Registro de cambios
+description: Las últimas actualizaciones de la plataforma facilitan aún más la creación, gestión e implantación de integraciones para sus clientes.
 ---
 
 import { ChangeLogEntry } from "@site/src/components/changelog";
@@ -11,192 +11,193 @@ import Vimeo from "@site/src/components/vimeo";
 
 <ChangeLogEntry date="2023-09-05">
 
-### Customer-Scoped Custom Components
+### Componentes personalizados para clientes
 
-Customer users can now build and deploy their own custom components, and can use those custom components in integrations they build in your embedded marketplace.
-This is handy if your customers need to build custom components to interact with their own internal systems, or if they need to build custom components that interact with third-party apps that you don't already support.
+Los usuarios clientes ahora pueden construir e implementar sus propios componentes personalizados, y pueden utilizar esos componentes personalizados en las integraciones que construyen en su mercado integrado.
+Esto resulta útil si sus clientes necesitan crear componentes personalizados para interactuar con sus propios sistemas internos, o si necesitan crear componentes personalizados que interactúen con aplicaciones de terceros que usted aún no admite.
 
-Read more about customer-scoped custom components on the [Embedded Designer](embedded-designer.mdx#customer-users-and-custom-components) article.
+Lee más sobre los componentes personalizados específicos del cliente en el artículo [Diseñador Integrado](embedded-designer.mdx#customer-users-and-custom-components).
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2023-09-01">
 
-### New Components - September, 1 2023
+### Nuevos componentes - 1 de septiembre de 2023
 
-We are pleased to announce the following components have been recently added to the library:
+Nos complace anunciar que los siguientes componentes han sido agregados recientemente a la biblioteca:
 
-- [BigCommerce](components/bigcommerce.mdx) - Manage your Products, Brands, Categories and more.
-- [Domo](components/domo.mdx) - Manage your Projects, Streams and various other actions within your business's data sets.
-- [Gong](components/gong.mdx) - Manage your calls, users, libraries, to best collect insights from customer interactions.
-- [Google Cloud Pub/Sub](components/google-cloud-pub-sub.mdx) - Subscribe to topics and configure push notifications for your various Google integrations.
-- [Google Docs](components/google-docs.mdx) - Manage and share documents from your Google cloud.
-- [Mixpanel](components/mixpanel.mdx) - Manage your custom reports and measure user engagement with collected data.
-- [Sage HR](components/sage-hr.mdx) - Manage employees, teams, projects, and more in this robust Human Resources solution.
-- [ShipBob](components/shipbob.mdx) - Manage orders, shipments, and generate lables with this fulfillment services solution.
-- [Square](components/square.mdx) - Manage your total point of sale system including payments, refunds, and inventory.
-- [Zendesk Sell](components/zendesk-sell.mdx) - Manage your sales force automation including leads, orders, and deals.
+- [BigCommerce](components/bigcommerce.mdx) - Gestiona tus productos, marcas, categorías y más.
+- [Domo](components/domo.mdx) - Gestiona tus proyectos, streams y varias otras acciones dentro de los conjuntos de datos de tu negocio.
+- [Gong](components/gong.mdx) - Gestiona tus llamadas, usuarios, bibliotecas, para recopilar mejor información de las interacciones con los clientes.
+- [Google Cloud Pub/Sub](components/google-cloud-pub-sub.mdx) - Suscríbete a temas y configura notificaciones push para tus diversas integraciones de Google.
+- [Google Docs](components/google-docs.mdx) - Gestiona y comparte documentos desde tu nube de Google.
+- [Mixpanel](components/mixpanel.mdx) - Gestiona tus informes personalizados y mide el compromiso del usuario con los datos recopilados.
+- [Sage HR](components/sage-hr.mdx) - Gestiona empleados, equipos, proyectos y más en esta robusta solución de Recursos Humanos.
+- [ShipBob](components/shipbob.mdx) - Gestiona pedidos, envíos y genera etiquetas con esta solución de servicios de cumplimiento.
+- [Square](components/square.mdx) - Gestiona tu sistema total de punto de venta, incluidos pagos, reembolsos e inventario.
+- [Zendesk Sell](components/zendesk-sell.mdx) - Gestiona la automatización de tu fuerza de ventas, incluidos leads, pedidos y negocios.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2023-08-15">
 
-### Integration Runner Moving to NodeJS 18.x
+### Integración del Ejecutor Cambiando a NodeJS 18.x
 
-**Platform Announcement**: We are pleased to announce that we will be transitioning our integration runner from NodeJS 14.x to 18.x beginning on Monday, August 21st.
-Running on the latest LTS version of NodeJS has huge advantages, including performance improvements, continued support and security patches, and a baked-in [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/fetch).
+**Anuncio de Plataforma**: Nos complace anunciar que estaremos realizando la transición de nuestro ejecutor de integraciones de NodeJS 14.x a 18.x a partir del lunes 21 de agosto.
+Ejecutarse en la última versión LTS de NodeJS tiene enormes ventajas, incluidas mejoras de rendimiento, soporte continuo y parches de seguridad, y una [API de fetch](https://developer.mozilla.org/es/docs/Web/API/fetch) incorporada.
 
-This change will not require any action on your part.
-Your flows and components will transition seamlessly to their new environment.
-We will let you know once the upgrade is complete, so you can take advantage of any new features NodeJS 18.x has to offer.
+Este cambio no requerirá ninguna acción de tu parte.
+Tus flujos y componentes se trasladarán sin problemas a su nuevo entorno.
+Te informaremos una vez que se complete la actualización, para que puedas aprovechar cualquier nueva característica que ofrezca NodeJS 18.x.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2023-08-10">
 
-### Embedded designer improvements
+### Mejoras en el diseñador integrado
 
-Two new features were added to embedded designer:
+Se agregaron dos nuevas características al diseñador integrado:
 
-1. You can now issue a `.showDashboard()` to give users a holistic view of their integrations, instances, executions, logs, and more. See [docs](embedded-designer.mdx#showing-the-customer-dashboard) for more information.
+1. Ahora puedes emitir un `.showDashboard()` para brindar a los usuarios una vista integral de sus integraciones, instancias, ejecuciones, registros y más. Consulta la [documentación](embedded-designer.mdx#showing-the-customer-dashboard) para obtener más información.
+
    <Screenshot
      filename="changelog/show-dashboard.png"
-     alt="Open the customer dashboard in embedded"
+     alt="Abrir el panel de control del cliente en incrustado"
      maxWidth="800px"
    />
-2. You can now filter the list of components that are available to your customers. See [docs](embedded-designer.mdx#filtering-components-in-the-embedded-designer) for more information.
+
+2. Ahora puedes filtrar la lista de componentes que están disponibles para tus clientes. Consulta la [documentación](embedded-designer.mdx#filtering-components-in-the-embedded-designer) para obtener más información.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2023-08-09">
 
-### Embedded Designer
+### Diseñador Integrado
 
-Your customers may want to build integrations for themselves between your product and the other apps and services they use.
-Embedded designer allows your customers to log in to your app and build integrations using 's integration designer.
-You can provision your customers access to private components that you have built, and can provide your customers with "templates" that they can use as a starting point for building their own integrations.
+Tus clientes pueden querer construir integraciones por sí mismos entre tu producto y otras aplicaciones y servicios que utilizan.
+El diseñador integrado permite a tus clientes iniciar sesión en tu aplicación y construir integraciones usando el diseñador de integraciones.
+Puedes proporcionar a tus clientes acceso a componentes privados que has construido, y puedes ofrecerles a tus clientes "plantillas" que pueden usar como punto de partida para construir sus propias integraciones.
 
-<Vimeo video="852820250" title="Embedded Designer Announcement" />
+<Vimeo video="852820250" title="Anuncio de Embedded Designer" />
 
-Read more about the embedded designer on [Embedding Integration Designer](embedded-designer.mdx) docs page.
+Lee más sobre el diseñador integrado en la página de documentación [Incrustación del Diseñador de Integración](embedded-designer.mdx).
 
-If you're interested in using embedded designer, please [contact support](mailto:support@.io) to discuss enabling embedded designer for your organization.
+Si estás interesado en utilizar el diseñador integrado, por favor [contacta al soporte](mailto:support@.io) para discutir la activación del diseñador integrado para tu organización.
 
-### New Embedded SDK
+### Nuevo SDK Incrustado
 
-Along with embedded designer comes a new embedded SDK.
-If you are currently using [@-io/marketplace](https://www.npmjs.com/package/@-io/marketplace) for embedded marketplace, swap it out for the new [@-io/embedded](https://www.npmjs.com/package/@-io/embedded) NodeJS package to begin using the embedded designer features.
-`@-io/marketplace` will continue to work, but `@-io/embedded` is a superset of features and new features and enhancements will only be added to the new embedded SDK.
+Junto con el diseñador integrado viene un nuevo SDK incrustado.
+Si actualmente estás utilizando [@-io/marketplace](https://www.npmjs.com/package/@-io/marketplace) para el mercado incrustado, cámbialo por el nuevo paquete de NodeJS [@-io/embedded](https://www.npmjs.com/package/@-io/embedded) para comenzar a utilizar las funciones del diseñador integrado.
+`@-io/marketplace` seguirá funcionando, pero `@-io/embedded` es un conjunto de características y nuevas características y mejoras solo se agregarán al nuevo SDK incrustado.
 
-### Embedded SDK v2.0.0
+### SDK integrado v2.0.0
 
-The newest version of the embedded SDK changes the Marketplace default of `screenConfiguration.marketplace.configuration` to `allow-details` instead of `always-show-details`.
-See [docs](embedding-marketplace.mdx#integration-configuration-detail-screen) for information on the integration configuration detail screen options.
+La versión más reciente del SDK incrustado cambia el valor predeterminado del Marketplace de `screenConfiguration.marketplace.configuration` a `allow-details` en lugar de `always-show-details`.
+Consulta la [documentación](embedding-marketplace.mdx#integration-configuration-detail-screen) para obtener información sobre las opciones de pantalla de configuración de integración.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2023-07-26">
 
-### Linking Execution Replays
+### Vinculación de Repeticiones de Ejecución
 
-[Replays](instances.mdx#execution-replay) of executions are now linked to the original execution.
-This makes it easier to query for failed executions, and replay only those executions that don't have a subsequent replay that succeeded.
+Las [repeticiones](instances.mdx#execution-replay) de ejecuciones ahora están vinculadas a la ejecución original.
+Esto facilita la consulta de ejecuciones fallidas y la repetición solo de aquellas ejecuciones que no tienen una repetición posterior que haya tenido éxito.
 
-<Vimeo video="848852783" title="Linking Execution Replays" />
+<Vimeo video="848852783" title="Vinculación de repeticiones de ejecuciones" />
 
-See [docs](instances.mdx/#instance-execution-retry-and-replay) for more information, and the [Examples repo](https://github.com/-io/examples/tree/main/api/replay-failed-executions) in GitHub for the script mentioned in the above video.
+Consulta la [documentación](instances.mdx/#instance-execution-retry-and-replay) para obtener más información y el [repositorio de Ejemplos](https://github.com/-io/examples/tree/main/api/replay-failed-executions) en GitHub para el script mencionado en el video anterior.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2023-07-25">
 
-### New Components - July 2023
+### Nuevos Componentes - Julio 2023
 
-Some exciting new components landed this month:
+¡Este mes llegaron algunos componentes nuevos emocionantes!
 
-- [Google Content Shopping](components/google-content-shopping.mdx) - Update Google Content Shopping feeds, products, and more
-- [Azure Service Bus](components/azure-service-bus.mdx) - Manage Azure Service Bus queues and topics
-- [SAP S4/HANA](components/sapS4Hana.mdx) - Maintain ERP records in SAP S4/HANA
-- [Google BigQuery](components/google-cloud-bigquery.mdx) - Manage Google BigQuery datasets, tables, and more
+- [Google Content Shopping](components/google-content-shopping.mdx) - Actualiza feeds de Google Content Shopping, productos y más.
+- [Azure Service Bus](components/azure-service-bus.mdx) - Gestiona colas y temas de Azure Service Bus.
+- [SAP S4/HANA](components/sapS4Hana.mdx) - Mantén registros de ERP en SAP S4/HANA.
+- [Google BigQuery](components/google-cloud-bigquery.mdx) - Gestiona conjuntos de datos, tablas y más en Google BigQuery.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2023-06-30">
 
-### New Components - June 2023
+### Nuevos Componentes - Junio 2023
 
-This month we released several new components to help you build integrations for your customers:
+Este mes lanzamos varios componentes nuevos para ayudarte a construir integraciones para tus clientes:
 
-- [Algolia](components/algolia.mdx) - Update Algolia indexes and records and perform search operations.
-- [ClickUp](components/click-up.mdx) - Manage Click Up users, projects and teams within your customers' Click Up workspaces.
-- [Greenhouse](components/greenhouse.mdx) - Manage Greenhouse jobs, candidates, applications, and more.
-- [Postmark](components/postmark.mdx) - Send and receive emails using Postmark's email API.
-- [SMTP](components/smtp.mdx) - Send emails using SMTP.
-- [Snowflake](components/snowflake.mdx) - Manage Snowflake databases, warehouses, schemas, tables, and more.
+- [Algolia](components/algolia.mdx) - Actualiza índices y registros de Algolia y realiza operaciones de búsqueda.
+- [ClickUp](components/click-up.mdx) - Gestiona usuarios, proyectos y equipos de Click Up dentro de los espacios de trabajo de Click Up de tus clientes.
+- [Greenhouse](components/greenhouse.mdx) - Gestiona empleos, candidatos, aplicaciones y más en Greenhouse.
+- [Postmark](components/postmark.mdx) - Envía y recibe correos electrónicos utilizando la API de correo electrónico de Postmark.
+- [SMTP](components/smtp.mdx) - Envía correos electrónicos utilizando SMTP.
+- [Snowflake](components/snowflake.mdx) - Gestiona bases de datos, almacenes, esquemas, tablas y más en Snowflake.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2023-06-21">
 
-### Hide the Instance Details Configuration Page
+### Ocultar la Página de Configuración de Detalles de la Instancia
 
-You now have options for configuring how and if a marketplace user should access the integrations configuration details screen. This includes the ability to prevent a marketplace user from accessing the instance configuration details screen. This is useful if your customers should not access the **Test**, **Executions**, **Monitors** or **Logs** functionality.
-Check out our [docs](embedding-marketplace.mdx#integration-configuration-detail-screen) for more information.
+Ahora tienes opciones para configurar cómo y si un usuario del mercado debería acceder a la pantalla de detalles de configuración de integraciones. Esto incluye la capacidad de evitar que un usuario del mercado acceda a la pantalla de detalles de configuración de la instancia. Esto es útil si tus clientes no deben acceder a las funcionalidades de **Prueba**, **Ejecuciones**, **Monitores** o **Registros**.
+Consulta nuestra [documentación](embedding-marketplace.mdx#integration-configuration-detail-screen) para obtener más información.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2023-05-30">
 
-### New Components - May 2023
+### Nuevos Componentes - Mayo de 2023
 
-This month we released a new component to connect to [Adobe Analytics](components/adobe-analytics.mdx), so your customers can manage companies, report suites, metrics and more.
+Este mes lanzamos un nuevo componente para conectar con [Adobe Analytics](components/adobe-analytics.mdx), para que tus clientes puedan gestionar empresas, suites de informes, métricas y más.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2023-05-16">
 
-### Multiple Instances of Integrations in Embedded Marketplace
+### Múltiples Instancias de Integraciones en el Mercado Integrado
 
-Your customers can now enable multiple instances of an integration through embedded marketplace.
-This allows your customers to set up several copies of an integration of themselves, each with different configurations.
+Ahora tus clientes pueden habilitar múltiples instancias de una integración a través del mercado integrado. Esto les permite a tus clientes configurar varias copias de una integración por sí mismos, cada una con configuraciones diferentes.
 
-Check out our [docs](embedding-marketplace.mdx#multiple-instances-of-one-integration-in-marketplace) for more information.
+Consulta nuestra [documentación](embedding-marketplace.mdx#multiple-instances-of-one-integration-in-marketplace) para obtener más información.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2023-05-15">
 
-### Embedded Config Variable Settings
+### Configuración de Variables Incrustadas
 
-Granular config variable and connection input settings allow your org to better control who can see and set integration configurations values. Read more in [docs](configuration-wizard.mdx#config-variable-visibility).
+La configuración granular de variables de configuración y de entrada de conexiones permite a tu organización controlar mejor quién puede ver y establecer los valores de configuración de integración. Lee más en la [documentación](configuration-wizard.mdx#config-variable-visibility).
 
-### Endpoint Security Settings
+### Configuración de Seguridad de Puntos de Acceso
 
-New Endpoint security settings allow your org to configure which endpoints should have API keys and who should set them (org vs customer). Read more in [docs](endpoint-configuration.mdx#securing-endpoints-with-api-keys).
+Nuevas configuraciones de seguridad de puntos de acceso permiten a tu organización configurar qué puntos de acceso deben tener claves API y quién debería establecerlas (organización vs cliente). Lee más en la [documentación](endpoint-configuration.mdx#securing-endpoints-with-api-keys).
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2023-04-28">
 
-### New Components - April 2023
+### Nuevos Componentes - Abril de 2023
 
-A couple of new components are available!
-A full catalog is available [here](components/component-catalog.mdx).
-This past month, we added:
+¡Un par de nuevos componentes están disponibles!
+Un catálogo completo está disponible [aquí](components/component-catalog.mdx).
+El mes pasado, añadimos:
 
-- [Gusto](components/gusto.mdx) - Manage payroll, benefits, and human resource within Gusto
-- [Notion](components/notion.mdx) - Manage Notion pages, databases, and users
+- [Gusto](components/gusto.mdx) - Gestiona nóminas, beneficios y recursos humanos dentro de Gusto.
+- [Notion](components/notion.mdx) - Gestiona páginas, bases de datos y usuarios de Notion.
 
-Additionally, the [Airtable](components/airtable.mdx) component was updated to handle OAuth connections, as API key connections are being deprecated early next year.
+Además, el componente [Airtable](components/airtable.mdx) fue actualizado para manejar conexiones OAuth, ya que las conexiones de clave API serán obsoletas a principios del próximo año.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2023-04-18">
 
-### Advanced Embedded Marketplace Filtering
+### Filtrado Avanzado en el Marketplace Integrado
 
-You can now use logical operators like `and`, `or`, `startsWith`, `notEqual` and more to filter the integrations in your embedded marketplace.
-For example, if you would like to show all integrations that have a category "ERP" and label "paid", and would also like your Dropbox and Slack integrations to be displayed, a filter could look like:
+Ahora puedes usar operadores lógicos como `and`, `or`, `startsWith`, `notEqual` y más para filtrar las integraciones en tu marketplace integrado.
+Por ejemplo, si deseas mostrar todas las integraciones que tengan una categoría "ERP" y una etiqueta "pago", y también deseas que se muestren tus integraciones de Dropbox y Slack, un filtro podría ser así:
 
 ```ts
 [
@@ -211,144 +212,144 @@ For example, if you would like to show all integrations that have a category "ER
 ];
 ```
 
-Read more about advanced filters in the [docs](embedding-marketplace.mdx#advanced-integration-filters).
+Lee más sobre los filtros avanzados en la [documentación](embedding-marketplace.mdx#filtros-de-integración-avanzados).
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2023-03-30">
 
-### New Components - March 2023
+### Nuevos Componentes - Marzo 2023
 
-Our list of built-in components continues to grow.
-A full catalog is available [here](components/component-catalog.mdx).
-This past month, we added:
+Nuestra lista de componentes integrados sigue creciendo.
+Un catálogo completo está disponible [aquí](components/component-catalog.mdx).
+El mes pasado, agregamos:
 
-- [Microsoft Graph API](components/ms-graph-api.mdx) - Interact with the Microsoft Graph API
-- [OpenAI](components/openai.mdx) - Interact with OpenAI models, including Chat GPT and DALL·E
+- [Microsoft Graph API](components/ms-graph-api.mdx) - Interactúa con la API de Microsoft Graph.
+- [OpenAI](components/openai.mdx) - Interactúa con los modelos de OpenAI, incluidos Chat GPT y DALL·E.
 
-Additionally,
+Además,
 
-- [Microsoft Outlook](components/ms-outlook.mdx) - Added actions to interact with mailboxes, folders and email messages
+- [Microsoft Outlook](components/ms-outlook.mdx) - Se agregaron acciones para interactuar con buzones, carpetas y mensajes de correo electrónico.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2023-02-22">
 
-### New Components - February 2023
+### Nuevos Componentes - Febrero 2023
 
-We added a few additional components in February:
+Agregamos algunos componentes adicionales en febrero:
 
-- [Arena PLM](components/arena-plm.mdx) - Interact with items and resources in Arena PLM
-- [Google Analytics - GA4](components/google-analytics-ga4.mdx) - Manage Google Analytics GA4 accounts and data
-- [HTML Utils](components/html-utils.mdx) - Helpful HTML-related functions for building HTML documents and HTML-based emails.
+- [Arena PLM](components/arena-plm.mdx) - Interactúa con elementos y recursos en Arena PLM.
+- [Google Analytics - GA4](components/google-analytics-ga4.mdx) - Gestiona cuentas y datos de Google Analytics GA4.
+- [HTML Utils](components/html-utils.mdx) - Funciones útiles relacionadas con HTML para construir documentos HTML y correos electrónicos basados en HTML.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2023-01-26">
 
-### New Components - January 2023
+### Nuevos Componentes - Enero 2023
 
-Our list of built-in components continues to grow.
-A full catalog is available [here](components/component-catalog.mdx).
-This past month, we added:
+Nuestra lista de componentes integrados continúa creciendo.
+Un catálogo completo está disponible [aquí](components/component-catalog.mdx).
+El mes pasado, agregamos:
 
-- [HTML Utils](components/html-utils.mdx) - Helpful HTML-related functions for building HTML documents and HTML-based emails
-- [JSON Forms](components/jsonforms.mdx) - Create powerful custom forms for the configuration wizard
-- [Marketo](components/marketo.mdx) - Manage Marketo records
-- [MessagePack](components/messagepack.mdx) - Efficiently serialize or deserialize data into a JSON-like format
-- [Microsoft Outlook](components/ms-outlook.mdx) - Read and manage Microsoft Outlook calendars
-- [NetSuite](components/netsuite.mdx) - Manage NetSuite records
+- [HTML Utils](components/html-utils.mdx) - Funciones útiles relacionadas con HTML para construir documentos HTML y correos electrónicos basados en HTML.
+- [JSON Forms](components/jsonforms.mdx) - Crea formularios personalizados potentes para el asistente de configuración.
+- [Marketo](components/marketo.mdx) - Gestiona registros de Marketo.
+- [MessagePack](components/messagepack.mdx) - Serializa o deserializa datos de manera eficiente en un formato similar a JSON.
+- [Microsoft Outlook](components/ms-outlook.mdx) - Lee y gestiona calendarios de Microsoft Outlook.
+- [NetSuite](components/netsuite.mdx) - Gestiona registros de NetSuite.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-12-29">
 
-### JSON Forms Config Variables
+### Variables de Configuración JSON Forms
 
-We've integrated [JSON Forms](https://jsonforms.io/) into our configuration wizard to give you more control over your users' integration configuration experience.
-You can build a static JSON form using the built-in [JSON Forms](components/jsonforms.mdx) component, or create dynamic configuration experiences by adding JSON Forms [data sources](custom-components/writing-custom-components.mdx#json-forms-data-sources) to your custom components.
+Hemos integrado [JSON Forms](https://jsonforms.io/) en nuestro asistente de configuración para brindarte más control sobre la experiencia de configuración de integración de tus usuarios.
+Puedes construir un formulario JSON estático utilizando el componente integrado de [JSON Forms](components/jsonforms.mdx), o crear experiencias de configuración dinámicas agregando [fuentes de datos](custom-components/writing-custom-components.mdx#json-forms-data-sources) JSON Forms a tus componentes personalizados.
 
 <Screenshot
   filename="changelog/jsonforms.png"
   maxWidth="500px"
-  caption="JSON Forms in the configuration wizard"
+  caption="Formularios JSON en el asistente de configuración"
 />
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-12-14">
 
-### Internationalization (i18n) Support
+### Soporte de Internacionalización (i18n)
 
-Not all of your customers speak English.
-You can now offer translations for embedded marketplace, so your customers can enable integrations in their native language.
+No todos tus clientes hablan inglés.
+Ahora puedes ofrecer traducciones para el mercado integrado, para que tus clientes puedan habilitar integraciones en su idioma nativo.
 
-See [Embedding Marketplace](embedding-marketplace.mdx#translations-and-internationalization) for information on how to offer i18n support to your customers.
+Consulta [Integración de Marketplace](embedding-marketplace.mdx#translations-and-internationalization) para obtener información sobre cómo ofrecer soporte i18n a tus clientes.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-11-29">
 
-### New Components - October / November 2022
+### Nuevos Componentes - Octubre / Noviembre de 2022
 
-Our component team has been busy!
-A full catalog is available [here](components/component-catalog.mdx).
-In October and November we added:
+¡Nuestro equipo de componentes ha estado ocupado!
+Un catálogo completo está disponible [aquí](components/component-catalog.mdx).
+En octubre y noviembre agregamos:
 
-- [GraphQL](components/graphql.mdx) - Make GraphQL requests (queries and mutations) to a GraphQL-based API
-- [Microsoft Bing Ads](components/ms-bing-ads.mdx) - Manage Microsoft Bing Ad Customer Services
-- [Microsoft Bot Framework](components/ms-bot-framework.mdx) - Manage conversational interactions across platforms using Microsoft Bot Framework
-- [Microsoft Outlook](components/ms-outlook.mdx) - Read and manage Microsoft Outlook calendars
-- [Odoo](components/odoo.mdx) - Manage records in an Odoo database
-- [Zoho](components/zoho.mdx) - Manage records, users, and more in your Zoho CRM and Books apps
+- [GraphQL](components/graphql.mdx) - Realiza solicitudes GraphQL (consultas y mutaciones) a una API basada en GraphQL
+- [Microsoft Bing Ads](components/ms-bing-ads.mdx) - Administra los Servicios al Cliente de Anuncios de Microsoft Bing
+- [Microsoft Bot Framework](components/ms-bot-framework.mdx) - Gestiona interacciones conversacionales en varias plataformas utilizando Microsoft Bot Framework
+- [Microsoft Outlook](components/ms-outlook.mdx) - Lee y gestiona los calendarios de Microsoft Outlook
+- [Odoo](components/odoo.mdx) - Gestiona registros en una base de datos de Odoo
+- [Zoho](components/zoho.mdx) - Gestiona registros, usuarios y más en tus aplicaciones Zoho CRM y Books
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-11-09">
 
-### User Level Configuration
+### Configuración a Nivel de Usuario
 
-We're proud to introduce a new instance configuration option - **User-Level Configuration** (ULC).
+Nos enorgullece presentar una nueva opción de configuración de instancia: **Configuración a Nivel de Usuario** (ULC).
 
-**What is ULC**?
-ULC helps when multiple users of a single customer all need an integration.
-It allows you to configure a single instance of an integration for a customer, but collect configuration from multiple users and execute using user-specific configuration.
+**¿Qué es ULC**?
+ULC es útil cuando varios usuarios de un único cliente necesitan una integración.
+Permite configurar una sola instancia de una integración para un cliente, pero recopilar configuración de múltiples usuarios y ejecutarla utilizando la configuración específica del usuario.
 
-**Why use ULC**?
-ULC is handy if your integration requires user-specific config variables and credentials.
-For example, suppose your app needs to write data to several users' private Dropbox folders.
-With ULC, you can collect connection information for several users within a customer, and integrate with each of their individual Dropbox accounts.
+**¿Por qué usar ULC**?
+ULC es útil si tu integración requiere variables de configuración y credenciales específicas del usuario.
+Por ejemplo, supongamos que tu aplicación necesita escribir datos en las carpetas privadas de Dropbox de varios usuarios.
+Con ULC, puedes recopilar información de conexión para varios usuarios dentro de un cliente e integrarte con cada una de sus cuentas individuales de Dropbox.
 
-**How does ULC work**?
-At a high level, a single instance of an integration is deployed to a customer, and is configured with some customer-wide config variables.
-Individual users within the customer, then, go through a ULC config wizard and supply user-specific credentials and config variables.
-When the instance runs, it pulls in user-specific configuration depending on some rules you set.
+**¿Cómo funciona ULC**?
+A grandes rasgos, se implementa una sola instancia de una integración para un cliente y se configura con algunas variables de configuración específicas del cliente.
+Luego, los usuarios individuales dentro del cliente pasan por un asistente de configuración de ULC y proporcionan credenciales específicas del usuario y variables de configuración.
+Cuando se ejecuta la instancia, esta utiliza la configuración específica del usuario según algunas reglas que estableces.
 
-Read more about ULC in our [docs](user-level-configuration.mdx).
+Lee más sobre ULC en nuestra [documentación](user-level-configuration.mdx).
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-11-03">
 
-### Persisting Data for Integrations
+### Persistencia de Datos para Integraciones
 
-You can now persist data between instances of the same integration.
-This is handy if your customers need to share some state, or if you need to persist a customer mapping for [preprocess flows](endpoint-configuration.mdx).
+Ahora puedes persistir datos entre instancias de la misma integración.
+Esto es útil si tus clientes necesitan compartir algún estado, o si necesitas persistir un mapeo de clientes para [flujos de preprocesamiento](endpoint-configuration.mdx).
 
-See the [Persist Data](components/persist-data.mdx) docs, or write your own component that [persists integration data](custom-components/writing-custom-components.mdx#execution-instance-and-cross-flow-state)
+Consulta la documentación de [Persist Data](components/persist-data.mdx), o escribe tu propio componente que [persista datos de integración](custom-components/writing-custom-components.mdx#execution-instance-and-cross-flow-state).
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-10-04">
 
-### Source Code for Prism and Marketplace
+### Código Fuente para Prism y Marketplace
 
-Source code for the `@-io/prism` CLI tool and the embedded marketplace library, `@-io/marketplace`, have been added to public repositories on GitHub.
+El código fuente para la herramienta de línea de comandos `@-io/prism` y la biblioteca de mercado integrada, `@-io/marketplace`, se han añadido a repositorios públicos en GitHub.
 
-`prism` wraps the [ API](api/api-overview.mdx) and provides users a way to perform CRUD (create, read, update, delete) operations on a variety of resources (components, integrations, instances, customers, etc.) from the command line.
-Having it publicly available provides a great reference for developers looking to wrap the API themselves.
+`prism` envuelve la [API](api/api-overview.mdx) y proporciona a los usuarios una forma de realizar operaciones CRUD (crear, leer, actualizar, eliminar) en una variedad de recursos (componentes, integraciones, instancias, clientes, etc.) desde la línea de comandos.
+Tenerlo públicamente disponible proporciona una excelente referencia para los desarrolladores que buscan envolver la API ellos mismos.
 
-The two projects join the custom component SDK, `@-io/spectral`, which was already publicly available:
+Los dos proyectos se unen al SDK de componentes personalizados, `@-io/spectral`, que ya estaba públicamente disponible:
 
 - `@-io/prism` - [https://github.com/-io/prism](https://github.com/-io/prism)
 - `@-io/marketplace` - [https://github.com/-io/marketplace](https://github.com/-io/marketplace)
@@ -359,34 +360,34 @@ The two projects join the custom component SDK, `@-io/spectral`, which was alrea
 
 <ChangeLogEntry date="2022-09-28">
 
-### New Components - September 2022
+### Nuevos Componentes - Septiembre de 2022
 
-Our list of built-in components continues to grow.
-A full catalog is available [here](components/component-catalog.mdx).
-This past month, we added:
+Nuestra lista de componentes integrados sigue creciendo.
+Un catálogo completo está disponible [aquí](components/component-catalog.mdx).
+El mes pasado, agregamos:
 
-- [Fluent Commerce](components/fluent-commerce.mdx) - Manage orders within Fluent Commerce
-- [Google Analytics](components/google-analytics.mdx) - Manage Google Analytics accounts
-- [Gmail](components/google-gmail.mdx) - Fetch, read and manage messages in Gmail
-- [UUID](components/uuid.mdx) - Generate UUIDs and GUIDs
+- [Fluent Commerce](components/fluent-commerce.mdx) - Administra pedidos dentro de Fluent Commerce
+- [Google Analytics](components/google-analytics.mdx) - Administra cuentas de Google Analytics
+- [Gmail](components/google-gmail.mdx) - Obtiene, lee y administra mensajes en Gmail
+- [UUID](components/uuid.mdx) - Genera UUIDs y GUIDs
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-09-19">
 
-### Reimagined Instance Configuration Wizard
+### Nuevo Asistente de Configuración de Instancias
 
-We've overhauled the way deploy-time configuration management works, making it much more flexible and dynamic.
+Hemos renovado la forma en que funciona la gestión de configuraciones en tiempo de implementación, haciéndola mucho más flexible y dinámica.
 
-It's a wizard now, so you can split complex configuration pages in a way that's intuitive to your customers.
-Any existing configuration pages will simply become part of a one page wizard, so everything will continue to work as-is.
+Ahora es un asistente, por lo que puedes dividir páginas de configuración complejas de una manera intuitiva para tus clientes.
+Cualquier página de configuración existente simplemente se convertirá en parte de un asistente de una sola página, por lo que todo seguirá funcionando como hasta ahora.
 
-Read more about the configuration wizard designer on the [Building Integrations](configuration-wizard.mdx#configuration-wizard-designer) docs page.
+Lee más sobre el diseñador del asistente de configuración en la página de documentación [Construcción de Integraciones](configuration-wizard.mdx#configuration-wizard-designer).
 
 <Screenshot
   filename="changelog/old-instance-config.png"
   maxWidth="600px"
-  caption="Embedded Instance Configuration Experience (Before)"
+  caption="Experiencia de configuración de instancias integradas (antes)"
 />
 
 <br />
@@ -394,17 +395,17 @@ Read more about the configuration wizard designer on the [Building Integrations]
 <Screenshot
   filename="changelog/new-instance-config.png"
   maxWidth="600px"
-  caption="Embedded Instance Configuration Experience (After)"
+  caption="Experiencia de configuración de instancias integradas (después)"
 />
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-09-19">
 
-### UI Redesign
+### Rediseño de la interfaz de usuario
 
-You've probably noticed that the UI has gotten a facelift!
-Based on everything we've learned over the last couple of years, we've improved the UI to feel better and be more intuitive.
+Seguramente te habrás dado cuenta de que la interfaz de usuario se ha renovado.
+Basándonos en todo lo que hemos aprendido en los últimos años, hemos mejorado la interfaz de usuario para que sea más intuitiva.
 
 <Screenshot
   filename="changelog/old-ui.png"
@@ -424,749 +425,750 @@ Based on everything we've learned over the last couple of years, we've improved 
 
 <ChangeLogEntry date="2022-07-29">
 
-### New Components - July 2022
+### Nuevos Componentes - Julio 2022
 
-This month we added a new utility component for zipping and unzipping files:
+Este mes hemos agregado un nuevo componente de utilidad para comprimir y descomprimir archivos:
 
-- [Zip](components/zip.mdx) - Provides utility methods for working with zip files
+- [Zip](components/zip.mdx) - Proporciona métodos de utilidad para trabajar con archivos zip
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-06-29">
 
-### Access Instance Metadata from an Action
+### Acceder a Metadatos de la Instancia desde una Acción
 
-You can now access additional information about the currently running execution from your custom component including:
+Ahora puedes acceder a información adicional sobre la ejecución en curso desde tu componente personalizado, incluyendo:
 
-- The name and ID of the running instance
-- The name, ID and external ID of the customer the instance is deployed to
-- Webhook URLs for all flows of the running instance
+- El nombre y ID de la instancia en ejecución.
+- El nombre, ID y ID externo del cliente al que se implementa la instancia.
+- URLs de webhook para todos los flujos de la instancia en ejecución.
 
-This is handy if you need to know information about the current run context, or if you're building actions that configure or delete webhooks in a third-party app.
-To access new `context` properties, update your custom component's `@-io/spectral` version `6.6.0`.
+Esto es útil si necesitas conocer información sobre el contexto de ejecución actual, o si estás construyendo acciones que configuran o eliminan webhooks en una aplicación de terceros.
+Para acceder a las nuevas propiedades del `contexto`, actualiza la versión de `@-io/spectral` de tu componente personalizado a `6.6.0`.
 
-Read more about the expanded [context parameter](custom-components/writing-custom-components.mdx#the-context-parameter).
+Lee más sobre el parámetro de [contexto expandido](custom-components/writing-custom-components.mdx#the-context-parameter).
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-06-28">
 
-### New Components - June 2022
+### Nuevos Componentes - Junio ​​de 2022
 
-Our list of built-in components continues to grow!
-A full catalog is available [here](components/component-catalog.mdx).
-This past month, we added:
+¡Nuestra lista de componentes integrados sigue creciendo!
+Un catálogo completo está disponible [aquí](components/component-catalog.mdx).
+El mes pasado, agregamos:
 
-- [GitHub](components/github.mdx) - Manage users, repositories, licenses, and more on GitHub
-- [Hash](components/hash.mdx) - Compute hashes of strings using common hash functions
-- [Pipedrive](components/pipedrive.mdx) - Manage leads, companies, activities, and more on the Pipedrive platform
-- [Rippling](components/rippling.mdx) - Rippling makes it easy to manage your company's Payroll, Benefits, HR, and IT—all in one, modern platform
+- [GitHub](components/github.mdx) - Gestiona usuarios, repositorios, licencias y más en GitHub.
+- [Hash](components/hash.mdx) - Calcula hashes de cadenas utilizando funciones de hash comunes.
+- [Pipedrive](components/pipedrive.mdx) - Gestiona clientes potenciales, empresas, actividades y más en la plataforma de Pipedrive.
+- [Rippling](components/rippling.mdx) - Rippling facilita la gestión de la nómina, beneficios, recursos humanos y tecnología de su empresa, todo en una plataforma moderna.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-06-06">
 
-### Additional Control Over Marketplace UI
+### Más Control sobre la Interfaz de Usuario del Marketplace
 
-You now have more control over the UI elements that appear to your customers in your embedded marketplace.
-If you would like to hide the **Back to Marketplace** link, or the **Test**, **Executions**, **Logs**, or **Monitors** tabs on an instance configuration screen [you can](embedding-marketplace.mdx#hiding-ui-elements-in-marketplace)!
+Ahora tienes más control sobre los elementos de la interfaz de usuario que aparecen para tus clientes en tu marketplace integrado.
+Si deseas ocultar el enlace **Volver al Marketplace**, o las pestañas **Pruebas**, **Ejecuciones**, **Registros** o **Monitores** en una pantalla de configuración de instancia, ¡[puedes hacerlo](embedding-marketplace.mdx#hiding-ui-elements-in-marketplace)!
 
-Bump your `@-io/marketplace` version to `3.1.0`, and add a `screenConfiguration` code block to your marketplace.
+Actualiza tu versión de `@-io/marketplace` a `3.1.0`, y agrega un bloque de código `screenConfiguration` a tu marketplace.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-05-24">
 
-### New Components - May 2022
+### Nuevos Componentes - Mayo 2022
 
-We have five new components this month (including a component to itself - how meta!).
+¡Este mes tenemos cinco nuevos componentes (¡incluyendo un componente para sí mismo - qué meta!).
 
-- [IMAP](components/imap.mdx) - Fetch and manage email via IMAP
-- [Intercom](components/intercom.mdx) - Manage companies, contacts and tags on the Intercom platform
-- [Microsoft Sharepoint](components/ms-sharepoint.mdx) - Interact with sites, drives, and items within Microsoft Sharepoint
-- [Pretty Good Privacy (PGP)](components/pgp.mdx) - Create and translate encrypted messages
-- [](components/.mdx) - Interact with the API to manage customers, integrations, instances, etc.
+- [IMAP](components/imap.mdx) - Obtén y gestiona correos electrónicos a través de IMAP.
+- [Intercom](components/intercom.mdx) - Gestiona empresas, contactos y etiquetas en la plataforma Intercom.
+- [Microsoft Sharepoint](components/ms-sharepoint.mdx) - Interactúa con sitios, unidades y elementos dentro de Microsoft Sharepoint.
+- [Pretty Good Privacy (PGP)](components/pgp.mdx) - Crea y traduce mensajes encriptados.
+- [NUEVO](components/.mdx) - Interactúa con la API para gestionar clientes, integraciones, instancias, etc.
 
-A full catalog is available [here](components/component-catalog.mdx).
+Un catálogo completo está disponible [aquí](components/component-catalog.mdx).
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-05-17">
 
-### Improvements to Custom Component Development
+### Mejoras en el Desarrollo de Componentes Personalizados
 
-We've made several improvements to the custom component development experience. To highlight a few:
+Hemos realizado varias mejoras en la experiencia de desarrollo de componentes personalizados. Destacamos algunas:
 
-- You can now [`clean`](custom-components/writing-custom-components.mdx#cleaning-inputs) your reusable inputs, which helps ensure type safety and catches problems with inputs before they reach the `perform` function.
-- You can now add a [global error handler](custom-components/writing-custom-components.mdx#global-error-handlers) to your component, which helps you capture and display more informative errors if they're thrown.
-- The improved [testing harness](spectral/spectral-6-upgrade-guide.mdx#new-spectral-testing-harness) gives you more flexibility when unit testing your actions and triggers.
-- The `prism` CLI tool can now fetch existing integration connections (including OAuth 2.0 access tokens) and store them in environment variables, so you can [use them for unit testing](cli/prism.mdx#componentsdevrun).
+- Ahora puedes [`limpiar`](custom-components/writing-custom-components.mdx#cleaning-inputs) tus entradas reutilizables, lo que ayuda a garantizar la seguridad del tipo y detecta problemas con las entradas antes de que lleguen a la función `perform`.
+- Ahora puedes agregar un [manejador de errores global](custom-components/writing-custom-components.mdx#global-error-handlers) a tu componente, lo que te ayuda a capturar y mostrar errores más informativos si se lanzan.
+- El [herramienta de prueba mejorada](spectral/spectral-6-upgrade-guide.mdx#new-spectral-testing-harness) te brinda más flexibilidad al realizar pruebas unitarias en tus acciones y disparadores.
+- La herramienta `prism` CLI ahora puede obtener conexiones de integración existentes (incluidos los tokens de acceso OAuth 2.0) y almacenarlos en variables de entorno, para que puedas [usarlos en pruebas unitarias](cli/prism.mdx#componentsdevrun).
 
-Update to the latest [`@-io/spectral`](https://www.npmjs.com/package/@-io/spectral) 6.x version to take advantage of these new features!
-
-</ChangeLogEntry>
-
-<ChangeLogEntry date="2022-05-04">
-
-### Cross-Flow State Storage
-
-You can now store and load across flows of an instance.
-One flow can save state, and another flow can load that saved state.
-
-Check out our [Persist Data](components/persist-data.mdx) for documentation on the new "Cross Flow" actions, and see our [docs](custom-components/writing-custom-components.mdx#execution-instance-and-cross-flow-state) to build state storage into your custom components.
+¡Actualiza a la última versión de [`@-io/spectral`](https://www.npmjs.com/package/@-io/spectral) 6.x para aprovechar estas nuevas características!
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-05-04">
 
-### Step-Level Error Handling
+### Almacenamiento de Estado Transversal
 
-Sometimes a step in an integration throws an error.
-This can be caused by a variety of external factors - temporary network connectivity issues, brief third-party API outages, etc.
+Ahora puedes almacenar y cargar datos a través de flujos de una instancia. Un flujo puede guardar un estado, y otro flujo puede cargar ese estado guardado.
 
-You can now configure how the integration runner handles errors on each step.
-You can choose to stop the instance execution (that's the current default behavior), you can ignore the error and continue the run, or you can choose to wait and retry the step at a later time.
+Consulta nuestra documentación sobre [Persist Data](components/persist-data.mdx) para obtener información sobre las nuevas acciones "Cross Flow", y consulta nuestros [documentos](custom-components/writing-custom-components.mdx#execution-instance-and-cross-flow-state) para integrar el almacenamiento de estado en tus componentes personalizados.
 
-Read more in our [docs](building-integrations.mdx#step-error-handling).
+</ChangeLogEntry>
+
+<ChangeLogEntry date="2022-05-04">
+
+### Manejo de Errores a Nivel de Paso
+
+A veces, un paso en una integración genera un error. Esto puede ser causado por una variedad de factores externos, como problemas temporales de conectividad de red, cortos cortes en la API de terceros, etc.
+
+Ahora puedes configurar cómo el ejecutor de la integración maneja los errores en cada paso. Puedes optar por detener la ejecución de la instancia (ese es el comportamiento predeterminado actual), puedes ignorar el error y continuar la ejecución, o puedes elegir esperar y volver a intentar el paso más tarde.
+
+Lee más en nuestra [documentación](building-integrations.mdx#step-error-handling).
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-05-03">
 
-### Instance Remove Trigger
+### Desencadenador de Eliminación de Instancias
 
-A new management trigger - [Instance Remove](components/management-triggers.mdx#instance-remove) has been added to the [Management Triggers](components/management-triggers.mdx) component.
-Flows that use the instance remove trigger are run when an instance is deleted.
+Se ha añadido un nuevo desencadenador de gestión - [Instance Remove](components/management-triggers.mdx#instance-remove) al componente [Management Triggers](components/management-triggers.mdx).
+Los flujos que utilizan el desencadenador de eliminación de instancias se ejecutan cuando se elimina una instancia.
 
-This new trigger is handy for cleaning up configuration created by the integration.
-For example, you can remove webhook configuration in third-party apps, or update our own API so your team knows that a customer removed an integration.
+Este nuevo desencadenador es útil para limpiar la configuración creada por la integración.
+Por ejemplo, puedes eliminar la configuración de webhook en aplicaciones de terceros, o actualizar nuestra propia API para que tu equipo sepa que un cliente eliminó una integración.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-05-02">
 
-### Set Config Variables from Marketplace
+### Establecer Variables de Configuración desde el Marketplace
 
-You can now set values for configuration variables from your app within your embedded marketplace.
-This is helpful if you know some information about your customer (their API key, a special endpoint they use, data mapping configuration, etc), and would like to set a config variable value so they don't need to.
+Ahora puedes establecer valores para variables de configuración desde tu aplicación dentro de tu marketplace integrado.
+Esto es útil si conoces alguna información sobre tu cliente (su clave de API, un punto final especial que utilizan, configuración de mapeo de datos, etc.) y deseas establecer un valor de variable de configuración para que no necesiten hacerlo.
 
-Read more about [Dynamically Setting Config Variables in Marketplace](embedding-marketplace.mdx#dynamically-setting-config-variables-in-marketplace) in our docs.
-
-</ChangeLogEntry>
-
-<ChangeLogEntry date="2022-04-28">
-
-### New Components - April 2022
-
-We added some new components to [our catalog](components/component-catalog.mdx) in April.
-This past month, we added:
-
-- [Facebook Marketing](components/facebook-marketing.mdx) - Interact with ads and adsets in your Facebook Marketing account
-- [Google Ads](components/google-ads.mdx) - Manage Google Ad campaigns
-- [WooCommerce](components/woo-commerce.mdx) - Easily manage your customers, orders, and products in your WooCommerce platform
+Lee más sobre [Configuración Dinámica de Variables de Configuración en el Marketplace](embedding-marketplace.mdx#dynamically-setting-config-variables-in-marketplace) en nuestra documentación.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-04-28">
 
-### Sending Data Through URL Path
+### Nuevos Componentes - Abril de 2022
 
-Some popular SaaS applications append URL paths to the webhooks that they're configured to use.
-So, given a webhook endpoint `https://hooks..io/trigger/EXAMPLE==` they might send data to `https://hooks..io/trigger/EXAMPLE==/order/created`.
+Agregamos algunos nuevos componentes a [nuestro catálogo](components/component-catalog.mdx) en abril.
+El mes pasado, agregamos:
 
-You can now send data to webhook triggers four ways:
+- [Facebook Marketing](components/facebook-marketing.mdx) - Interactúa con anuncios y conjuntos de anuncios en tu cuenta de Facebook Marketing.
+- [Google Ads](components/google-ads.mdx) - Gestiona campañas publicitarias de Google Ads.
+- [WooCommerce](components/woo-commerce.mdx) - Gestiona fácilmente tus clientes, pedidos y productos en tu plataforma WooCommerce.
 
-- Request body
-- Request headers
-- URL parameters
-- URL path (added)
+</ChangeLogEntry>
 
-Check out our [Integration Triggers](integration-triggers.mdx/#sending-data-to-webhook-triggers) article for more information.
+<ChangeLogEntry date="2022-04-28">
+
+### Envío de Datos a Través de la Ruta de la URL
+
+Algunas aplicaciones SaaS populares añaden rutas de URL a los webhooks que están configurados para utilizar.
+Entonces, dada una dirección de webhook `https://hooks..io/trigger/EXAMPLE==`, podrían enviar datos a `https://hooks..io/trigger/EXAMPLE==/order/created`.
+
+Ahora puedes enviar datos a los disparadores de webhook de cuatro maneras:
+
+- Cuerpo de la solicitud
+- Encabezados de la solicitud
+- Parámetros de la URL
+- Ruta de la URL (añadido)
+
+Consulta nuestro artículo sobre [Disparadores de Integración](integration-triggers.mdx/#sending-data-to-webhook-triggers) para más información.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-04-26">
 
-### Improved Shared Endpoint Configuration
+### Mejora en la Configuración de Endpoints Compartidos
 
-Instance-specific endpoints (meaning all flows in an instance share one webhook URL) and shared endpoints (meaning all instances of an integration share one webhook URL) are now easier to configure, test and troubleshoot.
-Check out our [Endpoint Configuration](endpoint-configuration.mdx) article for details and our [Using Shared Webhooks and Preprocess Flows](quickstarts/using-shared-webhooks-and-preprocess-flows.mdx) for an example of how to use shared endpoints.
+Ahora es más fácil configurar, probar y solucionar problemas con los endpoints específicos de instancia (lo que significa que todos los flujos en una instancia comparten una URL de webhook) y los endpoints compartidos (lo que significa que todas las instancias de una integración comparten una URL de webhook).
+Consulta nuestro artículo sobre [Configuración de Endpoints](endpoint-configuration.mdx) para obtener detalles y nuestro [Uso de Webhooks Compartidos y Flujos de Preprocesamiento](quickstarts/using-shared-webhooks-and-preprocess-flows.mdx) para ver un ejemplo de cómo utilizar endpoints compartidos.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-04-19">
 
-### Using the GET HTTP Verb to Invoke Instances
+### Uso del Verbo HTTP GET para Invocar Instancias
 
-Instance webhook triggers can now be invoked using the GET HTTP verb in addition to the POST verb.
+Los desencadenadores de webhook de instancia ahora pueden ser invocados utilizando el verbo HTTP GET además del verbo POST.
 
-Some third-party apps (notably [Dropbox](components/dropbox.mdx) among others) verify that a webhook endpoint is ready to receive requests with a GET request.
-They then send webhook payloads with POST requests.
-This change was made to support the initial verification GET requests.
+Algunas aplicaciones de terceros (notablemente [Dropbox](components/dropbox.mdx) entre otras) verifican que un endpoint de webhook esté listo para recibir solicitudes con una solicitud GET.
+Luego envían cargas útiles de webhook con solicitudes POST.
+Este cambio se realizó para admitir las solicitudes de verificación inicial GET.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-03-29">
 
-### New Components - March 2022
+### Nuevos Componentes - Marzo 2022
 
-Our list of built-in components continues to grow.
-A full catalog is available [here](components/component-catalog.mdx).
-This past month, we added:
+Nuestra lista de componentes integrados sigue creciendo.
+Un catálogo completo está disponible [aquí](components/component-catalog.mdx).
+El mes pasado, agregamos:
 
-- [Collection Tools](components/collection-tools.mdx) - Perform common operations on collections
-- [Microsoft OneDrive](components/ms-onedrive.mdx) - Interact with files and drives inside Microsoft OneDrive
+- [Herramientas de Colección](components/collection-tools.mdx) - Realiza operaciones comunes en colecciones
+- [Microsoft OneDrive](components/ms-onedrive.mdx) - Interactúa con archivos y unidades dentro de Microsoft OneDrive
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-03-24">
 
-### Cloning Flows
+### Clonación de Flujos
 
-If you need to add a flow that is similar to another flow you've already built, it's helpful to be able to **clone** (make a copy of) a flow.
-You can now clone an existing flow from the flow menu in the integration designer.
+Si necesitas agregar un flujo que sea similar a otro flujo que ya has construido, es útil poder **clonar** (hacer una copia de) un flujo.
+Ahora puedes clonar un flujo existente desde el menú de flujo en el diseñador de integración.
 
 <Screenshot
   filename="integrations/clone-flow.png"
   maxWidth="600px"
-  alt="Clone integration flow in  app"
+  alt="Clonar el flujo de integración en la aplicación"
 />
 
-For more information, see our [Building Integrations](building-integrations.mdx#cloning-a-flow) article.
+Para obtener más información, consulta nuestro artículo [Construyendo Integraciones](building-integrations.mdx#cloning-a-flow).
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-03-21">
 
-### Filter Marketplace Integrations
+### Filtrar Integraciones del Marketplace
 
-You can now filter the integrations that you show in your embedded marketplace by [category](integrations.mdx#categorizing-integrations) or [label](integrations.mdx#integration-labels).
-This gives you the flexibility to show specific types of integrations to specific users or customers.
+Ahora puedes filtrar las integraciones que muestras en tu marketplace incrustado por [categoría](integrations.mdx#categorizing-integrations) o [etiqueta](integrations.mdx#integration-labels).
+Esto te brinda la flexibilidad de mostrar tipos específicos de integraciones a usuarios o clientes específicos.
 
-To get started with filtering your embedded marketplace, update your [@-io/marketplace](https://www.npmjs.com/package/@-io/marketplace) package to version 1.1.2, and add a `filters` attribute to your `.showMarketplace()` invocation - see [docs](embedding-marketplace.mdx#filtering-integrations) for details.
+Para empezar a filtrar tu marketplace incrustado, actualiza tu paquete [@-io/marketplace](https://www.npmjs.com/package/@-io/marketplace) a la versión 1.1.2, y agrega un atributo `filters` a tu invocación `.showMarketplace()` - consulta la [documentación](embedding-marketplace.mdx#filtering-integrations) para más detalles.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-03-16">
 
-### Labels for Customers, Integrations and Instances
+### Etiquetas para Clientes, Integraciones e Instancias
 
-You can now assign labels to your [customers](customers.mdx#customer-labels), [integrations](integrations.mdx#integration-labels) and [instances](instances.mdx#creating-instances).
-This helps you keep your account organized so you can find what you need quickly.
+Ahora puedes asignar etiquetas a tus [clientes](customers.mdx#customer-labels), [integraciones](integrations.mdx#integration-labels) e [instancias](instances.mdx#creating-instances).
+Esto te ayuda a mantener organizada tu cuenta para que puedas encontrar lo que necesitas rápidamente.
 
 <Screenshot
   filename="changelog/labels.png"
   maxWidth="650px"
-  alt="Assign labels to customers, integrations and instances in  app"
+  alt="Asignar etiquetas a clientes, integraciones e instancias en la aplicación"
 />
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-02-28">
 
-### Improvements to Embedded Theming
+### Mejoras en la Tematización Integrada
 
-You can now create custom themes for your embedded marketplace for both dark and light mode users of your application.
-Check out our [embedded marketplace docs](embedding-marketplace.mdx/#theming-embedded-marketplace) for information on how to theme your embedded marketplace to match your app's dark and light mode look-and-feel.
+Ahora puedes crear temas personalizados para tu mercado integrado tanto para usuarios con modo oscuro como claro de tu aplicación.
+Consulta nuestra [documentación del mercado integrado](embedding-marketplace.mdx/#theming-embedded-marketplace) para obtener información sobre cómo tematizar tu mercado integrado para que coincida con el aspecto y la sensación de modo oscuro y claro de tu aplicación.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-02-23">
 
-### New Components - February 2022
+### Nuevos Componentes - Febrero de 2022
 
-We have a couple new components this month!
-A full catalog is available [here](components/component-catalog.mdx).
-This past month, we added:
+¡Tenemos un par de componentes nuevos este mes!
+Un catálogo completo está disponible [aquí](components/component-catalog.mdx).
+El mes pasado, agregamos:
 
-- [Math](components/math.mdx) - Perform common math operations on numbers or lists of numbers
-- [Microsoft Dynamics 365](components/ms-dynamics.mdx) - Query, create, update or delete Microsoft Dynamics 365 API records
+- [Math](components/math.mdx) - Realiza operaciones matemáticas comunes en números o listas de números.
+- [Microsoft Dynamics 365](components/ms-dynamics.mdx) - Consulta, crea, actualiza o elimina registros de la API de Microsoft Dynamics 365.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-01-21">
 
-### New Components - January 2022
+### Nuevos Componentes - Enero de 2022
 
-We have some new components to show off this month:
+Este mes tenemos algunos componentes nuevos para mostrar:
 
-- [QuickBooks Time](components/quickbooks-time.mdx) - Manage employee time tracking within Intuit QuickBooks Time
-- [Sage](components/sage.mdx) - Manage contacts and others connected to your Sage account
-- [SOAP](components/soap.mdx) - Easily interact with SOAP-based APIs
+- [QuickBooks Time](components/quickbooks-time.mdx) - Gestiona el seguimiento del tiempo de los empleados dentro de Intuit QuickBooks Time.
+- [Sage](components/sage.mdx) - Gestiona contactos y otros conectados a tu cuenta de Sage.
+- [SOAP](components/soap.mdx) - Interactúa fácilmente con APIs basadas en SOAP.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-01-20">
 
-### Integrate Faster with SOAP APIs
+### Integra más rápido con APIs SOAP
 
-It's now easier to integrate with SOAP-based APIs. For quick one-off calls, you can use our built-in [SOAP component](components/soap.mdx) to fetch WSDL definitions and make requests to an API's SOAP methods. For more complex SOAP APIs, you can leverage our custom component SDK's [SOAP client utility functions](spectral/modules/_clients_soap_utils_.md) to wrap SOAP methods into a series of component actions.
+Ahora es más fácil integrarse con APIs basadas en SOAP. Para llamadas rápidas ocasionales, puedes usar nuestro componente [SOAP integrado](components/soap.mdx) para obtener definiciones WSDL y realizar solicitudes a los métodos SOAP de una API. Para APIs SOAP más complejas, puedes aprovechar las funciones de utilidad del cliente SOAP de nuestro SDK de componentes personalizados para envolver los métodos SOAP en una serie de acciones de componente.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2022-01-05">
 
-### Simpler, More Flexible Authentication
+### Autenticación más simple y flexible
 
-We've revamped the way that components connect to third-party apps and services.
-The new concept is called **connections**, and they make authentication _simpler_, more _flexible_, and _easier to support_.
+Hemos renovado la forma en que los componentes se conectan a aplicaciones y servicios de terceros.
+El nuevo concepto se llama **conexiones**, y hacen que la autenticación sea _más simple_, más _flexible_ y _más fácil de mantener_.
 
-We'll be updating our built-in components to use connections in the coming weeks, and credentials will eventually be phased out in favor of connections (but don't worry - credentials won't be sunset immediately!).
+Estaremos actualizando nuestros componentes integrados para usar conexiones en las próximas semanas, y las credenciales eventualmente serán eliminadas gradualmente a favor de las conexiones (¡pero no te preocupes, las credenciales no serán eliminadas inmediatamente!).
 
-For a full run-down how connections improve integration development and support and customer self-deployment, check out our <InternalLink href="/blog/simpler-more-flexible-authentication/">blog announcement.</InternalLink>
-Here's a quick summary:
+Para obtener una descripción completa de cómo las conexiones mejoran el desarrollo de integraciones y el soporte, y la implementación autoasistida por parte del cliente, consulta nuestro <InternalLink href="/blog/simpler-more-flexible-authentication/">anuncio en el blog</InternalLink>.
+Aquí tienes un resumen rápido:
 
-- Component developers have _more flexibility_ when declaring what information their components need to connect to a third party.
-  They can define [custom connections](custom-components/writing-custom-components.mdx#adding-connections) that include any number of fields, like username, password, API key, tenant ID, endpoint URL or other fields that are unique to the service they're integrating with.
-- The [OAuth 2.0 flow](configuration-wizard.mdx#oauth-20-connection-config-variables) got much _simpler_ and cleaner for both integration builders and customers who deploy the integration - customers just see a single button to click when they need to authenticate with OAuth.
-- Authorization got _simpler_ in general - connections live within the integration designer or a deployed instance.
-  You don't need to create credentials from the organization or customer settings pages, nor juggle credential types.
-  Components know what connections they're compatible with, and can only be paired with those connection config variables.
-- Connections are _easier to support_.
-  You can now configure alert monitors to [notify you](monitoring-and-alerting.mdx#alerting-on-connection-errors) when connections (OAuth or otherwise) expire or fail to authenticate in an integration.
+- Los desarrolladores de componentes tienen _más flexibilidad_ al declarar qué información necesitan sus componentes para conectarse a un tercero.
+  Pueden definir [conexiones personalizadas](custom-components/writing-custom-components.mdx#adding-connections) que incluyan cualquier cantidad de campos, como nombre de usuario, contraseña, clave API, ID de inquilino, URL de punto de conexión u otros campos que sean únicos para el servicio con el que se están integrando.
+- El flujo de [OAuth 2.0](configuration-wizard.mdx#oauth-20-connection-config-variables) se volvió mucho _más simple_ y limpio tanto para los constructores de integraciones como para los clientes que implementan la integración: los clientes solo ven un solo botón para hacer clic cuando necesitan autenticarse con OAuth.
+- La autorización se volvió _más simple_ en general: las conexiones están dentro del diseñador de integraciones o de una instancia implementada.
+  No necesitas crear credenciales desde las páginas de configuración de la organización o del cliente, ni manejar diferentes tipos de credenciales.
+  Los componentes saben con qué conexiones son compatibles y solo se pueden vincular con esas variables de configuración de conexión.
+- Las conexiones son _más fáciles de mantener_.
+  Ahora puedes configurar monitores de alerta para [notificarte](monitoring-and-alerting.mdx#alerting-on-connection-errors) cuando las conexiones (OAuth u otras) caduquen o no puedan autenticarse en una integración.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2021-12-22">
 
-### New Components - December 2021
+### Nuevos componentes - Diciembre de 2021
 
-We created new components for three popular SaaS apps this month:
+Creamos nuevos componentes para tres aplicaciones SaaS populares este mes:
 
-- [BambooHR](components/bamboohr.mdx) - Keep track of employees' HR needs
-- [Xero](components/xero.mdx) - Create and manage invoices, items, accounts, payments and more objects within a Xero account
-- [Zoom](components/zoom.mdx) - Manage Zoom users, meetings and webinars
+- [BambooHR](components/bamboohr.mdx) - Lleva un registro de las necesidades de recursos humanos de los empleados
+- [Xero](components/xero.mdx) - Crea y gestiona facturas, ítems, cuentas, pagos y más objetos dentro de una cuenta de Xero
+- [Zoom](components/zoom.mdx) - Gestiona usuarios, reuniones y webinars de Zoom
 
-A full catalog of all of our components is available [here](components/component-catalog.mdx).
+Un catálogo completo de todos nuestros componentes está disponible [aquí](components/component-catalog.mdx).
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2021-12-14">
 
-### Looping and Pagination
+### Bucle y Paginación
 
-The [loop component](components/loop.mdx) has been improved to facilitate easily looping over a paginated API.
-Many third-party APIs limit the number of records you can fetch at once, and let you load a batch (page) of records at a time.
-You can now more easily loop over paged records that you fetch from an external API, and you can break out of a loop whenever you've paged over all available records.
+El [componente de bucle](components/loop.mdx) ha sido mejorado para facilitar el bucle fácil sobre una API paginada.
+Muchas APIs de terceros limitan la cantidad de registros que se pueden recuperar a la vez, y te permiten cargar un lote (página) de registros a la vez.
+Ahora puedes bucle más fácilmente sobre los registros paginados que recuperas de una API externa, y puedes salir de un bucle cuando hayas paginado todos los registros disponibles.
 
-Check out our [quickstart](quickstarts/looping-over-a-paginated-api.mdx) for a tutorial on how to loop over pages of records in an integration.
+Consulta nuestra [guía rápida](quickstarts/looping-over-a-paginated-api.mdx) para un tutorial sobre cómo bucear sobre páginas de registros en una integración.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2021-11-24">
 
-### New Components - November 2021
+### Nuevos Componentes - Noviembre de 2021
 
-We have a bunch of new built-in components this month.
-A full catalog is available [here](components/component-catalog.mdx).
-This past month, we added:
+Tenemos un montón de nuevos componentes integrados este mes.
+Un catálogo completo está disponible [aquí](components/component-catalog.mdx).
+Este último mes, agregamos:
 
-- [Asana](components/asana.mdx) - Manage users, projects, and teams in your Asana workspace
-- [Monday](components/monday.mdx) - Manage boards, items, and columns inside your Monday account
-- [Microsoft Project](components/ms-project.mdx) - Make queries to reporting data from a Project Web App instance
-- [New Relic](components/new-relic.mdx) - Easily manage metrics, logs, and events
-- [Tableau](components/tableau.mdx) - Manage projects and workbooks in your Tableau site
-- [Zendesk](components/zendesk.mdx) - Manage Tickets and users in Zendesk
+- [Asana](components/asana.mdx) - Administra usuarios, proyectos y equipos en tu espacio de trabajo de Asana.
+- [Monday](components/monday.mdx) - Administra tableros, ítems y columnas dentro de tu cuenta de Monday.
+- [Microsoft Project](components/ms-project.mdx) - Realiza consultas para obtener datos de informes de una instancia de Project Web App.
+- [New Relic](components/new-relic.mdx) - Gestiona fácilmente métricas, registros y eventos.
+- [Tableau](components/tableau.mdx) - Administra proyectos y libros de trabajo en tu sitio de Tableau.
+- [Zendesk](components/zendesk.mdx) - Gestiona tickets y usuarios en Zendesk.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2021-11-16">
 
-### Stream Logs to External Logging Services
+### Transmitir Registros a Servicios de Registro Externos
 
-Customers on enterprise plans can now stream logs and metrics to external logging services (like DataDog or New Relic).
-This is useful, since you likely already use a logging service to collect logs from your various applications.
-Now, your integration logs can live alongside the rest of your applications' logs.
+Los clientes con planes empresariales ahora pueden transmitir registros y métricas a servicios de registro externos (como DataDog o New Relic).
+Esto es útil, ya que probablemente ya utilices un servicio de registro para recopilar registros de tus diversas aplicaciones.
+Ahora, los registros de tu integración pueden convivir junto con el resto de los registros de tus aplicaciones.
 
-Read more on our [logging article](logging.mdx#external-log-streaming).
+Lee más en nuestro [artículo sobre registro](logging.mdx#external-log-streaming).
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2021-11-10">
 
-### New Step Input: Expressions
+### Nuevo Entrada de Paso: Expresiones
 
-You can now reference multiple config variables, step results, and static strings for step input using templated [inputs](building-integrations.mdx#template-inputs).
-This lets you concatenate config variables, text, and step results together, without needing an additional step to do the concatenation.
-It's helpful for dynamically generating URLs, queries, messages, and more.
+Ahora puedes hacer referencia a múltiples variables de configuración, resultados de pasos y cadenas estáticas para la entrada de un paso utilizando [entradas](building-integrations.mdx#template-inputs) con plantillas.
+Esto te permite concatenar variables de configuración, texto y resultados de pasos juntos, sin necesidad de un paso adicional para realizar la concatenación.
+Es útil para generar dinámicamente URL, consultas, mensajes y más.
 
 <Screenshot
   filename="changelog/expression-input.png"
   maxWidth="600px"
-  alt="Expressions for step inputs in  app"
+  alt="Expresiones para entradas de pasos en app"
 />
 
-**Update:** As of 2022-05-25, "Expression inputs" have been renamed "Template inputs"
+**Actualización:** A partir del 2022-05-25, las "Entradas de expresión" han pasado a llamarse "Entradas de plantilla".
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2021-10-20">
 
-### New Components - October 2021
+### Nuevos Componentes - Octubre 2021
 
-Our list of built-in components continues to grow.
-A full catalog is available [here](components/component-catalog.mdx).
-This past month, we added:
+Nuestra lista de componentes integrados sigue creciendo.
+Un catálogo completo está disponible [aquí](components/component-catalog.mdx).
+El mes pasado, añadimos:
 
-- [AWS Glue](components/aws-glue.mdx) - Perform data transformation through AWS Glue
-- [AWS Lambda](components/aws-lambda.mdx) - Manage and invoke AWS Lambdas
-- [CSV](components/csv.mdx) - Build and parse CSV files to and from JavaScript arrays
-- [Firebase](components/firebase.mdx) - Create, read, update, and delete documents in a Firebase Cloud Firestore database collection
-- [Google Calendar](components/google-calendar.mdx) - Manage calendars and events in Google Calendar
-- [Hubspot](components/hubspot.mdx) - Manage objects and associations in the Hubspot CRM platform
-- [Jira](components/atlassian-jira.mdx) - Manage Jira issues, comments, projects and users
-- [Mailchimp](components/mailchimp.mdx) - Interact with email campaign lists and e-commerce resources
-- [Microsoft Excel](components/ms-excel.mdx) - Parse and build xlsx files (spreadsheets)
-- [Microsoft Teams](components/ms-teams.mdx) - Manage the teams, groups, channels, and messages associated with your Microsoft Teams account
-- [Redis](components/redis.mdx) - Manage items in a Redis database
+- [AWS Glue](components/aws-glue.mdx) - Realiza transformación de datos a través de AWS Glue
+- [AWS Lambda](components/aws-lambda.mdx) - Gestiona e invoca AWS Lambdas
+- [CSV](components/csv.mdx) - Construye y analiza archivos CSV hacia y desde arrays de JavaScript
+- [Firebase](components/firebase.mdx) - Crea, lee, actualiza y elimina documentos en una colección de base de datos de Firebase Cloud Firestore
+- [Google Calendar](components/google-calendar.mdx) - Gestiona calendarios y eventos en Google Calendar
+- [Hubspot](components/hubspot.mdx) - Gestiona objetos y asociaciones en la plataforma CRM de Hubspot
+- [Jira](components/atlassian-jira.mdx) - Gestiona problemas, comentarios, proyectos y usuarios de Jira
+- [Mailchimp](components/mailchimp.mdx) - Interactúa con listas de campañas de correo electrónico y recursos de comercio electrónico
+- [Microsoft Excel](components/ms-excel.mdx) - Analiza y construye archivos xlsx (hojas de cálculo)
+- [Microsoft Teams](components/ms-teams.mdx) - Gestiona los equipos, grupos, canales y mensajes asociados con tu cuenta de Microsoft Teams
+- [Redis](components/redis.mdx) - Gestiona elementos en una base de datos Redis
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2021-10-18">
 
-### Write Your Own Triggers
+### Escribe tus Propios Disparadores
 
-The vast majority of integrations are triggered in one of two ways: they either run on a schedule (i.e "At 15 minutes past each hour") or they're invoked by an HTTP request to a [webhook](integration-triggers.mdx#webhook-triggers).
+La gran mayoría de las integraciones se activan de una de dos formas: se ejecutan según un horario (por ejemplo, "A los 15 minutos de cada hora") o son invocadas por una solicitud HTTP a un [webhook](integration-triggers.mdx#webhook-triggers).
 
-Not all apps and services that you integrate with are the same, though, and some require additional functionality or validation.
-For example, Salesforce [outbound messages](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_om_outboundmessaging_understanding.htm) (webhooks) require a special XML-formatted acknowledgement (ACK) response to a webhook request, and Amazon's Simple Notification Service (SNS) requires that integrations send an HTTP POST request to AWS to [confirm an SNS subscription](https://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.prepare.html).
+Sin embargo, no todas las aplicaciones y servicios con los que te integras son iguales, y algunas requieren funcionalidades o validaciones adicionales.
+Por ejemplo, los mensajes salientes de Salesforce [outbound messages](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_om_outboundmessaging_understanding.htm) (webhooks) requieren una respuesta de confirmación especial en formato XML (ACK) a una solicitud de webhook, y el Servicio de Notificación Simple (SNS) de Amazon requiere que las integraciones envíen una solicitud HTTP POST a AWS para [confirmar una suscripción SNS](https://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.prepare.html).
 
-With those considerations in mind, we've extended our [custom component SDK](spectral/custom-component-library.mdx) to allow you to write your own triggers for your components.
-Your triggers can handle things like:
+Teniendo en cuenta esas consideraciones, hemos ampliado nuestro [SDK de componentes personalizados](spectral/custom-component-library.mdx) para permitirte escribir tus propios disparadores para tus componentes.
+Tus disparadores pueden manejar cosas como:
 
-- Replying to webhook requests with custom responses
-- Validating webhook headers and payload data
-- Transforming and processing XML, CSV, or proprietary data formats so the rest of your integration can easily reference data that comes in
+- Responder a solicitudes de webhook con respuestas personalizadas
+- Validar los encabezados del webhook y los datos del payload
+- Transformar y procesar formatos de datos XML, CSV u otros formatos propietarios para que el resto de tu integración pueda referenciar fácilmente los datos que llegan
 
-If you've [written your own actions](custom-components/writing-custom-components.mdx#writing-actions), writing a trigger will feel very familiar.
-Check out our docs on [writing triggers](custom-components/writing-custom-components.mdx#writing-triggers) to get started, or take a look at our [quickstart](quickstarts/writing-a-trigger.mdx) that details how we wrote the Salesforce trigger.
+Si has [escrito tus propias acciones](custom-components/writing-custom-components.mdx#writing-actions), escribir un disparador se sentirá muy familiar.
+Consulta nuestra documentación sobre [escritura de disparadores](custom-components/writing-custom-components.mdx#writing-triggers) para comenzar, o echa un vistazo a nuestra [guía rápida](quickstarts/writing-a-trigger.mdx) que detalla cómo escribimos el disparador de Salesforce.
 
-### Configurable Webhook Triggers
+### Disparadores de Webhook Configurables
 
-The general webhook trigger is now more configurable.
-You can now specify the HTTP code, headers, response type, and response body that the webhook trigger returns to a webhook caller.
-This helps you handle APIs that require custom responses, and allows you to redirect webhook callers as needed.
+El disparador de webhook general ahora es más configurable.
+Ahora puedes especificar el código HTTP, los encabezados, el tipo de respuesta y el cuerpo de la respuesta que el disparador de webhook devuelve a un llamante de webhook.
+Esto te ayuda a manejar APIs que requieren respuestas personalizadas y te permite redirigir a los llamantes de webhook según sea necesario.
 
 <Screenshot
   filename="changelog/webhook-trigger-responses.png"
   maxWidth="500px"
-  alt="Configure webhook trigger in  app"
+  alt="Configurar el activador webhook en la aplicación"
 />
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2021-09-16">
 
-### Improved Embedded Marketplace Experience
+### Mejora en la Experiencia de Mercado Integrado
 
-We've significantly enhanced 's embedded marketplace experience, enabling you to provide your customers a seamless, native integration experience with minimal engineering effort.
+Hemos mejorado significativamente la experiencia del mercado integrado de [nombre de la plataforma], lo que te permite ofrecer a tus clientes una experiencia de integración nativa y sin interrupciones con un esfuerzo de ingeniería mínimo.
 
-You can now embed 's [integration marketplace](integration-marketplace.mdx) into your application with just a few lines of code. You can choose to display the sleek marketplace UX directly within your application or as a popover, and apply [custom theming](organization.mdx#custom-themes) to make your integration marketplace look native to your application.
+Ahora puedes integrar el [mercado de integraciones](integration-marketplace.mdx) de [nombre de la plataforma] en tu aplicación con solo unas pocas líneas de código. Puedes optar por mostrar la elegante experiencia del mercado directamente dentro de tu aplicación o como un popover, y aplicar [temas personalizados](organization.mdx#custom-themes) para que tu mercado de integraciones luzca nativo en tu aplicación.
 
-The embedded marketplace showcases your integration offerings and allows customers to self-activate and configure the integrations they need. Just as previously, you can specify which integrations appear in your marketplace, which ones can be self-activated, and define each integration's configuration screen.
+El mercado integrado muestra tus ofertas de integración y permite a los clientes autoactivar y configurar las integraciones que necesitan. Tal como antes, puedes especificar qué integraciones aparecen en tu mercado, cuáles pueden ser autoactivadas y definir la pantalla de configuración de cada integración.
 
-Your customers do not need to juggle another set of credentials to access your embedded marketplace. Instead, you can sign JSON web tokens (JWTs) for your users, which can be used to automatically authenticate them for the marketplace.
+Tus clientes no necesitan manejar otro conjunto de credenciales para acceder a tu mercado integrado. En su lugar, puedes firmar tokens JSON web (JWT) para tus usuarios, que pueden ser utilizados para autenticarlos automáticamente en el mercado.
 
-Check out our [docs](embedding-marketplace.mdx) to get started.
+Consulta nuestra [documentación](embedding-marketplace.mdx) para comenzar.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2021-09-14">
 
-### Configurable Webhook Endpoints
+### Puntos finales de Webhook Configurables
 
-You now have more control over how webhook endpoints are configured for deployed instances.
-You already had the option to create a webhook endpoint for each flow of each deployed instance (**Instance and Flow-Specific**).
-You can now select two other configuration options:
+Ahora tienes más control sobre cómo se configuran los puntos finales de webhook para las instancias desplegadas.
+Ya tenías la opción de crear un punto final de webhook para cada flujo de cada instancia desplegada (**Específico de la Instancia y del Flujo**).
+Ahora puedes seleccionar otras dos opciones de configuración:
 
-- **Instance-Specific**: Create a single webhook endpoint for each instance.
-  Identify which of the instances' flows should run based on data in the webhook request.
-- **Shared**: Create a single webhook that is shared by all customers who have a particular integration.
-  Route the webhook request to a flow in a specific customer's instance based on data in the webhook request.
+- **Específico de la Instancia**: Crea un único punto final de webhook para cada instancia.
+  Identifica qué flujos de las instancias deben ejecutarse en función de los datos en la solicitud de webhook.
+- **Compartido**: Crea un único webhook que es compartido por todos los clientes que tienen una integración particular.
+  Rutea la solicitud de webhook a un flujo en la instancia de un cliente específico en función de los datos en la solicitud de webhook.
 
-Both of these additional configuration options allows you to route webhook requests to a particular customer and flow based on the data that comes in to the webhook.
-If the data that comes in needs additional processing, or if you need to look up a flow's name or customer's ID, you can assign one of your integration's flows to be a **Preprocess Flow** - a flow that's run when a webhook is invoked and aids in making sure the request gets to the right place.
+Ambas opciones de configuración adicionales te permiten enrutar las solicitudes de webhook a un cliente y flujo particular en función de los datos que llegan al webhook.
+Si los datos que llegan necesitan procesamiento adicional, o si necesitas buscar el nombre de un flujo o el ID del cliente, puedes asignar uno de los flujos de tu integración para que sea un **Flujo de Preprocesamiento** - un flujo que se ejecuta cuando se invoca un webhook y ayuda a asegurar que la solicitud llegue al lugar correcto.
 
-For more information, check out our [webhook docs](/integration-triggers.mdx#webhook-endpoint-configuration) and [Shared Webhook Quickstart](quickstarts/using-shared-webhooks-and-preprocess-flows.mdx).
+Para obtener más información, consulta nuestros [documentos sobre webhook](/integration-triggers.mdx#webhook-endpoint-configuration) y [Quickstart de Webhook Compartido](quickstarts/using-shared-webhooks-and-preprocess-flows.mdx).
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2021-09-01">
 
-### Granular Permissions for Third Parties
+### Permisos Granulares para Terceros
 
-You can now invite third-party vendors to log in to with limited access to your integrations, custom components, and customers.
-This is helpful if you need to collaborate on a new integration with a third-party vendor.
-You can grant them **view** or **edit** access to a particular integration or set of custom components, which allows them to test the integration against their app or service.
-You can debug and iterate faster on integration and custom component development, and can have one central place to view logs and test runs.
-You can also view logs of each test a third-party vendor performs to give you a sense of how their side of the integration development is progressing.
+Ahora puedes invitar a proveedores de terceros a iniciar sesión en con acceso limitado a tus integraciones, componentes personalizados y clientes.
+Esto es útil si necesitas colaborar en una nueva integración con un proveedor de terceros.
+Puedes otorgarles acceso de **visualización** o **edición** a una integración específica o conjunto de componentes personalizados, lo que les permite probar la integración contra su aplicación o servicio.
+Puedes depurar e iterar más rápido en el desarrollo de integraciones y componentes personalizados, y tener un lugar central para ver registros y pruebas.
+También puedes ver los registros de cada prueba que realiza un proveedor de terceros para tener una idea de cómo está progresando el desarrollo de su lado de la integración.
 
-Permissions are granular - third-party users only see what they've been given permissions to see.
-So, if you're integrating with two competing companies, or even with one of your competitors, they are not given insight into the other integrations, custom components, or customers you have in your account.
+Los permisos son granulares: los usuarios de terceros solo ven lo que se les ha dado permiso para ver.
+Entonces, si estás integrando con dos empresas competidoras, o incluso con uno de tus competidores, no tienen visión de las otras integraciones, componentes personalizados o clientes que tienes en tu cuenta.
 
-Read more about the third-party user role in our [docs](users.mdx#third-party-users).
+Lee más sobre el rol de usuario de terceros en nuestra [documentación](users.mdx#third-party-users).
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2021-08-25">
 
-### Integration Categories and Icons
+### Categorías e iconos de integración
 
-You can now assign a category and icon to each of your integrations.
-This helps your team manage and filter integrations and improves the way you present them to customers.
+Ahora puede asignar una categoría y un icono a cada una de sus integraciones.
+Esto ayuda a su equipo a gestionar y filtrar las integraciones y mejora la forma de presentarlas a los clientes.
 
 <Screenshot
   filename="changelog/assign-category.png"
   maxWidth="600px"
-  alt="Assign integration to category in  app"
+  alt="Asignar integración a categoría en app"
 />
 
 <Screenshot
   filename="changelog/filter-by-category.png"
   maxWidth="600px"
-  alt="Filter integrations by category in  app"
+  alt="Filtrar integraciones por categoría en la aplicación"
 />
 
-Check out our docs on [categorizing integrations](integrations.mdx#categorizing-integrations) and [assigning an icon](integrations.mdx#assigning-an-icon-to-an-integration) for more info.
+Consulta nuestra documentación sobre [categorización de integraciones](integrations.mdx#categorizing-integrations) y [asignación de un icono](integrations.mdx#assigning-an-icon-to-an-integration) para obtener más información.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2021-08-24">
 
-### Multi-Flow Integrations
+### Integraciones Multiflujo
 
-now provides full support for multi-flow integrations!
+¡Ahora proporciona soporte completo para integraciones de múltiples flujos!
 
-Integrations can now include multiple **flows**. (A flow is a trigger and a series of steps.) This enables you to provide your customers with a complex third-party integration that performs multiple related tasks, but is packaged and deployed as a single integration.
+Las integraciones ahora pueden incluir múltiples **flujos**. (Un flujo es un disparador y una serie de pasos.) Esto le permite proporcionar a sus clientes una integración de terceros compleja que realiza múltiples tareas relacionadas, pero se empaqueta y despliega como una sola integración.
 
-For example, you might integrate with an ERP that sends a variety of data via webhooks to your application (a webhook when inventory is updated, a webhook when customer info is updated, and so on). Rather than constructing integrations with complex branches or assembling multiple integrations, you can now create a single integration with flows that handle each type of webhook payload. You would create a flow to handle inventory updates, another flow to handle customer updates, and deploy all of those flows together as a single instance to a customer.
+Por ejemplo, podría integrarse con un ERP que envía una variedad de datos a través de webhooks a su aplicación (un webhook cuando se actualiza el inventario, un webhook cuando se actualiza la información del cliente, y así sucesivamente). En lugar de construir integraciones con ramificaciones complejas o ensamblar múltiples integraciones, ahora puede crear una sola integración con flujos que manejen cada tipo de carga útil de webhook. Crearía un flujo para manejar las actualizaciones de inventario, otro flujo para manejar las actualizaciones de clientes, y desplegaría todos esos flujos juntos como una sola instancia para un cliente.
 
-Each flow has its own trigger (so it gets its own webhook URL), and flows are tested and run independently of one another.
+Cada flujo tiene su propio disparador (por lo que obtiene su propia URL de webhook), y los flujos se prueban y ejecutan de forma independiente entre sí.
 
-When customers or customer-facing teams deploy a multi-flow integration, they configure and deploy all of the flows at once using a single configuration screen.
+Cuando los clientes o los equipos orientados al cliente implementan una integración de múltiples flujos, configuran y despliegan todos los flujos a la vez usando una sola pantalla de configuración.
 
-Your existing integrations will continue to operate as expected. Please note:
+Las integraciones existentes seguirán funcionando como hasta ahora. Tenga en cuenta lo siguiente:
 
-1. The **Selected Test Run** dropdown has been moved to the input reference selector.
-   When configuring an input for a step, you can select which test run to preview outputs for within the **Reference** tab.
+1. El desplegable **Ejecución de prueba seleccionada** se ha movido al selector de referencia de entrada.
+   Al configurar una entrada para un paso, puede seleccionar para qué ejecución de prueba desea previsualizar las salidas dentro de la pestaña **Referencia**.
+
    <Screenshot
      filename="changelog/selected-test-run.png"
      maxWidth="400px"
-     alt="Select test run in  app"
+     alt="Seleccione la ejecución de la prueba en la aplicación"
    />
-2. 's CLI, Prism, has been updated to version 3.0.0 to account for this change.
-   To install the latest Prism, run:
+
+2. Prism, la interfaz de línea de comandos, se ha actualizado a la versión 3.0.0 para tener en cuenta este cambio.
+   Para instalar la última versión de Prism, ejecute
+
    ```bash
    npm install --global @-io/prism
    ```
-3. The YAML that defines integrations has been updated.
-   See the [Integrations](integrations.mdx#yaml-definition) docs article.
 
-Check out our [building integrations](building-integrations.mdx#flows-in-integrations) page for more information, and our [Multiple Flows Quickstart](quickstarts/building-an-integration-with-multiple-flows.mdx) for an example of how multiple flows can be used in an integration.
+3. Se ha actualizado el YAML que define las integraciones.
+   Consulta el artículo de documentación sobre [Integraciones](integrations.mdx#yaml-definition).
 
-### Deploy-Time Triggers
+Echa un vistazo a nuestra página sobre [construcción de integraciones](building-integrations.mdx#flows-in-integrations) para obtener más información, y nuestra [Guía rápida de múltiples flujos](quickstarts/building-an-integration-with-multiple-flows.mdx) para ver un ejemplo de cómo se pueden usar múltiples flujos en una integración.
 
-You can now configure integration flows with triggers that are invoked when an instance is deployed to a customer. This is helpful if you have a set of “initialization” tasks that need to be completed _once_ to set up a customer’s instance.
+### Disparadores en Tiempo de Implementación
 
-A deploy-time flow could enable features in a third-party app, set up third-party users or permissions, create a directory structure in a file storage system, or even set up webhooks in a third-party application to point to the instance’s other flows.
+Ahora puedes configurar flujos de integración con disparadores que se invocan cuando una instancia se implementa en un cliente. Esto es útil si tienes un conjunto de tareas de "inicialización" que deben completarse _una vez_ para configurar la instancia de un cliente.
 
-Check out our [deploy trigger](integration-triggers.mdx#instance-deploy-trigger) docs for more info.
+Un flujo en tiempo de implementación podría habilitar funciones en una aplicación de terceros, configurar usuarios o permisos de terceros, crear una estructura de directorios en un sistema de almacenamiento de archivos, o incluso configurar webhooks en una aplicación de terceros para que apunten a los otros flujos de la instancia.
+
+Consulta nuestra documentación sobre [disparadores de implementación](integration-triggers.mdx#instance-deploy-trigger) para obtener más información.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2021-08-16">
 
-### New Components - August 2021
+### Nuevos Componentes - Agosto 2021
 
-We've continued to expand our built-in component offering.
-A full catalog is available [here](components/component-catalog.mdx).
-This month, we added:
+Hemos continuado expandiendo nuestra oferta de componentes integrados.
+Un catálogo completo está disponible [aquí](components/component-catalog.mdx).
+Este mes, agregamos:
 
-- [Airtable](components/airtable.mdx) - List, create, delete, and update records in an Airtable Base
-- [Amazon SES](components/aws-ses.mdx) - Send email through Amazon's Simple Email Service (SES)
-- [Google Drive](components/google-drive.mdx) - Manage files that are stored in a Google Drive account
-- [Google Sheets](components/google-sheets.mdx) - Create, read and modify spreadsheets in a Google Drive account
-- [Mongo DB](components/mongo.mdx) - Create, read, update and delete documents inside a NoSQL MongoDB collection
-- [Microsoft Power BI](components/ms-power-bi.mdx) - Interact with datasets and data schemas within Microsoft's data visualization and business analytics service
-- [MySQL](components/mysql.mdx) - Query and manage data in a MySQL database
-- [Shopify](components/shopify.mdx) - Interact with Shopify's Access Service API
-- [Stripe](components/stripe.mdx) - Interact with Stripe's payment platform
+- [Airtable](components/airtable.mdx) - Listar, crear, eliminar y actualizar registros en una Base de Airtable.
+- [Amazon SES](components/aws-ses.mdx) - Enviar correos electrónicos a través del Servicio de Correo Electrónico Simple (SES) de Amazon.
+- [Google Drive](components/google-drive.mdx) - Administrar archivos almacenados en una cuenta de Google Drive.
+- [Google Sheets](components/google-sheets.mdx) - Crear, leer y modificar hojas de cálculo en una cuenta de Google Drive.
+- [Mongo DB](components/mongo.mdx) - Crear, leer, actualizar y eliminar documentos dentro de una colección NoSQL de MongoDB.
+- [Microsoft Power BI](components/ms-power-bi.mdx) - Interactuar con conjuntos de datos y esquemas de datos dentro del servicio de visualización de datos y análisis empresarial de Microsoft.
+- [MySQL](components/mysql.mdx) - Consultar y administrar datos en una base de datos MySQL.
+- [Shopify](components/shopify.mdx) - Interactuar con la API de Servicio de Acceso de Shopify.
+- [Stripe](components/stripe.mdx) - Interactuar con la plataforma de pagos de Stripe.
 
-The Shopify and Stripe components were both generated from OpenAPI definitions using Prism's [component generator tool](custom-components/writing-custom-components.mdx#custom-components-from-wsdls-or-openapi-specs).
+Los componentes de Shopify y Stripe fueron generados a partir de definiciones de OpenAPI utilizando la [herramienta de generación de componentes](custom-components/writing-custom-components.mdx#custom-components-from-wsdls-or-openapi-specs) de Prism.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2021-08-05">
 
-### Per-Action Authorization in Components
+### Autorización por Acción en Componentes
 
-You can now configure authorization settings per _action_ (as opposed to per _component_).
-This is helpful if you are building a component with multiple actions and only some of your actions require authorization.
+Ahora puedes configurar ajustes de autorización por _acción_ (en lugar de por _componente_).
+Esto es útil si estás construyendo un componente con múltiples acciones y solo algunas de tus acciones requieren autorización.
 
-Read about how to upgrade your component to use per-action authorization on our [Spectral 3.x Upgrade Guide](spectral/spectral-3-upgrade-guide.mdx).
+Lee sobre cómo actualizar tu componente para usar la autorización por acción en nuestra [Guía de Actualización de Spectral 3.x](spectral/spectral-3-upgrade-guide.mdx).
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2021-07-14">
 
-### New Components - July 2021
+### Nuevos Componentes - Julio 2021
 
-Several new components have been added to our [catalog](components/component-catalog.mdx) of built-in components:
+Se han añadido varios nuevos componentes a nuestro [catálogo](components/component-catalog.mdx) de componentes integrados:
 
-- [Amazon DynamoDB](components/aws-dynamodb.mdx) - Create, update, fetch, or delete items in an Amazon DynamoDB database
-- [Amazon SNS](components/aws-sns.mdx) - Manage subscriptions, topics, and messages within Amazon SNS
-- [Amazon SQS](components/aws-sqs.mdx) - Send, receive and manage messages within an Amazon SQS queue
-- [AMQP](components/amqp.mdx) - Send and receive messages on an AMQP-based message broker
-- [Apache Kafka](components/kafka.mdx) - Publish messages to an Apache Kafka event stream
-- [Customer.io](components/customer-io.mdx) - Manage customers on the Customer.io platform
-- [Microsoft SQL Server](components/ms-sql-server.mdx) - Query and manage data in a Microsoft SQL Server Database
-- [MQTT](components/mqtt.mdx) - Send and receive messages on an MQTT-based queue
-- [PostgreSQL](components/postgres.mdx) - Query and manage data in a PostgreSQL database
+- [Amazon DynamoDB](components/aws-dynamodb.mdx) - Crea, actualiza, obtén o elimina elementos en una base de datos de Amazon DynamoDB
+- [Amazon SNS](components/aws-sns.mdx) - Gestiona suscripciones, temas y mensajes dentro de Amazon SNS
+- [Amazon SQS](components/aws-sqs.mdx) - Envía, recibe y gestiona mensajes dentro de una cola de Amazon SQS
+- [AMQP](components/amqp.mdx) - Envía y recibe mensajes en un broker de mensajes basado en AMQP
+- [Apache Kafka](components/kafka.mdx) - Publica mensajes en un flujo de eventos de Apache Kafka
+- [Customer.io](components/customer-io.mdx) - Gestiona clientes en la plataforma Customer.io
+- [Microsoft SQL Server](components/ms-sql-server.mdx) - Consulta y gestiona datos en una base de datos de Microsoft SQL Server
+- [MQTT](components/mqtt.mdx) - Envía y recibe mensajes en una cola basada en MQTT
+- [PostgreSQL](components/postgres.mdx) - Consulta y gestiona datos en una base de datos de PostgreSQL
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2021-07-08">
 
-### Spectral 2.x Released
+### Lanzamiento de Spectral 2.x
 
-'s custom component TypeScript library, `@-io/spectral`, has been expanded and updated to improve the developer experience for [building custom components](custom-components/writing-custom-components.mdx).
-Updated syntax for creating components, actions, and inputs helps to catch common errors at compile time (rather than runtime), and new utility functions help to guarantee that you pass the correct variable types to third party SDKs and APIs.
+La biblioteca TypeScript para componentes personalizados, `@-io/spectral`, ha sido ampliada y actualizada para mejorar la experiencia del desarrollador al [crear componentes personalizados](custom-components/writing-custom-components.mdx).
+La sintaxis actualizada para crear componentes, acciones y entradas ayuda a detectar errores comunes en tiempo de compilación (en lugar de en tiempo de ejecución), y nuevas funciones de utilidad ayudan a garantizar que se pasen los tipos de variables correctos a SDK y API de terceros.
 
-For info on upgrading an existing 1.x custom component to 2.x, see our [Upgrade Guide](spectral/spectral-2-upgrade-guide.mdx).
-You can dive in to the Spectral code on [GitHub](https://github.com/-io/spectral), or review the [Spectral 2.x docs](spectral/index.md).
+Para obtener información sobre cómo actualizar un componente personalizado existente de la versión 1.x a la 2.x, consulta nuestra [Guía de Actualización](spectral/spectral-2-upgrade-guide.mdx).
+Puedes adentrarte en el código de Spectral en [GitHub](https://github.com/-io/spectral), o revisar la [documentación de Spectral 2.x](spectral/index.md).
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2021-06-16">
 
-### Enhanced Versioning for Components, Integrations, and Instances
+### Mejora de la Versionamiento para Componentes, Integraciones e Instancias
 
-Versioning has been improved for components, integrations, and instances to give you more fine-grained control over exactly what code is deployed to customers.
+Se ha mejorado el versionamiento para componentes, integraciones e instancias para brindarte un control más detallado sobre exactamente qué código se implementa en los clientes.
 
-**Components** are now assigned an integer version that increments each time the component is published.
-If a custom component is at "version 3" and you publish a new component definition, that new definition gets "version 4".
-This allows you to update or extend components without unintentionally impacting existing integrations that use them, ensuring your integrations remain stable.
-Integration builders can then update the component versions used in their integrations, or roll back to a previous versions when desired, and will be notified when newer versions of components are available.
+Los **componentes** ahora se les asigna una versión entera que se incrementa cada vez que se publica el componente.
+Si un componente personalizado está en "versión 3" y publicas una nueva definición del componente, esa nueva definición obtiene la "versión 4".
+Esto te permite actualizar o extender componentes sin afectar involuntariamente a las integraciones existentes que los utilizan, garantizando que tus integraciones permanezcan estables.
+Los creadores de integraciones pueden luego actualizar las versiones de los componentes utilizados en sus integraciones, o revertir a versiones anteriores cuando lo deseen, y serán notificados cuando haya nuevas versiones de componentes disponibles.
 
-Read more about [Versioning of Components](components.mdx#component-versioning) and [Choosing Components Versions in Integrations](building-integrations.mdx#choosing-component-versions).
+Lee más sobre [Versionamiento de Componentes](components.mdx#component-versioning) y [Elección de Versiones de Componentes en Integraciones](building-integrations.mdx#choosing-component-versions).
 
-**Integration** versioning has been improved, giving you more control over what versions of integrations you deploy to customers.
-When you publish new changes to an integration, similar to components, your integration is assigned a new version number.
-Then, when you deploy an instance to a customer, you can choose which version of the integration to use.
-That means you can have some customers on version 1, and others on version 2 as needed, giving you control over which customers have what, and allowing you to test a new integration version with a small subset of your customer base before deploying it broadly.
+El versionamiento de **integraciones** ha sido mejorado, brindándote más control sobre qué versiones de integraciones implementas en los clientes.
+Cuando publicas nuevos cambios en una integración, similar a los componentes, se le asigna un nuevo número de versión a tu integración.
+Entonces, cuando implementas una instancia en un cliente, puedes elegir qué versión de la integración utilizar.
+Eso significa que puedes tener algunos clientes en la versión 1 y otros en la versión 2 según sea necesario, dándote control sobre qué clientes tienen qué, y permitiéndote probar una nueva versión de integración con un pequeño subconjunto de tu base de clientes antes de implementarla ampliamente.
 
-Rolling back an instance deployment is a breeze - if you deploy a new version of an integration to a customer and something seems off, you can easily roll back your instance to a known working version of the integration with just a couple of clicks.
+Revertir una implementación de instancia es muy fácil: si implementas una nueva versión de una integración a un cliente y algo parece incorrecto, puedes revertir fácilmente tu instancia a una versión conocida y funcional de la integración con solo un par de clics.
 
-As always, updating customers' instances can be scripted, so you don't need to manually deploy a new version of an integration to each customer.
+Como siempre, la actualización de las instancias de los clientes se puede automatizar, por lo que no necesitas implementar manualmente una nueva versión de una integración a cada cliente.
 
-Read more about [Publishing an Integration](integrations.mdx#publishing-an-integration) and [Specifying Integration Version in Instances](instances.mdx#setting-integration-version-for-an-instance).
+Lee más sobre [Publicación de una Integración](integrations.mdx#publishing-an-integration) y [Especificación de la Versión de Integración en Instancias](instances.mdx#setting-integration-version-for-an-instance).
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2021-05-17">
 
-### Generate Custom Components From API Specs
+### Genera Componentes Personalizados a Partir de Especificaciones de API
 
-APIs often have hundreds of unique endpoints that you can interact with.
-With the release of [Prism](cli/cli-usage.mdx) version 1.0.8, you can now generate a custom component from a WSDL or OpenAPI file.
-That means you can have a custom component for a third-party service with hundreds of actions with a single CLI command.
+Las API a menudo tienen cientos de puntos finales únicos con los que puedes interactuar.
+Con el lanzamiento de [Prism](cli/cli-usage.mdx) versión 1.0.8, ahora puedes generar un componente personalizado a partir de un archivo WSDL o OpenAPI.
+Esto significa que puedes tener un componente personalizado para un servicio de terceros con cientos de acciones con un solo comando de la CLI.
 
-Read more on our [Writing Custom Components](custom-components/writing-custom-components.mdx#custom-components-from-wsdls-or-openapi-specs) article.
+Lee más en nuestro artículo [Escritura de Componentes Personalizados](custom-components/writing-custom-components.mdx#custom-components-from-wsdls-or-openapi-specs).
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2021-04-27">
 
-### Customer Self-Service
+### Auto-Servicio para Clientes
 
-It's now easier for your customers to manage instances of integrations that have been deployed to them.
-Customer users with **admin** permissions can update config variables and credentials that are associated with their instances.
-So, if their config or credentials for a third-party service change, they can log in and make the change without needing your help.
+Ahora es más fácil para tus clientes gestionar las instancias de integraciones que les han sido desplegadas.
+Los usuarios clientes con permisos de **administrador** pueden actualizar variables de configuración y credenciales asociadas con sus instancias.
+Entonces, si su configuración o credenciales para un servicio de terceros cambian, pueden iniciar sesión y realizar el cambio sin necesidad de tu ayuda.
 
-For more information on customer user roles and permissions, see the [users article](users.mdx#customer-user-roles).
+Para obtener más información sobre los roles y permisos de usuario de clientes, consulta el [artículo de usuarios](users.mdx#customer-user-roles).
 
-### Custom Theming
+### Temas Personalizados
 
-Organizations with an enterprise plan can now create a custom theme for the web application.
-This takes ’s white-label capabilities to the next level by allowing you to customize the color scheme and other UI elements to match your branding.
-Once you apply a custom theme, it will be displayed for both your team members and customers.
+Las organizaciones con un plan empresarial ahora pueden crear un tema personalizado para la aplicación web.
+Esto lleva las capacidades de marca blanca de  al siguiente nivel al permitirte personalizar el esquema de colores y otros elementos de la interfaz de usuario para que coincidan con tu marca.
+Una vez que apliques un tema personalizado, se mostrará tanto para los miembros de tu equipo como para tus clientes.
 
-For more information, see our [custom theming docs](organization.mdx#custom-themes).
+Para obtener más información, consulta nuestra [documentación de temas personalizados](organization.mdx#custom-themes).
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2021-03-30">
 
-### Configure Instances to Run on a Per-Customer Schedule
+### Configurar instancias para que se ejecuten en un horario por cliente
 
-It's now much easier to configure instances of your integrations to run on a unique schedule for each of your customers.
-For example, Customer A could be set up to run the integration each day at 4:00PM, while Customer B could be set up to run the integration hourly, depending on their needs.
+Ahora es mucho más fácil configurar instancias de sus integraciones para que se ejecuten en un horario único para cada uno de sus clientes.
+Por ejemplo, el Cliente A podría ser configurado para ejecutar la integración cada día a las 4:00PM, mientras que el Cliente B podría ser configurado para ejecutar la integración cada hora, dependiendo de sus necesidades.
 
 <Screenshot
   filename="integrations/schedule-trigger/schedule-config-variable.png"
   maxWidth="700px"
-  alt="Configure instances to run on customer schedule via  app"
+  alt="Configurar instancias para que se ejecuten según la programación del cliente a través de la aplicación"
 />
 
-For more information, check out our [integrations article](integration-triggers.mdx#scheduled-triggers).
+Para obtener más información, consulta nuestro [artículo sobre integraciones](integration-triggers.mdx#scheduled-triggers).
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2021-03-25">
 
-### Intuitive Instance Deployment
+### Implementación intuitiva de instancias
 
-Significant improvements have been made to credentials, integration configuration and instance deployment.
+Se han realizado mejoras significativas en las credenciales, la configuración de la integración y la implementación de instancias.
 
-Integration builders now have the ability to create an easy-to-use configuration page for customer-facing teams.
-Builders can define config variable names, give hints as to what sort of data is expected, add headers, etc., giving their customer-facing teams an intuitive experience when it comes to deploying an integration.
+Los creadores de integraciones ahora tienen la capacidad de crear una página de configuración fácil de usar para los equipos orientados al cliente.
+Los creadores pueden definir nombres de variables de configuración, dar pistas sobre qué tipo de datos se espera, agregar encabezados, etc., lo que proporciona a sus equipos orientados al cliente una experiencia intuitiva cuando se trata de implementar una integración.
 
 <Screenshot
   filename="changelog/intuitive-instance-deployment.webp"
   maxWidth="600px"
-  alt="Integration configuration and config variables via  app"
+  alt="Configuración de la integración y variables de configuración a través de la aplicación"
 />
 
-This ultimately makes for easier and faster deployment of integrations, without the need for developer intervention.
-Read more about setting up config variables on our [integrations](building-integrations.mdx#config-variables-in-integrations) article, and about the new instance configuration experience on the [instances](instances.mdx#configuring-instances) article.
+Esto en última instancia facilita y agiliza la implementación de integraciones, sin necesidad de intervención de desarrolladores.
+Lee más sobre cómo configurar variables de configuración en nuestro artículo sobre [integraciones](building-integrations.mdx#config-variables-in-integrations), y sobre la nueva experiencia de configuración de instancias en el artículo sobre [instancias](instances.mdx#configuring-instances).
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2021-03-12">
 
-### Persisting Instance State
+### Persistiendo el Estado de la Instancia
 
-Small amounts of data (state) can now be stored between instance executions.
-This is handy if you want to save some information about one instance execution to use later in a subsequent execution.
+Ahora es posible almacenar pequeñas cantidades de datos (estado) entre ejecuciones de instancias.
+Esto es útil si deseas guardar información sobre una ejecución de instancia para usarla más tarde en una ejecución posterior.
 
-handles several common state persistence scenarios for you through the new [Persist Data](components/persist-data.mdx) and [Process Data](components/process-data.mdx) components.
-Check out the [Integrations](building-integrations.mdx#persisting-data-between-runs) article to learn how to leverage state persistence in your integrations, or read the [Writing Custom Components](custom-components/writing-custom-components.mdx#execution-instance-and-cross-flow-state) article to incorporate state persistence into your custom components.
+maneja varios escenarios comunes de persistencia de estado para ti a través de los nuevos componentes [Persist Data](components/persist-data.mdx) y [Process Data](components/process-data.mdx).
+Consulta el artículo sobre [Integraciones](building-integrations.mdx#persisting-data-between-runs) para aprender cómo aprovechar la persistencia de estado en tus integraciones, o lee el artículo sobre [Escritura de Componentes Personalizados](custom-components/writing-custom-components.mdx#execution-instance-and-cross-flow-state) para incorporar la persistencia de estado en tus componentes personalizados.
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2021-03-04">
 
-### Terraform Provider
+### Proveedor Terraform
 
-You can now publish integrations and custom components using the Terraform Provider.
+Ahora puedes publicar integraciones y componentes personalizados utilizando el Proveedor Terraform.
 
-This helps you incorporate into your existing CI/CD pipeline, and push changes to integrations and custom components automatically when pull requests are approved.
+Esto te ayuda a incorporarlo en tu actual canalización de integración continua/distribución continua (CI/CD), y a enviar cambios a integraciones y componentes personalizados automáticamente cuando se aprueban las solicitudes de extracción (pull requests).
 
 </ChangeLogEntry>
 
 <ChangeLogEntry date="2021-01-21">
 
-### Retry and Replay
+### Reintentar y Repetir
 
-Organizations with a professional or enterprise plan can now configure instances to [automatically retry](building-integrations.mdx#integration-retry-configuration) if an execution fails.
-You can control how many times an instance attempts to run with the same input, and how long it should wait between failed attempts.
-If you have an integration that relies on a flaky third-party API, for example, this minimizes interruptions for both your customers and your team.
+Las organizaciones con un plan profesional o empresarial ahora pueden configurar instancias para [reintentar automáticamente](building-integrations.mdx#integration-retry-configuration) si una ejecución falla.
+Puedes controlar cuántas veces una instancia intenta ejecutarse con la misma entrada y cuánto tiempo debe esperar entre intentos fallidos.
+Si tienes una integración que depende de una API de terceros poco confiable, por ejemplo, esto minimiza las interrupciones tanto para tus clientes como para tu equipo.
 
-You can also [replay](instances.mdx#instance-execution-retry-and-replay) - manually retry - a specific failed execution of an instance.
+También puedes [repetir](instances.mdx#instance-execution-retry-and-replay) -reintentar manualmente- una ejecución específica fallida de una instancia.
 
-### Invoking Instances Synchronously
+### Invocación de Instancias de Forma Sincrónica
 
-You can now choose to invoke your instances [synchronously or asynchronously](integration-triggers.mdx#synchronous-and-asynchronous-integrations).
-When you invoke an instance synchronously, your request says open until the instance completes, and results from the instance's run are returned as an HTTP response.
+Ahora puedes elegir invocar tus instancias [de forma síncrona o asíncrona](integration-triggers.mdx#synchronous-and-asynchronous-integrations).
+Cuando invocas una instancia de forma síncrona, tu solicitud permanece abierta hasta que la instancia se completa y los resultados de la ejecución de la instancia se devuelven como una respuesta HTTP.
 
 </ChangeLogEntry>
